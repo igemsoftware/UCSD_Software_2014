@@ -12,3 +12,4 @@ moo
 Good bye
 =======
 
+Testing Git...
