@@ -3,4 +3,7 @@ Hi all! :)
 hello again
 
 moo
+<<<<<<< HEAD
 Good bye
+=======
+
