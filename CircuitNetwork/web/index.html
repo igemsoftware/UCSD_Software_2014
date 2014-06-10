@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    </head>
+    <body>
+        <div>TODO write content</div>
+        <button id='myButton'>My Button</button>
+        <div id ="toChange">nothing</div>
+        <p>a paragraph</p>
+        <script>
+            alert("moo")
+            someVar = "test"
+            alert("said")
+            alert("the cow")
+            $(document).ready(function(){
+                $('#myButton').click(function(){
+                 $.get("AuthenticationServlet",{"key":"value"},function(data){
+//                        alert("post")
+                     alert(data);
+                     $('#toChange').html("<ul><li>one</li><li>two</li><li>three</li></ul>");
+//                     $('#toChange').text(data)
+                 });
+            })
+        });
+        </script>
+    </body>
+</html>
