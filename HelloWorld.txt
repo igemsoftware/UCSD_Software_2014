@@ -1,16 +1,3 @@
 Hi all! :)
 
-hello again
-
-moo
-
-
-
-
-
-moo
-<<<<<<< HEAD
-Good bye
-=======
-
 Testing Git...
