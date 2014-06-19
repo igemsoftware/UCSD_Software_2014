@@ -23,17 +23,6 @@ class SQLInterface:
 sqlObj = SQLInterface()
 print sqlObj.SQLInsertWrapper('joaquin', ['Date', 'Miles', 'Trail', 'YouWent'], ['06/17',14,'Boar\'s Roar',True])
 
-    
-#Julie Lah
-#Ralph Greensbeen
-#Project Euler
-#Rosalind, Pavel Pezner Bioproblems
-#Terry 
-#Lee Hood
-#We Huang
-#Retherford 
-#Neils Boar
-
     def SQLUpdateWrapper(self, table, cols, values, w_cols = [], w_ops = [],w_values = [],w_conts = []):
         updateStr = 'UPDATE ' + table
         setList = []
