@@ -1,26 +1,47 @@
-"""Creates DOT representations of graphs from given edge-list files."""
+# Creates DOT-represented-graph files from given edge-list files.
 
+# Imports packages.
+import argparse
+#import sys
 
+the_description = "This program creates DOT-represented-graph files from\ngiven edge-list files."
+parser = argparse.ArgumentParser(description=the_description)
 
-"""Opens a graph file, possibly a text file."""
-graphFile = open("./name_of_the_graph_file.txt")
+parser.add_argument("input", help="input file")
+parser.add_argument("-o", "--output", action="store_true", help="specify output location")
 
-"""Reads the graph file and splits it by lines."""
-graphLines = graphFile.readlines()
+args = parser.parse_args()
 
-"""Creates an array to hold the outputs."""
-dotRepresentaionLines = ["graphFile { "]
+# Opens an input file, a graph file.
+inputFile = open(args.input, "r")
 
+# Opens an output file.
+if args.output:
+	outputFile = open("%s/DotRepresentationOutput.txt" % args.output, "r")
 
-"""Splits each line of graphLines by comma, reformats as dot format,
-and appends to the output array, dotRepresentationLines."""
-for aLine in graphLines:
+else:
+	outputFile = open("./DotRepresentationOutput.txt", "w")
+
+# Reads the graph file and splits it by lines.
+inputLines = inputFile.readlines()
+
+# Creates an array to hold the outputs.
+outputFile.write("Graph\n{\n")
+
+'''
+Splits each line of graphLines by a comma, reformats in a dot format,
+and writes on the output file.
+'''
+for aLine in inputLines:
 	foo = aLine.split(',')
-	bar = "%s--%s;", foo[0],foo[1]
-	dotRepresentaionLines.append(bar)
+	foo[0].strip()
+	foo[1].strip()
+	bar = "%s--%s" % (foo[0], foo[1])
+	outputFile.write(bar)
 	
-"""Appends closing bracket to the array, lines."""
-dotRepresentationLines.append("}")
+# Writes a closing bracket.
+outputFile.write("}")
 
-"""Writes lines to a file."""
-dotRepresentaionLines.write("aDotRepGraph.txt")
+# Closes the files.
+inputFile.close()
+outputFile.close()
