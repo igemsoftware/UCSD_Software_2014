@@ -1,12 +1,15 @@
 class SQLInterface(object):
-    
+    # basic sql select wrapper
+    #@param table - the name of the table
+    #@param column - the columns to be selected
     def SQLSelectWrapper(self,table,column):
-
+        
         if ( table is None or len(table) == 0):
             raise Exception("a table name must be provided.")
         
         Q = "SELECT "
-    
+        
+        
         if column is "*":
             Q = Q+"* "
         else:
