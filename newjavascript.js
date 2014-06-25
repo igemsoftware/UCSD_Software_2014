@@ -3,31 +3,34 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+$(document).ready(function() {
+                $('#driver').click(function(event){
+          $.post("AuthenticationServlet",{key: "someINFO"}, function( data ) {
+                    alert(data);
+                });       
+    });
+            });
+
 $(document).ready(function () {
     //once we click the add button we see the variable inputted into the input 
-    //will be added to the buttom of the list 
-    $("#button").click(function (input) {
-        var toAdd = $('input[name=variable]').val();
-        $('.list').append('<div class="item">' + toAdd + '</div>');
-        alert("you have added an item");
-        });
+    //will be added to the bottom of the list 
     
-    //subtract the 2n variable from the list
-    $('#subtractElement').on('click', '.item', function () {
-        var i;
-        for(i=0; i<input.length;i++){
-            if(i%2===0){
-          $(this).remove();
-          confirm("The items 2n have been removed");
-      }
-          else{}
-        }
-        
-    });
+counter=0;
+    $("#add").click(function (input) {
+        var toAdd = $('input[name=variable]').val();
+        $('.list').append('<ul class="item" id="'+counter+'"><li>' + toAdd + '</li></ul>');
 
-    });
+       counter = counter +1;
+        });
 
-
-
-
-
+  
+     $(document).on('click', '#subtractElement', function(){
+       confirm("you will be removing the items");
+      
+      $(".item").remove();
+      
+     
+ 
+        });
+  
+});
