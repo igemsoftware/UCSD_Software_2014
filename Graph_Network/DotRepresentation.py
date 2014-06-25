@@ -1,6 +1,5 @@
 # Creates DOT-represented-graph files from given edge-list files.
 
-# Imports packages.
 import argparse
 #import sys
 
