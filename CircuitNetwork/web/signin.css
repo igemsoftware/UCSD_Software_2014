@@ -1,0 +1,50 @@
+body {
+  height: 100%;
+  background-color: #333;
+  
+  background-image: url(http://www.lcaid.com/images/full/2011/05/12/apple-vector-desktop-wallpaper_hd-backgrounds-for-mac-healthy-baby-tips-info-free-desktop.jpg);
+  background-repeat: no-repeat; 
+  background-size: 1370px 645px;
+
+  color: #fff;
+  text-align: left;
+  text-shadow: 0 1px 3px rgba(0,0,0,.5);
+  box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+  padding-top: 20px;
+  padding-bottom: 1000px;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
