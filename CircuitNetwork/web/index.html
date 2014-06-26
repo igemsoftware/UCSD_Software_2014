@@ -6,31 +6,50 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>UCSD iGEM Ideas</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" type="text/css" href="ideacss.css">
         <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script scr='ideajava.js'></script>
     </head>
     <body>
         <div>TODO write content</div>
         <button id='myButton'>My Button</button>
         <div id ="toChange">nothing</div>
-        <p>a paragraph</p>
+        <section>
+            <div id='box1' class='Home'>Home</div>
+            <div id='box1'><a href='About.html'>About the Authors</a></div>
+            <div id='box1'>Documentation</div>
+            <div id='box1'>Log In</div>
+            <div id="box1">Application</div>
+            <div id="box"></div>
+            <div id="box"></div>
+            <div id="box"></div>
+        </section>
+        <section id='text'></section>
         <script>
-            alert("moo")
+            $(document).ready(function(){
+                $('.Home').click(function(){
+                    $('#text').append('<p>Welcome to the UCSD iGEM home page<p>');
+                });
+            });
+            
+            alert("hey")
             someVar = "test"
             alert("said")
             alert("the cow")
-            $(document).ready(function(){
-                $('#myButton').click(function(){
-                 $.get("AuthenticationServlet",{"key":"value"},function(data){
+            $(document).ready(function() {
+                $('#myButton').click(function() {
+                    $.get("AuthenticationServlet", {"key": "value"}, function(data) {
 //                        alert("post")
-                     alert(data);
-                     $('#toChange').html("<ul><li>one</li><li>two</li><li>three</li></ul>");
+                        alert(data);
+                        $('#toChange').html("<ul><li>one</li><li>two</li><li>three</li></ul>");
 //                     $('#toChange').text(data)
-                 });
-            })
-        });
+                    });
+                })
+            });
         </script>
     </body>
+    
 </html>
