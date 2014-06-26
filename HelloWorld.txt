@@ -1,17 +1,4 @@
 Hi all! :)
 This is Fernando!
 
-hello again
-
-moo
-
-
-
-
-
-moo
-<<<<<<< HEAD
-Good bye
-=======
-
 Testing Git...
