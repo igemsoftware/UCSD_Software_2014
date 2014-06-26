@@ -1,4 +1,0 @@
-Hi all! :)
-This is Fernando!
-
-Testing Git...
