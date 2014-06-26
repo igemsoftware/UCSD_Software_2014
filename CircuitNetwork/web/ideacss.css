@@ -10,9 +10,10 @@ and open the template in the editor.
 body{
     text-align: center;
     font-family: arial;
-   // display: -webkit-box;
+    
+   /* display: -webkit-box;
     //-webkit-box-pack: center;
-    //-webkit-box-orient: horizontal;
+    -webkit-box-orient: horizontal;*/
 }
 section{
     display: -webkit-box;
@@ -31,18 +32,26 @@ section div{
     -webkit-border-radius: 10px;
     opacity: 0.6;
     background: red;
-    width: 130px;
+    width: 120px;
     height: 30px;
-    -webkit-transition:-webkit-transform 2s, opacity 1s, background 1s,
-        width 1s, height 1s; 
+    -webkit-transition:-webkit-transform 2s, opacity 0.7s, background 0.7s,
+        width 0.7s, height 0.7s; 
     padding-top: 10px;
     text-align: center;
 }
 #box1:hover{
-    //-webkit-transform: rotate(180deg);
+    /*-webkit-transform: rotate(180deg);*/
     opacity: 1;
     background:#1ec7e6;
-    width:140px;
-    height: 35px;
-    //font-weight: bold;
+   /* width:140px;*/
+    height: 30px;
+    padding-top: 11px;
+    /*font-weight: bold;*/
+}
+
+.text{
+    
+    height: 500px;
+    background-image: url ('http://img4.wikia.nocookie.net/__cb20131128120644/creepypasta/images/e/ee/Apples.jpg');
+    
 }

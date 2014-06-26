@@ -9,6 +9,12 @@ $(document).ready(function(){
         $('#text').append('<p>Welcome to the UCSD iGEM home page<p>');
     });
     
+    $('#contact').click(function(){
+        
+        
+        
+    })
+    
 });
 
 
