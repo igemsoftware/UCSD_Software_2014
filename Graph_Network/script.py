@@ -1,17 +1,12 @@
-#!/user/bin/env/python
-
-
-
 import sys
 import random
 import pydot
 import argparse
 import os
 
-
-
 # Gets the file at a given location.
-# @param input_file_path	the pa
+# @param input_file_path    the path to the file.
+# @param input_file	the name of the file. 
 def generate_text_files(input_file_path, input_file, num_files, num_edges):
    	
 	# If the path does not exists, throws an error.
