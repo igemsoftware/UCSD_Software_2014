@@ -22,6 +22,7 @@ body{
     //background:-webkit-linear-gradient(white, gray, white);
     //-webkit-border-radius: 10px;
     padding-top: 4px;
+    margin: 0px;
     
 }
 div li{
@@ -39,6 +40,18 @@ ul{
     display: inline;
 }
 #style{
-    height: 500px;
+    height: 100%;
     background-color: grey;
+}
+.panel {
+    background: grey;
+    //background-size:90% 90%;
+    height:300px;
+    display:none;
+    font-family:garamond,times-new-roman,serif;
+    margin:0px;
+    padding:0px;
+}
+.underline{
+    text-decoration: underline;
 }

@@ -10,24 +10,93 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" type="text/css" href="mainL2.css">
+        
         <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <script scr='ideajava.js'></script>
+        
     </head>
     <body>
+        
         <a href="http://s1259.photobucket.com/user/dupcrew/media/igemlogo_zps10e3445f.png.html" target="_blank"><img src="http://i1259.photobucket.com/albums/ii542/dupcrew/igemlogo_zps10e3445f.png" border="0" alt=" photo igemlogo_zps10e3445f.png" width=300px height=350px/></a>
         <div id="nav">
             <ul>
-                <li>Home</li>
-                <li>About the Authors</li>
-                <li>Documentation</li>
-                <li>Application</li>
+                <li class="newPage" id="Home">Home</li>
+                <li class="newPage" id="About">About the Authors</li>
+                <li class="newPage" id="Doc">Documentation</li>
+                <li class="newPage" id="App">Application</li>
             </ul>
 
             <ul>
-                <li>Log In</li>
+                <li class="newPage" id="Log">Log In</li>
             </ul>
-
+                <script>
+    
+                 $(document).ready(function(){
+                    $('.newPage').hover(
+                        function(){
+                            $(this).addClass('underline');
+                        },
+                        function(){
+                            $(this).removeClass('underline');
+                        });
+                    
+                    $('#Home').click(function(){
+                        $('.panel').hide('slow');
+                        $('#HomePage').slideToggle('fast');
+                    });
+                    $('#About').click(function(){
+                        $('.panel').hide('slow');
+                        $('#AboutPage').slideToggle('fast');
+                    });
+                    $('#Doc').click(function(){
+                        $('.panel').hide('slow');
+                        $('#DocPage').slideToggle('fast');
+                    });
+                    $('#App').click(function(){
+                        $('.panel').hide('slow');
+                        $('#AppPage').slideToggle('fast');
+                        
+                    });
+                    $('#Log').click(function(){
+                        $('.panel').hide('slow');
+                        $('#LogPage').slideToggle('fast');
+                    });
+                });
+                </script>
+ 
         </div>
+        
+        <section>
+            <div class="panel" id="HomePage">
+                <p>This is the home page</p>
+            </div>
+
+            <div class="panel" id="AboutPage">
+                <p>This is the about page</p>
+            </div>
+
+            <div class="panel" id="DocPage">
+                <p>This is the doc page</p>
+            </div>
+
+            <div class="panel" id="AppPage">
+                <p>This is the application page</p>
+            </div>
+
+            <div class="panel" id="LogPage">
+                <p>This is the login page</p>
+            </div>
+            
+            <script>
+                $(document).ready(function(){
+                   
+                });
+                
+            </script>
+        </section>
         <div id="style"></div>
+        
     </body>
+
+    
+
 </html>

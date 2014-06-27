@@ -5,15 +5,15 @@
  */
 $(document).ready(function(){
     
-    $('.Home').click(function(){
-        $('#text').append('<p>Welcome to the UCSD iGEM home page<p>');
-    });
-    
-    $('#contact').click(function(){
-        
-        
-        
-    })
+                 $(document).ready(function(){
+                    $('.newPage').hover(
+                        function(){
+                            $(this).addClass('underline');
+                        },
+                        function(){
+                            $(this).removeClass('underline');
+                        });
+                    });
     
 });
 
