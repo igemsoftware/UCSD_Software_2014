@@ -61,6 +61,10 @@ and open the template in the editor.
                         $('#LogPage').slideToggle('fast');
                     });
                 });
+                
+                $('#box').click(function(){
+                    ('#box').simpleexpand();
+                });
                 </script>
  
         </div>
@@ -72,6 +76,19 @@ and open the template in the editor.
 
             <div class="panel" id="AboutPage">
                 <p>This is the about page</p>
+                <section id="1" class="column">
+                <div id="box" >Jenhan</div>
+                <div id="box">Justin</div>
+                <div id="box">Ben</div>
+      
+                <div id="box">Jenhan</div>
+                <div id="box">Justin</div>
+                <div id="box">Ben</div>
+              
+                <div id="box">Jenhan</div>
+                <div id="box">Justin</div>
+                <div id="box">Ben</div>
+                </section>
             </div>
 
             <div class="panel" id="DocPage">
@@ -85,13 +102,7 @@ and open the template in the editor.
             <div class="panel" id="LogPage">
                 <p>This is the login page</p>
             </div>
-            
-            <script>
-                $(document).ready(function(){
-                   
-                });
-                
-            </script>
+
         </section>
         <div id="style"></div>
         
