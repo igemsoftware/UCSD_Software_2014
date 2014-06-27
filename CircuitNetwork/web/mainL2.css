@@ -134,3 +134,7 @@ input[type=password] {
     width: 250px;
     height: 25px;
 }
+
+.bold{
+    color:#E6B800;
+}

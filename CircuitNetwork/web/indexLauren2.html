@@ -28,40 +28,48 @@ and open the template in the editor.
                 <script>
     
                  $(document).ready(function(){
-                    $('.newPage').hover(
+                         $('.newPage').hover(
                         function(){
-                            $(this).addClass('underline');
+                            $(this).addClass('bold');
                         },
                         function(){
-                            $(this).removeClass('underline');
-                        });
-                    
+                            $(this).removeClass('bold');
+                        });  
+
                     $('#Home').click(function(){
+                        $('.newPage').removeClass('underline');
+                        $(this).addClass('underline');
                         $('.panel').hide('slow');
                         $('#HomePage').slideToggle('fast');
                     });
                     $('#About').click(function(){
+                        $('.newPage').removeClass('underline');
+                        $(this).addClass('underline');
                         $('.panel').hide('slow');
                         $('#AboutPage').slideToggle('fast');
                     });
                     $('#Doc').click(function(){
+                        $('.newPage').removeClass('underline');
+                        $(this).addClass('underline');
                         $('.panel').hide('slow');
                         $('#DocPage').slideToggle('fast');
                     });
                     $('#App').click(function(){
+                        $('.newPage').removeClass('underline');
+                        $(this).addClass('underline');
                         $('.panel').hide('slow');
                         $('#AppPage').slideToggle('fast');
                         
                     });
                     $('#Log').click(function(){
+                        $('.newPage').removeClass('underline');
+                        $(this).addClass('underline');
                         $('.panel').hide('slow');
                         $('#LogPage').slideToggle('fast');
                     });
+                   
                 });
-                
-                $('#box').click(function(){
-                    ('#box').simpleexpand();
-                });
+
                 </script>
  
         </div>
@@ -98,7 +106,7 @@ and open the template in the editor.
             </div>
 
             <div class="panel" id="LogPage">
-                <p>This is the login page</p>
+                
                 <div id="container">       
                     <form>
                         <label for="username">Username:</label>
