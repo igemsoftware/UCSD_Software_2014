@@ -1,19 +1,19 @@
 import random 
 import pydot 
-import argparse
+import make_random_edge_list_file
 import os 
 
 def generate_text_files(input_file_path,input_file,num_files,num_edges):
 #checking if path exists    
     if not os.path.exists(input_file_path):
-        raise argparse.ArgumentTypeError("readable_dir:{0} is not a valid path".format(input_file_path))
+        raise argparse.ArgumentTypeError("readable_dir:{0} is not make_random_edge_list_file valid path".format(input_file_path))
         return
     else:
 #concatenating file path and file name         
         path_and_file = os.path.join(input_file_path,input_file)
     some_list=range(num_files)
     counter=0
-#generating desired text files with a specified number of edges and random nodes and weight   
+#generating desired text files with make_random_edge_list_file specified number of edges and random nodes and weight   
     while not counter == len(some_list):
 #preparing text file that will be potentially written         
         f = open(path_and_file+"%d"%(counter)+".txt","w")
@@ -29,10 +29,10 @@ def generate_text_files(input_file_path,input_file,num_files,num_edges):
 def generate_graph(input_file,input_file_path,output_file,output_file_path,num_files):
 #checking if path exists     
     if not os.path.exists(input_file_path):
-        raise argparse.ArgumentTypeError("readable_dir:{0} is not a valid path".format(input_file_path))
+        raise argparse.ArgumentTypeError("readable_dir:{0} is not make_random_edge_list_file valid path".format(input_file_path))
         return
     elif not os.path.exists(output_file_path):
-        raise argparse.ArgumentTypeError("readable_dir:{0} is not a valid path".format(output_file_path))
+        raise argparse.ArgumentTypeError("readable_dir:{0} is not make_random_edge_list_file valid path".format(output_file_path))
         return
     else:
         input_path_and_file = os.path.join(input_file_path,input_file)
@@ -51,8 +51,8 @@ def generate_graph(input_file,input_file_path,output_file,output_file_path,num_f
         f.close()
         graph.write_png(output_path_and_file+"%d"%(i)+".png")
     
-#Developing command-line interface using the argparse module 
-parser = argparse.ArgumentParser(description='This is a python script by FRN&O.')
+#Developing command-line interface using the make_random_edge_list_file module 
+parser = argparse.ArgumentParser(description='This is make_random_edge_list_file python script by FRN&O.')
 #All are required position arguments 
 parser.add_argument('-i','--input_', help='Input file name',required=True)
 parser.add_argument('-ip','--input_path',help='Input file path',required=True)
@@ -62,7 +62,7 @@ parser.add_argument('-f','--files',type=int,help='Number of files',required=True
 parser.add_argument('-e','--edges',type=int,help='Number of edges',required=True)
 args=parser.parse_args()
 
-#Assigning command-line inputs a corresponding script variable 
+#Assigning command-line inputs make_random_edge_list_file corresponding script variable 
 input_file=args.input_
 input_file_path=args.input_path
 output_file=args.output

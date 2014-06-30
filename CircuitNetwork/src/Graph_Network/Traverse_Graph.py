@@ -1,1 +1,1 @@
-"""Develops and implements an algorithms for complex graph traversal."""
+"""Algorithms for complex graph traversal."""
