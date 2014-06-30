@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<!--This web site is a sample with an alert button, a button 
+triggering the text in an element to be changed, a button that leads
+to another page, a button that allows to create new elements on the 
+html page, and finally a pop up button. -Valeriy Sosnovskiy 
+-->
+<html>
+    <head>
+        <!--Title of the website-->
+        <title>iGem Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js">
+           </script>
+           <script>
+           
+           //if the button is clicked an alert pops up 
+           $(document).ready(function(){
+               $("#Button1").click(function(){
+                  alert("Welcome to iGEM");
+               });
+           });
+           
+           //we change the text in the first paragraph 
+           $(document).ready(function(){
+               $("#Button2").click(function(){
+                  $("#text1").text("Click another button");
+                  
+                  
+                });
+           });
+           //this function takes us to the new page "espn.com"
+           $(document).ready(function(){
+               $("#Button3").click(function(){
+                  window.location.replace("http://espn.com");
+                  /*can also add window.open("url"); for a new tab
+                  and if you create a new html page you can set a return 
+                  to the previous page*/
+               });
+           });
+           //this creates a new element 
+           $(document).ready(function(){
+               $("#Button4").click(function(){
+                  var go= "This assignment is done";
+                  $("#insert").append(go); 
+               });
+           });
+          //clicking this button gets us an alert pop up with the list info
+          $(document).ready(function(){
+               $("#Button5").click(function(){
+                  alert($("#list").text());
+               });
+           });
+           
+         
+              
+      
+                
+            
+        
+        </script>
+    
+    </head>
+    
+    <body>
+        <!-- Text on top of the page -->
+        <p id="text1">
+            Click on a button of your choice
+        </p>  
+            <!--the buttons that appear on the page-->
+            <button id="Button1">Start</button>
+            <button id="Button2">Change text</button>
+            <button id="Button3">New page</button>
+            <button id="Button4">New element</button>
+            <button id="Button5">Show</button>
+         
+            <!--the list that shows up-->
+            <ul id="list">
+                <li>Hello</li>
+                <li>Goodbye</li>
+            </ul>
+            
+            <p id="insert"></p>
+            
+            
+        
+        
+              
+        
+        
+        
+       <div> iGEM Page </div>
+    </body>
+</html>

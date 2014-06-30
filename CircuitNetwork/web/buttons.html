@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery Buttons</title>
+        <link rel="icon" href="http://i.imgur.com/QLCgo.jpg" type="image/x-icon">
+        <meta charset="windows-1252">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        
+    </head>
+    <body>
+ 
+        
+        <p id = "para1">Welcome to iGem 2014's web page!</p><br>
+        
+        <button id = "btn1">Alert!</button>
+        <button id = "btn2">Change text</button>
+        <button id = "btn3">About igem</button>
+        <button id = "btn4">Add new text</button>
+        <button id = "btn5">Show a list's text</button><br>
+        <button id = "btn6">Display server response</button><br>
+        <button id = "btn7">Remove even numbered text</button><br>
+        
+        
+        <br>jQuery: Buttons<br>
+        Original List of teams in Group G of the 2014 FIFA World<br>
+        <ol id = "list">
+            <li>Germany</li>
+            <li>USA</li>
+            <li>Portugal</li>
+            <li>Ghana</li>
+        </ol><br>
+
+
+        <script>
+            $(document).ready(function(){
+                $('#btn6').click(function(){
+                  
+                /*$.ajax({
+                    url: 'AuthenticationServlet',
+                    type: 'POST',        
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    data: {key:'idTest'},
+                    success: function(data) {
+                    alert(data);
+                                    }
+                    });*/ 
+                  
+                  
+                //var store = $.post("AuthenticationServlet", {key:"datta"});
+                $.post("AuthenticationServlet",{key: "someINFO"}, function( data ) {
+                    alert(data); 
+                });
+                /*store.done(function(data){
+                    alert(data);
+                });*/
+            }); });
+            
+            
+            //A button that triggers an alert 
+            $(document).ready(function(){
+                $("#btn1").click(function(){
+                    alert("You clicked on a button; You have been alerted!");
+                });
+            });
+            //A button that triggers the text in an element to be changed
+            $(document).ready(function(){
+                $("#btn2").click(function(){
+                    $("p").text("We'll be building a network!");
+                });
+            });
+            //A button that causes the page to navigate to another page
+            $(document).ready(function(){
+                $("#btn3").click(function(){
+                  window.open("http://igem.org/About");
+                });
+            });
+            //var myArray = [];
+            //myArray.push("gibberish");
+            var i = 0;
+            //A button that creates a new paragraph and a list and appends them to an existing paragraph
+            $(document).ready(function(){
+                $("#btn4").click(function(){
+                 
+                  if(i%2 == 0)
+                  {
+                      var txt3 ="<p class = i>Even paragraph!</p>";
+                      $("#para1").append(txt3);
+                  }
+                  else
+                  {
+                      var txt3 ="<p>Odd paragraph!</p>";
+                      $("#para1").append(txt3);
+                  }
+                  i++;
+                });
+            });
+            
+            $(document).ready(function(){
+                $("#btn7").click(function(){
+                     $('.i').remove();    
+                });
+            });
+            
+            //A button that pops up an alert, showing the text in all <li> elements on the page
+            $(document).ready(function(){
+                $("#btn5").click(function(){
+                  alert("Text of original list: " + $("#list").text());
+                });
+            });
+        </script>
+        
+    </body>
+</html>
