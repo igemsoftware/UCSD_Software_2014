@@ -36,25 +36,9 @@
             $(document).ready(function(){
                 $('#btn6').click(function(){
                   
-                /*$.ajax({
-                    url: 'AuthenticationServlet',
-                    type: 'POST',        
-                    dataType: 'json',
-                    contentType: 'application/json',
-                    data: {key:'idTest'},
-                    success: function(data) {
-                    alert(data);
-                                    }
-                    });*/ 
-                  
-                  
-                //var store = $.post("AuthenticationServlet", {key:"datta"});
                 $.post("AuthenticationServlet",{key: "someINFO"}, function( data ) {
                     alert(data); 
                 });
-                /*store.done(function(data){
-                    alert(data);
-                });*/
             }); });
             
             
