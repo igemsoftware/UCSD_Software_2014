@@ -15,11 +15,11 @@
     <title>Log in</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="bootstrap.css" rel="stylesheet">
+    <!--<link href="bootstrap.css" rel="stylesheet">
     <!--  Custom CSS -->
-    <link href="custom1.css" rel="stylesheet">
+    <!--<link href="custom1.css" rel="stylesheet">
     <link href="cover.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
+    <!-- Custom styles for this template 
     <link href="signin.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
@@ -108,10 +108,10 @@
       <br><br>
       <form action="AuthenticationServlet" method="POST">
         First Name: <input type="text" name="first_name">
-        
+        <br>
         Password: &nbsp <input type="password" name="last_name" />
         <br>
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Log in" />
        </form>
       
        <button id = "btn6">Display server response</button><br>
@@ -122,9 +122,11 @@
 
     <script>
         
+       
+        
+        
         $(document).ready(function(){
                 $('#btn6').click(function(){
-                  
                 $.get("AuthenticationServlet",{key: "someINFO"}, function( data ) {
                     alert(data); 
                 });
