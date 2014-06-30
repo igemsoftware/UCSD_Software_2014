@@ -1,1 +1,1 @@
-"""Algorithms for complex graph traversal."""
+'''Algorithms for complex graph traversal.'''
