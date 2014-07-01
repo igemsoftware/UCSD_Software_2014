@@ -11,12 +11,16 @@ import pydot
 def make_pydot_text(input_file_path, input_file, output_file_path, output_file):
 	'''
 	Creates pydot text (.txt) from edges list (.txt).
+	
 	@param input_file_path: path to input file.
 	@type input_file_path: string.
+	
 	@param input_file: input edge list (.txt).
 	@type input_file: .txt.
+	
 	@param output_file_path: path to output file.
 	@type output_file_path: string.
+	
 	@param output_file: output file (.txt).
 	@type output_file: string.
 	'''
@@ -69,14 +73,19 @@ def make_pydot_text(input_file_path, input_file, output_file_path, output_file):
 def make_pydot_graph(input_file_path, input_file, output_file_path, output_file):
 	'''
 	Creates pydot graph from input file (.txt).
+	
 	@param input_file_path: path to input file.
 	@type input_file_path: string.
+	
 	@param input_file: input edge list (.txt).
 	@type input_file: .txt.
+	
 	@param output_file_path: path to output file.
 	@type output_file_path: string.
+	
 	@param output_file: output file (.txt).
 	@type output_file: string.
+	
 	@return: graph in pydot format.
 	'''
 	
@@ -123,10 +132,13 @@ def make_pydot_graph(input_file_path, input_file, output_file_path, output_file)
 def make_pydot_image(input_pydot_graph, output_file_path, output_file):
 	'''
 	Creates pydot image from input file (.txt).
+	
 	@param input_pydot_graph: name of input pydot graph.
 	@type input_pydot_graph: pydot graph.
+	
 	@param output_file_path: path to output file.
 	@type output_file_path: string.
+	
 	@param output_file: output file (.txt).
 	@type output_file: string.
 	'''
@@ -141,12 +153,17 @@ def make_pydot_image(input_pydot_graph, output_file_path, output_file):
 	# Creates image file (.png) from pydot graph file.
 	input_pydot_graph.write_png(output_file+ ".png")
 
-
+def test():
+	print "Test success!"
 
 '''Main'''
 
+
+
 # Command line arguments.
 script, input_file_path, input_file, output_file_path, output_file = argv
+
+
 
 make_pydot_text(input_file_path, input_file, output_file_path, output_file)
 a_pydot_graph = make_pydot_graph(input_file_path, input_file, output_file_path, output_file)

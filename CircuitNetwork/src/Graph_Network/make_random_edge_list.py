@@ -8,11 +8,16 @@ from sys import argv
 
 
 
-def make_random_edge_list(output_file_path, output_file_name, number_of_edges):
+def make_random_edge_list(output_file_path, output_file, number_of_edges):
     '''
     Randomly generates edge list (.txt), test file, for graph representation.
-    @param output_file_name: name of edge list to be generated.
-    @type output_file_name: string.
+    
+    @param output_file_path: path to output file.
+    @type output_file_path: string.
+    
+    @param output_file: name of edge list to be generated.
+    @type output_file: string.
+    
     @param number_of_edges: number of edges in test file.
     @type number_of_edges: int.
     '''
@@ -42,12 +47,16 @@ def make_random_edge_list(output_file_path, output_file_name, number_of_edges):
     f.close()
     
 
+
+'''Main'''
+
+
     
 # Command line arguments.
 script, output_file_path, output_file_name, edge_number = argv
 
 
-    
+
 make_random_edge_list(output_file_path, output_file_name, edge_number)
 
 
