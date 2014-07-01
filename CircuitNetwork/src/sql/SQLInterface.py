@@ -20,12 +20,17 @@ class running_table:
             Miles INTEGER(15),
             Trail VARCHAR(15));'''
             )
+        print '''CREATE TABLE running(
+            Date DATE,
+            Miles INTEGER(15),
+            Trail VARCHAR(15));'''
             
     def populate_db(self,cur,itr):
         cur.executemany('''
             INSERT INTO running (Date,Miles,Trail)
             VALUES (?,?,?)''',itr)
-            
+        for values in itr:
+            print 'INSERT INTO running \n\t(Date,Miles,Trail) VALUES ({0[0]},{0[1]},{0[2]})'.format(values)
     def print_table(self):
         for row in self.db.execute("SELECT * FROM " + self.table_name):
             print row
@@ -89,9 +94,9 @@ sqlObj = SQLInterface()
 base = running_table()
 
 base.db.execute(sqlObj.SQLInsertWrapper(base.table_name,base.cols,['2014-06-30',14,'Chunk Rock']))
-base.print_table()
-print sqlObj.SQLUpdateWrapper(base.table_name,['Miles'], [80] ,['Miles'], ['>'], [10])
+#base.print_table()
+#print sqlObj.SQLUpdateWrapper(base.table_name,['Miles'], [80] ,['Miles'], ['>'], [10])
 base.db.execute(sqlObj.SQLUpdateWrapper(base.table_name,['Miles'], [80] ,['Miles'], ['>'], [10]))
-base.print_table()
+#base.print_table()
 base.db.execute(sqlObj.SQLUpdateWrapper(base.table_name, ['Miles'], [15]))
-base.print_table()
+#base.print_table()
