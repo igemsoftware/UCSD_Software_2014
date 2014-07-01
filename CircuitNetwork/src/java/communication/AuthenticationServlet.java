@@ -96,6 +96,12 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
             throws ServletException, IOException {
         //processPostRequest(request, response);
         // Create cookies for first and last names.   
+            
+      PrintWriter out1 = new PrintWriter("info.txt");
+        try {
+            out1.println("kp"+"puri"+"\n"+"jenhan"+"tao");
+        
+            
       Hashtable login = new Hashtable();
       login.put("kp", "puri");
       login.put("valeriy", "sosnovskiy");
@@ -148,6 +154,10 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
       }
           else
             response.sendRedirect("login.html");
+        }
+        finally {
+            out1.close();
+        }
     }
 
     /**

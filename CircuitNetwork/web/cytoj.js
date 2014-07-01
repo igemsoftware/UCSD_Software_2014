@@ -1,15 +1,24 @@
 $(function(){ // on dom ready
 
 $('#cy').cytoscape({
+     layout: {
+    name: 'cose',
+    padding: 10
+  },
   style: cytoscape.stylesheet()
+    
+  
     .selector('node')
       .css({
         'content': 'data(name)',
+        'shape': 'data(faveShape)',
         'text-valign': 'center',
         'color': 'white',
         'text-outline-width': 2,
         //'text-outline-color': '#888',
         'width': 'mapData(weight, 30, 80, 20, 50)',
+        //'width': 'mapData(weight, 40, 80, 20, 60)',
+        //'width': 'mapData(weight, 60, 80, 20, 80)',
         'height': 'mapData(height, 0, 200, 10, 45)',
         'border-color': '#fff',
         //'text-outline-color': 'data(faveColor)',
@@ -17,8 +26,21 @@ $('#cy').cytoscape({
       })
     .selector('edge')
       .css({
-        'target-arrow-shape': 'triangle'
+        'target-arrow-shape': 'triangle',
+        'source-arrow-shape': 'circle',
+        'opacity': 0.666,
+        'line-color': 'data(faveColor)',
+        'source-arrow-color': 'data(faveColor)',
+        'target-arrow-color': 'data(faveColor)',
+        'width': 'mapData(strength, 70, 100, 2, 6)'
       })
+      
+      .selector('edge.questionable')
+      .css({
+        'line-style': 'dotted',
+        'target-arrow-shape': 'diamond'
+      })
+      
     .selector(':selected')
       .css({
         'background-color': 'black',
@@ -35,28 +57,28 @@ $('#cy').cytoscape({
     
   elements: {
     nodes: [
-      { data: { id: 'home', name: 'Home', weight: 90, height: 180, faveColor: '#6FB1FC' }},
+      { data: { id: 'home', name: 'Home', weight: 90, height: 180, faveColor: '#6FB1FC', faveShape: 'ellipse' }},
       { data: { id: 'about', name: 'About', weight: 70, height: 150, faveColor: '#F5A45D' } },
       { data: { id: 'notebook', name: 'Notebook', weight: 70, height: 150, faveColor: '#F5A45D' } },
       { data: { id: 'project', name: 'Project', weight: 70, height: 150, faveColor: '#F5A45D' } },
       { data: { id: 'safety', name: 'Safety', weight: 70, height: 150, faveColor: '#F5A45D' } },
-      { data: { id: 'about1', name: 'The Team', weight: 48, height: 160 } },
-      { data: { id: 'about2', name: 'Team Profile', weight: 48, height: 160 } },
-      { data: { id: 'about3', name: 'iGEM', weight: 48, height: 160 } },
-      { data: { id: 'about4', name: 'Sponsors', weight: 48, height: 160 } },
-      { data: { id: 'about5', name: 'Attributions', weight: 48, height: 160 } },
-      { data: { id: 'project1', name: 'Network', weight: 48, height: 160 } },
-      { data: { id: 'project2', name: 'Overview', weight: 48, height: 160 } },
-      { data: { id: 'project3', name: 'Achievements', weight: 48, height: 160 } },
-      { data: { id: 'project4', name: 'Collaboration', weight: 48, height: 160 } },
-      { data: { id: 'project5', name: 'Experiments', weight: 48, height: 160 } },
-      { data: { id: 'notebook1', name: 'Methods', weight: 48, height: 160 } },
-      { data: { id: 'notebook2', name: 'Notes', weight: 48, height: 160 } },
-      { data: { id: 'safety1', name: 'Ethics', weight: 48, height: 160 } },
-      { data: { id: 'safety2', name: 'Human Practices', weight: 48, height: 160 } }
+      { data: { id: 'about1', name: 'The Team', weight: 48, height: 160, faveColor: '#86B342' } },
+      { data: { id: 'about2', name: 'Team Profile', weight: 48, height: 160, faveColor: '#86B342' } },
+      { data: { id: 'about3', name: 'iGEM', weight: 48, height: 160, faveColor: '#86B342' } },
+      { data: { id: 'about4', name: 'Sponsors', weight: 48, height: 160, faveColor: '#86B342' } },
+      { data: { id: 'about5', name: 'Attributions', weight: 48, height: 160, faveColor: '#86B342' } },
+      { data: { id: 'project1', name: 'Network', weight: 48, height: 160, faveColor: '#86B342' } },
+      { data: { id: 'project2', name: 'Overview', weight: 48, height: 160, faveColor: '#86B342' } },
+      { data: { id: 'project3', name: 'Achievements', weight: 48, height: 160, faveColor: '#86B342' } },
+      { data: { id: 'project4', name: 'Collaboration', weight: 48, height: 160, faveColor: '#86B342' } },
+      { data: { id: 'project5', name: 'Experiments', weight: 48, height: 160, faveColor: '#86B342' } },
+      { data: { id: 'notebook1', name: 'Methods', weight: 48, height: 160, faveColor: '#86B342' } },
+      { data: { id: 'notebook2', name: 'Notes', weight: 48, height: 160, faveColor: '#86B342' } },
+      { data: { id: 'safety1', name: 'Ethics', weight: 48, height: 160, faveColor: '#86B342' } },
+      { data: { id: 'safety2', name: 'Human Practices', weight: 48, height: 160, faveColor: '#86B342' } }
     ],
     edges: [
-      { data: { source: 'home', target: 'about' } },
+      { data: { source: 'home', target: 'about', faveColor: 'F5A45D', strength: '90' } },
       { data: { source: 'home', target: 'project' } },
       { data: { source: 'home', target: 'notebook' } },
       { data: { source: 'home', target: 'safety' } },
