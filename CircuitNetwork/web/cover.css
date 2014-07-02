@@ -31,10 +31,11 @@ body {
   //background-image: url(http://www.lcaid.com/images/full/2011/05/12/apple-vector-desktop-wallpaper_hd-backgrounds-for-mac-healthy-baby-tips-info-free-desktop.jpg);
   background-repeat: no-repeat; 
   background-color: #CD853F;
+  //background-image: url(igemlogo.png);
   background-size: 1370px 645px;
 }
 body {
-  color: #fff;
+  color: #fff;//333
   text-align: center;
   text-shadow: 0 1px 3px rgba(0,0,0,.5);
   box-shadow: inset 0 0 100px rgba(0,0,0,.5);

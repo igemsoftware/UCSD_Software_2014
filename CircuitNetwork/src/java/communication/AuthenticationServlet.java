@@ -96,10 +96,11 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
             throws ServletException, IOException {
         //processPostRequest(request, response);
         // Create cookies for first and last names.   
-            
-      PrintWriter out1 = new PrintWriter("info.txt");
-        try {
-            out1.println("kp"+"puri"+"\n"+"jenhan"+"tao");
+      File file = new File ("info.txt");   
+      PrintWriter out1 = new PrintWriter(file);
+      try 
+      {
+        out1.println("kp"+"puri"+"\n"+"jenhan"+"tao");
         
             
       Hashtable login = new Hashtable();
