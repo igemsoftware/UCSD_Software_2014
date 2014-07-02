@@ -46,26 +46,9 @@ def generateTree(numNodes):
 	return root
 
 		
-# prints out the tree
-# input the root of the tree
-def printTree(root):
-	queue = [root]
-	while queue:
-		current = queue[0]
-		queue = queue[1:]
-		print "id: "+ str(current.identifier)+" height: "+ str(current.height)
-		for neighbor in current.neighbors:
-			if neighbor.height > current.height:
-				queue.append(neighbor)
-		
-		
-
-# make a tree with size twice as large as your input
-
+# how to use my code
+# make a binary tree with 31 nodes (this is a full binary tree) and then return the root of the tree
 root = generateTree(31)
-# print out the tree
-printTree(root)
 
-# PUT YOUR CODE HERE
 
 
