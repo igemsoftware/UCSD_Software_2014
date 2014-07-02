@@ -1,9 +1,4 @@
-$(function(){ // on dom ready
-    
-    cy.zoom({
-  level: 2.0, // the zoom level
-  renderedPosition: { x: 100, y: 100 }
-});
+/*$(function(){ // on dom ready
   
 $('#cy').cytoscape({
   layout: {
@@ -84,13 +79,14 @@ $('#cy').cytoscape({
   }
 });
 
-}); // on dom ready
+}); // on dom ready*/
 
-/*$(function(){ // on dom ready
+$(function(){ // on dom ready
 
 $('#cy').cytoscape({
      layout: {
     name: 'cose',
+    directed: true,
     padding: 10
   },
   style: cytoscape.stylesheet()
@@ -103,13 +99,12 @@ $('#cy').cytoscape({
         'text-valign': 'center',
         'color': 'white',
         'text-outline-width': 2,
-        //'text-outline-color': '#888',
-        'width': 'mapData(weight, 30, 80, 20, 50)',
-        //'width': 'mapData(weight, 40, 80, 20, 60)',
-        //'width': 'mapData(weight, 60, 80, 20, 80)',
-        'height': 'mapData(height, 0, 200, 10, 45)',
+        'background-fit': 'contain',
+        'background-repeat': 'no-repeat',
+        'background-clip': 'node',
+        'width': 55,
+        'height': 55,
         'border-color': '#fff',
-        //'text-outline-color': 'data(faveColor)',
         'background-color': 'data(faveColor)'
       })
     .selector('edge')
@@ -120,7 +115,7 @@ $('#cy').cytoscape({
         'line-color': 'data(faveColor)',
         'source-arrow-color': 'data(faveColor)',
         'target-arrow-color': 'data(faveColor)',
-        'width': 'mapData(strength, 70, 100, 2, 6)'
+        'width': 6//'mapData(strength, 70, 100, 2, 6)'
       })
       
       .selector('edge.questionable')
@@ -136,34 +131,50 @@ $('#cy').cytoscape({
         'target-arrow-color': 'black',
         'source-arrow-color': 'black'
       })
+      .selector('#home')
+      .css({
+        'background-image': 'igemlogo.png',
+        'height': 100,
+        'width': 100
+      })
+      
+      .selector('#byitself')
+      .css({
+        'background-image': 'http://www.shouduzp.com/wp-content/uploads/2014/06/belgium_flag_world_cup_2014_wallpaper.jpg',
+        'height': 100,
+        'width': 100
+      })
+      
     .selector('.faded')
       .css({
         'opacity': 0.25,
         'text-opacity': 0
       }),
+      
      
     
   elements: {
     nodes: [
-      { data: { id: 'home', name: 'Home', weight: 90, height: 180, faveColor: '#6FB1FC', faveShape: 'ellipse' }},
-      { data: { id: 'about', name: 'About', weight: 70, height: 150, faveColor: '#F5A45D' } },
-      { data: { id: 'notebook', name: 'Notebook', weight: 70, height: 150, faveColor: '#F5A45D' } },
-      { data: { id: 'project', name: 'Project', weight: 70, height: 150, faveColor: '#F5A45D' } },
-      { data: { id: 'safety', name: 'Safety', weight: 70, height: 150, faveColor: '#F5A45D' } },
+      { data: { id: 'home', name: '', weight: 90, height: 180, faveColor: '#6FB1FC', faveShape: 'star' }},
+      { data: { id: 'about', name: 'About', weight: 70, height: 150, faveColor: '#F5A45D', faveShape: 'octagon' } },
+      { data: { id: 'notebook', name: 'Notebook', weight: 70, height: 150, faveColor: '#F5A45D', faveShape: 'octagon' } },
+      { data: { id: 'project', name: 'Project', weight: 70, height: 150, faveColor: '#F5A45D', faveShape: 'octagon' } },
+      { data: { id: 'safety', name: 'Safety', weight: 70, height: 150, faveColor: '#F5A45D', faveShape: 'octagon' } },
       { data: { id: 'about1', name: 'The Team', weight: 48, height: 160, faveColor: '#86B342' } },
-      { data: { id: 'about2', name: 'Team Profile', weight: 48, height: 160, faveColor: '#86B342' } },
+      { data: { id: 'about2', name: 'Team Profile', weight: 48, height: 160, faveColor: '#EDA1ED' } },
       { data: { id: 'about3', name: 'iGEM', weight: 48, height: 160, faveColor: '#86B342' } },
-      { data: { id: 'about4', name: 'Sponsors', weight: 48, height: 160, faveColor: '#86B342' } },
+      { data: { id: 'about4', name: 'Sponsors', weight: 48, height: 160, faveColor: '#EDA1ED' } },
       { data: { id: 'about5', name: 'Attributions', weight: 48, height: 160, faveColor: '#86B342' } },
       { data: { id: 'project1', name: 'Network', weight: 48, height: 160, faveColor: '#86B342' } },
-      { data: { id: 'project2', name: 'Overview', weight: 48, height: 160, faveColor: '#86B342' } },
+      { data: { id: 'project2', name: 'Overview', weight: 48, height: 160, faveColor: '#EDA1ED' } },
       { data: { id: 'project3', name: 'Achievements', weight: 48, height: 160, faveColor: '#86B342' } },
-      { data: { id: 'project4', name: 'Collaboration', weight: 48, height: 160, faveColor: '#86B342' } },
+      { data: { id: 'project4', name: 'Collaboration', weight: 48, height: 160, faveColor: '#EDA1ED' } },
       { data: { id: 'project5', name: 'Experiments', weight: 48, height: 160, faveColor: '#86B342' } },
       { data: { id: 'notebook1', name: 'Methods', weight: 48, height: 160, faveColor: '#86B342' } },
       { data: { id: 'notebook2', name: 'Notes', weight: 48, height: 160, faveColor: '#86B342' } },
       { data: { id: 'safety1', name: 'Ethics', weight: 48, height: 160, faveColor: '#86B342' } },
       { data: { id: 'safety2', name: 'Human Practices', weight: 48, height: 160, faveColor: '#86B342' } }
+      //{ data: { id: 'byitself', name: '', weight: 48, height: 160 } }
     ],
     edges: [
       { data: { source: 'home', target: 'about', faveColor: 'F5A45D', strength: '90' } },
@@ -171,29 +182,25 @@ $('#cy').cytoscape({
       { data: { source: 'home', target: 'notebook' } },
       { data: { source: 'home', target: 'safety' } },
       { data: { source: 'about', target: 'home' } },
-      { data: { source: 'about', target: 'about1' } },
-      { data: { source: 'about', target: 'about2' } },
-      { data: { source: 'about', target: 'about3' } },
-      { data: { source: 'about', target: 'about4' } },
-      { data: { source: 'about', target: 'about5' } },
+      { data: { source: 'about', target: 'about1' , faveColor: '#EDA1ED'}, classes: 'questionable' },
+      { data: { source: 'about', target: 'about2' , faveColor: '#86B342'}, classes: 'questionable' },
+      { data: { source: 'about', target: 'about3' , faveColor: '#EDA1ED'}, classes: 'questionable' },
+      { data: { source: 'about', target: 'about4' , faveColor: '#86B342'}, classes: 'questionable' },
+      { data: { source: 'about', target: 'about5' , faveColor: '#EDA1ED'}, classes: 'questionable' },
       { data: { source: 'project', target: 'home' } },
-      { data: { source: 'project', target: 'project1' } },
-      { data: { source: 'project', target: 'project2' } },
-      { data: { source: 'project', target: 'project3' } },
-      { data: { source: 'project', target: 'project4' } },
-      { data: { source: 'project', target: 'project5' } },
+      { data: { source: 'project', target: 'project1' , faveColor: '#EDA1ED'}, classes: 'questionable' },
+      { data: { source: 'project', target: 'project2' , faveColor: '#86B342'}, classes: 'questionable' },
+      { data: { source: 'project', target: 'project3' , faveColor: '#EDA1ED'}, classes: 'questionable' },
+      { data: { source: 'project', target: 'project4' , faveColor: '#86B342'}, classes: 'questionable' },
+      { data: { source: 'project', target: 'project5' , faveColor: '#EDA1ED'}, classes: 'questionable' },
       { data: { source: 'notebook', target: 'home' } },
-      { data: { source: 'notebook', target: 'notebook1' } },
-      { data: { source: 'notebook', target: 'notebook2' } },
+      { data: { source: 'notebook', target: 'notebook1' , faveColor: '#EDA1ED'}, classes: 'questionable' },
+      { data: { source: 'notebook', target: 'notebook2' , faveColor: '#EDA1ED'}, classes: 'questionable' },
       { data: { source: 'safety', target: 'home' } },
-      { data: { source: 'safety', target: 'safety1' } },
-      { data: { source: 'safety', target: 'safety2' } },
+      { data: { source: 'safety', target: 'safety1' , faveColor: '#EDA1ED'}, classes: 'questionable' },
+      { data: { source: 'safety', target: 'safety2', faveColor: '#EDA1ED'}, classes: 'questionable' }
+      
     ]
-  },
-  
-  layout: {
-    name: 'grid',
-    padding: 10
   },
   
   ready: function(){
@@ -205,6 +212,7 @@ $('#cy').cytoscape({
   x: 680,
   y: 308
 }),
+   
         cy.$('#about').position({
   x: 530,
   y: 220

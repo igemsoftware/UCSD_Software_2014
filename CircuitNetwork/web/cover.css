@@ -32,7 +32,7 @@ body {
   background-repeat: no-repeat; 
   background-color: #CD853F;
   //background-image: url(igemlogo.png);
-  background-size: 1370px 645px;
+  background-size: cover;//1370px 645px;
 }
 body {
   color: #fff;//333
