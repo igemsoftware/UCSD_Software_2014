@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 '''test!!!'''
+=======
+#import csv
+>>>>>>> df17aaf4cb0d976c09ebec1b3b28ccf4758145c3
 import sqlite3
 
 class running_table:
