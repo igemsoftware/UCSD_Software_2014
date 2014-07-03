@@ -2,6 +2,8 @@
 import sqlite3
 
 class running_table:
+    
+    
     #static variables, the idea is that the table name and the header do 
     #not change much so they can remain constant
     table_name = 'running'
@@ -31,31 +33,31 @@ class running_table:
             VALUES (?,?,?)''',itr)
         for values in itr:
             print 'INSERT INTO running \n\t(Date,Miles,Trail) VALUES ({0[0]},{0[1]},{0[2]})'.format(values)
+            
     def print_table(self):
         for row in self.db.execute("SELECT * FROM " + self.table_name):
             print row
         print '\n' + '*' * 10, 'Done', '*' * 10 + '\n'
-    
-
-
+        
+        
 class SQLInterface:
+    
+    
     #@def SQLInsertWrapper, a python wrapped SQL Insert method
     #@param table, the name of the SQL table
     #@param cols, a list of the column names
     #@newRow, a list of the new row to be added 
-    def SQLInsertWrapper(self,table,cols,newRow):
-        command = 'INSERT INTO ' + table
+    def SQLInsertWrapper(self,tableName,cols,newRow):
+        command = 'INSERT INTO ' + tableName
         variables = '(' + ','.join(cols) + ')'
-        i = 0
-        
-        for i in range(len(newRow)):
+        for i in range(len(newRow)): 
             if isinstance(newRow[i],str):
                 unformatted = newRow[i]
                 newRow[i] = "'" + unformatted + "'"  
                   
             else:
                 unformatted = str(newRow[i])
-                newRow[i] = unformatted       
+                newRow[i] = unformatted      
                                              
         values = 'Values (' + ','.join(newRow) + ')'
         return command + '\n\t' + variables + '\n\t' + values + ';'
