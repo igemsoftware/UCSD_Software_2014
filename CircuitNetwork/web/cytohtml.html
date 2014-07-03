@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<html>    
+
+<head>
+    <title>Cytoscape Network</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="cyto.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://cytoscape.github.io/cytoscape.js/api/cytoscape.js-latest/cytoscape.min.js"></script>
+    <script src="cytotest.js"></script>
+
+</head>
+    
+
+<body>
+
+    <div id="cy"></div>
+    <div id="right-bar">
+        <h3 id="right-bar,head">Working Space</h3>
+        <p>"blah blah blah"</p>
+        <!--Hide/show cytoscape graphs via button-->
+        <button id="btnB">Toggle</button>
+        <!--Test button to edit cytoscape elements--> 
+        <input id="edit" type="text" placeholder="Test">
+        <button id="btnA" type="submit">Submit</button>
+        <button id="btnC">Add Node</button>
+        <script>
+            $(document).ready(function(){
+                //storing and changing data button
+                $('#btnA').click(function(){
+                    var edit = $('#edit').val();
+                    alert(edit);
+                });
+                //Hiding objects button
+                $('#btnB').click(function(){
+                    $('#cy').toggle('fast');
+                });
+            });
+        </script>
+    </div>
+    
+</body>
+
+
+</html>
+
