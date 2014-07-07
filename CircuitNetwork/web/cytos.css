@@ -1,15 +1,24 @@
 body { 
   font: 14px helvetica neue, helvetica, arial, sans-serif;
+  color: black;
+  background-image: url(http://wallpaper-download.net/wallpapers/random-wallpapers-plain-blue-wallpaper-wallpaper-33973.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #cy {
-  height: 100%;
-  width: 100%;
+  height: 80%;
+  width: 80%;
   position: absolute;
-  left: 0;
-  top: 0;
+  //margin-left: auto;
+  //margin-right: auto;
+  left: 175px;
+  top: 40px;
+  float: right;
 }
-
+#first{
+    float: left;
+}
 #info {
   color: #c88;
   font-size: 1em;

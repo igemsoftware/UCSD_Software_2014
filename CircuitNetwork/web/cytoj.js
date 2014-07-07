@@ -305,5 +305,64 @@ $('#cy').cytoscape({
     });
   }
 });
-
+     $('#n1').click(function(){
+           
+      var node = cy.$('#about');
+      var neighborhood = node.neighborhood().add(node);
+      cy.elements().addClass('faded');
+      neighborhood.removeClass('faded');
+    cy.on('tap', function(e){
+      if( e.cyTarget === cy ){
+        cy.elements().removeClass('faded');
+      }
+    });
+        
+    });
+    
+    
+    $('#n2').click(function(){
+           
+      var node = cy.$('#project');
+      var neighborhood = node.neighborhood().add(node);
+      cy.elements().addClass('faded');
+      neighborhood.removeClass('faded');
+    cy.on('tap', function(e){
+      if( e.cyTarget === cy ){
+        cy.elements().removeClass('faded');
+      }
+    });
+        
+    });
+    
+    $('#n3').click(function(){
+           
+      var node = cy.$('#notebook');
+      var neighborhood = node.neighborhood().add(node);
+      cy.elements().addClass('faded');
+      neighborhood.removeClass('faded');
+    cy.on('tap', function(e){
+      if( e.cyTarget === cy ){
+        cy.elements().removeClass('faded');
+      }
+    });
+        
+    });
+    
+      $('#n4').click(function(){
+           
+      var node = cy.$('#safety');
+      var neighborhood = node.neighborhood().add(node);
+      cy.elements().addClass('faded');
+      neighborhood.removeClass('faded');
+    cy.on('tap', function(e){
+      if( e.cyTarget === cy ){
+        cy.elements().removeClass('faded');
+      }
+    });
+        
+    });
+    
+   
+        
+    
 }); // on dom ready*/

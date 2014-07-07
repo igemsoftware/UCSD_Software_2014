@@ -2,15 +2,32 @@
 <html>
 <head>
 <meta name="description" content="[An example of getting started with Cytoscape.js]" />
+<link href="bootstrap.css" rel="stylesheet">
 <link href="cytos.css" rel="stylesheet">
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <meta charset=utf-8 />
 <title>Cytoscape.js initialisation</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <script src="http://cytoscape.github.io/cytoscape.js/api/cytoscape.js-latest/cytoscape.min.js"></script>
   <script src ="cytoj.js"></script>
 </head>
 <body> 
-  <div id="cy"></div>
+    <div id ="first">
+    <button id = "btnB" type="button" class="btn btn-success">Toggle</button><br><br>
+    <button id = "n1" type="button" class="btn btn-warning">About</button><br><br>
+    <button id = "n2" type="button" class="btn btn-warning">Project</button><br><br>
+    <button id = "n3" type="button" class="btn btn-warning">Notebook</button><br><br>
+    <button id = "n4" type="button" class="btn btn-warning">Safety</button>
+ 
+    </div>
   <!--<div id="info">Tap a node to highlight its neighbourhood</div>-->
+    <div id="cy"></div>
+  <script>
+            $(document).ready(function(){
+                //Hiding objects button
+                $('#btnB').click(function(){
+                    $('#cy').toggle('fast');
+                });
+            });
+        </script>
 </body>
 </html>
