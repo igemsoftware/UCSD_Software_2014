@@ -31,7 +31,7 @@
     <![endif]-->
   </head>
 
-  <body>
+  
 
     <div class="site-wrapper">
         <div class="site-wrapper-inner">
@@ -94,19 +94,16 @@
       <br><br><br><br>
       
     <div class="container">
-
-      <form class="form-signin" role="form">
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <input type="email" class="form-control" placeholder="Email address" required autofocus>
-        <input type="password" class="form-control" placeholder="Password" required>
-        <label class="checkbox">
-          <input type="checkbox" value="remember-me"> Remember me
-        </label>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-      </form>
-
+        <div class="form-signin">
+            <h2 class="form-signin-heading">Please sign in</h2>
+            <input id="email" type="email" class="form-control" placeholder="Email address" required autofocus>
+            <input id="password" type="password" class="form-control" placeholder="Password" required>
+            
+                <input id="remember-me" type="checkbox" value="remember-me"> Remember me
+            
+            <button id="sign-in-btn" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        </div>    
     </div> <!-- /container -->
-
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -114,6 +111,22 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="bootstrap.min.js"></script>
     <script src="docs.min.js"></script>
-    
-  </body>
+        <script>
+        $(document).ready(function(){
+           $('#sign-in-btn').click(function(){
+             /* alert('Clicked!');
+           if($('#remember-me').prop('checked') === true){
+               alert('Check, Mate!');
+               var email = $('#email').val();
+               var password = $('#password').val();
+               alert(String(email));
+               alert(String(password));*/
+               $.post("AuthenticationServlet",{"user":"someUser", "password":"somePassword"}, function(data){
+                   alert(data);
+               });
+           //};
+           });
+        });
+        </script>
+  
 </html>

@@ -33,6 +33,11 @@ public class AuthenticationServlet extends HttpServlet {
             //get json data parameters sent by client
             String user = request.getParameter("user");
             String password = request.getParameter("password");
+            try {
+                out.println("I tried.");
+            } finally {
+                out.close();
+            }
 
 //            create a new cookie named authenticate with value authenticated
             Cookie authenticateCookie = new Cookie("authenticate", "authenticated");
