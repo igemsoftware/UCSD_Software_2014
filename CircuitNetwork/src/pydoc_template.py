@@ -1,130 +1,101 @@
 '''Subtitle
 
-Descriptive paragraph 1
-
-Descriptive paragraph 2
+Descriptive paragraph
 
 ***************************************
 @author: Kwat
-@whatever 1: Whatever 1
-@whatever 2: Whatever 2
+@whatever: Whatever
 ***************************************
 
 '''
 
-# import package_1
-# import package_2
+# import package
 
-global_variable_1 = 'global variable 1'
-global_variable_2 = 'global variable 2'
+global_variable = 'global variable'
 
-class class_1:
-    '''Descriptive paragraph 1
-    
-    Descriptive paragraph 2
+class cls:
+    '''Descriptive paragraph
     
     '''
+   
+    class_variable = 'class variable'
     
-    def __init__(self, arg_1, arg_2):
-        '''Descriptive paragraph 1
-        
-        Descriptive paragraph 2
+    def __init__(self, arg):
+        '''Descriptive paragraph
         
         Arguments:
         
-        arg_1 - description 1
-        arg_2 - description 2
+        arg - description
         
         '''
         
-        self._arg_1_ = arg_1
-        self._arg_2_ = arg_2
-
-
-
-def function_1(arg_1, arg_2):
-    '''Descriptive paragraph 1
+        self._arg = arg
     
-    Descriptive paragraph 2
+    def class_function_1(self, arg):
+        '''Descriptive paragraph
+        
+        Arguments:
+        
+        arg - description
+        
+        '''
+        
+        print("class_function_1")
+    
+    #==============================
+    # Descriptive paragraph
+    #
+    # Arguments:
+    #
+    # arg - description
+    #
+    #==============================
+    def class_function_2(self, arg):
+        print("class_function_2")
+
+def function_1(arg):
+    '''Descriptive paragraph
     
     Arguments:
     
-    arg_1 - description 1
-    arg_2 - description 2
+    arg - description
     
     '''
     
     print("function_1")
 
-def function_2(arg_1, arg_2):
-    '''Descriptive paragraph 1
-    
-    Descriptive paragraph 2
-    
-    Arguments:
-    
-    arg_1 - description 1
-    arg_2 - description 2
-    
-    '''
-    
-    print("function_2")
-
 #==============================
-# Descriptive paragraph 1
-#
-# Descriptive paragraph 2
+# Descriptive paragraph
 #
 # Arguments:
 #
-# arg_1 - description 1
-# arg_2 - description 2
+# arg - description
 #
 #==============================
-def function_3(arg_1, arg_2):
-    print("function_3")
+def function_2(arg):
+    print("function_2")
 
-def _hidden_function_1(arg_1, arg_2):
-    '''Descriptive paragraph 1
-    
-    Descriptive paragraph 2
+def _hidden_function_1(arg):
+    '''Descriptive paragraph
     
     Arguments:
     
-    arg_1 - description 1
-    arg_2 - description 2
+    arg - description
     
     '''
     
     print("_hidden_function_1")
 
-def _hidden_function_2(arg_1, arg_2):
-    '''Descriptive paragraph 1
-    
-    Descriptive paragraph 2
-    
-    Arguments:
-    
-    arg_1 - description 1
-    arg_2 - description 2
-    
-    '''
-    
-    print("_hidden_function_2")
-
 #==============================
-# Descriptive paragraph 1
-#
-# Descriptive paragraph 2
+# Descriptive paragraph
 #
 # Arguments:
 #
-# arg_1 - description 1
-# arg_2 - description 2
+# arg - description
 #
 #==============================
-def _hidden_function_3(arg_1, arg_2):
-    print("_hidden_function_3")
+def _hidden_function_2(arg):
+    print("_hidden_function_2")
 
 
 
