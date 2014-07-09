@@ -1,4 +1,5 @@
 from SQLInterface import SQLInterface
+import sqlite3
 
 def SQLreader(file):
     # create the name of the table
@@ -24,6 +25,33 @@ def SQLreader(file):
     # ingore the first row, because it is the header of columns
     for i in range(1,len(table)):
         sql.SQLInsertWrapper(tableName,column,table[i][:8])
+
+
+    conn = sqlite3.connect('igemDatabase.db.txt')
+    c = conn.cursor()
+
+    c.execute('DROP TABLE igemDatabase')
+    # Create table
+    c.execute('CREATE TABLE igemDatabase (' +  ", ".join(column) + ')')
+
+
+    # Insert a row of data
+    for i in range(1,len(table)):
+        c.execute(sql.SQLInsertWrapper('igemDatabase',column,table[i][:8]))
+
+#c.execute(sql.SQLInsertWrapper("igemDatabase",column,table[2][:8]))
+
+
+    # Save (commit) the changes
+    conn.commit()
+
+    # We can also close the connection if we are done with it.
+    # Just be sure any changes have been committed or they will be lost.
+    conn.close()
+
+
+
+
 
 
 
