@@ -106,14 +106,14 @@
         <button class="btn btn-lg btn-primary btn-block" id = "sign" type="submit">Sign in</button>
       </form>-->
       <br><br>
-      <form action="AuthenticationServlet" method="POST">
+      <form action="AuthenticationServlet" id = "search">
         First Name: <input type="text" name="first_name">
         <br>
         Password: &nbsp <input type="password" name="last_name" />
         <br>
         <input type="submit" value="Log in" />
        </form>
-      
+      <div id ="hi"></div>
        <button id = "btn6">Display server response</button><br>
       
 
@@ -121,16 +121,25 @@
 
 
     <script>
-        
-       
-        
-        
+
         $(document).ready(function(){
                 $('#btn6').click(function(){
                 $.get("AuthenticationServlet",{key: "someINFO"}, function( data ) {
                     alert(data); 
                 });
-            }); });
+            }); 
+                $("#search").submit(function( event ) {
+ 
+                    // Stop form from submitting normally
+                    event.preventDefault();
+                    
+                    var posting = $.post( AuthenticationServlet, { first_name: "kp", last_name: "p" } );
+ 
+                    // Put the results in a div
+                    posting.done(function(){
+                        $( "#hi" ).append("<p>lol</p>");
+                        });
+                    });
         
         /*$(document).ready(function () {     
         $('#sign').click(function () {

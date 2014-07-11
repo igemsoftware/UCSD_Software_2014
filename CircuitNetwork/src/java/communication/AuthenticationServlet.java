@@ -11,7 +11,8 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import java.lang.Object;
+import org.json.simple.JSONObject; 
 /**
  *
  * @author Admin
@@ -58,9 +59,11 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         //response.sendRedirect("index.html");
+        JSONObject obj = new JSONObject();
+        String user = request.getParameter("key");
         PrintWriter out = response.getWriter();
         try {
-            out.println("data from the server");
+            out.println(user);//("data from the server");
         } finally {
             out.close();
         }
@@ -94,8 +97,8 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
     @Override
         protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //processPostRequest(request, response);
-        // Create cookies for first and last names.   
+        processPostRequest(request, response);
+        /** Create cookies for first and last names.   
       File file = new File ("info.txt");   
       PrintWriter out1 = new PrintWriter(file);
       try 
@@ -158,7 +161,7 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
         }
         finally {
             out1.close();
-        }
+        }*/
     }
 
     /**

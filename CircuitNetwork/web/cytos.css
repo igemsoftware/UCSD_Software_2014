@@ -7,6 +7,7 @@ body {
 }
 
 #cy {
+  //display: none;    
   height: 80%;
   width: 80%;
   position: absolute;
@@ -15,7 +16,9 @@ body {
   left: 175px;
   top: 40px;
   float: right;
+  //z-index: -1;
 }
+
 #first{
     float: left;
 }
@@ -26,4 +29,32 @@ body {
   z-index: -1;
   left: 1em;
   top: 1em;
+}
+
+//new code for expanding images
+.container {
+    //width:100%;
+    border:1px solid #d3d3d3;
+}
+.container div {
+    //width:100%;
+}
+.container .header {
+    background-color:#d3d3d3;
+    padding: 2px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.container .content {
+    display: none;
+    padding : 5px;
+}
+#book{
+    display: none;
+    z-index: 10;
+}
+#n4:hover{
+    width: 300px; /* width of image */
+    height: 200px; /* height of image */
+    background-image: url(http://www.pgecurrents.com/wp-content/uploads/2012/05/300x200_ggb_fort_point.jpg);
 }

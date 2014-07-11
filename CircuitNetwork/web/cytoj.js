@@ -1,86 +1,3 @@
-/*$(function(){ // on dom ready
-  
-$('#cy').cytoscape({
-  layout: {
-    name: 'preset',
-    padding: 10
-  },
-  
-  
-  style: cytoscape.stylesheet()
-    .selector('node')
-      .css({
-        'shape': 'data(faveShape)',
-        'width': 80,
-        'height': 80,
-        'background-fit': 'cover',
-        'border-color': '#000',
-        'border-width': 3,
-        'content': 'data(name)',
-        'text-valign': 'center',
-        'text-outline-width': 2,
-        'text-outline-color': 'data(faveColor)',
-        'background-color': 'data(faveColor)',
-        'color': '#fff'
-      })
-    .selector(':selected')
-      .css({
-        'border-width': 3,
-        'border-color': '#333'
-      })
-    .selector('edge')
-      .css({
-        'opacity': 0.666,
-        'width': 5,
-        'target-arrow-shape': 'triangle',
-        'source-arrow-shape': 'circle',
-        'line-color': 'data(faveColor)',
-        'source-arrow-color': 'data(faveColor)',
-        'target-arrow-color': 'data(faveColor)'
-      })
-    .selector('edge.questionable')
-      .css({
-        'line-style': 'dotted',
-        'target-arrow-shape': 'diamond'
-      })
-    .selector('.faded')
-      .css({
-        'opacity': 0.25,
-        'text-opacity': 0
-      }),
-  
-  elements: {
-    nodes: [
-      { data: { id: 'j', name: 'Jerry', weight: 40, faveColor: '#6FB1FC', faveShape: 'triangle' } },
-      { data: { id: 'e', name: 'Elaine', weight: 50, faveColor: '#EDA1ED', faveShape: 'ellipse' } },
-      { data: { id: 'k', name: 'Kramer', weight: 40, faveColor: '#86B342', faveShape: 'octagon' } },
-      { data: { id: 'g', name: 'George', weight: 60, faveColor: '#F5A45D', faveShape: 'rectangle' } }
-    ],
-    edges: [
-      { data: { source: 'j', target: 'e', faveColor: '#6FB1FC' } },
-      { data: { source: 'j', target: 'k', faveColor: '#6FB1FC' } },
-      { data: { source: 'j', target: 'g', faveColor: '#6FB1FC' } },
-     
-      { data: { source: 'e', target: 'j', faveColor: '#EDA1ED' } },
-      { data: { source: 'e', target: 'k', faveColor: '#EDA1ED' }, classes: 'questionable' },
-      
-      { data: { source: 'k', target: 'j', faveColor: '#86B342' } },
-      { data: { source: 'k', target: 'e', faveColor: '#86B342' } },
-      { data: { source: 'k', target: 'g', faveColor: '#86B342' } },
-      
-      { data: { source: 'g', target: 'j', faveColor: '#F5A45D' } }
-    ]
-  },
-  
-  ready: function(){
-    window.cy = this;
-    
-    // giddy up
-  }
-});
-
-}); // on dom ready*/
-
 $(function(){ // on dom ready
 
 $('#cy').cytoscape({
@@ -105,7 +22,8 @@ $('#cy').cytoscape({
         'width': 55,
         'height': 55,
         'border-color': '#fff',
-        'background-color': 'data(faveColor)'
+        'background-color': 'data(faveColor)',
+        'z-index': '-1'
       })
     .selector('edge')
       .css({
@@ -136,6 +54,11 @@ $('#cy').cytoscape({
         'background-image': 'igemlogo.png',
         'height': 100,
         'width': 100
+      })
+      
+      .selector('#about3')
+      .css({
+        'z-index': -1
       })
       
       .selector('#byitself')
@@ -207,12 +130,11 @@ $('#cy').cytoscape({
     window.cy = this;
     
     // giddy up...
-    
     cy.$('#home').position({
   x: 680,
   y: 308
 }),
-   
+ 
         cy.$('#about').position({
   x: 530,
   y: 220
@@ -290,7 +212,21 @@ $('#cy').cytoscape({
     
     cy.elements().unselectify();
     
-    cy.on('tap', 'node', function(e){
+    cy.on('tap', '#safety', function(e){
+      //alert("bellooo");
+      //$('#cy').hide();
+      cy.elements().addClass('faded');
+      $('#book').show();
+      
+      cy.on('tap', function(e){
+      if( e.cyTarget === cy ){
+        cy.elements().removeClass('faded');
+        $('#book').hide();
+      }
+    });
+    });
+    
+    /*cy.on('tap', 'node', function(e){
       var node = e.cyTarget; 
       var neighborhood = node.neighborhood().add(node);
       
@@ -302,7 +238,7 @@ $('#cy').cytoscape({
       if( e.cyTarget === cy ){
         cy.elements().removeClass('faded');
       }
-    });
+    });*/
   }
 });
      $('#n1').click(function(){
@@ -348,21 +284,22 @@ $('#cy').cytoscape({
         
     });
     
-      $('#n4').click(function(){
-           
-      var node = cy.$('#safety');
-      var neighborhood = node.neighborhood().add(node);
-      cy.elements().addClass('faded');
-      neighborhood.removeClass('faded');
-    cy.on('tap', function(e){
-      if( e.cyTarget === cy ){
-        cy.elements().removeClass('faded');
-      }
-    });
-        
-    });
-    
    
-        
+        $(".header").click(function () {
+
+    $header = $(this);
+    //getting the next element
+    $content = $header.next();
+    //open up the content needed - toggle the slide- if visible, slide up, if not slidedown.
+    $content.slideToggle(500, function () {
+        //execute this after slideToggle is done
+        //change text of header based on visibility of content div
+        $header.text(function () {
+            //change text based on condition
+            return $content.is(":visible") ? "Collapse" : "Expand";
+        });
+    });
+
+});
     
 }); // on dom ready*/
