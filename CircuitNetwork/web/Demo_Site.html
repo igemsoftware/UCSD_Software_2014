@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>iGem Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <meta name="description" content="[ Cytoscape.js images]" />   
+
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+        <link rel="stylesheet" href="main.css">
+        <script type="text/javascript" src="Demo_JS.js"></script>
+
+
+
+
+    </head>
+
+    <body>
+        <form name="myform" action="AuthenticationServlet">
+            Enter name: <input type="text" name="customer"/>
+
+            <input type="button" value="Set Cookie" onclick="CookieGenerator();"/><br>
+
+            Log Out: <input type="button" value="Delete Cookie" onclick ="CookieDeletion();"/>
+
+            <div id="hello">
+                <button id="showIt"> Visualize it </button>  
+                <button id="ping">Ping</button>
+
+            </div>
+        </form>
+        
+    </body>    
+</html>

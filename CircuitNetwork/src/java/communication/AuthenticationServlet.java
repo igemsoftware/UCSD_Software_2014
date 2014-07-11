@@ -1,4 +1,4 @@
-package Communication;
+package communication;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -11,6 +11,8 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
 
 /**
  *
@@ -42,11 +44,11 @@ public class AuthenticationServlet extends HttpServlet {
             response.addCookie(authenticateCookie);
             
     }
-
+    
     
 
-
-/**
+    
+/*
  * Processes requests for HTTP <code>POST</code> methods.
  *
  * @param request servlet request
@@ -57,13 +59,58 @@ public class AuthenticationServlet extends HttpServlet {
 protected void processGetRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        response.sendRedirect("index.html");
+         
+
+        
+        //redirect the page to another page (can call for login button)
+//        response.sendRedirect("index.html");
         PrintWriter out = response.getWriter();
-        try {
-        } finally {
-            out.close();
-        }
-    }
+      
+           
+           String line = null;
+           System.out.print("Type in your command");
+           
+           //wraps the BufferedReader around the InputStreamReader
+           //Reads text from a character-input stream, buffering characters 
+           //so as to provide for the efficient reading of characters, arrays, and lines.
+           BufferedReader readMe = new BufferedReader(new InputStreamReader(System.in));
+           try{
+                
+                //reads the line from the command line
+                line = readMe.readLine();
+               
+                /*provides methods for performing input from the process, 
+                 *performing output to the process, waiting for the process to 
+                 *complete, checking the exit status of the process, 
+                 *and destroying (killing) the process.
+                 */
+                Process process = Runtime.getRuntime().exec(line);
+            //Returns the output stream connected to the normal input of the subprocess
+            OutputStream outputStream = process.getOutputStream();
+            out.write(outputStream.toString());
+               
+                 } catch (IOException ioe) {
+         System.out.println("Error Error");
+         System.exit(1);
+            }
+            
+            //close the reader 
+            readMe.close();
+            System.out.println("Thank you ");
+        
+        
+      out.write("Good things happened");
+       
+       
+
+       
+       
+        
+        
+       
+}
+   
+  
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -76,9 +123,9 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
      * @throws IOException if an I/O error occurs
      */
     @Override
-        protected void doGet(HttpServletRequest request, HttpServletResponse response)
+        protected void doGet(HttpServletRequest request, HttpServletResponse response )
             throws ServletException, IOException {
-        processGetRequest(request, response);
+           processGetRequest(request, response);
     }
 
     /**
