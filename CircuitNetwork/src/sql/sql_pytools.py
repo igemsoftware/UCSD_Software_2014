@@ -3,11 +3,6 @@
 # date: 07/02/14
 # description: SQLwrappers and testing
 
-# static variables for tables in the sql database
-DEVICES_COLS = ['Name', 'Components', 'Authors', 'Article', 'Journal', 'Image_Path']
-TRANSITIONS_COLS = ['Input', 'Output', 'Function']
-INTERMEDIATES_COLS = ['Name', 'Type', 'Annotation']
-
 def sql_insert(table_name,cols,new_row):
     '''
     Constructs a string to insert a row into a sql table
