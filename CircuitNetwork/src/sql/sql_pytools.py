@@ -1,68 +1,14 @@
 # filename: SQLInterface
-# author: Joaquin Reyna
+# author: Joaquin Reyna and Fred Layao
 # date: 07/02/14
 # description: SQLwrappers and testing
 
-import sqlite3
-
 # static variables for tables in the sql database
-devices_cols = ['Name', 'Components', 'Authors', 'Article', 'Journal', 'Image_Path']
-transitions_cols = ['Input', 'Output', 'Function']
-intermediates_cols = ['Name', 'Type', 'Annotation']
+DEVICES_COLS = ['Name', 'Components', 'Authors', 'Article', 'Journal', 'Image_Path']
+TRANSITIONS_COLS = ['Input', 'Output', 'Function']
+INTERMEDIATES_COLS = ['Name', 'Type', 'Annotation']
 
-class sql_table:    
-    '''
-    SQL table object used to test SQL wrappers.
-    ''' 
-    # Static variables    
-    TABLE_NAME = 'running'
-    COLUMNS = ['Date', 'Miles', 'Trail']
-    
-    
-    def __init__(self):
-        '''
-        This is the constructor for a table for SQL testing
-        ''' 
-        # Stores database on local machine
-        self.db = sqlite3.connect(':memory:')
-        # Formats SQL output string
-        self.db.text_factory = str
-        cur = self.db.cursor()
-        self.init_db(cur)
-        self.fill_table(cur,[('2014-06-03',3,'Coopers'), 
-                            ('2014-06-05',5,'Bite Back'),
-                            ('2014-06-07',3,'Anza Borrego'),
-                            ('2014-06-11',14,'Broken Hill')]
-                        )
-        # Commits the SQL commands to the current machine
-        self.db.commit()
-        
-    def init_db(self, cur):
-        '''
-        The init_db(...) method initiatilizes the SQL table.
-        '''
-        cur.execute('CREATE TABLE running({0} DATE, {1} INTEGER(15), {2} VARCHAR(15));'.format(self.COLUMNS[0],self.COLUMNS[1],self.COLUMNS[2]))
-            
-    def fill_table(self, cur, itr):
-        ''' 
-        Populates the table which cur points to using a list of tuples.
-        '''
-        cur.executemany('''
-            INSERT INTO running 
-            (Date,Miles,Trail)
-            VALUES (?,?,?)''',itr)
-            
-    def print_table(self):
-        '''
-        Prints the SQL table a row at a time.
-        '''
-        
-        for row in self.db.execute("SELECT * FROM " + self.TABLE_NAME):
-            print row
-        print '\n' + '*' * 10, 'Done', '*' * 10 + '\n'
-        
-
-def sql_insert_wrapper(table_name,cols,new_row):
+def sql_insert(table_name,cols,new_row):
     '''
     Constructs a string to insert a row into a sql table
     '''
@@ -80,7 +26,7 @@ def sql_insert_wrapper(table_name,cols,new_row):
     values = 'Values (' + ','.join(new_row) + ')'
     return command + '\n\t' + variables + '\n\t' + values + ';'
     
-def sql_update_wrapper(table_name, cols = [], values = [], w_cols = [], w_ops = [],w_values = [],w_conts = []):
+def sql_update(table_name, cols = [], values = [], w_cols = [], w_ops = [],w_values = [],w_conts = []):
     '''
     Constructs a string to update a value in a sql table
     param: table_name, the name of the SQL table
@@ -110,7 +56,7 @@ def sql_update_wrapper(table_name, cols = [], values = [], w_cols = [], w_ops = 
         return update_str + '\n\t' + set_str + '\n\t' + where_str + ';'
     return update_str + '\n\t' + set_str + ';'    
         
-def sql_advanced_select(self, table, column, w_col = None, w_opt = None,
+def sql_select(self, table, column, w_col = None, w_opt = None,
     w_var = None,w_bool = None, group = None, h_col = None, h_bool = None, h_value = None):
     '''
     advanced SQL select function
@@ -164,21 +110,3 @@ def sql_advanced_select(self, table, column, w_col = None, w_opt = None,
     Q +=";"
     
     return Q
-
-
-
-    
-    
-    
-#Running the code using an SQLInterface object to comvert information from
-#Python in to SQL commands. A running_table database is also                
-base = sql_table()
-base.db.execute(sql_insert_wrapper(base.TABLE_NAME,base.COLUMNS,['2014-06-30',14,'Chunk Rock']))
-base.print_table()
-print sql_update_wrapper(base.TABLE_NAME,['Miles'], [80] ,['Miles'], ['>'], [10])
-base.db.execute(sql_update_wrapper(base.TABLE_NAME,['Miles'], [80] ,['Miles'], ['>'], [10]))
-base.print_table()
-base.db.execute(sql_update_wrapper(base.TABLE_NAME, ['Miles'], [15]))
-base.print_table()
-
-insert_into_database(['5', '4','3','2','1'])
