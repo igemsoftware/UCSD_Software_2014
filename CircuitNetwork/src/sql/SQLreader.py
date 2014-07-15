@@ -52,46 +52,65 @@ def SQLreader(file):
     c.execute("SELECT NAME,COMPONENT,AUTHOR,ARTICLE,JOURNAL,YEAR FROM igemDatabase")
     device = c.fetchall()
 
+
     c.execute("SELECT INPUT,OUTPUT FROM igemDatabase")
-    intermediate = c.fetchall()
+    transition = c.fetchall()
 
-    '''
-    for row in rows:
-        print row
-    '''
-    
-    
-    connD = sqlite3.connect('igemDBdevice.db.txt')
-    d = connD.cursor()
-    d.execute('DROP TABLE IF EXISTS igemDBdevice')
+
+    deviceL = []
+    transitionL = []
+    for i in range(len(device)):
+        print list(device[i])
+        # !!!!!!!!!!!
+        #row = [device[i]].append("[]")
+        tuple(row)
+        deviceL.append(rowT)
+        #!!!!!!!!! to be modified later
+
+    for i in range(len(transition)):
+        transitionL.append(tuple(list(transition[i]).append('[]')))
+        # !!!!!!!!! tobe modified later
+
+    c.execute('DROP TABLE IF EXISTS Devices')
     # Create table
-    d.execute('CREATE TABLE igemDBdevice (NAME,COMPONENT,AUTHOR,ARTICLE,JOURNAL,YEAR)')
-    d.executemany('INSERT INTO igemDBdevice VALUES (?,?,?,?,?,?)', device)
-    connD.commit()
+    c.execute('CREATE TABLE Devices (NAME,COMPONENT,AUTHOR,ARTICLE,JOURNAL,YEAR,IMAGE_PATH)')
+    c.executemany('INSERT INTO Devices VALUES (?,?,?,?,?,?,?)', device)
+    conn.commit()
 
-    d.execute("SELECT * FROM igemDBdevice")
+    c.execute("SELECT * FROM Devices")
     
-    device = d.fetchall()
+    device = c.fetchall()
     
     for row in device:
         print row
 
 
-    connI = sqlite3.connect('igemDBintermediate.db.txt')
-    i = connI.cursor()
-    i.execute('DROP TABLE IF EXISTS igemDBintermediate')
+    c.execute('DROP TABLE IF EXISTS Transitions')
     # Create table
-    i.execute('CREATE TABLE igemDBintermediate (INPUT,OUTPUT)')
-    i.executemany('INSERT INTO igemDBintermediate VALUES (?,?)', intermediate)
-    connI.commit()
+    c.execute('CREATE TABLE Transitions (INPUT,OUTPUT,FUNCTION)')
+    c.executemany('INSERT INTO Transitions VALUES (?,?,?)', transition)
+    conn.commit()
 
-    i.execute("SELECT * FROM igemDBintermediate")
-    intermediate = i.fetchall()
-    for row in intermediate:
+    c.execute("SELECT * FROM Transitions")
+    transition = c.fetchall()
+    for row in transition:
         print row
 
 
+    c.execute('DROP TABLE IF EXISTS Intermediates')
 
+    c.execute('CREATE TABLE Intermediates (NAME, TYPE, ANNOTATION)')
+
+
+
+    conn.commit()
+
+
+    
+
+
+    print type(transition)
+    print type(transition[0])
 
 
 
