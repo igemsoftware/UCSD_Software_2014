@@ -2,6 +2,7 @@ from SQLInterface import SQLInterface
 import sqlite3
 
 def SQLreader(file):
+    ######################## read txt file #####################################
     # create the name of the table
     # the name of table is the same as the file name without ".txt"
     tableName = file[:(len(file)-4)]
@@ -20,12 +21,8 @@ def SQLreader(file):
     # items in the list
     column = table[0][:8]
 
-
+    ###################### create database #####################################
     sql = SQLInterface()
-    # ingore the first row, because it is the header of columns
-    for i in range(1,len(table)):
-        sql.SQLInsertWrapper(tableName,column,table[i][:8])
-
 
     conn = sqlite3.connect('igemDatabase.db.txt')
     c = conn.cursor()
