@@ -7,12 +7,9 @@
         <meta name="viewport" content="width=device-width">
         <meta name="description" content="[ Cytoscape.js images]" />   
 
-        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
-        <link rel="stylesheet" href="main.css">
-        <script type="text/javascript" src="Demo_JS.js"></script>
 
 
 
@@ -29,10 +26,26 @@
 
             <div id="hello">
                 <button id="showIt"> Visualize it </button>  
-                <button id="ping">Ping</button>
-
             </div>
+            <input id="command">
+            <button id="ping">Ping</button>
+
         </form>
-        
+        <script>
+            $(document).ready(function() {
+
+                $('#ping').click(function(e) {
+                    var commandString = $('#command').val()
+                    var data = {command: commandString};
+                    $.get("AuthenticationServlet", data, function(data) {
+
+                        alert(data);
+                    });
+                    e.preventDefault()
+                });
+            });
+        </script>
+
     </body>    
+
 </html>
