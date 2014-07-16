@@ -14,14 +14,18 @@ and open the template in the editor.
     <link rel="stylesheet" type="text/css" href="cyto.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://cytoscape.github.io/cytoscape.js/api/cytoscape.js-latest/cytoscape.min.js"></script>
-    <script src="cytotest.js"></script>
+    <script src="CytoImgWip.js"></script>
 
 </head>
     
 
 <body>
 
-    <div id="cy"></div>
+    <div id="cy">
+        <div id="a" class="secret"><img alt="World Cup" src="http://www.capitalfm.co.ke/sports/files/2013/10/WORLD-CUP-TROPHY.jpg"></div>
+        <div id="b" class="secret"><img alt="Olympic" src="http://2.bp.blogspot.com/-EGiCb_7TQsw/TjtRrxCdT5I/AAAAAAAAAG0/JTgI_bcO1yY/s400/olympic+symbol.jpg"></div>
+    </div>
+    
     <div id="right-bar">
         <h3 id="right-bar,head">Working Space</h3>
         <p>"blah blah blah"</p>
@@ -31,8 +35,22 @@ and open the template in the editor.
         <input id="edit" type="text" placeholder="Test">
         <button id="btnA" type="submit">Submit</button>
         <button id="btnC">Add Node</button>
+        <button id="btnZ">Export to JSON</button>
+        <!--Unit Test. Button for test node.
+        <button id="btnY">Test Node</button>
+        -->
+        <button id="btnX">Load</button>
+        <!--Unit Test. Button for $obj test. 
+        <button id="btnV">Obj Call</button>
+        -->
         <script>
             $(document).ready(function(){
+                //cyto json
+                var $obj = "zero";
+                //Unit Test. Calls btnV to check thta $obj is JSON object
+                /*$('#btnV').click(function(){
+                    alert($obj);
+                });*/    
                 //storing and changing data button
                 $('#btnA').click(function(){
                     var edit = $('#edit').val();
@@ -42,6 +60,31 @@ and open the template in the editor.
                 $('#btnB').click(function(){
                     $('#cy').toggle('fast');
                 });
+                //Unit Test. Gives a test node to see if loading works
+                //test node load
+                /*$('#btnY').click(function(){
+                    cy.load([{
+                            group:'nodes',
+                            data: {id:"home", position:{x: 200, y:50}, favShape:'star'}
+                    }]);
+                });*/
+                //Loads Json obj
+                //Current issues: Positions don't render, function breaks when
+                //both node's images are triggered. Edit: fnct is just glitchy.
+                $('#btnX').click(function(){
+                    //cy.load() only takes elements, not the entire init json
+                    //that is received by calling cy.json()
+                    cy.load($obj.elements);
+                    //Unit Test. Checks that load was done successfully.
+                    //alert("loaded");
+                });
+                //export current graph to JSON btn
+                $('#btnZ').click(function(){
+                    $obj = cy.json();
+                    //Unit Test. Checks that $obj is now JSON
+                    //alert($obj);
+                });
+                
             });
         </script>
     </div>
