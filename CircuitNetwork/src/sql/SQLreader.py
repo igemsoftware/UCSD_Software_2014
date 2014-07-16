@@ -32,7 +32,7 @@ def SQLreader(file):
 
     c.execute('DROP TABLE IF EXISTS igemDatabase')
     # Create table
-    c.execute('CREATE TABLE igemDatabase (' +  ", ".join(column) + ')')
+    c.execute('CREATE TABLE igemDatabase (' +  ', '.join(column) + ')')
 
 
     # Insert a row of data
@@ -40,15 +40,13 @@ def SQLreader(file):
         c.execute(sql.SQLInsertWrapper('igemDatabase',column,table[i][:8]))
 
 
-#c.execute('SELECT * FROM igemDatabase;' )
-#print c.fetchone()
-
-
+    #c.execute('SELECT * FROM igemDatabase;' )
+    #print c.fetchone()
 
     # Save (commit) the changes
     conn.commit()
 
-
+    '''
     c.execute("SELECT NAME,COMPONENT,AUTHOR,ARTICLE,JOURNAL,YEAR FROM igemDatabase")
     device = c.fetchall()
 
@@ -70,53 +68,89 @@ def SQLreader(file):
     for i in range(len(transition)):
         transitionL.append(tuple(list(transition[i]).append('[]')))
         # !!!!!!!!! tobe modified later
+    '''
+
+
+    ##################### create Devices table #################################
+    index = [0,1,4,5,6,7]
+    deviceCol = [table[0][x] for x in index]
+    deviceCol.append("IMAGE_PATH")
+    device = [table[x] for x in range(1,len(table)) ]
+    device = [[device[y][x] for x in index] for y in range(len(device))]
+    for i in range(len(device)):
+        device[i].append("[ ]")
 
     c.execute('DROP TABLE IF EXISTS Devices')
     # Create table
-    c.execute('CREATE TABLE Devices (NAME,COMPONENT,AUTHOR,ARTICLE,JOURNAL,YEAR,IMAGE_PATH)')
-    c.executemany('INSERT INTO Devices VALUES (?,?,?,?,?,?,?)', device)
+    c.execute('CREATE TABLE Devices (' + ', '.join(deviceCol) + ')')
+    for i in range(len(device)):
+        c.execute(sql.SQLInsertWrapper("Devices",deviceCol,device[i]))
     conn.commit()
 
+    ## print table ##
     c.execute("SELECT * FROM Devices")
-    
-    device = c.fetchall()
-    
-    for row in device:
+    tableD = c.fetchall()
+    for row in tableD:
         print row
+    print '*'*10 + " END " + '*'*10
 
+
+    ##################### create Transitions table #############################
+
+    #input_species: input; output_species: device name
+    #so I use 0 to represent this.
+    index = [2,0]
+    transition  = [[table[y][x] for x in index] for y in range(1,len(table))]
+    for i in range(len(transition)):
+        transition[i].append("0")
+    #input_species: device name; output_species: output
+    #so I use 1 to represent this.
+    index = [0,3]
+    transition.extend([[table[y][x] for x in index] for y in range(1,len(table))])
+    for i in range(len(transition)/2, len(transition)):
+        transition[i].append("1")
+
+    for i in range(len(transition)):
+        transition[i].append('[ ]')
+    transitionCol = ['INPUT_SPECIES','OUTPUT_SPECIES','TYPE','FUNCTION']
 
     c.execute('DROP TABLE IF EXISTS Transitions')
     # Create table
-    c.execute('CREATE TABLE Transitions (INPUT,OUTPUT,FUNCTION)')
-    c.executemany('INSERT INTO Transitions VALUES (?,?,?)', transition)
+    c.execute('CREATE TABLE Transitions ('+ ', '.join(transitionCol) +')')
+
+    for i in range(len(transition)):
+        c.execute(sql.SQLInsertWrapper("Transitions",transitionCol,transition[i]))
     conn.commit()
 
+    ## print table ##
     c.execute("SELECT * FROM Transitions")
-    transition = c.fetchall()
-    for row in transition:
+    tableT = c.fetchall()
+    for row in tableT:
         print row
+    print '*'*10 + " END " + '*'*10
 
 
+
+
+    ##################### create Intermediates table ###########################
+    
+    intermediates = [[table[y][0] ]for y in range(1, len(table))]
+    for i in range(len(intermediates)):
+        intermediates[i].extend(["[ ]","[ ]"])
+
+    intermediatesCol = ['NAME','TYPE','ANNOTATION']
     c.execute('DROP TABLE IF EXISTS Intermediates')
-
-    c.execute('CREATE TABLE Intermediates (NAME, TYPE, ANNOTATION)')
-
-
+    c.execute('CREATE TABLE Intermediates ('+ ', '.join(intermediatesCol)+')')
+    for i in range(len(intermediates)):
+        c.execute(sql.SQLInsertWrapper("Intermediates",intermediatesCol,intermediates[i]))
 
     conn.commit()
-
-
-    
-
-
-    print type(transition)
-    print type(transition[0])
-
-
-
-
-
-
+    ## print table ##
+    c.execute("SELECT * FROM Intermediates")
+    tableI = c.fetchall()
+    for row in tableI:
+        print row
+    print '*'*10 + " END " + '*'*10
 
 
 
