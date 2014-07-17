@@ -30,12 +30,35 @@
 
             
 
+<<<<<<< HEAD
             
+=======
+            <div id="hello">
+                <button id="showIt"> Visualize it </button>  
+            </div>
+>>>>>>> 8dcc12ab21c9d1fb8f47ed0fe4837624a02b32b2
             <input id="command">
             <button id="ping">Ping</button>
 
         </form>
+<<<<<<< HEAD
         
+=======
+        <script>
+            $(document).ready(function() {
+
+                $('#ping').click(function(e) {
+                    var commandString = $('#command').val()
+                    var data = {command: commandString};
+                    $.get("AuthenticationServlet", data, function(data) {
+
+                        alert(data);
+                    });
+                    e.preventDefault()
+                });
+            });
+        </script>
+>>>>>>> 8dcc12ab21c9d1fb8f47ed0fe4837624a02b32b2
 
     </body>    
 

@@ -71,6 +71,7 @@ public class AuthenticationServlet extends HttpServlet {
         
         out.print("Logged out");
         
+        
 
     }
 
