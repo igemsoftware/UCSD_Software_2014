@@ -26,7 +26,7 @@ $(document).ready(function() {
         });
     });
     
-   $('#login').click(function(){
+   $('#login').click(function(e){
       var user = $('#user').val();
       var password =$('#password').val();
       alert("you are logged in");
@@ -35,6 +35,7 @@ $(document).ready(function() {
           alert(data);
           alert("whats up");
       });
+      e.preventDefault()
     });
     
     $('#LogOut').click(function(){
