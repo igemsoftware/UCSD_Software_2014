@@ -1,4 +1,4 @@
-from SQLInterface import SQLInterface
+from sql_pytools import *
 import sqlite3
 
 def SQLreader(file):
@@ -22,9 +22,9 @@ def SQLreader(file):
     column = table[0][:8]
 
     ###################### create database #####################################
-    sql = SQLInterface()
 
     conn = sqlite3.connect('igemDatabase.db.txt')
+    conn.text_factory = str
     c = conn.cursor()
 
     c.execute('DROP TABLE IF EXISTS igemDatabase')
@@ -34,7 +34,7 @@ def SQLreader(file):
 
     # Insert a row of data
     for i in range(1,len(table)):
-        c.execute(sql.SQLInsertWrapper('igemDatabase',column,table[i][:8]))
+        c.execute(sql_insert('igemDatabase',column,table[i][:8]))
 
 
     #c.execute('SELECT * FROM igemDatabase;' )
@@ -81,15 +81,16 @@ def SQLreader(file):
     # Create table
     c.execute('CREATE TABLE Devices (' + ', '.join(deviceCol) + ')')
     for i in range(len(device)):
-        c.execute(sql.SQLInsertWrapper("Devices",deviceCol,device[i]))
+        c.execute(sql_insert("Devices",deviceCol,device[i]))
     conn.commit()
 
     ## print table ##
+    print '\n' + '*'*20 + " printing table Devices " + '*'*20 + '\n'
     c.execute("SELECT * FROM Devices")
     tableD = c.fetchall()
     for row in tableD:
         print row
-    print '*'*10 + " END " + '*'*10
+    print '\n' + '*'*20 + " END " + '*'*20 + '\n'
 
 
     ##################### create Transitions table #############################
@@ -116,15 +117,17 @@ def SQLreader(file):
     c.execute('CREATE TABLE Transitions ('+ ', '.join(transitionCol) +')')
 
     for i in range(len(transition)):
-        c.execute(sql.SQLInsertWrapper("Transitions",transitionCol,transition[i]))
+        c.execute(sql_insert("Transitions",transitionCol,transition[i]))
     conn.commit()
 
     ## print table ##
+    print '\n' + '*'*20 + " printing table Transitions " + '*'*20 + '\n'
     c.execute("SELECT * FROM Transitions")
     tableT = c.fetchall()
     for row in tableT:
         print row
-    print '*'*10 + " END " + '*'*10
+
+    print '\n' + '*'*20 + " END " + '*'*20 + '\n'
 
 
 
@@ -139,15 +142,16 @@ def SQLreader(file):
     c.execute('DROP TABLE IF EXISTS Intermediates')
     c.execute('CREATE TABLE Intermediates ('+ ', '.join(intermediatesCol)+')')
     for i in range(len(intermediates)):
-        c.execute(sql.SQLInsertWrapper("Intermediates",intermediatesCol,intermediates[i]))
+        c.execute(sql_insert("Intermediates",intermediatesCol,intermediates[i]))
 
     conn.commit()
     ## print table ##
+    print '\n' + '*'*20 + " printing table Intermediates " + '*'*20 + '\n'
     c.execute("SELECT * FROM Intermediates")
     tableI = c.fetchall()
     for row in tableI:
         print row
-    print '*'*10 + " END " + '*'*10
+    print '\n' + '*'*20 + " END " + '*'*20 + '\n'
 
 
 
