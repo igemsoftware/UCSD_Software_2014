@@ -104,3 +104,13 @@ if __name__ == '__main__':
 
 
 
+### Prints out documentation (doc comments) 
+### for each function or class in a terminal.
+print cls.__doc__
+#print class_function_1.__doc__
+print function_1.__doc__
+
+### Displays a pydoc screen for only the selected function or class.
+help(cls)
+#help(class_function_1)
+help(function_1)
