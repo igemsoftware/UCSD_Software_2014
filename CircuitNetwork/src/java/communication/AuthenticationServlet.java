@@ -37,7 +37,7 @@ public class AuthenticationServlet extends HttpServlet {
         //the user and password id's of the login page 
         String user = request.getParameter("user");
         String password = request.getParameter("password");
-        
+        response.sendRedirect("Demo_Site_Login.html");
         //System.out.println(user);
         //System.out.println(password);
         out.write("authentication processed");
@@ -53,7 +53,7 @@ public class AuthenticationServlet extends HttpServlet {
         //set the age to two hours        
         authenticateCookie.setMaxAge(60 * 120);
         //set to the next page
-        response.sendRedirect("Demo_Site_Login.html");
+         
         }
         
         else{
