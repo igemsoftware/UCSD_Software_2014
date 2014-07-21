@@ -10,3 +10,9 @@
 10. sitemap.html: The sitemap. 
 11. custom.css: My own CSS (has just 1 class right now; will add some more later as and when needed). 
 12. buttons.html: This file has jQuery code for playing around with buttons on a simple HTML page. 
+
+
+NOTES: 
+The log in page allows you to send a request to the pigeon server (just click on the 'log in' button for this). I made our server re-direct to the URL of the image reutrned from the pigeon server. 
+
+The sitemap is now dynamic (it's still cytoscape.js though, and we might be moving to anuglar.js soon). Hover over the 'Safety' node to see an image. Click anywhere on the graph to hide the image and get back the nodes. 
