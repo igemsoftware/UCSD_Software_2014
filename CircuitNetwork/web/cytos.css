@@ -1,13 +1,14 @@
 body { 
   font: 14px helvetica neue, helvetica, arial, sans-serif;
   color: black;
-  background-image: url(http://wallpaper-download.net/wallpapers/random-wallpapers-plain-blue-wallpaper-wallpaper-33973.jpg);
+  //background-image: url(http://wallpaper-download.net/wallpapers/random-wallpapers-plain-blue-wallpaper-wallpaper-33973.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 #cy {
-  //display: none;    
+  //display: none;   
+  background-image: url(http://wallpaper-download.net/wallpapers/random-wallpapers-plain-blue-wallpaper-wallpaper-33973.jpg);
   height: 80%;
   width: 80%;
   position: absolute;
@@ -58,3 +59,11 @@ body {
     height: 200px; /* height of image */
     background-image: url(http://www.pgecurrents.com/wp-content/uploads/2012/05/300x200_ggb_fort_point.jpg);
 }
+
+//Cite Animate.css GitHub project here
+#n5{
+  animation-duration: 5s;
+  animation-delay: 4s;
+   animation-iteration-count: infinite;
+}
+

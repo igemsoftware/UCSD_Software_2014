@@ -106,7 +106,7 @@
         <button class="btn btn-lg btn-primary btn-block" id = "sign" type="submit">Sign in</button>
       </form>-->
       <br><br>
-      <form action="AuthenticationServlet" id = "search">
+      <form action="AuthenticationServlet" method = post >
         First Name: <input type="text" name="first_name">
         <br>
         Password: &nbsp <input type="password" name="last_name" />
@@ -121,8 +121,17 @@
 
 
     <script>
-
+        
         $(document).ready(function(){
+                $('#btn6').click(function(){
+                $.post("AuthenticationServlet", function( data ) {
+                    //alert("waiting..");
+                    alert(data); 
+                    //alert("done!");
+                });
+            }); 
+        });
+        /*$(document).ready(function(){
                 $('#btn6').click(function(){
                 $.get("AuthenticationServlet",{key: "someINFO"}, function( data ) {
                     alert(data); 
@@ -139,7 +148,7 @@
                     posting.done(function(){
                         $( "#hi" ).append("<p>lol</p>");
                         });
-                    });
+                    });*/
         
         /*$(document).ready(function () {     
         $('#sign').click(function () {

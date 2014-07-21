@@ -1,7 +1,9 @@
 package communication;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,7 +14,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.lang.Object;
-import org.json.simple.JSONObject; 
+import java.net.URL;
+import java.nio.ByteBuffer;
+import java.nio.channels.Channels;
+import java.nio.channels.ReadableByteChannel;
+import java.nio.channels.WritableByteChannel;
+//import org.json.simple.JSONObject; 
 /**
  *
  * @author Admin
@@ -32,15 +39,39 @@ public class AuthenticationServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
             //get json data parameters sent by client
-            String user = request.getParameter("user");
-            String password = request.getParameter("password");
-
-//            create a new cookie named authenticate with value authenticated
-            Cookie authenticateCookie = new Cookie("authenticate", "authenticated");
-//            set the age of the cookie
+            //String user = request.getParameter("user");
+            //String password = request.getParameter("password");
+            
+            
+            String text = "digraph{\n{rank=same; \nPIGEON_START\n\"a\"\no A 9\np pBad 4\no B 9\n# Arcs\nPIGEON_END\nPIGEON_START\n\"b\"\no B 9\nr a 5\no C 9\n# Arcs\nPIGEON_END\nPIGEON_START\n\"c\"\no C 9\nc tetR 8\no D 9\n# Arcs\nPIGEON_END\nPIGEON_START\n\"d\"\no D 9\nt a 6\no E 9\n# Arcs\nPIGEON_END\n}\n\n\"bc\" [shape=point, width=0.14159];\n\"bcd\" [shape=point, width=0.14159];\n\"bba\" [shape=point, width=0.14159];\nPIGEON_START\n\"abcd\"\no A 9\np pBad 4\no B 9\nr a 5\no C 9\nc tetR 8\no D 9\nt a 6\no E 9\n# Arcs\nPIGEON_END\n\n\"b\"->\"bc\" [label=\"3\", arrowhead=\"none\"];\n\"c\"->\"bc\" [label=\"3\", arrowhead=\"none\"];\n\"bc\"->\"bcd\" [label=\"3\", arrowhead=\"none\"];\n\"d\"->\"bcd\" [label=\"3\", arrowhead=\"none\"];\n\"a\"->\"bba\" [label=\"3\", arrowhead=\"none\"];\n\"bcd\"->\"bba\" [label=\"3\", arrowhead=\"none\"];\n\"bba\"->\"abcd\";\n\n\"bc\"->\"bc\" [taillabel=\"3 Days\",labelangle=330, labeldistance=3,\nlabelfontcolor=\"red\", color=transparent];\n\"bcd\"->\"bcd\" [taillabel=\"6 Days\",labelangle=330, labeldistance=3,\nlabelfontcolor=\"red\", color=transparent];\n\"abcd\"->\"abcd\" [taillabel=\"9 Days\",labelangle=330, labeldistance=3,\nlabelfontcolor=\"red\", color=transparent];\n\n}\n";
+            String pigeonText = "digraph{\n{rank=same; \nPIGEON_START\n\"a\"\no A 9\np pBad 4\no B 9\n# Arcs\nPIGEON_END\nPIGEON_START\n\"b\"\no B 9\nr a 5\no C 9\n# Arcs\nPIGEON_END\nPIGEON_START\n\"c\"\no C 9\nc tetR 8\no D 9\n# Arcs\nPIGEON_END\nPIGEON_START\n\"d\"\no D 9\nt a 6\no E 9\n# Arcs\nPIGEON_END\n}\n\n\"bc\" [shape=point, width=0.14159];\n\"bcd\" [shape=point, width=0.14159];\n\"bba\" [shape=point, width=0.14159];\nPIGEON_START\n\"abcd\"\no A 9\np pBad 4\no B 9\nr a 5\no C 9\nc tetR 8\no D 9\nt a 6\no E 9\n# Arcs\nPIGEON_END\n\n\"b\"->\"bc\" [label=\"3\", arrowhead=\"none\"];\n\"c\"->\"bc\" [label=\"3\", arrowhead=\"none\"];\n\"bc\"->\"bcd\" [label=\"3\", arrowhead=\"none\"];\n\"d\"->\"bcd\" [label=\"3\", arrowhead=\"none\"];\n\"a\"->\"bba\" [label=\"3\", arrowhead=\"none\"];\n\"bcd\"->\"bba\" [label=\"3\", arrowhead=\"none\"];\n\"bba\"->\"abcd\";\n\n\"bc\"->\"bc\" [taillabel=\"3 Days\",labelangle=330, labeldistance=3,\nlabelfontcolor=\"red\", color=transparent];\n\"bcd\"->\"bcd\" [taillabel=\"6 Days\",labelangle=330, labeldistance=3,\nlabelfontcolor=\"red\", color=transparent];\n\"abcd\"->\"abcd\" [taillabel=\"9 Days\",labelangle=330, labeldistance=3,\nlabelfontcolor=\"red\", color=transparent];\n\n}";
+            
+            // pigeonText is a string in pigeon format;
+            System.out.println(pigeonText);
+            WeyekinPoster.setDotText(pigeonText);
+            //out.println(pigeonText);
+            // submit the post request--not working for some reason!
+            WeyekinPoster.postMyVision();
+            String imageURL = WeyekinPoster.getmGraphVizURI().toString();
+            //out.println("waiting5");
+            // successful post returns a url to an image
+            //out.println(imageURL);
+            response.sendRedirect(imageURL);
+            WeyekinPoster.postMyBird();
+            //System.out.println(WeyekinPoster.getmPigeonURI());     
+            URL url = WeyekinPoster.getmPigeonURI().toURL();
+       
+            ReadableByteChannel rbc = Channels.newChannel(url.openStream());
+            FileOutputStream fos = new FileOutputStream("C:\\Users\\Admin\\Documents\\GitHub\\UCSD_IGEM\\CircuitNetwork\\build\\myfile.jpeg");
+            fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
+            
+            
+            //create a new cookie named authenticate with value authenticated
+            /*Cookie authenticateCookie = new Cookie("authenticate", "authenticated");
+               set the age of the cookie
             authenticateCookie.setMaxAge(60 * 60); //cookie lasts for an hour
-//            add cookie to responsej
-            response.addCookie(authenticateCookie);
+                add cookie to responsej
+            response.addCookie(authenticateCookie);*/
             
     }
 
@@ -59,11 +90,11 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         //response.sendRedirect("index.html");
-        JSONObject obj = new JSONObject();
+        //JSONObject obj = new JSONObject();
         String user = request.getParameter("key");
         PrintWriter out = response.getWriter();
         try {
-            out.println(user);//("data from the server");
+            out.println("data from the server22323");
         } finally {
             out.close();
         }
