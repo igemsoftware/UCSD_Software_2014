@@ -34,9 +34,11 @@ class SQLInterface(object):
     @param w_var - variable for where clause 
     @param w_bool - boolean for where clause
     @param group - group name for GROUP BY caluse
+    @param h_col
     
     '''
-    def SQLAdvancedSelect(self,table,column,w_col,w_opt,w_var,w_bool,group,):
+    def SQLAdvancedSelect(self, table, column, w_col = None, w_opt = None,
+        w_var = None,w_bool = None, group = None, h_col = None, h_bool = None, h_value = None):
         # check whether argument is valid or not
         # all the w_ variables must be all None or same size w_bool is less by 1
         if (w_col is not None and w_opt is not None and w_var is not None \
@@ -71,8 +73,11 @@ class SQLInterface(object):
 
         if group is not None:
             Q += "\n" + "GROUP BY " + group
-
+            
+        if h_col is not None and h_bool is not None and h_value is not None:
+            Q += "\n" + "HAVING " + h_col + " " +  h_bool + " " + str(h_value)
         Q +=";"
+        
         return Q
 
 
@@ -91,15 +96,21 @@ w_opt = [">", "<"]
 w_var = [30, 40]
 w_bool = [ "and" ]
 group = "dept"
+h_col = "age"
+h_bool = "<"
+h_value = 22
 o = SQLInterface()
 
 print ".........."
-print o.SQLAdvancedSelect('employee', col, w_col, w_opt, w_var,w_bool,None)
+print o.SQLAdvancedSelect('employee', col, w_col, w_opt, w_var,w_bool, group)
 print ".........."
-print o.SQLAdvancedSelect('employee', col, None, None, None,None,None)
+print o.SQLAdvancedSelect('employee', col)
 print ".........."
-print o.SQLAdvancedSelect('employee', col,w_col,w_opt,w_var,w_bool,group)
+print o.SQLAdvancedSelect('employee', col, w_col,w_opt,w_var,w_bool, group)
 print ".........."
+print o.SQLAdvancedSelect('employee', col, w_col, w_opt, w_var, w_bool,group, h_col, h_bool, h_value)
+print '"' + '.'*11 + '"'
+
 
 
 

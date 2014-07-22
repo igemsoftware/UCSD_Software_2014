@@ -1,9 +1,14 @@
-# SQLInterface
+# filename: SQLInterface
 # author: Joaquin Reyna
 # date: 07/02/14
 # description: SQLwrappers and testing
 
 import sqlite3
+
+# static variables for tables in the sql database
+devices_cols = ['Name', 'Components', 'Authors', 'Article', 'Journal', 'Image_Path']
+transitions_cols = ['Input', 'Output', 'Function']
+intermediates_cols = ['Name', 'Type', 'Annotation']
 
 class sql_table:    
     '''
@@ -103,8 +108,94 @@ def sql_update_wrapper(table_name, cols = [], values = [], w_cols = [], w_ops = 
                 hold = where_str + ' '.join([var,op,str(value)]) + ' ' 
             where_str = hold 
         return update_str + '\n\t' + set_str + '\n\t' + where_str + ';'
-    return update_str + '\n\t' + set_str + ';'
+    return update_str + '\n\t' + set_str + ';'    
+        
+def sql_advanced_select(self, table, column, w_col = None, w_opt = None,
+    w_var = None,w_bool = None, group = None, h_col = None, h_bool = None, h_value = None):
+    '''
+    advanced SQL select function
+    @param table - name of the table
+    @param column - the columns to be selected
+    @param w_col - column names for where clause
+    @param w_opt - operator for where clause
+    @param w_var - variable for where clause 
+    @param w_bool - boolean for where clause
+    @param group - group name for GROUP BY caluse
+    @param h_col
+    
+    '''
+    # check whether argument is valid or not
+    # all the w_ variables must be all None or same size w_bool is less by 1
+    if (w_col is not None and w_opt is not None and w_var is not None \
+        and w_bool is not None):
+        if (len(w_col) != len(w_opt) and len(w_opt) != len(w_var)\
+            and len(w_var) != (len(w_bool) - 1)):
+            raise Exception("Invalid arguement")
+    elif(w_col is not None or w_opt is not None or w_var is not None \
+         or w_bool is not None):
+            raise Exception("Invalid arguement")
 
+    # must have a table name
+    if ( table is None or len(table) == 0):
+        raise Exception("a table name must be provided.")
+
+    Q = "SELECT "
+    
+    for i in range(len(column)):
+        Q = Q + column[i]
+        if (i != len(column) - 1):
+            Q += ", "
+        else:
+            Q += " "
+    Q += "\n" + "FROM " + table + " "
+
+    if w_col is not None :
+        Q = Q + "\n"+"WHERE "
+        for i in range(len(w_col)):
+            Q = Q + w_col[i] + " " + w_opt[i] + " " + str(w_var[i]) + " "
+            if i < len(w_bool):
+                Q = Q + w_bool[i] + " "
+
+    if group is not None:
+        Q += "\n" + "GROUP BY " + group
+        
+    if h_col is not None and h_bool is not None and h_value is not None:
+        Q += "\n" + "HAVING " + h_col + " " +  h_bool + " " + str(h_value)
+    Q +=";"
+    
+    return Q
+
+def insert_into_database(cur,devices_row = None, transitions_row = None, intermediates_row = None):
+    '''
+    param: cursor, need a connection to the sql database (using sqlite3) in order to insert.
+    param: device, list with information in corresponding device table location.
+    param: transition, list with information in the corresponding transition table location.
+    param: intermediate, list with the information in the corresponding intermediate table location.
+    '''
+    if devices_row is not None and len(devices_cols) == len(devices_row):
+        sql_insert_wrapper('Devices', devices_cols, devices_row)
+    if transitions_row is not None and len(transitions_cols) == len(transitions_row):
+        sql_insert_wrapper('Transitions', transitions_cols, transitions_row)
+    if intermediates_row is not None and len(intermediates_cols) == len(intermediates_row):    
+        sql_insert_wrapper('Intermediates', intermediates_cols, intermediates_row)
+            
+def search_database(cur, devices_row = None, transitions_row = None, intermediates_row = None):
+    '''
+    '''
+    if devices_row is not None:
+        d = sql_advanced_search('Devices',...)
+        d = cur.execute(d)
+    if transitions_row is not None:
+        t = sql_advanced_search('Transitions',...)
+        t = cur.execute(t)
+    if intermediates_row is not None:
+        i = sql_advanced_search('Intermediates',...)
+        i = cur.execute(i)
+        
+
+    
+    
+    
 #Running the code using an SQLInterface object to comvert information from
 #Python in to SQL commands. A running_table database is also                
 base = sql_table()
@@ -115,3 +206,5 @@ base.db.execute(sql_update_wrapper(base.TABLE_NAME,['Miles'], [80] ,['Miles'], [
 base.print_table()
 base.db.execute(sql_update_wrapper(base.TABLE_NAME, ['Miles'], [15]))
 base.print_table()
+
+insert_into_database(['5', '4','3','2','1'])

@@ -1,11 +1,14 @@
-'''CREATE TABLE Devices
+'''
+CREATE TABLE Devices
     (*Name VARCHAR(50), Components VARCHAR(50), Authors VARCHAR(50), Article VARCHAR(50), Journal VARCHAR(50), Image_Path VARCHAR(50));
-'''
     
-'''CREATE TABLE Transitions
+CREATE TABLE Transitions
     (ListOfInputs VARCHAR(50), ListOfOutputs VARCHAR(50), Math VARCHAR(50));
-'''
 
-'''CREATE TABLE Intermediates
+CREATE TABLE Intermediates
     (Name VARCHAR(50),Type VARCHAR(50), Annotation VARCHAR(50), MIRIAM VARCHAR(50), PromoterInteractionsList VARCHAR(50));
-'''
+
+CREATE TABLE Promoters
+
+CREATE TABLE Coding_Seqence
+	(Name VARCHAR(50), Sequence VARCHAR(50)
