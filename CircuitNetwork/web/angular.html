@@ -7,13 +7,13 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <body ng-init = "colleges=['UCSD','UCSB','UCLA','Stanford', 'MIT', 'Harvard']">
+    <body ng-init = "colleges=['UCSD','UCSB','UCLA','Stanford', 'MIT', 'Harvard', 'UC Berkeley', 'UCSF', 'CMU', 'NYU', 'Columbia', 'UC Irvine']">
         <h1>AngularJS</h1>
         <div>
             Search: <input type ="text" ng-model="searchText" />
             {{ searchText }}
             <br />
-            <h3>Customers:</h3>
+            <h3>Colleges:</h3>
             <table>
                 <tr ng-repeat="col in colleges | filter: searchText">
                     <td>{{col}}</td>
