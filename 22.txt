@@ -1,0 +1,6 @@
+c lacI 8
+<p pLAMBDA 4
+p pLAC 4
+c cI 8
+c gfp 6
+# Arcs
