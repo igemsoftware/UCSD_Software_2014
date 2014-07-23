@@ -85,13 +85,12 @@ def SQLreader(file):
         c.execute(sql_insert("Devices",deviceCol,device[i]))
     conn.commit()
 
-    ## print table and writing table ##
-    print '\n' + '*'*20 + " printing table Devices " + '*'*20 + '\n'
+    # writing table 
     c.execute("SELECT * FROM Devices")
     tableD = c.fetchall()
-    print tableD
-    with open('Devices_table.csv','w') as dt:
+    with open('db_as_csv/Devices_table.csv','w') as dt:
         csv_dt = csv.writer(dt)
+        csv_dt.writerow(table[0])
         csv_dt.writerows(tableD)
 
 
@@ -122,19 +121,23 @@ def SQLreader(file):
         c.execute(sql_insert("Transitions",transitionCol,transition[i]))
     conn.commit()
 
-    ## print table ##
-    print '\n' + '*'*20 + " printing table Transitions " + '*'*20 + '\n'
+    # write table 
     c.execute("SELECT * FROM Transitions")
     tableT = c.fetchall()
-    with open('Transitions_table.csv','w') as tt:
+    with open('db_as_csv/Transitions_table.csv','w') as tt:
         csv_tt = csv.writer(tt)
+        csv_tt.writerow(transitionCol)
         csv_tt.writerows(tableT)
 
     ##################### create Intermediates table ###########################
     
-    intermediates = [[table[y][0] ]for y in range(1, len(table))]
-    for i in range(len(intermediates)):
-        intermediates[i].extend(["[ ]","[ ]"])
+    with open('ML_June_2013_intermediates.csv', 'rb') as interm:
+        csv_interm = csv.reader(interm)
+        csv_interm.next()
+        intermediates = []
+        for row in csv_interm:
+            row.append('NA')
+            intermediates.append(row)
 
     intermediatesCol = ['NAME','TYPE','ANNOTATION']
     c.execute('DROP TABLE IF EXISTS Intermediates')
@@ -143,13 +146,37 @@ def SQLreader(file):
         c.execute(sql_insert("Intermediates",intermediatesCol,intermediates[i]))
 
     conn.commit()
-    ## print table ##
-    print '\n' + '*'*20 + " printing table Intermediates " + '*'*20 + '\n'
+    # write table
     c.execute("SELECT * FROM Intermediates")
     tableI = c.fetchall()
-    with open('Intermediate_table.csv','w') as it:
+    with open('db_as_csv/Intermediates_table.csv','wb') as it:
         csv_it = csv.writer(it)
+        csv_it.writerow(intermediatesCol)
         csv_it.writerows(tableI)
+        
+    ##################### create Promoter table ###########################
+    
+    with open('ML_June_2013_promoters.txt','r') as promot:
+        csv_promot = csv.reader(promot, dialect = 'excel-tab')
+        promotersCol = csv_promot.next()
+        promoters = []
+        for row in csv_promot:
+            promoters.append(row)
+            
+    c.execute('DROP TABLE IF EXISTS Promoters')
+    c.execute('CREATE TABLE Promoters (' + ', '.join(promotersCol) +')')
+    for i in range(len(promoters)):
+        c.execute(sql_insert("Promoters", promotersCol, promoters[i]))
+    conn.commit()
+    
+    # write table 
+    c.execute("SELECT * FROM Promoters")
+    tableP = c.fetchall()
+    with open('db_as_csv/Promoters_table.csv', 'wb') as pt:
+        csv_pt = csv.writer(pt)
+        csv_pt.writerow(promotersCol)
+        csv_pt.writerows(tableP)   
+        
 
 
     # We can also close the connection if we are done with it.
