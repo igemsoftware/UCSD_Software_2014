@@ -2,6 +2,6 @@ p pLAC 4
 c cI 8
 p pLAMBDA 4
 c gfp 6
-p pCONST
-c lacI
+p pCONST 4
+c lacI 8
 # Arcs
