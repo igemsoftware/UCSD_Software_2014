@@ -1,0 +1,5 @@
+p pLAC 4
+c hrpR 8
+p pCONST 4
+c lacI 8
+# Arcs
