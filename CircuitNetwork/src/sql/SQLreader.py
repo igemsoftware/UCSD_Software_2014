@@ -1,5 +1,6 @@
 from sql_pytools import *
 import sqlite3
+import csv
 
 def SQLreader(file):
     ######################## read txt file #####################################
@@ -64,7 +65,7 @@ def SQLreader(file):
 
     for i in range(len(transition)):
         transitionL.append(tuple(list(transition[i]).append('[]')))
-        # !!!!!!!!! tobe modified later
+        # !!!!!!!!! to be modified later
     '''
 
 
@@ -84,13 +85,14 @@ def SQLreader(file):
         c.execute(sql_insert("Devices",deviceCol,device[i]))
     conn.commit()
 
-    ## print table ##
+    ## print table and writing table ##
     print '\n' + '*'*20 + " printing table Devices " + '*'*20 + '\n'
     c.execute("SELECT * FROM Devices")
     tableD = c.fetchall()
-    for row in tableD:
-        print row
-    print '\n' + '*'*20 + " END " + '*'*20 + '\n'
+    print tableD
+    with open('Devices_table.csv','w') as dt:
+        csv_dt = csv.writer(dt)
+        csv_dt.writerows(tableD)
 
 
     ##################### create Transitions table #############################
@@ -124,13 +126,9 @@ def SQLreader(file):
     print '\n' + '*'*20 + " printing table Transitions " + '*'*20 + '\n'
     c.execute("SELECT * FROM Transitions")
     tableT = c.fetchall()
-    for row in tableT:
-        print row
-
-    print '\n' + '*'*20 + " END " + '*'*20 + '\n'
-
-
-
+    with open('Transitions_table.csv','w') as tt:
+        csv_tt = csv.writer(tt)
+        csv_tt.writerows(tableT)
 
     ##################### create Intermediates table ###########################
     
@@ -149,11 +147,9 @@ def SQLreader(file):
     print '\n' + '*'*20 + " printing table Intermediates " + '*'*20 + '\n'
     c.execute("SELECT * FROM Intermediates")
     tableI = c.fetchall()
-    for row in tableI:
-        print row
-    print '\n' + '*'*20 + " END " + '*'*20 + '\n'
-
-
+    with open('Intermediate_table.csv','w') as it:
+        csv_it = csv.writer(it)
+        csv_it.writerows(tableI)
 
 
     # We can also close the connection if we are done with it.
