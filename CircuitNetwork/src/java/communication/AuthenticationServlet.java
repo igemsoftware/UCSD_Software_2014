@@ -34,7 +34,7 @@ public class AuthenticationServlet extends HttpServlet {
             String user = request.getParameter("user");
             String password = request.getParameter("password");
             try {
-                out.println("I tried.");
+                out.println("I tried. " + "\nUser: " + user + "\nPass: " + password);
             } finally {
                 out.close();
             }
