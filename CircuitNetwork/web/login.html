@@ -114,17 +114,15 @@
         <script>
         $(document).ready(function(){
            $('#sign-in-btn').click(function(){
-             /* alert('Clicked!');
-           if($('#remember-me').prop('checked') === true){
-               alert('Check, Mate!');
-               var email = $('#email').val();
-               var password = $('#password').val();
-               alert(String(email));
-               alert(String(password));*/
-               $.post("AuthenticationServlet",{"user":"someUser", "password":"somePassword"}, function(data){
-                   alert(data);
-               });
-           //};
+               alert('Clicked!');
+               if($('#remember-me').prop('checked') === true){
+                    alert('Check, Mate!');
+                    var email = $('#email').val();
+                    var password = $('#password').val();
+                    $.post("AuthenticationServlet",{"user":email, "password":password}, function(data){
+                        alert(data);
+                    });
+                };
            });
         });
         </script>

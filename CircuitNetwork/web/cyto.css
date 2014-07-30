@@ -3,11 +3,13 @@ body {
 }
 
 #cy {
+  background-color: #B2B2CC;
   height: 100%;
   width: 50%;
   position: absolute;
   left: 0;
   top: 0;
+  z-index: -1; 
 }
 
 #info {
@@ -29,4 +31,12 @@ body {
 
 #right-bar #head {
     text-align: center;
+}
+
+.secret {
+    width: 75px;
+    height: 75px;
+    position: relative;
+    left:0px;
+    top: 0px;
 }
