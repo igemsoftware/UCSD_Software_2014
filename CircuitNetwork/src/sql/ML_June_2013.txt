@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 NAME	COMPONENT	INPUT	OUTPUT	AUTHOR	ARTICLE	JOURNAL	YEAR	
 pCONST	pCONST	EMPTY	pCONST	[ ]	[ ]	Part	2013			
 pT7	pT7	T7	pT7	[ ]	[ ]	Part	2013			
@@ -72,6 +73,9 @@ mxiE	mxiE	mRNA	mxiE	[ ]	[ ]	Part	2013
 ipgC	ipgC	mRNA	ipgC	[ ]	[ ]	Part	2013			
 exsDA	exsDA	mRNA	exsDA	[ ]	[ ]	Part	2013			
 exsC	exsC	mRNA	exsC	[ ]	[ ]	Part	2013			
+=======
+NAME	COMPONENT	INPUT	OUTPUT	AUTHOR	ARTICLE	JOURNAL	YEAR				
+>>>>>>> cad6433ea4b471adf416c7db14e7fa99beb76206
 pOR10	pBAD>+yfp+pCONST>+araC	Lara	yfp	[A Tamsir et al]	[Robust multicellular computing using genetically encoded NOR gates and chemical wires]	Nature	2011			
 pOR20	pTET>+yfp+pCONST>+tetR	aTc	yfp	[A Tamsir et al]	[Robust multicellular computing using genetically encoded NOR gates and chemical wires]	Nature	2011			
 pOR30	pLAS>+yfp+pCONST>+lasR	HSL	yfp	[A Tamsir et al]	[Robust multicellular computing using genetically encoded NOR gates and chemical wires]	Nature	2011			
@@ -127,6 +131,7 @@ pJT108	pompC>+lacZ	LIGHT	lacZ	[JJ Tabor et al]	[A Synthetic Genetic Edge Detecti
 pJT105	pLUX/LAMBDA>+lacZ+pompC>+luxI+pTET>+luxR	LIGHT,cI	lacZ	[JJ Tabor et al]	[A Synthetic Genetic Edge Detection Program]	Cell	2009			
 pJT106	pLUX/LAMBDA>+lacZ+pompC>+cI	LIGHT	lacZ	[JJ Tabor et al]	[A Synthetic Genetic Edge Detection Program]	Cell	2009			
 pEDL3	pLUX/LAMBDA>+lacZ+pompC>+cI+luxI+pTET>+luxR	LIGHT	lacZ	[JJ Tabor et al]	[A Synthetic Genetic Edge Detection Program]	Cell	2009			
+<<<<<<< HEAD
 pLuxRI2	pLAC/BAD>+luxR+luxI	EMPTY	AHL-luxR	[L You et al]	[Programmed population control by cellâ€“cell communication and regulated killing]	Nature	2004			
 pluxCcdB3	pLUX>+lacZalpha-ccdB	AHL,luxR	lacZalpha-ccdB	[L You et al]	[Programmed population control by cellâ€“cell communication and regulated killing]	Nature	2004		
 predator1-MG1655	ccdA+pLUX<+pTET>+luxR+lasI	AHL	ccdA	[FK Balagadde et al]	[A synthetic Escherichia coli predatorâ€“prey ecosystem]	[Molecular Systems Biology]	2008			
@@ -136,6 +141,17 @@ prey2-Top10F	pTET>+gfp	tetR	gfp	[FK Balagadde et al]	[A synthetic Escherichia co
 predator-Top10F	pLAC/BAD>+lacZalpha-ccdB	EMPTY	lacZalpha-ccdB	[FK Balagadde et al]	[A synthetic Escherichia coli predatorâ€“prey ecosystem]	[Molecular Systems Biology]	2008			
 pBR322-ptrc-lexA	pCONST>+lacI+pLAC>+lexA	IPTG,nalidixic-acid	lexA	[RS Rocha et al]	[Implementing an OR â€“NOT (ORN) logic gate with components of the SOS regulatory network of Escherichia coli]	[Molecular  BioSystems]	2011			
 pRV2-SOS	pSOS>+gfp	lexA	gfp	[RS Rocha et al]	[Implementing an OR â€“NOT (ORN) logic gate with components of the SOS regulatory network of Escherichia coli]	[Molecular  BioSystems]	2011			
+=======
+pLuxRI2	pLAC/BAD>+luxR+luxI	EMPTY	AHL-luxR	[L You et al]	[Programmed population control by cellÐcell communication and regulated killing]	Nature	2004			
+pluxCcdB3	pLUX>+lacZalpha-ccdB	AHL,luxR	lacZalpha-ccdB	[L You et al]	[Programmed population control by cellÐcell communication and regulated killing]	Nature	2004		
+predator1-MG1655	ccdA+pLUX<+pTET>+luxR+lasI	AHL	ccdA	[FK Balagadde et al]	[A synthetic Escherichia coli predatorÐprey ecosystem]	[Molecular Systems Biology]	2008			
+predator2-MG1655	pLAC/BAD>+lacZalpha-ccdB+pTET>+gfp	EMPTY	lacZalpha-ccdB,gfp	[FK Balagadde et al]	[A synthetic Escherichia coli predator-prey ecosystem]	[Molecular Systems Biology]	2008		
+prey1-Top10F	lacZalpha-ccdB+pLUX<+pLAC/BAD>+lasR+luxI	HSL	lacZalpha-ccdB	[FK Balagadde et al]	[A synthetic Escherichia coli predator-prey ecosystem]	[Molecular Systems Biology]	2008			
+prey2-Top10F	pTET>+gfp	tetR	gfp	[FK Balagadde et al]	[A synthetic Escherichia coli predatorÐprey ecosystem]	[Molecular Systems Biology]	2008			
+predator-Top10F	pLAC/BAD>+lacZalpha-ccdB	EMPTY	lacZalpha-ccdB	[FK Balagadde et al]	[A synthetic Escherichia coli predatorÐprey ecosystem]	[Molecular Systems Biology]	2008			
+pBR322-ptrc-lexA	pCONST>+lacI+pLAC>+lexA	IPTG,nalidixic-acid	lexA	[RS Rocha et al]	[Implementing an OR ÐNOT (ORN) logic gate with components of the SOS regulatory network of Escherichia coli]	[Molecular  BioSystems]	2011			
+pRV2-SOS	pSOS>+gfp	lexA	gfp	[RS Rocha et al]	[Implementing an OR ÐNOT (ORN) logic gate with components of the SOS regulatory network of Escherichia coli]	[Molecular  BioSystems]	2011			
+>>>>>>> cad6433ea4b471adf416c7db14e7fa99beb76206
 pZE21-MCSI-pZE12-luc	pLAC>+tetR+pLAMBDA>+lacI+pTET>+cI	EMPTY	EMPTY	[MB Elowitz et al]	[A synthetic oscillatory network of transcriptional regulators]	Nature	2000			
 pZE21-MCS1-gfp	pTET>+gfp	tetR	gfp	[MB Elowitz et al]	[A synthetic oscillatory network of transcriptional regulators]	Nature	2000			
 PLuxI-Tet-8	pTET>+luxI	EMPTY	AHL	[S Basu et al]	[Spatiotemporal control of gene expression with pulse-generating networks]	PNAS	2004			

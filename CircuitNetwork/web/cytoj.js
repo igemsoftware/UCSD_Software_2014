@@ -84,6 +84,7 @@ $('#cy').cytoscape({
       { data: { id: 'project', name: 'Project', weight: 70, height: 150, faveColor: '#F5A45D', faveShape: 'octagon' } },
       { data: { id: 'safety', name: 'Safety', weight: 70, height: 150, faveColor: '#F5A45D', faveShape: 'octagon' } },
       { data: { id: 'about1', name: 'The Team', weight: 48, height: 160, faveColor: '#86B342' } },
+<<<<<<< HEAD
       { data: { id: 'about2', name: 'Team Profile', weight: 48, height: 160, faveColor: '#EDA1ED' } },
       { data: { id: 'about3', name: 'iGEM', weight: 48, height: 160, faveColor: '#86B342' } },
       { data: { id: 'about4', name: 'Sponsors', weight: 48, height: 160, faveColor: '#EDA1ED' } },
@@ -92,6 +93,16 @@ $('#cy').cytoscape({
       { data: { id: 'project2', name: 'Overview', weight: 48, height: 160, faveColor: '#EDA1ED' } },
       { data: { id: 'project3', name: 'Achievements', weight: 48, height: 160, faveColor: '#86B342' } },
       { data: { id: 'project4', name: 'Collaboration', weight: 48, height: 160, faveColor: '#EDA1ED' } },
+=======
+      { data: { id: 'about2', name: 'Team Profile', weight: 48, height: 160, faveColor: '#86B342' } },
+      { data: { id: 'about3', name: 'iGEM', weight: 48, height: 160, faveColor: '#86B342' } },
+      { data: { id: 'about4', name: 'Sponsors', weight: 48, height: 160, faveColor: '#86B342' } },
+      { data: { id: 'about5', name: 'Attributions', weight: 48, height: 160, faveColor: '#86B342' } },
+      { data: { id: 'project1', name: 'Network', weight: 48, height: 160, faveColor: '#86B342' } },
+      { data: { id: 'project2', name: 'Overview', weight: 48, height: 160, faveColor: '#86B342' } },
+      { data: { id: 'project3', name: 'Achievements', weight: 48, height: 160, faveColor: '#86B342' } },
+      { data: { id: 'project4', name: 'Collaboration', weight: 48, height: 160, faveColor: '#86B342' } },
+>>>>>>> ca08429aca1bcb3aa0d2a7a25068c30b2f2fa583
       { data: { id: 'project5', name: 'Experiments', weight: 48, height: 160, faveColor: '#86B342' } },
       { data: { id: 'notebook1', name: 'Methods', weight: 48, height: 160, faveColor: '#86B342' } },
       { data: { id: 'notebook2', name: 'Notes', weight: 48, height: 160, faveColor: '#86B342' } },
@@ -106,6 +117,7 @@ $('#cy').cytoscape({
       { data: { source: 'home', target: 'safety' } },
       { data: { source: 'about', target: 'home' } },
       { data: { source: 'about', target: 'about1' , faveColor: '#EDA1ED'}, classes: 'questionable' },
+<<<<<<< HEAD
       { data: { source: 'about', target: 'about2' , faveColor: '#86B342'}, classes: 'questionable' },
       { data: { source: 'about', target: 'about3' , faveColor: '#EDA1ED'}, classes: 'questionable' },
       { data: { source: 'about', target: 'about4' , faveColor: '#86B342'}, classes: 'questionable' },
@@ -115,6 +127,17 @@ $('#cy').cytoscape({
       { data: { source: 'project', target: 'project2' , faveColor: '#86B342'}, classes: 'questionable' },
       { data: { source: 'project', target: 'project3' , faveColor: '#EDA1ED'}, classes: 'questionable' },
       { data: { source: 'project', target: 'project4' , faveColor: '#86B342'}, classes: 'questionable' },
+=======
+      { data: { source: 'about', target: 'about2' , faveColor: '#EDA1ED'}, classes: 'questionable' },
+      { data: { source: 'about', target: 'about3' , faveColor: '#EDA1ED'}, classes: 'questionable' },
+      { data: { source: 'about', target: 'about4' , faveColor: '#EDA1ED'}, classes: 'questionable' },
+      { data: { source: 'about', target: 'about5' , faveColor: '#EDA1ED'}, classes: 'questionable' },
+      { data: { source: 'project', target: 'home' } },
+      { data: { source: 'project', target: 'project1' , faveColor: '#EDA1ED'}, classes: 'questionable' },
+      { data: { source: 'project', target: 'project2' , faveColor: '#EDA1ED'}, classes: 'questionable' },
+      { data: { source: 'project', target: 'project3' , faveColor: '#EDA1ED'}, classes: 'questionable' },
+      { data: { source: 'project', target: 'project4' , faveColor: '#EDA1ED'}, classes: 'questionable' },
+>>>>>>> ca08429aca1bcb3aa0d2a7a25068c30b2f2fa583
       { data: { source: 'project', target: 'project5' , faveColor: '#EDA1ED'}, classes: 'questionable' },
       { data: { source: 'notebook', target: 'home' } },
       { data: { source: 'notebook', target: 'notebook1' , faveColor: '#EDA1ED'}, classes: 'questionable' },
@@ -212,13 +235,21 @@ $('#cy').cytoscape({
     
     cy.elements().unselectify();
     
+<<<<<<< HEAD
     cy.on('tap', '#safety', function(e){
+=======
+    cy.on('mouseover', '#safety', function(e){
+>>>>>>> ca08429aca1bcb3aa0d2a7a25068c30b2f2fa583
       //alert("bellooo");
       //$('#cy').hide();
       cy.elements().addClass('faded');
       $('#book').show();
       
+<<<<<<< HEAD
       cy.on('tap', function(e){
+=======
+      cy.on('mouseup', function(e){
+>>>>>>> ca08429aca1bcb3aa0d2a7a25068c30b2f2fa583
       if( e.cyTarget === cy ){
         cy.elements().removeClass('faded');
         $('#book').hide();
@@ -226,7 +257,11 @@ $('#cy').cytoscape({
     });
     });
     
+<<<<<<< HEAD
     /*cy.on('tap', 'node', function(e){
+=======
+    cy.on('tap', 'node', function(e){
+>>>>>>> ca08429aca1bcb3aa0d2a7a25068c30b2f2fa583
       var node = e.cyTarget; 
       var neighborhood = node.neighborhood().add(node);
       
@@ -238,7 +273,11 @@ $('#cy').cytoscape({
       if( e.cyTarget === cy ){
         cy.elements().removeClass('faded');
       }
+<<<<<<< HEAD
     });*/
+=======
+    });
+>>>>>>> ca08429aca1bcb3aa0d2a7a25068c30b2f2fa583
   }
 });
      $('#n1').click(function(){
@@ -300,6 +339,10 @@ $('#cy').cytoscape({
         });
     });
 
+<<<<<<< HEAD
 });
     
+=======
+})
+>>>>>>> ca08429aca1bcb3aa0d2a7a25068c30b2f2fa583
 }); // on dom ready*/

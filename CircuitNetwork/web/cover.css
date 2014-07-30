@@ -31,7 +31,7 @@ body {
   //background-image: url(http://www.lcaid.com/images/full/2011/05/12/apple-vector-desktop-wallpaper_hd-backgrounds-for-mac-healthy-baby-tips-info-free-desktop.jpg);
   background-repeat: no-repeat; 
   background-color: #CD853F;
-  background-size: 1370px 645px;
+  background-size: cover;//1370px 645px;
 }
 body {
   color: #fff;
@@ -178,6 +178,8 @@ body {
     //font-style: italic;
     //font-size: 60px; //kartikeya puri index
     font-size: 45px; //main index
+    margin-right: auto;
+    margin-left: auto;
 }
   .mastfoot {
     position: absolute;

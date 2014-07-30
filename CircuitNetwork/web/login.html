@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
     <link rel="icon" href="http://i.imgur.com/QLCgo.jpg" type="image/x-icon">
     <link href='http://fonts.googleapis.com/css?family=Meddon' rel='stylesheet' type='text/css'>
@@ -14,11 +15,11 @@
     <title>Log in</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="bootstrap.css" rel="stylesheet">
+    <!--<link href="bootstrap.css" rel="stylesheet">
     <!--  Custom CSS -->
-    <link href="custom1.css" rel="stylesheet">
+    <!--<link href="custom1.css" rel="stylesheet">
     <link href="cover.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
+    <!-- Custom styles for this template 
     <link href="signin.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
@@ -31,9 +32,9 @@
     <![endif]-->
   </head>
 
-  
+  <body>
 
-    <div class="site-wrapper">
+    <!--<div class="site-wrapper">
         <div class="site-wrapper-inner">
             <div class="cover-container">
                 
@@ -93,24 +94,82 @@
       
       <br><br><br><br>
       
-    <div class="container">
-        <div class="form-signin">
-            <h2 class="form-signin-heading">Please sign in</h2>
-            <input id="email" type="email" class="form-control" placeholder="Email address" required autofocus>
-            <input id="password" type="password" class="form-control" placeholder="Password" required>
-            
-                <input id="remember-me" type="checkbox" value="remember-me"> Remember me
-            
-            <button id="sign-in-btn" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-        </div>    
-    </div> <!-- /container -->
+    <!--<div class="container">-->
 
+      <!--<form class="form-signin" role="form">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <input type="email" class="form-control" id = "mail" placeholder="Email address" required autofocus>
+        <input type="password" class="form-control" id = "pass" placeholder="Password" required>
+        <label class="checkbox">
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+        <button class="btn btn-lg btn-primary btn-block" id = "sign" type="submit">Sign in</button>
+      </form>-->
+      <br><br>
+      <form action="AuthenticationServlet" method = post >
+        First Name: <input type="text" name="first_name">
+        <br>
+        Password: &nbsp <input type="password" name="last_name" />
+        <br>
+        <input type="submit" value="Log in" />
+       </form>
+      <div id ="hi"></div>
+       <button id = "btn6">Display server response</button><br>
+      
+
+    <!--</div>  /container -->
+
+
+    <script>
+        
+        $(document).ready(function(){
+                $('#btn6').click(function(){
+                $.post("AuthenticationServlet", function( data ) {
+                    //alert("waiting..");
+                    alert(data); 
+                    //alert("done!");
+                });
+            }); 
+        });
+        /*$(document).ready(function(){
+                $('#btn6').click(function(){
+                $.get("AuthenticationServlet",{key: "someINFO"}, function( data ) {
+                    alert(data); 
+                });
+            }); 
+                $("#search").submit(function( event ) {
+ 
+                    // Stop form from submitting normally
+                    event.preventDefault();
+                    
+                    var posting = $.post( AuthenticationServlet, { first_name: "kp", last_name: "p" } );
+ 
+                    // Put the results in a div
+                    posting.done(function(){
+                        $( "#hi" ).append("<p>lol</p>");
+                        });
+                    });*/
+        
+        /*$(document).ready(function () {     
+        $('#sign').click(function () {
+         /*event.preventDefault();
+        var uName = $("#mail").val();
+        var passwd = $("#pass").val();
+        $.post("AuthenticationServlet", {key:"kp"}, function (data) {
+                alert(data);
+        });
+    });
+});     */
+    </script>
+    
+    
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="bootstrap.min.js"></script>
     <script src="docs.min.js"></script>
+<<<<<<< HEAD
         <script>
         $(document).ready(function(){
            $('#sign-in-btn').click(function(){
@@ -127,4 +186,8 @@
         });
         </script>
   
+=======
+    
+  </body>
+>>>>>>> ca08429aca1bcb3aa0d2a7a25068c30b2f2fa583
 </html>
