@@ -32,25 +32,6 @@ public class AuthenticationServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-<<<<<<< HEAD
-            //get json data parameters sent by client
-            String user = request.getParameter("user");
-            String password = request.getParameter("password");
-            try {
-                out.println("I tried. " + "\nUser: " + user + "\nPass: " + password);
-            } finally {
-                out.close();
-            }
-
-//            create a new cookie named authenticate with value authenticated
-            Cookie authenticateCookie = new Cookie("authenticate", "authenticated");
-//            set the age of the cookie
-            authenticateCookie.setMaxAge(60 * 60); //cookie lasts for an hour
-//            add cookie to responsej
-            response.addCookie(authenticateCookie);
-            
-    }
-=======
         
         //get json data parameters sent by client
         //the user and password id's of the login page 
@@ -81,7 +62,6 @@ public class AuthenticationServlet extends HttpServlet {
         }
         
         out.close();
->>>>>>> ca08429aca1bcb3aa0d2a7a25068c30b2f2fa583
 
         //log out portion
         String LogOut = request.getParameter("LogOut");    
