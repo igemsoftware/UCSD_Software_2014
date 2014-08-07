@@ -1,5 +1,5 @@
 class SQLInterface(object):
-    # basic sql select wrapper
+    # Basic SQL select wrapper
     #@param table - the name of the table
     #@param column - the columns to be selected
     def SQLSelectWrapper(self,table,column):
@@ -34,7 +34,6 @@ class SQLInterface(object):
     @param w_var - variable for where clause 
     @param w_bool - boolean for where clause
     @param group - group name for GROUP BY caluse
-    
     '''
     def SQLAdvancedSelect(self,table,column,w_col,w_opt,w_var,w_bool,group,):
         # check whether argument is valid or not
@@ -77,28 +76,22 @@ class SQLInterface(object):
 
 
 
-
-
-
-
-
-
-
-    
 col = ["name", "age", "salary"]
 w_col = ["age", "age"]
 w_opt = [">", "<"]
 w_var = [30, 40]
-w_bool = [ "and" ]
+w_bool = ["and"]
 group = "dept"
 o = SQLInterface()
 
+
+
 print ".........."
-print o.SQLAdvancedSelect('employee', col, w_col, w_opt, w_var,w_bool,None)
+print o.SQLAdvancedSelect('employee', col, w_col, w_opt, w_var, w_bool, None)
 print ".........."
-print o.SQLAdvancedSelect('employee', col, None, None, None,None,None)
+print o.SQLAdvancedSelect('employee', col, None, None, None, None, None)
 print ".........."
-print o.SQLAdvancedSelect('employee', col,w_col,w_opt,w_var,w_bool,group)
+print o.SQLAdvancedSelect('employee', col, w_col, w_opt, w_var, w_bool, group)
 print ".........."
 
 

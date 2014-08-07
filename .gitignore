@@ -1,4 +1,10 @@
+*/.DS_Store
+*/*/.DS_Store
 /CircuitNetwork/nbproject/private/
-/CircuitNetwork/build/
-.DS_Store
 /CircuitNetwork/dist/
+/CircuitNetwork/HTML5Application/nbproject/private/
+/CircuitNetwork/JavaApplication3/nbproject/private/
+/CircuitNetwork/JavaApplication4/nbproject/private/
+/CircuitNetwork/ExecuteShellCommand/nbproject/private/
+/CircuitNetwork/TransformToJson/nbproject/private/
+/CircuitNetwork/build/

@@ -1,13 +1,20 @@
-package communication;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
+package communication;
+// Import required java libraries
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
- 
-// Extend HttpServlet class
+/**
+ *
+ * @author valeriysosnovskiy
+ */
 public class DeleteCookies extends HttpServlet {
- 
-  public void doGet(HttpServletRequest request,
+    public void doGet(HttpServletRequest request,
                     HttpServletResponse response)
             throws ServletException, IOException
   {
@@ -32,7 +39,7 @@ public class DeleteCookies extends HttpServlet {
          out.println("<h2> Cookies Name and Value</h2>");
          for (int i = 0; i < cookies.length; i++){
             cookie = cookies[i];
-            if((cookie.getName( )).compareTo("first_name") == 0 || (cookie.getName( )).compareTo("last_name") == 0 ){
+            if((cookie.getName( )).compareTo("first_name") == 0 ){
                  cookie.setMaxAge(0);
                  response.addCookie(cookie);
                  out.print("Deleted cookie : " + 

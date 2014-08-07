@@ -1,12 +1,23 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 package communication;
+
+/**
+ *
+ * @author valeriysosnovskiy
+ */
+// Import required java libraries
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
  
-// Extend HttpServlet class
 public class ReadCookies extends HttpServlet {
- 
-  public void doGet(HttpServletRequest request,
+    
+    public void doGet(HttpServletRequest request,
                     HttpServletResponse response)
             throws ServletException, IOException
   {
@@ -41,4 +52,5 @@ public class ReadCookies extends HttpServlet {
       out.println("</body>");
       out.println("</html>");
    }
+    
 }
