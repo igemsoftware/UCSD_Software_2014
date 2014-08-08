@@ -15,21 +15,30 @@ $(document).ready(function() {
       var user = $('#user').val();
       var password =$('#password').val();
       alert("you are logged in");
-      var data = {user: "some user", password: "password"};
-      $.post("Demo_Site_Login.html",data, function(data){
-          //alert(data);
+      var info = { key: "#user", value: "#password"};
+      $.post("Demo_Site_Login.html",info, function(info){
           alert("whats up");
       });
-      //e.preventDefault();
+      e.preventDefault();
     });
     
     $('#LogOut').click(function(){
        var LogOut =$('#LogOut').val();
        alert("about to log out");
-       var data={user: "", password:""};
-       $.post("AuthenticationServlet",data, function(data){
-          alert(data);
+       var done={user: "", password:""};
+       $.post("AuthenticationServlet",done, function(done){
+          alert(done);
           alert("back");
       });
+    });
+    
+    $('#clickme').click(function(){
+        var obtainFile = $('#filed').val();
+        alert("file created");
+        var information= {key: "hello"};
+        $.post("AuthenticationServlet", information, function(information) {
+            alert(information);
+        });
+        
     });
 });
