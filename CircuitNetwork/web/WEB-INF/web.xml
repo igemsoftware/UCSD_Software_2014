@@ -8,6 +8,34 @@
         <servlet-name>AuthenticationServlet</servlet-name>
         <url-pattern>/AuthenticationServlet</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>SessionTrack</servlet-name>
+        <servlet-class>communication.SessionTrack</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SessionTrack</servlet-name>
+        <url-pattern>/SessionTrack</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ReadCookies</servlet-name>
+        <servlet-class>communication.ReadCookies</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ReadCookies</servlet-name>
+        <url-pattern>/ReadCookies</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>DeleteCookies</servlet-name>
+        <servlet-class>communication.DeleteCookies</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteCookies</servlet-name>
+        <url-pattern>/DeleteCookies</url-pattern>
+    </servlet-mapping>
+    
     <session-config>
         <session-timeout>
             30

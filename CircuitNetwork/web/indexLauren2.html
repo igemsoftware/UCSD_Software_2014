@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>UCSD_iGEM</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" type="text/css" href="mainL2.css">
+        
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        
+    </head>
+    <body>
+        
+        <a href="http://s1259.photobucket.com/user/dupcrew/media/igemlogo_zps10e3445f.png.html" target="_blank"><img src="http://i1259.photobucket.com/albums/ii542/dupcrew/igemlogo_zps10e3445f.png" border="0" alt=" photo igemlogo_zps10e3445f.png" width=300px height=350px/></a>
+        <div id="nav">
+            <ul>
+                <li class="newPage" id="Home">Home</li>
+                <li class="newPage" id="About">About the Authors</li>
+                <li class="newPage" id="Doc">Documentation</li>
+                <li class="newPage" id="App">Application</li>
+                <li class="newPage" id="Log">Log In</li>
+            </ul>
+                <script>
+    
+                 $(document).ready(function(){
+                         $('.newPage').hover(
+                        function(){
+                            $(this).addClass('bold');
+                        },
+                        function(){
+                            $(this).removeClass('bold');
+                        });  
+
+                    $('#Home').click(function(){
+                        $('.newPage').removeClass('underline');
+                        $(this).addClass('underline');
+                        $('.panel').hide('slow');
+                        $('#HomePage').slideToggle('fast');
+                    });
+                    $('#About').click(function(){
+                        $('.newPage').removeClass('underline');
+                        $(this).addClass('underline');
+                        $('.panel').hide('slow');
+                        $('#AboutPage').slideToggle('fast');
+                    });
+                    $('#Doc').click(function(){
+                        $('.newPage').removeClass('underline');
+                        $(this).addClass('underline');
+                        $('.panel').hide('slow');
+                        $('#DocPage').slideToggle('fast');
+                    });
+                    $('#App').click(function(){
+                        $('.newPage').removeClass('underline');
+                        $(this).addClass('underline');
+                        $('.panel').hide('slow');
+                        $('#AppPage').slideToggle('fast');
+                        
+                    });
+                    $('#Log').click(function(){
+                        $('.newPage').removeClass('underline');
+                        $(this).addClass('underline');
+                        $('.panel').hide('slow');
+                        $('#LogPage').slideToggle('fast');
+                    });
+                   
+                });
+
+                </script>
+ 
+        </div>
+        
+        <section>
+            <div class="panel" id="HomePage">
+                <p>This is the home page</p>
+            </div>
+
+            <div class="panel" id="AboutPage">
+                <p>Hover over a name to learn more about that author</p>
+                <section id="1" class="column">
+                <div id="box" >Jenhan</div>
+                <div id="box">Justin</div>
+                <div id="box">Ben</div>
+              
+
+                <div id="box">Jenhan</div>
+                <div id="box">Justin</div>
+                <div id="box">Ben</div>
+ 
+                <div id="box">Jenhan</div>
+                <div id="box">Justin</div>
+                <div id="box">Ben</div>
+                </section>
+            </div>
+
+            <div class="panel" id="DocPage">
+                <p>This is the doc page</p>
+            </div>
+
+            <div class="panel" id="AppPage">
+                <p>This is the application page</p>
+            </div>
+
+            <div class="panel" id="LogPage">
+                
+                <div id="container">       
+                    <form>
+                        <label for="username">Username:</label>
+                       <input type="text" id="username" name="username">
+                    <br />
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password">
+                        <div id="lower">
+                            <input type="checkbox"><label for="checkbox">Keep me logged in</label>
+                            <input type="submit" value="Login">
+                        </div><!--/ lower-->
+                    </form>
+                </div>
+            </div>
+
+        </section>
+        <div id="style"></div>
+        
+    </body>
+
+    
+
+</html>
