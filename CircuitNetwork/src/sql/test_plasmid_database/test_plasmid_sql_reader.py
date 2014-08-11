@@ -6,7 +6,7 @@ def which_table(table_list, table_name):
     for table in table_list:
         if table_name in table:
             return table
-    print 'for some fucking stupid reason it took a shat on me.'
+    print "This is screw up for some reason'. 
     
 def main():
 
