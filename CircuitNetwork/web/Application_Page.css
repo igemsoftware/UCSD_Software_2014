@@ -1,0 +1,41 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Aug 12, 2014, 1:06:47 PM
+    Author     : valeriysosnovskiy
+*/
+body{
+    background-color: navy;
+}
+div{
+    text-align: center;
+    width: 100%;
+}
+iframe{
+    margin: 0 auto;
+    padding: 0;
+    border: none;
+    border-top: gold 2px solid;
+    border-right: gold 2px solid;
+    border-left: gold 2px solid;
+    border-bottom: gold 2px solid;
+    border-radius: 10px;
+    height: 500px;
+    width: 500px;
+    
+}
+
+#input{
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    height: 100px;
+    background-image: url("http://www.win.tue.nl/~dholten/images/fdeblarge.png")
+ }
+
+h1{
+    color: gold;
+}

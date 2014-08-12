@@ -1,79 +1,53 @@
 body{
-    padding: 0;
-    margin: 0 auto;
-    overflow-y: scroll;
-    font-family: Arial;
-    font-size: 18px;
+   background-color: navy;
+ background-repeat: no-repeat; 
+  width: 100%;
+  background-image: url('https://mail.google.com/mail/u/0/?ui=2&ik=b89c7b4da6&view=fimg&th=147a943d201f4826&attid=0.2&disp=inline&realattid=f_hyi2k15v1&safe=1&attbid=ANGjdJ_mkAFym4w8bmSPtpYSYZW4JE_mZP_L8gAOE1frm9_ri9-yJTiHaSE5hSJbs231vcM-WKZJhPUvTWy4MghCnsmpksvdeEpqB2t9AdJNUuhgQm0JlXaU2n2EXzo&ats=1407796772852&rm=147a943d201f4826&zw&sz=w1147-h615');
+  
+}
+
+
+
+#wrapper{
+    margin-top:5px;
+    margin-bottom: 5px;
+    width: 150px;
+    float: right;
+    height:auto;
     
     
 }
 
-#nav{
-    background-color: #222;
-    
+#table{
+    width: 150px;
+    text-align: center;
+    height: auto;
 }
 
-#nav-wrapper{
-    width: 960px;
-    margin: 0 auto;
-    text-align: left;
-}
-
-#nav ul{
-    list-style-type: none;
-    padding: 0;
+#table ul{
     margin: 0;
-    position: relative;
-    min-width: 200px;
+    list-style: none;
+    
 }
-
-#nav ul li{
-    display: inline-block;
-}
-
-#nav ul li:hover{
-    background-color: #333;
-    border: 5px solid #222;
-}
-
-#nav ul li a,visited{
-    color: #ccc;
+#table li{
+    margin: 0;
+    padding: 0;
     display: block;
-    padding: 15px;
-    text-decoration: none;
-}
-
-#nav ul li a:hover{
-    color: #ccc;
-    text-decoration: none; 
-}
-
-#nav ul li:hover ul{
-    display: block;
-    text-decoration: none;
-}
-
-#nav ul ul{
-    display: none;
-    position: absolute;
-    background-color: #333;
-    border: 5px solid #222;
-    margin-left: -5px;
-}
-#nav ul ul li{
-    display: block;
+    list-style: none; 
     
 }
 
-#nav ul ul li a,visited{
-    color: #222;
+#table li a{
+    color: gold;
+    background-color: navy;
+    border: 1px outset;
+    width: 150;
+    text-decoration: none;
+    display: block;
+    padding: 25px;    
 }
-#nav ul ul li a:hover{
-    color: #699;
+
+#table li a:hover{
+    color: red;
+    background-color: gold;
 }
-//iGEM Team.html
-
-
-
-
-
