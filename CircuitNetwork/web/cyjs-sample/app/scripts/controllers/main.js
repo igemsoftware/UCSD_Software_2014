@@ -3,12 +3,14 @@ angular.module('cyViewerApp')
 $window, Network, VisualStyles, Gist) {
 
         'use strict';
-
+        
+        //these files are the temporary network
 	var NETWORK_FILE = 'data/gal.cyjs'; 
         var visualStyleFile = 'data/galVS.json'; 
         
         var DEFAULT_VISUAL_STYLE_NAME = 'default';
         var PRESET_STYLE_FILE = encodeURIComponent('data/style.json');
+        //these empty arrays are updated by the server for use by the cytoscape.js object.
         var networkData = {};
 	var vs = {};
        
@@ -87,7 +89,7 @@ $window, Network, VisualStyles, Gist) {
                 /*$scope.cy = this;
                 $scope.cy.load(networkData.elements);
 
-		$scope.cy = cy;
+		/*$scope.cy = cy;
                 $scope.cy.style().fromJson($scope.visualStyles[DEFAULT_VISUAL_STYLE_NAME].style).update();
                 updateNetworkData(cy);*/
                 /*if (!gistStyle) {
@@ -219,6 +221,10 @@ $window, Network, VisualStyles, Gist) {
             setInterval(function() {
                 if (updateFlag && $scope.browserState.show) {
                     console.log('* update called');
+                    //displays node data
+                    console.log($scope.nodes[0].data);
+                    console.log($scope.edges[0]);
+                    setColumnNames();
                     $scope.$apply();
                     updateFlag = false;
                 }
@@ -313,6 +319,8 @@ $window, Network, VisualStyles, Gist) {
 
 	function init() {
             $scope.nodes = networkData.elements.nodes;
+            //Added function to retrieve edge information
+            $scope.edges = networkData.elements.edges;
             initVisualStyleCombobox();
             // Set network name
             var networkName = networkData.data.name;
