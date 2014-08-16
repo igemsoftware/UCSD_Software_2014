@@ -8,7 +8,9 @@ and open the template in the editor.
     Author     : valeriysosnovskiy
 */
 body{
-    background-color: navy;
+    background-image: url("http://ak7.picdn.net/shutterstock/videos/6198929/preview/stock-footage-underwater-ocean-waves-ripple-and-flow-with-light-rays-loop.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 div{
     text-align: center;
@@ -23,19 +25,51 @@ iframe{
     border-left: gold 2px solid;
     border-bottom: gold 2px solid;
     border-radius: 10px;
-    height: 500px;
-    width: 500px;
+    height: 1000px;
+    width: 1000px;
+    
+    
     
 }
 
 #input{
     text-align: center;
-    padding: 10px;
+    padding: 20px;
     width: 100%;
     height: 100px;
-    background-image: url("http://www.win.tue.nl/~dholten/images/fdeblarge.png")
+    //background-image: url("http://n7ugc.disney.go.com/item/kid607/629_2gs11k6W@EiY000010045000-g-084afb-as/Rate%205%20if%20you%20love%20turtles%20pleas__600_450_q50.jpg");
+    width:500px;
+    height: 200px;
+    margin: 20px auto;
+    border-radius: 10px;
+    background-color: #e1edf7;
+    border: 3px solid black;
+    background-size: cover;
+    
+ }
+ input{
+     height: 40px;
+     border: navy;
+     width: 300px;
+     border-radius: 20px;
+     border: 1px solid black;
+     
+    
+ }
+ input[type="submit"]{
+     color: #00297A;
+     background-color: gold;
+     border-radius: 20px;
+     width: 150px;
+     height: 60px;
+     cursor: pointer;
+     text-height: 30px;
+     
  }
 
 h1{
     color: gold;
+    font-size: 30px;
+    font-weight: bold;
 }
+
