@@ -220,7 +220,7 @@
     "css" : {
       "font-family" : "HelveticaNeue-UltraLight",
       "font-weight" : "normal",
-      "shape" : "roundrectangle",
+      "shape" : "ellipse",
       "border-color" : "rgb(0,102,153)",
       "text-opacity" : 1.0,
       "background-opacity" : 1.0,
@@ -238,7 +238,7 @@
   }, {
     "selector" : "node:selected",
     "css" : {
-      "background-color" : "rgb(255,255,0)"
+      "background-color" : "rgb(0,0,0)"
     }
   }, {
     "selector" : "edge",
@@ -1316,7 +1316,7 @@
     "css" : {
       "font-family" : "Dialog",
       "font-weight" : "normal",
-      "shape" : "ellipse",
+      "shape" : "trianlge",
       "border-color" : "rgb(0,0,0)",
       "text-opacity" : 1.0,
       "background-opacity" : 1.0,
@@ -1334,7 +1334,7 @@
   }, {
     "selector" : "node:selected",
     "css" : {
-      "background-color" : "rgb(255,255,0)"
+      "background-color" : "rgb(255,255,255)"
     }
   }, {
     "selector" : "edge",
