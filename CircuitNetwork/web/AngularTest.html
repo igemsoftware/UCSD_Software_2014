@@ -5,7 +5,7 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 
-<html>
+<html ng-app="graphApp">
     
 
 <head>
@@ -56,77 +56,19 @@ and open the template in the editor.
 
 <body>
     <div id="graph" class="aGraph" style="position:absolute;top:0px;left:0; float:left;"></div>
- 
-	<script>            
-            //defining the size of the graph
-            var m = [80,80,80,80]; //margins top,left,bottom,left
-            var h = 500 - m[0] - m [2]; //height
-            var w = 500 - m[1] - m[3]; //width
-            
-            //where we receive data
-            var data;
-            
-            //determing the scale of the axes lines.
-            var xScale = d3.scale.linear().domain([0,100]).range([0,w]);
-            var yScale = d3.scale.linear().domain([0,100]).range([h,0]);
-            
-            function make_x_axis() {        
-                return d3.svg.axis()
-                    .scale(xScale)
-                     .orient("bottom")
-                     .ticks(10);
-            }
+    <div style="float: right" ng-controller="KCtrl">
+        <!-- Input fields for changing the proportionality constant -->
+        <div ng-repeat="constant in constants">
+            <label>{{constant}}</label>
+            <input type="number" ng-model="default.constants[constant]"/>
+        </div>
+        <!-- Button for updating proportionality constants and model -->
+        <button ng-click="collectData()">Collect</button>
+    </div>
 
-            function make_y_axis() {        
-                return d3.svg.axis()
-                    .scale(yScale)
-                    .orient("left")
-                    .ticks(10);
-            }
-            //create the SVG containter
-            var plot = d3.select("#graph").append("svg:svg")
-                    .attr("height", h + m[0] +m[2])
-                    .attr("width", w + m[1] + m[3])
-                .append("svg:g")
-                    .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
-                
-                //adding x-grid
-                plot.append("g")         
-                    .attr("class", "grid")
-                    .attr("transform", "translate(0," + h + ")")
-                    .call(make_x_axis()
-                        .tickSize(-h, 0, 0)
-                        .tickFormat("")
-                    );
-            
-                //adding y-grid
-                plot.append("g")         
-                    .attr("class", "grid")
-                    .call(make_y_axis()
-                        .tickSize(-w, 0, 0)
-                        .tickFormat("")
-                    );
-            
-                //create left y-axis
-                var yAxisMain = d3.svg.axis().scale(yScale).ticks(10).orient("left");
-                // Add the main y-axis
-                plot.append("svg:g")
-                        .attr("class", "main axis")
-                        //.attr("transform", "translate(0," + h + ")")
-                        .call(yAxisMain);
-            
-                //create bottom x-axis
-                var xAxisMain = d3.svg.axis().scale(xScale);
-                // Add the main x-axis
-                plot.append("svg:g")
-                        .attr("class", "main axis")
-                        .attr("transform", "translate(0," + h + ")")
-                        .call(xAxisMain);
-	</script>
-
-    <!---<script src="angular.min.js"></script>--->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <!---<script src="ngGraph.js"></script>--->
+    <script src="ngGraph.js"></script>
 </body>
 
 
