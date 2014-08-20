@@ -3,13 +3,19 @@ body {
 }
 
 #cy {
+<<<<<<< HEAD
   background-color: #B2B2CC;
+=======
+>>>>>>> 9b2911c0a8bbd033ec9ba57aa44ae8360458298f
   height: 100%;
   width: 50%;
   position: absolute;
   left: 0;
   top: 0;
+<<<<<<< HEAD
   z-index: -1; 
+=======
+>>>>>>> 9b2911c0a8bbd033ec9ba57aa44ae8360458298f
 }
 
 #info {
@@ -31,6 +37,7 @@ body {
 
 #right-bar #head {
     text-align: center;
+<<<<<<< HEAD
 }
 
 .secret {
@@ -39,4 +46,6 @@ body {
     position: relative;
     left:0px;
     top: 0px;
+=======
+>>>>>>> 9b2911c0a8bbd033ec9ba57aa44ae8360458298f
 }

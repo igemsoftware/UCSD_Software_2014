@@ -155,7 +155,11 @@ $('#cy').cytoscape({
     $('#btnC').click(function(){
         cy.add([
             {group: 'nodes', data: {id:'bunny'}, renderedPosition: {x: 200, y: 200}},
+<<<<<<< HEAD
             {group: 'edges', data: {source: 'bunny', target: 'cat'}}                
+=======
+            {group: 'edges', data: {source: 'bunny', target: 'cat'}},    
+>>>>>>> 9b2911c0a8bbd033ec9ba57aa44ae8360458298f
         ]);
         alert("node added");
     });
