@@ -17,8 +17,10 @@ def database_to_trans_logic():
     '''
     Determine the boolean logic for all transitions in the database
     '''
-    #collecting all of the transition information
-    trans_list = sql.execute("SELECT Interactor_ID, Input_Transition_ID, NOT)
+    #Collecting all of the transition-interactor information inside of a dictionary 
+        #Key: trans_ID
+        #Value: List of [[interactor1, not_boolean1], [interactor2, not_boolean2], ...]
+    trans_list = sql.execute("SELECT Interactor_ID, Input_Transition_ID, NOT")
     trans_dict = {}
     for trans in trans_list:
         trans_ID = trans[1]
@@ -27,15 +29,16 @@ def database_to_trans_logic():
         else:
             trans_dict[trans_ID] = [trans[0]] + [trans[2]]
     
-    #creating a list of all of the transitions
+    #Collecting all of the transtion-interactor boolean inside a dictionary
+        #Key: trans_ID
+        #Value: boolean string
     trans_bool_dict = {}
-    for interactor, bool in trans_dict:
-    '''        
-    #Collecting all of the transition logic        
-    logic_list = []
-    for trans in trans_dict.values() 
-        logic_list.append(bool_single_trans(trans))
-    ''' 
+    for trans_ID, interactors_list in trans_dict:
+            if trans_ID in trans_bool_dict:
+                trans_bool_dict[trans_ID].append(bool_trans(interactors_list))
+            else:
+                trans_bool_dict[trans_ID] = [bool_trans(interactors_list)]
+    return interactors_list
             
 def bool_trans(interactor): 
     '''
@@ -67,10 +70,7 @@ def bool_trans(interactor):
                         bool_string += " AND " + str(interactor[0][0])
                     else:
                         bool_string += " AND NOT " + str(interactor[0][0])
-                
-            
-            
-        return  "AND" #interactor[0][0] maybe also return the i_ID's
+        return bool_string
         
 def database_to_bool_operon()
     '''
@@ -78,13 +78,26 @@ def database_to_bool_operon()
     '''
     operon_trans_list = sql.execute('grab all of the operons and transitions')
     for rlts in operon_trans_list:
-        operon = rlts[0] 
-        if operon in operon_trans_dict:
-            operon_trans_dict[operon].append(operon[1])
+        operon_ID = rlts[0] 
+        if operon_ID in operon_trans_dict:
+            operon_trans_dict[operon_ID].append(rlts[1])
         else:
-            operon_trans_dict[operon] = [operon[0]]
-    
-    operon_logic_list = []
-    for operon in operon_trans_dict.values():
-        if len(operon_trans_dict[operon]) == 1:
+            operon_trans_dict[operon_ID] = [rlts[1]]
+            
+    #Collecting a list of operon logic and returning a dictionary.
+       #Key: operon_ID          
+       #Value: operon logic
+    trans_logic_dict = database_to_trans_logic()
+    operon_logic_dict = []
+    for operon_ID, trans_bools in operon_trans_dict.values():
+        if len(trans_bools) == 1:
+            operon_logic_dict[operon_ID] = trans_logic_dict[operon_ID]
+        else:
+            bool_string = ""
+            for logic in trans_bools:
+                bool_string += logic + " OR "
+            bool_string = bool_string[0:-4:] #remove that annoying last " OR "
+        operon_logic_dict[operon_ID] = bool_string
+    return operon_logic_dict
+        
             
