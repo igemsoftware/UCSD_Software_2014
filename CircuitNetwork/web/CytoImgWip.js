@@ -17,13 +17,11 @@ $('#cy').cytoscape({
       }),
  elements:{
    nodes:[
-<<<<<<< HEAD
+
        {data: {id: 'a', name: 'a'}, renderedPosition: {x: 100, y: 50} },
-       {data: {id: 'b', name: 'b'}, renderedPosition:{x: 300, y: 50} }
-=======
+       {data: {id: 'b', name: 'b'}, renderedPosition:{x: 300, y: 50} },
        {data: {id: 'a', name: 'a'} },
        {data: {id: 'b', name: 'b'} }
->>>>>>> 9b2911c0a8bbd033ec9ba57aa44ae8360458298f
    ],
    edges:[
        {data: {source: 'a', target: 'b'} }
@@ -40,12 +38,9 @@ $('#cy').cytoscape({
     //Hides all img divs(secret class) on document load
     //currently hard-coded. This piece needs editing after database is up.
     $('.secret').hide(true);
-<<<<<<< HEAD
-=======
     //get into position
     cy.$('#a').position({x: 100, y: 50});
     cy.$('#b').position({x: 300,y: 50});
->>>>>>> 9b2911c0a8bbd033ec9ba57aa44ae8360458298f
     //hiding/showing div's that belong to a node
      cy.on('tap', 'node', function(){
         //retrieve clicked node's identity
@@ -54,12 +49,9 @@ $('#cy').cytoscape({
         //Unit Test. Checks that var= node id 
         //alert(identity);
         //retrieve node's position
-<<<<<<< HEAD
         var posit = {x: event.pageX, y: event.pageY};
-=======
         var posit = this.position();
         //Unit Test. Checks that node position was grabed. 
->>>>>>> 9b2911c0a8bbd033ec9ba57aa44ae8360458298f
         //alert(String(position.x + ", " + position.y));
         //changes the location of the div's node. Doesn't work atm
          $(identity).css({

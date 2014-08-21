@@ -3,14 +3,19 @@
 var graphApp = angular.module('graphApp',[]);
 //setting default proportonality constants for Diff EQ's
 var k = [1,1];
+//User-adjusted proportionality constants.
 var newK;
+//default svg line in y=mx+b format.
 var eqnDefault = function(i){
         return k[0]*i + k[1];
 };
 var equation = eqnDefault;
 
 //Where we receive the equation
-var eqnNew;
+//Temporarily set to y=(m1)x+(b1).
+var eqnNew = function(i){
+        return newK.k1*i+newK.k2;
+    };
 
 //defining the size of the graph.
 var m = [80,80,80,80]; //margins top,left,bottom,left
@@ -34,9 +39,12 @@ graphApp.controller('KCtrl',function($scope){
             "k2": k[1]
         }
     };
+    //Button method that updates the "K" values
     $scope.collectData = function (){
         newK = $scope.default.constants;
         console.log(newK);
+        //Function that appends an SVG element with the new "K" values.
+        //Located on line ~160. Continues to create duplicate lines.
         newLine(domain);
     };
 });
@@ -152,9 +160,17 @@ var newLine = function(newDomain){
     eqnNew = function(i){
         return newK.k1*i+newK.k2;
     };
-    var equation = eqnNew;
+    
+    //clearing the arrays of old data.
+    equation = eqnNew;
+    eqnDomain = [];
+    range = [];
+    pointsSet = [];
+    
+    //Calling functions to reset arrays to new data.
     domainSet(newDomain);
     rangeSet(eqnDomain);
     pointsSet(eqnDomain,range);
+    console.log(points);
     plot.append("svg:path").attr("d", line(points));
 };
