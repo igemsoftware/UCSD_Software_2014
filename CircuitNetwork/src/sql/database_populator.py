@@ -3,11 +3,26 @@ import csv
 import sql_pytools as sql
 import os
 
+
 def which_table(table_list, table_name):
+    '''
+    '''
     print table_name
     for table in table_list:
         if table_name in table:
             return table
+            
+def domain_to_database(,domain_str):
+    '''
+    Takes in domain and puts into correct tables
+    '''
+    domain_str = domain.split(',')
+            
+def spreadsheet_parser():
+    '''
+    Takes in data from the spreadsheet and parses it for the sql database
+    '''
+    
 
 def main():
     #Creating tables of genetic constructs and interactors
@@ -19,10 +34,10 @@ def main():
     opr_table = 'CREATE TABLE opr (ID VARCHAR(50), Operon_ID VARCHAR(50), Plasmid_ID VARCHAR(50), Main NUM(10));'
     orc_table = 'CREATE TABLE optr (ID VARCHAR(50), Operon_ID VARCHAR(50), Part_ID VARCHAR(50), Position NUM(10));'
     oitr_table = 'CREATE TABLE oitr (ID, Operon_ID, Input_Transition_ID)
-    outr_table = 'CREATE TABLE outr (ID, Operon_ID, Output_Transition_ID)
+    ootr_table = 'CREATE TABLE ootr (ID, Operon_ID, Output_Transition_ID)
     #Creating tables of transitions that are used for the petri nets
-    it_table = 'CREATE TABLE operon_input (ID VARCHAR(50), Input VARCHAR(50), NOT Bool );'
-    ot_table = 'CREATE TABLE operon_output (ID VARCHAR(50), Output VARCHAR(50));'
+    it_table = 'CREATE TABLE input_trans (ID VARCHAR(50), Input VARCHAR(50), NOT Bool );'
+    ot_table = 'CREATE TABLE output_trans (ID VARCHAR(50), Output VARCHAR(50));'
     
     
     table_list =[plasmid_table, por, operon_input, operon_output,operon_table,orc, part_table]
