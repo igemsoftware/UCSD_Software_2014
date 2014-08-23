@@ -98,7 +98,7 @@ var line = d3.svg.line()
 
 //determing the scale of the axes lines.
 var xScale = d3.scale.linear().domain([0,domain]).range([0,w]);
-var yScale = d3.scale.linear().domain([0,domain]).range([h,0]);
+var yScale = d3.scale.linear().domain([0,rangeMax]).range([h,0]);
 
 function make_x_axis() {        
     return d3.svg.axis()
@@ -153,23 +153,39 @@ var plot = d3.select("#graph").append("svg:svg")
             .attr("transform", "translate(0," + h + ")")
             .call(xAxisMain);
     
+    //Adding X-axis label
+    plot.append("text")
+    .attr("class", "label")
+    .attr("x", w/2)
+    .attr("y", h + 50 )
+    .style("text-anchor", "middle")
+    .text("Time");
+    
+    //Adding Y-axis lavel
+    plot.append("text")
+    .attr("class", "label")
+    .attr("x", -(w/2))
+    .attr("y", -50)
+    .attr("dy", ".1em")
+    .attr("transform", "rotate(-90)")
+    .style("text-anchor", "middle")
+    .text("Concentration");
+    
     // Adding the line to the graph.
     plot.append("svg:path").attr("d", line(points));
 
 var newLine = function(newDomain){
-    eqnNew = function(i){
-        return newK.k1*i+newK.k2;
-    };
-    
     //clearing the arrays of old data.
     equation = eqnNew;
     eqnDomain = [];
     range = [];
-    pointsSet = [];
+    points = [];
     
     //Calling functions to reset arrays to new data.
     domainSet(newDomain);
     rangeSet(eqnDomain);
+    rangeMax = d3.max(range);
+    console.log(rangeMax);
     pointsSet(eqnDomain,range);
     console.log(points);
     plot.append("svg:path").attr("d", line(points));
