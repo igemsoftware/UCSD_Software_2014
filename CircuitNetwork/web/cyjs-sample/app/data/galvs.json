@@ -8,7 +8,7 @@
       "color" : "rgb(102,102,102)",
       "border-opacity" : 1.0,
       "height" : 80.0,
-      "background-color" : "rgb(255,255,255)",
+      "background-colosolidr" : "rgb(255,255,255)",
       "width" : 80.0,
       "font-family" : "SansSerif",
       "font-weight" : "normal",
@@ -551,7 +551,7 @@
       "font-weight" : "normal",
       "border-color" : "rgb(0,0,0)",
       "text-opacity" : 1.0,
-      "shape" : "ellipse",
+      "shape" : "triangle",
       "border-width" : 0.0,
       "text-valign" : "center",
       "text-halign" : "center",
@@ -560,7 +560,7 @@
   }, {
     "selector" : "node:selected",
     "css" : {
-      "background-color" : "rgb(255,255,0)"
+      "background-color" : "rgb(255,255,255)"
     }
   }, {
     "selector" : "edge",

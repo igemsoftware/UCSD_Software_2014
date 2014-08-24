@@ -8,7 +8,7 @@ $window, Network, VisualStyles, Gist) {
 	var NETWORK_FILE = 'data/gal.cyjs'; 
         var visualStyleFile = 'data/galVS.json'; 
         
-        var DEFAULT_VISUAL_STYLE_NAME = 'default';
+        var DEFAULT_VISUAL_STYLE_NAME = 'Solid';
         var PRESET_STYLE_FILE = encodeURIComponent('data/style.json');
         //these empty arrays are updated by the server for use by the cytoscape.js object.
         var networkData = {};
