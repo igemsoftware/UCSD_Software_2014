@@ -83,7 +83,7 @@ $window, Network, VisualStyles, Gist) {
                 $scope.cy = cy;
                 setEventListeners();
                 $scope.cy.style().fromJson($scope.visualStyles
-[DEFAULT_VISUAL_STYLE_NAME].style).update();
+                [DEFAULT_VISUAL_STYLE_NAME].style).update();
                 updateNetworkData(cy);
 		angular.element('.loading').remove();
                 /*$scope.cy = this;

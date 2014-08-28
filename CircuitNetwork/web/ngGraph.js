@@ -17,6 +17,9 @@ var eqnNew = function(i){
         return newK.k1*i+newK.k2;
     };
 
+//Counter for line ID's
+var counter = 0;
+
 //defining the size of the graph.
 var m = [80,80,80,80]; //margins top,left,bottom,left
 var h = 500 - m[0] - m [2]; //height
@@ -172,7 +175,19 @@ var plot = d3.select("#graph").append("svg:svg")
     .text("Concentration");
     
     // Adding the line to the graph.
-    plot.append("svg:path").attr("d", line(points));
+    plot.append("svg:path").attr("id","counter" + String(counter)).attr("d", line(points));
+
+//Function to add a button to remove lines. 
+var removeLine = function(){
+    d3.select("#bttn" + String(counter))
+       .on("click",alert("hello world"));
+    var removeBttn = '<button id="bttn' + String(counter) + '" ng-click=>test</button>';
+    $("#legend").append('<p>Line ' + String(counter) + '<p>');
+    $("#legend").append(removeBttn);
+};
+
+    removeLine();
+    counter += 1;
 
 var newLine = function(newDomain){
     //clearing the arrays of old data.
@@ -185,8 +200,7 @@ var newLine = function(newDomain){
     domainSet(newDomain);
     rangeSet(eqnDomain);
     rangeMax = d3.max(range);
-    console.log(rangeMax);
     pointsSet(eqnDomain,range);
-    console.log(points);
-    plot.append("svg:path").attr("d", line(points));
+    plot.append("svg:path").attr("id","counter" + String(counter)).attr("d", line(points));
+    counter += 1;
 };
