@@ -4,12 +4,11 @@ body{
     position: static;
     width: 100%;
     height: 100%;
-    
 }
 #igem{
         color:gold;
         width: 400px;
-        height: 800px;
+        //height: 800px;
         //border: 1px solid red;
         float:left;
         font-size: 80px;
@@ -23,49 +22,106 @@ body{
     }
     
  
- 
+
+
 
 #table{
-    width: 300px;
+    width: 350px;
     text-align: center;
     text-height: font-size;
     float: right;
+    //border: 1px solid red;
+    margin-top: 20px;
     
 }
 
 #table ul{
     margin: 0;
-    list-style: none;   
+    list-style: none; 
+    //border: 1px solid blue;
+    
 }
 #table li{
     margin: 0px;
     padding: 0;
     display: block;
     list-style: none; 
+    margin-top: 2px;
+    //border: 1px solid white;
 }
 
 #table li a{
     color: gold;
     background-image: url("http://wallpaperskoe.com/wallpapers/2013/06/Beach_sand_1_by_eddieretelj.jpg");
     border: 5px inset;
-    margin: 5px;
+    margin: 5px auto;
+    margin-right: 0px;
     text-decoration: none;
     display: block;
-    padding: 25px;
-    width: 200px;
-    height: 50px;
+    padding: 15px;
+    width: 250px;
+    height: 85px;
     max-height: 100%;
-    font-size: 25px;
+    font-size: 40px;
     border-top-left-radius:30px;
     border-bottom-left-radius: 30px;
     background-size: cover;
+    margin-bottom: 5px;
 }
 
 #table li a:hover{
     color: #FFF;
     background-image: url("http://wallpaper-million.com/Wallpapers/f/Sea/Sand-underwater-wallpaper_5257.jpg");   
     font-size: 60px;
+    text-align: center;
+    margin: 0 auto;
+    margin-right: 0px;
+    width: 300px;
+    height: 95px;
+    padding: 5px;
+    
+    
 }
+#pick{
+   //border: 5px solid brown;
+   height: 200px;
+   width: 750px;
+   margin: 0 auto;
+   position: relative;
+   top: 200px;
+   background-image: url("http://2.bp.blogspot.com/_RAlP3BmEW1Q/TQNzSA5-1EI/AAAAAAAABfY/ZHxVdPiaPbc/s1600/2-Zomer-achtergronden-zomer-wallpapers-strand-zee-achtergrond.jpg");
+   background-size: 100% 100%;
+   background-repeat: no-repeat;
+   border-radius: 30px;
+}
+.input-group{
+    //border: 5px solid gold;
+    //margin-top: 200px;
+    height: 45px;
+    width: 700px;
+    margin: 0 auto;
+    position: relative;
+    top: 45px;
+    
+    
+}
+
+.form-control{
+   height: 100px;
+   width: 640px; 
+   margin-top: 50px;
+   text-align: center;
+   position: relative;
+   
+}
+.btn btn-default{
+    height: 40px;
+    width: 60px;
+    //position: relative; 
+    //top: -8px;
+    
+}
+
 
 #logIn {
     text-align: center;
@@ -73,7 +129,7 @@ body{
     //border: solid gold;
     background-image:url("http://wallpaperskoe.com/wallpapers/2013/06/Beach_sand_1_by_eddieretelj.jpg");
     width: 400px;
-    height: 400px;
+    height: 350px;
     position: fixed;
     top:50%;
     left: 50%;
@@ -82,7 +138,7 @@ body{
     border-radius: 20px;
  }
 
-form input[type="text"],[type="password"],[type="email"]{
+form input[type="email"]{
     padding: 10px;
     text-align: center;
     color: blue;
@@ -92,9 +148,26 @@ form input[type="text"],[type="password"],[type="email"]{
     border: gold;
     border-radius: 5px;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 30px;
     height: 50px;
     width: 250px;
+    margin-top: 30px;
+    
+}
+form input[type="password"],[type="text"]{
+   padding: 10px;
+    text-align: center;
+    color: blue;
+    text-height: max-size;
+    font-weight: bold;
+    background-color: #FFF;
+    border: gold;
+    border-radius: 5px;
+    font-family: sans-serif;
+    font-size: 30px;
+    height: 50px;
+    width: 250px;
+    margin-top: 10px;
 }
 
 form input[type="submit"]{
@@ -109,7 +182,12 @@ form input[type="submit"]{
     font-size: 25px;
     height: 65px;
     width: 200px;
+    margin-top: 10px;
 }
 
 
-
+form input[type=submit]:hover{
+    border: 2px solid black;
+    height: 60px;
+    width: 190px; 
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html ng-app="SliderPage">
+
+<head>
+
+    <meta charset="utf-8" />
+    <title>iGEM TEAM</title>
+    <meta name="description" content="Team_Page">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+ 
+    <!-- add styles -->
+    <link href="Team_Page.css" rel="stylesheet" type="text/css" />
+    <script src="js/jquery-2.0.3.min.js"></script>
+    <script src="http://code.angularjs.org/1.2.0rc1/angular.js"></script>
+    <script src="http://code.angularjs.org/1.2.0rc1/angular-animate.min.js"></script>
+    <script src="http://code.angularjs.org/1.2.0rc1/angular-touch.min.js"></script>
+    <script src="Team_Page.js"></script>
+    
+</head>  
+    
+<body ng-controller="PageController">
+
+    <header>
+
+        <a href="newhtml.html" class="logo"><img src="http://images.roadtrafficsigns.com/img/lg/K/go-back-security-sign-k-0138-l.png" /></a>
+         
+    </header>
+
+ 
+
+    <!-- slider container -->
+    <div id="heading">
+        <p>MEET THE TEAM</p>
+    </div>
+    <div class="container slider">
+
+ 
+
+        <!--List all the photos-->
+        
+
+      <img ng-repeat="photo in photos" class="slide" ng-swipe-right="showPrev()" ng-swipe-left="showNext()" ng-show="isActive($index)" ng-src="{{photo.src}}" />
+        <!-- prev / next controls -->
+        <a class="arrow prev" href="#" ng-click="showPrev()"><--</a>
+        <a class="arrow next" href="#" ng-click="showNext()">--></a>
+ 
+        <!-- extra navigation controls -->
+        <ul class="nav">
+            <!--created multiple images / thumbnails for navigation-->
+            <li ng-repeat="photo in photos" ng-class="{'active':isActive($index)}">
+
+                <img src="{{photo.src}}" alt="{{photo.desc}}" title="{{photo.desc}}" ng-click="showPhoto($index);" />
+
+            </li>
+        </ul>
+ 
+    </div>
+    
+</body>
+</html>
