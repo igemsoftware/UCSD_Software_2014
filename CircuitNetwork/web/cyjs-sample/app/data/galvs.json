@@ -8,7 +8,11 @@
       "color" : "rgb(102,102,102)",
       "border-opacity" : 1.0,
       "height" : 80.0,
+<<<<<<< HEAD
       "background-colosolidr" : "rgb(255,255,255)",
+=======
+      "background-color" : "rgb(255,255,255)",
+>>>>>>> 9b2911c0a8bbd033ec9ba57aa44ae8360458298f
       "width" : 80.0,
       "font-family" : "SansSerif",
       "font-weight" : "normal",
@@ -551,7 +555,11 @@
       "font-weight" : "normal",
       "border-color" : "rgb(0,0,0)",
       "text-opacity" : 1.0,
+<<<<<<< HEAD
       "shape" : "triangle",
+=======
+      "shape" : "ellipse",
+>>>>>>> 9b2911c0a8bbd033ec9ba57aa44ae8360458298f
       "border-width" : 0.0,
       "text-valign" : "center",
       "text-halign" : "center",
@@ -560,7 +568,11 @@
   }, {
     "selector" : "node:selected",
     "css" : {
+<<<<<<< HEAD
       "background-color" : "rgb(255,255,255)"
+=======
+      "background-color" : "rgb(255,255,0)"
+>>>>>>> 9b2911c0a8bbd033ec9ba57aa44ae8360458298f
     }
   }, {
     "selector" : "edge",

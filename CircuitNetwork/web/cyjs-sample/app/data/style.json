@@ -1327,13 +1327,19 @@
       "border-opacity" : 1.0,
       "border-width" : 0.0,
       "color" : "rgb(0,0,0)",
+<<<<<<< HEAD
       "height" : 75.0,
       "width" : 75.0,
+=======
+      "height" : 40.0,
+      "width" : 40.0,
+>>>>>>> 9b2911c0a8bbd033ec9ba57aa44ae8360458298f
       "content" : "data(name)"
     }
   }, {
     "selector" : "node:selected",
     "css" : {
+<<<<<<< HEAD
       "background-color" : "rgb(255,255,255)"
     }
   }, { 
@@ -1360,6 +1366,9 @@
     "selector" : "#752:selected",
     "css" : {
       "background-color" : "rgb(0,0,0)"
+=======
+      "background-color" : "rgb(255,255,0)"
+>>>>>>> 9b2911c0a8bbd033ec9ba57aa44ae8360458298f
     }
   }, {
     "selector" : "edge",

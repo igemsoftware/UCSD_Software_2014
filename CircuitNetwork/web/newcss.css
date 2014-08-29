@@ -1,0 +1,115 @@
+body{
+    background-image: url("http://wallpaper-million.com/Wallpapers/f/Sea/Sand-underwater-wallpaper_5257.jpg");
+    background-size: cover;
+    position: static;
+    width: 100%;
+    height: 100%;
+    
+}
+#igem{
+        color:gold;
+        width: 400px;
+        height: 800px;
+        //border: 1px solid red;
+        float:left;
+        font-size: 80px;
+        font-family: cursive;
+        text-align: center;
+        //background-image: url("https://mail.google.com/mail/u/0/?ui=2&ik=b89c7b4da6&view=fimg&th=147a943d201f4826&attid=0.2&disp=inline&realattid=f_hyi2k15v1&safe=1&attbid=ANGjdJ_h_gaam3AXXEC0nnbPjROrO5JGWYS12mJf9iPBWkdmVfgRz4cRNN8noh7b1kD55igFjVUmlP3PqISRZoehgBehuc2_SkjEFVSd0HHuGyAwBm2mC6u_HFl_TAI&ats=1408070302993&rm=147a943d201f4826&zw&sz=w1258-h558");
+        background-repeat: no-repeat;
+        background-size: 150px 250px;
+        background-position: top right;
+        opacity: 0.8;
+    }
+    
+ 
+ 
+
+#table{
+    width: 300px;
+    text-align: center;
+    text-height: font-size;
+    float: right;
+    
+}
+
+#table ul{
+    margin: 0;
+    list-style: none;   
+}
+#table li{
+    margin: 0px;
+    padding: 0;
+    display: block;
+    list-style: none; 
+}
+
+#table li a{
+    color: gold;
+    background-image: url("http://wallpaperskoe.com/wallpapers/2013/06/Beach_sand_1_by_eddieretelj.jpg");
+    border: 5px inset;
+    margin: 5px;
+    text-decoration: none;
+    display: block;
+    padding: 25px;
+    width: 200px;
+    height: 50px;
+    max-height: 100%;
+    font-size: 25px;
+    border-top-left-radius:30px;
+    border-bottom-left-radius: 30px;
+    background-size: cover;
+}
+
+#table li a:hover{
+    color: #FFF;
+    background-image: url("http://wallpaper-million.com/Wallpapers/f/Sea/Sand-underwater-wallpaper_5257.jpg");   
+    font-size: 60px;
+}
+
+#logIn {
+    text-align: center;
+    display: block;
+    //border: solid gold;
+    background-image:url("http://wallpaperskoe.com/wallpapers/2013/06/Beach_sand_1_by_eddieretelj.jpg");
+    width: 400px;
+    height: 400px;
+    position: fixed;
+    top:50%;
+    left: 50%;
+    margin-top: -200;
+    margin-left: -200px;
+    border-radius: 20px;
+ }
+
+form input[type="text"],[type="password"],[type="email"]{
+    padding: 10px;
+    text-align: center;
+    color: blue;
+    text-height: max-size;
+    font-weight: bold;
+    background-color: #FFF;
+    border: gold;
+    border-radius: 5px;
+    font-family: sans-serif;
+    font-size: 18px;
+    height: 50px;
+    width: 250px;
+}
+
+form input[type="submit"]{
+    padding: 10px;
+    text-align: center;
+    text-height: max-size;
+    font-weight: bold;
+    background-color: #E6B800;
+    border:none;
+    border-radius: 5px;
+    font-family: sans-serif;
+    font-size: 25px;
+    height: 65px;
+    width: 200px;
+}
+
+
+

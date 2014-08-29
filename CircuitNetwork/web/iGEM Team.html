@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Team</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <style type="text/css">
+            .slider{
+                width:800px;
+                overflow: hidden;
+                margin: 30px auto;
+                height: 350px;
+                
+                
+            }
+            .slider{
+                background-repeat: no-repeat;
+                background-position: top;
+                width: 864px;
+                height: 350px;
+                
+                
+            }
+            .slider img{
+                width:800px;
+                height: 350px;
+                display: none;
+                margin: 10px auto;
+                background-position: center;
+            }
+            
+            .shadow{
+                width: 400px;
+                height: 200px;
+                margin: 10px;
+                background-position: center;
+            }
+            
+            
+            
+        </style>
+        <script type="text/javascript">
+            function Slider(){
+                $(".slider #1").show("fade", 500);
+                $(".slider #1").delay(5500).hide("slide", {direction:"left"}, 500);
+                
+                var sliderCount=$(".slider img").size();
+                var count = 2;
+                
+                setInterval(function() {
+                    $("slider #" + count).show("slide", {direction:"right"}, 500);
+                    $("slider #" + count).delay(5500).hide("slide", {direction:"left"}, 500);
+                    
+                    if(count === sliderCount){
+                        count = 1;
+                    } 
+                    else{
+                        count = count + 1;
+                    }
+                
+                    
+                }, 5000);
+            }
+        </script>
+    </head>
+    <body onload="Slider();">
+        <div class="slider">
+            <img id="1" src="http://proof.nationalgeographic.com/files/2014/06/140611-henauer-pod-01.jpg"  
+                 border="0"  alt="Pic#1"/>
+            <img id="2" src="http://proof.nationalgeographic.com/files/2014/06/140611-qu-pod-07.jpg"
+                 border="0"  alt="Pic#2"/>
+            <img id="3" src="http://proof.nationalgeographic.com/files/2014/06/140611-nevin-pod-06.jpg"
+                 border="0"  alt="Pic#3"/>
+        </div>
+        <div class="shadow">
+            <img src="http://www.sbolstandard.org/_/rsrc/1363216772364/visual/bestpractices/badpromoter.png" 
+                 alt="bottom stuff"/>
+        </div>
+    </body>
+</html>
