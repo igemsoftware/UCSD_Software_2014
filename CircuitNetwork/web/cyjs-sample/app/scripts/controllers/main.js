@@ -1,6 +1,7 @@
 angular.module('cyViewerApp')
+	
     .controller('MainCtrl', function ($scope, $http, $location, $routeParams, 
-$window, Network, VisualStyles, Gist) {
+$window, Network, VisualStyles, Gist) {		
 
         'use strict';
         
@@ -8,7 +9,7 @@ $window, Network, VisualStyles, Gist) {
 	var NETWORK_FILE = 'data/gal.cyjs'; 
         var visualStyleFile = 'data/galVS.json'; 
         
-        var DEFAULT_VISUAL_STYLE_NAME = 'Solid';
+        var DEFAULT_VISUAL_STYLE_NAME = 'default';//'Solid';
         var PRESET_STYLE_FILE = encodeURIComponent('data/style.json');
         //these empty arrays are updated by the server for use by the cytoscape.js object.
         var networkData = {};
@@ -76,7 +77,11 @@ $window, Network, VisualStyles, Gist) {
             layout: {
                 name: 'preset'
             },
-
+	    
+	    //style: cytoscape.stylesheet()
+	    //Changing shapes of nodes 
+	  
+		
             ready: function() {
                 var cy = this;
                 cy.load(networkData.elements);
@@ -85,7 +90,10 @@ $window, Network, VisualStyles, Gist) {
                 $scope.cy.style().fromJson($scope.visualStyles
                 [DEFAULT_VISUAL_STYLE_NAME].style).update();
                 updateNetworkData(cy);
-		angular.element('.loading').remove();
+				angular.element('.loading').remove();
+				//$('#752').addClass('highlighted');
+				
+				//$scope.#752.addClass('highlighted');
                 /*$scope.cy = this;
                 $scope.cy.load(networkData.elements);
 
@@ -191,9 +199,11 @@ $window, Network, VisualStyles, Gist) {
             // Node selection
             $scope.cy.on('select', 'node', function(event) {
                 //alert("moooooo");
-		$('#book').show();
+				$('#book').show();
+				//$('#752').addClass('highlighted');
                 var id = event.cyTarget.id();
                 $scope.selectedNodes[id] = event.cyTarget;
+				$scope.selectedNodes[id].addClass('highlighted');
                 updateFlag = true;
             });
             
@@ -221,10 +231,14 @@ $window, Network, VisualStyles, Gist) {
             setInterval(function() {
                 if (updateFlag && $scope.browserState.show) {
                     console.log('* update called');
+<<<<<<< HEAD
                     //displays node data
                     console.log($scope.nodes[0].data);
                     console.log($scope.edges[0]);
                     setColumnNames();
+=======
+					setColumnNames();
+>>>>>>> 61388344b0b881f61b84f5f936820c4a4bd3b091
                     $scope.$apply();
                     updateFlag = false;
                 }
@@ -342,9 +356,27 @@ $window, Network, VisualStyles, Gist) {
               
     });
 
+<<<<<<< HEAD
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
+=======
+    /*function CarouselDemoCtrl($scope) {
+  $scope.myInterval = 5000;
+  var slides = $scope.slides = [];
+  $scope.addSlide = function() {
+    var newWidth = 50 + slides.length;
+    slides.push({
+      image: 'http://placekitten.com/' + newWidth + '/30',
+      text: ['More','Extra','Lots of','Surplus'][slides.length % 4] + ' ' +
+        ['Cats', 'Kittys', 'Felines', 'Cutes'][slides.length % 4]
+    });
+  };
+  for (var i=0; i<4; i++) {
+    $scope.addSlide();
+  }
+};*/ 	
+>>>>>>> 61388344b0b881f61b84f5f936820c4a4bd3b091
