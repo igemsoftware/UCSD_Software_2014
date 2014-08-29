@@ -4,21 +4,63 @@
     <span us-spinner="{radius:30, width:3, length: 100}"></span>
 </div>
 
+<!--<div ng-controller="CarouselDemoCtrl">
+  <div style="height: 550px width: 20px">
+    <carousel interval="myInterval">
+      <slide ng-repeat="slide in slides" active="slide.active">
+        <img ng-src="{{slide.image}}" style="margin:auto;">
+        <div class="carousel-caption">
+          <h4>Slide {{$index}}</h4>
+          <p>{{slide.text}}</p>
+        </div>
+      </slide>
+    </carousel>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <button type="button" class="btn btn-info" ng-click="addSlide()">Add Slide</button>
+    </div>
+    <div class="col-md-6">
+      Interval, in milliseconds: <input type="number" class="form-control" ng-model="myInterval">
+      <br />Enter a negative number to stop the interval.
+    </div>
+  </div>
+</div>-->
+
 <div class="summary" ng-show="overlayState.show">
-    <h3>Network:</h3>
+    <!--<h3>Network:</h3>
     <select class="form-control" id="network-selector" ng-change="switchNetwork()" ng-model="currentNetwork">
         <option ng-repeat="networkName in networkNames">
             {{ networkName }}
         </option>
-    </select>
-    <img src ="http://ubic.ucsd.edu/ubic_logo_s.png" id = "book"/>
-    <h3>Visual Style:</h3>
+    </select>-->
+    
+	<br><br>
+	Search: <input class = "textbox" type = "text" ng-model = "searchText"/>
+	<style> 
+	.textbox { 
+		border: 1px solid #848484; 
+		-webkit-border-radius: 30px; 
+		-moz-border-radius: 30px; 
+		border-radius: 30px; 
+		outline:0; 
+		height:25px; 
+		width: 205px; 
+		padding-left:10px; 
+		padding-right:10px; 
+	  } 
+	</style> 
+
+	<br><br>
+	<!--<img src ="http://ubic.ucsd.edu/ubic_logo_s.png" id = "book"/>-->
+	<img src ="http://cidar1.bu.edu:5801/pigeonHelp/file.173.8.230.1931098-trans.png" width="110%" height="110%" id = "book"/>
+    <!--<h3>Visual Style:</h3>
     <select class="form-control" id="vs-selector" ng-change="switchVS()" ng-model="style">
         <option ng-repeat="style in visualStyles">
             {{ style.title }}
         </option>
-    </select>
-</div>
+    </select>-->
+</div>>
 
 <div ng-show="browserState.show" class="table-browser">
     <div id="table-view">
@@ -32,11 +74,16 @@
                             <td ng-repeat="columnName in columnNames">
                                 {{columnName}}
                             </td>
+							
                         </tr>
                     </thead>
                     <tbody data-ng-repeat="node in selectedNodes">
                         <tr>
-                            <td>{{ node.id() }}</td>
+                            <td>
+							<img ng-src="{{img_url}}">
+							<!--<button ng-click="img_url = '{{node.imgURL()}}'">{{ node.id() }}</button>-->
+							<button ng-click="img_url = 'https://farm4.staticflickr.com/3261/2801924702_ffbdeda927_d.jpg'">{{ node.id() }}</button>
+							</td>
                             <td ng-repeat="colName in columnNames">
                                 {{node.data(colName)}}
                             </td>

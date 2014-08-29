@@ -12,9 +12,9 @@
         "id" : "752",
         "shared_name" : "YDL194W",
         "SUID" : 752,
-        "selected" : true,
-        "faveShape" : "star",
+        "selected" : false,
         "name" : "YDL194W"
+		
       },
       "position" : {
         "x" : 829.0592258250246,
