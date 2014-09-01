@@ -21,7 +21,7 @@ def sql_insert(table_name,cols,new_row):
     values = 'Values (' + ','.join(new_row) + ')'
     return command + '\n\t' + variables + '\n\t' + values + ';'
     
-def sql_update(table_name, cols = [], values = [], w_cols = [], w_ops = [],w_values = [],w_conts = []):
+def sql_update(table_name, cols, values, w_cols = [], w_ops = [],w_values = [],w_conts = []):
     '''
     Constructs a string to update a value in a sql table
     param: table_name, the name of the SQL table

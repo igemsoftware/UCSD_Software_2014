@@ -1,7 +1,5 @@
-from sql_pytools import *
+import sql_pytools as sql_tool
 import sqlite3
-
-
 # Suggestion: it may be better to pass in a cursor object. That way you don't have to be
 # connecting and reconnecting all of the time. 
 # Suggestion #2: Might also think about making a class that quickly can capture the bool
@@ -9,99 +7,84 @@ import sqlite3
 # Suggestion #3: In order to capture bool logic for or you may need a list that 
 # separates transitions by the or placement. 
 # Suggestion #4: May need make methods that also return only the name of each genetic part
+
 sqlconn = sqlite3.connect("")
 sql = sqlconn.cursor()
 
-#############WORKING!!#############
 #Declaring list global variables for integration with accession functions
-plasmid_table = []
-operon_table = []
-part_table = []
-interactor_table = []
-opr_table = []
-optr_table = []
-oitr_table = []
-ootr_table = []
-input_trans_table = []
-output_trans_table = []
 
-#############WORKING!!#############
-
-def database_to_json():
-    '''
-    Obtain nodes and edge information and parse into json
-    '''
-
-def database_to_pigeon():
-    '''
-    Obtain operon information and parse into pigeonCAD string commands
-    '''
-def get_all_interactors_ID():
-    '''
-    Return all interactor ID's
-    '''
-def get_all_parts():
-    '''
-    Return all parts_ID's
-    '''
-def get_all_operon_plasmid_rlts()
-    '''
-    Return a list of tuples with Operon_ID and Plasmid_ID
-    '''
-def get_all_operon_part_rlts()
-    '''
-    Return a list of tuples with Operon_ID and Part_ID
-    '''
-def get_all_operon_in_trans_rlts()
-    '''
-    Return a list of tuples with Operon_ID and Input_Transition_ID
-    '''
-def get_all_operon_out_trans_rlts()
-    '''
-    Return a list of tuples with Operon_ID and Output Transition ID
-    '''
-def get_all_operon_plasmid_rlts()
-    '''
-    Return a list of tuples with Operon_ID and Plasmid_ID
-    '''
-def get_all_operon_plasmid_rlts()
-    '''
-    Return a list of tuples with Operon_ID and Plasmid_ID
-    '''
-def get_all_input_transitions()
-    '''
-    Return a list of lists with ...
-    '''
+plasmid_table = ["ID", "Plasmid_Name", "Miriam_ID", "Size"]
+operon_table = ["ID", "Name", "Image_Path"]
+part_table = ["ID", "Part"]
+interactor_table = ["ID", "Name","Type"]
+opr_table = ["ID", "Operon_ID", "Plasmid_ID", "Main"]
+optr_table = ["ID", "Operon_ID", "Part_ID", "Position"]
+oitr_table = ["ID", "Operon_ID", "Input_Transition_ID"]
+ootr_table = ["ID", "Operon_ID", "Output_Transition_ID"]
+input_trans_table = ["ID", "Input", "NOT"]
+output_trans_table = ["ID", "Output"]
     
     
+#############Database_Accession_Methods#############    
     
-    
-    
-    
-    
-    
-    
-    
-#############DONE!#############    
-    
-def get_all_input_trans_ID():
+def get_input_trans_info():
     '''
     Return all of the input transitions ID's
     '''
     return unlist_values(sql.execute("SELECT ID from input_trans"))
     
-def get_all_operon_ID():
+def get_operon_info():
     '''
     Return all of the operon ID's
     '''
     return unlist_values(sql.execute("SELECT ID from operon"))
     
-def get_all_plasmid_ID():
+def get_plasmid_info():
     '''
     Return all the plasmid ID's
     '''
     return unlist(sql.execute("SELECT ID from plasmid"))
     
+def database_select(table_name, col_nums, w_col = None, w_opt = None,
+    w_var = None,w_bool = None, group = False, h_col = None, h_bool = None, 
+    h_value = None):
+    '''
+    Pulls data from the desired table by specifying the table name and index cols
+    Returns a list of tuples where each tuple has 
+    @param table_name, table you wish to pull data from
+    @param col_nums, list of numbers indexing the table columns
+    @param w_col, column names for where clause
+    @param w_opt, operator for where clause
+    @param w_var, variable for where clause 
+    @param w_bool, boolean for where clause
+    @param group, group name for GROUP BY caluse
+    @param h_col, group specifier
+    
+    Example
+        ex 1. Pulling multiple columns from the Plasmid table
+            database_select('plasmid', [0,1])
+        
+            returned is [("p_001", "pOR"), ("p_002", "pAND"), ...]
+            
+        ex 2. Pulling a single column from the part table
+            database_select('part', [0])
+            
+            returned is [("pt_001"), ("pt_002"), ...]
+            CAUTION: When working with result make sure you recognize you 
+            have a list with tuples of single values. User unlist function
+            to fix this. 
+            
+        ex. 3 Pulling very specific data. To do so you have to use the optional
+            parameters w_col, w_opt, w_var and w_bool.
+            database_select("itr", [0,1], 2, "!=", True)) 
+    '''
+    columns = pull_columns(col_nums)
+    command = sql_tool.sql_select(table_name,columns, w_col, w_opt, w_var,
+        w_bool, group, h_col, h_bool, h_value)
+    data = sql.execute(command)
+    return data 
+    
+#############Logic_Accession_Methods#############     
 def single_trans_to_bool(trans_ID):
     '''
     Determine the boolean logic of a single transition using the ID
@@ -123,23 +106,15 @@ def single_operon_to_bool(operon_ID)
     if len(operon_list) = 1:
         return operon_list
     else:
-        return ' OR '.join(operon_list)
-        
-def unlist_values(to_list)
-    '''
-    Stringify values in a list that are within a list
-    @param to_list, a list with lists of single values
-    '''
-    return [''.join(x) for x in to_list]
-    
+        return ' OR '.join(operon_list)    
 
 def database_to_trans_logic():
     '''
     Determine the boolean logic for all transitions in the database
-    '''
-    #Collecting all of the transition-interactor information inside of a dictionary 
+    Collecting all of the transition-interactor information inside of a dictionary 
         #Key: trans_ID
         #Value: List of [[interactor1, not_boolean1], [interactor2, not_boolean2], ...]
+    '''  
     trans_list = sql.execute("SELECT Interactor_ID, Input_Transition_ID, NOT")
     trans_dict = {}
     for trans in trans_list:
@@ -160,6 +135,36 @@ def database_to_trans_logic():
                 trans_bool_dict[trans_ID] = [bool_trans(interactors_list)]
     return interactors_list
             
+def database_to_bool_operon():
+    '''
+    Determine the boolean logic of the whole operon
+    '''
+    operon_trans_list = sql.execute('grab all of the operons and transitions')
+    for rlts in operon_trans_list:
+        operon_ID = rlts[0] 
+        if operon_ID in operon_trans_dict:
+            operon_trans_dict[operon_ID].append(rlts[1])
+        else:
+            operon_trans_dict[operon_ID] = [rlts[1]]
+            
+    #Collecting a list of operon logic and returning a dictionary.
+       #Key: operon_ID          
+       #Value: operon logic
+    trans_logic_dict = database_to_trans_logic()
+    operon_logic_dict = []
+    for operon_ID, trans_bools in operon_trans_dict.values():
+        if len(trans_bools) == 1:
+            operon_logic_dict[operon_ID] = trans_logic_dict[operon_ID]
+        else:
+            bool_string = ""
+            for logic in trans_bools:
+                bool_string += logic + " OR "
+            bool_string = bool_string[0:-4:] #remove that annoying last " OR "
+        operon_logic_dict[operon_ID] = bool_string
+    return operon_logic_dict
+    
+    
+#############Module_Helper_Methods############# 
 def bool_trans(interactor): 
     '''
     Determine the boolean logic of transition based on interactor
@@ -193,34 +198,76 @@ def bool_trans(interactor):
                         bool_string += " AND NOT " + str(interactor[0][0])
         return bool_string
         
-def database_to_bool_operon():
+def pull_columns(col_nums, columns_list)
     '''
-    Determine the boolean logic of the whole operon
+    Return a list of column names
     '''
-    operon_trans_list = sql.execute('grab all of the operons and transitions')
-    for rlts in operon_trans_list:
-        operon_ID = rlts[0] 
-        if operon_ID in operon_trans_dict:
-            operon_trans_dict[operon_ID].append(rlts[1])
-        else:
-            operon_trans_dict[operon_ID] = [rlts[1]]
-            
-    #Collecting a list of operon logic and returning a dictionary.
-       #Key: operon_ID          
-       #Value: operon logic
-    trans_logic_dict = database_to_trans_logic()
-    operon_logic_dict = []
-    for operon_ID, trans_bools in operon_trans_dict.values():
-        if len(trans_bools) == 1:
-            operon_logic_dict[operon_ID] = trans_logic_dict[operon_ID]
-        else:
-            bool_string = ""
-            for logic in trans_bools:
-                bool_string += logic + " OR "
-            bool_string = bool_string[0:-4:] #remove that annoying last " OR "
-        operon_logic_dict[operon_ID] = bool_string
-    return operon_logic_dict
+    columns= []
+    for nums in col_nums:
+        try:
+            columns.append(col_nums[nums])
+        except:
+            Raise Exception("Table is " + len(columns_list) + ''' long. Tried to 
+                access non-existant index ''' + nums)
+    return columns
     
+def unlist_values(to_list)
+    '''
+    Stringify values in a list that are within a list
+    @param to_list, a list with lists of single values
+    '''
+    return [''.join(x) for x in to_list]
+    
+#############WORKING_Accession_Methods!!#############
+
+def database_to_json():
+    '''
+    Obtain nodes and edge information and parse into json
+    '''
+
+def database_to_pigeon():
+    '''
+    Obtain operon information and parse into pigeonCAD string commands
+    '''
+    
+def get_interactors_info(col_nums):
+    '''
+    Return all interactor ID's
+    '''
+def get_parts_info():
+    '''
+    Return all parts_ID's
+    '''
+def get_operon_plasmid_rlts_info()
+    '''
+    Return a list of tuples with corresponding columns info
+    '''
+def get_operon_part_rlts_info()
+    '''
+    Return a list of tuples with Operon_ID and Part_ID
+    '''
+def get_operon_in_trans_rlts_info()
+    '''
+    Return a list of tuples with Operon_ID and Input_Transition_ID
+    '''
+def get_operon_out_trans_rlts_info()
+    '''
+    Return a list of tuples with Operon_ID and Output Transition ID
+    '''
+def get_operon_plasmid_rlts_info()
+    '''
+    Return a list of tuples with Operon_ID and Plasmid_ID
+    '''
+def get_operon_plasmid_rlts_info()
+    '''
+    Return a list of tuples with Operon_ID and Plasmid_ID
+    '''
+def get_input_transitions_info()
+    '''
+    Return a list of lists with ...
+    '''
+    
+#############WORKING_Setter_Methods!!#############
 
     
 

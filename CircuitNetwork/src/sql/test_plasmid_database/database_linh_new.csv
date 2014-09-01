@@ -1,0 +1,273 @@
+Checklist,P_ID,P_Name,O_ID,Structure,R/L,Domain,Math,Range,Title,Authors,Journal,Year
+,1,P(luxI-lacO)-GFPmut2,,pLuxI_pLacO--->gfp,R,"LacI,IPTG",AND,gfp,Construction and enhancement of a minimal genetic and logic gate,DJ Sayut et al,Appl. Environ. Microbiology.,2009
+,,,"1,1",pLuxI_pLacO--->gfp,R,"OHHL,luxR",AND,gfp,Construction and enhancement of a minimal genetic and logic gate,DJ Sayut et al,Appl. Environ. Microbiology.,2009
+X,2,pOR10,,pBAD--->yfp + pCONST--->araC,,,,,Robust multicellular computing using genetically encoded NOR gates and chemical wires,A Tamsir et al,Nature,2011
+X,,,"2,1",pBAD--->yfp,R,"araC,Lara",AND,yfp,Robust multicellular computing using genetically encoded NOR gates and chemical wires,A Tamsir et al,Nature,2011
+X,,,"2,2",pCONST--->araC,R,,CONSTANT,araC,Robust multicellular computing using genetically encoded NOR gates and chemical wires,A Tamsir et al,Nature,2011
+X,3,pOR20,,pTet--->yfp + pCONST--->tetR,,,,,Robust multicellular computing using genetically encoded NOR gates and chemical wires,A Tamsir et al,Nature,2011
+X,,,"3,1",pTet--->yfp,R,"tetR,aTc",AND,yfp,Robust multicellular computing using genetically encoded NOR gates and chemical wires,A Tamsir et al,Nature,2011
+X,,,"3,2",pCONST--->tetR,R,,CONSTANT,tetR,Robust multicellular computing using genetically encoded NOR gates and chemical wires,A Tamsir et al,Nature,2011
+X,4,pOR30,,pLasI--->yfp + pCONST--->lasR,,,,,Robust multicellular computing using genetically encoded NOR gates and chemical wires,A Tamsir et al,Nature,2011
+X,,,"4,1",pLasI--->yfp,R,"lasR,PAI-1",AND,yfp,Robust multicellular computing using genetically encoded NOR gates and chemical wires,A Tamsir et al,Nature,2011
+X,,,"4,2",pCONST--->lasR,R,,CONSTANT,lasR,Robust multicellular computing using genetically encoded NOR gates and chemical wires,A Tamsir et al,Nature,2011
+X,5,pOR1020,,pBAD_pTet--->yfp + pCONST--->araC_tetR,,,,,Robust multicellular computing using genetically encoded NOR gates and chemical wires,A Tamsir et al,Nature,2011
+X,,,"5,1",pBAD_pTet--->yfp,R,"araC,Lara",AND,yfp,Robust multicellular computing using genetically encoded NOR gates and chemical wires,A Tamsir et al,Nature,2011
+X,,,"5,1",pBAD_pTet--->yfp,R,"aTc,tetR",AND,yfp,Robust multicellular computing using genetically encoded NOR gates and chemical wires,A Tamsir et al,Nature,2011
+X,,,"5,2",pCONST--->araC_tetR,R,,CONSTANT,"araC,tetR",Robust multicellular computing using genetically encoded NOR gates and chemical wires,A Tamsir et al,Nature,2011
+X,6,pOR1030,,pBAD_pLasI--->yfp + pCONST--->araC_lasR,,,,,Robust multicellular computing using genetically encoded NOR gates and chemical wires,A Tamsir et al,Nature,2011
+X,,,"6,1",pBAD_pLasI--->yfp,R,"araC,Lara",AND,yfp,Robust multicellular computing using genetically encoded NOR gates and chemical wires,A Tamsir et al,Nature,2011
+X,,,"6,1",pBAD_pLasI--->yfp,R,"lasR,PAI-1",AND,yfp,Robust multicellular computing using genetically encoded NOR gates and chemical wires,A Tamsir et al,Nature,2011
+X,,,"6,2",pCONST--->araC_lasR,R,,CONSTANT,"araC,lasR",Robust multicellular computing using genetically encoded NOR gates and chemical wires,A Tamsir et al,Nature,2011
+X,7,pOR2030,,pTet_pLasI--->yfp + pCONST--->lasR_tetR,,,,,Robust multicellular computing using genetically encoded NOR gates and chemical wires,A Tamsir et al,Nature,2011
+X,,,"7,1",pTet_pLasI--->yfp,R,"tetR,aTc",AND,yfp,Robust multicellular computing using genetically encoded NOR gates and chemical wires,A Tamsir et al,Nature,2011
+X,,,"7,1",pTet_pLasI--->yfp,R,"lasR, PAI-1",AND,yfp,Robust multicellular computing using genetically encoded NOR gates and chemical wires,A Tamsir et al,Nature,2011
+X,,,"7,2",pCONST--->lasR_tetR,R,,CONSTANT,"tetR,lasR",Robust multicellular computing using genetically encoded NOR gates and chemical wires,A Tamsir et al,Nature,2011
+X,8,pNOR1020,,pBAD_pTet--->cI + pCONST--->araC_tetR,,,,,Robust multicellular computing using genetically encoded NOR gates and chemical wires,A Tamsir et al,Nature,2011
+X,,,"8,1",pBAD_pTet--->cI,R,"aTc,tetR",AND,cI,Robust multicellular computing using genetically encoded NOR gates and chemical wires,A Tamsir et al,Nature,2011
+X,,,"8,1",pBAD_pTet--->cI,R,"araC,Lara",AND,cI,Robust multicellular computing using genetically encoded NOR gates and chemical wires,A Tamsir et al,Nature,2011
+X,,,"8,2",pCONST--->araC_tetR,R,,CONSTANT,"araC,tetR",Robust multicellular computing using genetically encoded NOR gates and chemical wires,A Tamsir et al,Nature,2011
+X,9,pNOR1030,,pBAD_pLas--->cI + pCONST--->araC_lasR,,,,,Robust multicellular computing using genetically encoded NOR gates and chemical wires,A Tamsir et al,Nature,2011
+X,,,"9,1",pBAD_pLas--->cI,R,"araC,Lara",AND,cI,Robust multicellular computing using genetically encoded NOR gates and chemical wires,A Tamsir et al,Nature,2011
+X,,,"9,1",pBAD_pLas--->cI,R,"lasR,PAI-1",AND,cI,Robust multicellular computing using genetically encoded NOR gates and chemical wires,A Tamsir et al,Nature,2011
+X,,,"9,2",pCONST--->araC_lasR,R,,CONSTANT,"araC,lasR",Robust multicellular computing using genetically encoded NOR gates and chemical wires,A Tamsir et al,Nature,2011
+X,10,pNOR2030,,pTet_pLas--->cI + pCONST--->lasR_tetR,,,,,Robust multicellular computing using genetically encoded NOR gates and chemical wires,A Tamsir et al,Nature,2011
+X,,,"10,1",pTet_pLas--->cI,R,"tetR,aTc",AND,cI,Robust multicellular computing using genetically encoded NOR gates and chemical wires,A Tamsir et al,Nature,2011
+X,,,"10,1",pTet_pLas--->cI,R,"lasR,PAI-1",AND,cI,Robust multicellular computing using genetically encoded NOR gates and chemical wires,A Tamsir et al,Nature,2011
+X,,,"10,2",pCONST--->lasR_tetR,R,,CONSTANT,"tetR,lasR",Robust multicellular computing using genetically encoded NOR gates and chemical wires,A Tamsir et al,Nature,2011
+,11,pNOR40,,pRhl--->cI + pCONST--->RhlR,,,,,Robust multicellular computing using genetically encoded NOR gates and chemical wires,A Tamsir et al,Nature,2011
+,,,"11,1",pRhl--->cI,,"RhlR,PAI-2",AND,cI,Robust multicellular computing using genetically encoded NOR gates and chemical wires,A Tamsir et al,Nature,2011
+,,,"11,2",pCONST--->RhlR,,,CONSTANT,RhlR,Robust multicellular computing using genetically encoded NOR gates and chemical wires,A Tamsir et al,Nature,2011
+X,12,pcI-yfp,"12,1",pLAMBDA--->yfp,R,cI,NOT,yfp,Robust multicellular computing using genetically encoded NOR gates and chemical wires,A Tamsir et al,Nature,2011
+X,13,pcI-lasI,"13,1",pLAMBDA--->LasI,R,cI,NOT,LasI,Robust multicellular computing using genetically encoded NOR gates and chemical wires,A Tamsir et al,Nature,2011
+X,14,pcI-rhlI,"14,1",pLAMBDA--->RhlI,R,cI,NOT,Rhll,Robust multicellular computing using genetically encoded NOR gates and chemical wires,A Tamsir et al,Nature,2011
+,15,pMKN7a,"15,1",pLac--->gfp,R,"LacI,IPTG",AND,gfp,Construction of a genetic toggle switch in Escherichia coli,TS Gardner et al,Nature,2000
+,16,"pBAG102,pBAG103","16,1",,R,"tetR,aTc",AND,gfp,Construction of a genetic toggle switch in Escherichia coli,TS Gardner et al,Nature,2000
+X,17,"pBRT21.1,pBRT123,pBRT124,pBRT125","17,1",pLAMBDA--->gfp,R,cI,NOT,gfp,Construction of a genetic toggle switch in Escherichia coli,TS Gardner et al,Nature,2000
+,18,"pTAK102,pTAK103a",,lacI<---pLAMBDA + pLac--->gfp,,,,,Construction of a genetic toggle switch in Escherichia coli,TS Gardner et al,Nature,2000
+,,,"18,1",pLac--->gfp,R,"LacI,IPTG",AND,gfp,Construction of a genetic toggle switch in Escherichia coli,TS Gardner et al,Nature,2000
+X,,,"18,2",pLAMBDA--->LacI,L,cI,NOT,LacI,Construction of a genetic toggle switch in Escherichia coli,TS Gardner et al,Nature,2000
+,19,"pTAK106,pTAK107",,gfp<---pLAMBDA + pLac--->cI,,,,gfp,Construction of a genetic toggle switch in Escherichia coli,TS Gardner et al,Nature,2000
+X,,,"19,1",pLAMBDA--->gfp,L,cI,NOT,gfp,Construction of a genetic toggle switch in Escherichia coli,TS Gardner et al,Nature,2000
+,,,"19,2",pLac--->cI,R,"LacI,IPTG",AND,cI,Construction of a genetic toggle switch in Escherichia coli,TS Gardner et al,Nature,2000
+,20,"pIKE108, pIKE110",,gfp<---pTet + pLac--->tetR,,,,,Construction of a genetic toggle switch in Escherichia coli,TS Gardner et al,Nature,2000
+X,,,"20,1",pTet--->gfp,L,"tetR,aTc",AND,gfp,Construction of a genetic toggle switch in Escherichia coli,TS Gardner et al,Nature,2000
+,,,"20,2",pLac--->tetR,R,"LacI,IPTG",AND,tetR,Construction of a genetic toggle switch in Escherichia coli,TS Gardner et al,Nature,2000
+,21,"pTAK117, pTAK130, pTAK131, pTAK132",,lacI<---pLAMBDA + pLac--->cI_gfp,,,,,Construction of a genetic toggle switch in Escherichia coli,TS Gardner et al,Nature,2000
+,,,"21,1",pLac--->cI_gfp,R,"LacI,IPTG",AND,gfp,Construction of a genetic toggle switch in Escherichia coli,TS Gardner et al,Nature,2000
+X,,,"21,2",pLAMBDA--->lacI,L,cI,NOT,LacI,Construction of a genetic toggle switch in Escherichia coli,TS Gardner et al,Nature,2000
+X,22,"pIKE105, pIKE107",,lacI<---pTet + pLac--->tetR_gfp,,,,,Construction of a genetic toggle switch in Escherichia coli,TS Gardner et al,Nature,2000
+X,,,"22,1",pTet--->lacI,L,"tetR,aTc",AND,LacI,Construction of a genetic toggle switch in Escherichia coli,TS Gardner et al,Nature,2000
+,,,"22,2",pLac--->tetR_gfp,R,"LacI,IPTG",AND,"tetR,gfp",Construction of a genetic toggle switch in Escherichia coli,TS Gardner et al,Nature,2000
+,23,pBW10xlac-gfp,,pLac--->gfp + pLacIq--->lacIq,,,,,Engineering modular and orthogonal genetic logic gates for robust digital-like synthetic biology,B Wang et al,Nature communications,2011
+,,,"23,1",pLac--->gfp,R,"LacIq,IPTG",AND,gfp,,,,
+,,,"23,2",pLacIq--->lacIq,R,,CONST,lacIq,,,,
+X,24,pBW20xara-gfp,,araC<---pAraC + pBAD--->gfp,,,,,Engineering modular and orthogonal genetic logic gates for robust digital-like synthetic biology,B Wang et al,Nature communications,2011
+X,,,"24,1",pAraC--->araC,L,,CONST,araC,,,,
+X,,,"24,2",pBAD--->gfp,R,"araC,Lara",AND,gfp,,,,
+,25,pBW30xlux-gfp,,pTet--->luxR + pLux--->gfp,,,,,Engineering modular and orthogonal genetic logic gates for robust digital-like synthetic biology,B Wang et al,Nature communications,2011
+,,,"25,1",pTet--->luxR,R,,CONST,luxR,,,,
+,,,"25,2",pLux--->gfp,R,"LuxR,AHL",AND,gfp,,,,
+,26,pBW115lac-hrpR,,pLac>hrpR+pLacIq--->lacIq,,,,,Engineering modular and orthogonal genetic logic gates for robust digital-like synthetic biology,B Wang et al,Nature communications,2011
+,,,"26,1",pLac--->rbsH_hrpR,R,"LacIq,IPTG",AND,hrpR,,,,
+,,,"26,2",pLacIq--->lacIq,R,,CONST,lacIq,,,,
+,27,pBW213ara-hrpS,,araC<---pAraC + pBAD--->rbs33_hrpS,,Lara,,hrpS,Engineering modular and orthogonal genetic logic gates for robust digital-like synthetic biology,B Wang et al,Nature communications,2011
+X,,,"27,1",pAraC--->araC,L,,CONST,,,,,
+X,,,"27,2",pBAD--->hrpS,R,"araC,Lara",AND,hrpS,,,,
+X,28,pBW313lux-hrpR,,pTet--->luxR + pLux--->hrpR,,,,,Engineering modular and orthogonal genetic logic gates for robust digital-like synthetic biology,B Wang et al,Nature communications,2011
+X,,,"28,1",pTet--->luxR,R,,CONST,LuxR,,,,
+X,,,"28,2",pLux--->hrpR,R,"LuxR,AHL",AND,hrpR,,,,
+,29,PBW12xlac-cIgfp,,pLac--->cI(LVA) + pLAMBDA--->gfp + pLacIq--->lacIq,,,,gfp,Engineering modular and orthogonal genetic logic gates for robust digital-like synthetic biology,B Wang et al,Nature communications,2011
+,,,"29,1",pLac--->cI(LVA),R,"LacIq,IPTG",AND,cI(LVA),,,,
+,,,"29,2",pLAMBDA--->gfp,R,cI(LVA),NOT,gfp,,,,
+,,,"29,3",pLacIq--->lacIq,R,NIL,CONST,lacIq,,,,
+,30,pBW400hrpL-gfp,,phrpL--->gfp,R,"hrpR,hrpS",AND,gfp,Engineering modular and orthogonal genetic logic gates for robust digital-like synthetic biology,B Wang et al,Nature communications,2011
+,31,PBW412hrpL-cIgfp,,phrpL--->cI(LVA) + pLAMBDA--->gfp,,,,gfp,Engineering modular and orthogonal genetic logic gates for robust digital-like synthetic biology,B Wang et al,Nature communications,2011
+,,,"31,1",phrpL--->cI(LVA),R,"hrpR,hrpS",AND,cI(LVA),,,,
+,,,"31,2",pLAMBDA--->gfp,R,cI(LVA),NOT,gfp,,,,
+,32,pSupDLuxR,,luxR<---pCONST + pLuxI--->supD,,,,,Environmental signal integration by a modular AND gate,JC Anderson et al,Molecular Systems Biology,2007
+,,,"32,1",pCONST--->luxR,L,NIL,CONST,LuxR,,,,
+,,,"32,2",pLuxI--->supD,R,"LuxR,AHL",AND,supD,,,,
+,33,pAC-SalSer914,,nahR<---pCONST + pSal--->supD,,,,,Environmental signal integration by a modular AND gate,JC Anderson et al,Molecular Systems Biology,2007
+,,,"33,1",pCONST--->nahR,L,NIL,CONST,nahR,,,,
+,,,"33,2",pSal--->supD,R,Sal,AND,supD,,,,
+,34,pBAC874t,,PTet--->gfp,R,tetR,NOT,gfp,Environmental signal integration by a modular AND gate,JC Anderson et al,Molecular Systems Biology,2007
+,35,pBAC872s,,araC<---pCONST + pBAD--->gfp,,,,,Environmental signal integration by a modular AND gate,JC Anderson et al,Molecular Systems Biology,2007
+,,,"35,1",pCONST--->araC,L,NIL,CONST,araC,,,,
+,,,"35,2",pBAD--->gfp,R,"araC,Lara",AND,gfp,,,,
+,36,pBACr-Mgr901,,pmgrB--->gfp,R,Mg2+,NOT,gfp,Environmental signal integration by a modular AND gate,JC Anderson et al,Molecular Systems Biology,2007
+,37,pBACr-AraT7940,,araC<---pCONST + pBAD--->T7ptag,,,,,Environmental signal integration by a modular AND gate,JC Anderson et al,Molecular Systems Biology,2007
+,,,"37,1",pCONST--->araC,L,NIL,CONST,araC,,,,
+,,,"37,2",pBAD--->T7ptag,R,"araC,Lara",AND,T7ptag,,,,
+,38,pBACr-Mgr940,,pmgrB--->T7ptag,R,Mg2+,NOT,T7ptag,Environmental signal integration by a modular AND gate,JC Anderson et al,Molecular Systems Biology,2007
+,39,pBACr-Mgr951,,inv<---pT7 + pmgrB--->T7ptag,,,,,Environmental signal integration by a modular AND gate,JC Anderson et al,Molecular Systems Biology,2007
+,,,"39,1",pT7--->inv,L,"T7ptag,supD",AND,inv,,,,
+,,,"39,2",pmgrB--->T7ptag,R,Mg2+,NOT,T7ptag,,,,
+,40,pBR939B,,pT7--->gfp,R,"T7ptag,supD",AND,gfp,Environmental signal integration by a modular AND gate,JC Anderson et al,Molecular Systems Biology,2007
+,41,pFNK-202-eyfp-qscxxx,,rhlR<---pLacIq + pRhl--->eyfp,,,,,Signal-Amplifying Genetic Circuit Enables In Vivo Observation of Weak Promoter Activation in the Rhl Quorum Sensing System,D Karig et al,Biotechnology and bioengineering,2005
+,,,"41,1",pLacIq--->rhlR,L,NIL,CONST,rhlR,,,,
+,,,"41,2",pRhl--->eyfp,R,"rhlR,PAI-2",AND,eyfp,,,,
+,42,pMUX-204-qscxxx,,rhlR<---pLacIq + pRhl--->cI(LVA),,,,,Signal-Amplifying Genetic Circuit Enables In Vivo Observation of Weak Promoter Activation in the Rhl Quorum Sensing System,D Karig et al,Biotechnology and bioengineering,2005
+,,,"42,1",pLacIq--->rhlR,L,NIL,CONST,rhlR,,,,
+,,,"42,2",pRhl--->cI(LVA),R,"rhlR,PAI-2",AND,cI(LVA),,,,
+,43,pINV-107-mutx,,pLAMBDA--->eyfp,R,cI(LVA),NOT,eyfp,Signal-Amplifying Genetic Circuit Enables In Vivo Observation of Weak Promoter Activation in the Rhl Quorum Sensing System,D Karig et al,Biotechnology and bioengineering,2005
+,44,pLD,,pLux--->cI + pLAMBDA--->lacI,,,,,A synthetic multicelluar system for programmed pattern formation,S Basu et al,Nature,2004
+,,,"44,1",pLux--->cI,R," AHL,luxR",AND,cI,A synthetic multicelluar system for programmed pattern formation,S Basu et al,Nature,2004
+,,,"44,2",pLAMBDA--->lacI,R,AHL,AND,lacI,A synthetic multicelluar system for programmed pattern formation,S Basu et al,Nature,2004
+,45,pSND,"45,1",pLuxI_pTet--->luxI,R,EMPTY,CONSTANT,AHL,A synthetic multicelluar system for programmed pattern formation,S Basu et al,Nature,2004
+,46,pHD-gfp,,lacI<---pLux + pCONST--->luxR + pLac--->gfp,,,,,A synthetic multicelluar system for programmed pattern formation,S Basu et al,Nature,2004
+,,,"46,1",pLux--->lacI,L,"AHL,luxR",AND,lacI,A synthetic multicelluar system for programmed pattern formation,S Basu et al,Nature,2004
+,,,"46,2",pLac--->gfp,R,"AHL,lacI",AND,gfp,A synthetic multicelluar system for programmed pattern formation,S Basu et al,Nature,2004
+,,,"46,3",pCONST--->luxR,R,,CONSTANT,luxR,A synthetic multicelluar system for programmed pattern formation,S Basu et al,Nature,2004
+,47,pHD-rfp,,lacI<---pLux + pCONST ---> luxR + pLac--->rfp,,,,,A synthetic multicelluar system for programmed pattern formation,S Basu et al,Nature,2004
+,,,"47,1",pLux_pCONST--->lacI,L,"AHL,luxR",AND,lacI,A synthetic multicelluar system for programmed pattern formation,S Basu et al,Nature,2004
+,,,"47,2",pLac--->rfp,R,"AHL,lacI",AND,rfp,A synthetic multicelluar system for programmed pattern formation,S Basu et al,Nature,2004
+,,,"47,3",pCONST--->luxR,R,,CONSTANT,luxR,A synthetic multicelluar system for programmed pattern formation,S Basu et al,Nature,2004
+,48,pCFP,,lacI<---pCONST + pLac--->ecfp,,,,,A synthetic multicelluar system for programmed pattern formation,S Basu et al,Nature,2004
+,,,"48,1",pLac--->ecfp,R,"IPTG,lacI",AND,ecfp,A synthetic multicelluar system for programmed pattern formation,S Basu et al,Nature,2004
+,,,"48,2",pCONST--->lacI,L,,CONSTANT,lacI,A synthetic multicelluar system for programmed pattern formation,S Basu et al,Nature,2004
+,49,pRFP,,lacI<---pCONST + pLac--->rfp,,,,,A synthetic multicelluar system for programmed pattern formation,S Basu et al,Nature,2004
+,,,"49,1",pLac--->rfp,R,"IPTG,lacI",AND,rfp,A synthetic multicelluar system for programmed pattern formation,S Basu et al,Nature,2004
+,,,"49,2",pCONST--->lacI,L,,CONSTANT,lacI,A synthetic multicelluar system for programmed pattern formation,S Basu et al,Nature,2004
+,50,pJS167,,pLac_pBAD--->araC + pLac_pBAD--->gfp,,,,,A fast robust and tunable synthetic gene oscillator,J Stricker et al,,
+,,,"50,1",pLac_pBAD--->araC,R,lacI,NOT,araC,A fast robust and tunable synthetic gene oscillator,J Stricker et al,,
+,,,"50,2",pLac_pBAD--->gfp,R,"lacI,Lara",AND,gfp,A fast robust and tunable synthetic gene oscillator,J Stricker et al,,
+,,,"50,2",pLac_pBad--->gfp,R,"lacI,araC",AND,gfp,,,,
+,51,pJS169,,pLac_pBAD--->lacI,R,"IPTG,Lara",NOT,lacI,A fast robust and tunable synthetic gene oscillator,J Stricker et al,,
+,52,BBa_F2620,,pTet--->luxR + pLux--->   (?),,AHL,,pLUX,Refinement and standardization of synthetic biological parts and devices,B Canton et al,Nature Biotechnology,2008
+,53,pJT108,,pompC--->lacZ,R,"PCB,LIGHT",PCB AND (NOT LIGHT),Beta-galactosidase,A Synthetic Genetic Edge Detection Program,JJ Tabor et al,Cell,2009
+,54,pJT105,,pompC--->luxI + pTet--->luxR + pLux/LAMBDA--->lacZ,,,,,A Synthetic Genetic Edge Detection Program,JJ Tabor et al,Cell,2009
+,,,"54,1",pompC--->luxI,R,"PCB, LIGHT",PCB AND (NOT LIGHT),AHL,A Synthetic Genetic Edge Detection Program,JJ Tabor et al,Cell,2009
+,,,"54,2",pLtetO-1--->luxR ,R,EMPTY,,luxR,A Synthetic Genetic Edge Detection Program,JJ Tabor et al,Cell,2009
+,,,"54,3",pLux_pLAMBDA--->lacZ,R,"AHL,LIGHT",AHL AND (NOT LIGHT),Beta-galactosidase,A Synthetic Genetic Edge Detection Program,JJ Tabor et al,Cell,2009
+,55,pJT106,,pompC--->cI + pLux_pLAMBDA--->lacZ,,,,,A Synthetic Genetic Edge Detection Program,JJ Tabor et al,Cell,2009
+,,,"55,1",pLux_pLAMBDA--->lacZ,R,"cI,LIGHT",(NOT ci) AND (NOT LIGHT),Beta-galactosidase,A Synthetic Genetic Edge Detection Program,JJ Tabor et al,Cell,2009
+,,,"55,2",pompC--->cI,R,"PCB,LIGHT",PCB AND (NOT LIGHT),cI repressor,A Synthetic Genetic Edge Detection ProgramJJ Tabor et alCell2009,,,
+,56,pEDL3,,pompC--->cI_luxI + pTet--->luxR + pLux_pLAMBDA--->lacZ,,,,,A Synthetic Genetic Edge Detection Program,JJ Tabor et al,Cell,2009
+,,,"56,1",pLux_pLAMBDA--->lacZ,R,"AHL,LIGHT",AHL AND (NOT LIGHT),Beta-galactosidase,A Synthetic Genetic Edge Detection Program,JJ Tabor et al,Cell,2009
+,,,"56,2",pompC--->cI_luxI,R,"PCB,LIGHT",PCB AND (NOT LIGHT),"AHL,",A Synthetic Genetic Edge Detection Program,JJ Tabor et al,Cell,2009
+,,,"56,3",pTet--->luxR,R,EMPTY,,luxR,A Synthetic Genetic Edge Detection Program,JJ Tabor et al,Cell,2009
+,57,pLuxRI2,,pLac_pBAD--->luxR_luxI,,EMPTY,,AHL-luxR,Programmed population control by cell-cell communication and regulated killing,L You et al,Nature,2004
+,58,pluxCcdB3,,pLux--->lacZalpha-ccdB,,"AHL,luxR",,lacZalpha-ccdB,Programmed population control by cell-cell communication and regulated killing,L You et al,Nature,2004
+,59,predator1-MG1655,,ccdA<---pLux + pTet--->luxR_lasI,,AHL,,ccdA,A synthetic Escherichia coli predator-prey ecosystem,FK Balagadde et al,Molecular Systems Biology,2008
+,,,"59,1",pLux--->ccdA,L,,,,,,,
+,,,"59,2",pTet--->luxR_lasI,R,,,,,,,
+,60,predator2-MG1655,,pLac_pBAD--->lacZalpha-ccdB + pTet--->gfp,,,,"lacZalpha-ccdB,gfp",A synthetic Escherichia coli predator-prey ecosystem,FK Balagadde et al,Molecular Systems Biology,2008
+,,,"60,1",pLac_pBAD--->lacZalpha-ccdB,R,,,,,,,
+,,,"60,2",pTet--->gfp,R,,,,,,,
+,61,prey1-Top10F,,lacZalpha-ccdB<---pLux + pLac_pBAD--->lasR_luxI,,HSL,,lacZalpha-ccdB,A synthetic Escherichia coli predator-prey ecosystem,FK Balagadde et al,Molecular Systems Biology,2008
+,,,"61,1",pLux--->lacZalpha-ccdB,L,,,,,,,
+,,,"61,2",pLac_pBAD--->lasR_luxI,R,,,,,,,
+,62,prey2-Top10F,,pTet--->gfp,R,"aTc,tetR",AND,gfp,A synthetic Escherichia coli predator-prey ecosystem,FK Balagadde et al,Molecular Systems Biology,2008
+,63,predator-Top10F,,pLac_pBAD--->lacZalpha-ccdB,R,,,lacZalpha-ccdB,A synthetic Escherichia coli predator-prey ecosystem,FK Balagadde et al,Molecular Systems Biology,2008
+,64,pBR322-ptrc-lexA,,pCONST> +lacI + pLac> + lexA,,"IPTG,nalidixic-acid",,lexA,Implementing an OR NOT (ORN) logic gate with components of the SOS regulatory network of Escherichia coli,RS Rocha et al,Molecular BioSystems,2011
+,65,pRV2-SOS,,pSOS--->gfp,,lexA,,gfp,Implementing an OR NOT (ORN) logic gate with components of the SOS regulatory network of Escherichia coli,RS Rocha et al,Molecular BioSystems,2011
+,66,pZE21-MCSI-pZE12-luc,,pLac--->tetR + pLAMBDA--->lacI + pTet--->cI,,,,,A synthetic oscillatory network of transcriptional regulators,MB Elowitz et al,Nature,2000
+,,,"66,1",pLac--->tetR,R,,,,,,,
+,,,"66,2",pLAMBDA--->lacI,R,,,,,,,
+,,,"66,3",pTet--->cI,R,,,,,,,
+,67,pZE21-MCS1-gfp,,pTet--->gfp,,"aTc, tetR",AND,gfp,A synthetic oscillatory network of transcriptional regulators,MB Elowitz et al,Nature,2000
+,68,PLuxI-Tet-8,,pTet---> luxI,R,,CONSTANT,AHL,Spatiotemporal control of gene expression with pulse-generating networks,S Basu et al,PNAS,2004
+,69,pLTSUB-202-RBSH,,LuxR<---pCONST + pLux--->cI_ecfp,,,,,Spatiotemporal control of gene expression with pulse-generating networks,S Basu et al,PNAS,2004
+,,,"69,1",pCONST--->LuxR,L,,CONSTANT,LuxR,,,,
+,,,"69,2",pLux--->cI_ecfp,R,LuxR,CONSTANT,"cI,ecfp",,,,
+,70,pPSSUB-101-mut4,,pLux_pLAMBDA--->gfp,R,"luxR,cI",(cI) AND LuxR,gfp,Spatiotemporal control of gene expression with pulse-generating networks,S Basu et al,PNAS,2004
+,71,pCRT1,,pCONST--->tetR + pTet--->yfp,,aTc,,yfp,Spatiotemporal control of gene expression with pulse-generating networks,S Basu et al,PNAS,2004
+,72,pCRT2,,pCONST--->tetR + pTet--->lacI + pLac--->yfp,,aTc,,yfp,Spatiotemporal control of gene expression with pulse-generating networks,S Basu et al,PNAS,2004
+,73,pCRT3,,pCONST--->tetR + pTet--->lacI + pLac--->cI + pLAMBDA--->yfp,,aTc,,yfp,Spatiotemporal control of gene expression with pulse-generating networks,S Basu et al,PNAS,2004
+,74,pTara:500,,araC<---pCONST + pBAD--->T7,,,,,Library of synthetic transcriptional AND gates built with split T7 RNA polymerase mutants,Shis D. L. et al,PNAS,2013
+,,,"74,1",pBAD--->T7,R,"araC,Lara",AND,T7,Library of synthetic transcriptional AND gates built with split T7 RNA polymerase mutants,Shis D. L. et al,PNAS,2013
+,,,"74,2",pCONST--->araC,L,,CONSTANT,araC,Library of synthetic transcriptional AND gates built with split T7 RNA polymerase mutants,Shis D. L. et al,PNAS,2013
+,75,pTSara-N,,araC<---pCONST + pBAD--->T7-N,,,,,Library of synthetic transcriptional AND gates built with split T7 RNA polymerase mutants,Shis D. L. et al,PNAS,2013
+,,,"75,1",pBAD--->T7-N,R,"araC,Lara",AND,T7-N,Library of synthetic transcriptional AND gates built with split T7 RNA polymerase mutants,Shis D. L. et al,PNAS,2013
+,,,"75,2",pCONST--->araC,L,,CONSTANT,araC,Library of synthetic transcriptional AND gates built with split T7 RNA polymerase mutants,Shis D. L. et al,PNAS,2013
+,76,pTSara-C,,araC<---pCONST + pBAD--->T7-C,,,,,Library of synthetic transcriptional AND gates built with split T7 RNA polymerase mutants,Shis D. L. et al,PNAS,2013
+,,,"76,1",pBAD-->T7-C,R,"araC,Lara",AND,T7-C,Library of synthetic transcriptional AND gates built with split T7 RNA polymerase mutants,Shis D. L. et al,PNAS,2013
+,,,"76,2",pCONST--->araC,L,,CONSTANT,araC,Library of synthetic transcriptional AND gates built with split T7 RNA polymerase mutants,Shis D. L. et al,PNAS,2013
+,77,pTSlb,,T7-N<---pLac + pBAD--->T7-C,,,,,Library of synthetic transcriptional AND gates built with split T7 RNA polymerase mutants,Shis D. L. et al,PNAS,2013
+,,,"77,1",pLacO--->T7-N,L,"LacI,IPTG",AND,T7-N,Library of synthetic transcriptional AND gates built with split T7 RNA polymerase mutants,Shis D. L. et al,PNAS,2013
+,,,"77,2",pBAD--->T7-C,R,"Lara,araC",AND,T7-C,Library of synthetic transcriptional AND gates built with split T7 RNA polymerase mutants,Shis D. L. et al,PNAS,2013
+,78,pET:NNNN:GFP,,gfp<---pT7 + pCONST--->lacI,,,,,Library of synthetic transcriptional AND gates built with split T7 RNA polymerase mutants,Shis D. L. et al,PNAS,2013
+,,,"78,1",pT7--->gfp,L,T7,IF,gfp,Library of synthetic transcriptional AND gates built with split T7 RNA polymerase mutants,Shis D. L. et al,PNAS,2013
+,,,"78,1",pT7--->gfp,L,"T7-N,T7-C",AND,gfp,Library of synthetic transcriptional AND gates built with split T7 RNA polymerase mutants,Shis D. L. et al,PNAS,2013
+,,,"78,2",pCONST--->lacI,R,,CONSTANT,lacI,Library of synthetic transcriptional AND gates built with split T7 RNA polymerase mutants,Shis D. L. et al,PNAS,2013
+,79,pBAD-cI-pOR1-gfp,,pBAD--->cI + pLAMBDA--->gfp + pCONST--->araC,,,,,Ribozyme-based insulator parts buffer synthetic circuits from genetic context,C Lou et al,Nature Biotechnology,2012
+,,,"79,1",pBAD--->cI,R,"araC,Lara",AND,cI,Ribozyme-based insulator parts buffer synthetic circuits from genetic context,C Lou et al,Nature Biotechnology,2012
+,,,"79,2",pLAMBDA--->gfp,R,cI,NOT,gfp,Ribozyme-based insulator parts buffer synthetic circuits from genetic context,C Lou et al,Nature Biotechnology,2012
+,,,"79,3",pCONST--->araC,R,,CONSTANT,araC,Ribozyme-based insulator parts buffer synthetic circuits from genetic context,C Lou et al,Nature Biotechnology,2012
+,80,pBAD-cI-pOR1-gfp,,pTAC--->cI + pLAMBDA--->gfp + pCONST--->lacI,,,,,Ribozyme-based insulator parts buffer synthetic circuits from genetic context,C Lou et al,Nature Biotechnology,2012
+,,,"80,1",pTAC--->cI,R,"lacI,IPTG",AND,cI,Ribozyme-based insulator parts buffer synthetic circuits from genetic context,C Lou et al,Nature Biotechnology,2012
+,,,"80,2",pLAMBDA--->gfp,R,cI,NOT,gfp,Ribozyme-based insulator parts buffer synthetic circuits from genetic context,C Lou et al,Nature Biotechnology,2012
+,,,"80,3",pCONST--->lacI,R,,CONSTANT,lacI,Ribozyme-based insulator parts buffer synthetic circuits from genetic context,C Lou et al,Nature Biotechnology,2012
+,81,pBAD-cI-pOR1-gfp,,pLac--->cI + pLAMBDA--->gfp + pCONST--->lacI,,,,,Ribozyme-based insulator parts buffer synthetic circuits from genetic context,C Lou et al,Nature Biotechnology,2012
+,,,"81,1",pLac--->cI,R,"lacI,IPTG",AND,cI,Ribozyme-based insulator parts buffer synthetic circuits from genetic context,C Lou et al,Nature Biotechnology,2012
+,,,"81,2",pLAMBDA--->gfp,R,cI,NOT,gfp,Ribozyme-based insulator parts buffer synthetic circuits from genetic context,C Lou et al,Nature Biotechnology,2012
+,,,"81,3",pCONST--->lacI,R,,CONSTANT,lacI,Ribozyme-based insulator parts buffer synthetic circuits from genetic context,C Lou et al,Nature Biotechnology,2012
+,82,pTACsym-yfp,,lacI<---pCONST + pTAC--->yfp,,,,,Ribozyme-based insulator parts buffer synthetic circuits from genetic context,C Lou et al,Nature Biotechnology,2012
+,,,"82,1",pTAC--->yfp,R,"lacI,IPTG",AND,yfp,Ribozyme-based insulator parts buffer synthetic circuits from genetic context,C Lou et al,Nature Biotechnology,2012
+,,,"82,2",pCONST--->lacI,L,,CONSTANT,lacI,Ribozyme-based insulator parts buffer synthetic circuits from genetic context,C Lou et al,Nature Biotechnology,2012
+,83,pTACsym-McbR-pMcbR-yfp,,lacI<---pCONST + pTAC---> mcbR + pMCBR--->yfp,,,,,Ribozyme-based insulator parts buffer synthetic circuits from genetic context,C Lou et al,Nature Biotechnology,2012
+,,,"83,1",pMCBR--->yfp,R,ygiV,NOT,fyp,Ribozyme-based insulator parts buffer synthetic circuits from genetic context,C Lou et al,Nature Biotechnology,2012
+,,,"83,2",pTAC---> mcbR ,R,"lacI,IPTG",AND,mcbR,Ribozyme-based insulator parts buffer synthetic circuits from genetic context,C Lou et al,Nature Biotechnology,2012
+,,,"83,3",pCONST--->lacI,L,,CONSTANT,lacI,Ribozyme-based insulator parts buffer synthetic circuits from genetic context,C Lou et al,Nature Biotechnology,2012
+,84,pTACsym-R73delta-pMcbR-yfp,,lacI<---pCONST + pTAC--->R73delta + pF--->yfp,,,,,Ribozyme-based insulator parts buffer synthetic circuits from genetic context,C Lou et al,Nature Biotechnology,2012
+,,,"84,1",pF--->yfp,R,,,yfp,Ribozyme-based insulator parts buffer synthetic circuits from genetic context,C Lou et al,Nature Biotechnology,2012
+,,,"84,2",pTAC--->R73delta,R,"lacI,IPTG",AND,R73delta,Ribozyme-based insulator parts buffer synthetic circuits from genetic context,C Lou et al,Nature Biotechnology,2012
+,,,"84,3",pCONST--->lacI,L,,CONSTANT,lacI,Ribozyme-based insulator parts buffer synthetic circuits from genetic context,C Lou et al,Nature Biotechnology,2012
+,85,pSal-yfp,,nahR<---pCONST + pSal--->yfp,,Sal,,,Ribozyme-based insulator parts buffer synthetic circuits from genetic context,C Lou et al,Nature Biotechnology,2012
+,,,"85,1",pSal--->yfp,R,,,yfp,Ribozyme-based insulator parts buffer synthetic circuits from genetic context,C Lou et al,Nature Biotechnology,2012
+,,,"85,2",pCONST--->nahR,L,,CONSTANT,nahR,Ribozyme-based insulator parts buffer synthetic circuits from genetic context,C Lou et al,Nature Biotechnology,2012
+,86,pSal-McbR-pMcbR-yfp,,nahR<---pCONST + pSal--->mcbR + pMCBR--->yfp,,Sal,,,Ribozyme-based insulator parts buffer synthetic circuits from genetic context,C Lou et al,Nature Biotechnology,2012
+,,,"86,1",pMCBR--->yfp,,,,yfp,Ribozyme-based insulator parts buffer synthetic circuits from genetic context,C Lou et al,Nature Biotechnology,2012
+,,,"86,2",pSal--->mcbR,,,,mcbR,Ribozyme-based insulator parts buffer synthetic circuits from genetic context,C Lou et al,Nature Biotechnology,2012
+,,,"86,3",pCONST--->nahR,,,CONSTANT,nahR,Ribozyme-based insulator parts buffer synthetic circuits from genetic context,C Lou et al,Nature Biotechnology,2012
+,87,pSal-R73delta-pMcbR-yfp,,nahR<---pCONST + pSal--->R73delta + pF--->yfp,,Sal,,,Ribozyme-based insulator parts buffer synthetic circuits from genetic context,C Lou et al,Nature Biotechnology,2012
+,,,"87,1",pF--->yfp,R,,,yfp,Ribozyme-based insulator parts buffer synthetic circuits from genetic context,C Lou et al,Nature Biotechnology,2012
+,,,"87,2",pSal--->R73delta,R,,,R73delta,Ribozyme-based insulator parts buffer synthetic circuits from genetic context,C Lou et al,Nature Biotechnology,2012
+,,,"87,3",pCONST--->nahR,L,,CONSTANT,nahR,Ribozyme-based insulator parts buffer synthetic circuits from genetic context,C Lou et al,Nature Biotechnology,2012
+,88,pBAD-rfp,,araC<---pCONST + pBAD---> rfp,,,,,Genetic programs constructed from layered logic gates in single cells,TS Moon et al,Nature,2012
+,,,"88,1",pBAD--->rfp,R,"araC,Lara",AND,rfp,,,,
+,,,"88,2",pCONST--->araC,L,,CONSTANT,araC,,,,
+,89,pTac-rfp,,lacI<---pCONST + pTAC--->rfp,,,,,Genetic programs constructed from layered logic gates in single cells,TS Moon et al,Nature,2012
+,,,"89,1",pTAC--->rfp,R,"lacI,IPTG",AND,rfp,,,,
+,,,"89,2",pCONST--->lacI,L,,CONSTANT,lacI,,,,
+,90,pLux-rfp,,luxR<---pCONST +pLux--->rfp,,,,,Genetic programs constructed from layered logic gates in single cells,TS Moon et al,Nature,2012
+,,,"90,1",pLux--->rfp,R,"luxR,AHL",AND,rfp,,,,
+,,,"90,2",pCONST--->luxR,L,,CONSTANT,luxR,,,,
+,91,pTet-rfp,,tetR<---pCONST + pTet--->rfp,,,,,Genetic programs constructed from layered logic gates in single cells,TS Moon et al,Nature,2012
+,,,"91,1",pTet--->rfp,R,"tetR,aTc",AND,rfp,,,,
+,,,"91,2",pCONST--->tetR,L,,CONSTANT,tetR,,,,
+,92,pTET-invF,,tetR<---pCONST + pTet--->invF,,,,,Genetic programs constructed from layered logic gates in single cells,TS Moon et al,Nature,2012
+,,,"92,1",pTET--->invF,R,"tetR,aTc",AND,invF,,,,
+,,,"92,2",pCONST--->tetR,L,,CONSTANT,tetR,,,,
+,93,pBAD-sicA,,araC<---pCONST + pBAD--->sicA,,,,,Genetic programs constructed from layered logic gates in single cells,TS Moon et al,Nature,2012
+,,,"93,1",pBAD--->sicA,R,"araC,Lara",AND,sicA,,,,
+,,,"93,2",pCONST--->araC,L,,CONSTANT,araC,,,,
+,94,psicA-rfp,"94,1",psicA--->rfp,,"sicA,invF",AND,rfp,Genetic programs constructed from layered logic gates in single cells,TS Moon et al,Nature,2012
+,95,pTet-mxiE,,tetR<---pCONST + pTet--->mxiE,,,,,Genetic programs constructed from layered logic gates in single cells,TS Moon et al,Nature,2012
+,,,"95,1",pTet--->mxiE,R,"tetR,aTc",AND,mxiE,,,,
+,,,"95,2",pCONST--->tetR,L,,CONSTANT,tetR,,,,
+,96,pBAD-ipgC,,araC<---pCONST + pBAD--->ipgC,,,,,Genetic programs constructed from layered logic gates in single cells,TS Moon et al,Nature,2012
+,,,"96,1",pBAD--->ipgC,R,"araC,Lara",AND,ipgC,,,,
+,,,"96,2",pCONST--->araC,L,,CONSTANT,araC,,,,
+,97,pipaH-rfp,"97,1",pipaH--->rfp,,"ipgC,mxiE",AND,rfp,Genetic programs constructed from layered logic gates in single cells,TS Moon et al,Nature,2012
+,98,pTet-exsDA,,tetR<---pCONST + pTet--->exsDA,,,,,Genetic programs constructed from layered logic gates in single cells,TS Moon et al,Nature,2012
+,,,"98,1",pTet--->exsDA,R,"tetR,aTc",AND,exsDA,,,,
+,,,"98,2",pCONST--->tetR,L,,CONSTANT,tetR,,,,
+,99,pLux-exsC,,luxR<---pCONST + pLux--->exsC,,,,,Genetic programs constructed from layered logic gates in single cells,TS Moon et al,Nature,2012
+,,,"99,1",pLux--->exsC,R,"luxR,AHL",AND,exsC,,,,
+,,,"99,2",pCONST-->luxR,L,,CONSTANT,luxR,,,,
+,100,pexsC-rfp,"100,1",pexsC--->rfp,,"exsC,exsDA",AND,rfp,Genetic programs constructed from layered logic gates in single cells,TS Moon et al,Nature,2012
+,101,pACPc-invF,,tetR<---pCONST + pTet--->exsDA + exsC<---pLux + pCONST--->luxR + invF<--pexsC,,"aTc,AHL",,invF,Genetic programs constructed from layered logic gates in single cells,TS Moon et al,Nature,2012
+,,,"101,1",pexsC--->invF,L,"exsC,exsDA",AND,invF,,,,
+,,,"101,2",pTet--->exsDA,R,"tetR,aTc",AND,exsDA,,,,
+,,,"101,3",pLux--->exsC,L,"luxR,AHL",AND,exsC,,,,
+,,,"101,4",pCONST--->luxR,R,,CONSTANT,luxR,,,,
+,,,"101,5",pCONST--->tetR,L,,CONSTANT,tetR,,,,
+,102,pXCPi-sicA,,ipgC<---pBAD + pCONST--->araC + pipaH--->sicA +  lacI<---pCONST + pTAC--->mxiE,,,,,Genetic programs constructed from layered logic gates in single cells,TS Moon et al,Nature,2012
+,,,"102,1",pipaH--->sicA,R,"ipgC,mxiE",AND,sicA,,,,
+,,,"102,2",pBAD--->ipgC,L,"lacI,IPTG",AND,ipgC,,,,
+,,,"102,3",pTAC--->mxiE,R,"araC,Lara",AND,mxiE,,,,
+,,,"102,4",pCONST--->araC,R,,CONSTANT,araC,,,,
+,,,"102,5",pCONST--->lacI,L,,CONSTANT,lacI,,,,
+,103,plac/ara-1,,pLac/ara-1--->luxR_luxI,R,"LacI,IPTG",AND,"luxR,luxI",Programmed population control by cell-cell communication and regulated killing,,,
+,104,pLuxI,"104,1",pLuxI--->lacZalpha-ccdB,R,"luxR,AHL",AND,lacZalpha-ccdB,Programmed population control by cell-cell communication and regulated killing,,,
