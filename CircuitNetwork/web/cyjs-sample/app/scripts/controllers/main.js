@@ -38,6 +38,7 @@ $window, Network, VisualStyles, Gist) {
         $scope.currentVS = DEFAULT_VISUAL_STYLE_NAME;
         $scope.currentNetworkData = null;
 
+        //Toolbar state variables
         $scope.browserState = {
             show: false
         };
@@ -46,6 +47,12 @@ $window, Network, VisualStyles, Gist) {
         };
         $scope.toolbarState = {
             show: true
+        };
+        $scope.cadState = {
+            show: true
+        };
+        $scope.modelState = {
+            show: false
         };
 
         $scope.bg = {
@@ -163,7 +170,7 @@ $window, Network, VisualStyles, Gist) {
             });
         }
         
-        
+        //Setting column names
         function setColumnNames() {
             $scope.columnNames = [];
             $scope.edgeColumnNames = [];
@@ -199,11 +206,11 @@ $window, Network, VisualStyles, Gist) {
             // Node selection
             $scope.cy.on('select', 'node', function(event) {
                 //alert("moooooo");
-				$('#book').show();
-				//$('#752').addClass('highlighted');
+                $('#book').show();
+                //$('#752').addClass('highlighted');
                 var id = event.cyTarget.id();
                 $scope.selectedNodes[id] = event.cyTarget;
-				$scope.selectedNodes[id].addClass('highlighted');
+                $scope.selectedNodes[id].addClass('highlighted');
                 updateFlag = true;
             });
             
@@ -231,14 +238,11 @@ $window, Network, VisualStyles, Gist) {
             setInterval(function() {
                 if (updateFlag && $scope.browserState.show) {
                     console.log('* update called');
-<<<<<<< HEAD
                     //displays node data
                     console.log($scope.nodes[0].data);
                     console.log($scope.edges[0]);
                     setColumnNames();
-=======
-					setColumnNames();
->>>>>>> 61388344b0b881f61b84f5f936820c4a4bd3b091
+                    setColumnNames();
                     $scope.$apply();
                     updateFlag = false;
                 }
@@ -246,7 +250,7 @@ $window, Network, VisualStyles, Gist) {
 
         }
         
-        
+        //Toolbar and overlay controls
         $scope.toggleTableBrowser = function() {
             $scope.browserState.show = !$scope.browserState.show;
         };
@@ -258,10 +262,30 @@ $window, Network, VisualStyles, Gist) {
         $scope.toggleToolbar = function() {
             $scope.toolbarState.show = !$scope.toolbarState.show;
         };
+        
+        $scope.toggleCAD = function() {
+            $scope.cadState.show = !$scope.cadState.show;
+        };
+        $scope.toggleModel = function() {
+            $scope.modelState.show = !$scope.modelState.show;
+        };
 
         $scope.fit = function() {
             $scope.cy.fit();
         };
+        
+        /*
+        //Table button for controlling "selected" CAD
+        $scope.cadSelect = function() {
+            //angularjs using a subset of jQuery
+            //clearing selected node
+            $("img.CAD").removeClass("selectedCAD");
+            console.log("Clearing selection...");
+            //assigning new selected CAD
+            $("#"+String($scope.selectedNodes.data("SUID"))).addClass("selectedCAD");
+            console.log("New selected Cad is:" + String($scope.selectedNodes.data("SUID")));
+        };
+        */
 
         $scope.encodeUrl = function() {
             var pan = $scope.cy.pan();
@@ -356,14 +380,12 @@ $window, Network, VisualStyles, Gist) {
               
     });
 
-<<<<<<< HEAD
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
-=======
     /*function CarouselDemoCtrl($scope) {
   $scope.myInterval = 5000;
   var slides = $scope.slides = [];
@@ -379,4 +401,3 @@ $window, Network, VisualStyles, Gist) {
     $scope.addSlide();
   }
 };*/ 	
->>>>>>> 61388344b0b881f61b84f5f936820c4a4bd3b091

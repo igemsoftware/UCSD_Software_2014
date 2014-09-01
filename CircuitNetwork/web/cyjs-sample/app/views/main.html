@@ -53,7 +53,10 @@
 
 	<br><br>
 	<!--<img src ="http://ubic.ucsd.edu/ubic_logo_s.png" id = "book"/>-->
-	<img src ="http://cidar1.bu.edu:5801/pigeonHelp/file.173.8.230.1931098-trans.png" width="110%" height="110%" id = "book"/>
+        <div ng-show="cadState.show" class="CAD">
+            <img src ="http://cidar1.bu.edu:5801/pigeonHelp/file.173.8.230.1931098-trans.png" width="110%" height="110%" id = "book"/>
+            <img id="{{node.data('SUID')}}"class="CAD" ng-repeat="node in selectedNodes" ng-src="{{node.data('SBOL')}}"/>
+        </div>
     <!--<h3>Visual Style:</h3>
     <select class="form-control" id="vs-selector" ng-change="switchVS()" ng-model="style">
         <option ng-repeat="style in visualStyles">
@@ -80,10 +83,11 @@
                     <tbody data-ng-repeat="node in selectedNodes">
                         <tr>
                             <td>
-							<img ng-src="{{img_url}}">
-							<!--<button ng-click="img_url = '{{node.imgURL()}}'">{{ node.id() }}</button>-->
-							<button ng-click="img_url = 'https://farm4.staticflickr.com/3261/2801924702_ffbdeda927_d.jpg'">{{ node.id() }}</button>
-							</td>
+                                <!-- Code for images in the table-->
+                                <!-- <img ng-src="{{img_url}}"> -->
+                                <!--<button ng-click="img_url = '{{node.imgURL()}}'">{{ node.id() }}</button>-->
+                                <button ng-click="">{{ node.data("SUID") }}</button>
+                                </td>
                             <td ng-repeat="colName in columnNames">
                                 {{node.data(colName)}}
                             </td>
@@ -134,8 +138,11 @@
     <div class="icon-button" colorpicker colorpicker-position="left" ng-model="bg.color" tooltip-placement="left" tooltip="Set Background Color">
         <span class="glyphicon glyphicon-tint"></span>
     </div>
-	<div class="icon-button" tooltip-placement="left" tooltip="View Model">
+	<div class="icon-button" ng-click="toggleCAD()" tooltip-placement="left" tooltip="View Device Images">
 	<span class="glyphicon glyphicon-eye-open"></span>
+    </div>
+    <div class="icon-button" ng-click="toggleModel()" tooltip-placement="left" tooltip="Display Model">
+	<span class="glyphicon glyphicon-signal"></span>
     </div>
     <div class="icon-button" tooltip-placement="left" tooltip="Back to Top Page">
         <a href="/">
