@@ -11,9 +11,9 @@ img.CAD {
     width: 400px; 
     position: fixed;
     top: 100px;
-    z-index: -100;
+    z-index: -1000;
 }
 
 .selectedCAD {
-    z-index: 200;
+    z-index: 1000;
 }

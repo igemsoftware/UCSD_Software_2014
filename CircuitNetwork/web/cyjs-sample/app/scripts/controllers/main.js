@@ -274,18 +274,19 @@ $window, Network, VisualStyles, Gist) {
             $scope.cy.fit();
         };
         
-        /*
+        
         //Table button for controlling "selected" CAD
-        $scope.cadSelect = function() {
-            //angularjs using a subset of jQuery
+        $scope.cadSelect = function(id) {
             //clearing selected node
-            $("img.CAD").removeClass("selectedCAD");
-            console.log("Clearing selection...");
+            $("img.CAD").each(function(){
+                $(this).hide();
+            });
+            console.log("Clearing selection... ");
             //assigning new selected CAD
-            $("#"+String($scope.selectedNodes.data("SUID"))).addClass("selectedCAD");
-            console.log("New selected Cad is:" + String($scope.selectedNodes.data("SUID")));
+            $("#"+ id).show();
+            console.log("New selected Cad is:" + id);
         };
-        */
+        
 
         $scope.encodeUrl = function() {
             var pan = $scope.cy.pan();
