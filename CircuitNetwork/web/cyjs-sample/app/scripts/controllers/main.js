@@ -1,16 +1,28 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> 59621eb10f54c81510823bd092406573a4747282
 angular.module('cyViewerApp')
 	
     .controller('MainCtrl', function ($scope, $http, $location, $routeParams, 
 $window, Network, VisualStyles, Gist) {		
 
         'use strict';
+<<<<<<< HEAD
 
+=======
+        
+        //these files are the temporary network
+>>>>>>> 59621eb10f54c81510823bd092406573a4747282
 	var NETWORK_FILE = 'data/gal.cyjs'; 
         var visualStyleFile = 'data/galVS.json'; 
         
         var DEFAULT_VISUAL_STYLE_NAME = 'default';//'Solid';
         var PRESET_STYLE_FILE = encodeURIComponent('data/style.json');
+<<<<<<< HEAD
+=======
+        //these empty arrays are updated by the server for use by the cytoscape.js object.
+>>>>>>> 59621eb10f54c81510823bd092406573a4747282
         var networkData = {};
 	var vs = {};
        
@@ -37,6 +49,10 @@ $window, Network, VisualStyles, Gist) {
         $scope.currentVS = DEFAULT_VISUAL_STYLE_NAME;
         $scope.currentNetworkData = null;
 
+<<<<<<< HEAD
+=======
+        //Toolbar state variables
+>>>>>>> 59621eb10f54c81510823bd092406573a4747282
         $scope.browserState = {
             show: false
         };
@@ -46,6 +62,15 @@ $window, Network, VisualStyles, Gist) {
         $scope.toolbarState = {
             show: true
         };
+<<<<<<< HEAD
+=======
+        $scope.cadState = {
+            show: false
+        };
+        $scope.modelState = {
+            show: false
+        };
+>>>>>>> 59621eb10f54c81510823bd092406573a4747282
 
         $scope.bg = {
             color: '#FAFAFA'
@@ -87,7 +112,11 @@ $window, Network, VisualStyles, Gist) {
                 $scope.cy = cy;
                 setEventListeners();
                 $scope.cy.style().fromJson($scope.visualStyles
+<<<<<<< HEAD
 [DEFAULT_VISUAL_STYLE_NAME].style).update();
+=======
+                [DEFAULT_VISUAL_STYLE_NAME].style).update();
+>>>>>>> 59621eb10f54c81510823bd092406573a4747282
                 updateNetworkData(cy);
 				angular.element('.loading').remove();
 				//$('#752').addClass('highlighted');
@@ -96,7 +125,11 @@ $window, Network, VisualStyles, Gist) {
                 /*$scope.cy = this;
                 $scope.cy.load(networkData.elements);
 
+<<<<<<< HEAD
 		$scope.cy = cy;
+=======
+		/*$scope.cy = cy;
+>>>>>>> 59621eb10f54c81510823bd092406573a4747282
                 $scope.cy.style().fromJson($scope.visualStyles[DEFAULT_VISUAL_STYLE_NAME].style).update();
                 updateNetworkData(cy);*/
                 /*if (!gistStyle) {
@@ -162,7 +195,11 @@ $window, Network, VisualStyles, Gist) {
             });
         }
         
+<<<<<<< HEAD
         
+=======
+        //Setting column names
+>>>>>>> 59621eb10f54c81510823bd092406573a4747282
         function setColumnNames() {
             $scope.columnNames = [];
             $scope.edgeColumnNames = [];
@@ -198,11 +235,19 @@ $window, Network, VisualStyles, Gist) {
             // Node selection
             $scope.cy.on('select', 'node', function(event) {
                 //alert("moooooo");
+<<<<<<< HEAD
 				$('#book').show();
 				//$('#752').addClass('highlighted');
                 var id = event.cyTarget.id();
                 $scope.selectedNodes[id] = event.cyTarget;
 				$scope.selectedNodes[id].addClass('highlighted');
+=======
+                $('#book').show();
+                //$('#752').addClass('highlighted');
+                var id = event.cyTarget.id();
+                $scope.selectedNodes[id] = event.cyTarget;
+                $scope.selectedNodes[id].addClass('highlighted');
+>>>>>>> 59621eb10f54c81510823bd092406573a4747282
                 updateFlag = true;
             });
             
@@ -230,7 +275,15 @@ $window, Network, VisualStyles, Gist) {
             setInterval(function() {
                 if (updateFlag && $scope.browserState.show) {
                     console.log('* update called');
+<<<<<<< HEAD
 					setColumnNames();
+=======
+                    //displays node data
+                    console.log($scope.nodes[0].data);
+                    console.log($scope.edges[0]);
+                    setColumnNames();
+                    setColumnNames();
+>>>>>>> 59621eb10f54c81510823bd092406573a4747282
                     $scope.$apply();
                     updateFlag = false;
                 }
@@ -238,7 +291,11 @@ $window, Network, VisualStyles, Gist) {
 
         }
         
+<<<<<<< HEAD
         
+=======
+        //Toolbar and overlay controls
+>>>>>>> 59621eb10f54c81510823bd092406573a4747282
         $scope.toggleTableBrowser = function() {
             $scope.browserState.show = !$scope.browserState.show;
         };
@@ -250,10 +307,89 @@ $window, Network, VisualStyles, Gist) {
         $scope.toggleToolbar = function() {
             $scope.toolbarState.show = !$scope.toolbarState.show;
         };
+<<<<<<< HEAD
+=======
+        
+        $scope.toggleCAD = function() {
+            $scope.cadState.show = !$scope.cadState.show;
+        };
+        $scope.toggleModel = function() {
+            $scope.modelState.show = !$scope.modelState.show;
+        };
+>>>>>>> 59621eb10f54c81510823bd092406573a4747282
 
         $scope.fit = function() {
             $scope.cy.fit();
         };
+<<<<<<< HEAD
+=======
+        
+        //Variables for CAD selecting
+        var currentCad;
+        var cadArray = [];
+        
+        //Table button for controlling "selected" CAD
+        function cadSelect() {
+            //clearing selected node
+            $("img.CAD").each(function(){
+                $(this).hide();
+            });
+            console.log("Clearing selection... ");
+            //assigning new selected CAD
+            $("#"+ currentCad).show();
+            console.log("New selected Cad is:" + currentCad);
+        };
+        
+        $scope.cadTable = function(id) {
+            currentCad = id;
+            cadSelect();
+        };
+        
+        //Side buttons for selecting CAD
+        $scope.cadLeft = function () {
+            cadArray = [];
+            
+            //Creating a traversable array of CAD's
+            $("img.CAD").each(function(){
+                var cadID = $(this).attr("id");
+                cadArray.push(cadID);
+            });
+            
+            var currentIndex = cadArray.indexOf(String(currentCad));
+            currentCad = cadArray[currentIndex - 1];
+
+            //Cycling to the end
+            if(currentCad === undefined) {
+                currentCad = cadArray[cadArray.length - 1];
+                cadSelect();
+            }
+            else{
+                cadSelect();
+            };      
+        };
+        
+        $scope.cadRight = function () {
+            cadArray = [];
+            
+            //Creating a traversable array of CAD's
+            $("img.CAD").each(function(){
+                var cadID = $(this).attr("id");
+                cadArray.push(cadID);
+            });
+            
+            var currentIndex = cadArray.indexOf(String(currentCad));
+            currentCad = cadArray[currentIndex + 1];
+            
+            //Cycling to the beginning
+            if(currentCad === undefined) {
+                currentCad = cadArray[0];
+                cadSelect();
+            }
+            else{
+                cadSelect();
+            };
+        };
+>>>>>>> 59621eb10f54c81510823bd092406573a4747282
 
         $scope.encodeUrl = function() {
             var pan = $scope.cy.pan();
@@ -325,6 +461,11 @@ $window, Network, VisualStyles, Gist) {
 
 	function init() {
             $scope.nodes = networkData.elements.nodes;
+<<<<<<< HEAD
+=======
+            //Added function to retrieve edge information
+            $scope.edges = networkData.elements.edges;
+>>>>>>> 59621eb10f54c81510823bd092406573a4747282
             initVisualStyleCombobox();
             // Set network name
             var networkName = networkData.data.name;
@@ -346,6 +487,7 @@ $window, Network, VisualStyles, Gist) {
               
     });
 
+<<<<<<< HEAD
     /*function CarouselDemoCtrl($scope) {
   $scope.myInterval = 5000;
   var slides = $scope.slides = [];
@@ -362,11 +504,31 @@ $window, Network, VisualStyles, Gist) {
   }
 };*/ 	
 
+=======
+>>>>>>> 59621eb10f54c81510823bd092406573a4747282
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
+<<<<<<< HEAD
 
 
+=======
+    /*function CarouselDemoCtrl($scope) {
+  $scope.myInterval = 5000;
+  var slides = $scope.slides = [];
+  $scope.addSlide = function() {
+    var newWidth = 50 + slides.length;
+    slides.push({
+      image: 'http://placekitten.com/' + newWidth + '/30',
+      text: ['More','Extra','Lots of','Surplus'][slides.length % 4] + ' ' +
+        ['Cats', 'Kittys', 'Felines', 'Cutes'][slides.length % 4]
+    });
+  };
+  for (var i=0; i<4; i++) {
+    $scope.addSlide();
+  }
+};*/ 	
+>>>>>>> 59621eb10f54c81510823bd092406573a4747282

@@ -17,6 +17,9 @@ $('#cy').cytoscape({
       }),
  elements:{
    nodes:[
+
+       {data: {id: 'a', name: 'a'}, renderedPosition: {x: 100, y: 50} },
+       {data: {id: 'b', name: 'b'}, renderedPosition:{x: 300, y: 50} },
        {data: {id: 'a', name: 'a'} },
        {data: {id: 'b', name: 'b'} }
    ],
@@ -46,6 +49,7 @@ $('#cy').cytoscape({
         //Unit Test. Checks that var= node id 
         //alert(identity);
         //retrieve node's position
+        var posit = {x: event.pageX, y: event.pageY};
         var posit = this.position();
         //Unit Test. Checks that node position was grabed. 
         //alert(String(position.x + ", " + position.y));

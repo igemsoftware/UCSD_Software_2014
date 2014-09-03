@@ -15,12 +15,11 @@ and open the template in the editor.
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://cytoscape.github.io/cytoscape.js/api/cytoscape.js-latest/cytoscape.min.js"></script>
     <script src="CytoImgWip.js"></script>
-
 </head>
     
 
 <body>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <div id="cy">
         <div id="a" class="secret"><img alt="World Cup" src="http://www.capitalfm.co.ke/sports/files/2013/10/WORLD-CUP-TROPHY.jpg"></div>
         <div id="b" class="secret"><img alt="Olympic" src="http://2.bp.blogspot.com/-EGiCb_7TQsw/TjtRrxCdT5I/AAAAAAAAAG0/JTgI_bcO1yY/s400/olympic+symbol.jpg"></div>
@@ -75,6 +74,8 @@ and open the template in the editor.
                     //cy.load() only takes elements, not the entire init json
                     //that is received by calling cy.json()
                     cy.load($obj.elements);
+                    cy.style().fromJson($obj).update();
+                    cy.layout().fromJson($obj);
                     //Unit Test. Checks that load was done successfully.
                     //alert("loaded");
                 });
@@ -88,7 +89,9 @@ and open the template in the editor.
             });
         </script>
     </div>
-    
+    <link rel="stylesheet" type="text/css" href="cyto.css">
+    <script src="http://cytoscape.github.io/cytoscape.js/api/cytoscape.js-latest/cytoscape.min.js"></script>
+    <script src="CytoImgWip.js"></script>
 </body>
 
 
