@@ -56,6 +56,8 @@
         <div ng-show="cadState.show" class="CAD">
             <!--<img src ="http://cidar1.bu.edu:5801/pigeonHelp/file.173.8.230.1931098-trans.png" width="110%" height="110%" id = "book"/>-->
             <img id="{{node.data('SUID')}}"class="CAD" ng-repeat="node in selectedNodes" ng-src="{{node.data('SBOL')}}"/>
+            <button class="cadLeft" ng-click="cadLeft()"><<<</button>
+            <button class="cadRight" ng-click="cadRight()">>>></button>
         </div>
     <!--<h3>Visual Style:</h3>
     <select class="form-control" id="vs-selector" ng-change="switchVS()" ng-model="style">
@@ -86,7 +88,7 @@
                                 <!-- Code for images in the table-->
                                 <!-- <img ng-src="{{img_url}}"> -->
                                 <!--<button ng-click="img_url = '{{node.imgURL()}}'">{{ node.id() }}</button>-->
-                                <button id="{{ node.data('SUID') }}" ng-click="cadSelect(node.data('SUID'))">{{ node.data("SUID") }}</button>
+                                <button id="{{ node.data('SUID') }}" ng-click="cadTable(node.data('SUID'))">{{ node.data("SUID") }}</button>
                                 </td>
                             <td ng-repeat="colName in columnNames">
                                 {{node.data(colName)}}

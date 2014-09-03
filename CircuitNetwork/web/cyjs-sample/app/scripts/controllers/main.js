@@ -49,7 +49,7 @@ $window, Network, VisualStyles, Gist) {
             show: true
         };
         $scope.cadState = {
-            show: true
+            show: false
         };
         $scope.modelState = {
             show: false
@@ -274,19 +274,71 @@ $window, Network, VisualStyles, Gist) {
             $scope.cy.fit();
         };
         
+        //Variables for CAD selecting
+        var currentCad;
+        var cadArray = [];
         
         //Table button for controlling "selected" CAD
-        $scope.cadSelect = function(id) {
+        function cadSelect() {
             //clearing selected node
             $("img.CAD").each(function(){
                 $(this).hide();
             });
             console.log("Clearing selection... ");
             //assigning new selected CAD
-            $("#"+ id).show();
-            console.log("New selected Cad is:" + id);
+            $("#"+ currentCad).show();
+            console.log("New selected Cad is:" + currentCad);
         };
         
+        $scope.cadTable = function(id) {
+            currentCad = id;
+            cadSelect();
+        };
+        
+        //Side buttons for selecting CAD
+        $scope.cadLeft = function () {
+            cadArray = [];
+            
+            //Creating a traversable array of CAD's
+            $("img.CAD").each(function(){
+                var cadID = $(this).attr("id");
+                cadArray.push(cadID);
+            });
+            
+            var currentIndex = cadArray.indexOf(String(currentCad));
+            currentCad = cadArray[currentIndex - 1];
+
+            //Cycling to the end
+            if(currentCad === undefined) {
+                currentCad = cadArray[cadArray.length - 1];
+                cadSelect();
+            }
+            else{
+                cadSelect();
+            };      
+        };
+        
+        $scope.cadRight = function () {
+            cadArray = [];
+            
+            //Creating a traversable array of CAD's
+            $("img.CAD").each(function(){
+                var cadID = $(this).attr("id");
+                cadArray.push(cadID);
+            });
+            
+            var currentIndex = cadArray.indexOf(String(currentCad));
+            currentCad = cadArray[currentIndex + 1];
+            
+            //Cycling to the beginning
+            if(currentCad === undefined) {
+                currentCad = cadArray[0];
+                cadSelect();
+            }
+            else{
+                cadSelect();
+            };
+        };
 
         $scope.encodeUrl = function() {
             var pan = $scope.cy.pan();
