@@ -14,13 +14,16 @@ body{
  
  
 }
-#l{
+#allHome{
     height:auto;
+    //border:2px red solid;
     
 }
+
 a:link{
     text-decoration: none;
 }
+
 .btn-nav {
     box-sizing: border-box;  
     padding:2px;
@@ -47,6 +50,7 @@ a:link{
     top: 5px;
     text-align: center;
     
+    
 }
 .btn-nav:hover {
   background-color: hsl(56, 91%, 38%);
@@ -71,21 +75,25 @@ a:link{
     height: 450px;
     padding: 20px;
     //border: 2px red solid;
-    margin-top: 20px;
+    width: 100%;
+    //margin-top: 20px;
 }
-#p{
-    margin-top: 95px;
-   //border: 2px solid blueviolet;
+
+#sliderHolder{
+    //border:2px black solid;
+   margin-top: 105px;
+    
 }
 .carousel{
-    //margin-top: 95px;
-    //border: 2px solid red;
+    
+    //border: 2px solid blue;
 }
 
 .sliderHome{
-	margin: 10px;
+	
         opacity:.95;
-        //border: 2px solid sandybrown;
+        border: 2px solid sandybrown;
+        
         
  }
  #info{
@@ -101,7 +109,7 @@ a:link{
      position: relative;
      top: 50%;
      left: 40%;
-     margin-top: 90px;
+     //margin-top: 90px;
      
  }
  #signUp .btn{

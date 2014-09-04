@@ -16,29 +16,14 @@ Created by Valeriy Sosnovskiy
         <script src="bootstrap.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <link rel="stylesheet" href="Tester_Home.css">
+        <script src="Tester_Home.js"></script>
         
     
     </head>
     <body>
         
-      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>  
-      <div class="container-fluid" id="l">
+        
+  <div class="container-fluid" id="allHome">
         
   
   <!--<navigation bar ">-->
@@ -121,23 +106,40 @@ Created by Valeriy Sosnovskiy
        
 
     </div>
-     <!--navbar-->
+     <!--navbar ends-->
      
-     <!-- </div>-->
-     <div class="container-narrow" id="p">
-     <div class="container-narrow " id="z">
-     <div class="container-narrow sliderHome">
-    <div id="myCarousel" class="carousel slide"  data-ride="carousel">
-    	<!-- Carousel indicators -->
+     <!-- Slider-->
+     <div class="container-fluid" id="Slider_Three">
+     <div class="container-fluid " id="sliderHolder">
+     <div class="container-fluid" id= "sliderHome">
+    <div id="myCarousel" class="carousel slide" data-interval="6000" data-ride="carousel">
+    	
+        
+        <!-- Carousel indicators -->
         <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
             <li data-target="#myCarousel" data-slide-to="1"></li>
             <li data-target="#myCarousel" data-slide-to="2"></li>
             <li data-target="#myCarousel" data-slide-to="3"></li>
         </ol>   
+        
         <!-- Carousel items -->
         <div class="carousel-inner">
-            <div class="active item" id="one">
+            <div class="item active" id="one">
+                <h1>Get started today!</h1>
+                
+               
+                <div class="btn-group btn-group-justified" id="signUp">
+                    
+                        <button type="button" class="btn btn-lg btn-success">Sign Up!</button>
+                </div>
+         		<div class="carousel-caption">
+                  
+                  <p class="text-info">Launch </p>
+                </div>
+            </div>
+            
+            <div class="item " id="one">
                 <h1>Get started today!</h1>
                 
                
@@ -150,51 +152,70 @@ Created by Valeriy Sosnovskiy
                   <p class="text-info">Launch </p>
                 </div>
             </div>
-            <div class="item">
-                 <div><h3>Simple As:</h3></div>         
-            </div>
-            <div class="item">
-                 <h1>Slide Info #3</h1>
+            
+            <div class="item" id="one">
+                <h1>Get started today!</h1>
                 
-                <div class="carousel-caption">
+               
+                <div class="btn-group" id="signUp">
+                    
+                        <button type="button" class="btn btn-lg btn-success">Sign Up!</button>
                 </div>
-            </div>
-            <div class="item">
-                 <h1>Slide Info #4</h1>
-                
-                <div class="carousel-caption">
+         		<div class="carousel-caption">
                   
-                  <p class="text-danger">Join today</p>
+                  <p class="text-info">Launch </p>
                 </div>
             </div>
+            <div class="item" id="one">
+                <h1>Get started today!</h1>
+                
+               
+                <div class="btn-group" id="signUp">
+                    
+                        <button type="button" class="btn btn-lg btn-success">Sign Up!</button>
+                </div>
+         		<div class="carousel-caption">
+                  
+                  <p class="text-info">Launch </p>
+                </div>
+            </div>
+            
         </div>
       
-    </div>
+        
+        <!--controller-->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="prev">
+             <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
          
      </div>
 </div>
      
      
-     </div> 
+</div> 
     
-      </div>
-    
+     
+        
+        <!--bottom three pics-->
         <div class="container-fluid" id="bottomOne">
             <div class="row" id="info">
-           <div class="col-lg-4">
+           <div class="col-md-4">
                <a href="newhtml.html">
                <div class="thumbnail" id="thumbOne">
                    <h3>Find Out More</h3>
                </div></a>
                </div>
               
-          <div class="col-lg-4 ">
+          <div class="col-md-4 ">
               <a href="newhtml.html">
                <div class="thumbnail" id="thumbTwo">
                    <h3>Tutorial</h3>
                </div></a>
                </div>
-            <div class="col-lg-4">
+            <div class="col-md-4">
               
                <div class="thumbnail" id="thumbThree">
                    <h3>THE APP</h3>
@@ -204,8 +225,8 @@ Created by Valeriy Sosnovskiy
          
             </div>
             </div>
-        
-        
+     </div>  
+            <!--footer-->
             <div class="container-fluid">
             <div class="footer">
                 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">UCSD iGEM</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://localhost:8080/CircuitNetwork/Tester_Home.html" rel="dct:source">http://localhost:8080/CircuitNetwork/Tester_Home.html</a>;
