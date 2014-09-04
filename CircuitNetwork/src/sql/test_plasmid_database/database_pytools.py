@@ -7,8 +7,7 @@ import sqlite3
 # Suggestion #3: In order to capture bool logic for or you may need a list that 
 # separates transitions by the or placement. 
 # Suggestion #4: May need make methods that also return only the name of each genetic part
-
-conn = sqlite3.connect("h.db")
+conn = sqlite3.connect("SBiDeR_v1.db")
 conn.text_factory = str
 sql = conn.cursor()
 
@@ -29,19 +28,21 @@ output_trans_table = ["ID", "Output"]
 def database_select(table_name, col_names = ["ID"], w_col = None, w_opt = None,
     w_var = None,w_bool = None, group = False, h_col = None, h_bool = None, 
     h_value = None):
-    '''
-    Pulls data from the desired table by specifying the table name and index cols
-    Returns a list of tuples where each tuple has 
-    @param table_name, table you wish to pull data from
-    @param col_nums, list of numbers indexing the table columns
-    @param w_col, column names for where clause
-    @param w_opt, operator for where clause
-    @param w_var, variable for where clause 
-    @param w_bool, boolean for where clause
-    @param group, group name for GROUP BY caluse
-    @param h_col, group specifier
+    """Pulls data from the corresponding table
+    Args:
+        table_name: table you wish to pull data from
+        col_names: list of numbers indexing the table columns
+        w_col: column names for where clause
+        w_opt: operator for where clause
+        w_var: variable for where clause 
+        w_bool: boolean for where clause
+        group: group name for GROUP BY caluse
+        h_col: group specifier
+        
+    Returns:
+        A list of tuples corresponding with column data
     
-    Examples
+    Examples:
         ex 1. Pulling multiple columns from the Plasmid table
             database_select('plasmid', [0,1])
         
@@ -55,31 +56,33 @@ def database_select(table_name, col_names = ["ID"], w_col = None, w_opt = None,
             have a list with tuples of single values. User unlist function
             to fix this. 
             
-        ex. 3 Pulling very specific data. To do so you have to use the optional
+        ex 3. Pulling very specific data. To do so you have to use the optional
             parameters w_col, w_opt, w_var and w_bool.
             database_select("itr", [0,1], 2, "!=", True)) 
-    '''
+    """
     command = sqlpy.sql_select(table_name,col_names, w_col, w_opt, w_var,
         w_bool, group, h_col, h_bool, h_value)
     sql.execute(command)
     return sql.fetchall()
     
 def database_insert(table_name,cols,new_row):
-    '''
-    Allows you to insert data into any table. 
-    @param table_name, that table that you wish to insert into
-    @param cols, the columns that you want to insert into
-    @param new_row, the values that correspond to the columns
+    """Inserts data into the given database table
+    Args:
+        table_name, that table that you wish to insert into
+        cols, the columns that you want to insert into
+        new_row, the values that correspond to the columns
     
-    Examples
+    Examples:
         ex 1. 
-    '''
+    """
     command = sqlpy.sql_insert(table_name, cols,new_row)
-    print "\n" * 10
+    print "\n" * 3
     print command
     sql.execute(command)
     
 def database_custom(command):
+    """Execute a custom made sql command
+    Return:
     return sql.execute(command)
     
 def database_close():
@@ -89,19 +92,19 @@ def database_close():
     
 #--------------------Logic Accessions--------------------#        
 def single_trans_to_bool(trans_ID):
-    '''
+    """
     Determine the boolean logic of a single transition using the ID
     @param trans_ID, the transition for which logic is desired
-    '''
+    """
     trans_list = sql.execute('''SELECT Interactor_ID, NOT/
         FROM input_trans WHERE Input_Transition_ID = ''' + trans_ID)
     return bool_trans(trans_list)
 
 def single_operon_to_bool(operon_ID):
-    '''
+    """
     Determine the boolean logic of a single operon using the ID
     @param operon_ID, the operon for which logic is desired
-    '''
+    """
     operon_list = sql.execute('''SELECT Input_Transition_ID from oitr 
         where Operon_ID = ''' + operon_ID)
     operon_list = unlist_values(operon_list)
@@ -112,12 +115,12 @@ def single_operon_to_bool(operon_ID):
         return ' OR '.join(operon_list)    
 
 def database_to_trans_logic():
-    '''
+    """
     Determine the boolean logic for all transitions in the database
     Collecting all of the transition-interactor information inside of a dictionary 
         #Key: trans_ID
         #Value: List of [[interactor1, not_boolean1], [interactor2, not_boolean2], ...]
-    '''  
+    """  
     trans_list = sql.execute("SELECT Interactor_ID, Input_Transition_ID, NOT")
     trans_dict = {}
     for trans in trans_list:
@@ -139,9 +142,9 @@ def database_to_trans_logic():
     return interactors_list
             
 def database_to_bool_operon():
-    '''
+    """
     Determine the boolean logic of the whole operon
-    '''
+    """
     operon_trans_list = sql.execute('grab all of the operons and transitions')
     for rlts in operon_trans_list:
         operon_ID = rlts[0] 
@@ -168,14 +171,14 @@ def database_to_bool_operon():
     
 #--------------------helpers--------------------#        
 def bool_trans(interactor): 
-    '''
+    """
     Determine the boolean logic of transition based on interactor
     @param interactor, list of paired lists with interactor ID and NOT boolean
     SUGGESTIONS: will need to convert from the interactor_ID to the 
     interactor_name at some point. Will have to query sql to do so.
     I think it's better to query than to make a whole new dictionary
     with key: interactor_ID value: interactor_name
-    '''
+    """
     #single input, buffer transitions 
     if len(interactor) == 1 and interactor[0][1] != False:
         return "IF", interactor[0][0] #interactor[0][0] ID maybe also return the i_ID (or only it) and may not actually return
@@ -201,9 +204,9 @@ def bool_trans(interactor):
         return bool_string
         
 def pull_columns(col_nums):
-    '''
+    """
     Return a list of column names
-    '''
+    """
     columns= []
     for nums in col_nums:
         try:
@@ -214,17 +217,17 @@ def pull_columns(col_nums):
     return columns
     
 def unlist_values(to_list):
-    '''
+    """
     Stringify values in a list that are within a list
     @param to_list, a list with lists of single values
-    '''
+    """
     return [''.join(x) for x in to_list]
     
 #--------------------Accessions,working--------------------#        
 def database_to_json():
-    '''
+    """
     Obtain nodes and edge information and parse into json
-    '''
+    """
     nodes_table = ["interactor", "input", "output", "operon"]
     edges_table = ["itr","",""]
     
@@ -242,8 +245,8 @@ def database_to_json():
         
 
 def database_to_pigeon():
-    '''
+    """
     Obtain operon information and parse into pigeonCAD string commands
-    '''   
+    """   
     pass
     

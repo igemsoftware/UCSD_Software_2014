@@ -1,4 +1,4 @@
-import sql_pytools as sql_tool
+import sql_pytools as sqlpy
 import sqlite3
 # Suggestion: it may be better to pass in a cursor object. That way you don't have to be
 # connecting and reconnecting all of the time. 
@@ -8,14 +8,15 @@ import sqlite3
 # separates transitions by the or placement. 
 # Suggestion #4: May need make methods that also return only the name of each genetic part
 
-sqlconn = sqlite3.connect("")
-sql = sqlconn.cursor()
+conn = sqlite3.connect("e.db")
+conn.text_factory = str
+sql = conn.cursor()
 
 #Declaring list global variables for integration with accession functions
 
-plasmid_table = ["ID", "Plasmid_Name", "Miriam_ID", "Size"]
+plasmid_table = ["ID", "Name", "Miriam_ID", "Size"]
 operon_table = ["ID", "Name", "Image_Path"]
-part_table = ["ID", "Part"]
+part_table = ["ID", "Name"]
 interactor_table = ["ID", "Name","Type"]
 opr_table = ["ID", "Operon_ID", "Plasmid_ID", "Main"]
 optr_table = ["ID", "Operon_ID", "Part_ID", "Position"]
@@ -24,27 +25,7 @@ ootr_table = ["ID", "Operon_ID", "Output_Transition_ID"]
 input_trans_table = ["ID", "Input", "NOT"]
 output_trans_table = ["ID", "Output"]
     
-    
-#############Database_Accession_Methods#############    
-    
-def get_input_trans_info():
-    '''
-    Return all of the input transitions ID's
-    '''
-    return unlist_values(sql.execute("SELECT ID from input_trans"))
-    
-def get_operon_info():
-    '''
-    Return all of the operon ID's
-    '''
-    return unlist_values(sql.execute("SELECT ID from operon"))
-    
-def get_plasmid_info():
-    '''
-    Return all the plasmid ID's
-    '''
-    return unlist(sql.execute("SELECT ID from plasmid"))
-    
+#--------------------DB Accessions--------------------#                
 def database_select(table_name, col_nums, w_col = None, w_opt = None,
     w_var = None,w_bool = None, group = False, h_col = None, h_bool = None, 
     h_value = None):
@@ -60,7 +41,7 @@ def database_select(table_name, col_nums, w_col = None, w_opt = None,
     @param group, group name for GROUP BY caluse
     @param h_col, group specifier
     
-    Example
+    Examples
         ex 1. Pulling multiple columns from the Plasmid table
             database_select('plasmid', [0,1])
         
@@ -81,10 +62,29 @@ def database_select(table_name, col_nums, w_col = None, w_opt = None,
     columns = pull_columns(col_nums)
     command = sql_tool.sql_select(table_name,columns, w_col, w_opt, w_var,
         w_bool, group, h_col, h_bool, h_value)
-    data = sql.execute(command)
+    sql.execute(command)
     return data 
     
-#############Logic_Accession_Methods#############     
+def database_insert(table_name,cols,new_row):
+    '''
+    Allows you to insert data into any table. 
+    @param table_name, that table that you wish to insert into
+    @param cols, the columns that you want to insert into
+    @param new_row, the values that correspond to the columns
+    
+    Examples
+        ex 1. 
+    '''
+    command = sqlpy.sql_insert(table_name, cols,new_row)
+    print "\n" * 10
+    print command
+    sql.execute(command)
+    
+def database_custom(command):
+    return sql.execute(command)
+    
+    
+#--------------------Logic Accessions--------------------#        
 def single_trans_to_bool(trans_ID):
     '''
     Determine the boolean logic of a single transition using the ID
@@ -94,7 +94,7 @@ def single_trans_to_bool(trans_ID):
         FROM input_trans WHERE Input_Transition_ID = ''' + trans_ID)
     return bool_trans(trans_list)
 
-def single_operon_to_bool(operon_ID)
+def single_operon_to_bool(operon_ID):
     '''
     Determine the boolean logic of a single operon using the ID
     @param operon_ID, the operon for which logic is desired
@@ -103,7 +103,7 @@ def single_operon_to_bool(operon_ID)
         where Operon_ID = ''' + operon_ID)
     operon_list = unlist_values(operon_list)
     operon_list = [single_trans_to_bool(x) for x in operon_list]
-    if len(operon_list) = 1:
+    if len(operon_list) == 1:
         return operon_list
     else:
         return ' OR '.join(operon_list)    
@@ -163,8 +163,7 @@ def database_to_bool_operon():
         operon_logic_dict[operon_ID] = bool_string
     return operon_logic_dict
     
-    
-#############Module_Helper_Methods############# 
+#--------------------helpers--------------------#        
 def bool_trans(interactor): 
     '''
     Determine the boolean logic of transition based on interactor
@@ -185,20 +184,20 @@ def bool_trans(interactor):
         bool_string = ""
         i = 0
         for interactor in interactor.values():
-            if i = 0:
+            if i == 0:
                 if interactor[0][1] == False:
                     bool_string += str(interactor[0][0])
                 else:
                     bool_string += "NOT " + str(interactor[0][0])
             else: 
-                if i = 0:
+                if i == 0:
                     if interactor[0][1] == False:
                         bool_string += " AND " + str(interactor[0][0])
                     else:
                         bool_string += " AND NOT " + str(interactor[0][0])
         return bool_string
         
-def pull_columns(col_nums, columns_list)
+def pull_columns(col_nums, columns_list):
     '''
     Return a list of column names
     '''
@@ -207,69 +206,41 @@ def pull_columns(col_nums, columns_list)
         try:
             columns.append(col_nums[nums])
         except:
-            Raise Exception("Table is " + len(columns_list) + ''' long. Tried to 
+            raise Exception("Table is " + len(columns_list) + ''' long. Tried to 
                 access non-existant index ''' + nums)
     return columns
     
-def unlist_values(to_list)
+def unlist_values(to_list):
     '''
     Stringify values in a list that are within a list
     @param to_list, a list with lists of single values
     '''
     return [''.join(x) for x in to_list]
     
-#############WORKING_Accession_Methods!!#############
-
+#--------------------Accessions,working--------------------#        
 def database_to_json():
     '''
     Obtain nodes and edge information and parse into json
     '''
+    nodes_table = ["interactor", "input", "output", "operon"]
+    edges_table = ["itr","",""]
+    
+    nodes_list = []
+    sql.execute("SELECT blah_columns from interactor" )
+    nodes_list.append(sql.fetchall())
+    sql.execute("SELECT blah_columns from input" )
+    nodes_list.append(sql.fetchall())
+    sql.execute("SELECT blah_columns from output" )
+    nodes_list.append(sql.fetchall())
+    sql.execute("SELECT blah_columns from operon" )
+    nodes_list.append(sql.fetchall())
+    
+    #or table in nodes_table:
+        
 
 def database_to_pigeon():
     '''
     Obtain operon information and parse into pigeonCAD string commands
-    '''
+    '''   
+    pass
     
-def get_interactors_info(col_nums):
-    '''
-    Return all interactor ID's
-    '''
-def get_parts_info():
-    '''
-    Return all parts_ID's
-    '''
-def get_operon_plasmid_rlts_info()
-    '''
-    Return a list of tuples with corresponding columns info
-    '''
-def get_operon_part_rlts_info()
-    '''
-    Return a list of tuples with Operon_ID and Part_ID
-    '''
-def get_operon_in_trans_rlts_info()
-    '''
-    Return a list of tuples with Operon_ID and Input_Transition_ID
-    '''
-def get_operon_out_trans_rlts_info()
-    '''
-    Return a list of tuples with Operon_ID and Output Transition ID
-    '''
-def get_operon_plasmid_rlts_info()
-    '''
-    Return a list of tuples with Operon_ID and Plasmid_ID
-    '''
-def get_operon_plasmid_rlts_info()
-    '''
-    Return a list of tuples with Operon_ID and Plasmid_ID
-    '''
-def get_input_transitions_info()
-    '''
-    Return a list of lists with ...
-    '''
-    
-#############WORKING_Setter_Methods!!#############
-
-    
-
-        
-            

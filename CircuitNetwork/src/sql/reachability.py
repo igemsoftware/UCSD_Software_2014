@@ -119,7 +119,19 @@ def index_by_str(column, row, indices):
     '''
     
     return (indices[column], indices[row])
+
+def get_subnetwork(inputs_list):
+    """Finds the subnetwork made up from the inputs_list.
+
+    Returns:
+         all of the node values that are reachable from all nodes
+	 in the input list
+    """
     
+    for inputs in inputs_list:
+        get the column from the reach_matrix
+	for reached in inputs:
+            subnetwork.append()
 #testing the reach_matrix
 graph = grapher()  
 path_length = len(graph.nodes()) 

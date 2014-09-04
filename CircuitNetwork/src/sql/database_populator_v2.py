@@ -6,7 +6,6 @@ import os
 from subprocess import call
 from sets import Set
 import re
-import os.path as osp
         
 #--------------------helpers--------------------#        
 def which_table(table_list, table_name):
@@ -24,10 +23,8 @@ def which_table(table_list, table_name):
 #--------------------main--------------------#
 def main():
     
-    #if(osp.isfile())
-    
     #Setting up all of the csv names to extract the data
-    info_names = ["plasmid", "operon", "input", "output", "opr", "part", "optr", "interactor"]
+    info_names = ["plasmid", "operon", "input", "output", "opr", "structure", "optr", "interactors"]
 
     ''' 
     Minimally parsing for table insertion
@@ -38,8 +35,8 @@ def main():
     part = 'CREATE TABLE part (ID VARCHAR(50), Name VARCHAR(50));'
     interactors = 'CREATE TABLE interactor (ID VARCHAR(50),Name VARCHAR(50),Type VARCHAR(50));'
     #Creating tables of transitions that are used for the petri nets
-    inputt = 'CREATE TABLE input (ID VARCHAR(50), Interactor_ID VARCHAR(50), Not_Bool bool);'
-    output = 'CREATE TABLE output (ID VARCHAR(50), Interactor_ID VARCHAR(50));'    
+    inputt = 'CREATE TABLE input (ID VARCHAR(50), Input VARCHAR(50), Not_Bool bool);'
+    output = 'CREATE TABLE output (ID VARCHAR(50), Output VARCHAR(50));'    
     #Creating tables of relationships
     opr = 'CREATE TABLE opr (ID VARCHAR(50), Operon_ID VARCHAR(50), Plasmid_ID VARCHAR(50), Direction VARCHAR(50), Main NUM(10));'
     ''' 
@@ -64,15 +61,13 @@ def main():
     print files_formatted
     #Iterate thru all of the files and add the information to the appropriate table.
     for file_name, table_name in zip(files_formatted, info_names):
-        with open(file_name, 'rU') as file_handle:
+        with open(file_name, 'ru') as file_handle:
             csv_handle = csv.reader(file_handle, dialect = "excel-tab")
             header = csv_handle.next()
             for row in csv_handle:
-                if row[0] == "" and row[1] == "":
-                    break
-                else:
-                    dbpy.database_insert(table_name, header, row)
-    dbpy.database_close()
+                dbpy.database_insert(table_name, header, row)
+        conn.commit()
+    cur.close()
     
 if __name__ == '__main__':
     main()

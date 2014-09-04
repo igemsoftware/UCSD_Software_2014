@@ -1,3 +1,5 @@
+library(sqldf)
+
 #gathering all datasets
 info_names = c("plasmid", "operon", "input", "output", "opr", "optr", "part", "optr", "interactor")
 
@@ -20,7 +22,7 @@ plasmid = sqldf("select P_ID, P_Name, Title, Authors, Journal, Year from data wh
 
 #extracting all operon table relevant columsn  
 operon = sqldf("select O_ID, Structure, Math from data where O_ID != ''")
-View(operon)
+#View(operon)
 
 #extracting input/output table relevant information
 input = sqldf("select O_ID, Domain from data where O_ID != ''")
@@ -30,10 +32,10 @@ output = sqldf("select O_ID, Range from data where O_ID != ''")
 
 #extracting the operon name and plasmid names. Need to map back to 
 #operon_id and plasmid_id in python.
-opr = sqldf("select P_ID, O_ID, R_L from data")
+opr = sqldf("select O_ID, R_L from data where O_ID != ''")
 #View(opr)
 
-parts = sqldf("select structure from data where O_ID != ''")
+part = sqldf("select structure from data where O_ID != ''")
 #View(structure)
 
 #extracting the operon_ID and structure. Need to take structure and need 
@@ -45,9 +47,9 @@ optr = sqldf("select O_ID, Structure from data where O_ID != ''")
 int_d = sqldf("select Domain from data where O_ID != ''")
 int_r = sqldf("select Range from data where O_ID != ''")
 names(int_r)[1] = "Domain"
-interactors = rbind(int_d, int_r)
-interactors = unique(interactors)
-names(interactors)[1] = "Interactors"
+interactor = rbind(int_d, int_r)
+interactor = unique(interactor)
+names(interactor)[1] = "Interactors"
 #View(interactors)
 
 #writing all datasets

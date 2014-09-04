@@ -2,6 +2,8 @@
 # author: Joaquin Reyna and Fred Layao
 # date: 07/02/14
 # description: SQLwrappers and testing
+def stringify_list(ls):
+    return [str(x) for x in ls]
 
 def sql_insert(table_name,cols,new_row):
     '''
