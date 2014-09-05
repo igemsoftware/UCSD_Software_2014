@@ -1,5 +1,0 @@
-p pTET 4
-c luxR 8
-p pLUX 4
-c gfp 6
-# Arcs

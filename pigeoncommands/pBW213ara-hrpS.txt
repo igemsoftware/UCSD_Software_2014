@@ -1,5 +1,0 @@
-c araC 8
-<p pCONST 4
-p pBAD 4
-c hrpS 8
-#Arcs

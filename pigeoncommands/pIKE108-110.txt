@@ -1,5 +1,0 @@
-c gfp 6
-<p pTET 4
-p pLAC 4
-c tetR 8
-# Arcs
