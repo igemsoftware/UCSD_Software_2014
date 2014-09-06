@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+
+=======
+>>>>>>> 59621eb10f54c81510823bd092406573a4747282
 <div id="network" ng-style="{'background-color': bg.color}"></div>
 
 <div class="loading">
@@ -53,12 +57,16 @@
 
 	<br><br>
 	<!--<img src ="http://ubic.ucsd.edu/ubic_logo_s.png" id = "book"/>-->
+<<<<<<< HEAD
+	<img src ="http://cidar1.bu.edu:5801/pigeonHelp/file.173.8.230.1931098-trans.png" width="110%" height="110%" id = "book"/>
+=======
         <div ng-show="cadState.show" class="CAD">
             <!--<img src ="http://cidar1.bu.edu:5801/pigeonHelp/file.173.8.230.1931098-trans.png" width="110%" height="110%" id = "book"/>-->
             <img id="{{node.data('SUID')}}"class="CAD" ng-repeat="node in selectedNodes" ng-src="{{node.data('SBOL')}}"/>
             <button class="cadLeft" ng-click="cadLeft()"><<<</button>
             <button class="cadRight" ng-click="cadRight()">>>></button>
         </div>
+>>>>>>> 59621eb10f54c81510823bd092406573a4747282
     <!--<h3>Visual Style:</h3>
     <select class="form-control" id="vs-selector" ng-change="switchVS()" ng-model="style">
         <option ng-repeat="style in visualStyles">
@@ -85,11 +93,18 @@
                     <tbody data-ng-repeat="node in selectedNodes">
                         <tr>
                             <td>
+<<<<<<< HEAD
+							<img ng-src="{{img_url}}">
+							<!--<button ng-click="img_url = '{{node.imgURL()}}'">{{ node.id() }}</button>-->
+							<button ng-click="img_url = 'https://farm4.staticflickr.com/3261/2801924702_ffbdeda927_d.jpg'">{{ node.id() }}</button>
+							</td>
+=======
                                 <!-- Code for images in the table-->
                                 <!-- <img ng-src="{{img_url}}"> -->
                                 <!--<button ng-click="img_url = '{{node.imgURL()}}'">{{ node.id() }}</button>-->
                                 <button id="{{ node.data('SUID') }}" ng-click="cadTable(node.data('SUID'))">{{ node.data("SUID") }}</button>
                                 </td>
+>>>>>>> 59621eb10f54c81510823bd092406573a4747282
                             <td ng-repeat="colName in columnNames">
                                 {{node.data(colName)}}
                             </td>
@@ -140,12 +155,18 @@
     <div class="icon-button" colorpicker colorpicker-position="left" ng-model="bg.color" tooltip-placement="left" tooltip="Set Background Color">
         <span class="glyphicon glyphicon-tint"></span>
     </div>
+<<<<<<< HEAD
+	<div class="icon-button" tooltip-placement="left" tooltip="View Model">
+	<span class="glyphicon glyphicon-eye-open"></span>
+    </div>
+=======
 	<div class="icon-button" ng-click="toggleCAD()" tooltip-placement="left" tooltip="View Device Images">
 	<span class="glyphicon glyphicon-eye-open"></span>
     </div>
     <div class="icon-button" ng-click="toggleModel()" tooltip-placement="left" tooltip="Display Model">
 	<span class="glyphicon glyphicon-signal"></span>
     </div>
+>>>>>>> 59621eb10f54c81510823bd092406573a4747282
     <div class="icon-button" tooltip-placement="left" tooltip="Back to Top Page">
         <a href="/">
             <span class="glyphicon glyphicon-home"></span>
@@ -174,4 +195,25 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
 </div>
+
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>TODO write content</div>
+    </body>
+</html>
+=======
+</div>
+>>>>>>> 59621eb10f54c81510823bd092406573a4747282
