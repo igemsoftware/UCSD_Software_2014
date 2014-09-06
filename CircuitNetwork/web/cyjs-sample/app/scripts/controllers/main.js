@@ -8,7 +8,6 @@ $window, Network, VisualStyles, Gist) {
         //these files are the temporary network
 	var NETWORK_FILE = 'data/gal.cyjs'; 
         var visualStyleFile = 'data/galVS.json'; 
-        
         var DEFAULT_VISUAL_STYLE_NAME = 'default';//'Solid';
         var PRESET_STYLE_FILE = encodeURIComponent('data/style.json');
         //these empty arrays are updated by the server for use by the cytoscape.js object.
@@ -308,9 +307,9 @@ $window, Network, VisualStyles, Gist) {
             var currentIndex = cadArray.indexOf(String(currentCad));
             currentCad = cadArray[currentIndex - 1];
 
-            //Cycling to the end
+            //Preventing further cycling
             if(currentCad === undefined) {
-                currentCad = cadArray[cadArray.length - 1];
+                currentCad = cadArray[0];
                 cadSelect();
             }
             else{
@@ -330,9 +329,9 @@ $window, Network, VisualStyles, Gist) {
             var currentIndex = cadArray.indexOf(String(currentCad));
             currentCad = cadArray[currentIndex + 1];
             
-            //Cycling to the beginning
+            //Preventing further indexing
             if(currentCad === undefined) {
-                currentCad = cadArray[0];
+                currentCad = cadArray[cadArray.length-1];
                 cadSelect();
             }
             else{
