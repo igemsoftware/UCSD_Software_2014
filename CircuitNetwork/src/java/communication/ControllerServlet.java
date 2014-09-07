@@ -3,11 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package communication;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.util.HashMap;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -31,18 +33,33 @@ public class ControllerServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ControllerServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ControllerServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        try {
+            //retrieve the users controller object
+            String user = request.getParameter("user");
+            Controller currentController;
+            if (_ControllerHash.containsKey(user)) {
+                currentController = _ControllerHash.get(user);
+            } else {
+                String rootPath = this.getServletContext().getRealPath("/"); //CircuitNetwork/build/web/
+                //create a new one if it doesn't exist
+                currentController = new Controller(rootPath);
+                _ControllerHash.put(user, currentController);
+            }
+            String command = request.getParameter("command"); //parameter from the client
+            PrintWriter out = response.getWriter();
+            if (command.equals("execute")) {
+                String data = request.getParameter("data"); //get data from the request; remember this is packaged into a json object
+//                String output = currentController.executeCommand(data); //use method to execute command
+                
+                String output = currentController.runPython(data); //use method to execute command
+                out.write(output); //write output of command into response for get/pull request
+
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -83,5 +100,7 @@ public class ControllerServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
+    private HashMap<String, Controller> _ControllerHash = new HashMap();
 
 }
