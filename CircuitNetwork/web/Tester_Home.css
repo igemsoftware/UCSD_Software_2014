@@ -101,14 +101,15 @@ a:link{
      margin-top: 10px;
  }
  #one{
-     background-image: url("http://www.wallpaperup.com/uploads/wallpapers/2013/03/21/55953/big_thumb_5bc52caed5488a3596fd468a09a1413d.jpg");
+     //background-image: url("http://www.wallpaperup.com/uploads/wallpapers/2013/03/21/55953/big_thumb_5bc52caed5488a3596fd468a09a1413d.jpg");
      background-repeat: no-repeat;
      background-size: 100%;
+     background-color: black;
  }
  #signUp{
      position: relative;
-     top: 50%;
-     left: 40%;
+     margin: 5% 40%;
+     
      //margin-top: 90px;
      
  }
@@ -125,14 +126,24 @@ a:link{
 
 h1{
     color: white;
-    font-size: 60px;
+    font-size: 100px;
     text-align: center;
     position: relative;
     top: 5px;
+    
 }
 
 h3{
-    color: white;
+    color: whitesmoke;
+    text-align: center;
+    position: relative;
+    font-size: 40px;
+    top: 10px;
+    
+}
+
+#btmOne h3{
+    color: whitesmoke;
     text-align: center;
     position: relative;
     font-size: 40px;
@@ -148,10 +159,6 @@ p{
     color: white;
 }
 
-//#bottomOne{
- //   background-color: whitesmoke;
-//}
-
 #bottomOne .row{
     margin-top: 10px;
     margin-left: 2px;
@@ -162,37 +169,57 @@ p{
 }
 
 #thumbOne{
-    background-image: url("http://www.wallpaperup.com/uploads/wallpapers/2014/05/23/356231/big_thumb_42652badc570cd1c3e9e75c18c73fc38.jpg");
+    background-image: url("http://www.aubramedia.com/know1here/wp-content/uploads/2011/12/Spider-Web-BW.jpg");
     height: 250px;
     background-size: 100%;
+    //background-color: black;
+    font-size: 100px;
+    text-align: center;
+    color: goldenrod;
+}
+
+#thumbOne h3{
+    color: goldenrod;
 }
 
 #thumbOne:hover{
     border: 1px solid #E6B800;
 }
 #thumbTwo{
-    background-image:url("http://www.wallpaperup.com/uploads/wallpapers/2014/05/20/354841/big_thumb_abcbdaafa92d1d41d1b28f7ca43551ad.jpg");
+   // background-image:url("http://www.wallpaperup.com/uploads/wallpapers/2014/05/20/354841/big_thumb_abcbdaafa92d1d41d1b28f7ca43551ad.jpg");
     height: 250px;
     background-size: 100%;
+    background-color: black;
+}
+#thumbTwo h3{
+  position: relative;
+  
 }
 #thumbTwo:hover{
     border: 1px solid #E6B800;
+    
 }
 
 #thumbThree{
     
-    background-image: url("http://www.wallpaperup.com/uploads/wallpapers/2013/02/14/39956/big_thumb_d7063b7b948f6af99ce366d0cade5f87.jpg");
+    background-image: url("http://lssacademy.com/wp-content/uploads/2009/04/simplicity.jpg");
     height: 250px;
     background-size: 100%;
+    
 }
+
 #thumbThree .btn{
     position: relative;
     font-size: 30px;
-    margin-left: 120px;
-    margin-top: 20px;
+    margin: 5% 25%;
+    
 }
 #thumbThree:hover{
     border: 1px solid #E6B800;
+}
+
+.col-md-4{
+    margin: auto;
 }
 .footer{
     width: 60%;

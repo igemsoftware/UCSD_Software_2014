@@ -14,10 +14,12 @@ and open the template in the editor.
         <script src="bootstrap.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <link rel="stylesheet" href="Tester_About.css">
+        <script src="Tester_Home.js"></script>
     </head>
     <body>
         <!--entire page divider-->
         <div class="container-fluid" id="main">
+        
         <!--nav bar-->       
         <div class="row ">
         <nav class="navbar  navbar-fixed-top" role="navigation">
@@ -93,7 +95,8 @@ and open the template in the editor.
           </div>
             <!--End of nav bar-->
             
-            <!--the logo + The Team-->
+            
+            <!--The logo + The Team-->
              <div class="container-fluid" id="logo">
                  <div class="row">
                      <div class="col-md-2 col-lg-offset-1">
@@ -103,110 +106,43 @@ and open the template in the editor.
                          <h1 id="headerH">Meet The Team</h1>
                      </div>
                  </div>
+                 
+                 
+                 
+             <!--The logo + The Team end-->    
              </div>
             
-                 <div class="container-fluid" id="mainContent">
-                     <div class="row" id="mainPic">
-                         <div class="col-md-8 col-md-offset-2" >
-                             <img class="img-rounded" src="http://d1warraxuf7xh1.cloudfront.net/wp-content/uploads/2014/03/Lakers-Team-Photo.jpg"/>
-                             <p>Goal:We will connect known genetic devices together via device input and outputs to create a network of devices that can interact. We define a genetic device as a DNA construct transformed into cells that can cause expression of some protein in response to stimuli (or input). We will develop a web interface to facilitate access to the complex network that we have constructed. Our Web interface makes extensive use of Cytoscape, an open source bioinformatics software package for metabolic network visualization and simulation. In addition, the interface will generate SBOL Visual Images, a standard language that is easily understood by synthetic biologists all over the world. Users can also update our database with additional devices through this interface. Using the Cynetshare framework, users can share their circuit designs. </p>
-                         </div>
+            <div class="jumbotron">
+                     <img class="img-responsive" id="teamPic" src="http://2.bp.blogspot.com/-geTSaTI4WJY/Twe9gmKrQoI/AAAAAAAACGo/3NWF9ZCOUPU/s1600/Redeem-Team-picture.jpg">
+                     <div class="caption" id="teamCaption"><p class="text-info">Genetic circuits are often difficult to engineer, requiring months to design, build, and test each individual genetic device involved in the circuit. SBiDer, a web tool developed by the UCSD Software iGEM team, will leverage existing devices to construct a database with consideration for the function of each device interpreted as boolean logic. The data can be queried by the user through SBiDer's visual interface to explore circuit designs. The displayed circuit's literature reference, characterization data, and images of included devices can be viewed through the built-in table. Basic validation of the circuit performance is also provided within in the interface. SBiDer's web of information can be expanded through user-generated additions to the database to improve the efficiency of the application and the accuracy of the models.</p></div>
+                     <div class="row" id="arrow">
+                         
+                         <div class="btn-group"> 
+                             <button class="btn btn-lg btn-primary" id="morePics">Individual Info<span class="glyphicon glyphicon-th-large"></span></button>
+                         </div></div>
+                         
                      </div>
-                             <div class="container-fluid" id="individuals">
-                                 <div class="row" id="row1">
-                                     <div class="col-md-2 col-md-offset-2">
-                                         <img class="img-circle" src="https://lh3.googleusercontent.com/-NMHEoGdcZEA/AAAAAAAAAAI/AAAAAAAABoQ/Z3T3664LrxU/s120-c/photo.jpg"/>
-                                     </div>
-                                     <div class="col-md-4 col-md-offset-2">
-                                         <h1>Jenhan Tao</h1>
-                                         <p>
-                                            Major: PhD Student, Bioinformatics & Systems Biology<br>
-                                            Interests:<br>
-                                            Linkedln:<br>
-                                         </p>
-                                     </div>
-                                 </div>  
-                                 <div class="row" id="row1">
-                                     <div class="col-md-2 col-md-offset-2">
-                                         <img class="img-circle" src="https://lh4.googleusercontent.com/-dvwono-Aq5o/AAAAAAAAAAI/AAAAAAAAAE4/FqujQQ-5dww/s120-c/photo.jpg"/>
-                                     </div>
-                                     <div class="col-md-4 col-md-offset-2">
-                                         <h1>Justin Huang</h1>
-                                         <p>
-                                            Major: PhD Student, Bioinformatics & Systems Biology<br>
-                                            Interests:<br>
-                                            Linkedln:<br>
-                                         </p>
-                                     </div>
-                                     
-                                      <div class="col-md-2 col-md-offset-2">
-                                         <img class="img-circle" src="https://lh4.googleusercontent.com/-dvwono-Aq5o/AAAAAAAAAAI/AAAAAAAAAE4/FqujQQ-5dww/s120-c/photo.jpg"/>
-                                     </div>
-                                     <div class="col-md-4 col-md-offset-2">
-                                         <h1>Justin Huang</h1>
-                                         <p>
-                                            Major: PhD Student, Bioinformatics & Systems Biology<br>
-                                            Interests:<br>
-                                            Linkedln:<br>
-                                         </p>
-                                     </div>
-                                     
-                                      <div class="col-md-2 col-md-offset-2">
-                                         <img class="img-circle" src="https://lh4.googleusercontent.com/-dvwono-Aq5o/AAAAAAAAAAI/AAAAAAAAAE4/FqujQQ-5dww/s120-c/photo.jpg"/>
-                                     </div>
-                                     <div class="col-md-4 col-md-offset-2">
-                                         <h1>Justin Huang</h1>
-                                         <p>
-                                            Major: PhD Student, Bioinformatics & Systems Biology<br>
-                                            Interests:<br>
-                                            Linkedln:<br>
-                                         </p>
-                                     </div>
-                                     
-                                      <div class="col-md-2 col-md-offset-2">
-                                         <img class="img-circle" src="https://lh4.googleusercontent.com/-dvwono-Aq5o/AAAAAAAAAAI/AAAAAAAAAE4/FqujQQ-5dww/s120-c/photo.jpg"/>
-                                     </div>
-                                     <div class="col-md-4 col-md-offset-2">
-                                         <h1>Justin Huang</h1>
-                                         <p>
-                                            Major: PhD Student, Bioinformatics & Systems Biology<br>
-                                            Interests:<br>
-                                            Linkedln:<br>
-                                         </p>
-                                     </div>
-                                     
-                                      <div class="col-md-2 col-md-offset-2">
-                                         <img class="img-circle" src="https://lh4.googleusercontent.com/-dvwono-Aq5o/AAAAAAAAAAI/AAAAAAAAAE4/FqujQQ-5dww/s120-c/photo.jpg"/>
-                                     </div>
-                                     <div class="col-md-4 col-md-offset-2">
-                                         <h1>Justin Huang</h1>
-                                         <p>
-                                            Major: PhD Student, Bioinformatics & Systems Biology<br>
-                                            Interests:<br>
-                                            Linkedln:<br>
-                                         </p>
-                                     </div>
-                                     
-                                      <div class="col-md-2 col-md-offset-2">
-                                         <img class="img-circle" src="https://lh4.googleusercontent.com/-dvwono-Aq5o/AAAAAAAAAAI/AAAAAAAAAE4/FqujQQ-5dww/s120-c/photo.jpg"/>
-                                     </div>
-                                     <div class="col-md-4 col-md-offset-2">
-                                         <h1>Justin Huang</h1>
-                                         <p>
-                                            Major: PhD Student, Bioinformatics & Systems Biology<br>
-                                            Interests:<br>
-                                            Linkedln:<br>
-                                         </p>
-                                     </div>
-                                     
-                                     
-                                 </div>   
-                              
-                             </div>
+           
+                 
+                 <!--the individuals-->
+                 <div class="container-fluid" id="indvPics">
+                     
+                 </div>
+                  
+               
+                 <!--Individuals end-->
+                 
+                 
+                 <div class="footer">
+                     <h1>Sponsors</h1>
+                 </div>
+                 
+               <!--The end of the page-->
+               </div>
                        
                    
-             </div>
-            </div>
+            
+            
         
     </body>
 </html>

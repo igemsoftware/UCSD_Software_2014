@@ -3,11 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 $(document).ready(function(){
-    $('#myCarousel').carousel({
-    pause: true,
-    interval: 6000
+  $("#morePics").click(function(){
+   $(".jumbotron").hide("slow", function(){
+   $("#indvPics").load("Tester_Profiles.html");
+   });
   });
   
+  $("#backBtn").click(function(){
+     $("#hello").remove();
+    $(".jumbotron").show("slow", function(){
+         
+     });
+  });
 });
+
+  
+
+
 

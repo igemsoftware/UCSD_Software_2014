@@ -64,54 +64,74 @@ body{
 
 #logo{
     position: relative;
-    margin-top: 120px;
-    height: 350px;
+    margin-top: 100px;
+    height: 310px;
     width: 100%;
+   // border: 2px solid red;
+    
 }
 
 #logoPic{
-    margin: 20px;
+    //margin: 10px;
     height: 300px;
     background-repeat: no-repeat;
-    padding: 2px;
-   
+    padding: 5px;
+    width: 250px;
+    
     
 }
+
+#teamPic{
+    width: 80%;
+    height: 400px;
+    margin: auto;
+}
+
+
 
 #headerH{
     font-family: sans-serif;
-    font-size: 150px;
-    margin-top: 60px;
-    padding: 2px;
-}
-
-#mainPic{
-    height: 600px;
-    width: 100%;
-    margin-bottom: 40px;
-    //border: 2px solid red;
-}
-
-#mainPic .img-rounded{
-    height: 350px;
-    width: 100%;
-    padding: 1px;
-    margin: 0 auto;
-    padding-top: 10px;
-}
-
-#individuals{
-    background-color: white;
+    font-size: 130px;
+    //margin-top: 40px;
+    padding: 35px;
     
-    width:60%;
-    height: auto;
-    //border: 2px solid red;
+}
+#teamCaption{
+   width: 80%;
+   margin: auto;
+   
+}
+#arrow{
+    text-align: center;
+    font-size: 50px;
+    
 }
 
-#individuals .img-circle{
-    padding-top: 10px;
+#arrow .glyphicon{
+    font-size: 25px;
+    margin-top: 20px;
+    padding: 5px;
+    
+    
 }
 
-#individuals .row{
-    margin-top: 50px;
+#morePics{
+    margin: auto;
+    text-align:center;
+    font-size: 30px;
+ 
+    
+}
+
+
+
+
+
+.jumbotron{
+    margin: 10px;
+    width: 80%;
+    position: relative;
+    margin: auto;
+    
+    
 }
