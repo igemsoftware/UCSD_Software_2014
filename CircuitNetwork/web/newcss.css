@@ -8,7 +8,7 @@ body{
 #igem{
         color:gold;
         width: 400px;
-        //height: 800px;
+        height: 800px;
         //border: 1px solid red;
         float:left;
         font-size: 80px;
@@ -22,24 +22,21 @@ body{
     }
     
  
-
-
+ 
 
 #table{
-    width: 350px;
+    width: 300px;
     text-align: center;
     text-height: font-size;
     float: right;
-    //border: 1px solid red;
-    margin-top: 20px;
     
 }
 
 #table ul{
     margin: 0;
+
     list-style: none; 
-    //border: 1px solid blue;
-    
+    //border: 1px solid blue;    
 }
 #table li{
     margin: 0px;
@@ -68,6 +65,7 @@ body{
     background-size: cover;
     margin-bottom: 5px;
 }
+
 
 #table li a:hover{
     color: #FFF;
@@ -122,14 +120,13 @@ body{
     
 }
 
-
 #logIn {
     text-align: center;
     display: block;
     //border: solid gold;
     background-image:url("http://wallpaperskoe.com/wallpapers/2013/06/Beach_sand_1_by_eddieretelj.jpg");
     width: 400px;
-    height: 350px;
+    height: 400px;
     position: fixed;
     top:50%;
     left: 50%;
@@ -138,7 +135,7 @@ body{
     border-radius: 20px;
  }
 
-form input[type="email"]{
+form input[type="text"],[type="password"],[type="email"]{
     padding: 10px;
     text-align: center;
     color: blue;

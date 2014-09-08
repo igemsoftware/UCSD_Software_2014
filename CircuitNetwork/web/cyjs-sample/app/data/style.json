@@ -1339,11 +1339,11 @@
   }, {
     "selector" : "node:selected",
     "css" : {
-      "background-color" : "rgb(255,255,255)"
+      "background-color" : "rgb(62,139,38)"
     }
   }, { 
-	"selector": "#752",
-	"css" : {
+    "selector": "#752, #750",
+    "css" : {
       "font-family" : "Dialog",
       "font-weight" : "normal",
       "shape" : "star",
@@ -1362,7 +1362,7 @@
       "content" : "data(name)"
     }
   }, {
-    "selector" : "#752:selected",
+    "selector" : "#752:selected, #750:selected",
     "css" : {
       "background-color" : "rgb(255,255,0)"
     }
