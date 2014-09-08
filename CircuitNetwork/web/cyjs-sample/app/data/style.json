@@ -263,6 +263,11 @@
     "css" : {
       "line-color" : "rgb(255,0,0)"
     }
+  }, {
+    "selector" : "node.species",
+    "css" : {
+        "shape" : "ellipse"
+    }
   } ]
 }, {
   "format_version" : "1.0",

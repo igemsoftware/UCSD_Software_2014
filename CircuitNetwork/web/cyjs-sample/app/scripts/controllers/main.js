@@ -5,7 +5,7 @@ $window, Network, VisualStyles, Gist) {
 
         'use strict';
         //these files are the temporary network
-	var NETWORK_FILE = 'data/gal.cyjs'; 
+	var NETWORK_FILE = 'data/TestNodeJson.json'; 
         var visualStyleFile = 'data/galVS.json'; 
         var DEFAULT_VISUAL_STYLE_NAME = 'default';//'Solid';
         var PRESET_STYLE_FILE = encodeURIComponent('data/style.json');
@@ -102,12 +102,7 @@ $window, Network, VisualStyles, Gist) {
 				//$scope.#752.addClass('highlighted');
                 /*$scope.cy = this;
                 $scope.cy.load(networkData.elements);
-
-<<<<<<< HEAD
-		$scope.cy = cy;
-=======
 		/*$scope.cy = cy;
->>>>>>> 59621eb10f54c81510823bd092406573a4747282
                 $scope.cy.style().fromJson($scope.visualStyles[DEFAULT_VISUAL_STYLE_NAME].style).update();
                 updateNetworkData(cy);*/
                 /*if (!gistStyle) {
