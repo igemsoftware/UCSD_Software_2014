@@ -4,7 +4,7 @@ import itertools as it
 import math
 
 db.open("sbider.db")
-db.make_db("lkj")
+db.make_db()
 path = "/Users/K/Desktop/SBiDer_Database.xlsx"
 
 def table_id_dict(table_name):
