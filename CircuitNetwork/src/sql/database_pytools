@@ -1,5 +1,6 @@
 import sql_pytools as sqlpy
 import sqlite3
+import pandas as pd
 # Suggestion: it may be better to pass in a cursor object. That way you don't have to be
 # connecting and reconnecting all of the time. 
 # Suggestion #2: Might also think about making a class that quickly can capture the bool
@@ -7,25 +8,62 @@ import sqlite3
 # Suggestion #3: In order to capture bool logic for or you may need a list that 
 # separates transitions by the or placement. 
 # Suggestion #4: May need make methods that also return only the name of each genetic part
-conn = sqlite3.connect("SBiDeR_v1.db")
-conn.text_factory = str
-sql = conn.cursor()
+
+#def database_open(database = "SBiDer_v1.db"):
+def open(database):
+    global conn 
+    conn = sqlite3.connect(database)
+    conn.text_factory = str
+    global sql 
+    sql = conn.cursor()
+    
+def print_table(table_name):
+    cur = custom("SELECT * FROM " + table_name)
+    table_list = cur.fetchall()
+    for row in table_list:
+        print row
+    
+def make_db(database):
+    #Setting up all of the csv names to extract the data
+    info_names = ["plasmid", "operon", "part", "interactor", "input", "output", "opr", "optr", "oitr", "ootr"]
+
+    #Creating tables of genetic constructs and interactors
+    plasmid = 'CREATE TABLE plasmid (id VARCHAR(50), name VARCHAR(50), miriam_id VARCHAR(50), title VARCHAR(50), authors VARCHAR(50), journal VARCHAR(50), year VARCHAR(50));'
+    operon = 'CREATE TABLE operon (id VARCHAR(50), name VARCHAR(50), sbol VARCHAR(50));'
+    part = 'CREATE TABLE part (id VARCHAR(50), name VARCHAR(50));'
+    interactors = 'CREATE TABLE interactor (id VARCHAR(50),name VARCHAR(50), type VARCHAR(50));'
+    #Creating tables of transitions that are used for the petri nets
+    inputt = 'CREATE TABLE input (id VARCHAR(50), interactor_id VARCHAR(50), repressor bool);'
+    output = 'CREATE TABLE output (id VARCHAR(50), interactor_id VARCHAR(50));'    
+    #Creating tables of relationships
+    opr = 'CREATE TABLE opr (id VARCHAR(50), operon_id VARCHAR(50), plasmid_id VARCHAR(50), direction VARCHAR(50), Main NUM(10));'
+    optr = 'CREATE TABLE optr (id VARCHAR(50), operon_id VARCHAR(50), part_id VARCHAR(50), position NUM(10));'
+    #can use input.txt
+    oitr = 'CREATE TABLE oitr (id VARCHAR(50), operon_id VARCHAR(50), interactor_id VARCHAR(50));'
+    #can use output.txt
+    ootr = 'CREATE TABLE ootr (id VARCHAR(50), operon_id VARCHAR(50), interactor_id VARCHAR(50));'
+    
+    
+    #care. If you actually do this then you WILL OVERRIDE the current database. 
+    table_list =[plasmid, operon, part, interactors, opr, optr, oitr, ootr, inputt, output]
+    for table in table_list:
+        custom(table)
 
 #Declaring list global variables for integration with accession functions
 
-plasmid_table = ["ID", "Name", "Miriam_ID", "Size"]
+plasmid_table = ["ID", "Name", "Miriam_ID"]
 operon_table = ["ID", "Name", "Image_Path"]
 part_table = ["ID", "Name"]
-interactor_table = ["ID", "Name","Not_bool"]
-opr_table = ["ID", "Operon_ID", "Plasmid_ID", "Main"]
+interactor_table = ["ID", "Name","Repressor"]
+opr_table = ["ID", "Operon_ID", "Plasmid_ID"]
 optr_table = ["ID", "Operon_ID", "Part_ID", "Position"]
-oitr_table = ["ID", "Operon_ID", "Input_Transition_ID"]
-ootr_table = ["ID", "Operon_ID", "Output_Transition_ID"]
-input_trans_table = ["ID", "Input", "NOT"]
+oitr_table = ["ID", "Operon_ID", "Input_ID"]
+ootr_table = ["ID", "Operon_ID", "Output_ID"]
+input_trans_table = ["ID", "Input", "Repressor"]
 output_trans_table = ["ID", "Output"]
     
 #--------------------DB Accessions--------------------#                
-def database_select(table_name, col_names = ["ID"], w_col = None, w_opt = None,
+def select(table_name, col_names = ["ID"], w_col = None, w_opt = None,
     w_var = None,w_bool = None, group = False, h_col = None, h_bool = None, 
     h_value = None):
     """Pulls data from the corresponding table
@@ -44,12 +82,12 @@ def database_select(table_name, col_names = ["ID"], w_col = None, w_opt = None,
     
     Examples:
         ex 1. Pulling multiple columns from the Plasmid table
-            database_select('plasmid', [0,1])
+            select('plasmid', [0,1])
         
             returned is [("p_001", "pOR"), ("p_002", "pAND"), ...]
             
         ex 2. Pulling a single column from the part table
-            database_select('part', [0])
+            select('part', [0])
             
             returned is [("pt_001"), ("pt_002"), ...]
             CAUTION: When working with result make sure you recognize you 
@@ -58,14 +96,14 @@ def database_select(table_name, col_names = ["ID"], w_col = None, w_opt = None,
             
         ex 3. Pulling very specific data. To do so you have to use the optional
             parameters w_col, w_opt, w_var and w_bool.
-            database_select("itr", [0,1], 2, "!=", True)) 
+            select("itr", [0,1], 2, "!=", True)) 
     """
     command = sqlpy.sql_select(table_name,col_names, w_col, w_opt, w_var,
         w_bool, group, h_col, h_bool, h_value)
     sql.execute(command)
     return sql.fetchall()
     
-def database_insert(table_name,cols,new_row):
+def insert(table_name,cols,new_row):
     """Inserts data into the given database table
     Args:
         table_name, that table that you wish to insert into
@@ -80,12 +118,15 @@ def database_insert(table_name,cols,new_row):
     print command
     sql.execute(command)
     
-def database_custom(command):
+#def update():
+    
+def custom(command):
     """Execute a custom made sql command
     Return:
+    """
     return sql.execute(command)
     
-def database_close():
+def close():
     conn.commit()
     sql.close()
     
@@ -114,7 +155,7 @@ def single_operon_to_bool(operon_ID):
     else:
         return ' OR '.join(operon_list)    
 
-def database_to_trans_logic():
+def to_trans_logic():
     """
     Determine the boolean logic for all transitions in the database
     Collecting all of the transition-interactor information inside of a dictionary 
@@ -141,7 +182,7 @@ def database_to_trans_logic():
                 trans_bool_dict[trans_ID] = [bool_trans(interactors_list)]
     return interactors_list
             
-def database_to_bool_operon():
+def to_bool_operon():
     """
     Determine the boolean logic of the whole operon
     """
@@ -156,7 +197,7 @@ def database_to_bool_operon():
     #Collecting a list of operon logic and returning a dictionary.
        #Key: operon_ID          
        #Value: operon logic
-    trans_logic_dict = database_to_trans_logic()
+    trans_logic_dict = to_trans_logic()
     operon_logic_dict = []
     for operon_ID, trans_bools in operon_trans_dict.values():
         if len(trans_bools) == 1:
@@ -224,7 +265,7 @@ def unlist_values(to_list):
     return [''.join(x) for x in to_list]
     
 #--------------------Accessions,working--------------------#        
-def database_to_json():
+def to_json():
     """
     Obtain nodes and edge information and parse into json
     """
@@ -244,9 +285,18 @@ def database_to_json():
     f#or table in nodes_table:
         
 
-def database_to_pigeon():
+def to_pigeon():
     """
     Obtain operon information and parse into pigeonCAD string commands
     """   
     pass
     
+def main():
+    
+    #if(osp.isfile())
+    
+    
+    print "Made a new database. Thank god"
+
+if __name__ == "__main__":
+    main()

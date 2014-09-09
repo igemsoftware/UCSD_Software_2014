@@ -2,8 +2,6 @@
 # author: Joaquin Reyna and Fred Layao
 # date: 07/02/14
 # description: SQLwrappers and testing
-def stringify_list(ls):
-    return [str(x) for x in ls]
 
 def sql_insert(table_name,cols,new_row):
     '''
@@ -99,11 +97,11 @@ def sql_select(table, column, w_col = None, w_opt = None,
             if i < len(w_bool):
                 Q = Q + w_bool[i] + " "
 
-    if group is not None:
+    '''if group is not None:
         Q += "\n" + "GROUP BY " + group
         
     if h_col is not None and h_bool is not None and h_value is not None:
         Q += "\n" + "HAVING " + h_col + " " +  h_bool + " " + str(h_value)
     Q +=";"
-    
+    '''    
     return Q
