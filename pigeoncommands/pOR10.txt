@@ -1,0 +1,5 @@
+p pBAD 4
+c yfp 6
+p pCONST 4
+c araC 8
+# Arcs
