@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Communication Template</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    </head>
+    <body>
+        <div>
+            <input id='command'/>
+            <button id='ping'>Submit</button>
+            <div id='output'></div>
+        </div>
+
+
+        <script>
+            $(document).ready(function() {
+
+
+                var userID = makeid() //temp random id
+                //event handler for the ping button
+                $('#ping').click(function() {
+                    var commandString = $('#command').val();
+                    var data = {user: userID, command: 'execute', data: commandString}; //package the input into a json file for submission to the server
+                    $.get("ControllerServlet", data, function(data) { //parameters are: servlet url, data, callback function
+                        $('#output').text(data); //display the server response in the output area
+                        $('#command').val("");
+                    });
+                });
+                //generates a random string of 20 characters
+                function makeid() {
+                    var text = "";
+                    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+                    for (var i = 0; i < 20; i++)
+                        text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+                    return text;
+                }
+            });
+
+
+        </script>
+    </body>
+</html>
