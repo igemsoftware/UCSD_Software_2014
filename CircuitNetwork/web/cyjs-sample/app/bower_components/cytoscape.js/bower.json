@@ -1,0 +1,15 @@
+{
+  "name": "cytoscape",
+  "version": "2.2.11",
+  "main": "dist/cytoscape.js",
+  "ignore": [
+    "documentation",
+    "src",
+    "test",
+    "debug",
+    "gulpfile.js",
+    "*.sh",
+    "package.json",
+    "README.md"
+  ]
+}
