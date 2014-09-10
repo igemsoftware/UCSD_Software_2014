@@ -249,32 +249,13 @@ def bool_trans(interactor):
                     else:
                         bool_string += " AND NOT " + str(interactor[0][0])
         return bool_string
-        
-def pull_columns(col_nums):
-    """Returns a list of column names based on the index location"""
-    columns= []
-    for nums in col_nums:
-        try:
-            columns.append(col_nums[nums])
-        except:
-            raise Exception("Table is " + len(columns_list) + ''' long. Tried to 
-                access non-existant index ''' + nums)
-    return columns
     
-def unlist_values(to_list):
-    """Stringify values in a list that are within a list
-    ARGS:
-        to_list, a list with lists of single values
-    """
-    return [''.join(x) for x in to_list]
-    
-#--------------------Accessions,working--------------------#        
+         
 def to_json_node():
     """
     Obtain nodes and edge information and parse into json
     """
     nodes_table = ["interactor", "input", "output", "operon"]
-    edges_table = ["itr","",""]
     
     interactor_list = []
     sql.execute("SELECT id, name from interactor" )
@@ -296,9 +277,35 @@ def to_json_node():
     nodes_list = [interactor_list, input_list, output_list, operon_list]
     for ls in nodes_list:
         for node in interactor_list:
-                json_str += tojson(node)
+                json_str += to_json(node)
+
+def to_json_edge():
+    """
+    Obtain nodes and edge information and parse into json
+    """
+    edges_table = ["input","output","oitr", "ootr"]
     
-    f#or table in nodes_table:
+    interactor_list = []
+    sql.execute("SELECT id, interactor_id from input" )
+    interactor_list.extend(sql.fetchall())
+    
+    input_list = []
+    sql.execute("SELECT id, interactor_id from output" )
+    input_list.extend(sql.fetchall())
+    
+    output_list = []
+    sql.execute("SELECT operon_id, input_id from oitr")
+    output_list.extend(sql.fetchall())
+    
+    operon_list = []
+    sql.execute("SELECT operon_id, output_id from ootr" )
+    operon_list.extend(sql.fetchall())
+    
+    
+    nodes_list = [interactor_list, input_list, output_list, operon_list]
+    for ls in nodes_list:
+        for node in interactor_list:
+                json_str += to_json(node)
         
         
 def to_network():
@@ -338,6 +345,24 @@ def to_network():
     key: transition ID
     value: list with all the species produce by that operon/transition
     '''
+    
+def pull_columns(col_nums):
+    """Returns a list of column names based on the index location"""
+    columns= []
+    for nums in col_nums:
+        try:
+            columns.append(col_nums[nums])
+        except:
+            raise Exception("Table is " + len(columns_list) + ''' long. Tried to 
+                access non-existant index ''' + nums)
+    return columns
+    
+def unlist_values(to_list):
+    """Stringify values in a list that are within a list
+    ARGS:
+        to_list, a list with lists of single values
+    """
+    return [''.join(x) for x in to_list]
 
 def to_pigeon():
     """
