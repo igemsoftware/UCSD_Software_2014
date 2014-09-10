@@ -236,6 +236,11 @@
       "content" : "data(name)"
     }
   }, {
+    "selector" : "node.species",
+    "css" : {
+      "shape" : "ellipse"
+    }
+  }, {
     "selector" : "node:selected",
     "css" : {
       "background-color" : "rgb(255,255,0)"
@@ -262,11 +267,6 @@
     "selector" : "edge:selected",
     "css" : {
       "line-color" : "rgb(255,0,0)"
-    }
-  }, {
-    "selector" : "node.species",
-    "css" : {
-        "shape" : "ellipse"
     }
   } ]
 }, {

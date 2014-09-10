@@ -5,8 +5,8 @@ $window, Network, VisualStyles, Gist) {
 
         'use strict';
         //these files are the temporary network
-	var NETWORK_FILE = 'data/TestNodeJson.json'; 
-        var visualStyleFile = 'data/galVS.json'; 
+	var NETWORK_FILE = 'data/gal.cyjs'; 
+        var visualStyleFile = 'data/sbiderStyle.json'; 
         var DEFAULT_VISUAL_STYLE_NAME = 'default';//'Solid';
         var PRESET_STYLE_FILE = encodeURIComponent('data/style.json');
 
