@@ -38,7 +38,12 @@ and open the template in the editor.
     width: 10px;
     padding-left: 5px;
     
+    
 }
 
+.btn{
+    float: right;
+    border-radius: 15px;
+}
 
 

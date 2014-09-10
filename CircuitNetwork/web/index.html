@@ -15,8 +15,9 @@ Created by Valeriy Sosnovskiy
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         <script src="bootstrap.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="Tester_Home.css">
-        <script src="Tester_Home.js"></script>
+        <link rel="stylesheet" href="index.css">
+        <script src="index.js"></script>
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         
     
     </head>
@@ -36,14 +37,14 @@ Created by Valeriy Sosnovskiy
             
                 
             <div class="btn-group ">
-                <a href="Tester_Home.html">
+                <a href="index.html">
                 <button type="button" class="btn btn-nav">Home
                     <span class="glyphicon glyphicon-home"></span>
                     
                 </button></a>
             </div>
             <div class="btn-group">
-                <a href="Tester_About.html">
+                <a href="AboutPage.html">
                 <button type="button" class="btn btn-nav">About
                     <span class="glyphicon glyphicon-user"></span>
                     
@@ -66,7 +67,7 @@ Created by Valeriy Sosnovskiy
             </div>
                
             <div class="btn-group">
-                 <a href="App_Page_Final.html">
+                 <a href="AppPage.html">
                 <button type="button" class="btn btn-nav">App
                     <span class="glyphicon glyphicon-star"></span>
     			    
@@ -85,16 +86,17 @@ Created by Valeriy Sosnovskiy
             <form class="form-inline" role="form" id="logIn">
              <div class="form-group">
                 <div class="input-group input-group-sm">
-                   <input class="form-control" type="email" placeholder="Enter email">
+                   <input class="form-control" type="email" placeholder="Enter email" id="email">
                 </div>
             </div>
                  <div class="form-group">
                      <div  class="input-group input-group-sm">
-                   <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+                   <input type="password" class="form-control" id="password" placeholder="Password">
                      </div>
                  </div>
-                <button type="submit" class="btn btn-primary btn-sm">Sign in</button>
-                <button class="btn btn-primary btn-sm" >Register</button>
+                <button type="submit" class="btn btn-primary btn-sm" id="signIn">Sign in</button>
+                <button class="btn btn-primary btn-sm" id="Register" >Register</button>
+                <div id="userInfo"></div>
             </form>
             
         </div>
@@ -234,10 +236,11 @@ Created by Valeriy Sosnovskiy
             <div class="footer">
                 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">UCSD iGEM</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://localhost:8080/CircuitNetwork/Tester_Home.html" rel="dct:source">http://localhost:8080/CircuitNetwork/Tester_Home.html</a>;
                 
+           
             </div>
             </div>
 
-        
+        <div id="userInfo"></div>
    </body>
    
 </html>

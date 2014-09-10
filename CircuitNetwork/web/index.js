@@ -7,7 +7,7 @@
 $(document).ready(function(){
   $("#morePics").click(function(){
    $(".jumbotron").hide("slow", function(){
-   $("#indvPics").load("Tester_Profiles.html");
+   $("#indvPics").load("ProfilesPage.html");
    });
   });
   
@@ -17,9 +17,25 @@ $(document).ready(function(){
          
      });
   });
+  
+  //log in 
+  $("#signIn").click(function(){
+      var email = $("#email").val();
+      var password = $("#password").val();
+      
+      var validateMe = {user:email, password:password, command:"logMeIn"};
+      alert(validateMe);
+      $.get("AuthenticationServlet", validateMe, function(user){
+          $("#logIn").remove(); 
+          $("#userInfo").text(user);
+          $("#password").val("");
+      
+                        
+      });              
+  });
+  
+  
+  
 });
 
   
-
-
-
