@@ -1,0 +1,137 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Aug 27, 2014, 12:52:09 PM
+    Author     : valeriysosnovskiy
+*/
+
+body{
+   background-image: linear-gradient(#f4f4f4, #9e9e9e);
+}
+
+.navbar{
+   margin-top: 20px;
+}
+
+.btn-nav {
+    box-sizing: border-box;  
+    padding:2px;
+    font-size: 18px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    background-color:  hsl(141, 4%, 71%);
+    background-repeat: repeat-x;
+    opacity: .9;
+    background-color: hsl(200, 75%, 38%) !important;
+    background-repeat: repeat-x;
+    background-image: linear-gradient(#4cb2e5, #1879a9);
+    border-color: #1879a9 #1879a9 hsl(200, 75%, 32.5%);
+    color: #fff !important;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.36);
+    -webkit-font-smoothing: antialiased;
+   
+   
+}
+
+#logIn{
+    position:relative;
+    float: right;
+    right: 18px;
+    top: 5px;
+    text-align: center;
+    
+}
+.btn-nav:hover {
+  background-color: hsl(56, 91%, 38%) !important;
+  background-repeat: repeat-x;
+  background-image: linear-gradient(#f5e93c, #b9ad08);
+  border-color: #b9ad08 #b9ad08 hsl(56, 91%, 32.5%);
+  color: #fff !important;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.36);
+  -webkit-font-smoothing: antialiased;
+  font-family: sans-serif;
+}
+
+.btn-nav .glyphicon {
+  padding-top: 8px;
+  font-size: 14px;
+  color: #3071a9;
+        
+}
+
+#logo{
+    position: relative;
+    margin-top: 100px;
+    height: 310px;
+    width: 100%;
+   // border: 2px solid red;
+    
+}
+
+#logoPic{
+    //margin: 10px;
+    height: 300px;
+    background-repeat: no-repeat;
+    padding: 5px;
+    width: 250px;
+    
+    
+}
+
+#teamPic{
+    width: 80%;
+    height: 400px;
+    margin: auto;
+}
+
+
+
+#headerH{
+    font-family: sans-serif;
+    font-size: 130px;
+    //margin-top: 40px;
+    padding: 35px;
+    
+}
+#teamCaption{
+   width: 80%;
+   margin: auto;
+   
+}
+#arrow{
+    text-align: center;
+    font-size: 50px;
+    
+}
+
+#arrow .glyphicon{
+    font-size: 25px;
+    margin-top: 20px;
+    padding: 5px;
+    
+    
+}
+
+#morePics{
+    margin: auto;
+    text-align:center;
+    font-size: 30px;
+ 
+    
+}
+
+
+
+
+
+.jumbotron{
+    margin: 10px;
+    width: 80%;
+    position: relative;
+    margin: auto;
+    
+    
+}

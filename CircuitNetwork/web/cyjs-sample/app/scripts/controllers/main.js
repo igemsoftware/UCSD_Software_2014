@@ -3,7 +3,7 @@ angular.module('cyViewerApp')
     .controller('MainCtrl', function ($scope, $http, $location, $routeParams, 
 $window, Network, VisualStyles, Gist) {		
 
-        'use strict';
+        'use strict';     
         //these files are the temporary network
 	var NETWORK_FILE = 'data/gal.cyjs'; 
         var visualStyleFile = 'data/sbiderStyle.json'; 
@@ -96,7 +96,7 @@ $window, Network, VisualStyles, Gist) {
                 $scope.cy.style().fromJson($scope.visualStyles
                 [DEFAULT_VISUAL_STYLE_NAME].style).update();
                 updateNetworkData(cy);
-				angular.element('.loading').remove();
+	        angular.element('.loading').remove();
 				//$('#752').addClass('highlighted');
 				
 				//$scope.#752.addClass('highlighted');
@@ -240,7 +240,6 @@ $window, Network, VisualStyles, Gist) {
                     console.log($scope.nodes[0].data);
                     console.log($scope.edges[0]);
                     setColumnNames();
-
                     $scope.$apply();
                     updateFlag = false;
                 }
@@ -271,7 +270,7 @@ $window, Network, VisualStyles, Gist) {
         $scope.fit = function() {
             $scope.cy.fit();
         };
-        
+       
         //Variables for CAD selecting
         var currentCad;
         var cadArray = [];

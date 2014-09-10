@@ -551,7 +551,9 @@
       "font-family" : "Dialog",
       "font-weight" : "normal",
       "border-color" : "rgb(0,0,0)",
-      "text-opacity" : 1.0,
+      "text-opacity" : 1.0,     
+      "shape" : "triangle",
+      "shape" : "ellipse",
       "shape" : "triangle",
       "border-width" : 0.0,
       "text-valign" : "center",
@@ -561,6 +563,10 @@
   }, {
     "selector" : "node:selected",
     "css" : {
+      "background-color" : "rgb(255,255,255)",
+
+      "background-color" : "rgb(255,255,0)",
+
       "background-color" : "rgb(255,255,255)"
     }
   }, {
