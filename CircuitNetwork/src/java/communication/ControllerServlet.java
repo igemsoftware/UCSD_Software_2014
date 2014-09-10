@@ -47,11 +47,9 @@ public class ControllerServlet extends HttpServlet {
             }
             String command = request.getParameter("command"); //parameter from the client
             PrintWriter out = response.getWriter();
-            
             if (command.equals("execute")) {
                 String data = request.getParameter("data"); //get data from the request; remember this is packaged into a json object
                 //String output = currentController.executeCommand(data); //use method to execute command
-                
                 String output = currentController.runPython(data); //use method to execute command
                 out.write(output); //write output of command into response for get/pull request
 
