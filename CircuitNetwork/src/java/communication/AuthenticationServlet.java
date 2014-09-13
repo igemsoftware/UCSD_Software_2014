@@ -32,7 +32,7 @@ public class AuthenticationServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        
+        /*
           
             //create a new cookie named authenticate with value authenticated
             String user = request.getParameter("user");
@@ -41,7 +41,7 @@ public class AuthenticationServlet extends HttpServlet {
             authenticateCookie.setMaxAge(60 * 60); //cookie lasts for an hour
             //add cookie to responsej
             response.addCookie(authenticateCookie);
-            
+          */  
     }
     
 
@@ -93,29 +93,23 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
             else {
                 //String rootPath = this.getServletContext().getRealPath("/"); //CircuitNetwork/build/web/
                 //create a new one if it doesn't exist
-                String emailTo = request.getParameter("emailTo");  
-                currentController = new ControllerMain(emailTo);
-                
-                //(key, value)
+                String rootPath = this.getServletContext().getRealPath("/"); //CircuitNetwork/build/web/
+                //create a new one if it doesn't exist
+                currentController = new ControllerMain(rootPath);
                 webController.put(user, currentController);
                
                 
             }
             
             
-            //Register button/using for appending purposes
-            String command = request.getParameter("commanded"); //parameter from the client
-            if (command.equals("send")) {
-                String emailTo = request.getParameter("emailTo"); 
-                String textTo = request.getParameter("textTo");
+         
+            String executePy = request.getParameter("command");
+            
+            if(executePy.equals("pythonPy")){
+                String pythonPy  = "Test.py"; //
+                String output = currentController.runPython(pythonPy); //use method to execute command
+                out.write(output); 
                 
-                
-                String output = currentController.emailMessage(emailTo); //use method to execute command
-                out.write(output); //write output of command into response for get/pull request
-
-            }
-            else{
-                System.out.println("did not send");
             }
 
            
