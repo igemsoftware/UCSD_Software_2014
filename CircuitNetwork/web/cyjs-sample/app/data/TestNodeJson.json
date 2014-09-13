@@ -1,0 +1,127 @@
+{
+   "data" : {
+    "selected" : true,
+    "__Annotations" : [ ],
+    "shared_name" : "Test.sif",
+    "SUID" : 52,
+    "name" : "Test.sif"
+    },
+    "elements":{
+        "nodes":[
+            {
+                "data":{
+                    "SUID": 1,
+                    "id": "1",
+                    "SBOL": "http://quantumlifescience.org/sitebuildercontent/sitebuilderpictures/nucleicacid.jpg",
+                    "name": "cI",
+                    "Components": "",
+                    "Lit Ref": "nowhere"
+                },
+                "position":{
+                    "x" : 754.0357272898683,
+                    "y" : -853.7374323329177
+                },
+                "classes": "species intermediate",
+                "selected": false
+            },
+            {
+                "data":{
+                    "SUID": 2,
+                    "id": "2",
+                    "SBOL": "",
+                    "name": "NOT",
+                    "Components": "",
+                    "Lit Ref": ""
+                },
+                "position":{
+                    "x" : 800.0357272898683,
+                    "y" : -853.7374323329177
+                },
+                "classes": "transition NOT",
+                "selected": false
+            },
+            {
+                "data":{
+                    "SUID": 3,
+                    "id": "3",
+                    "SBOL": "https://farm4.staticflickr.com/3261/2801924702_ffbdeda927_d.jpg",
+                    "name": "pLambda",
+                    "Components": ["p","rbs","cs","t"],
+                    "Lit Ref": "abook"
+                },
+                "position":{
+                    "x" : 829.0592258250246,
+                    "y" : -853.7374323329177
+                },
+                "classes": "species devices",
+                "selected": false
+            },
+            {
+                "data":{
+                    "SUID": 4,
+                    "id": "4",
+                    "SBOL": "",
+                    "name": "IF",
+                    "Components": "",
+                    "Lit Ref": ""
+                },
+                "position":{
+                    "x" : 884.0357272898683,
+                    "y" : -853.7374323329177
+                },
+                "classes": "transition IF",
+                "selected": false
+            },
+            {
+                "data":{
+                    "SUID": 5,
+                    "id": "5",
+                    "SBOL": "http://circres.ahajournals.org/content/104/9/1076/F1.large.jpg",
+                    "name": "eyfp",
+                    "Components": "",
+                    "Lit Ref": "everywhere"
+                },
+                "position":{
+                    "x" : 940.0357272898683,
+                    "y" : -853.7374323329177
+                },
+                "classes": "species intermediate",
+                "selected": false
+            }
+        ],
+        "edges":[
+            {
+                "data":{
+                    "id": "e1",
+                    "source": "1",
+                    "target": "2"
+                },
+                "selected": false
+            },
+            {
+                "data":{
+                    "id":"e2",
+                    "source": "2",
+                    "target": "3"
+                },
+                "selected": false
+            },
+            {
+                "data":{
+                    "id": "e3",
+                    "source": "3",
+                    "target": "4"
+                },
+                "selected": false
+            },
+            {
+                "data":{
+                    "id": "e4",
+                    "source": "4",
+                    "target": "5"
+                },
+                "selected": false
+            }
+        ]
+    }
+}

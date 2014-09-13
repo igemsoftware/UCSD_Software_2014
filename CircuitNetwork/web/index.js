@@ -5,18 +5,9 @@
  */
 
 $(document).ready(function(){
-  $("#morePics").click(function(){
-   $(".jumbotron").hide("slow", function(){
-   $("#indvPics").load("ProfilesPage.html");
-   });
-  });
+    
+    
   
-  $("#backBtn").click(function(){
-     $("#hello").remove();
-    $(".jumbotron").show("slow", function(){
-         
-     });
-  });
   
   //log in 
   $("#signIn").click(function(){

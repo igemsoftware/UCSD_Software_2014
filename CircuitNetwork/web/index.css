@@ -30,8 +30,8 @@ a:link{
     font-size: 18px;
     margin-top: 0px;
     margin-bottom: 0px;
-    background-color:  hsl(141, 4%, 71%);
-    background-repeat: repeat-x;
+    //background-color:  hsl(141, 4%, 71%);
+    //background-repeat: repeat-x;
     opacity: .9;
     background-color: hsl(200, 75%, 38%) !important;
     background-repeat: repeat-x;
@@ -71,7 +71,7 @@ a:link{
 }
 
 .item{
-    background: #333;    
+    background: #33AAAA;    
     height: 450px;
     padding: 20px;
     //border: 2px red solid;
@@ -225,7 +225,6 @@ p{
     width: 60%;
     margin-bottom:10px;
 }
-
 
 
 //wiki page

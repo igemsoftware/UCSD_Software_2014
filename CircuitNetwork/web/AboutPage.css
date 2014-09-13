@@ -118,7 +118,7 @@ body{
 #morePics{
     margin: auto;
     text-align:center;
-    font-size: 30px;
+    font-size: 60px;
  
     
 }
@@ -135,3 +135,92 @@ body{
     
     
 }
+
+#hello{
+    margin: 10px;
+    width: 80%;
+    position: relative;
+    margin: auto;
+    //border: 2px red solid;
+    
+    border-radius: 30px;
+    background-image: linear-gradient(#f4f4f4, #9e9e9e);
+    
+}
+
+.col-md-3{
+    text-align: center;
+    margin: 38px;
+    font-size: 50px;
+    height: 350px;
+    background-color: whitesmoke;
+    border-radius: 20px;
+    border: 2px solid black;
+    
+    
+    
+}
+
+.col-md-3 p{
+    font-size: 20px;
+}
+
+
+
+//modal part
+
+
+.modal.fade .modal-dialog {
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+     -moz-transition: -moz-transform 0.3s ease-out;
+       -o-transition: -o-transform 0.3s ease-out;
+          transition: transform 0.3s ease-out;
+}
+
+.modal.in .modal-dialog {
+
+}
+.modal-dialog{
+   width: 1000px;
+    height: auto; 
+    
+    
+}
+.modal-header{
+    background-color: goldenrod;
+    margin-bottom: 5px;
+}
+.row{
+    margin: auto;
+}
+.modal-footer{
+    background-color: pink;
+}
+.modal-body{
+    width: 100%;
+    height: auto;
+    background-color: #000000;
+    margin: auto;
+    background-image: linear-gradient(#4cb2e5, #1879a9);
+    
+}
+#hello{
+    width:100%;
+    background-image: linear-gradient(#4cb2e5, #1879a9);
+}
+
+#exit{
+    font-size: 47px;
+    padding: 2px;
+    color: white;
+}
+
+#btnExit{
+    background-color:goldenrod;
+    border: none;
+    margin: auto;
+    float: right;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+

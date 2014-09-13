@@ -18,6 +18,13 @@ and open the template in the editor.
         <button id="addThis">Click</button>
         
         <div id="output"></div>
+        
+        <div> 
+        <button id="fileOne">See file python.py get executed</button>
+        <button id="fileTwo">See file modeling.py get executed</button>
+        <div id="outOne"></div>
+        <div id="outTwo"></div>
+        </div>
         </div>
         <script>
             $(document).ready(function() {
@@ -37,6 +44,27 @@ and open the template in the editor.
                         
                     });
                 });
+                
+                $('#fileOne').click(function(){
+                   alert(userID);
+                   var submissionOne ={users: userID, command:'pythonPy'};
+                           $.get("AuthenticationServlet", submissionOne, function(firstOne){
+                           $('#outOne').text(firstOne);
+                           alert(firstOne);
+                   });
+                   
+                });
+                
+                $('#fileTwo').click(function(){
+                   alert(userID);
+                   var submissionTwo ={users: userID, command:"Monty"};
+                           $.get("AuthenticationServlet", submissionTwo, function(secondOne){
+                           $('#outOne').text(secondOne);
+                           alert(secondOne);
+                   });
+                   
+                });
+                
                 //generates a random string of 20 characters
                 function makeid() {
                     var text = "";
