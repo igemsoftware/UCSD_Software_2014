@@ -44,6 +44,7 @@ public class ControllerMain {
             String line = "";
             while ((line = reader.readLine()) != null) {
                 output.append(line + "\n");
+                System.out.println("line");
             }
 
         } catch (Exception e) {

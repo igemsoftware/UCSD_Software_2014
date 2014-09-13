@@ -13,39 +13,32 @@ and open the template in the editor.
     </head>
     <body>
         <div>
-        <input id="text">
-        <input id="emailTo" placeholder="email">
-        <button id="addThis">Click</button>
-        
-        <div id="output"></div>
-        
+            <input id='command'/>
+            <button id='ping'>Submit</button>
+            <div id='output'></div>
+        </div>
+       
+       <!--button practice--> 
         <div> 
         <button id="fileOne">See file python.py get executed</button>
         <button id="fileTwo">See file modeling.py get executed</button>
         <div id="outOne"></div>
         <div id="outTwo"></div>
         </div>
-        </div>
+ 
         <script>
             $(document).ready(function() {
-
-
-                var userID = makeid(); //temp random id
-                //event handler for the ping button
-                $('#addThis').click(function() {
-                    alert(userID);
-                    var email= $("#emailTo").val();
-                    var text = $("#text").val();
-                    alert(email + " " + text);
-                    var data = {users: userID, commanded: 'send', emailTo: email, textTo: text }; //package the input into a json file for submission to the server
-                    $.get("AuthenticationServlet", data, function(emailTo) { //parameters are: servlet url, data, callback function
-                        $('#output').text(emailTo); //display the server response in the output area
-                        alert(emailTo);
-                        
+                 var userID = makeid(); //temp random id
+                $('#ping').click(function() {
+                    var commandString = $('#command').val();
+                    var data = {user: userID, command: 'execute', data: commandString}; //package the input into a json file for submission to the server
+                    $.get("ControllerServlet", data, function(data) { //parameters are: servlet url, data, callback function
+                        $('#output').text(data); //display the server response in the output area
+                        $('#command').val("");
                     });
                 });
-                
-                $('#fileOne').click(function(){
+
+                   $('#fileOne').click(function(){
                    alert(userID);
                    var submissionOne ={users: userID, command:'pythonPy'};
                            $.get("AuthenticationServlet", submissionOne, function(firstOne){
