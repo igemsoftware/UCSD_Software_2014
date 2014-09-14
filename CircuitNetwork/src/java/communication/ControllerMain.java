@@ -21,60 +21,38 @@ import javax.activation.*;
  * @author valeriysosnovskiy
  */
 public class ControllerMain {
-   public ControllerMain(String path) {
-        emailTo = path;
+    public ControllerMain(String path) {
+        rootPath = path;
     }
-   String emailTo; 
-  
-   public String emailMessage(String emailTo) {
-            //recipients email
-            String to = "valeriysosnovskiy@gmail.com";
-            String emailAddress = emailTo;
-            //sender
-            String from = emailAddress;
-            //localhost
-            String host = "localhost:8080/CircuitNetwork/ContactUs.html";
-            //get the properties
-            Properties properties = System.getProperties();
-            
-            //setup mail server
-            properties.setProperty("mail.smtp.host", host);
-            
-            //get session object
-            Session session = Session.getDefaultInstance(properties);
-            
-            try{
-                 // Create a default MimeMessage object.
-                 MimeMessage message = new MimeMessage(session);
-
-                // Set From: header field of the header.
-               message.setFrom(new InternetAddress(from));
-
-               // Set To: header field of the header.
-                message.addRecipient(Message.RecipientType.TO,
-                                  new InternetAddress(to));
-
-                // Set Subject: header field
-                
-                 message.setSubject("iGEm");
-                 
-
-                // Now set the actual message
-                message.setText("The contact page is done ");
-
-                // Send message
-                Transport.send(message);
-                System.out.println("Sent message successfully....");
-      
-            }catch (MessagingException mex) {
-         mex.printStackTrace();
-      }
-            return emailAddress;
-   }
-            
-            
+    String rootPath;
+    
+        public String runPython(String scriptName) {
+            String output = executeCommand("python "+rootPath+"/"+scriptName); //append path to script name and then execute
+            return output;
         }
-   
-        
-   
+        public String executeCommand(String command) {
 
+        StringBuffer output = new StringBuffer();
+
+        Process p;
+        try {
+            p = Runtime.getRuntime().exec(command);
+            p.waitFor();
+            BufferedReader reader
+                    = new BufferedReader(new InputStreamReader(p.getInputStream()));
+
+            String line = "";
+            while ((line = reader.readLine()) != null) {
+                output.append(line + "\n");
+                System.out.println("line");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "no result";
+        }
+
+        return output.toString();
+
+    }
+}

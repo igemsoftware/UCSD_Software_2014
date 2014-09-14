@@ -10,8 +10,8 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-        <script src="bootstrap.min.js"></script>
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <link rel="stylesheet" href="AboutPage.css">
         <script src="index.js"></script>
@@ -65,7 +65,7 @@ and open the template in the editor.
                 </button></a>
             </div>
             <div class="btn-group">
-                <a href="newhtml.html">
+                <a href="ContactUs.html">
                 <button type="button" class="btn btn-nav">Contact
                     <span class="glyphicon glyphicon-envelope"></span>
                     
@@ -118,7 +118,7 @@ and open the template in the editor.
                      <div class="row" id="arrow">
                          
                          <div class="btn-group"> 
-                             <button class="btn btn-lg btn-primary" id="morePics">Individual Info<span class="glyphicon glyphicon-th-large"></span></button>
+                             <a href="#" data-toggle="modal" data-target="#basicModal" id="h">Click</a>
                          </div></div>
                          
                      </div>
@@ -140,7 +140,102 @@ and open the template in the editor.
                <!--The end of the page-->
                </div>
                        
-                   
+                <!--profiles-->
+                 <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="btnExit"><span class="glyphicon glyphicon-remove-circle" id="exit"></span></button>
+            <h2 class="modal-title" id="myModalLabel">Member Profiles</h2>
+            </div>
+            <div class="modal-body" >
+                <div class="container-fluid" id="hello">
+            
+            <div class="row ">
+                <div class="col-md-3">
+                    <h3>Huwate</h3>
+                    
+                    <img class="img-circle" src="ProfilePics/Huwate.jpg">
+                    <a href="https://www.linkedin.com/in/hyeerna"><h4 class="text-danger">Linkedin</h4></a>
+                    <p class="text-info">A little about you</p>
+                </div>
+                <div class="col-md-3">
+                    <h3>Jauqin</h3>
+                    <img class="img-circle" src="ProfilePics/Loren.jpg">
+                    <a href="https://www.linkedin.com/in/hyeerna"><h4 class="text-danger">Linkedin</h4></a>
+                    <p class="text-info">A little about you</p>
+                </div>
+                <div class="col-md-3">
+                    <h3>Valeriy</h3>
+                    <a href="https://www.linkedin.com/in/hyeerna"><h4 class="text-danger">Linkedin</h4></a>
+                    <p class="text-info">A little about you</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    
+                    <h3>Lauren</h3>
+                    <img class="img-circle" src="">
+                    <a href="https://www.linkedin.com/in/hyeerna"><h4 class="text-danger">Linkedin</h4></a>
+                    <p class="text-info">A little about you</p>
+                </div>
+                <div class="col-md-3">
+                    <h3>Gary</h3>
+                    <a href="https://www.linkedin.com/in/hyeerna"><h4 class="text-danger">Linkedin</h4></a>
+                    <p class="text-info">A little about you</p>
+                </div>
+                <div class="col-md-3">
+                    <h3>Kp</h3>
+                    <img class="img-circle" src="ProfilePics/KP.jpg">
+                    <a href="https://www.linkedin.com/in/hyeerna"><h4 class="text-danger">Linkedin</h4></a>
+                    <p class="text-info">A little about you</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <h3>Fred</h3>
+                    <a href="https://www.linkedin.com/in/hyeerna"><h4 class="text-danger">Linkedin</h4></a>
+                    <p class="text-info">A little about you</p>
+                </div>
+                <div class="col-md-3">
+                    <h3>Fernando</h3>
+                    <a href="https://www.linkedin.com/in/hyeerna"><h4 class="text-danger">Linkedin</h4></a>
+                    <p class="text-info">A little about you</p>
+                </div>
+                <div class="col-md-3">
+                    <h3>Tiffany</h3>
+                    <a href="https://www.linkedin.com/in/hyeerna"><h4 class="text-danger">Linkedin</h4></a>
+                    <p class="text-info">A little about you</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <h3>Jenhan</h3>
+                    <img class="img-circle" src="ProfilePics/Jenhan.jpg">
+                    <a href="https://www.linkedin.com/in/hyeerna"><h4 class="text-danger">Linkedin</h4></a>
+                    <p class="text-info">A little about you</p>
+                </div>
+                <div class="col-md-3">
+                    <h3>Justin</h3>
+                     <img class="img-circle" src="ProfilePics/Justin.jpg">
+                    <a href="https://www.linkedin.com/in/hyeerna"><h4 class="text-danger">Linkedin</h4></a>
+                    <p class="text-info">A little about you</p>
+                </div>
+                <div class="col-md-3">
+                    
+                    <h3>Ben</h3>
+                    <img class="img-circle" src="">
+                    <a href="https://www.linkedin.com/in/hyeerna"><h4 class="text-danger">Linkedin</h4></a>
+                    <p class="text-info">A little about you</p>
+                </div>
+            </div>
+        </div>
+    
+            </div>
+            
+    </div>
+  </div>
+</div>
             
             
         

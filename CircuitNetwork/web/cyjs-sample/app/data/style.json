@@ -1,3 +1,4 @@
+
 [ {
   "format_version" : "1.0",
   "generated_by" : "cytoscape-3.1.0-RC1",
@@ -234,6 +235,11 @@
       "height" : 30.0,
       "width" : 70.0,
       "content" : "data(name)"
+    }
+  }, {
+    "selector" : "node.species",
+    "css" : {
+      "shape" : "ellipse"
     }
   }, {
     "selector" : "node:selected",
@@ -1327,32 +1333,18 @@
       "border-opacity" : 1.0,
       "border-width" : 0.0,
       "color" : "rgb(0,0,0)",
-
-
       "height" : 75.0,
       "width" : 75.0,
-
-      "height" : 40.0,
-      "width" : 40.0,
-
-
-      "height" : 75.0,
-      "width" : 75.0,
-
       "content" : "data(name)"
     }
   }, {
     "selector" : "node:selected",
     "css" : {
-
-
-
-
-      "background-color" : "rgb(255,255,255)"
+      "background-color" : "rgb(62,139,38)"
     }
   }, { 
-	"selector": "#752",
-	"css" : {
+    "selector": "#752, #750",
+    "css" : {
       "font-family" : "Dialog",
       "font-weight" : "normal",
       "shape" : "star",
@@ -1371,15 +1363,11 @@
       "content" : "data(name)"
     }
   }, {
-    "selector" : "#752:selected",
+    "selector" : "#752:selected, #750:selected",
     "css" : {
-
       "background-color" : "rgb(0,0,0)",
-
       "background-color" : "rgb(255,255,0)",
-
       "background-color" : "rgb(0,0,0)"
-
     }
   }, {
     "selector" : "edge",

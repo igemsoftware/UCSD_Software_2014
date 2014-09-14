@@ -32,7 +32,7 @@ public class AuthenticationServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        
+        /*
           
             //create a new cookie named authenticate with value authenticated
             String user = request.getParameter("user");
@@ -41,7 +41,7 @@ public class AuthenticationServlet extends HttpServlet {
             authenticateCookie.setMaxAge(60 * 60); //cookie lasts for an hour
             //add cookie to responsej
             response.addCookie(authenticateCookie);
-            
+          */  
     }
     
 
@@ -64,66 +64,47 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
         PrintWriter out = response.getWriter();
        
         try {
-           
-           /*String logMeIn = request.getParameter("command");
-           
-           if(logMeIn.equals("logMeIn")){
-           //get the inputs of the login form
-           String user = request.getParameter("user");
-           String password = request.getParameter("password");    
-           
-           
-               if(user.equals("valeriy@gmail.com") && password.equals("hello")){
-                System.out.println("user: " + user + " " + "password: " + password);
-                //response.sendRedirect("CommunicationTepmlate.html");
-                }
-               
-           }
-           else{ System.out.println("Sorry bro, try again");}
-         */
-           //to get the controller running 
-           String user = request.getParameter("users");
-           ControllerMain currentController;
-           
+            
+           //retrieve the users controller object
+            String user = request.getParameter("user");
+            ControllerMain currentController;
+            
             if (webController.containsKey(user)) {
                 currentController = webController.get(user);
-                
-              
-            } 
-            else {
-                //String rootPath = this.getServletContext().getRealPath("/"); //CircuitNetwork/build/web/
+            } else {
+                String rootPath = this.getServletContext().getRealPath("/"); //CircuitNetwork/build/web/
                 //create a new one if it doesn't exist
-                String emailTo = request.getParameter("emailTo");  
-                currentController = new ControllerMain(emailTo);
-                
-                //(key, value)
+                currentController = new ControllerMain(rootPath);
                 webController.put(user, currentController);
-               
-                
             }
+            String command = request.getParameter("command"); //parameter from the client
             
-            
-            //Register button/using for appending purposes
-            String command = request.getParameter("commanded"); //parameter from the client
-            if (command.equals("send")) {
-                String emailTo = request.getParameter("emailTo"); 
-                String textTo = request.getParameter("textTo");
-                
-                
-                String output = currentController.emailMessage(emailTo); //use method to execute command
+            if (command.equals("execute")) {
+                String data = request.getParameter("data"); //get data from the request; remember this is packaged into a json object
+                //String output = currentController.executeCommand(data); //use method to execute command
+                String output = currentController.runPython(data); //use method to execute command
                 out.write(output); //write output of command into response for get/pull request
-
+            
             }
-            else{
-                System.out.println("did not send");
+         
+            String executePy = request.getParameter("command");
+            
+            if(executePy.equals("pythonPy")){
+                String pythonPy  = "Test.py"; //
+                String output = currentController.runPython(pythonPy); //use method to execute command
+                out.write(output); 
+                
             }
+            
+             } catch (Exception e) {
+            e.printStackTrace();
 
            
         } finally {
             out.close();
         }
-    }
-
+}
+       
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP
