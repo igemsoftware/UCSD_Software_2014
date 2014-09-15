@@ -5,10 +5,10 @@ $window, Network, VisualStyles, Gist) {
 
         'use strict';     
         //these files are the temporary network
-	var NETWORK_FILE = 'data/gal.cyjs'; 
+	var NETWORK_FILE = 'data/TestNodeJson.json'; 
         var visualStyleFile = 'data/sbiderStyle.json'; 
         var DEFAULT_VISUAL_STYLE_NAME = 'default';//'Solid';
-        var PRESET_STYLE_FILE = encodeURIComponent('data/style.json');
+        var PRESET_STYLE_FILE = encodeURIComponent('data/sbiderStyle.json');
 
         //these empty arrays are updated by the server for use by the cytoscape.js object.
         var networkData = {};

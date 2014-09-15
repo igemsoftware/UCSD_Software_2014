@@ -1,4 +1,4 @@
-{
+[ {
   "format_version" : "1.0",
   "generated_by" : "cytoscape-3.1.0-RC1",
   "target_cytoscapejs_version" : "~2.1",
@@ -29,6 +29,12 @@
       "shape" : "ellipse"
     }
   }, {
+    "selector" : "node.transition",
+    "css" : {
+      "width" : 35.0,
+      "height" : 70.0
+    }
+  }, {
     "selector" : "node:selected",
     "css" : {
       "background-color" : "rgb(255,255,0)"
@@ -57,4 +63,4 @@
       "line-color" : "rgb(255,0,0)"
     }
   } ]
-}
+} ]
