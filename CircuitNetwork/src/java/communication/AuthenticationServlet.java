@@ -59,30 +59,13 @@ public class AuthenticationServlet extends HttpServlet {
 protected void processGetRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
        response.setContentType("text/html;charset=UTF-8");
-       response.sendRedirect("index.html");
-        
+       //response.sendRedirect("index.html");
         PrintWriter out = response.getWriter();
        
         try {
            
-           /*String logMeIn = request.getParameter("command");
-           
-           if(logMeIn.equals("logMeIn")){
-           //get the inputs of the login form
-           String user = request.getParameter("user");
-           String password = request.getParameter("password");    
-           
-           
-               if(user.equals("valeriy@gmail.com") && password.equals("hello")){
-                System.out.println("user: " + user + " " + "password: " + password);
-                //response.sendRedirect("CommunicationTepmlate.html");
-                }
-               
-           }
-           else{ System.out.println("Sorry bro, try again");}
-         */
            //to get the controller running 
-           String user = request.getParameter("users");
+           String user = request.getParameter("user");
            ControllerMain currentController;
            
             if (webController.containsKey(user)) {
@@ -90,8 +73,8 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
                 
               
             } 
+           
             else {
-                //String rootPath = this.getServletContext().getRealPath("/"); //CircuitNetwork/build/web/
                 //create a new one if it doesn't exist
                 String rootPath = this.getServletContext().getRealPath("/"); //CircuitNetwork/build/web/
                 //create a new one if it doesn't exist
@@ -102,15 +85,56 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
             }
             
             
-         
-            String executePy = request.getParameter("command");
-            
-            if(executePy.equals("pythonPy")){
-                String pythonPy  = "Test.py"; //
-                String output = currentController.runPython(pythonPy); //use method to execute command
-                out.write(output); 
-                
-            }
+            //to get the command value
+            String command = request.getParameter("command");
+            //to get the data value 
+            String string = request.getParameter("data");
+           
+           //switch for different command values 
+           switch (command) {
+               case "pythonPy":
+                   {
+                       // String string = request.getParameter("data");
+                       //String pythonPy  = "Test.py"; //
+                       System.out.println(string);
+                       String output = currentController.runPython(string); //use method to execute command
+                       out.write(output);
+                       break;
+                   }
+               case "execute":
+                   {
+                       System.out.println(string);
+                       String output = currentController.runPython(string); //use method to execute command
+                       out.write(output);
+                       break;
+                   }
+               case "kwat":
+               {
+                   System.out.println(string);
+                   String output = currentController.runPython(string); //use method to execute command
+                   out.write(output);
+                   break;
+               }
+               
+               case "registration":
+               {
+                   String userName = request.getParameter("userName");
+                   String userPassword = request.getParameter("userPassword");
+                   System.out.println(userName);
+                   System.out.println(userPassword);
+                   //call on the function passing the userName and userPassword
+                   String info = currentController.storeInfo(userName, userPassword);
+                   //for now its the userName
+                   out.write(info);
+                   
+                   
+                   break;
+               }
+               default:
+                   System.out.println("help me ");
+                   
+                   break;
+           }
 
            
         } finally {

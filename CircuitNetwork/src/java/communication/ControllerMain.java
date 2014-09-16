@@ -15,6 +15,12 @@ import java.util.*;
 import javax.mail.*;
 import javax.mail.internet.*;
 import javax.activation.*;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
 /**
  *
@@ -28,11 +34,43 @@ public class ControllerMain {
     
         public String runPython(String scriptName) {
             String output = executeCommand("python "+rootPath+"/"+scriptName); //append path to script name and then execute
+            System.out.println(output);
             return output;
+            
         }
+        
+        
+        //trying to set up the hashMap for the login 
+        public String storeInfo(String userName, String userPassword){
+            System.out.println("storeInfo");
+            Map info = new HashMap();
+            Iterator iterateThis = info.entrySet().iterator();
+           
+            while(iterateThis.hasNext()){
+                
+                Map.Entry entry = (Map.Entry) iterateThis.next();
+                System.out.println(entry.getKey() + " " + entry.getValue());
+                  if(info.containsKey(userName) ){
+                      System.out.println("user already exists");
+                  }
+                  else{
+                    System.out.println("user already exists");
+                    info.put(userName, userPassword);
+                      System.out.println("new user welcome");
+                }
+                  System.out.println("info");
+                }
+            
+        
+            
+           
+           return (userName);
+        }
+        
+        //to execute the files 
         public String executeCommand(String command) {
-
-        StringBuffer output = new StringBuffer();
+        System.out.println(command);
+        StringBuilder output = new StringBuilder();
 
         Process p;
         try {
