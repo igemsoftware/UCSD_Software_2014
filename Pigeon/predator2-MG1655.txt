@@ -1,0 +1,5 @@
+p pLAC/BAD 4
+c lacZalpha-ccdB 8
+p pTET 4
+c gfp 6
+# Arcs

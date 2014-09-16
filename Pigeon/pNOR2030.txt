@@ -1,0 +1,7 @@
+p pTET 4
+p pLAS 4
+c cI 8
+p pCONST 4
+c lasR 8
+c tetR 8
+# Arcs
