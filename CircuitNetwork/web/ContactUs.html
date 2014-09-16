@@ -80,6 +80,7 @@ and open the template in the editor.
                     alert("you are getting registered");
                     var userName= $("#userName").val();
                     var userPassword = $("#userPassword").val();
+                    alert("userName:" + userName + "userPassword: " + userPassword);
                     var data= { user:userID, userName:userName, userPassword: userPassword, command:"registration"};
                     $.get("AuthenticationServlet", data, function(done){
                         $('#sayHello').text(done);

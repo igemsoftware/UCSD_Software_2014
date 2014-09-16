@@ -42,24 +42,33 @@ public class ControllerMain {
         
         //trying to set up the hashMap for the login 
         public String storeInfo(String userName, String userPassword){
-            System.out.println("storeInfo");
-            Map info = new HashMap();
-            Iterator iterateThis = info.entrySet().iterator();
+            
            
-            while(iterateThis.hasNext()){
-                
-                Map.Entry entry = (Map.Entry) iterateThis.next();
-                System.out.println(entry.getKey() + " " + entry.getValue());
-                  if(info.containsKey(userName) ){
-                      System.out.println("user already exists");
-                  }
-                  else{
-                    System.out.println("user already exists");
-                    info.put(userName, userPassword);
-                      System.out.println("new user welcome");
-                }
-                  System.out.println("info");
-                }
+            //json object that will be in the jsonArray
+            JSONObject obj = new JSONObject();
+            //json object that will hold the list
+            JSONObject ver = new JSONObject();
+            
+            obj.put(userName ,userPassword);
+            System.out.println("first code execution: " + obj);
+            
+            JSONArray information = new JSONArray();
+            information.add(obj);
+            System.out.println("The arrayList info: " + information);
+            
+            ver.put("authentication", information);
+            System.out.println("ver: " + ver);
+            
+            try{
+                FileWriter file = new FileWriter("AuthenticationStuff.json");
+                file.write(ver.toJSONString());
+                System.out.println(file);
+                file.flush();
+                file.close();
+            
+            }catch(IOException e){
+            }
+            
             
         
             

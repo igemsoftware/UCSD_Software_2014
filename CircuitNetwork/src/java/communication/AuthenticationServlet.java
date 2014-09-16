@@ -126,8 +126,6 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
                    String info = currentController.storeInfo(userName, userPassword);
                    //for now its the userName
                    out.write(info);
-                   
-                   
                    break;
                }
                default:
