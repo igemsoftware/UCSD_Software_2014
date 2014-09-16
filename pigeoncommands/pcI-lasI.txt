@@ -1,3 +1,0 @@
-p pLAMBDA 4
-c LasI 8
-# Arcs
