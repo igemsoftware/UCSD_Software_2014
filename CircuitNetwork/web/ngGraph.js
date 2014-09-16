@@ -1,4 +1,14 @@
 
+/*Guide:
+ * -Declaring global variables
+ * -Angular App
+ * -Functions for Data collection and graph points
+ * -Graph functions
+ * -Line editing functions
+ */
+
+//***Global variables***
+
 //preparing the Angular Application
 var graphApp = angular.module('graphApp',[]);
 //setting default proportonality constants for Diff EQ's
@@ -32,6 +42,8 @@ var range = []; //range computed from domain.
 var points =[]; //the points used by d3.js
 var rangeMax; //maximum range
 
+//***Angular App***
+
 //Proportionality Constant Angular Controller
 graphApp.controller('KCtrl',function($scope){
     $scope.constants = ["k1", "k2"];
@@ -52,6 +64,8 @@ graphApp.controller('KCtrl',function($scope){
         removeLine();
     };
 });
+
+//***Functions for defining points and line
 
 //Creating the d3.js controlled SVG graph.
 //creating an array for the listed domain.
@@ -89,6 +103,8 @@ var pointsSet = function(input,output){
 //Setting points.
 pointsSet(eqnDomain,range);
 
+//***Functions for drawing graph***
+
 //setting up the function for the line.
 var line = d3.svg.line()
         .x(function(d) { 
@@ -117,13 +133,15 @@ function make_y_axis() {
         .orient("left")
         .ticks(10);
 }
-//create the SVG containter
-var plot = d3.select("#graph").append("svg:svg")
+
+    //create variable the SVG containter
+var plot = d3.selectAll(".graph").append("svg:svg")
         .attr("height", h + m[0] +m[2])
         .attr("width", w + m[1] + m[3])
     .append("svg:g")
         .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
 
+var drawGraph = function(){
     //adding x-grid
     plot.append("g")         
         .attr("class", "grid")
@@ -174,9 +192,12 @@ var plot = d3.select("#graph").append("svg:svg")
     .attr("transform", "rotate(-90)")
     .style("text-anchor", "middle")
     .text("Concentration");
-    
+};
+drawGraph(); 
     // Adding the line to the graph.
     plot.append("svg:path").attr("id","counter" + String(counter)).attr("d", line(points));
+
+//***Line editing functions***
 
 //Function to add a button to remove lines. 
 var removeLine = function(){    

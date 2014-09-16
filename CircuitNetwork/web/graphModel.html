@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<html ng-app="graphApp">
+    
+
+<head>
+ 
+<meta charset="UTF-8">
+ 
+<meta name="viewport" content="width=device-width">
+<script src="http://mbostock.github.com/d3/d3.v2.js"></script>
+    <style>
+        /* tell the SVG path to be a thin blue line without any area fill */
+        path {
+                stroke: steelblue;
+                stroke-width: 1;
+                fill: none;
+        }
+
+        .axis {
+          shape-rendering: crispEdges;
+        }
+
+        .x.axis line {
+          stroke: lightgrey;
+        }
+
+        .x.axis .minor {
+          stroke-opacity: .5;
+        }
+
+        .x.axis path {
+          display: none;
+        }
+
+        .main.axis line, .main.axis path {
+          fill: none;
+          stroke: #000;
+        }
+        .grid .tick {
+            stroke: lightgrey;
+            opacity: 0.7;
+        }
+        .grid path {
+            stroke-width: 0;
+        }
+    </style>
+
+</head>
+    
+
+<body>
+    <div class="graph aGraph" style="position:absolute;top:0px;left:0; float:left;"></div>
+    <div class="graph bGraph" style="position:absolute;top:600px;left:0; float:left;"></div>
+    <div style="float: right" ng-controller="KCtrl">
+        <!-- Input fields for changing the proportionality constant -->
+        <div ng-repeat="constant in constants">
+            <label>{{constant}}</label>
+            <input type="number" ng-model="default.constants[constant]"/>
+        </div>
+        <!-- Button for updating proportionality constants and model -->
+        <button ng-click="collectData()">Collect</button>
+    </div>
+    <div id="legend" style="position: relative; left: 50%; width: 200px " ng-controller="KCtrl">
+        <p><b>Legend</b></p>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+    <script src="ngGraph.js"></script>
+</body>
+
+
+</html>

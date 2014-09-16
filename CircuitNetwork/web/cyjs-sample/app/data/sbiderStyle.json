@@ -29,7 +29,25 @@
       "shape" : "ellipse"
     }
   }, {
-    "selector" : "node.transition",
+    "selector" : "node.transition.IF",
+    "css" : {
+      "width" : 35.0,
+      "height" : 70.0
+    }
+  }, {
+    "selector" : "node.transition.AND",
+    "css" : {
+      "width" : 35.0,
+      "height" : 70.0
+    }
+  }, {
+    "selector" : "node.transition.OR",
+    "css" : {
+      "width" : 35.0,
+      "height" : 70.0
+    }
+  }, {
+    "selector" : "node.transition.NOR",
     "css" : {
       "width" : 35.0,
       "height" : 70.0
