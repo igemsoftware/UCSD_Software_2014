@@ -3,11 +3,13 @@ import numpy as np
 import sqlite3 
 import itertools as it
 import heapq as hp
+import pandas as pd
 
-def reach_matrix(graph,path_length, accumulate = True): 
-    '''
-    returns a reachability matrix with the given path length specified
-    @param accumulate allows you to specify if you want to add matrixes 
+def create_reach_matrix(graph,path_length, breadcrumbs = True): 
+    """returns a reachability matrix in the form of a pandas dataframe with the 
+    given path length specified
+    Args:
+     	breadcrumbs: allows you to specify if you want to add matrixes 
     together as the reachability table is being created. Else you get a 
     reachability matrix for nodes reaching each other by the given path_length.
     
@@ -16,8 +18,8 @@ def reach_matrix(graph,path_length, accumulate = True):
     data = [(1,4), (2,1), (2,3), (3,1), (3,4), (4,3)]
     ex 1. reach(graph, 4, accumulate = True)
     ex 2. reach(graph, 4, accumulate = False)
-    '''      
-        
+    """     
+            
     adj_matrix = nx.adjacency_matrix(graph)
     #print "printing the adjacency matrix"
     #print adj_matrix
@@ -27,7 +29,7 @@ def reach_matrix(graph,path_length, accumulate = True):
     temp_matrix = np.matrix(adj_matrix)
     
     #subtracting one because you start at A^2
-    if(accumulate == True):
+    if(breadcrumbs == True):
         for count in range(path_length -1):
             temp_matrix = temp_matrix * adj_matrix
             reach_matrix += temp_matrix
@@ -42,30 +44,63 @@ def reach_matrix(graph,path_length, accumulate = True):
     #print temp_matrix
     #print "printing the reachability table after transpose"
     #print adj_matrix
-    trans_reach_mat = np.transpose(reach_matrix)
-    return np.array(trans_reach_mat)
+    reach_matrix = np.transpose(reach_matrix)
+    reach_matrix = np.array(reach_matrix)
+    return reach_matrix, graph.nodes()
     
-def reach(point_a, point_b, reach_matrix):
-    '''
-    returns a boolean value to tell you whether point_a can reach point_b 
-    '''
-    reach_value = reach_matrix[point_a][point_b]
-    print reach_value
-    if reach_value == 0:
-        return False
-    else: 
-        return True
+def write_reach_matrix(reach_matrix, labels):
+	"""
+	Args: 
+	reach_matrix: a numpy matrix with the reachability calculated
+	labels: the labels for the columns and the rows. 
+	"""
+	reach_df = pd.DataFrame.from_dict(reach_matrix)
+	reach_df.columns = labels
+	reach_df.index = labels
+	reach_df.to_csv("reach_matrix.csv", index = True)
+
+def read_reach_matrix():
+	""" Opens the reach_ability matrix as a dataframe pandas object
+	"""
+	global reach_df 
+	reach_df = pd.DataFrame.from_csv("reach_matrix.csv")
+	return reach_df
+	
+    
+def reach(query_statement):
+	"""Returns a boolean value to tell you whether point_a can reach point_b 
+	Must call read_reach_matrix() for this method. Currently only handles the
+	buffer case.
+	"""
+	
+	query = query_statement.strip()
+	input, output = query.split(' ---> ')
+	#input = [x.strip() for x in input]
+	#output = [x.strip() for x in output]
+	#input = input.split(' and ')
+	#output = input.split(' and ')
+	#input = [x.strip() for x in input]
+	#output = [x.strip() for x in output]
+	
+	reach_value = reach_df.loc(output, input)
+	print "the current output and input values are", input, output
+	print  'the current reach value is', reach_df.loc(output, input)
+	if reach_value == 0:
+		return False
+	elif reach_value > 0:
+		return True
         
+'''
 def reach_converge_nodes(reach, *nodes_list):
-    '''
+    """
     returns priority queue with the best convergence or an empty queue if 
     there is none
     @param reach is the table that you want to use
     @param nodes_list is the list of nodes for which you want a convergence point
-    '''
+    """
     #need to use the reachability table to 
     print nodes_list
-    conv_array  = np.array([*node_list])
+    #conv_array  = np.array([*node_list])
     row_len, col_len = conv_array.shape
     priority = 0
     priority_q = PriorityQueue()
@@ -78,48 +113,28 @@ def reach_converge_nodes(reach, *nodes_list):
             #need to link back somehow. 
             priority_q.put((priority,value_of_current_node)
     return priority_q
-    
+'''
 def grapher():
-    graph = nx.DiGraph()
+	"""Returns a graph that can be passed onto the create_reach_matrix
+	"""
+	graph = nx.DiGraph()
     
-    #data = [(1,4), (2,1), (2,3), (3,1), (3,4), (4,3)]
-    #data = [(2,1), (2,3), (3,5), (5,4), (4,1)]
-    data = [(995,777),(999137,154), (999137,777), (995,154)]
-    for edge in data:
-        graph.add_edge(*edge)
+	#data = [(1,4), (2,1), (2,3), (3,1), (3,4), (4,3)]
+	data = [('hi','bye'), ('hi','sigh'), ('sigh','cry'), ('back','cry'), ('cry','bye')]
+	#data = [(995,777),(999137,154), (999137,777), (995,154)]
+	for edge in data:
+		graph.add_edge(*edge)
     
-    #selecting all of the nodes from the sql db
-    #data = cur.select("")
+	#selecting all of the nodes from the sql db
+	#data = cur.select("")
     
-    #adding all of the nodes from the sql db
+	#adding all of the nodes from the sql db
     
-    #for edge in data:
-    #   graph.add_edges(node_pair[0], node_pair[1]) 
-    return graph   
+	#for edge in data:
+	#graph.add_edges(node_pair[0], node_pair[1]) 
+	return graph   
     
-def index_dict(graph):
-    '''
-    return a dictionary with the numerical indices of the 
-    reachability table. 
-    '''
-    
-    nodes = graph.nodes()
-    index_dict = {}
-    node_enum = enumerate(nodes)
-    for node in node_enum:
-        index_dict[node[1]] = node[0] 
-    return index_dict
-        
-def index_by_str(column, row, indices):
-    '''
-    return the numerical indices of the reachability table
-    @param row is the string representation of the row value
-    @param column is the string representation of the column value
-    @param indices is the dictionary containing indice numerical values. 
-    '''
-    
-    return (indices[column], indices[row])
-
+'''
 def get_subnetwork(inputs_list):
     """Finds the subnetwork made up from the inputs_list.
 
@@ -129,27 +144,28 @@ def get_subnetwork(inputs_list):
     """
     
     for inputs in inputs_list:
-        get the column from the reach_matrix
+		get the column from the reach_matrix
 	for reached in inputs:
             subnetwork.append()
+            
+'''            
 #testing the reach_matrix
 graph = grapher()  
 path_length = len(graph.nodes()) 
-reach_mat = reach_matrix(graph, 3)
+reach_mat, labels = create_reach_matrix(graph, 5)
+print labels
+write_reach_matrix(reach_mat, labels)
+reach_mat = read_reach_matrix()
 print reach_mat
 
-#testing the index maker
-indices = index_dict(graph)
-column, row = index_by_str(2,1, indices)
-#print "Printing the indices dict"
-#print indices
-#print "Printing row and column information"
-#print column, row
 
 #testing the accession method for the reach_matrix
-print reach(row, column, reach_mat)
+print reach_mat.index
+print reach_mat
+"""
+for item in reach_mat.index:
+	print item, "is of type", type(item)
+"""
+print reach_mat.loc['bye', 'hi']
+print reach('hi ---> cry')
 
-print reach_convergence_nodes()
-
-
-    
