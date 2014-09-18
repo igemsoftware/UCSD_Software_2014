@@ -1,0 +1,4 @@
+p phrpL 4
+c cI 8
+p pLAMBDA 4
+c gfp 6

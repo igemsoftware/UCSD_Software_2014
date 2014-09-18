@@ -4,9 +4,17 @@
         <servlet-name>AuthenticationServlet</servlet-name>
         <servlet-class>communication.AuthenticationServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControllerServlet</servlet-name>
+        <servlet-class>communication.ControllerServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AuthenticationServlet</servlet-name>
         <url-pattern>/AuthenticationServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControllerServlet</servlet-name>
+        <url-pattern>/ControllerServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

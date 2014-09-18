@@ -1,3 +1,9 @@
+.ds_store
+/*/.ds_store
+/*/*/.ds_store
+.DS_Store
+/*/.DS_Store
+/*/*/.DS_Store
 /CircuitNetwork/nbproject/private/
 /CircuitNetwork/dist/
 /CircuitNetwork/build/

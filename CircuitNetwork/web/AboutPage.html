@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>About</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="AboutPage.css">
+        <script src="index.js"></script>
+    </head>
+    <body>
+        <!--entire page divider-->
+        <div class="container-fluid" id="main">
+        
+        <!--nav bar-->       
+        <div class="row ">
+        <nav class="navbar  navbar-fixed-top" role="navigation">
+        
+        <div class="btn-group btn-group-justified">
+            
+		    
+            <div class="btn-group ">
+                <a href="index.html">
+                <button type="button" class="btn btn-nav">Home
+                    <span class="glyphicon glyphicon-home"></span>
+                    
+                </button></a>
+            </div>
+            <div class="btn-group">
+                <a href="AboutPage.html">
+                <button type="button" class="btn btn-nav">About
+                    <span class="glyphicon glyphicon-user"></span>
+                    
+                </button></a>
+            </div>
+            <div class="btn-group">
+                <a href="newhtml.html">
+                <button type="button" class="btn btn-nav">Documentation
+                    <span class="glyphicon glyphicon-book"></span>
+    			    
+                </button></a>
+            </div>
+            
+            <div class="btn-group">
+                  <a href="Tester_Wiki.html">
+                <button type="button" class="btn btn-nav">Wiki
+                    <span class="glyphicon glyphicon-globe"></span>
+    			   
+                </button></a>
+            </div>
+               
+            <div class="btn-group">
+                 <a href="AppPage.html">
+                <button type="button" class="btn btn-nav">App
+                    <span class="glyphicon glyphicon-star"></span>
+    			    
+                </button></a>
+            </div>
+            <div class="btn-group">
+                <a href="ContactUs.html">
+                <button type="button" class="btn btn-nav">Contact
+                    <span class="glyphicon glyphicon-envelope"></span>
+                    
+                </button></a>
+            </div>
+        </div>
+             <div>
+            <div class="row" >
+            <form class="form-inline" role="form" id="logIn">
+             <div class="form-group">
+                <div class="input-group input-group-sm">
+                   <input class="form-control" type="email" placeholder="Enter email">
+                </div>
+            </div>
+                 <div class="form-group">
+                     <div  class="input-group input-group-sm">
+                   <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+                     </div>
+                 </div>
+                <button type="submit" class="btn btn-primary btn-sm">Sign in</button>
+            </form>
+            
+        </div>
+        </div>  
+             </nav>
+            
+          </div>
+            <!--End of nav bar-->
+            
+            
+            <!--The logo + The Team-->
+             <div class="container-fluid" id="logo">
+                 <div class="row">
+                     <div class="col-md-2 col-lg-offset-1">
+                         <img class="img-rounded" id="logoPic" src="https://mail.google.com/mail/u/0/?ui=2&ik=b89c7b4da6&view=fimg&th=147a943d201f4826&attid=0.1&disp=inline&realattid=f_hyi2jsue0&safe=1&attbid=ANGjdJ8Nil9OwnH3bEEDzLuGhF8qP-wOrc4r5nEZFzCu6We8jgIdvyGyXvDHngl6sU7AyiKDUgnmkgA57Bq2i80QgzEORF9mKV7lVyfRkwuMNJW_I3_kTJkgOXMxlPI&sz=w1600&ats=1409259086438&rm=147a943d201f4826&zw"/>
+                     </div>
+                     <div class="col-md-8">
+                         <h1 id="headerH">Meet The Team</h1>
+                     </div>
+                 </div>
+                 
+                 
+                 
+             <!--The logo + The Team end-->    
+             </div>
+            
+            <div class="jumbotron">
+                     <img class="img-responsive" id="teamPic" src="http://2.bp.blogspot.com/-geTSaTI4WJY/Twe9gmKrQoI/AAAAAAAACGo/3NWF9ZCOUPU/s1600/Redeem-Team-picture.jpg">
+                     <div class="caption" id="teamCaption"><p class="text-info">Genetic circuits are often difficult to engineer, requiring months to design, build, and test each individual genetic device involved in the circuit. SBiDer, a web tool developed by the UCSD Software iGEM team, will leverage existing devices to construct a database with consideration for the function of each device interpreted as boolean logic. The data can be queried by the user through SBiDer's visual interface to explore circuit designs. The displayed circuit's literature reference, characterization data, and images of included devices can be viewed through the built-in table. Basic validation of the circuit performance is also provided within in the interface. SBiDer's web of information can be expanded through user-generated additions to the database to improve the efficiency of the application and the accuracy of the models.</p></div>
+                     <div class="row" id="arrow">
+                         
+                         <div class="btn-group"> 
+                             <a href="#" data-toggle="modal" data-target="#basicModal" id="h">Click</a>
+                         </div></div>
+                         
+                     </div>
+           
+                 
+                 <!--the individuals-->
+                 <div class="container-fluid" id="indvPics">
+                     
+                 </div>
+                  
+               
+                 <!--Individuals end-->
+                 
+                 
+                 <div class="footer">
+                     <h1>Sponsors</h1>
+                 </div>
+                 
+               <!--The end of the page-->
+               </div>
+                       
+                <!--profiles-->
+                 <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="btnExit"><span class="glyphicon glyphicon-remove-circle" id="exit"></span></button>
+            <h2 class="modal-title" id="myModalLabel">Member Profiles</h2>
+            </div>
+            <div class="modal-body" >
+                <div class="container-fluid" id="hello">
+            
+            <div class="row ">
+                <div class="col-md-3">
+                    <h3>Huwate</h3>
+                    
+                    <img class="img-circle" src="ProfilePics/Huwate.jpg">
+                    <a href="https://www.linkedin.com/in/hyeerna"><h4 class="text-danger">Linkedin</h4></a>
+                    <p class="text-info">A little about you</p>
+                </div>
+                <div class="col-md-3">
+                    <h3>Jauqin</h3>
+                    <img class="img-circle" src="ProfilePics/Loren.jpg">
+                    <a href="https://www.linkedin.com/in/hyeerna"><h4 class="text-danger">Linkedin</h4></a>
+                    <p class="text-info">A little about you</p>
+                </div>
+                <div class="col-md-3">
+                    <h3>Valeriy</h3>
+                    <a href="https://www.linkedin.com/in/hyeerna"><h4 class="text-danger">Linkedin</h4></a>
+                    <p class="text-info">A little about you</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    
+                    <h3>Lauren</h3>
+                    <img class="img-circle" src="">
+                    <a href="https://www.linkedin.com/in/hyeerna"><h4 class="text-danger">Linkedin</h4></a>
+                    <p class="text-info">A little about you</p>
+                </div>
+                <div class="col-md-3">
+                    <h3>Gary</h3>
+                    <a href="https://www.linkedin.com/in/hyeerna"><h4 class="text-danger">Linkedin</h4></a>
+                    <p class="text-info">A little about you</p>
+                </div>
+                <div class="col-md-3">
+                    <h3>Kp</h3>
+                    <img class="img-circle" src="ProfilePics/KP.jpg">
+                    <a href="https://www.linkedin.com/in/hyeerna"><h4 class="text-danger">Linkedin</h4></a>
+                    <p class="text-info">A little about you</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <h3>Fred</h3>
+                    <a href="https://www.linkedin.com/in/hyeerna"><h4 class="text-danger">Linkedin</h4></a>
+                    <p class="text-info">A little about you</p>
+                </div>
+                <div class="col-md-3">
+                    <h3>Fernando</h3>
+                    <a href="https://www.linkedin.com/in/hyeerna"><h4 class="text-danger">Linkedin</h4></a>
+                    <p class="text-info">A little about you</p>
+                </div>
+                <div class="col-md-3">
+                    <h3>Tiffany</h3>
+                    <a href="https://www.linkedin.com/in/hyeerna"><h4 class="text-danger">Linkedin</h4></a>
+                    <p class="text-info">A little about you</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <h3>Jenhan</h3>
+                    <img class="img-circle" src="ProfilePics/Jenhan.jpg">
+                    <a href="https://www.linkedin.com/in/hyeerna"><h4 class="text-danger">Linkedin</h4></a>
+                    <p class="text-info">A little about you</p>
+                </div>
+                <div class="col-md-3">
+                    <h3>Justin</h3>
+                     <img class="img-circle" src="ProfilePics/Justin.jpg">
+                    <a href="https://www.linkedin.com/in/hyeerna"><h4 class="text-danger">Linkedin</h4></a>
+                    <p class="text-info">A little about you</p>
+                </div>
+                <div class="col-md-3">
+                    
+                    <h3>Ben</h3>
+                    <img class="img-circle" src="">
+                    <a href="https://www.linkedin.com/in/hyeerna"><h4 class="text-danger">Linkedin</h4></a>
+                    <p class="text-info">A little about you</p>
+                </div>
+            </div>
+        </div>
+    
+            </div>
+            
+    </div>
+  </div>
+</div>
+            
+            
+        
+    </body>
+</html>
