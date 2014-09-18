@@ -4,9 +4,7 @@
 # description: SQLwrappers and testing
 
 def sql_insert(table_name,cols,new_row):
-    '''
-    Constructs a string to insert a row into a sql table
-    '''
+    '''SQL insert function as a string.'''
     command = 'INSERT INTO ' + table_name
     variables = '(' + ','.join(cols) + ')'
     for i in range( len(new_row) ): 
@@ -22,8 +20,7 @@ def sql_insert(table_name,cols,new_row):
     return command + '\n\t' + variables + '\n\t' + values + ';'
     
 def sql_update(table_name, cols, values, w_cols = [], w_ops = [],w_values = [],w_conts = []):
-    '''
-    Constructs a string to update a value in a sql table
+    '''SQL update function as a string.
     param: table_name, the name of the SQL table
     param: cols, a list of the column names for updating
     param: values, a list of the updating values
@@ -53,8 +50,7 @@ def sql_update(table_name, cols, values, w_cols = [], w_ops = [],w_values = [],w
         
 def sql_select(table, column, w_col = None, w_opt = None,
     w_var = None,w_bool = None, group = None, h_col = None, h_bool = None, h_value = None):
-    '''
-    advanced SQL select function
+    '''SQL select function as a string.
     @param table - name of the table
     @param column - the columns to be selected
     @param w_col - column names for where clause
@@ -105,3 +101,8 @@ def sql_select(table, column, w_col = None, w_opt = None,
     Q +=";"
     '''    
     return Q
+    
+#def sql_remove():
+
+#def sql_merge(table_names, table_columns,):
+

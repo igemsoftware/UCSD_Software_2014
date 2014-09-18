@@ -1,4 +1,4 @@
-import sql_pytools as sqlpy
+cimport sql_pytools as sqlpy
 import sqlite3
 import pandas as pd
 # Suggestion: it may be better to pass in a cursor object. That way you don't have to be
@@ -24,42 +24,32 @@ def close():
     sql.close()
     
 def make_db():
-    """Recreation of the sbider database tables. Careful! You will override the data"""
-    print "CAUTION: you will override the data!"
-    print "Do you really want to proceed? Y or N"
-    user_caution = raw_input()
-    if user_caution == 'Y':
-        info_names = ["plasmid", "operon", "part", "interactor", "input", "output",
-            "opr", "optr", "oitr", "ootr"]
-            
-        plasmid = '''CREATE TABLE plasmid (id VARCHAR(50), name VARCHAR(50), 
-            miriam_id VARCHAR(50), title VARCHAR(50), authors VARCHAR(50), 
-            journal VARCHAR(50), year VARCHAR(50));'''
-        operon = '''CREATE TABLE operon (id VARCHAR(50), name VARCHAR(50), 
-            sbol VARCHAR(50));'''
-        part = 'CREATE TABLE part (id VARCHAR(50), name VARCHAR(50));'
-        interactors = '''CREATE TABLE interactor (id VARCHAR(50),name VARCHAR(50), 
-            type VARCHAR(50));'''
-        inputt = '''CREATE TABLE input (id VARCHAR(50), interactor_id VARCHAR(50),
-            repressor bool);'''
-        output = '''CREATE TABLE output (id VARCHAR(50), 
-            interactor_id VARCHAR(50));'''    
-        opr = '''CREATE TABLE opr (id VARCHAR(50), operon_id VARCHAR(50), 
-            plasmid_id VARCHAR(50), direction VARCHAR(50), Main NUM(10));'''
-        optr = '''CREATE TABLE optr (id VARCHAR(50), operon_id VARCHAR(50), 
-            part_id VARCHAR(50), position NUM(10));'''
-        oitr = '''CREATE TABLE oitr (id VARCHAR(50), operon_id VARCHAR(50), 
-            interactor_id VARCHAR(50));'''
-        ootr = '''CREATE TABLE ootr (id VARCHAR(50), operon_id VARCHAR(50), 
-            interactor_id VARCHAR(50));'''
-        login = '''CREATE TABLE login (id VARCHAR(50), email VARCHAR(50), 
-            password VARCHAR(50));'''
-        
-        table_list =[plasmid, operon, part, interactors, opr, optr, oitr, ootr, inputt, output]
-        for table in table_list:
-            custom(table)
-    else:
-        print "You either typed 'N' or did not use the specified characters"
+	plasmid = '''CREATE TABLE plasmid (id VARCHAR(50), name VARCHAR(50), 
+		miriam_id VARCHAR(50), title VARCHAR(50), authors VARCHAR(50), 
+		journal VARCHAR(50), year VARCHAR(50));'''
+	operon = '''CREATE TABLE operon (id VARCHAR(50), name VARCHAR(50), 
+		sbol VARCHAR(50));'''
+	part = 'CREATE TABLE part (id VARCHAR(50), name VARCHAR(50));'
+	interactors = '''CREATE TABLE interactor (id VARCHAR(50),name VARCHAR(50), 
+		type VARCHAR(50));'''
+	inputt = '''CREATE TABLE input (id VARCHAR(50), interactor_id VARCHAR(50),
+		repressor bool);'''
+	output = '''CREATE TABLE output (id VARCHAR(50), 
+		interactor_id VARCHAR(50));'''    
+	opr = '''CREATE TABLE opr (id VARCHAR(50), operon_id VARCHAR(50), 
+		plasmid_id VARCHAR(50), direction VARCHAR(50), Main NUM(10));'''
+	optr = '''CREATE TABLE optr (id VARCHAR(50), operon_id VARCHAR(50), 
+		part_id VARCHAR(50), position NUM(10));'''
+	oitr = '''CREATE TABLE oitr (id VARCHAR(50), operon_id VARCHAR(50), 
+		interactor_id VARCHAR(50));'''
+	ootr = '''CREATE TABLE ootr (id VARCHAR(50), operon_id VARCHAR(50), 
+		interactor_id VARCHAR(50));'''
+	login = '''CREATE TABLE login (id VARCHAR(50), email VARCHAR(50), 
+		password VARCHAR(50));'''
+	
+	table_list =[plasmid, operon, part, interactors, opr, optr, oitr, ootr, inputt, output]
+	for table in table_list:
+		custom(table)
         
 def insert(table_name,cols,new_row):
     """Inserts data into the given database table

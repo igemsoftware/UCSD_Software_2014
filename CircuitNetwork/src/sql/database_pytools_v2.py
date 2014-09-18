@@ -16,35 +16,30 @@ def close():
     sql.close()
     
 def make_db():
-    """Recreation of the sbider database tables. 
-    	Careful! You will override the data.
-    """
-    plasmid = '''CREATE TABLE plasmid (pla_id VARCHAR(50), name VARCHAR(50), 
-		miriam_id VARCHAR(50), title VARCHAR(50), authors VARCHAR(50), 
-		journal VARCHAR(50), year VARCHAR(50));'''
-	operon = '''CREATE TABLE operon (ope_id VARCHAR(50), name VARCHAR(50), 
-	sbol VARCHAR(50));'''
-	po = '''CREATE TABLE po (po_id VARCHAR(50), pla_id VARCHAR(50),
-    	ope_id VARCHAR(50), direction VARCHAR(50));'''
-    species = '''CREATE TABLE species (spe_id VARCHAR(50), name VARCHAR(50), 
+
+    plasmid = '''CREATE TABLE Plasmid (pla_id VARCHAR(50), name VARCHAR(50), miriam_id VARCHAR(50));'''
+	
+    operon = '''CREATE TABLE Operon (ope_id VARCHAR(50), name VARCHAR(50), image VARCHAR(50));'''
+	
+    po = '''CREATE TABLE PlasmidOperon (ope_id VARCHAR(50), pla_id VARCHAR(50),
+    	direction VARCHAR(50));'''
+    species = '''CREATE TABLE Species (spe_id VARCHAR(50), name VARCHAR(50), 
 	type VARCHAR(50));'''    
-	oit = '''CREATE TABLE oit (it_id VARCHAR(50), ope_id VARCHAR(50));'''
+    oit = '''CREATE TABLE OperonInputTransition (it_id VARCHAR(50), ope_id VARCHAR(50));'''
+    it = '''CREATE TABLE InputTransition (it_id VARCHAR(50), logic VARCHAR(50));'''
+    in_ = '''CREATE TABLE InputTransitionSpecies (in_id VARCHAR(50), it_id VARCHAR(50), 
+		spe_id VARCHAR(50), repressor BOOL);'''
+    oot = '''CREATE TABLE OperonOutputTransition (ot_id VARCHAR(50), ope_id VARCHAR(50));'''
+    ot = '''CREATE TABLE OperonTransition (ot_id VARCHAR(50), logic VARCHAR(50))'''
+    out = '''CREATE TABLE OutputTransitionSpecies (out_id VARCHAR(50), 
+    	ot_id VARCHAR(50), spe_id VARCHAR(50));'''
+    login = '''CREATE TABLE User (user_id VARCHAR(50), first_name VARCHAR(50),
+    	last_name VARCHAR(50),email VARCHAR(50), password VARCHAR(50));'''
 	
-	
-	
-	
-	    
-    oit = '''CREATE TABLE oit (ot_id VARCHAR(50), ope_id VARCHAR(50),
-	tra_id VARCHAR(50));'''
-    it = '''CREATE TABLE it (it_id VARCHAR(50), tra_id VARCHAR(50),
-	spe_id VARCHAR(50));'''
-    oot = '''CREATE TABLE output (out_id VARCHAR(50), ope_id VARCHAR(50), spe_id VARCHAR(50));'''
-    login = '''CREATE TABLE login (log_id VARCHAR(50), email VARCHAR(50), 
-	password VARCHAR(50));'''
-	
-    table_list =[plasmid, operon, species, op, ot, in_, out, login]
+    table_list =[plasmid, operon, species, po, ot, oit, it, in_, oot, out, login]
     for table in table_list:
-		sql.execute(table)
+	print 'the current table being made is', table
+	sql.execute(table)
         
 def insert(table_name,cols,new_row):
     """Inserts data into the given database table
@@ -59,7 +54,7 @@ def insert(table_name,cols,new_row):
     command = sqlpy.sql_insert(table_name, cols,new_row)
     sql.execute(command)
     
-def remove(table_name, cols
+#def remove(table_name, cols
     
 def select(table_name, col_names = ["ID"], w_col = None, w_opt = None,
     w_var = None,w_bool = None, group = False, h_col = None, h_bool = None, 
@@ -100,8 +95,10 @@ def print_table(table_name):
 def to_network():
     """Making an input and out dictionary for the traversal."""
     
-    hold = sql.execute('''SELECT ot.ope_id, input.tra_id, input.spe_id 
-    	FROM ot, input WHERE ot.tra_id = input.tra_id''')
+    hold = sql.execute('''SELECT OperonInputTransition.ope_id, 
+	OperonInputTransition.it_id, InputTransitionSpecies.spe_id 
+    	FROM  OperonInputTransition, InputTransitionSpecies 
+	WHERE OperonInputTransition.it_id = InputTransitionSpecies.it_id''')
     	
     prev_ope, prev_tra, prev_spe = hold.next()
     input_dict = {}
@@ -132,7 +129,10 @@ def to_network():
     	#print 'IN LOOP: curr trans value', curr_tra
     	
     output_dict = {}
-    output = sql.execute("SELECT ope_id, spe_id FROM output")
+    output = sql.execute('''SELECT OperonOutputTransition.ope_id,
+	OutputTransitionSpecies.spe_id 
+	FROM OperonOutputTransition, OutputTransitionSpecies
+	WHERE OperonOutputTransition.ot_id = OutputTransitionSpecies.ot_id''')
     output = output.fetchall()
     for ope_id, spe_id in output:
         if ope_id in output_dict:
