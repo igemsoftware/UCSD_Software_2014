@@ -1,23 +1,20 @@
-'''Subtitle
+"""Subtitle
 
 Descriptive paragraph
 
 ******************************************************************************
 @author: Huwate Yeerna, University of California, San Diego
 ******************************************************************************
-
-'''
-
+"""
 
 
-from sys import argv
-import matplotlib.pyplot as plt
-import networkx as nx
+
+import sys
 
 
 
 def r_index(sequence, element):
-    '''Find the last index of an element in a sequence
+    """Find the last index of an element in a sequence.
 
     Argument(s):
         sequence - description
@@ -25,8 +22,7 @@ def r_index(sequence, element):
 
     Return:
         return description
-
-    '''
+    """
 
     for i, e in enumerate(reversed(sequence)):
         if element == e:
@@ -38,16 +34,15 @@ def r_index(sequence, element):
 
 
 def remove_parentheses(sequence):
-    '''Remove the outer most parentheses "()" and return the token after the
-    ")"
+    """Remove the outer most parentheses '()' and return the token after the
+    ')'.
 
     Argument(s):
         sequence - description
 
     Return:
         return description
-
-    '''
+    """
 
     first_opener_idx_assigned = False
     started = False
@@ -83,8 +78,8 @@ def remove_parentheses(sequence):
 
 
 def split_by(sequence, element):
-    '''Split a sequence by a given element and store elements before and
-    after the element into a dictionary
+    """Split a sequence by a given element and store elements before and
+    after the element into a dictionary.
 
     Argument(s):
         sequence - description
@@ -92,8 +87,7 @@ def split_by(sequence, element):
 
     Return:
         return description
-
-    '''
+    """
 
     element_index = sequence.index(element)
 
@@ -105,15 +99,14 @@ def split_by(sequence, element):
 
 
 def grammar_0(tokens):
-    '''Grammar for "grammar_0:= grammar_1 > grammar_1"
+    """Grammar for 'grammar_0:= grammar_1 > grammar_1'.
 
     Argument(s):
         tokens - description
 
     Return:
         return desctiption
-
-    '''
+    """
 
     ###print "grammar_0(tokens): tokens:",tokens
 
@@ -129,17 +122,16 @@ def grammar_0(tokens):
 
 
 def grammar_1(tokens):
-    '''Grammar for "grammar_1:= grammar_2 or grammar_1 |
+    """Grammar for 'grammar_1:= grammar_2 or grammar_1 |
     grammar_2 and grammar_1 |
-    grammar_2"
+    grammar_2'.
 
     Argument(s):
         tokens - description
 
     Return:
         return desctiption
-
-    '''
+    """
 
     ###print "grammar_1(tokens): tokens:",tokens
 
@@ -172,18 +164,17 @@ def grammar_1(tokens):
 
 
 def grammar_2(tokens):
-    '''Grammar for "grammar_2:= (grammar_1) or grammar_1 |
+    """Grammar for 'grammar_2:= (grammar_1) or grammar_1 |
     (grammar_1) and grammar_1 |
     (grammar_1) |
-    interactor"
+    interactor'.
 
     Argument(s):
         tokens - desctiption
 
     Return:
         return desctiption
-
-    '''
+    """
 
     ###print "grammar_2(tokens): tokens:",tokens
 
@@ -191,7 +182,7 @@ def grammar_2(tokens):
         raise ValueError("grammar_2(tokens):\
                 invalid syntax")
 
-    elif tokens[0] == "(":
+    elif tokens[0] == '(':
         # (grammar_1) or grammar_1 | (grammar_1) and grammar_1| (grammar_1)
 
         ###print "grammar_2(tokens): detected '('"
@@ -226,15 +217,14 @@ def grammar_2(tokens):
 
 
 def interactor(tokens):
-    '''Grammar for "interactor"
+    """Grammar for 'interactor'.
 
     Argument(s):
         tokens - desctiption
 
     Return:
         return description
-
-    '''
+    """
 
     ###print "interactor(tokens): tokens:",tokens
 
@@ -244,7 +234,7 @@ def interactor(tokens):
 
 
 def grammar_output(tokens1, tokens2):
-    '''Grammar for ">"
+    """Grammar for '>'.
 
     Argument(s):
         tokens1 - desctiption
@@ -253,21 +243,20 @@ def grammar_output(tokens1, tokens2):
 
     Return:
         return description
+    """
 
-    '''
-
-    grammar_output = {}
+    grammar_output_dict = {}
 
     for token1 in tokens1:
-        for token2 in tokens2:
-            grammar_output[token1] = (token2)
+        value_set = set(tokens2)
+        grammar_output_dict[token1] = (value_set)
 
-    return grammar_output
+    return grammar_output_dict
 
 
 
 def grammar_or(tokens1, tokens2):
-    '''Grammar for "or"
+    """Grammar for 'or'.
 
     Argument(s):
         tokens1 - description
@@ -275,15 +264,14 @@ def grammar_or(tokens1, tokens2):
 
     Return:
         return description
-
-    '''
+    """
 
     return tokens1 + tokens2
 
 
 
 def grammar_and(tokens1, tokens2):
-    '''Grammar for "and"
+    """Grammar for 'and'.
 
     Argument(s):
         tokens1 - desctiption
@@ -291,8 +279,7 @@ def grammar_and(tokens1, tokens2):
 
     Return:
         return description
-
-    '''
+    """
 
     grammar_and_output = []
 
@@ -304,15 +291,14 @@ def grammar_and(tokens1, tokens2):
 
 
 def parse_logic(logic):
-    '''Parse a logic input into atomized and equivalent logics
+    """Parse a logic input into atomized and equivalent logics.
 
     Argument(s):
         logic - description
 
     Return:
         return desctiption
-
-    '''
+    """
 
     ###print "parse_logic(logic): logic:",logic
 
