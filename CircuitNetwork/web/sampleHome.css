@@ -1,0 +1,88 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 21, 2014, 1:24:58 AM
+    Author     : valeriysosnovskiy
+*/
+body{
+    background-color: #3c3c3c;
+}
+#nav{
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    //border: 1px solid white;
+    padding: 2px;
+    
+    
+}
+#nav .btn{
+    border-right: 2px solid grey;
+    
+}
+#nav .btn:hover{
+    color: white; 
+    background-color: rgba(204,204,204,0.5);
+}
+#nav .btn{
+    text-align: center;
+    
+    
+}
+#mainContent{
+   
+    background-color:#3c3c3c; 
+    font-size: 18px;
+    color: white;
+    //text-align: center;
+    width: 50%;
+    height: 20%;
+    padding: 10px;
+    
+    
+}
+
+
+#picture{
+  border: 2px solid white; 
+  background-color: black;
+  width: 70%;
+  height: 300px;
+  
+}
+
+#summary{
+   border: 2px solid white;  
+   background-color: black;
+   width: 100%;
+}
+
+
+#cynetsharePic{
+    height: 50%;
+    width: 100%;
+}
+
+#tutorial{
+    //width: 40%;
+   // border: 2px solid brown;
+    font-size:40px;
+
+}
+
+#launch{
+    //width: 50%;
+   // border: 2px solid red;
+    font-size:40px;
+   
+}
+
+#buttons{
+    text-align: center;
+   // border: 2px solid red;
+    
+    padding: 5px;
+}
+

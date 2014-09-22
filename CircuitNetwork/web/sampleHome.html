@@ -6,20 +6,18 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>Wiki</title>
+        <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-        <script src="bootstrap.min.js"></script>
-       
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="sampleHome.css">
         <script src="masterJS.js"></script>
-        
     </head>
     <body>
-        <div class="container-fluid" id="wikiPage">
-            
+        <!--container for the entire web page-->
         <div class="container-fluid">
             
             <!--navbar --> 
@@ -48,12 +46,27 @@ and open the template in the editor.
             </nav>
        
         </div>
-       
-
-    </div>
-        <div class="embed-responsive embed-responsive-16by9">
-            <iframe src="http://2014.igem.org/Team:UCSD_Software"></iframe>
+         
+        <div class="container-fluid" id="mainContent">
+                
+                    
+                <img class="img-responsive" id="cynetsharePic" src="ProfilePics/Picture.png">
+                      
+                <p >This interface will allow researchers to query our database network for a circuit design expressed as logical operators such as “AND”, “OR”, and “NOR”, and retrieve the subnetwork of genetic devices that satisfies the circuit design. To Perform our search we modified several traditional graph search algorithms to traverse this graph, including but not limited to Prim’s algorithm (minimum spanning tree), Dijkstra’s algorithm and a breadth-first search. Results are visualized graphically in our web interface.</p>
+                <div class="container-fluid" id="buttons">
+             <div class="row">
+                 <div class=" btn-group-justified">
+                     <div class="btn-group"><button class="btn-primary btn-lg" id="tutorial">Tutorial</button></div>
+                 
+                     <div class="btn-group"><button class="btn-success btn-lg" id="launch">Launch</button></div>
+        
+         </div>
+        </div>
+                </div>
         </div>
         
+         <div class="footer">
+             <h1>Sponsors</h1>
+         </div>
     </body>
 </html>

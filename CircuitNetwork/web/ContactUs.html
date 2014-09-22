@@ -28,9 +28,11 @@ and open the template in the editor.
        
        <div>
            <h1>To test the login function</h1>
-            <input id="userName">
-            <input id="userPassword">
+           <form>
+           <input type="email" id="userName">
+            <input type="password" pattern=".{5,10}" id="userPassword">
        <button id="registration">Register Me </button>
+       </form>
        <div id="sayHello"></div>
        </div>
  
@@ -40,18 +42,22 @@ and open the template in the editor.
                 
                     $('#ping').click(function() {
                     var commandString = $('#command').val();
+                    alert(commandString);
                     var data = {user: userID, command: 'execute', data: commandString}; //package the input into a json file for submission to the server
+                  
                     $.get("AuthenticationServlet", data, function(data) { //parameters are: servlet url, data, callback function
+                        
                         $('#output').text(data); //display the server response in the output area
+                        alert(data);
                         $('#command').val("");
                     });
                 });
 
                    $('#fileOne').click(function(){
                    alert(userID);
-                   alert("hll");
+                   alert("running the file test.py");
                    var string = ("test.py");
-                   var one ={users: userID, command:'pythonPy', data: string};
+                   var one ={users: userID, command:'testPy', data: string};
                            $.get("AuthenticationServlet", one, function(firstOne){
                            $('#outOne').text(firstOne);
                            alert(firstOne);
@@ -64,7 +70,7 @@ and open the template in the editor.
                    //want the string to be kwattest.py "A or B or C or D > X or Y"
                    //for the command line 
                    var quote = ("\"A or B or C or D > X or Y\"");
-                   var string = ("kwattest.py " + "\"A or B or C or D > X or Y\"" );
+                   var string = ("kwattest.py " + "\"A\"" );
                    var final = (string + " " + quote);
                    alert(final);
                    alert(string);
