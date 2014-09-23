@@ -10,7 +10,7 @@ $window, Network, VisualStyles, Gist) {
         var DEFAULT_VISUAL_STYLE_NAME = 'default';//'Solid';
         var PRESET_STYLE_FILE = encodeURIComponent('data/sbiderStyle.json');
 
-        //these empty arrays are updated by the server for use by the cytoscape.js object.
+        //these empty dictionaries are updated by the server for use by the cytoscape.js object.
         var networkData = {};
 	var vs = {};
        

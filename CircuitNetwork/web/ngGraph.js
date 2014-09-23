@@ -13,11 +13,35 @@
 var graphApp = angular.module('graphApp',[]);
 //setting default proportonality constants for Diff EQ's
 var k = [1,1];
+var OpticalDensity;
+var Input1;
+var Input2;
+var Input3;
 //User-adjusted proportionality constants.
 var newK;
 //default svg line in y=mx+b format.
-var eqnDefault = function(i){
-        return k[0]*i + k[1];
+function eqnDefault(i){
+    return k[0]*i + k[1];
+};
+function eqnOne(OD, x1, i){
+    OpticalDensity = OD;
+    Input1 = x1;
+    
+    return -20*Input1*OpticalDensity*i;
+};
+function eqnTwo(OD,x1,y,i){
+    OpticalDensity = OD;
+    Input1 = x1;
+    Input2 = y;
+    
+    return ((-3*Input1)+(5.2*(OpticalDensity*OpticalDensity))-(5*Input2))*OpticalDensity*i;
+};
+function eqnThree(OD,y,z,i){
+    OpticalDensity = OD;
+    Input1 = y;
+    Input2 = z;
+    
+    return ((5000*Input1)-(5*Input2))*OpticalDensity*i;
 };
 var equation = eqnDefault;
 
@@ -135,14 +159,19 @@ function make_y_axis() {
         .orient("left")
         .ticks(10);
 }
-
+var plot;
     //create variable the SVG containter
-var plot = d3.select("#graph" + String(graphCount)).append("svg:svg")
+function setPlot(newGraph){
+    var graphNumber = newGraph
+    plot = d3.select("#graph" + String(graphNumber)).append("svg:svg")
         .attr("height", h + m[0] +m[2])
         .attr("width", w + m[1] + m[3])
     .append("svg:g")
         .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
+};
 
+setPlot(graphCount);
+    
 var drawGraph = function(){
     //adding x-grid
     plot.append("g")         
@@ -196,10 +225,11 @@ var drawGraph = function(){
     .text("Concentration");
 };
 drawGraph(); 
+
     // Adding the line to the graph.
     plot.append("svg:path").attr("id","counter" + String(counter)).attr("d", line(points));
 graphCount += 1;
-alert(graphCount);
+setPlot(graphCount);
 drawGraph();
 
 //***Line editing functions***
