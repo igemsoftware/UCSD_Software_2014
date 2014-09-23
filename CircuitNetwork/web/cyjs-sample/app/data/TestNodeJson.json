@@ -47,6 +47,7 @@
                     "SBOL": "https://farm4.staticflickr.com/3261/2801924702_ffbdeda927_d.jpg",
                     "name": "pLambda",
                     "Components": ["p","rbs","cs","t"],
+                    "Device": "pINV-107-mutx",
                     "Lit Ref": "abook"
                 },
                 "position":{

@@ -8,7 +8,7 @@
     "css" : {
       "font-family" : "HelveticaNeue-UltraLight",
       "font-weight" : "normal",
-      "shape" : "roundrectangle",
+      "shape" : "ellipse",
       "border-color" : "rgb(0,102,153)",
       "text-opacity" : 1.0,
       "background-opacity" : 1.0,

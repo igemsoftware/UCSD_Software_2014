@@ -27,6 +27,8 @@ var eqnNew = function(i){
         return newK.k1*i+newK.k2;
     };
 
+//Graph counter
+var graphCount = 0;
 //Counter for line ID's
 var counter = 0;
 
@@ -135,7 +137,7 @@ function make_y_axis() {
 }
 
     //create variable the SVG containter
-var plot = d3.selectAll(".graph").append("svg:svg")
+var plot = d3.select("#graph" + String(graphCount)).append("svg:svg")
         .attr("height", h + m[0] +m[2])
         .attr("width", w + m[1] + m[3])
     .append("svg:g")
@@ -196,6 +198,9 @@ var drawGraph = function(){
 drawGraph(); 
     // Adding the line to the graph.
     plot.append("svg:path").attr("id","counter" + String(counter)).attr("d", line(points));
+graphCount += 1;
+alert(graphCount);
+drawGraph();
 
 //***Line editing functions***
 
