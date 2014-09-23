@@ -10,10 +10,10 @@
 $(document).ready(function(){
     //redirecting to other pages 
     $("#home").click(function(){
-       window.location.href="sampleHome.html"; 
+       window.location.href="index.html"; 
     });
      $("#about").click(function(){
-       window.location.href="sampleHome.html"; 
+       window.location.href="AboutUs.html"; 
     });
      $("#documentation").click(function(){
        window.location.href="sampleHome.html"; 
@@ -22,17 +22,12 @@ $(document).ready(function(){
        window.location.href="Tester_Wiki.html"; 
     });
      $("#app").click(function(){
-       window.location.href="sampleHome.html"; 
+       window.location.href="AppPage.html"; 
     });
      $("#contact").click(function(){
        window.location.href="contactPage.html"; 
     });
-     $("#tutorial").click(function(){
-       window.location.href="contactPage.html"; 
-    });
-    $("#launch").click(function(){
-       window.location.href="contactPage.html"; 
-    });
+     
     
     //server functions
      $("#registration").click(function(){

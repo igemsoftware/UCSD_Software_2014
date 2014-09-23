@@ -14,6 +14,7 @@ and open the template in the editor.
         <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
          <script src="masterJS.js"></script>
+         <link rel="stylesheet" href="masterCSS.css">
     </head>
     <body>
         <!--container for the entire web page-->
@@ -46,11 +47,12 @@ and open the template in the editor.
        
         </div>
         
-        <div class="container">
-	<div class="row">
+        <div class="container-narrow">
+            
+	<div class="row" id="h">
       <div class="col-md-6 col-md-offset-3">
         <div class="well well-sm">
-          <form class="form-horizontal" action="" method="post">
+          <form class="form-horizontal">
           <fieldset>
             <legend class="text-center">Contact us</legend>
     
@@ -58,15 +60,15 @@ and open the template in the editor.
             <div class="form-group">
               <label class="col-md-3 control-label" for="name">Name</label>
               <div class="col-md-9">
-                <input id="name" name="name" type="text" placeholder="Your name" class="form-control">
+                <input id="name" name="name" type="text" placeholder="Please Enter Your Name" class="form-control">
               </div>
             </div>
     
             <!-- Email input-->
             <div class="form-group">
-              <label class="col-md-3 control-label" for="email">Your E-mail</label>
+              <label class="col-md-3 control-label" for="email">E-mail</label>
               <div class="col-md-9">
-                <input id="email" name="email" type="text" placeholder="Your email" class="form-control">
+                <input id="email" name="email" type="text" placeholder="Please Enter Your Email" class="form-control">
               </div>
             </div>
     
@@ -74,13 +76,13 @@ and open the template in the editor.
             <div class="form-group">
               <label class="col-md-3 control-label" for="message">Your message</label>
               <div class="col-md-9">
-                <textarea class="form-control" id="message" name="message" placeholder="Please enter your message here..." rows="5"></textarea>
+                <textarea class="form-control" id="message"  placeholder="Please enter your message here..." rows="10"></textarea>
               </div>
             </div>
     
             <!-- Form actions -->
             <div class="form-group">
-              <div class="col-md-12 text-right">
+              <div class="col-md-12 text-center">
                 <button type="submit" class="btn btn-primary btn-lg">Submit</button>
               </div>
             </div>
