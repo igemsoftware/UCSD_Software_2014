@@ -5,7 +5,7 @@ $window, Network, VisualStyles, Gist) {
 
         'use strict';     
         //these files are the temporary network
-	var NETWORK_FILE = 'data/sbider.json'; 
+	var NETWORK_FILE = 'data/sbider_SUCCESS.json'; 
         var visualStyleFile = 'data/sbiderStyle.json'; 
         var DEFAULT_VISUAL_STYLE_NAME = 'default';//'Solid';
         var PRESET_STYLE_FILE = encodeURIComponent('data/sbiderStyle.json');
@@ -17,9 +17,9 @@ $window, Network, VisualStyles, Gist) {
         $scope.cynet;
         //Global variables for storing algorithm results
         //currently hard coded from dummy data
-        var speciesId = [["species_id_5","operon_id_3"],["species_id_4","operon_id_1","species_id_3","operon_id_2"]];
-        var transitionId = [["3","input_id_3"],["input_id_1","1","input_id_2","2"]];
-        var edgeId = [["56","59","61"],["53","52","54","55","57","58","60"]];
+        var speciesId = [["spe_11"],["ope_2-1","ope_46-1","ope_47-1","ope_57-1","spe_13","spe_2","spe_33","spe_9"],["ope_1-1","spe_20","spe_21"],["spe_39"]];
+        var transitionId = [["ot_1","ot_2"],["it_2","it_3","it_72","it_75","it_98","ot_98"],["it_1","ot_72","ot_75"],["ot_3","ot_5"]];
+        var edgeId = [["54","69"],["55","56","57","58","65","66","67","68","71","72","73","76","77","78","80","81","82","83","85"],["50","51","52","53","74","79"],["59","64"]];
        
         $scope.networks = {};
         $scope.visualStyles = {};
