@@ -5,7 +5,7 @@ $window, Network, VisualStyles, Gist) {
 
         'use strict';     
         //these files are the temporary network
-	var NETWORK_FILE = 'data/TestNodeJson.json'; 
+	var NETWORK_FILE = 'data/sbider.json'; 
         var visualStyleFile = 'data/sbiderStyle.json'; 
         var DEFAULT_VISUAL_STYLE_NAME = 'default';//'Solid';
         var PRESET_STYLE_FILE = encodeURIComponent('data/sbiderStyle.json');
@@ -13,6 +13,13 @@ $window, Network, VisualStyles, Gist) {
         //these empty dictionaries are updated by the server for use by the cytoscape.js object.
         var networkData = {};
 	var vs = {};
+        //global reference for cytoscape.js
+        $scope.cynet;
+        //Global variables for storing algorithm results
+        //currently hard coded from dummy data
+        var speciesId = [["species_id_5","operon_id_3"],["species_id_4","operon_id_1","species_id_3","operon_id_2"]];
+        var transitionId = [["3","input_id_3"],["input_id_1","1","input_id_2","2"]];
+        var edgeId = [["56","59","61"],["53","52","54","55","57","58","60"]];
        
         $scope.networks = {};
         $scope.visualStyles = {};
@@ -203,9 +210,6 @@ $window, Network, VisualStyles, Gist) {
 
             // Node selection
             $scope.cy.on('select', 'node', function(event) {
-                //alert("moooooo");
-                $('#book').show();
-                //$('#752').addClass('highlighted');
                 var id = event.cyTarget.id();
                 $scope.selectedNodes[id] = event.cyTarget;
                 $scope.selectedNodes[id].addClass('highlighted');
@@ -214,7 +218,6 @@ $window, Network, VisualStyles, Gist) {
             
              // Reset selection
             $scope.cy.on('unselect', 'node', function(event) {
-		$('#book').hide();
                 var id = event.cyTarget.id();
                 delete $scope.selectedNodes[id];
                 updateFlag = true;
@@ -336,7 +339,35 @@ $window, Network, VisualStyles, Gist) {
                 cadSelect();
             };
         };
+        
+        //Highlighting and controlling selected paths.
 
+        //Adding result selection to interface, highlighting first result.
+        $scope.resultIndex = [];
+        $scope.selectedCircuit;
+
+        //function for highlighting a path.        
+        $scope.selectPath = function(index) {
+            reset();
+            $scope.cynet.$('*').unselect();
+            for (var count = 0; count < speciesId[index].length; count++){
+                $scope.cynet.$("#"+String(speciesId[index][count])).select();
+            };
+            for (var count = 0; count < transitionId[index].length; count++){
+                $scope.cynet.$("#"+String(transitionId[index][count])).select();
+            };
+            for (var count = 0; count < edgeId[index].length; count++){
+                $scope.cynet.$("#"+String(edgeId[index][count])).select();
+            };
+            console.log("New Circuit Selected.");
+        };
+        $scope.circuitCtrl = function() {
+            for (var result = 0; result <speciesId.length; result ++){
+                $scope.resultIndex.push({ label: "Path " + String(result + 1), value: result});
+            };
+        };
+        $scope.circuitCtrl();
+        
         $scope.encodeUrl = function() {
             var pan = $scope.cy.pan();
             var zoom = $scope.cy.zoom();
@@ -397,6 +428,7 @@ $window, Network, VisualStyles, Gist) {
                     success(function(data) {
                         networkData = data;
                         $('#network').cytoscape(options);
+                        $scope.cynet = $('#network').cytoscape('get');
                         init();
                     }).
                     error(function(data, status, headers, config) {
