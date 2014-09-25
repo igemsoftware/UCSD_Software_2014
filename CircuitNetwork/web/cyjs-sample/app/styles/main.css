@@ -35,3 +35,15 @@ img.CAD {
     top: 310px;
     left: 385px;
 }
+
+div.path {
+    height: 100px;
+    width: 440px;
+    position: fixed;
+    left: 5px;
+    top: 355px;
+    background-color: #ffffff;
+    border-radius: 3px;
+    outline: #f8f8f8 solid 2px;
+    opacity: .9;
+}

@@ -1,5 +1,4 @@
-
-{
+[ {
   "format_version" : "1.0",
   "generated_by" : "cytoscape-3.1.0-RC1",
   "target_cytoscapejs_version" : "~2.1",
@@ -9,7 +8,7 @@
     "css" : {
       "font-family" : "HelveticaNeue-UltraLight",
       "font-weight" : "normal",
-      "shape" : "roundrectangle",
+      "shape" : "ellipse",
       "border-color" : "rgb(0,102,153)",
       "text-opacity" : 1.0,
       "background-opacity" : 1.0,
@@ -28,6 +27,43 @@
     "selector" : "node.species",
     "css" : {
       "shape" : "ellipse"
+    }
+  }, {
+    "selector" : "node.transition",
+    "css" : {
+      "shape" : "roundrectangle",  
+      "width" : 35.0,
+      "height" : 70.0
+    }
+  }, {
+    "selector" : "node.transition.IF",
+    "css" : {
+      "width" : 35.0,
+      "height" : 70.0
+    }
+  }, {
+    "selector" : "node.transition.AND",
+    "css" : {
+      "width" : 35.0,
+      "height" : 70.0
+    }
+  }, {
+    "selector" : "node.transition.OR",
+    "css" : {
+      "width" : 35.0,
+      "height" : 70.0
+    }
+  }, {
+    "selector" : "node.transition.NOT",
+    "css" : {
+      "width" : 35.0,
+      "height" : 70.0
+    }
+  }, {
+    "selector" : "node.transition.NOR",
+    "css" : {
+      "width" : 35.0,
+      "height" : 70.0
     }
   }, {
     "selector" : "node:selected",
@@ -58,4 +94,4 @@
       "line-color" : "rgb(255,0,0)"
     }
   } ]
-}
+} ]
