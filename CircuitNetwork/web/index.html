@@ -6,18 +6,18 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>Home</title>
+        <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="index.css">
         <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="index.css">
         <script src="masterJS.js"></script>
+    
     </head>
     <body>
-        <!--container for the entire web page-->
         <div class="container-fluid">
             
             <!--navbar --> 
@@ -39,26 +39,100 @@ and open the template in the editor.
                 <input type ="text" class="form-control text-primary input-sm" placeholder="Password" id="userPassword">
                 </div>
                 <button class="btn btn-primary btn-sm " id="registration">Log In</button>
-                <button class="btn btn-primary btn-sm" >Register</button>
+                <button class="btn btn-primary btn-sm" id='registerMe' >Register</button>
                 </form>
                  
                 
             </nav>
        
+        </div>     
+     <!--navbar ends-->
+     
+     <!-- Slider-->
+     <div class="container" id="Slider_Three">
+     <div class="container-narrow " id="sliderHolder">
+     <div class="container-fluid" id= "sliderHome">
+    <div id="myCarousel" class="carousel slide "  data-ride="carousel">
+    	
+        
+        <!-- Carousel indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+        </ol>   
+        
+        <!-- Carousel items -->
+        <div class="carousel-inner">
+            <div class="item active text-center" id="sliderItems">
+                <h1>SBIDer</h1>
+                <p>
+                    Genetic circuits are often difficult to engineer, requiring months to design, build, and test each individual genetic device involved in the circuit. SBiDer, a web tool developed by the UCSD Software iGEM team, will leverage existing devices to construct a database with consideration for the function of each device interpreted as boolean logic. The data can be queried by the user through SBiDer's visual interface to explore circuit designs. The displayed circuit's literature reference, characterization data, and images of included devices can be viewed through the built-in table. Basic validation of the circuit performance is also provided within in the interface. SBiDer's web of information can be expanded through user-generated additions to the database to improve the efficiency of the application and the accuracy of the models.
+
+
+                </p>
+                <button class="btn-lg btn-primary text-center" id="signMe">Sign Up!</button>
+                
+            </div>
+            
+            <div class="item " id="sliderItems">
+                <h1>Hello</h1>
+            </div>
+            
+            <div class="item" id="sliderItems">
+                <h1>Goodbye</h1>
+            </div>
+            <div class="item" id="sliderItems">
+                
+            </div>
+            
         </div>
+     
+     </div>
+</div>
+     
+     
+</div>
+    
+        <!--bottom three pics-->
+        
+          <div class="row" id="extraInfo">
+           <div class="col-md-4" id="btmOne">
+               <div class="thumbnail" id="thumbOne">
+                   
+                 
+               </div>
+               </div>
+              
+                <div class="col-md-4 ">
+             
+               <div class="thumbnail" id="thumbTwo">
+               
+                   
+               </div>
+               </div>
+                
+               <div class="col-md-4">
+              
+               <div class="thumbnail text-center" id="thumbThree">
+                  
+               </div>
+               </div>
          
-        <div class="container-fluid" id="mainContent">
-            <img class="img-thumbnail" src="ProfilePics/Picture.png">  
-            <p>This interface will allow researchers to query our database network for a circuit design expressed as logical operators such as “AND”, “OR”, and “NOR”, and retrieve the subnetwork of genetic devices that satisfies the circuit design. To Perform our search we modified several traditional graph search algorithms to traverse this graph,including but not limited to Prim’s algorithm (minimum spanning tree), Dijkstra’s algorithm and a breadth-first search. Results are visualized graphically in our web interface.</p>
-            <button class="btn-lg btn-success" id="signMe">Sign Up!</button>
-            
-            
-             </div>
-        
-        
-         <div class="footer">
-             <h1>Sponsors</h1>
-             <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">UCSD iGEM</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://localhost:8080/CircuitNetwork/Tester_Home.html" rel="dct:source">http://localhost:8080/CircuitNetwork/Tester_Home.html</a>
-         </div>
+            </div>
+            </div>
+     
+            <!--footer-->
+            <div class="container-fluid">
+            <div class="footer">
+                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+                    <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
+                <br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">UCSD iGEM
+                </span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License.</a>
+                <br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://localhost:8080/CircuitNetwork/Tester_Home.html" rel="dct:source">http://localhost:8080/CircuitNetwork/Tester_Home.html</a>;
+            </div>
+            </div>
+           
     </body>
 </html>

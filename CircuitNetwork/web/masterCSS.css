@@ -9,75 +9,68 @@ and open the template in the editor.
 */
 
 body{
-    background-color: #31515F;
+   background-color: #000000;
 }
-
-.thumbnail{
-    background-color: #31515F;
-    color: white;
-    border: none;
-}
-#shit{
-    
-    text-align: center;
-}
-#undergraduates{
-    text-align: center;
-    margin-top: 10px;
-    padding: 15px;
-    
-}
-#title{
-    font-size: 45px;
-    color:#ffffff;
-}
-h1{
-    color:#ffffff;
-    margin-bottom: 40px;
-}
-#shit .img-circle{
-    width: 80%;
-}
-
-#teamInfo{
-    font-size: 20px;
-    text-align: center;
-    border-left: 4px solid white;
-    
-    
-}
-#teamInfo .img-responsive{
-    width: 100%;
-    padding-left: 4px;
-}
+           
 #nav{
-    background-color: rgba(0,0,0,0.5);
-    color: white;
-    //border: 1px solid white;
-    padding: 1px;
-   box-sizing: border-box;  
-   
-   
-   
-    
-    
+   background-color: rgba(0,0,0,0.5);
+   color: white;
+   box-sizing: border-box;
+   border-bottom: 2px solid gold;
 }
 
-#nav .btn{
-    border-right: 2px solid grey;
-    
-    
-}
 #nav .btn:hover{
-    color: white; 
-   background-color: rgba(204,204,204,0.5);
+   color: gold;
+  
    
 }
 
-//contact page
-#h{
-  background-color: #31515F;
+#nav .btn:active{
+   color: white; 
+   background-color: rgba(204,204,204,0.5);
   
 }
+#mainPic{
+    
+}
+#underPic{
+    height:300px;
+    width: 350px;
+    background-color:#000000;
+    color: white;
+    text-decoration: none;
+    border: none;
+    
+}
+#underPic:hover{
+    color:gold;
+}
 
+#underPic .img-circle{
+    border: 2px solid gold;
+}
 
+#underPic .img-circle:hover{
+    border: 2px solid blue; 
+}
+
+#gradPic{
+    height:300px;
+    width: 350px;
+    background-color:#000000;
+    color: white;
+    text-decoration: none;
+    border: none;
+}
+
+#gradPic:hover{
+    color:gold;
+}
+
+#gradPic .img-circle:hover{
+    border: 2px solid blue; 
+}
+
+#gradPic .img-circle{
+    border: 2px solid gold;
+}

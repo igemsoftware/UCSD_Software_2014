@@ -39,7 +39,7 @@ public class AuthenticationServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        /*
+        
           
             //create a new cookie named authenticate with value authenticated
             String user = request.getParameter("user");
@@ -48,7 +48,7 @@ public class AuthenticationServlet extends HttpServlet {
             authenticateCookie.setMaxAge(60 * 60); //cookie lasts for an hour
             //add cookie to responsej
             response.addCookie(authenticateCookie);
-          */  
+            
     }
     
 

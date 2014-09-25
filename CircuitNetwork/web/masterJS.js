@@ -13,7 +13,7 @@ $(document).ready(function(){
        window.location.href="index.html"; 
     });
      $("#about").click(function(){
-       window.location.href="AboutUs.html"; 
+       window.location.href="AboutPage.html"; 
     });
      $("#documentation").click(function(){
        window.location.href="sampleHome.html"; 
@@ -26,6 +26,12 @@ $(document).ready(function(){
     });
      $("#contact").click(function(){
        window.location.href="contactPage.html"; 
+    });
+    $("#signMe").click(function(){
+       window.location.href="registrationPage.html"; 
+    });
+     $("#registerMe").click(function(){
+       window.location.href="registrationPage.html"; 
     });
      
     

@@ -1,85 +1,118 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : Sep 21, 2014, 1:24:58 AM
-    Author     : valeriysosnovskiy
-*/
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
 body{
-    background-color: #31515F;
+   background-color: #000000;
 }
+           
 #nav{
-    background-color: rgba(0,0,0,0.5);
-    color: white;
-    //border: 1px solid white;
-    padding: 1px;
-   box-sizing: border-box;     
+   background-color: rgba(0,0,0,0.5);
+   color: white;
+   box-sizing: border-box;
+   border-bottom: 2px solid gold;
 }
-#nav .btn{
-    //border-right: 2px solid grey;
-    
-    
-}
+
 #nav .btn:hover{
-    color: white; 
-   background-color: rgba(204,204,204,0.5);
+   color: gold;
+  
    
 }
 
 #nav .btn:active{
-    color: white; 
+   color: white; 
    background-color: rgba(204,204,204,0.5);
+  
 }
 
-#mainContent{
-   
-    background-color:#31515F; 
-    font-size: 18px;
-    color: white;
-    text-align: center;
-    width: 50%;
-    height: 20%;
+
+.item{
+    background: #000000;    
+    height: 450px;
     padding: 10px;
-    
-}
-
-
-
-
-#tutorial{
-    //width: 40%;
-   // border: 2px solid brown;
-    font-size:40px;
-    background-color: #31515F;
-    height:300px;
-    width: 300px;
-    
+    width: 100%;
+    color: white;
+    margin: auto;
+    text-align: center;
      
 }
-#tutorial:hover{
-    background-color: #006699;
+#sliderHolder{
+    
+   margin-top: 105px;
+   background: #000000;
 }
 
-#launch{
-    //width: 50%;
-   // border: 2px solid red;
-    font-size:40px;
-    background-color: #777777;
-    height:300px;
-    width: 300px;
-   
+.sliderHome{
+   opacity:.95;
+   border: 2px solid sandybrown;      
+ }
+ 
+ #extraInfo{
+    opacity:.88;
+    margin-top: 10px;
+    margin-left: 2px;
+    margin-right: 1px;
+ }
+ #sliderItems{
+     
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background: #000000;
+ }
+ 
+#bottomOne .row{
+    margin-top: 10px;
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-bottom: 2px;
+    opacity: .88;  
 }
-
-#launch:hover{
-    background-color: #006699;
-}
-
 #signMe{
-    font-size: 30px;
-    padding: auto;
+    font-size: 35px;
+}
+
+#thumbOne{
+    height: 250px;
+    font-size: 100px;
+    text-align: center;
+    color: white;
+    border-radius: 0 0 0 40px;
+    background-color: #000000; 
+    border: 1px solid #E6B800;
+}
+
+#thumbOne:hover{
+    border: 1px solid #E6B800;
+    background-color: navy;
+    
+}
+#thumbTwo{
+   
+    height: 250px;
+    background-color: #000000;
+    border: 2px solid gold;
+     
+}
+
+#thumbTwo:hover{
+    border: 1px solid #E6B800;
+     background-color: navy;
+}
+
+#thumbThree{
+    
+   
+    height: 250px;
+    border-radius: 0 0 40px 0; 
+    background-color: #000000;
+    border: 1px solid gold;
     
 }
 
-
+#thumbThree:hover{
+   background-color: navy; 
+}
+.footer{
+    width: 60%;
+    margin-bottom:10px;
+}
