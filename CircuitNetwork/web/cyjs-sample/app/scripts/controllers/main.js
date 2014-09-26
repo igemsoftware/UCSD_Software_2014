@@ -12,6 +12,7 @@ $window, Network, VisualStyles, Gist) {
 
         //these empty dictionaries are updated by the server for use by the cytoscape.js object.
         var networkData = {};
+        var networkDefault = {};
 	var vs = {};
         //global reference for cytoscape.js
         $scope.cynet;
@@ -433,6 +434,20 @@ $window, Network, VisualStyles, Gist) {
                     }).
                     error(function(data, status, headers, config) {
                     });
+                //             The Actual GET request.
+                /*
+                $http({method: 'GET', url: "/src/java/communication/AuthenticationServlet.java"}).
+                    success(function(data) {
+                        networkData = data;
+                        networkDefault = data;
+                        $('#network').cytoscape(options);
+                        $scope.cynet = $('#network').cytoscape('get');
+                        init();
+                    }).
+                    error(function(data, status, headers, config) {
+                        alert(status);
+                    });
+                */
             }).
             error(function(data, status, headers, config) {
             });

@@ -20,30 +20,68 @@ var Input3;
 //User-adjusted proportionality constants.
 var newK;
 //default svg line in y=mx+b format.
-function eqnDefault(i){
-    return k[0]*i + k[1];
+
+//dictionary of the equations
+var eqnDef = {
+    inputs: ["k1","k2"],
+    equation: function(i){
+                return k[0]*i + k[1];
+            },
+    values: {
+            "k1": k[0],
+            "k2": k[1]
+            }           
 };
-function eqnOne(OD, x1, i){
-    OpticalDensity = OD;
-    Input1 = x1;
-    
-    return -20*Input1*OpticalDensity*i;
+
+var eqnOne = {
+    inputs: ["Optical Density","Input 1"],
+    equation: function (OD, x1, i){
+                OpticalDensity = OD;
+                Input1 = x1;
+
+                return -20*Input1*OpticalDensity*i;
+            },
+    values: {
+        "Optical Density": OpticalDensity,
+        "Input 1": Input1
+    }
+            
 };
-function eqnTwo(OD,x1,y,i){
-    OpticalDensity = OD;
-    Input1 = x1;
-    Input2 = y;
-    
-    return ((-3*Input1)+(5.2*(OpticalDensity*OpticalDensity))-(5*Input2))*OpticalDensity*i;
+
+
+var eqnTwo = {
+    inputs: ["Optical Density", "Input 1", "Input 2"],
+    equation: function (OD,x1,y,i){
+                OpticalDensity = OD;
+                Input1 = x1;
+                Input2 = y;
+
+                return ((-3*Input1)+(5.2*(OpticalDensity*OpticalDensity))-(5*Input2))*OpticalDensity*i;
+              },
+    values: {
+        "Optical Density" : OpticalDensity,
+        "Input 1": Input1,
+        "Input 2": Input2
+    }
 };
-function eqnThree(OD,y,z,i){
-    OpticalDensity = OD;
-    Input1 = y;
-    Input2 = z;
-    
-    return ((5000*Input1)-(5*Input2))*OpticalDensity*i;
+
+var eqnThree = {
+    inputs: ["Optical Density", "Input 1", "Input 2"],
+    equation: function (OD,y,z,i){
+                OpticalDensity = OD;
+                Input1 = y;
+                Input2 = z;
+
+                return ((5000*Input1)-(5*Input2))*OpticalDensity*i;
+              },
+    values: {
+        "Optical Density" : OpticalDensity,
+        "Input 1": Input1,
+        "Input 2": Input2
+    }
 };
-var equation = eqnDefault;
+
+var equation = eqnDef.equation;
 
 //Where we receive the equation
 //Temporarily set to y=(m1)x+(b1).
@@ -72,18 +110,15 @@ var rangeMax; //maximum range
 
 //Proportionality Constant Angular Controller
 graphApp.controller('KCtrl',function($scope){
-    $scope.constants = ["k1", "k2"];
+    $scope.constants = eqnDef.inputs;
     $scope.default = {
         //setting prop. constants to default values
-        constants: {
-            "k1": k[0],
-            "k2": k[1]
-        }
+        constants: eqnDef.values
     };
     //Button method that updates the "K" values
     $scope.collectData = function (){
-        newK = $scope.default.constants;
-        console.log(newK);
+        eqnDef.values = $scope.default.constants;
+        console.log(eqnDef.values);
         //Function that appends an SVG element with the new "K" values.
         //Located on line ~160. Continues to create duplicate lines.
         newLine(domain);
@@ -226,8 +261,9 @@ var drawGraph = function(){
 };
 drawGraph(); 
 
-    // Adding the line to the graph.
-    plot.append("svg:path").attr("id","counter" + String(counter)).attr("d", line(points));
+// Adding the line to the graph.
+plot.append("svg:path").attr("id","counter" + String(counter)).attr("d", line(points));
+
 graphCount += 1;
 setPlot(graphCount);
 drawGraph();
@@ -250,7 +286,7 @@ var removeLine = function(){
 
 var newLine = function(newDomain){
     //clearing the arrays of old data.
-    equation = eqnNew;
+    equation = eqnDef.equation;
     eqnDomain = [];
     range = [];
     points = [];
