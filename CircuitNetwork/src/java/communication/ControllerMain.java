@@ -20,6 +20,17 @@ import org.json.simple.parser.ParseException;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import com.sun.mail.smtp.SMTPTransport;
+import java.security.Security;
+import java.util.Date;
+import java.util.Properties;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+
 
 /**
  *
@@ -70,4 +81,5 @@ public class ControllerMain {
         return output.toString();
 
     }
+    
 }

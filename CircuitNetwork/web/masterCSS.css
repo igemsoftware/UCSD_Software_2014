@@ -9,18 +9,20 @@ and open the template in the editor.
 */
 
 body{
-   background-color: #000000;
+   background-color: white;
 }
            
 #nav{
-   background-color: rgba(0,0,0,0.5);
+   background-color: #003D99;
    color: white;
    box-sizing: border-box;
-   border-bottom: 2px solid gold;
+   border-bottom: 4px solid #00004C;
+   
 }
 
 #nav .btn:hover{
    color: gold;
+   -webkit-transform:scale(1.2);
   
    
 }
@@ -31,23 +33,35 @@ body{
   
 }
 #mainPic{
-    
+  border: none;
+  color:#00004C;
+  font-size: 25px;
+}
+
+#mainPic .img-responsive{
+    height: 400px;
+    width: 100%;
+    border: 2px solid blue;
 }
 #underPic{
     height:300px;
     width: 350px;
-    background-color:#000000;
-    color: white;
+    background-color:white;
+    color: #00004C;
     text-decoration: none;
     border: none;
+    text-align: center;
     
 }
 #underPic:hover{
-    color:gold;
+    
+    -webkit-transform:scale(1.2);
 }
 
 #underPic .img-circle{
     border: 2px solid gold;
+    height: 200px;
+    width: 200px;
 }
 
 #underPic .img-circle:hover{
@@ -57,14 +71,15 @@ body{
 #gradPic{
     height:300px;
     width: 350px;
-    background-color:#000000;
-    color: white;
+    background-color:white;
+    color: #00004C;
     text-decoration: none;
     border: none;
 }
 
 #gradPic:hover{
     color:gold;
+    
 }
 
 #gradPic .img-circle:hover{
@@ -73,4 +88,18 @@ body{
 
 #gradPic .img-circle{
     border: 2px solid gold;
+    height: 200px;
+    width: 200px;
+}
+
+li{
+    list-style: none;
+}
+
+.row{
+    margin: 40px;
+}
+
+h1{
+    margin-bottom: 30px;
 }

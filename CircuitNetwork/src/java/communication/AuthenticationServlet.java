@@ -41,13 +41,7 @@ public class AuthenticationServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         
           
-            //create a new cookie named authenticate with value authenticated
-            String user = request.getParameter("user");
-            Cookie authenticateCookie = new Cookie("authenticate", user);
-            //set the age of the cookie
-            authenticateCookie.setMaxAge(60 * 60); //cookie lasts for an hour
-            //add cookie to responsej
-            response.addCookie(authenticateCookie);
+            
             
     }
     
@@ -131,9 +125,18 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
                    System.out.println(userPassword);
                    //call on the function passing the userName and userPassword
                    String info = verifyInfo(userName, userPassword, wrongInfo);
+                   
                    //for now its the userName
                    out.write(info);
                    break;
+               }
+               case "contactUs":
+               {
+                   String name = request.getParameter("name");
+                   String email = request.getParameter("email");
+                   String affiliation = request.getParameter("affiliation");
+                   String message = request.getParameter("message");
+               
                }
                default:
                    System.out.println("help me ");
@@ -236,6 +239,8 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
 
         return (userName);
     }
+    
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

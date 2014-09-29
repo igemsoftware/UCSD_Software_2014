@@ -3,43 +3,36 @@
 }
 
 body{
-   background-color: #000000;
+   background-color:white;
 }
            
 #nav{
-   background-color: rgba(0,0,0,0.5);
+   background-color: #003D99;
    color: white;
    box-sizing: border-box;
-   border-bottom: 2px solid gold;
+   border-bottom: 4px solid #00004C;
 }
 
 #nav .btn:hover{
    color: gold;
-  
-   
+   -webkit-transform:scale(1.2);   
 }
-
-#nav .btn:active{
-   color: white; 
-   background-color: rgba(204,204,204,0.5);
-  
-}
-
 
 .item{
-    background: #000000;    
+   background-color:white;    
     height: 450px;
     padding: 10px;
     width: 100%;
-    color: white;
+    color: #003D99;
     margin: auto;
     text-align: center;
+    font-size: 20px;
      
 }
 #sliderHolder{
     
    margin-top: 105px;
-   background: #000000;
+   background-color: white;
 }
 
 .sliderHome{
@@ -57,18 +50,27 @@ body{
      
     background-repeat: no-repeat;
     background-size: 100%;
-    background: #000000;
+    background:white;
  }
+ 
+ .carousel-indicators li{
+     background-color: #00004C;
+ }
+ 
  
 #bottomOne .row{
     margin-top: 10px;
-    margin-left: 2px;
-    margin-right: 2px;
+    //margin-left: 2px;
+    //margin-right: 2px;
     margin-bottom: 2px;
     opacity: .88;  
 }
 #signMe{
     font-size: 35px;
+    background-color: #003D99;
+;
+    color:white ;
+    //border: 3px solid gold;
 }
 
 #thumbOne{
@@ -76,43 +78,54 @@ body{
     font-size: 100px;
     text-align: center;
     color: white;
-    border-radius: 0 0 0 40px;
-    background-color: #000000; 
-    border: 1px solid #E6B800;
+    background-color: #5C8AE6;
+  
 }
 
 #thumbOne:hover{
-    border: 1px solid #E6B800;
-    background-color: navy;
+    border: 2px solid gold;
+    background-color: #1947A3;
+    color:gold;
+    //-webkit-transform:scale(1.1);
+    
     
 }
 #thumbTwo{
    
     height: 250px;
-    background-color: #000000;
-    border: 2px solid gold;
+    font-size: 100px;
+    text-align: center;
+    color: white;
+    background-color: #5C8AE6;
+   
      
 }
 
 #thumbTwo:hover{
-    border: 1px solid #E6B800;
-     background-color: navy;
+    border: 1px solid gold;
+     background-color:#1947A3 ;
+     color:gold;
 }
 
 #thumbThree{
     
    
     height: 250px;
-    border-radius: 0 0 40px 0; 
-    background-color: #000000;
-    border: 1px solid gold;
+    font-size: 100px;
+    text-align: center;
+    color: white;
+    background-color: #5C8AE6;
     
 }
 
 #thumbThree:hover{
-   background-color: navy; 
+   background-color: #1947A3;
+   border: 1px solid gold;
+   color:gold;
+   
 }
 .footer{
     width: 60%;
     margin-bottom:10px;
 }
+

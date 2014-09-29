@@ -24,6 +24,10 @@ $(document).ready(function(){
      $("#app").click(function(){
        window.location.href="AppPage.html"; 
     });
+    $("#thumbThree").click(function(){
+       window.location.href="AppPage.html"; 
+    });
+    
      $("#contact").click(function(){
        window.location.href="contactPage.html"; 
     });
@@ -48,4 +52,22 @@ $(document).ready(function(){
                     });
                     
                 });
+       
+     $('#submitContact').click(function(){
+       alert("your information is getting sent");
+       var name = $("#name").val();
+       var email = $('#email').val();
+       var affiliation = $('#affiliation').val();
+       var message = $('#message').val();
+       var data = {name:name, email:email, affiliation:affiliation,message: message, command:"contactUs"}; 
+       $.get("AuthenticationServlet", data, function(done){
+           
+       });
+         
+     });       
+                
+                
+    $("#thumbOne").hover(function(){
+       $(".glyphicon-quest").effect("scale", { percent: 200}, 1000); 
+    });            
 });
