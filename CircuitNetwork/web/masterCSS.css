@@ -52,14 +52,17 @@ body{
     border: none;
     text-align: center;
     
+    
 }
 #underPic:hover{
     
-    -webkit-transform:scale(1.2);
+    -webkit-transform:scale(1.1);
+    
+    
 }
 
 #underPic .img-circle{
-    border: 2px solid gold;
+    border: 2px solid #00004C;
     height: 200px;
     width: 200px;
 }
@@ -75,10 +78,11 @@ body{
     color: #00004C;
     text-decoration: none;
     border: none;
+   
 }
 
 #gradPic:hover{
-    color:gold;
+    
     
 }
 

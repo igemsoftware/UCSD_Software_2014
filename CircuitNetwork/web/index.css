@@ -3,7 +3,7 @@
 }
 
 body{
-   background-color:white;
+   background-color: white;
 }
            
 #nav{
@@ -15,7 +15,7 @@ body{
 
 #nav .btn:hover{
    color: gold;
-   -webkit-transform:scale(1.2);   
+   
 }
 
 .item{
@@ -55,7 +55,9 @@ body{
  
  .carousel-indicators li{
      background-color: #00004C;
+     
  }
+ 
  
  
 #bottomOne .row{

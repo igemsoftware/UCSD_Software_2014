@@ -1,5 +1,0 @@
-c nahR 8
-<p pCONST 4
-p pSAL 4
-c supD 8
-# Arcs
