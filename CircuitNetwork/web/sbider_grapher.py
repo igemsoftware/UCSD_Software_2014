@@ -549,6 +549,145 @@ def create_json_network(json_file_path, species_nodes_list, input_transitions_no
     f.close()
 
 
+def create_json_network_string(species_nodes_list, input_transitions_nodes_list,
+                        operon_nodes_list, output_transitions_nodes_list, source_id_target_id_list):
+    toReturn = ""
+    """Writes the whole network json."""
+
+    node_list = species_nodes_list + input_transitions_nodes_list + operon_nodes_list + output_transitions_nodes_list
+    node_coor_dictionary = nx_node_coor_dictionary(node_list, source_id_target_id_list)
+
+    numRuns = 0
+
+    x_coor_factor = 10000
+    y_coor_factor = 10000
+
+    toReturn+=('{"data" : { ')
+    toReturn+=('"selected" : true,')
+    toReturn+=('"_Annotations": [] ,')
+    toReturn+=('"shared_name" : "Test.sif",')
+    toReturn+=('"SUID" : 52,')
+    toReturn+=('"name":"Test.sif"')
+    toReturn+=('},')
+    toReturn+=('"elements":{')
+    toReturn+=('"nodes":[')
+
+    for node in species_nodes_list:
+
+        node[2] = "None"
+
+        toReturn+=('{')
+        toReturn+=('"data":{')
+        toReturn+=('"id":"' + node[0] + '",')
+        toReturn+=('"name":"' + node[1] + '",')
+        toReturn+=('"type":"' + node[2] + '"')
+        toReturn+=('},')
+
+        toReturn+=('"position":{')
+        toReturn+=('"x":' + str(node_coor_dictionary[node[0]][0] * x_coor_factor) + ',')
+        toReturn+=('"y":' + str(node_coor_dictionary[node[0]][1] * y_coor_factor))
+        toReturn+=('},')
+        toReturn+=('"classes":"species')
+        toReturn+=('",')
+
+        toReturn+=('"selected":false')
+        toReturn+=('},')
+        numRuns += 1
+
+    numRuns = 0
+    for node in input_transitions_nodes_list:
+        toReturn+=('{')
+        toReturn+=('"data":{')
+        toReturn+=('"id":"' + node[0] + '",')
+        toReturn+=('"logic":"' + node[1] + '"')
+        toReturn+=('},')
+
+        toReturn+=('"position":{')
+        toReturn+=('"x":' + str(node_coor_dictionary[node[0]][0] * x_coor_factor) + ',')
+        toReturn+=('"y":' + str(node_coor_dictionary[node[0]][1] * y_coor_factor))
+        toReturn+=('},')
+        toReturn+=('"classes":"input transition')
+        toReturn+=('",')
+
+        toReturn+=('"selected":false')
+        toReturn+=('},')
+        numRuns += 1
+
+    numRuns = 0
+    for node in operon_nodes_list:
+
+        node[2] = "None"
+
+        node[0] = node[0].replace(",", "-")
+
+        toReturn+='{'
+        toReturn+='"data":{'
+        toReturn+='"id":"' + node[0] + '",'
+        toReturn+='"SBOL":"' + node[2] + '",'
+        toReturn+='"name":"' + node[1] + '"'
+        toReturn+='},'
+
+        toReturn+='"position":{'
+        toReturn+='"x":' + str(node_coor_dictionary[node[0]][0] * x_coor_factor) + ','
+        toReturn+='"y":' + str(node_coor_dictionary[node[0]][1] * y_coor_factor)
+        toReturn+='},'
+
+
+        toReturn+='"classes":"operon'
+        toReturn+='",'
+
+        toReturn+='"selected":false'
+        toReturn+='},'
+
+        numRuns += 1
+
+    numRuns = 0
+    for node in output_transitions_nodes_list:
+        toReturn+='{'
+        toReturn+='"data":{'
+        toReturn+='"id":"' + str(node[0]) + '"'
+        toReturn+='},'
+
+        toReturn+='"position":{'
+
+
+
+        toReturn+='"x":' + str(node_coor_dictionary[node[0]][0] * x_coor_factor) + ','
+        toReturn+='"y":' + str(node_coor_dictionary[node[0]][1] * y_coor_factor)
+        toReturn+='},'
+        toReturn+='"classes":"output transition'
+        toReturn+='",'
+
+        toReturn+='"selected":false'
+        toReturn+='}'
+        if numRuns < len(output_transitions_nodes_list) - 1:
+            toReturn+=','
+        numRuns += 1
+
+    device_number = 0
+    toReturn+='],'
+    toReturn+='"edges":['
+
+    edge_id = 0
+    for edge in source_id_target_id_list:
+
+        toReturn+='{'
+        toReturn+='"data":{'
+        toReturn+='"id":"' + str(edge_id + 50) + '",'
+        toReturn+='"source":"' + str(edge[0]) + '",'
+        toReturn+='"target":"' + str(edge[1]) + '"'
+        toReturn+='},'
+        toReturn+='"selected":false'
+        toReturn+='}'
+        if edge_id < (len(source_id_target_id_list) - 1):
+            toReturn+=','
+        edge_id += 1
+
+    toReturn+=']'
+    toReturn+='}}'
+    return toReturn
+
+
 def create_whole_network_json():
     """Generates the whole network json."""
 
@@ -564,3 +703,10 @@ def create_subnetwork_json(cursor, list_of_operon_paths, json_file_name="subnetw
     operon_input_transition_dictionary = get_input_transition_species_dictionary(cursor)
     json_info = get_subnetwork(cursor, list_of_operon_paths)
     create_json_network(json_file_name, *json_info)
+
+def create_subnetwork_json_string(cursor, list_of_operon_paths):
+    """Generates the subnetwork json."""
+
+    operon_input_transition_dictionary = get_input_transition_species_dictionary(cursor)
+    json_info = get_subnetwork(cursor, list_of_operon_paths)
+    return create_json_network_string(*json_info)

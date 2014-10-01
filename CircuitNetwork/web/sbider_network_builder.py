@@ -15,12 +15,9 @@ import sbider_searcher as searcher
 import sbider_grapher as grapher
 
 
-def build_sbider_network(user_query, indirect=False):
-    database_file = \
-        "/Users/valeriysosnovskiy/UCSD_IGEM/CircuitNetwork/web/SBiDer_Database/sbider.db"
+def build_sbider_network(path, user_query, indirect=False):
+    database_file = path+"/sbider.db"
     conn, cur = db.db_open(database_file)
-
-    print "user_query:", user_query
 
     logic_dictionary = parser.parse_logic(cur, user_query)
     print "build_sbider_network: logic_dictionary", logic_dictionary
@@ -48,21 +45,21 @@ def build_sbider_network(user_query, indirect=False):
 
         all_operon_path_list_per_start_species.append(operon_path_list_per_start_species)
 
-        file_name = "/Users/valeriysosnovskiy/UCSD_IGEM/CircuitNetwork/web/test_json_file_%d.json" % file_name_idx
 
-        grapher.create_subnetwork_json(cur, operon_path_list_per_start_species, file_name)
-
-        file_name_idx += 1
+        toReturn = grapher.create_subnetwork_json_string(cur, operon_path_list_per_start_species)
+        return toReturn
 
 
 if __name__ == "__main__":
-
-    user_input = sys.argv[1]
+    path = sys.argv[1]
+    user_input = " ".join(sys.argv[2:])
+    
 
     if len(sys.argv) == 3 and (sys.argv[2].lower() == 'true' or sys.argv[2].lower() == 't'):
         indirect_flag = True
     else:
         indirect_flag = False
 
-
-    build_sbider_network(user_input, indirect_flag)
+    print("executing")
+    result = build_sbider_network(path, user_input, indirect_flag)
+    print >>sys.stderr, result

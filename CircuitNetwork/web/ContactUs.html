@@ -20,7 +20,9 @@ and open the template in the editor.
     </head>
     <body>
         <div>
-            <input id='command'/>
+ci > gfp
+<br/>
+<input id='command'>
             <button id='ping'>Submit</button>
             <div id='output'></div>
         </div>
@@ -50,7 +52,7 @@ and open the template in the editor.
                     $('#ping').click(function() {
                     var commandString = $('#command').val();
                     alert(commandString);
-                    var data = {user: userID, command: 'execute', data: commandString}; //package the input into a json file for submission to the server
+                    var data = {user: userID, command: 'query', data: commandString}; //package the input into a json file for submission to the server
                   
                     $.get("AuthenticationServlet", data, function(data) { //parameters are: servlet url, data, callback function
                         
@@ -74,14 +76,8 @@ and open the template in the editor.
                 
                 $('#fileTwo').click(function(){
                    alert(userID);
-                   //want the string to be kwattest.py "A or B or C or D > X or Y"
-                   //for the command line 
-                   var quote = ("\"A or B or C or D > X or Y\"");
-                   var string = ("kwattest.py " + "\"A\"" );
-                   var final = (string + " " + quote);
-                   alert(final);
-                   alert(string);
-                   var submissionTwo ={users: userID, command:"kwat", data:string};
+       
+                   var submissionTwo ={users: userID, command:"kwat", data:query};
                            $.get("AuthenticationServlet", submissionTwo, function(secondOne){
                            $('#outTwo').text(secondOne);
                            alert(secondOne);

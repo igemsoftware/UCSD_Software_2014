@@ -109,10 +109,11 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
                        out.write(output);
                        break;
                    }
-               case "kwat":
+               case "query":
                {
-                   System.out.println(string);
-                   String output = currentController.runPython(string); //use method to execute command
+                   
+                   String query = request.getParameter("data");
+                   String output = currentController.executeQuery(query); //use method to execute command
                    out.write(output);
                    break;
                }

@@ -49,6 +49,13 @@ public class ControllerMain {
      */
     public String runPython(String scriptName) {
         String output = executeCommand("python " + rootPath + "/" + scriptName); //append path to script name and then execute
+        System.out.println("python " + rootPath + "/" + scriptName);
+        return output;
+
+    }
+    
+    public String executeQuery(String query) {
+        String output = executeCommand("python " + rootPath + "/sbider_network_builder.py "+rootPath +" " + query+""); //append path to script name and then execute
         return output;
 
     }
@@ -58,27 +65,26 @@ public class ControllerMain {
     
     //to execute the files 
     public String executeCommand(String command) {
-        System.out.println("command" + command);
+        System.out.println("command: " + command);
         StringBuilder output = new StringBuilder();
 
         Process p;
         try {
             p = Runtime.getRuntime().exec(command);
             p.waitFor();
-            BufferedReader reader
-                    = new BufferedReader(new InputStreamReader(p.getInputStream()));
+//            BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(p.getErrorStream()));
 
             String line = "";
             while ((line = reader.readLine()) != null) {
                 output.append(line + "\n");
-                System.out.println("line");
+                System.out.println(line);
             }
 
         } catch (Exception e) {
             e.printStackTrace();
             return "no result";
         }
-
         return output.toString();
 
     }
