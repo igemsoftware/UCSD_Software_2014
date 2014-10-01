@@ -353,12 +353,14 @@ $window, Network, VisualStyles, Gist) {
 
         //Adding result selection to interface, highlighting first result.
         $scope.searchText;
+        //Array of all dropdown options for resulting paths.
         $scope.resultIndex = [];
+        //Index of selected circuite that is ng-modeled by the dropdown menu in the app.
         $scope.selectedCircuit;
 
         //
         $scope.searchCtrl = function () {
-            alert($scope.searchText);
+            //alert($scope.searchText);
             $scope.query = String($scope.searchText);
             console.log($scope.query);
             //searchGet();
@@ -478,7 +480,7 @@ $window, Network, VisualStyles, Gist) {
             $http({
                 method: 'GET', 
                 url: NETWORK_FILE,
-                params: { query: $scope.searchText}
+                params: { query: $scope.query}
                 }).
                 success(function(data) {
                     networkData = JSON.parse(data);
