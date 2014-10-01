@@ -5,7 +5,7 @@ $window, Network, VisualStyles, Gist) {
 
         'use strict';     
         //these files are the temporary network
-	var NETWORK_FILE = 'data/sbider_whole_network.json'; 
+	var NETWORK_FILE = 'data/test_json_file_1.json'; 
         var visualStyleFile = 'data/sbiderStyle.json'; 
         var DEFAULT_VISUAL_STYLE_NAME = 'default';//'Solid';
         var PRESET_STYLE_FILE = encodeURIComponent('data/sbiderStyle.json');
@@ -362,6 +362,7 @@ $window, Network, VisualStyles, Gist) {
             $scope.query = String($scope.searchText);
             console.log($scope.query);
             //searchGet();
+            //$scope.circuitCtrl();
         };
 
         //function for highlighting a path.        
@@ -453,10 +454,13 @@ $window, Network, VisualStyles, Gist) {
                     });
                 //             The Actual GET request.
                 /*
-                $http({method: 'GET', url: "/src/java/communication/AuthenticationServlet.java"}).
+                $http({
+                    method: 'GET', 
+                    url: "/src/java/communication/AuthenticationServlet.java"
+                    }).
                     success(function(data) {
-                        networkData = data;
-                        networkDefault = data;
+                        networkData = JSON.parse(data);
+                        networkDefault = JSON.parse(data);
                         $('#network').cytoscape(options);
                         $scope.cynet = $('#network').cytoscape('get');
                         init();
@@ -471,8 +475,13 @@ $window, Network, VisualStyles, Gist) {
     
             /*
         function searchGet() {
-            $http({method: 'GET', url: NETWORK_FILE}).
+            $http({
+                method: 'GET', 
+                url: NETWORK_FILE,
+                params: { query: $scope.searchText}
+                }).
                 success(function(data) {
+                    networkData = JSON.parse(data);
                     $scope.cynet.load(networkData.elements);
                 }).
                 error(function(data, status, headers, config) {

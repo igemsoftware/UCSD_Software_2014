@@ -19,8 +19,8 @@
       "border-opacity" : 1.0,
       "border-width" : 4.0,
       "color" : "rgb(255,255,255)",
-      "height" : 30.0,
-      "width" : 70.0,
+      "height" : 60.0,
+      "width" : 140.0,
       "content" : "data(name)"
     }
   }, {
