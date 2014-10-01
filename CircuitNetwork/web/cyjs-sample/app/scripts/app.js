@@ -20,6 +20,12 @@ angular.module('cyViewerApp', [
 
         // Routing
         $routeProvider
+            //Changed Routing to always direct to main.html
+            .when('/', {
+                templateUrl: 'views/main.html',
+                controller: 'MainCtrl'
+            })
+            /*
             .when('/', {
                 templateUrl: 'views/top.html',
                 controller: 'TopCtrl'
@@ -32,6 +38,7 @@ angular.module('cyViewerApp', [
                 templateUrl: 'views/main.html',
                 controller: 'MainCtrl'
             })
+            */
             .otherwise({
                  redirectTo: '/'
             });

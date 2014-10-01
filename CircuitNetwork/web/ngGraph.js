@@ -24,33 +24,39 @@ var newK;
 //dictionary of the equations
 var eqnDef = {
     inputs: ["k1","k2"],
-    equation: function(i){
-                return k[0]*i + k[1];
-            },
     values: {
-            "k1": k[0],
-            "k2": k[1]
-            }           
+        "k1": k[0],
+        "k2": k[1]
+        }, 
+    equation: function(i){
+                return eqnDef.values.k1*i + eqnDef.values.k2;
+            }          
 };
 
 var eqnOne = {
     inputs: ["Optical Density","Input 1"],
+    values: {
+        "Optical Density": OpticalDensity,
+        "Input 1": Input1
+    },
     equation: function (OD, x1, i){
                 OpticalDensity = OD;
                 Input1 = x1;
 
                 return -20*Input1*OpticalDensity*i;
             },
-    values: {
-        "Optical Density": OpticalDensity,
-        "Input 1": Input1
-    }
+    eqnText: "(dx/dt) = -20*x*OD"
             
 };
 
 
 var eqnTwo = {
     inputs: ["Optical Density", "Input 1", "Input 2"],
+    values: {
+        "Optical Density" : OpticalDensity,
+        "Input 1": Input1,
+        "Input 2": Input2
+    },
     equation: function (OD,x1,y,i){
                 OpticalDensity = OD;
                 Input1 = x1;
@@ -58,30 +64,27 @@ var eqnTwo = {
 
                 return ((-3*Input1)+(5.2*(OpticalDensity*OpticalDensity))-(5*Input2))*OpticalDensity*i;
               },
-    values: {
-        "Optical Density" : OpticalDensity,
-        "Input 1": Input1,
-        "Input 2": Input2
-    }
+    eqnText: "(dy/dt) = (-3*x + 5.2*OD^2 - 5*y)*OD"
 };
 
 var eqnThree = {
     inputs: ["Optical Density", "Input 1", "Input 2"],
-    equation: function (OD,y,z,i){
-                OpticalDensity = OD;
-                Input1 = y;
-                Input2 = z;
-
-                return ((5000*Input1)-(5*Input2))*OpticalDensity*i;
-              },
     values: {
         "Optical Density" : OpticalDensity,
         "Input 1": Input1,
         "Input 2": Input2
-    }
+    },
+    equation: function (OD,x,y,i){
+                OpticalDensity = OD;
+                Input1 = x;
+                Input2 = y;
+
+                return ((5000*Input1)-(5*Input2))*OpticalDensity*i;
+              },
+    eqnText: "(dz/dt) = (5000*x - 5*y)*OD"
 };
 
-var equation = eqnDef.equation;
+var equation = eqnDef;
 
 //Where we receive the equation
 //Temporarily set to y=(m1)x+(b1).
@@ -110,15 +113,15 @@ var rangeMax; //maximum range
 
 //Proportionality Constant Angular Controller
 graphApp.controller('KCtrl',function($scope){
-    $scope.constants = eqnDef.inputs;
+    $scope.constants = equation.inputs;
     $scope.default = {
         //setting prop. constants to default values
-        constants: eqnDef.values
+        constants: equation.values
     };
     //Button method that updates the "K" values
     $scope.collectData = function (){
-        eqnDef.values = $scope.default.constants;
-        console.log(eqnDef.values);
+        equation.values = $scope.default.constants;
+        console.log(equation.values);
         //Function that appends an SVG element with the new "K" values.
         //Located on line ~160. Continues to create duplicate lines.
         newLine(domain);
@@ -140,7 +143,7 @@ domainSet(domain);
 
 var rangeSet = function(time) {
     for (i = 0; i <= d3.max(time); i++){
-        var y = equation(i);
+        var y = equation.equation(i);
         range.push(y);
     };
 };
@@ -194,10 +197,10 @@ function make_y_axis() {
         .orient("left")
         .ticks(10);
 }
-var plot;
+
     //create variable the SVG containter
 function setPlot(newGraph){
-    var graphNumber = newGraph
+    var graphNumber = newGraph;
     plot = d3.select("#graph" + String(graphNumber)).append("svg:svg")
         .attr("height", h + m[0] +m[2])
         .attr("width", w + m[1] + m[3])
@@ -225,48 +228,44 @@ var drawGraph = function(){
             .tickFormat("")
         );
 
-    //create left y-axis
-    var yAxisMain = d3.svg.axis().scale(yScale).ticks(10).orient("left");
     // Add the main y-axis
     plot.append("svg:g")
             .attr("class", "main axis")
             //.attr("transform", "translate(0," + h + ")")
-            .call(yAxisMain);
+            .call(make_y_axis());
 
-    //create bottom x-axis
-    var xAxisMain = d3.svg.axis().scale(xScale);
     // Add the main x-axis
     plot.append("svg:g")
             .attr("class", "main axis")
             .attr("transform", "translate(0," + h + ")")
-            .call(xAxisMain);
+            .call(make_x_axis());
     
     //Adding X-axis label
     plot.append("text")
-    .attr("class", "label")
-    .attr("x", w/2)
-    .attr("y", h + 50 )
-    .style("text-anchor", "middle")
-    .text("Time");
+        .attr("class", "label")
+        .attr("x", w/2)
+        .attr("y", h + 50 )
+        .style("text-anchor", "middle")
+        .text("Time");
     
-    //Adding Y-axis lavel
+    //Adding Y-axis label
     plot.append("text")
-    .attr("class", "label")
-    .attr("x", -(w/2))
-    .attr("y", -50)
-    .attr("dy", ".1em")
-    .attr("transform", "rotate(-90)")
-    .style("text-anchor", "middle")
-    .text("Concentration");
+        .attr("class", "label")
+        .attr("x", -(w/2))
+        .attr("y", -50)
+        .attr("dy", ".1em")
+        .attr("transform", "rotate(-90)")
+        .style("text-anchor", "middle")
+        .text("Concentration");
 };
-drawGraph(); 
-
-// Adding the line to the graph.
-plot.append("svg:path").attr("id","counter" + String(counter)).attr("d", line(points));
+drawGraph();
 
 graphCount += 1;
 setPlot(graphCount);
 drawGraph();
+
+// Adding the line to the graph.
+plot.append("svg:path").attr("id","counter" + String(counter)).attr("d", line(points));
 
 //***Line editing functions***
 
@@ -286,7 +285,7 @@ var removeLine = function(){
 
 var newLine = function(newDomain){
     //clearing the arrays of old data.
-    equation = eqnDef.equation;
+    equation = eqnDef;
     eqnDomain = [];
     range = [];
     points = [];

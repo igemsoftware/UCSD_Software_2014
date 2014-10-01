@@ -5,7 +5,7 @@ $window, Network, VisualStyles, Gist) {
 
         'use strict';     
         //these files are the temporary network
-	var NETWORK_FILE = 'data/sbider_SUCCESS.json'; 
+	var NETWORK_FILE = 'data/sbider_whole_network.json'; 
         var visualStyleFile = 'data/sbiderStyle.json'; 
         var DEFAULT_VISUAL_STYLE_NAME = 'default';//'Solid';
         var PRESET_STYLE_FILE = encodeURIComponent('data/sbiderStyle.json');
@@ -53,6 +53,9 @@ $window, Network, VisualStyles, Gist) {
             show: true
         };
         $scope.toolbarState = {
+            show: true
+        };
+        $scope.searchState = {
             show: true
         };
         $scope.cadState = {
@@ -264,9 +267,14 @@ $window, Network, VisualStyles, Gist) {
             $scope.toolbarState.show = !$scope.toolbarState.show;
         };
         
+        $scope.toggleSearch = function() {
+            $scope.searchState.show = !$scope.searchState.show;
+        };
+        
         $scope.toggleCAD = function() {
             $scope.cadState.show = !$scope.cadState.show;
         };
+        
         $scope.toggleModel = function() {
             $scope.modelState.show = !$scope.modelState.show;
         };
@@ -344,8 +352,17 @@ $window, Network, VisualStyles, Gist) {
         //Highlighting and controlling selected paths.
 
         //Adding result selection to interface, highlighting first result.
+        $scope.searchText;
         $scope.resultIndex = [];
         $scope.selectedCircuit;
+
+        //
+        $scope.searchCtrl = function () {
+            alert($scope.searchText);
+            $scope.query = String($scope.searchText);
+            console.log($scope.query);
+            //searchGet();
+        };
 
         //function for highlighting a path.        
         $scope.selectPath = function(index) {
@@ -451,6 +468,17 @@ $window, Network, VisualStyles, Gist) {
             }).
             error(function(data, status, headers, config) {
             });
+    
+            /*
+        function searchGet() {
+            $http({method: 'GET', url: NETWORK_FILE}).
+                success(function(data) {
+                    $scope.cynet.load(networkData.elements);
+                }).
+                error(function(data, status, headers, config) {
+                });
+        };
+        */
 
 	function init() {
             $scope.nodes = networkData.elements.nodes;
