@@ -29,6 +29,12 @@
       "shape" : "ellipse"
     }
   }, {
+    "selector" : "node.operon",
+    "css" : {
+      "background-color" : "#ff8300",
+      "border-color" : "#e6762b"
+    }
+  }, {
     "selector" : "node.transition",
     "css" : {
       "shape" : "roundrectangle",  
@@ -36,10 +42,22 @@
       "height" : 70.0
     }
   }, {
+    "selector" : "node.transition.input",
+    "css" : {
+      "background-color" : "#00ff00",
+      "border-color" : "#00b200"
+    }
+  }, {
+    "selector" : "node.transition.output",
+    "css" : {
+      "background-color" : "#ff0000",
+      "border-color" : "#cc0000"
+    }
+  }, {
     "selector" : "node.transition.IF",
     "css" : {
-      "width" : 35.0,
-      "height" : 70.0
+      "background-color" : "#00ff00",
+      "border-color" : "#00b200"
     }
   }, {
     "selector" : "node.transition.AND",
