@@ -1,31 +1,9 @@
+
 <div id="network" ng-style="{'background-color': bg.color}"></div>
 
 <div class="loading">
     <span us-spinner="{radius:30, width:3, length: 100}"></span>
 </div>
-
-<!--<div ng-controller="CarouselDemoCtrl">
-  <div style="height: 550px width: 20px">
-    <carousel interval="myInterval">
-      <slide ng-repeat="slide in slides" active="slide.active">
-        <img ng-src="{{slide.image}}" style="margin:auto;">
-        <div class="carousel-caption">
-          <h4>Slide {{$index}}</h4>
-          <p>{{slide.text}}</p>
-        </div>
-      </slide>
-    </carousel>
-  </div>
-  <div class="row">
-    <div class="col-md-6">
-      <button type="button" class="btn btn-info" ng-click="addSlide()">Add Slide</button>
-    </div>
-    <div class="col-md-6">
-      Interval, in milliseconds: <input type="number" class="form-control" ng-model="myInterval">
-      <br />Enter a negative number to stop the interval.
-    </div>
-  </div>
-</div>-->
 
 <div class="summary" ng-show="overlayState.show">
     <!--<h3>Network:</h3>
@@ -36,20 +14,10 @@
     </select>-->
     
 	<br><br>
-	Search: <input class = "textbox" type = "text" ng-model = "searchText"/>
-	<style> 
-	.textbox { 
-		border: 1px solid #848484; 
-		-webkit-border-radius: 30px; 
-		-moz-border-radius: 30px; 
-		border-radius: 30px; 
-		outline:0; 
-		height:25px; 
-		width: 205px; 
-		padding-left:10px; 
-		padding-right:10px; 
-	  } 
-	</style> 
+        <div ng-show="searchState.show" class="searchBox">
+            Search: <span><input class = "textbox" type = "text" ng-model = "searchText"/>
+                <button><span id="search-box" class="glyphicon glyphicon-search" ng-click="searchCtrl()"></span></button></span>
+        </div>
 
 	<br><br>
 	<!--<img src ="http://ubic.ucsd.edu/ubic_logo_s.png" id = "book"/>-->
@@ -130,46 +98,58 @@
     </div>
 </div>
 
-<div class="home-button" ng-click="toggleToolbar()" style="clear:both;" tooltip-placement="left" tooltip="Show/Hide Toolbar">
+<div class="toolbar home-button" ng-click="toggleToolbar()" style="clear:both;" tooltip-placement="left" tooltip="Show/Hide Toolbar">
     <span class="glyphicon glyphicon-sort"></span>
 </div>
-<div class="command-bar" ng-show="toolbarState.show">
+<div class="toolbar command-bar" ng-show="toolbarState.show">
     <div class="icon-button orange" data-toggle="modal" data-target="#share" ng-click="encodeUrl()" tooltip-placement="left" tooltip="Share!">
         <span class="glyphicon glyphicon-share-alt"></span>
+    </div>
+    <div class="icon-button" ng-click="toggleOverlay()" tooltip-placement="left" tooltip="Show/Hide Overlay">
+        <span class="glyphicon glyphicon-info-sign"></span>
+    </div>
+    <div class="icon-button" ng-click="toggleSearch()" tooltip-placement="left" tooltip="Show/Hide Search Bar">
+        <span class="glyphicon glyphicon-search"></span>
     </div>
     <div class="icon-button" ng-click="toggleTableBrowser()" tooltip-placement="left" tooltip="Show/Hide Table">
         <span class="glyphicon glyphicon-list-alt"></span>
     </div>
-    <div class="icon-button" ng-click="toggleOverlay()" tooltip-placement="left" tooltip="Show/Hide Selector">
-        <span class="glyphicon glyphicon-info-sign"></span>
-    </div>
     <div class="icon-button" ng-click="fit()" tooltip-placement="left" tooltip="Fit to window">
         <span class="glyphicon glyphicon-resize-full"></span>
     </div>
+    <!-- Old Glyph for bg color picker -->
+    <!--
     <div class="icon-button" colorpicker colorpicker-position="left" ng-model="bg.color" tooltip-placement="left" tooltip="Set Background Color">
         <span class="glyphicon glyphicon-tint"></span>
     </div>
+    -->
 	<div class="icon-button" ng-click="toggleCAD()" tooltip-placement="left" tooltip="View Device Images">
 	<span class="glyphicon glyphicon-eye-open"></span>
     </div>
     <div class="icon-button" ng-click="toggleModel()" tooltip-placement="left" tooltip="Display Model">
 	<span class="glyphicon glyphicon-signal"></span>
     </div>
+    
+    <!-- Old Home button glyph -->
+    <!--
     <div class="icon-button" tooltip-placement="left" tooltip="Back to Top Page">
         <a href="/">
             <span class="glyphicon glyphicon-home"></span>
         </a>
     </div>
-
+    -->
 </div>
 
 <div class="modal fade" id="share" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
+            <!--Old Share Link Button-->
+            <!--
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title" id="myModalLabel">Share This Visualization</h4>
             </div>
+            -->
             <div class="modal-body">
                 <form role="form">
                     <div class="form-group">

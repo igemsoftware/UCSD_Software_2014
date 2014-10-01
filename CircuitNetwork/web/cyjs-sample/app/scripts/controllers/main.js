@@ -1,3 +1,4 @@
+
 angular.module('cyViewerApp')
 	
     .controller('MainCtrl', function ($scope, $http, $location, $routeParams, 
@@ -5,13 +6,14 @@ $window, Network, VisualStyles, Gist) {
 
         'use strict';     
         //these files are the temporary network
-	var NETWORK_FILE = 'data/sbider_SUCCESS.json'; 
+	var NETWORK_FILE = 'data/test_json_file_1.json'; 
         var visualStyleFile = 'data/sbiderStyle.json'; 
         var DEFAULT_VISUAL_STYLE_NAME = 'default';//'Solid';
         var PRESET_STYLE_FILE = encodeURIComponent('data/sbiderStyle.json');
 
         //these empty dictionaries are updated by the server for use by the cytoscape.js object.
         var networkData = {};
+        var networkDefault = {};
 	var vs = {};
         //global reference for cytoscape.js
         $scope.cynet;
@@ -52,6 +54,9 @@ $window, Network, VisualStyles, Gist) {
             show: true
         };
         $scope.toolbarState = {
+            show: true
+        };
+        $scope.searchState = {
             show: true
         };
         $scope.cadState = {
@@ -263,9 +268,14 @@ $window, Network, VisualStyles, Gist) {
             $scope.toolbarState.show = !$scope.toolbarState.show;
         };
         
+        $scope.toggleSearch = function() {
+            $scope.searchState.show = !$scope.searchState.show;
+        };
+        
         $scope.toggleCAD = function() {
             $scope.cadState.show = !$scope.cadState.show;
         };
+        
         $scope.toggleModel = function() {
             $scope.modelState.show = !$scope.modelState.show;
         };
@@ -343,8 +353,20 @@ $window, Network, VisualStyles, Gist) {
         //Highlighting and controlling selected paths.
 
         //Adding result selection to interface, highlighting first result.
+        $scope.searchText;
+        //Array of all dropdown options for resulting paths.
         $scope.resultIndex = [];
+        //Index of selected circuite that is ng-modeled by the dropdown menu in the app.
         $scope.selectedCircuit;
+
+        //
+        $scope.searchCtrl = function () {
+            //alert($scope.searchText);
+            $scope.query = String($scope.searchText);
+            console.log($scope.query);
+            //searchGet();
+            //$scope.circuitCtrl();
+        };
 
         //function for highlighting a path.        
         $scope.selectPath = function(index) {
@@ -433,9 +455,42 @@ $window, Network, VisualStyles, Gist) {
                     }).
                     error(function(data, status, headers, config) {
                     });
+                //             The Actual GET request.
+                /*
+                $http({
+                    method: 'GET', 
+                    url: "/src/java/communication/AuthenticationServlet.java"
+                    }).
+                    success(function(data) {
+                        networkData = JSON.parse(data);
+                        networkDefault = JSON.parse(data);
+                        $('#network').cytoscape(options);
+                        $scope.cynet = $('#network').cytoscape('get');
+                        init();
+                    }).
+                    error(function(data, status, headers, config) {
+                        alert(status);
+                    });
+                */
             }).
             error(function(data, status, headers, config) {
             });
+    
+            /*
+        function searchGet() {
+            $http({
+                method: 'GET', 
+                url: NETWORK_FILE,
+                params: { query: $scope.query}
+                }).
+                success(function(data) {
+                    networkData = JSON.parse(data);
+                    $scope.cynet.load(networkData.elements);
+                }).
+                error(function(data, status, headers, config) {
+                });
+        };
+        */
 
 	function init() {
             $scope.nodes = networkData.elements.nodes;
