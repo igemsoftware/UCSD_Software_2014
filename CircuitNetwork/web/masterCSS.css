@@ -1,0 +1,109 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 22, 2014, 1:08:09 PM
+    Author     : valeriysosnovskiy
+*/
+
+body{
+   background-color: white;
+}
+           
+#nav{
+   background-color: #003D99;
+   color: white;
+   box-sizing: border-box;
+   border-bottom: 4px solid #00004C;
+   
+}
+
+#nav .btn:hover{
+   color: gold;
+   -webkit-transform:scale(1.2);
+  
+   
+}
+
+#nav .btn:active{
+   color: white; 
+   background-color: rgba(204,204,204,0.5);
+  
+}
+#mainPic{
+  border: none;
+  color:#00004C;
+  font-size: 25px;
+}
+
+#mainPic .img-responsive{
+    height: 400px;
+    width: 100%;
+    border: 2px solid blue;
+}
+#underPic{
+    height:300px;
+    width: 350px;
+    background-color:white;
+    color: #00004C;
+    text-decoration: none;
+    border: none;
+    text-align: center;
+    
+    
+}
+#underPic:hover{
+    
+    -webkit-transform:scale(1.1);
+    
+    
+}
+
+#underPic .img-circle{
+    border: 2px solid #00004C;
+    height: 200px;
+    width: 200px;
+}
+
+#underPic .img-circle:hover{
+    border: 2px solid blue; 
+}
+
+#gradPic{
+    height:300px;
+    width: 350px;
+    background-color:white;
+    color: #00004C;
+    text-decoration: none;
+    border: none;
+   
+}
+
+#gradPic:hover{
+    
+    
+}
+
+#gradPic .img-circle:hover{
+    border: 2px solid blue; 
+}
+
+#gradPic .img-circle{
+    border: 2px solid gold;
+    height: 200px;
+    width: 200px;
+}
+
+li{
+    list-style: none;
+}
+
+.row{
+    margin: 40px;
+}
+
+h1{
+    margin-bottom: 30px;
+}
