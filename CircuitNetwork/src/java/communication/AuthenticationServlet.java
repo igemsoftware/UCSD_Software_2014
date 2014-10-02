@@ -89,14 +89,14 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
             
             //to get the command value
             String command = request.getParameter("command");
-            //to get the data value 
-            String string = request.getParameter("data");
+            
            
            //switch for different command values 
            switch (command) {
                case "testPy":
                    {
-                      
+                      //to get the data value 
+                       String string = request.getParameter("data");
                        System.out.println(string);
                        String output = currentController.runPython(string); //use method to execute command
                        out.write(output);
@@ -104,6 +104,8 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
                    }
                case "execute":
                    {
+                       //to get the data value 
+                       String string = request.getParameter("data");
                        System.out.println(string);
                        String output = currentController.runPython(string); //use method to execute command
                        out.write(output);
@@ -111,7 +113,8 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
                    }
                case "query":
                {
-                   
+                   //to get the data value 
+                   System.out.println("query");
                    String query = request.getParameter("data");
                    String output = currentController.executeQuery(query); //use method to execute command
                    out.write(output);
@@ -120,6 +123,8 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
                
                case "registration":
                {
+                   //to get the data value 
+                   String string = request.getParameter("data");
                    String userName = request.getParameter("userName");
                    String userPassword = request.getParameter("userPassword");
                    String wrongInfo = ("");
@@ -134,6 +139,8 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
                }
                case "contactUs":
                {
+                   //to get the data value 
+                   String string = request.getParameter("data");
                    String name = request.getParameter("name");
                    String email = request.getParameter("email");
                    String affiliation = request.getParameter("affiliation");
