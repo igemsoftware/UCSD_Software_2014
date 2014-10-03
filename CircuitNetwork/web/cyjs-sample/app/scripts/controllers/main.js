@@ -369,7 +369,7 @@ $window, Network, VisualStyles, Gist) {
             $scope.query = String($scope.searchText);
             console.log($scope.query);
             
-            alert("clicked");
+            
             searchGet();
             //$scope.circuitCtrl();
         };
@@ -485,21 +485,32 @@ $window, Network, VisualStyles, Gist) {
     
             
         function searchGet() {
-            alert("searchGet");
             
             
-            $http({ 
-                method: 'GET', 
-                url: "/AuthenticationServlet.java",
-                params: { user: userID, command: "query" , data: $scope.query }
-                }).
-                success(function(data) {
-                    alert("shit went through");
-                    alert(data);
+            var commandString = $scope.query; 
+            var data = {user: userID, command: 'query', data: commandString}; //package the input into a json file for submission to the server
+                  
+                    $.get("../../AuthenticationServlet", data, function(data) { //parameters are: servlet url, data, callback function
+                       
+                    
                     networkData = JSON.parse(data);
-                    alert(networkData);
+                    
                     $scope.cynet.load(networkData.elements);
-                }).
+                    });
+                
+//            $http({ 
+//                method: 'GET', 
+//                url: "../../AuthenticationServlet",
+//                params: { user: userID, command: "query" , data: $scope.query }
+//                }).
+////                alert("$http was called with: " + $scope.query);
+//                success(function(data) {
+//                    alert("shit went through");
+//                    alert(data);
+//                    networkData = JSON.parse(data);
+//                    alert(networkData);
+//                    $scope.cynet.load(networkData.elements);
+//                }).
                 error(function(data, status, headers, config) {
                 });
         };
