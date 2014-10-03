@@ -11,6 +11,8 @@
     padding-left:10px; 
     padding-right:10px; 
     margin: 5px; 
+    color: black;
+    
 }
 
 .searchBox {
@@ -19,7 +21,9 @@
     border: 2px solid black;
     padding: 10px;
     text-align: center;
-    font-size: 15px;
+    font-size: 16px;
+    color: white;
+    background-color: #5C8AE6;
     
     
 }
@@ -49,6 +53,7 @@ div.CAD {
     border-radius: 3px;
     outline: #f8f8f8 solid 2px;
     opacity: .9;
+    
 }
 
 img.CAD {
@@ -58,6 +63,7 @@ img.CAD {
     top: 200px;
     left: 25px;
     z-index: -1000;
+    
 }
 
 .selectedCAD {
@@ -86,4 +92,5 @@ div.path {
     border-radius: 3px;
     outline: #f8f8f8 solid 2px;
     opacity: .9;
+    
 }

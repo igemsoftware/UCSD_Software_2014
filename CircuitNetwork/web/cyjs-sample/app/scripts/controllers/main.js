@@ -366,16 +366,27 @@ $window, Network, VisualStyles, Gist) {
         //
         $scope.searchCtrl = function () {
             //alert($scope.searchText);
+            //the input and output of the user 
             $scope.input = String($scope.searchInput);
             $scope.output = String($scope.searchOutput);
             
+            //combination of input = output 
             $scope.query = ($scope.input + " = " + $scope.output);
+            
+            //the default is false, when checked its true and direct path is set
+            $scope.BooleanTrue = String($scope.checkTrue);
+            alert($scope.BooleanTrue);
             console.log($scope.query);
             
             
             searchGet();
             //$scope.circuitCtrl();
         };
+        
+        //refreshes the inputs and the page 
+         $scope.reloadPage = function()
+         {$scope.cynet.load(networkDefault.elements);
+         };
 
         //function for highlighting a path.        
         $scope.selectPath = function(index) {
@@ -459,6 +470,7 @@ $window, Network, VisualStyles, Gist) {
                 $http({method: 'GET', url: NETWORK_FILE}).
                     success(function(data) {
                         networkData = data;
+                        networkDefault = data;
                         $('#network').cytoscape(options);
                         $scope.cynet = $('#network').cytoscape('get');
                         init();

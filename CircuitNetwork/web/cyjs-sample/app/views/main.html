@@ -15,13 +15,17 @@
     
 	<br><br>
         <div ng-show="searchState.show" class="searchBox">
-            <h5>Please enter your input and output intermediates</h5>
+            
+            <h4>Please enter input and output intermediates</h4>
             
             INPUT: <span><input class = "textbox" type = "text" ng-model = "searchInput" placeholder="type in your input"/><br>
                
-                OUTPUT: <span><input class = "textbox" type = "text" ng-model = "searchOutput" placeholder="type in your output"/><br>
+            OUTPUT: <span><input class = "textbox" type = "text" ng-model = "searchOutput" placeholder="type in your output"/><br>
+                    
+            True (Indirect Path): <input type="checkbox" ng-model="checkTrue"><br/> 
             
-                <button><span id="search-box" class="glyphicon glyphicon-share-alt" ng-click="searchCtrl()"></span></button></span>
+            <button><span id="search-box" class="glyphicon glyphicon-share-alt" ng-click="searchCtrl()"><span>Explore</span></span></button></span>
+            <button><span id="search-box" class="glyphicon glyphicon-refresh" ng-click="reloadPage()"><span>Refresh</span></span></button></span>
         </div>
 
 	<br><br>
