@@ -112,7 +112,7 @@ $window, Network, VisualStyles, Gist) {
                 $scope.cy.style().fromJson($scope.visualStyles
                 [DEFAULT_VISUAL_STYLE_NAME].style).update();
                 updateNetworkData(cy);
-	        angular.element('.loading').remove();
+	        angular.element('.loading').hide();
 				//$('#752').addClass('highlighted');
 				
 				//$scope.#752.addClass('highlighted');
@@ -277,6 +277,8 @@ $window, Network, VisualStyles, Gist) {
         };
         
         $scope.toggleCAD = function() {
+            
+            $( ".searchBox" ).append($(".addSlider"));
             $scope.cadState.show = !$scope.cadState.show;
         };
         
@@ -378,8 +380,9 @@ $window, Network, VisualStyles, Gist) {
             alert($scope.BooleanTrue);
             console.log($scope.query);
             
-            
+            angular.element('.loading').show();
             searchGet();
+            
             //$scope.circuitCtrl();
         };
         
@@ -509,8 +512,9 @@ $window, Network, VisualStyles, Gist) {
                        
                     
                     networkData = JSON.parse(data);
-                    
+                    angular.element('.loading').hide();
                     $scope.cynet.load(networkData.elements);
+                    
                     });
                 
 //            $http({ 
