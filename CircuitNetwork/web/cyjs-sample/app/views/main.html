@@ -15,8 +15,13 @@
     
 	<br><br>
         <div ng-show="searchState.show" class="searchBox">
-            Search: <span><input class = "textbox" type = "text" ng-model = "searchText"/>
-                <button><span id="search-box" class="glyphicon glyphicon-search" ng-click="searchCtrl()"></span></button></span>
+            <h5>Please enter your input and output intermediates</h5>
+            
+            INPUT: <span><input class = "textbox" type = "text" ng-model = "searchInput" placeholder="type in your input"/><br>
+               
+                OUTPUT: <span><input class = "textbox" type = "text" ng-model = "searchOutput" placeholder="type in your output"/><br>
+            
+                <button><span id="search-box" class="glyphicon glyphicon-share-alt" ng-click="searchCtrl()"></span></button></span>
         </div>
 
 	<br><br>

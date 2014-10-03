@@ -366,7 +366,10 @@ $window, Network, VisualStyles, Gist) {
         //
         $scope.searchCtrl = function () {
             //alert($scope.searchText);
-            $scope.query = String($scope.searchText);
+            $scope.input = String($scope.searchInput);
+            $scope.output = String($scope.searchOutput);
+            
+            $scope.query = ($scope.input + " = " + $scope.output);
             console.log($scope.query);
             
             

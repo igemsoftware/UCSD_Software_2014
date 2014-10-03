@@ -3,19 +3,37 @@
 .textbox { 
     border: 1px solid #848484; 
     -webkit-border-radius: 30px; 
-    -moz-border-radius: 30px; 
+    -moz-border-radius: 20px; 
     border-radius: 30px; 
     outline:0; 
     height:25px; 
     width: 205px; 
     padding-left:10px; 
     padding-right:10px; 
+    margin: 5px; 
 }
 
 .searchBox {
     position: fixed;
     top: 10%;
+    border: 2px solid black;
+    padding: 10px;
+    text-align: center;
+    font-size: 15px;
+    
+    
 }
+
+.searchBox button{
+    border-radius: 20px;
+    color: gold;
+    background-color: green;
+    font-size: 20px;
+    
+    
+}
+
+
 .toolbar {
     position: fixed;
     top: 12.5%;
