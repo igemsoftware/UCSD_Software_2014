@@ -1,17 +1,25 @@
+
 package communication;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import static java.lang.Compiler.command;
 import java.util.HashMap;
+import java.util.Iterator;
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 
 /**
@@ -34,13 +42,7 @@ public class AuthenticationServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         
           
-            //create a new cookie named authenticate with value authenticated
-            String user = request.getParameter("user");
-            Cookie authenticateCookie = new Cookie("authenticate", user);
-            //set the age of the cookie
-            authenticateCookie.setMaxAge(60 * 60); //cookie lasts for an hour
-            //add cookie to responsej
-            response.addCookie(authenticateCookie);
+            
             
     }
     
@@ -59,30 +61,13 @@ public class AuthenticationServlet extends HttpServlet {
 protected void processGetRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
        response.setContentType("text/html;charset=UTF-8");
-       response.sendRedirect("index.html");
-        
+       //response.sendRedirect("index.html");
         PrintWriter out = response.getWriter();
        
         try {
            
-           /*String logMeIn = request.getParameter("command");
-           
-           if(logMeIn.equals("logMeIn")){
-           //get the inputs of the login form
-           String user = request.getParameter("user");
-           String password = request.getParameter("password");    
-           
-           
-               if(user.equals("valeriy@gmail.com") && password.equals("hello")){
-                System.out.println("user: " + user + " " + "password: " + password);
-                //response.sendRedirect("CommunicationTepmlate.html");
-                }
-               
-           }
-           else{ System.out.println("Sorry bro, try again");}
-         */
            //to get the controller running 
-           String user = request.getParameter("users");
+           String user = request.getParameter("user");
            ControllerMain currentController;
            
             if (webController.containsKey(user)) {
@@ -90,39 +75,181 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
                 
               
             } 
+           
             else {
-                //String rootPath = this.getServletContext().getRealPath("/"); //CircuitNetwork/build/web/
                 //create a new one if it doesn't exist
-                String emailTo = request.getParameter("emailTo");  
-                currentController = new ControllerMain(emailTo);
-                
-                //(key, value)
+                String rootPath = this.getServletContext().getRealPath("/"); //CircuitNetwork/build/web/
+                //create a new one if it doesn't exist
+                currentController = new ControllerMain(rootPath);
                 webController.put(user, currentController);
                
                 
             }
             
             
-            //Register button/using for appending purposes
-            String command = request.getParameter("commanded"); //parameter from the client
-            if (command.equals("send")) {
-                String emailTo = request.getParameter("emailTo"); 
-                String textTo = request.getParameter("textTo");
-                
-                
-                String output = currentController.emailMessage(emailTo); //use method to execute command
-                out.write(output); //write output of command into response for get/pull request
-
-            }
-            else{
-                System.out.println("did not send");
-            }
+            //to get the command value
+            String command = request.getParameter("command");
+            
+           
+           //switch for different command values 
+           switch (command) {
+               case "testPy":
+                   {
+                      //to get the data value 
+                       String string = request.getParameter("data");
+                       System.out.println(string);
+                       String output = currentController.runPython(string); //use method to execute command
+                       out.write(output);
+                       break;
+                   }
+               case "execute":
+                   {
+                       //to get the data value 
+                       String string = request.getParameter("data");
+                       System.out.println(string);
+                       String output = currentController.runPython(string); //use method to execute command
+                       out.write(output);
+                       break;
+                   }
+               case "query":
+               {
+                   //to get the data value 
+                   System.out.println("query");
+                   String query = request.getParameter("data");
+                   String output = currentController.executeQuery(query); //use method to execute command
+                   out.write(output);
+                   break;
+               }
+               
+               case "registration":
+               {
+                   //to get the data value 
+                   String string = request.getParameter("data");
+                   String userName = request.getParameter("userName");
+                   String userPassword = request.getParameter("userPassword");
+                   String wrongInfo = ("");
+                   System.out.println(userName);
+                   System.out.println(userPassword);
+                   //call on the function passing the userName and userPassword
+                   String info = verifyInfo(userName, userPassword, wrongInfo);
+                   
+                   //for now its the userName
+                   out.write(info);
+                   break;
+               }
+               case "contactUs":
+               {
+                   //to get the data value 
+                   String string = request.getParameter("data");
+                   String name = request.getParameter("name");
+                   String email = request.getParameter("email");
+                   String affiliation = request.getParameter("affiliation");
+                   String message = request.getParameter("message");
+               
+               }
+               default:
+                   System.out.println("help me ");
+                   
+                   break;
+           }
 
            
         } finally {
             out.close();
         }
+        
     }
+
+
+/*
+     *Function: This is where the user credentials verified
+     *I will parse the json file's array and check for user
+     *If user exists then their value attached to the key will be checked
+     *If it matches then the user will be allowed to use the app 
+     */
+    public String verifyInfo(String userName, String userPassword, String wrongInfo) {
+        //if the user is new or not
+        boolean newUser = false;
+        
+        
+        JSONParser parser = new JSONParser();
+
+        /*
+         *This will parse the json object that contains all the user information 
+         */
+        try {
+
+            //json data is parsed
+            Object userVerification = parser.parse(new FileReader("/Users/valeriysosnovskiy/UCSD_IGEM/CircuitNetwork/web/code.json"));
+            System.out.println("all the exisiting information: " + userVerification);
+
+            //json object is created containing the past data 
+            JSONObject jsonObject = (JSONObject) userVerification;
+            
+
+            //getting the array information, which is the user name 
+            //authenticate is the id for the array 
+            JSONArray authenticate = (JSONArray) jsonObject.get("authenticate");
+           
+            //iterating the elements in the array to search for a match 
+            Iterator<String> authenticateIterator = authenticate.iterator();
+            while (authenticateIterator.hasNext()) {
+                //if existing user
+                if (userName.equals(authenticateIterator.next())) {
+                    if(userPassword.equals(jsonObject.get(userName))){
+                        return (userName);
+                    }
+                    else{
+                    wrongInfo = ("Wrong user name or password, please try again");
+                    return (wrongInfo);
+                    }
+
+                } //if new user
+                else {
+                   newUser = true;
+                    
+                }
+
+            }
+            
+            if(newUser == true){
+            //json object that holds username and password
+                    JSONObject obj = jsonObject;
+                    
+                    //user name and password
+                    obj.put(userName, userPassword);
+                    System.out.println("new user information: " + obj);
+
+                    //placing the user information inside an array to check for existing user later on  
+                    JSONArray information = authenticate;
+                    information.add(userName);
+                    
+                    //placing the login and password inside the json object 
+                    obj.put("authenticate", information);
+
+                    try {
+                        //writing the info to the file code.json 
+                        FileWriter file = new FileWriter("/Users/valeriysosnovskiy/UCSD_IGEM/CircuitNetwork/web/code.json");
+                        file.write(obj.toJSONString());
+                        file.flush();
+                        file.close();
+
+                    } catch (IOException e) {
+                    }
+            }
+            else{}
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        return (userName);
+    }
+    
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

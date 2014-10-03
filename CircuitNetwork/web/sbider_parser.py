@@ -23,11 +23,11 @@ def grammar_0(cursor, tokens):
         return description
     """
 
-    if '>' not in tokens:
+    if '=' not in tokens:
         raise ValueError("grammar_0(tokens): no output")
 
     else:
-        input_output_dictionary = helper.split_by(tokens, '>')
+        input_output_dictionary = helper.split_by(tokens, '=')
 
     return grammar_output(grammar_1(cursor, input_output_dictionary[0]), grammar_1(cursor, input_output_dictionary[1]))
 

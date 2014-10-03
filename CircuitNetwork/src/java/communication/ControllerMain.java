@@ -3,78 +3,90 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package communication;
+
 import java.io.BufferedReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import java.util.*;
-import javax.mail.*;
-import javax.mail.internet.*;
-import javax.activation.*;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import com.sun.mail.smtp.SMTPTransport;
+import java.security.Security;
+import java.util.Date;
+import java.util.Properties;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+
 
 /**
  *
  * @author valeriysosnovskiy
  */
 public class ControllerMain {
-   public ControllerMain(String path) {
-        emailTo = path;
+
+    public ControllerMain(String path) {
+        rootPath = path;
     }
-   String emailTo; 
-  
-   public String emailMessage(String emailTo) {
-            //recipients email
-            String to = "valeriysosnovskiy@gmail.com";
-            String emailAddress = emailTo;
-            //sender
-            String from = emailAddress;
-            //localhost
-            String host = "localhost:8080/CircuitNetwork/ContactUs.html";
-            //get the properties
-            Properties properties = System.getProperties();
-            
-            //setup mail server
-            properties.setProperty("mail.smtp.host", host);
-            
-            //get session object
-            Session session = Session.getDefaultInstance(properties);
-            
-            try{
-                 // Create a default MimeMessage object.
-                 MimeMessage message = new MimeMessage(session);
+    String rootPath;
 
-                // Set From: header field of the header.
-               message.setFrom(new InternetAddress(from));
+    
+    /*
+     *Sets the file path to execute 
+     */
+    public String runPython(String scriptName) {
+        String output = executeCommand("python " + rootPath + "/" + scriptName); //append path to script name and then execute
+        System.out.println("python " + rootPath + "/" + scriptName);
+        return output;
 
-               // Set To: header field of the header.
-                message.addRecipient(Message.RecipientType.TO,
-                                  new InternetAddress(to));
+    }
+    
+    public String executeQuery(String query) {
+        String output = executeCommand("python " + rootPath + "/sbider_network_builder.py "+rootPath +" " + query+""); //append path to script name and then execute
+        return output;
 
-                // Set Subject: header field
-                
-                 message.setSubject("iGEm");
-                 
+    }
 
-                // Now set the actual message
-                message.setText("The contact page is done ");
+    
 
-                // Send message
-                Transport.send(message);
-                System.out.println("Sent message successfully....");
-      
-            }catch (MessagingException mex) {
-         mex.printStackTrace();
-      }
-            return emailAddress;
-   }
-            
-            
+    
+    //to execute the files 
+    public String executeCommand(String command) {
+        System.out.println("command: " + command);
+        StringBuilder output = new StringBuilder();
+
+        Process p;
+        try {
+            p = Runtime.getRuntime().exec(command);
+            p.waitFor();
+//            BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(p.getErrorStream()));
+
+            String line = "";
+            while ((line = reader.readLine()) != null) {
+                output.append(line + "\n");
+                System.out.println(line);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "no result";
         }
-   
-        
-   
+        return output.toString();
 
+    }
+    
+}

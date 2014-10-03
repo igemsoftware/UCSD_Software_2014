@@ -1,6 +1,0 @@
-c ccdA 8
-<p pLUX 4
-p pTET 4
-c luxR 8
-c lasI 8
-# Arcs

@@ -1,5 +1,0 @@
-c araC 8
-<p pCONST 4
-p pBAD 4
-c T7ptag 8
-# Arcs

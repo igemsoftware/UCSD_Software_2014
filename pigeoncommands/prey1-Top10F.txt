@@ -1,6 +1,0 @@
-c lacZalpha-ccdB 8
-<p pLUX 4
-p pLAC/BAD 4
-c lasR 8
-c luxI 8
-# Arcs

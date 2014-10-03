@@ -20,6 +20,7 @@ public class Controller {
     String rootPath;
     
         public String runPython(String scriptName) {
+            
             String output = executeCommand("python "+rootPath+"/"+scriptName); //append path to script name and then execute
             return output;
         }

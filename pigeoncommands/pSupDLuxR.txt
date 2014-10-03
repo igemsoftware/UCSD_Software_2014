@@ -1,5 +1,0 @@
-c luxR 8
-<p pCONST 4
-p pLUX 4
-c supD 8
-# Arcs

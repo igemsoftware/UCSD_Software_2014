@@ -1,3 +1,4 @@
+
 angular.module('cyViewerApp')
 	
     .controller('MainCtrl', function ($scope, $http, $location, $routeParams, 
@@ -5,10 +6,14 @@ $window, Network, VisualStyles, Gist) {
 
         'use strict';     
         //these files are the temporary network
-	var NETWORK_FILE = 'data/test_json_file_1.json'; 
+	var NETWORK_FILE = 'data/sbider_whole_network.json'; 
         var visualStyleFile = 'data/sbiderStyle.json'; 
         var DEFAULT_VISUAL_STYLE_NAME = 'default';//'Solid';
         var PRESET_STYLE_FILE = encodeURIComponent('data/sbiderStyle.json');
+        
+        //temp user declaration
+        //generates a random string of 20 characters
+        var userID = "carlo";
 
         //these empty dictionaries are updated by the server for use by the cytoscape.js object.
         var networkData = {};
@@ -361,11 +366,27 @@ $window, Network, VisualStyles, Gist) {
         //
         $scope.searchCtrl = function () {
             //alert($scope.searchText);
-            $scope.query = String($scope.searchText);
+            //the input and output of the user 
+            $scope.input = String($scope.searchInput);
+            $scope.output = String($scope.searchOutput);
+            
+            //combination of input = output 
+            $scope.query = ($scope.input + " = " + $scope.output);
+            
+            //the default is false, when checked its true and direct path is set
+            $scope.BooleanTrue = String($scope.checkTrue);
+            alert($scope.BooleanTrue);
             console.log($scope.query);
-            //searchGet();
+            
+            
+            searchGet();
             //$scope.circuitCtrl();
         };
+        
+        //refreshes the inputs and the page 
+         $scope.reloadPage = function()
+         {$scope.cynet.load(networkDefault.elements);
+         };
 
         //function for highlighting a path.        
         $scope.selectPath = function(index) {
@@ -444,10 +465,12 @@ $window, Network, VisualStyles, Gist) {
 	
 	$http({method: 'GET', url: visualStyleFile}).
             success(function(data) {
+                
                 vs = data;
                 $http({method: 'GET', url: NETWORK_FILE}).
                     success(function(data) {
                         networkData = data;
+                        networkDefault = data;
                         $('#network').cytoscape(options);
                         $scope.cynet = $('#network').cytoscape('get');
                         init();
@@ -475,21 +498,38 @@ $window, Network, VisualStyles, Gist) {
             error(function(data, status, headers, config) {
             });
     
-            /*
+            
         function searchGet() {
-            $http({
-                method: 'GET', 
-                url: NETWORK_FILE,
-                params: { query: $scope.query}
-                }).
-                success(function(data) {
+            
+            
+            var commandString = $scope.query; 
+            var data = {user: userID, command: 'query', data: commandString}; //package the input into a json file for submission to the server
+                  
+                    $.get("../../AuthenticationServlet", data, function(data) { //parameters are: servlet url, data, callback function
+                       
+                    
                     networkData = JSON.parse(data);
+                    
                     $scope.cynet.load(networkData.elements);
-                }).
+                    });
+                
+//            $http({ 
+//                method: 'GET', 
+//                url: "../../AuthenticationServlet",
+//                params: { user: userID, command: "query" , data: $scope.query }
+//                }).
+////                alert("$http was called with: " + $scope.query);
+//                success(function(data) {
+//                    alert("shit went through");
+//                    alert(data);
+//                    networkData = JSON.parse(data);
+//                    alert(networkData);
+//                    $scope.cynet.load(networkData.elements);
+//                }).
                 error(function(data, status, headers, config) {
                 });
         };
-        */
+        
 
 	function init() {
             $scope.nodes = networkData.elements.nodes;
