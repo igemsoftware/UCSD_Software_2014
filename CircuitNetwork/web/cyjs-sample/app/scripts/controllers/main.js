@@ -369,13 +369,12 @@ $window, Network, VisualStyles, Gist) {
             //the input and output of the user 
             $scope.input = String($scope.searchInput);
             $scope.output = String($scope.searchOutput);
-            
+            $scope.BooleanTrue = String($scope.checkTrue);
             //combination of input = output 
-            $scope.query = ($scope.input + " = " + $scope.output);
+            $scope.query = ($scope.input + " = " + $scope.output + " " + $scope.BooleanTrue);
             
             //the default is false, when checked its true and direct path is set
-            $scope.BooleanTrue = String($scope.checkTrue);
-            alert($scope.BooleanTrue);
+            
             console.log($scope.query);
             
             angular.element('.loading').show();
@@ -507,7 +506,7 @@ $window, Network, VisualStyles, Gist) {
             var data = {user: userID, command: 'query', data: commandString}; //package the input into a json file for submission to the server
                   
                     $.get("../../AuthenticationServlet", data, function(data) { //parameters are: servlet url, data, callback function
-                       
+                    alert(JSON.stringify(data));
                     
                     networkData = JSON.parse(data);
                     angular.element('.loading').hide();
