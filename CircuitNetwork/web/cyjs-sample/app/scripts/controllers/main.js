@@ -506,10 +506,12 @@ $window, Network, VisualStyles, Gist) {
             var data = {user: userID, command: 'query', data: commandString}; //package the input into a json file for submission to the server
                   
                     $.get("../../AuthenticationServlet", data, function(data) { //parameters are: servlet url, data, callback function
-                    alert(JSON.stringify(data));
-                    
+                    data = JSON.stringify(data).replace(/\\n/g, '',"").replace(/\\/g, '',"")
+                    data = data.substr(1,data.length-2)
+                    alert(data)
                     networkData = JSON.parse(data);
                     angular.element('.loading').hide();
+                    alert(JSON.stringify(networkData.elements))
                     $scope.cynet.load(networkData.elements);
                     
                     });
@@ -527,8 +529,8 @@ $window, Network, VisualStyles, Gist) {
 //                    alert(networkData);
 //                    $scope.cynet.load(networkData.elements);
 //                }).
-                error(function(data, status, headers, config) {
-                });
+//                error(function(data, status, headers, config) {
+//                });
         };
         
         
