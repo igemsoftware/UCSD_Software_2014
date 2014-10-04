@@ -290,43 +290,42 @@ $window, Network, VisualStyles, Gist) {
             $scope.cy.fit();
         };
        
-        //Variables for CAD selecting
-        var currentCad;
+        
+       //Variables for CAD selecting
+        $scope.currentCad;
+        var currentCadId;
         var cadArray = [];
+        var currentIndex;
         
         //Table button for controlling "selected" CAD
         function cadSelect() {
             //clearing selected node
-            $("img.CAD").each(function(){
-                $(this).hide();
-            });
             console.log("Clearing selection... ");
-            //assigning new selected CAD
-            $("#"+ currentCad).show();
-            console.log("New selected Cad is:" + currentCad);
+            $scope.currentCad = $scope.selectedNodes[currentCadId].data('SBOL');               //assigning new selected CAD
+            console.log("New selected Cad is:" + currentCadId);
         };
         
         $scope.cadTable = function(id) {
-            currentCad = id;
+            currentCadId = id;
             cadSelect();
         };
         
         //Side buttons for selecting CAD
         $scope.cadLeft = function () {
             cadArray = [];
-            
+            var cadId;
             //Creating a traversable array of CAD's
-            $("img.CAD").each(function(){
-                var cadID = $(this).attr("id");
-                cadArray.push(cadID);
-            });
+            for (var key in $scope.selectedNodes) {
+                cadId = ($scope.selectedNodes[key].data('id'));
+                cadArray.push(cadId);
+            }; 
             
-            var currentIndex = cadArray.indexOf(String(currentCad));
-            currentCad = cadArray[currentIndex - 1];
-
+            currentIndex = cadArray.indexOf(String(currentCadId));
+            currentCadId = cadArray[currentIndex - 1];
+            
             //Preventing further cycling
-            if(currentCad === undefined) {
-                currentCad = cadArray[0];
+            if(currentCadId === undefined) {
+                currentCadId = cadArray[0];
                 cadSelect();
             }
             else{
@@ -336,26 +335,25 @@ $window, Network, VisualStyles, Gist) {
         
         $scope.cadRight = function () {
             cadArray = [];
-            
+            var cadId;
             //Creating a traversable array of CAD's
-            $("img.CAD").each(function(){
-                var cadID = $(this).attr("id");
-                cadArray.push(cadID);
-            });
+            for (var key in $scope.selectedNodes) {
+                cadId = ($scope.selectedNodes[key].data('id'));
+                cadArray.push(cadId);
+            };            
+            currentIndex = cadArray.indexOf(String(currentCadId));
+            currentCadId = cadArray[currentIndex + 1];
             
-            var currentIndex = cadArray.indexOf(String(currentCad));
-            currentCad = cadArray[currentIndex + 1];
-            
-            //Preventing further indexing
-            if(currentCad === undefined) {
-                currentCad = cadArray[cadArray.length-1];
+            //Preventing further cycling
+            if(currentCadId === undefined) {
+                currentCadId = cadArray[cadArray.length - 1];
                 cadSelect();
             }
             else{
                 cadSelect();
-            };
+            };   
         };
-        
+         
         //Highlighting and controlling selected paths.
 
         //Adding result selection to interface, highlighting first result.
@@ -533,6 +531,8 @@ $window, Network, VisualStyles, Gist) {
                 error(function(data, status, headers, config) {
                 });
         };
+        
+        
         
 
 	function init() {

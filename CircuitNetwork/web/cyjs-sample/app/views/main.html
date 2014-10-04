@@ -25,7 +25,7 @@
             True (Indirect Path): <input type="checkbox" ng-model="checkTrue"><br/> 
             
             <button><span id="search-box" class="glyphicon glyphicon-share-alt" ng-click="searchCtrl()"><span>Explore</span></span></button></span>
-            <button><span id="search-box" class="glyphicon glyphicon-refresh" ng-click="reloadPage()"><span>Refresh</span></span></button></span>
+            
         </div>
 
 	<br><br>
@@ -33,7 +33,7 @@
 	<!--<img src ="http://ubic.ucsd.edu/ubic_logo_s.png" id = "book"/>-->
         <div ng-show="cadState.show" class="CAD">
             <!--<img src ="http://cidar1.bu.edu:5801/pigeonHelp/file.173.8.230.1931098-trans.png" width="110%" height="110%" id = "book"/>-->
-            <img id="{{node.data('id')}}"class="CAD" ng-repeat="node in selectedNodes" ng-src="{{node.data('SBOL')}}"/>
+            <img id="displayCad" ng-src="{{currentCad}}">
             <button class="cadLeft" ng-click="cadLeft()"><span class="glyphicon glyphicon-chevron-left"></span></button>
             <button class="cadRight" ng-click="cadRight()"><span class="glyphicon glyphicon-chevron-right"></span></button>
         </div>
@@ -47,6 +47,7 @@
             <!--  <button ng-click="selectPath(selectedCircuit.value)">Select</button> -->
         </div>
         </div>
+        
     <!--<h3>Visual Style:</h3>
     <select class="form-control" id="vs-selector" ng-change="switchVS()" ng-model="style">
         <option ng-repeat="style in visualStyles">
@@ -116,9 +117,9 @@
     <div class="icon-button orange" data-toggle="modal" data-target="#share" ng-click="encodeUrl()" tooltip-placement="left" tooltip="Share!">
         <span class="glyphicon glyphicon-share-alt"></span>
     </div>
-    <div class="icon-button" ng-click="toggleOverlay()" tooltip-placement="left" tooltip="Show/Hide Overlay">
+    <!--<div class="icon-button" ng-click="toggleOverlay()" tooltip-placement="left" tooltip="Show/Hide Overlay">
         <span class="glyphicon glyphicon-info-sign"></span>
-    </div>
+    </div>-->
     <div class="icon-button" ng-click="toggleSearch()" tooltip-placement="left" tooltip="Show/Hide Search Bar">
         <span class="glyphicon glyphicon-search"></span>
     </div>
@@ -127,6 +128,15 @@
     </div>
     <div class="icon-button" ng-click="fit()" tooltip-placement="left" tooltip="Fit to window">
         <span class="glyphicon glyphicon-resize-full"></span>
+    </div>
+    <div class="icon-button" ng-click="reloadPage()" tooltip-placement="left" tooltip="Restart Network">
+        <span id="search-box" class="glyphicon glyphicon-refresh" ng-click="reloadPage()" ></span>
+    </div>
+    <div class="icon-button" ng-click="ModalDemoCtrl()"data-toggle="modal" data-target="#myModal" tooltip-placement="left" tooltip="Tutorial/Documentation">
+        <span id="search-box" class="glyphicon glyphicon-question-sign"></span>
+    </div>
+    <div class="icon-button" ng-click="reloadPage()" tooltip-placement="left" tooltip="Download SBOL Image">
+        <span id="search-box" class="glyphicon glyphicon-cloud-download"></span>
     </div>
     <!-- Old Glyph for bg color picker -->
     <!--
@@ -174,5 +184,24 @@
             </div>
         </div>
     </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>
 
