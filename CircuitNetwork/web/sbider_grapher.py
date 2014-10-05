@@ -13,7 +13,6 @@ import networkx as nx
 
 import sbider_database as db
 
-
 def get_input_transition_species_dictionary(cursor):
     """
     Retrieves all rows pertaining to the sbider inputTranstion
@@ -326,6 +325,9 @@ def create_output_species_nodes(cursor, ot_id):
     return ot_species_nodes_abbrev, ot_species_ids
 
 
+
+
+
 def nx_node_coordinates_dictionary(node_id_list, edge_list):
     """Creates a dictionary of node coordinates using spring layout from networkx.
 
@@ -353,22 +355,56 @@ def add_node_values_to_nxgraph(nxgraph, node_list):
         nxgraph.add_node(node_[0])
 
 
+def get_path_json_array(cursor, starting_species_list, operon_paths_list):
+    """Generate json array for node highlighting."""
 
+    all_species_paths_ids = []
+    all_it_paths_ids = []
+    all_operon_paths_ids = []
+    all_ot_paths_ids = []
+    all_edge_paths_ids = []
 
+    operon_input_transition_dictionary = get_input_transition_species_dictionary(cursor)
 
+    for operon_path in operon_paths_list:
+        path_species_nodes, path_it_nodes, path_operon_nodes,\
+            path_ot_nodes, path_edges =\
+            create_subnetwork_path(cursor, starting_species_list, operon_path, operon_input_transition_dictionary)
 
+        path_species_ids = [spe_node[0] for spe_node in path_species_nodes]
 
+        path_it_ids = [it_node[0] for it_node in path_it_nodes]
+        path_operon_ids = [operon_node[0] for operon_node in path_operon_nodes]
+        path_ot_ids = [ot_node[0] for ot_node in path_ot_nodes]
+        path_edges_ids = ["edge_1" for edge in path_species_nodes]
 
+        all_species_paths_ids.append(path_species_ids)
+        all_it_paths_ids.append(path_it_ids)
+        all_operon_paths_ids.append(path_operon_ids)
+        all_ot_paths_ids.append(path_ot_ids)
+        all_edge_paths_ids.append(path_edges_ids)
+
+    species_json_array = '''"speciesId": ''' + str(all_species_paths_ids) + ","
+    input_transitions_json_array = '"inputTransitionsId": ' + str(all_it_paths_ids) + ","
+    operons_json_array = '"operonsId": ' + str(all_operon_paths_ids) + ","
+    output_transitions_json_array = '"outputTransitionsId": ' + str(all_ot_paths_ids) + ","
+    edges_json_array = '"edgesId": ' + str(all_edge_paths_ids)
+
+    to_return = species_json_array + input_transitions_json_array + operons_json_array + \
+        output_transitions_json_array + edges_json_array
+
+    return to_return
 
 
 def create_subnetwork_path(cursor, starting_species_list, operon_path, it_trans_dict):
-    """Creating a subnetwork path.
-    :param cursor: 
+    """
+    Creating a subnetwork path.
+    :rtype : object
+    :param cursor:
     :param starting_species_list: 
     :param operon_path: 
     :param it_trans_dict: 
     """
-
     species_set = set()
     input_transition_set = set()
     operon_set = set()
@@ -378,7 +414,7 @@ def create_subnetwork_path(cursor, starting_species_list, operon_path, it_trans_
 
     for operon in range(len(operon_path)):
 
-        operon_id = operon_path.pop(0)
+        operon_id = operon_path[operon]
 
         operon_node_abbrev, _ = create_operon_node(cursor, operon_id)
 
@@ -387,14 +423,10 @@ def create_subnetwork_path(cursor, starting_species_list, operon_path, it_trans_
         it_node_abbrev_list, it_id_list = create_input_transition_nodes(cursor, current_species_list,
                                                                         operon_id, it_trans_dict)
         for it_node_abbrev, it_id in zip(it_node_abbrev_list, it_id_list):
-            # it_id_abbrev = it_node_abbrev[0]
-
             input_transition_set.add(tuple(it_node_abbrev))
             edge_path_list.append([it_node_abbrev[0], operon_node_abbrev[0]])
 
         ot_node_abbrev, ot_id = create_output_transition_node(cursor, operon_id)
-
-        # ot_id_abbrev = ot_node_abbrev[0]
 
         output_transition_set.add(tuple(ot_node_abbrev))
         edge_path_list.append([operon_node_abbrev[0], ot_node_abbrev[0]])
@@ -419,40 +451,24 @@ def create_subnetwork_path(cursor, starting_species_list, operon_path, it_trans_
 
 
 def get_subnetwork(cursor, list_of_operon_paths):
-
     species_subnetwork_set = set()
     input_transition_subnetwork_set = set()
     operon_subnetwork_set = set()
     output_transition_subnetwork_set = set()
     source_id_target_id_set = set()
 
-
-
     it_id_dict = get_input_transition_species_dictionary(cursor)
 
     starting_species_list = list_of_operon_paths.pop(0)
-    toreturn = get_path_json_array(cursor, starting_species_list, list_of_operon_paths)
-
-
-
-
-
-
 
     for operon_path in list_of_operon_paths:
         species_set, input_transition_set, operon_set, output_transition_set, edge_path_list = create_subnetwork_path(
             cursor, starting_species_list, operon_path, it_id_dict)
 
-
-
         species_subnetwork_set = species_subnetwork_set.union(species_set)
-
         input_transition_subnetwork_set = input_transition_subnetwork_set.union(input_transition_set)
-
         operon_subnetwork_set = operon_subnetwork_set.union(operon_set)
-
         output_transition_subnetwork_set = output_transition_subnetwork_set.union(output_transition_set)
-
         source_id_target_id_set = source_id_target_id_set.union(set(edge_path_list))
 
     species_subnetwork_list = list_of_lists(species_subnetwork_set)
@@ -461,24 +477,19 @@ def get_subnetwork(cursor, list_of_operon_paths):
     output_transition_subnetwork_list = list_of_lists(output_transition_subnetwork_set)
     source_id_target_id_list = list_of_lists(source_id_target_id_set)
 
+    toreturn = get_path_json_array(cursor, starting_species_list, list(list_of_operon_paths))
+
     return species_subnetwork_list, input_transition_subnetwork_list, \
-           operon_subnetwork_list, output_transition_subnetwork_list, \
-           source_id_target_id_list, toreturn
+        operon_subnetwork_list, output_transition_subnetwork_list, \
+        source_id_target_id_list, toreturn
 
 
+def create_subnetwork_json_string(cursor, list_of_operon_paths):
+    """Generates the subnetwork json."""
 
+    json_info = get_subnetwork(cursor, list_of_operon_paths)
 
-
-
-
-
-
-
-
-
-
-
-
+    return create_json_network_string(*json_info)
 
 
 def get_whole_network(cursor):
@@ -529,15 +540,22 @@ def get_whole_network(cursor):
                                                                                "ot_", "spe_")
 
     all_edges = species_input_transition_edge_list_abbrev + input_transition_operon_edge_list_abbrev + \
-                operon_output_transition_edge_list_abbrev + output_transition_species_edge_list_abbrev
+        operon_output_transition_edge_list_abbrev + output_transition_species_edge_list_abbrev
 
     return (species_nodes_list_abbrev, input_transition_nodes_list_abbrev, operon_nodes_list_abbrev,
             output_transition_nodes_list_abbrev, all_edges)
 
 
-def create_json_network(json_file_path, species_nodes_list, input_transitions_nodes_list,
-                        operon_nodes_list, output_transitions_nodes_list, source_id_target_id_list):
-    """Writes the whole network json."""
+def create_json_network_file(json_file_path, species_nodes_list, input_transitions_nodes_list,
+                             operon_nodes_list, output_transitions_nodes_list, source_id_target_id_list):
+    """Writes the whole network json.
+    :param json_file_path:
+    :param species_nodes_list:
+    :param input_transitions_nodes_list:
+    :param operon_nodes_list:
+    :param output_transitions_nodes_list:
+    :param source_id_target_id_list:
+    """
 
     node_list = species_nodes_list + input_transitions_nodes_list + operon_nodes_list + output_transitions_nodes_list
     node_coor_dictionary = nx_node_coordinates_dictionary(node_list, source_id_target_id_list)
@@ -678,6 +696,11 @@ def create_json_network_string(species_nodes_list, input_transitions_nodes_list,
     node_list = species_nodes_list + input_transitions_nodes_list + operon_nodes_list + output_transitions_nodes_list
     node_coor_dictionary = nx_node_coordinates_dictionary(node_list, source_id_target_id_list)
 
+    print "species_node_list:", species_nodes_list
+    print "input_transition_nodes_list:", input_transitions_nodes_list
+    print "operon_nodes_list:", operon_nodes_list
+    print "output_transition_nodes_list:", output_transitions_nodes_list
+
     num_runs = 0
 
     x_coor_factor = 10000
@@ -694,6 +717,7 @@ def create_json_network_string(species_nodes_list, input_transitions_nodes_list,
     to_return += '"nodes":['
 
     for node in species_nodes_list:
+        species_sbml = "species_sbml_%s_.txt" % node[0].replace("spe_", "")
         node[2] = "None"
 
         to_return += '{'
@@ -701,6 +725,7 @@ def create_json_network_string(species_nodes_list, input_transitions_nodes_list,
         to_return += '"id":"' + node[0] + '",'
         to_return += '"name":"' + node[1] + '",'
         to_return += '"type":"' + node[2] + '"'
+        to_return += '"sbml":' + species_sbml + '"'
         to_return += '},'
 
         to_return += '"position":{'
@@ -716,10 +741,13 @@ def create_json_network_string(species_nodes_list, input_transitions_nodes_list,
 
     num_runs = 0
     for node in input_transitions_nodes_list:
+        it_sbml = "it_sbml_%s_.txt" % node[0].replace("it_", "")
+
         to_return += '{'
         to_return += '"data":{'
         to_return += '"id":"' + node[0] + '",'
         to_return += '"logic":"' + node[1] + '"'
+        to_return += '"sbml":' + it_sbml + '"'
         to_return += '},'
 
         to_return += '"position":{'
@@ -735,14 +763,14 @@ def create_json_network_string(species_nodes_list, input_transitions_nodes_list,
 
     num_runs = 0
     for node in operon_nodes_list:
-        node[2] = "None"
-
-        node[0] = node[0].replace(",", "-")
+        operon_sbml = "operon_sbml_%s_.txt" % node[0].replace("ope_", "")
+        operon_sbol = "operon_sbol_%s_.png" % node[0].replace("ope_", "")
 
         to_return += '{'
         to_return += '"data":{'
         to_return += '"id":"' + node[0] + '",'
-        to_return += '"SBOL":"' + node[2] + '",'
+        to_return += '"sbml":' + operon_sbml + '"'
+        to_return += '"sbol":"' + operon_sbol + '",'
         to_return += '"name":"' + node[1] + '"'
         to_return += '},'
 
@@ -761,9 +789,12 @@ def create_json_network_string(species_nodes_list, input_transitions_nodes_list,
 
     num_runs = 0
     for node in output_transitions_nodes_list:
+        ot_sbml = "ot_sbml_%s_.txt" % node[0].replace("ope_", "")
+
         to_return += '{'
         to_return += '"data":{'
         to_return += '"id":"' + str(node[0]) + '"'
+        to_return += '"sbml":' + ot_sbml
         to_return += '},'
 
         to_return += '"position":{'
@@ -804,106 +835,5 @@ def create_json_network_string(species_nodes_list, input_transitions_nodes_list,
 
     return to_return
 
-
-def create_whole_network_json():
-    """Generates the whole network json."""
-
-    conn, cursor = db.db_open("sbider.db")
-    json_info = get_whole_network(cursor)
-    create_json_network("sbider_whole_network.json", *json_info)
-    db.db_close(conn, cursor)
-
-
-def create_whole_network_json_string():
-    """Generates the whole network json."""
-
-    conn, cursor = db.db_open("sbider.db")
-    json_info = get_whole_network(cursor)
-    json_string = create_json_network_string(*json_info)
-    db.db_close(conn, cursor)
-    return json_string
-
-
-
-
-
-
-
-
-def create_subnetwork_json_string(cursor, list_of_operon_paths):
-    """Generates the subnetwork json."""
-
-    # operon_input_transition_dictionary = get_input_transition_species_dictionary(cursor)
-
-    a, b, c, d, e, f = get_subnetwork(cursor, list_of_operon_paths)
-
-
-    return create_json_network_string(a, b, c, d, e, f)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-def get_path_json_array(cursor, starting_species_list, operon_paths_list):
-    """Generate json array for node highlighting."""
-
-    all_species_paths_ids = []
-    all_it_paths_ids = []
-    all_operon_paths_ids = []
-    all_ot_paths_ids = []
-    all_edge_paths_ids = []
-
-    operon_input_transition_dictionary = get_input_transition_species_dictionary(cursor)
-
-    for operon_path in operon_paths_list:
-        path_species_nodes, \
-        path_it_nodes, \
-        path_operon_nodes, \
-        path_ot_nodes, \
-        path_edges = \
-            create_subnetwork_path(cursor, starting_species_list, operon_path,
-                                   operon_input_transition_dictionary)
-
-        path_species_ids = [spe_node[0] for spe_node in path_species_nodes]
-
-        path_it_ids = [it_node[0] for it_node in path_it_nodes]
-        path_operon_ids = [operon_node[0] for operon_node in path_operon_nodes]
-        path_ot_ids = [ot_node[0] for ot_node in path_ot_nodes]
-        path_edges_ids = ["edge_1" for spe_node in path_species_nodes]
-
-        all_species_paths_ids.append(path_species_ids)
-        all_it_paths_ids.append(path_it_ids)
-        all_operon_paths_ids.append(path_operon_ids)
-        all_ot_paths_ids.append(path_ot_ids)
-        all_edge_paths_ids.append(path_edges_ids)
-
-    
-        
-    # ##print str(all_species_paths_ids)
-
-    species_json_array = '''"speciesId": ''' + str(all_species_paths_ids).replace("'",'\"') + ","
-
-    ###print species_json_array
-
-    input_transitions_json_array = '"inputTransitionsId": ' + str(all_it_paths_ids).replace("'",'\"') + ","
-    operons_json_array = '"operonsId": ' + str(all_operon_paths_ids).replace("'",'\"') + ","
-    output_transitions_json_array = '"outputTransitionsId": ' + str(all_ot_paths_ids).replace("'",'\"') + ","
-    edges_json_array = '"edgesId": ' + str(all_edge_paths_ids).replace("'",'\"')
-
-    to_return = species_json_array + input_transitions_json_array + operons_json_array + \
-                output_transitions_json_array + edges_json_array
-
-    return to_return
+conn, cur = db.db_open("sbider.db")
+create_json_network_file("json.json", *get_whole_network(cur))
