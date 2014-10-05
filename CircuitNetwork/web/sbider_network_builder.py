@@ -60,14 +60,6 @@ def build_sbider_network(directory_path, user_query, indirect=False):
 
 
 
-
-
-
-
-
-
-
-
         all_operon_path.append(operon_path_per_start_species)
 
         path_json = grapher.create_subnetwork_json_string(cur, operon_path_per_start_species)

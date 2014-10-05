@@ -502,7 +502,8 @@ $window, Network, VisualStyles, Gist) {
         function searchGet() {
             
             
-            var commandString = $scope.query; 
+            var commandString = $scope.query;
+            alert(commandString);
             var data = {user: userID, command: 'query', data: commandString}; //package the input into a json file for submission to the server
                   
                     $.get("../../AuthenticationServlet", data, function(data) { //parameters are: servlet url, data, callback function
