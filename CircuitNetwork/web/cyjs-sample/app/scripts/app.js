@@ -1,4 +1,5 @@
 
+
 // Sample project for visualizing JSON files.
 //
 //   by Keiichiro Ono
@@ -20,12 +21,6 @@ angular.module('cyViewerApp', [
 
         // Routing
         $routeProvider
-            //Changed Routing to always direct to main.html
-            .when('/', {
-                templateUrl: 'views/main.html',
-                controller: 'MainCtrl'
-            })
-            /*
             .when('/', {
                 templateUrl: 'views/top.html',
                 controller: 'TopCtrl'
@@ -38,7 +33,6 @@ angular.module('cyViewerApp', [
                 templateUrl: 'views/main.html',
                 controller: 'MainCtrl'
             })
-            */
             .otherwise({
                  redirectTo: '/'
             });
@@ -49,3 +43,4 @@ angular.module('cyViewerApp', [
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+

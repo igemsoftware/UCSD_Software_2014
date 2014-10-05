@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -7,69 +6,49 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>Contact</title>
+        <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="masterCSS.css">
-        <script src="masterJS.js"></script>
     </head>
     <body>
         <div>
-ci > gfp
-<br/>
-<input id='command'>
-            <button id='ping'>Submit</button>
-            <div id='output'></div>
-        </div>
-       
-       <!--button practice--> 
+        <input id="text">
+        <input id="emailTo" placeholder="email">
+        <button id="addThis">Click</button>
+        
+        <div id="output"></div>
+        
         <div> 
-        <button id="fileOne">See file test.py get executed</button>
+        <button id="fileOne">See file python.py get executed</button>
         <button id="fileTwo">See file modeling.py get executed</button>
         <div id="outOne"></div>
         <div id="outTwo"></div>
         </div>
-       
-       <div>
-           <h1>To test the login function</h1>
-           <form>
-           <input type="email" id="userName">
-            <input type="password" pattern=".{5,10}" id="userPassword">
-       <button id="registration">Register Me </button>
-       </form>
-       <div id="sayHello"></div>
-       </div>
- 
+        </div>
         <script>
             $(document).ready(function() {
+
+
                 var userID = makeid(); //temp random id
-                
-                    $('#ping').click(function() {
-                    var commandString = $('#command').val();
-                    alert(commandString);
-                    var data = {user: userID, command: 'query', data: commandString}; //package the input into a json file for submission to the server
-                  
-                    $.get("AuthenticationServlet", data, function(data) { //parameters are: servlet url, data, callback function
-                        var jsonData = JSON.parse(data)
-                        alert(JSON.stringify(jsonData))
-                        $('#output').text(data); //display the server response in the output area
-                        alert(data);
-//                        $('#command').val("");
+                //event handler for the ping button
+                $('#addThis').click(function() {
+                    alert(userID);
+                    var email= $("#emailTo").val();
+                    var text = $("#text").val();
+                    alert(email + " " + text);
+                    var data = {users: userID, commanded: 'send', emailTo: email, textTo: text }; //package the input into a json file for submission to the server
+                    $.get("AuthenticationServlet", data, function(emailTo) { //parameters are: servlet url, data, callback function
+                        $('#output').text(emailTo); //display the server response in the output area
+                        alert(emailTo);
+                        
                     });
                 });
                 
-
-                   $('#fileOne').click(function(){
+                $('#fileOne').click(function(){
                    alert(userID);
-                   alert("running the file test.py");
-                   var string = ("test.py");
-                   var one ={users: userID, command:'testPy', data: string};
-                           $.get("AuthenticationServlet", one, function(firstOne){
+                   var submissionOne ={users: userID, command:'pythonPy'};
+                           $.get("AuthenticationServlet", submissionOne, function(firstOne){
                            $('#outOne').text(firstOne);
                            alert(firstOne);
                    });
@@ -78,26 +57,12 @@ ci > gfp
                 
                 $('#fileTwo').click(function(){
                    alert(userID);
-       
-                   var submissionTwo ={users: userID, command:"kwat", data:query};
+                   var submissionTwo ={users: userID, command:"Monty"};
                            $.get("AuthenticationServlet", submissionTwo, function(secondOne){
-                           $('#outTwo').text(secondOne);
+                           $('#outOne').text(secondOne);
                            alert(secondOne);
                    });
                    
-                });
-                
-                $("#registration").click(function(){
-                    alert("you are getting registered");
-                    var userName= $("#userName").val();
-                    var userPassword = $("#userPassword").val();
-                    alert("userName: " + userName + " userPassword: " + userPassword);
-                    var data= { user:userID, userName:userName, userPassword: userPassword, command:"registration"};
-                    $.get("AuthenticationServlet", data, function(done){
-                        $('#sayHello').text(done);
-                        alert(done);
-                    });
-                    
                 });
                 
                 //generates a random string of 20 characters

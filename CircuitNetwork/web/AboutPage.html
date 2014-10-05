@@ -13,267 +13,231 @@ and open the template in the editor.
         <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="masterCSS.css">
-        <script src="masterJS.js"></script>
+        <link rel="stylesheet" href="AboutPage.css">
+        <script src="index.js"></script>
     </head>
     <body>
-        <!--navbar -->
-         <div class="container-fluid">
-            
-            <!--navbar --> 
+        <!--entire page divider-->
+        <div class="container-fluid" id="main">
         
-            <nav class="navbar navbar-header nav-justified" role="navigation" id='nav'>
-                <div class="btn-group  btn-group">
-                    <div class="btn btn-lg " id="home">Home</div>
-                    <div class="btn btn-lg " id="about">About</div>
-                    <div class="btn btn-lg " id="documentation">Documentation</div>
-                    <div class="btn btn-lg" id="wiki">Wiki</div>
-                    <div class="btn btn-lg" id="app">App</div>
-                   <div class="btn btn-lg" id="contact">Contact</div>
+        <!--nav bar-->       
+        <div class="row ">
+        <nav class="navbar  navbar-fixed-top" role="navigation">
+        
+        <div class="btn-group btn-group-justified">
+            
+		    
+            <div class="btn-group ">
+                <a href="index.html">
+                <button type="button" class="btn btn-nav">Home
+                    <span class="glyphicon glyphicon-home"></span>
                     
-               </div>
+                </button></a>
+            </div>
+            <div class="btn-group">
+                <a href="AboutPage.html">
+                <button type="button" class="btn btn-nav">About
+                    <span class="glyphicon glyphicon-user"></span>
+                    
+                </button></a>
+            </div>
+            <div class="btn-group">
+                <a href="newhtml.html">
+                <button type="button" class="btn btn-nav">Documentation
+                    <span class="glyphicon glyphicon-book"></span>
+    			    
+                </button></a>
+            </div>
+            
+            <div class="btn-group">
+                  <a href="Tester_Wiki.html">
+                <button type="button" class="btn btn-nav">Wiki
+                    <span class="glyphicon glyphicon-globe"></span>
+    			   
+                </button></a>
+            </div>
                
-                <form class="navbar-form navbar-right" role="search">
-                <div class="form-group ">
-                <input type="email" class="form-control text-warning input-sm"  placeholder="Email" id="userName">
-                <input type ="text" class="form-control text-primary input-sm" placeholder="Password" id="userPassword">
+            <div class="btn-group">
+                 <a href="AppPage.html">
+                <button type="button" class="btn btn-nav">App
+                    <span class="glyphicon glyphicon-star"></span>
+    			    
+                </button></a>
+            </div>
+            <div class="btn-group">
+                <a href="ContactUs.html">
+                <button type="button" class="btn btn-nav">Contact
+                    <span class="glyphicon glyphicon-envelope"></span>
+                    
+                </button></a>
+            </div>
+        </div>
+             <div>
+            <div class="row" >
+            <form class="form-inline" role="form" id="logIn">
+             <div class="form-group">
+                <div class="input-group input-group-sm">
+                   <input class="form-control" type="email" placeholder="Enter email">
                 </div>
-                <button class="btn btn-primary btn-sm " id="registration">Log In</button>
-                <button class="btn btn-primary btn-sm" id='registerMe' >Register</button>
-                </form>
-                 
-                
-            </nav>
-       
+            </div>
+                 <div class="form-group">
+                     <div  class="input-group input-group-sm">
+                   <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+                     </div>
+                 </div>
+                <button type="submit" class="btn btn-primary btn-sm">Sign in</button>
+            </form>
+            
+        </div>
         </div>  
-        <!--navbar ends-->
-        <!--profiles-->
-        <div class="container">
-            <div class="row" id="groupInfo">
-                <div class="thumbnail" id="mainPic">
-                    <img class="img-responsive" src="ProfilePics/igemlogo.png">
-                    <div class="caption">
-                        
-                            Genetic circuits are often difficult to engineer, requiring months to design, build, and test each individual genetic device involved in the circuit. SBiDer, a web tool developed by the UCSD Software iGEM team, will leverage existing devices to construct a database with consideration for the function of each device interpreted as boolean logic. The data can be queried by the user through SBiDer's visual interface to explore circuit designs. The displayed circuit's literature reference, characterization data, and images of included devices can be viewed through the built-in table. Basic validation of the circuit performance is also provided within in the interface. SBiDer's web of information can be expanded through user-generated additions to the database to improve the efficiency of the application and the accuracy of the models.
+             </nav>
+            
+          </div>
+            <!--End of nav bar-->
+            
+            
+            <!--The logo + The Team-->
+             <div class="container-fluid" id="logo">
+                 <div class="row">
+                     <div class="col-md-2 col-lg-offset-1">
+                         <img class="img-rounded" id="logoPic" src="https://mail.google.com/mail/u/0/?ui=2&ik=b89c7b4da6&view=fimg&th=147a943d201f4826&attid=0.1&disp=inline&realattid=f_hyi2jsue0&safe=1&attbid=ANGjdJ8Nil9OwnH3bEEDzLuGhF8qP-wOrc4r5nEZFzCu6We8jgIdvyGyXvDHngl6sU7AyiKDUgnmkgA57Bq2i80QgzEORF9mKV7lVyfRkwuMNJW_I3_kTJkgOXMxlPI&sz=w1600&ats=1409259086438&rm=147a943d201f4826&zw"/>
+                     </div>
+                     <div class="col-md-8">
+                         <h1 id="headerH">Meet The Team</h1>
+                     </div>
+                 </div>
+                 
+                 
+                 
+             <!--The logo + The Team end-->    
+             </div>
+            
+            <div class="jumbotron">
+                     <img class="img-responsive" id="teamPic" src="http://2.bp.blogspot.com/-geTSaTI4WJY/Twe9gmKrQoI/AAAAAAAACGo/3NWF9ZCOUPU/s1600/Redeem-Team-picture.jpg">
+                     <div class="caption" id="teamCaption"><p class="text-info">Genetic circuits are often difficult to engineer, requiring months to design, build, and test each individual genetic device involved in the circuit. SBiDer, a web tool developed by the UCSD Software iGEM team, will leverage existing devices to construct a database with consideration for the function of each device interpreted as boolean logic. The data can be queried by the user through SBiDer's visual interface to explore circuit designs. The displayed circuit's literature reference, characterization data, and images of included devices can be viewed through the built-in table. Basic validation of the circuit performance is also provided within in the interface. SBiDer's web of information can be expanded through user-generated additions to the database to improve the efficiency of the application and the accuracy of the models.</p></div>
+                     <div class="row" id="arrow">
+                         
+                         <div class="btn-group"> 
+                             <a href="#" data-toggle="modal" data-target="#basicModal" id="h">Click</a>
+                         </div></div>
+                         
+                     </div>
+           
+                 
+                 <!--the individuals-->
+                 <div class="container-fluid" id="indvPics">
+                     
+                 </div>
+                  
+               
+                 <!--Individuals end-->
+                 
+                 
+                 <div class="footer">
+                     <h1>Sponsors</h1>
+                 </div>
+                 
+               <!--The end of the page-->
+               </div>
                        
-                    </div>
+                <!--profiles-->
+                 <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="btnExit"><span class="glyphicon glyphicon-remove-circle" id="exit"></span></button>
+            <h2 class="modal-title" id="myModalLabel">Member Profiles</h2>
+            </div>
+            <div class="modal-body" >
+                <div class="container-fluid" id="hello">
+            
+            <div class="row ">
+                <div class="col-md-3">
+                    <h3>Huwate</h3>
                     
+                    <img class="img-circle" src="ProfilePics/Huwate.jpg">
+                    <a href="https://www.linkedin.com/in/hyeerna"><h4 class="text-danger">Linkedin</h4></a>
+                    <p class="text-info">A little about you</p>
+                </div>
+                <div class="col-md-3">
+                    <h3>Jauqin</h3>
+                    <img class="img-circle" src="ProfilePics/Loren.jpg">
+                    <a href="https://www.linkedin.com/in/hyeerna"><h4 class="text-danger">Linkedin</h4></a>
+                    <p class="text-info">A little about you</p>
+                </div>
+                <div class="col-md-3">
+                    <h3>Valeriy</h3>
+                    <a href="https://www.linkedin.com/in/hyeerna"><h4 class="text-danger">Linkedin</h4></a>
+                    <p class="text-info">A little about you</p>
                 </div>
             </div>
-            
-            <!--undergrads-->
-            <div class="row text-center" id="undergraduates">
-                <h1>The Team </h1>
-                <div class="col-md-4">
-                    <div class="thumbnail" id="underPic">
-                        <img class="img-circle" src="ProfilePics/Huwate.jpg">
-                        <h2>Huwate Yeerna</h2>
-                        <ul>
-                            <li>Bioinformatics, 2015</li>
-                            <li><a href="https://www.linkedin.com/in/hyeerna">LinkedIn</a></li>
-                            <li></li>
-                        </ul>
-                    </div> 
-                </div>
-                 <div class="col-md-4">
-                    <div class="thumbnail" id="underPic">
-                        <img class="img-circle" src="ProfilePics/Joaquin.jpg">
-                        <h2>Joaquin Reyna</h2>
-                        <ul>
-                            <li>Bioinformatics, 2015</li>
-                            <li><a href="">LinkedIn</a></li>
-                            <li></li>
-                        </ul>
-                    </div> 
-                </div>
-                    <div class="col-md-4">
-                    <div class="thumbnail" id="underPic">
-                        <img class="img-circle" src="http://3.images.spike.com/images/shows/blue-mountain-state/articles/thad_jail_blog2.jpg?quality=0.91">
-                        <h2>Valeriy Sosnovskiy </h2>
-                        <ul>
-                            <li>Biochemistry, Computer Science, 2015</li>
-                            <li><a href="https://www.linkedin.com/profile/view?id=306167421&trk=nav_responsive_tab_profile">LinkedIn</a></li>
-                            <li></li>
-                        </ul>
-                    </div> 
-                </div>
+            <div class="row">
+                <div class="col-md-3">
                     
+                    <h3>Lauren</h3>
+                    <img class="img-circle" src="">
+                    <a href="https://www.linkedin.com/in/hyeerna"><h4 class="text-danger">Linkedin</h4></a>
+                    <p class="text-info">A little about you</p>
                 </div>
-            <div class="row text-center" id="undergraduates">
-                <div class="col-md-4">
-                    <div class="thumbnail" id="underPic">
-                        <img class="img-circle" src="ProfilePics/Lauren.jpg">
-                        <h2>Lauren Crudup </h2>
-                        <ul>
-                            <li>Bioengineering, 2015</li>
-                            <li><a href="https://www.linkedin.com/profile/view?id=210400159&trk=nav_responsive_tab_profile_pic">LinkedIn</a></li>
-                            <li></li>
-                        </ul>
-                    </div> 
+                <div class="col-md-3">
+                    <h3>Gary</h3>
+                    <a href="https://www.linkedin.com/in/hyeerna"><h4 class="text-danger">Linkedin</h4></a>
+                    <p class="text-info">A little about you</p>
                 </div>
-                 <div class="col-md-4">
-                    <div class="thumbnail" id="underPic">
-                        <img class="img-circle" src="ProfilePics/Gary.JPG">
-                        <h2>Gary Le</h2>
-                        <ul>
-                            <li>Human Biology, Business, 2017</li>
-                            <li><a href="https://www.linkedin.com/pub/gary-le/a3/720/639">LinkedIn</a></li>
-                            <li></li>
-                        </ul>
-                    </div> 
+                <div class="col-md-3">
+                    <h3>Kp</h3>
+                    <img class="img-circle" src="ProfilePics/KP.jpg">
+                    <a href="https://www.linkedin.com/in/hyeerna"><h4 class="text-danger">Linkedin</h4></a>
+                    <p class="text-info">A little about you</p>
                 </div>
-                    <div class="col-md-4">
-                    <div class="thumbnail" id="underPic">
-                        <img class="img-circle" src="ProfilePics/KP.jpg">
-                        <h2>Kartikeya Puri</h2>
-                        <ul>
-                            <li>Computer Science, 2016</li>
-                            <li><a href="https://www.linkedin.com/pub/kartikeya-puri/73/557/a09">LinkedIn</a></li>
-                            <li></li>
-                        </ul>
-                    </div> 
-                </div>
-                    
-                </div>
-            <div class="row text-center" id="undergraduates">
-                <div class="col-md-4">
-                    <div class="thumbnail" id="underPic">
-                        <img class="img-circle" src="ProfilePics/Fred.jpg">
-                        <h2>Luyao Zhou</h2>
-                        <ul>
-                            <li></li>
-                            <li><a href="https://www.linkedin.com/profile/view?id=240077984&authType=NAME_SEARCH&authToken=k-dM&locale=en_US&trk=tyah&trkInfo=tarId%3A1411758557752%2Ctas%3Aluyao%20zhou%2Cidx%3A1-4-4">LinkedIn</a></li>
-                            <li></li>
-                        </ul>
-                    </div> 
-                </div>
-                 <div class="col-md-4">
-                    <div class="thumbnail" id="underPic">
-                        <img class="img-circle" src="ProfilePics/Fernando.jpg">
-                        <h2>Fernando Contreras</h2>
-                        <ul>
-                            <li>Biosystems, 2017</li>
-                            <li><a href="https://www.linkedin.com/profile/view?id=372964518&trk=nav_responsive_tab_profile">LinkedIn</a></li>
-                            <li></li>
-                        </ul>
-                    </div> 
-                </div>
-                    <div class="col-md-4">
-                    <div class="thumbnail" id="underPic">
-                        <img class="img-circle" src="">
-                        <h2></h2>
-                        <ul>
-                            <li></li>
-                            <li><a href="">LinkedIn</a></li>
-                            <li></li>
-                        </ul>
-                    </div> 
-                </div>
-                    
-                </div>
-            <!--end of undergrads-->
-            <h1>Advisors</h1>
-            <!--graduates-->
-            <div class="row text-center" id="graduates">
-                
-                
-                <div class="col-md-6">
-                    <div class="thumbnail text-center" id="gradPic">
-                        <img class="img-circle" src="ProfilePics/Jenhan.jpg">
-                        <h2>Jenhan Tao</h2>
-                        <ul>
-                            <li>Bioinformatics PhD, 2018<br>
-                            Bioengineering, UC Berkeley, 2012
-                            </li>
-                            <li><a href="https://www.linkedin.com/pub/jenhan-tao/1a/763/83b">LinkedIn</a></li>
-                                    
-                        </ul>
-                    </div> 
-                </div>
-                 <div class="col-md-6">
-                    <p class="pull-left">
-                                Jenhan is a PhD student in the Bioinformatics and Systems Biology program at UCSD. He's interested in utilizing computational technqiues to increase our capacity to understand complex biological problems such as cell signalling. This is Jenhan's second year working as an iGEM mentor. Previously Jenhan was involved in synthetic biology research as an iGEM team member at Boston University and as a research assistant at UC Berkeley, the BioFAB, and Boston University.
-                                </p>
-                </div>
-                    
-                    
-                </div>
-            <div class="row text-center" id="graduates">
-                
-                
-                <div class="col-md-6">
-                    <div class="thumbnail text-center" id="gradPic">
-                        <img class="img-circle" src="ProfilePics/Justin.jpg">
-                        <h2>Justin Huang</h2>
-                        <ul>
-                            <li>Bioinformatics PhD, 2018<br>
-                            Biology,Mathematics University of North Carolina-Chapel Hill, 2013
-                            </li>
-                            <li><a href="www.linkedin.com/in/justinkhuang">LinkedIn</a></li>
-                                    
-                        </ul>
-                    </div> 
-                </div>
-                 <div class="col-md-6">
-                    <p class="pull-left">
-                      Justin Huang is a second year Bioinformatics PhD student at UC San Diego. Originally hailing from the great state of North Carolina, Justin completed his undergraduate studies with a BS in Biology and a BA in Mathematics from the University of North Carolina at Chapel Hill in 2013. Justin's research interests are in translational medicine, specifically in the role of translational medicine in cancer. Justin is also an avid sports fan, and an advocate for Asian American issues. You can follow him @huangger on Twitter.  
-                    </p>
-                </div>
-                    
-                    
-                </div>
-            <div class="row text-center" id="graduates">
-                
-                
-                <div class="col-md-6">
-                    <div class="thumbnail text-center" id="gradPic">
-                        <img class="img-circle" src="ProfilePics/Ben.png">
-                        <h2>Benjamin Kellman</h2>
-                        <ul>
-                            <li>Bioinformatics PhD, 2018<br>
-                            Biology, University of Rochester, 2012
-                            </li>
-                            <li><a href="https://www.linkedin.com/profile/view?id=331388590&authType=NAME_SEARCH&authToken=3p2B&locale=en_US&trk=tyah2&trkInfo=tarId%3A1412133206770%2Ctas%3Aben%2Cidx%3A2-1-2">LinkedIn</a></li>
-                                    
-                        </ul>
-                    </div> 
-                </div>
-                 <div class="col-md-6">
-                    <p class="pull-left">
-                        My name is Benjamin Kellman.  I am a PhD student at the University of California at San Diego studying Bioinformatics and Systems Biology.  My work uses existing formalisms in mathematics and computer science to consolidate the spurious information of experimental biology to a more codified rule set; many such reductions have already been made. I hope to apply fundamental biological axioms formalism to increase the power of my biological predictions.
-                                </p>
-                </div>
-                    
-                    
-                </div>
-            <div class="row text-center" id="graduates">
-                
-                
-                <div class="col-md-6">
-                    <div class="thumbnail text-center" id="gradPic">
-                        <img class="img-circle" src="ProfilePics/Adreas.jpg">
-                        <h2>Andreas Dräger</h2>
-                        <ul>
-                            <li>Bioinformatics PhD, 2018<br>
-                            Bioengineering, UC Berkeley, 2012
-                            </li>
-                            <li><a href="https://www.linkedin.com/in/andreasdraege">LinkedIn</a></li>
-                                    
-                        </ul>
-                    </div> 
-                </div>
-                 <div class="col-md-6">
-                    <p class="pull-left">
-                                Jenhan is a PhD student in the Bioinformatics and Systems Biology program at UCSD. He's interested in utilizing computational technqiues to increase our capacity to understand complex biological problems such as cell signalling. This is Jenhan's second year working as an iGEM mentor. Previously Jenhan was involved in synthetic biology research as an iGEM team member at Boston University and as a research assistant at UC Berkeley, the BioFAB, and Boston University.
-                                </p>
-                </div>
-                    
-                    
-                </div>
-            
-            <!--end of graduates-->
             </div>
-             
-      
+            <div class="row">
+                <div class="col-md-3">
+                    <h3>Fred</h3>
+                    <a href="https://www.linkedin.com/in/hyeerna"><h4 class="text-danger">Linkedin</h4></a>
+                    <p class="text-info">A little about you</p>
+                </div>
+                <div class="col-md-3">
+                    <h3>Fernando</h3>
+                    <a href="https://www.linkedin.com/in/hyeerna"><h4 class="text-danger">Linkedin</h4></a>
+                    <p class="text-info">A little about you</p>
+                </div>
+                <div class="col-md-3">
+                    <h3>Tiffany</h3>
+                    <a href="https://www.linkedin.com/in/hyeerna"><h4 class="text-danger">Linkedin</h4></a>
+                    <p class="text-info">A little about you</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <h3>Jenhan</h3>
+                    <img class="img-circle" src="ProfilePics/Jenhan.jpg">
+                    <a href="https://www.linkedin.com/in/hyeerna"><h4 class="text-danger">Linkedin</h4></a>
+                    <p class="text-info">A little about you</p>
+                </div>
+                <div class="col-md-3">
+                    <h3>Justin</h3>
+                     <img class="img-circle" src="ProfilePics/Justin.jpg">
+                    <a href="https://www.linkedin.com/in/hyeerna"><h4 class="text-danger">Linkedin</h4></a>
+                    <p class="text-info">A little about you</p>
+                </div>
+                <div class="col-md-3">
+                    
+                    <h3>Ben</h3>
+                    <img class="img-circle" src="">
+                    <a href="https://www.linkedin.com/in/hyeerna"><h4 class="text-danger">Linkedin</h4></a>
+                    <p class="text-info">A little about you</p>
+                </div>
+            </div>
+        </div>
+    
+            </div>
+            
+    </div>
+  </div>
+</div>
+            
+            
+        
     </body>
 </html>

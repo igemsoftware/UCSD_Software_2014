@@ -1,5 +1,5 @@
 
-[ {
+{
   "format_version" : "1.0",
   "generated_by" : "cytoscape-3.1.0-RC1",
   "target_cytoscapejs_version" : "~2.1",
@@ -9,7 +9,7 @@
     "css" : {
       "font-family" : "HelveticaNeue-UltraLight",
       "font-weight" : "normal",
-      "shape" : "ellipse",
+      "shape" : "roundrectangle",
       "border-color" : "rgb(0,102,153)",
       "text-opacity" : 1.0,
       "background-opacity" : 1.0,
@@ -20,69 +20,14 @@
       "border-opacity" : 1.0,
       "border-width" : 4.0,
       "color" : "rgb(255,255,255)",
-      "height" : 60.0,
-      "width" : 140.0,
+      "height" : 30.0,
+      "width" : 70.0,
       "content" : "data(name)"
     }
   }, {
     "selector" : "node.species",
     "css" : {
       "shape" : "ellipse"
-    }
-  }, {
-    "selector" : "node.operon",
-    "css" : {
-      "background-color" : "#ff8300",
-      "border-color" : "#e6762b"
-    }
-  }, {
-    "selector" : "node.transition",
-    "css" : {
-      "shape" : "roundrectangle",  
-      "width" : 35.0,
-      "height" : 70.0
-    }
-  }, {
-    "selector" : "node.transition.input",
-    "css" : {
-      "background-color" : "#00ff00",
-      "border-color" : "#00b200"
-    }
-  }, {
-    "selector" : "node.transition.output",
-    "css" : {
-      "background-color" : "#ff0000",
-      "border-color" : "#cc0000"
-    }
-  }, {
-    "selector" : "node.transition.IF",
-    "css" : {
-      "background-color" : "#00ff00",
-      "border-color" : "#00b200"
-    }
-  }, {
-    "selector" : "node.transition.AND",
-    "css" : {
-      "width" : 35.0,
-      "height" : 70.0
-    }
-  }, {
-    "selector" : "node.transition.OR",
-    "css" : {
-      "width" : 35.0,
-      "height" : 70.0
-    }
-  }, {
-    "selector" : "node.transition.NOT",
-    "css" : {
-      "width" : 35.0,
-      "height" : 70.0
-    }
-  }, {
-    "selector" : "node.transition.NOR",
-    "css" : {
-      "width" : 35.0,
-      "height" : 70.0
     }
   }, {
     "selector" : "node:selected",
@@ -113,4 +58,4 @@
       "line-color" : "rgb(255,0,0)"
     }
   } ]
-} ]
+}

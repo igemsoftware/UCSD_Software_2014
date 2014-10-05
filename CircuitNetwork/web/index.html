@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>Home</title>
+        <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
@@ -14,42 +14,98 @@ and open the template in the editor.
         <link rel="stylesheet" href="index.css">
         <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-        <script src="masterJS.js"></script>
+        <script src="index.js"></script>
     
     </head>
     <body>
-        <div class="container-fluid">
-            
-            <!--navbar --> 
+       <div class="container-fluid" id="allHome">
         
-            <nav class="navbar navbar-header nav-justified" role="navigation" id='nav'>
-                <div class="btn-group  btn-group">
-                    <div class="btn btn-lg " id="home">Home</div>
-                    <div class="btn btn-lg " id="about">About</div>
-                    <div class="btn btn-lg " id="documentation">Documentation</div>
-                    <div class="btn btn-lg" id="wiki">Wiki</div>
-                    <div class="btn btn-lg" id="app">App</div>
-                   <div class="btn btn-lg" id="contact">Contact</div>
-                    
-               </div>
-               
-                <form class="navbar-form navbar-right" role="search">
-                <div class="form-group ">
-                <input type="email" class="form-control text-warning input-sm"  placeholder="Email" id="userName">
-                <input type ="text" class="form-control text-primary input-sm" placeholder="Password" id="userPassword">
-                </div>
-                <button class="btn btn-primary btn-sm " id="registration">Log In</button>
-                <button class="btn btn-primary btn-sm" id='registerMe' >Register</button>
-                </form>
-                 
+  
+  <!--<navigation bar ">-->
+      
+    <div class="container" id="topPage">
+    <div class="row ">
+        <nav class="navbar  navbar-fixed-top" role="navigation">
+        
+        <div class="btn-group  btn-group-justified">
+            
                 
-            </nav>
+            <div class="btn-group ">
+                <a href="index.html">
+                <button type="button" class="btn btn-nav">Home
+                    <span class="glyphicon glyphicon-home"></span>
+                    
+                </button></a>
+            </div>
+            <div class="btn-group">
+                <a href="AboutPage.html">
+                <button type="button" class="btn btn-nav">About
+                    <span class="glyphicon glyphicon-user"></span>
+                    
+                </button></a>
+            </div>
+            <div class="btn-group">
+                <a href="newhtml.html">
+                <button type="button" class="btn btn-nav">Documentation
+                    <span class="glyphicon glyphicon-book"></span>
+    			    
+                </button></a>
+            </div>
+            
+            <div class="btn-group">
+                  <a href="Tester_Wiki.html">
+                <button type="button" class="btn btn-nav">Wiki
+                    <span class="glyphicon glyphicon-globe"></span>
+    			   
+                </button></a>
+            </div>
+               
+            <div class="btn-group">
+                 <a href="AppPage.html">
+                <button type="button" class="btn btn-nav">App
+                    <span class="glyphicon glyphicon-star"></span>
+    			    
+                </button></a>
+            </div>
+            <div class="btn-group">
+                <a href="newhtml.html">
+                <button type="button" class="btn btn-nav">Contact
+                    <span class="glyphicon glyphicon-envelope"></span>
+                    
+                </button></a>
+            </div>
+        </div>
+             <div>
+            <div class="row" >
+            <form class="form-inline" role="form" id="logIn">
+             <div class="form-group">
+                <div class="input-group input-group-sm">
+                   <input class="form-control" type="email" placeholder="Enter email" id="email">
+                </div>
+            </div>
+                 <div class="form-group">
+                     <div  class="input-group input-group-sm">
+                   <input type="password" class="form-control" id="password" placeholder="Password">
+                     </div>
+                 </div>
+                <button type="submit" class="btn btn-primary btn-sm" id="signIn">Sign in</button>
+                <button class="btn btn-primary btn-sm" id="Register" >Register</button>
+                <div id="userInfo"></div>
+            </form>
+            
+        </div>
+        </div>  
+             </nav>
+            
+          </div>
+        
        
-        </div>     
+
+    </div>
      <!--navbar ends-->
      
      <!-- Slider-->
-     <div class="container" id="Slider_Three">
+     <div class="container-fluid" id="Slider_Three">
      <div class="container-narrow " id="sliderHolder">
      <div class="container-fluid" id= "sliderHome">
     <div id="myCarousel" class="carousel slide "  data-ride="carousel">
@@ -65,26 +121,59 @@ and open the template in the editor.
         
         <!-- Carousel items -->
         <div class="carousel-inner">
-            <div class="item active text-center" id="sliderItems">
+            <div class="item active" id="one">
                 <h1>SBIDer</h1>
-                <p>
-                    Genetic circuits are often difficult to engineer, requiring months to design, build, and test each individual genetic device involved in the circuit. SBiDer, a web tool developed by the UCSD Software iGEM team, will leverage existing devices to construct a database with consideration for the function of each device interpreted as boolean logic. The data can be queried by the user through SBiDer's visual interface to explore circuit designs. The displayed circuit's literature reference, characterization data, and images of included devices can be viewed through the built-in table. Basic validation of the circuit performance is also provided within in the interface. SBiDer's web of information can be expanded through user-generated additions to the database to improve the efficiency of the application and the accuracy of the models.
-
-
-                </p>
-                <button class="btn-lg btn-primary text-center" id="signMe">Sign Up!</button>
                 
+               
+                <div class="btn-group btn-group-justified" id="signUp">
+                    
+                        <button type="button" class="btn btn-lg btn-success">Sign Up!</button>
+                </div>
+         		<div class="carousel-caption">
+                  
+                  <p class="caption">Create an account and launch SPIDer</p>
+                </div>
             </div>
             
-            <div class="item " id="sliderItems">
-                <h1>Hello</h1>
+            <div class="item " id="one">
+                <h1>Get started today!</h1>
+                
+               
+                <div class="btn-group" id="signUp">
+                    
+                        <button type="button" class="btn btn-lg btn-success">Sign Up!</button>
+                </div>
+         		<div class="carousel-caption">
+                  
+                  <p class="text-info">Launch </p>
+                </div>
             </div>
             
-            <div class="item" id="sliderItems">
-                <h1>Goodbye</h1>
-            </div>
-            <div class="item" id="sliderItems">
+            <div class="item" id="one">
+                <h1>Get started today!</h1>
                 
+               
+                <div class="btn-group" id="signUp">
+                    
+                        <button type="button" class="btn btn-lg btn-success">Sign Up!</button>
+                </div>
+         		<div class="carousel-caption">
+                  
+                  <p class="text-info">Launch </p>
+                </div>
+            </div>
+            <div class="item" id="one">
+                <h1>Get started with SBIDer today!</h1>
+                
+               
+                <div class="btn-group" id="signUp">
+                    
+                        <button type="button" class="btn btn-lg btn-success">Sign Up!</button>
+                </div>
+         		<div class="carousel-caption">
+                  
+                  <p class="text-info">Launch </p>
+                </div>
             </div>
             
         </div>
@@ -97,44 +186,41 @@ and open the template in the editor.
     
         <!--bottom three pics-->
         
-          <div class="row" id="extraInfo">
+        <div class="container-fluid" id="bottomOne">
+            <div class="row" id="info">
            <div class="col-md-4" id="btmOne">
-               <div class="thumbnail text-center" id="thumbOne">
-                   <h1>Tutorial</h1>
-                   <span class="glyphicon glyphicon-question-sign"></span>
-                  
-                 
-               </div>
+               <a href="newhtml.html">
+               <div class="thumbnail" id="thumbOne">
+                   <h3>Explore SBIDer!</h3>
+                   <span class="glyphicon glyphicon-search"></span>
+               </div></a>
                </div>
               
                 <div class="col-md-4 ">
              
-               <div class="thumbnail text-center" id="thumbTwo">
-                   <h1>Explore Database</h1>
-                   <span class="glyphicon glyphicon-search"></span>
-                   
+               <div class="thumbnail" id="thumbTwo">
+               
+                   <h3>Tutorial</h3>
                </div>
                </div>
-                
-               <div class="col-md-4">
+                <div class="col-md-4">
               
-               <div class="thumbnail text-center" id="thumbThree">
-                  <H1>Launch!</h1>
-                  <span class="glyphicon glyphicon-circle-arrow-right"></span>
+               <div class="thumbnail" id="thumbThree">
+                   <h3>Simplify<br>
+                   Your Life</h3>
+                   <button class="btn btn-lg btn-danger">Launch The App</button>
                </div>
                </div>
          
             </div>
             </div>
-     
+     </div>  
             <!--footer-->
             <div class="container-fluid">
             <div class="footer">
-                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
-                    <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
-                <br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">UCSD iGEM
-                </span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License.</a>
-                <br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://localhost:8080/CircuitNetwork/Tester_Home.html" rel="dct:source">http://localhost:8080/CircuitNetwork/Tester_Home.html</a>;
+                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">UCSD iGEM</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://localhost:8080/CircuitNetwork/Tester_Home.html" rel="dct:source">http://localhost:8080/CircuitNetwork/Tester_Home.html</a>;
+                
+           
             </div>
             </div>
            

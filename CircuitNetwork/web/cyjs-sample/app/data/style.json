@@ -1,3 +1,4 @@
+
 [ {
   "format_version" : "1.0",
   "generated_by" : "cytoscape-3.1.0-RC1",
@@ -1332,17 +1333,8 @@
       "border-opacity" : 1.0,
       "border-width" : 0.0,
       "color" : "rgb(0,0,0)",
-      
       "height" : 75.0,
       "width" : 75.0,
-
-      "height" : 40.0,
-      "width" : 40.0,
-
-
-      "height" : 75.0,
-      "width" : 75.0,
-
       "content" : "data(name)"
     }
   }, {

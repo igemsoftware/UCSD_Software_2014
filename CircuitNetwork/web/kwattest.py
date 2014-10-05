@@ -1,4 +1,3 @@
-
 import sys
 
 
@@ -55,9 +54,9 @@ def split_by(sequence, element):
 
 '''parseInputLogic'''
 def parseInputLogic(userInput):
-    
+    print "parseInputLogic(tokens): tokens: ", userInput
     "user_input_token = userInput.split()"
-   
+    print "bye pil"
     return g0(["Z", ">", "X"])
 
 
@@ -155,18 +154,18 @@ def gAnd(tokens1, tokens2):
     return toBeReturned
 
 
-
+print sys.argv
 
 
 def aaa():
     userInput = sys.argv[1]
-    print sys.argv[1]
+    print "inside aaa"
     toBeReturned = parseInputLogic(userInput)
-
+    print "bye aaa"
     return toBeReturned
 def main():
-    
+    print "in main"
     print aaa()
- 
+    print "bye main"
 if __name__ == "__main__":
     main()
