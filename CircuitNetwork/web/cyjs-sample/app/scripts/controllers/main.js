@@ -512,7 +512,6 @@ $window, Network, VisualStyles, Gist) {
                     alert(data)
                     networkData = JSON.parse(data);
                     angular.element('.loading').hide();
-                    alert(JSON.stringify(networkData.elements))
                     $scope.cynet.load(networkData.elements);
                     
                     });

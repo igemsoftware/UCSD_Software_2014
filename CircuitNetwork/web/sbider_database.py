@@ -39,7 +39,7 @@ def make_sql_insert_command(table_name, table_header_list, insert_data_list):
 def make_sql_select_command(table_name, table_header_list, where_columns=None, where_options=None,
                             where_values=None, where_bools=None, group=None, having_columns=None, having_bools=None,
                             having_values=None):
-    '''Make SQL select command.
+    """Make SQL select command.
 
     @param table_header_list - list of columns to be selected
     @param where_columns - column names for where clause
@@ -47,21 +47,17 @@ def make_sql_select_command(table_name, table_header_list, where_columns=None, w
     @param where_values - variable for where clause
     @param where_bools - boolean for where clause
     @param group - group name for GROUP BY clause
-    @param having_columns'''
+    @param having_columns"""
 
-    # check whether argument is valid or not
-    # all the where_variables must be all None or same size where_bool is less by 1
-    if (
-                            where_columns is not None and where_options is not None and where_values is not None and where_bools is not None):
+    if where_columns is not None and where_options is not None and where_values is not None and where_bools is not None:
         if (len(where_columns) != len(where_options) and len(where_options) != len(where_values) and len(
                 where_values) != (len(where_bools) - 1)):
             raise Exception("Invalid argument")
-    elif (
-                            where_columns is not None or where_options is not None or where_values is not None or where_bools is not None):
+    elif where_columns is not None or where_options is not None or where_values is not None or where_bools is not None:
         raise Exception("Invalid argument")
 
     # must have a table name
-    if ( table_name is None or len(table_name) == 0):
+    if table_name is None or len(table_name) == 0:
         raise Exception("a table name must be provided.")
 
     sql_select_command = "SELECT "
@@ -70,7 +66,7 @@ def make_sql_select_command(table_name, table_header_list, where_columns=None, w
     else:
         for table_header_index in range(len(table_header_list)):
             sql_select_command += table_header_list[table_header_index]
-            if (table_header_index != len(table_header_list) - 1):
+            if table_header_index != len(table_header_list) - 1:
                 sql_select_command += ", "
             else:
                 sql_select_command += " "
@@ -79,8 +75,6 @@ def make_sql_select_command(table_name, table_header_list, where_columns=None, w
     if where_columns is not None:
         sql_select_command += "\n" + "WHERE "
         for where_index in range(len(where_columns)):
-
-
             sql_select_command += where_columns[where_index] + " " + where_options[where_index] + " " + str(
                 where_values[where_index]) + " "
             if where_index < len(where_bools):
@@ -249,8 +243,9 @@ def db_drop_all_table(cursor):
 def db_print_table(cursor, table_name):
     """Print a table."""
 
-    cursor.execute("SELECT * FROM " + table_name)
-    rows = cursor.fetchall()
+    table = cursor.execute("SELECT * FROM " + table_name)
+    table = cursor.fetchall()
+    print table
 
 
 def db_print_all_table(cursor):
@@ -460,18 +455,14 @@ def make_input_ope_id_spe_id_dic(cursor):
 
     for operon, input_transition, species in merged_ope_it_spe.fetchall():
 
-
         if operon == previous_operon:
-
 
             if input_transition == previous_input_transition:
 
-
                 input_ope_id_spe_id_dict[operon][input_transition_list_idx].append(species.strip())
 
-
             elif input_transition != previous_input_transition:
-                input_transition_list_idx = input_transition_list_idx + 1
+                input_transition_list_idx += 1
 
                 input_ope_id_spe_id_dict[operon].append([])
                 input_ope_id_spe_id_dict[operon][input_transition_list_idx].append(species.strip())
@@ -500,7 +491,6 @@ def make_output_ope_id_spe_id_dic(cursor):
                                        OutputTransitionSpecies 
                                        WHERE  OperonOutputTransition.ot_id = OutputTransitionSpecies.ot_id''')
 
-
     # previous ope_id, ot_id, and spe_id
     previous_operon, previous_output_transition, previous_species = merged_ope_ot_spe.fetchone()
 
@@ -509,16 +499,14 @@ def make_output_ope_id_spe_id_dic(cursor):
     output_ope_id_spe_id_dict[previous_operon] = [[]]
     output_ope_id_spe_id_dict[previous_operon][output_transition_list_idx].append(previous_species.strip())
 
-
     # ope_id, ot_id, and spe_id
     for operon, output_transition, species in merged_ope_ot_spe.fetchall():
-
 
         if operon == previous_operon and not helper.contain_all_elements(output_ope_id_spe_id_dict[operon], [species]):
             if output_transition == previous_output_transition:
                 output_ope_id_spe_id_dict[operon][output_transition_list_idx].append(species.strip())
             else:
-                output_transition_list_idx = output_transition_list_idx + 1
+                output_transition_list_idx += 1
                 output_ope_id_spe_id_dict[operon].append([])
                 output_ope_id_spe_id_dict[operon][output_transition_list_idx].append(species.strip())
         else:
@@ -568,12 +556,10 @@ def make_ope_id_rep_spe_id_dic(cursor):
 
                 if input_transition == previous_input_transition:
 
-
                     input_ope_id_spe_not_dict[operon][input_transition_list_idx].append(species.strip())
 
-
                 elif input_transition != previous_input_transition:
-                    input_transition_list_idx = input_transition_list_idx + 1
+                    input_transition_list_idx += 1
 
                     input_ope_id_spe_not_dict[operon].append([])
                     input_ope_id_spe_not_dict[operon][input_transition_list_idx].append(species.strip())
@@ -603,14 +589,13 @@ def make_plasmid_species_name_dictionary(cursor, operon_id_plasmid_name_dictiona
 
 def make_pla_name_spe_name_dics(cursor):
     """Make operon input and output species dictionary."""
-    plasmid_name_input_species_name_dictionary = {}
-    plasmid_name_output_species_name_dictionary = {}
+    #plasmid_name_input_species_name_dictionary = {}
+    #plasmid_name_output_species_name_dictionary = {}
 
     operon_id_plasmid_name_dictionary = {}
-    species_id_to_name_dictionary = {}
+    #species_id_to_name_dictionary = {}
 
     input_operon_species_dictionary, output_operon_species_dictionary = make_ope_id_spe_id_dics(cursor)
-
 
     # make operon_id plasmid_name dictionary
     merged_ope_id_pla_name = cursor.execute('''SELECT PlasmidOperon.ope_id,

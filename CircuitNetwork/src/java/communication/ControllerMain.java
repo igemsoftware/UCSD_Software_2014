@@ -55,7 +55,8 @@ public class ControllerMain {
     }
     
     public String executeQuery(String query) {
-        String output = executeCommand("python " + rootPath + "/sbider_network_builder.py "+rootPath +" " + query+""); //append path to script name and then execute
+        System.out.println("python " + rootPath + "/sbider_network_builder.py "+rootPath +" " + query+"");
+        String output = executeCommand("python " + rootPath + "/sbider_network_builder.py "+rootPath +" " + query); //append path to script name and then execute
         return output;
 
     }
