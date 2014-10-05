@@ -22,6 +22,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 
+
 /**
  *
  * @author Valeriy
@@ -89,28 +90,10 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
             
             //to get the command value
             String command = request.getParameter("command");
-            
+            System.out.println(command);
            
            //switch for different command values 
            switch (command) {
-               case "testPy":
-                   {
-                      //to get the data value 
-                       String string = request.getParameter("data");
-                       System.out.println(string);
-                       String output = currentController.runPython(string); //use method to execute command
-                       out.write(output);
-                       break;
-                   }
-               case "execute":
-                   {
-                       //to get the data value 
-                       String string = request.getParameter("data");
-                       System.out.println(string);
-                       String output = currentController.runPython(string); //use method to execute command
-                       out.write(output);
-                       break;
-                   }
                case "query":
                {
                    //to get the data value 
@@ -145,7 +128,12 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
                    String email = request.getParameter("email");
                    String affiliation = request.getParameter("affiliation");
                    String message = request.getParameter("message");
-               
+                   //name, email, affiliation, text
+                   String emailMe = GoogleMail(name, email, affiliation, message);
+                   //calling the java file
+                   GoogleMail googleMail;
+                   googleMail = new GoogleMail(name, email, affiliation, message);
+                   
                }
                default:
                    System.out.println("help me ");
@@ -180,7 +168,9 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
         try {
 
             //json data is parsed
-            Object userVerification = parser.parse(new FileReader("/Users/valeriysosnovskiy/UCSD_IGEM/CircuitNetwork/web/code.json"));
+            String rootPath = this.getServletContext().getRealPath("/"); //CircuitNetwork/build/web/
+            Object userVerification = parser.parse(new FileReader(rootPath + "code.json"));
+            
             System.out.println("all the exisiting information: " + userVerification);
 
             //json object is created containing the past data 
@@ -190,12 +180,13 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
             //getting the array information, which is the user name 
             //authenticate is the id for the array 
             JSONArray authenticate = (JSONArray) jsonObject.get("authenticate");
-           
+            System.out.println(authenticate);
             //iterating the elements in the array to search for a match 
             Iterator<String> authenticateIterator = authenticate.iterator();
             while (authenticateIterator.hasNext()) {
                 //if existing user
                 if (userName.equals(authenticateIterator.next())) {
+                    System.out.println((jsonObject.get(userName)));
                     if(userPassword.equals(jsonObject.get(userName))){
                         return (userName);
                     }
@@ -228,8 +219,9 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
                     obj.put("authenticate", information);
 
                     try {
+                        
                         //writing the info to the file code.json 
-                        FileWriter file = new FileWriter("/Users/valeriysosnovskiy/UCSD_IGEM/CircuitNetwork/web/code.json");
+                        FileWriter file = new FileWriter(rootPath + "code.json");
                         file.write(obj.toJSONString());
                         file.flush();
                         file.close();
@@ -248,6 +240,8 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
 
         return (userName);
     }
+    
+    
     
     
 

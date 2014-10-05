@@ -16,7 +16,7 @@ and open the template in the editor.
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <link rel="stylesheet" href="masterCSS.css">
-        <script src="masterJS.js"></script>
+        
     </head>
     <body>
         <div>
@@ -39,11 +39,12 @@ ci > gfp
            <h1>To test the login function</h1>
            <form>
            <input type="email" id="userName">
-            <input type="password" pattern=".{5,10}" id="userPassword">
+            <input type="password" id="userPassword">
        <button id="registration">Register Me </button>
        </form>
-       <div id="sayHello"></div>
+       
        </div>
+       <div id="sayHello"></div>
  
         <script>
             $(document).ready(function() {
@@ -95,7 +96,7 @@ ci > gfp
                     var data= { user:userID, userName:userName, userPassword: userPassword, command:"registration"};
                     $.get("AuthenticationServlet", data, function(done){
                         $('#sayHello').text(done);
-                        alert(done);
+                        alert("done!");
                     });
                     
                 });

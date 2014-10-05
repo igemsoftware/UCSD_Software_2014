@@ -61,7 +61,7 @@ $(document).ready(function(){
        var message = $('#message').val();
        var data = {name:name, email:email, affiliation:affiliation,message: message, command:"contactUs"}; 
        $.get("AuthenticationServlet", data, function(done){
-           
+           alert(done);
        });
          
      });       
