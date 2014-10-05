@@ -384,11 +384,11 @@ def get_path_json_array(cursor, starting_species_list, operon_paths_list):
         all_ot_paths_ids.append(path_ot_ids)
         all_edge_paths_ids.append(path_edges_ids)
 
-    species_json_array = '''"speciesId": ''' + str(all_species_paths_ids) + ","
-    input_transitions_json_array = '"inputTransitionsId": ' + str(all_it_paths_ids) + ","
-    operons_json_array = '"operonsId": ' + str(all_operon_paths_ids) + ","
-    output_transitions_json_array = '"outputTransitionsId": ' + str(all_ot_paths_ids) + ","
-    edges_json_array = '"edgesId": ' + str(all_edge_paths_ids)
+    species_json_array = '''"speciesId": ''' + str(all_species_paths_ids).replace("'", '"')+ ","
+    input_transitions_json_array = '"inputTransitionsId": ' + str(all_it_paths_ids).replace("'", '"')+ ","
+    operons_json_array = '"operonsId": ' + str(all_operon_paths_ids).replace("'", '"')+ ","
+    output_transitions_json_array = '"outputTransitionsId": ' + str(all_ot_paths_ids).replace("'", '"')+ ","
+    edges_json_array = '"edgesId": ' + str(all_edge_paths_ids).replace("'", '"')
 
     to_return = species_json_array + input_transitions_json_array + operons_json_array + \
         output_transitions_json_array + edges_json_array
@@ -724,8 +724,8 @@ def create_json_network_string(species_nodes_list, input_transitions_nodes_list,
         to_return += '"data":{'
         to_return += '"id":"' + node[0] + '",'
         to_return += '"name":"' + node[1] + '",'
-        to_return += '"type":"' + node[2] + '"'
-        to_return += '"sbml":' + species_sbml + '"'
+        to_return += '"type":"' + node[2] + '",'
+        to_return += '"sbml":"' + species_sbml + '"'
         to_return += '},'
 
         to_return += '"position":{'
@@ -746,8 +746,8 @@ def create_json_network_string(species_nodes_list, input_transitions_nodes_list,
         to_return += '{'
         to_return += '"data":{'
         to_return += '"id":"' + node[0] + '",'
-        to_return += '"logic":"' + node[1] + '"'
-        to_return += '"sbml":' + it_sbml + '"'
+        to_return += '"logic":"' + node[1] + '",'
+        to_return += '"sbml":"' + it_sbml + '"'
         to_return += '},'
 
         to_return += '"position":{'
@@ -769,7 +769,7 @@ def create_json_network_string(species_nodes_list, input_transitions_nodes_list,
         to_return += '{'
         to_return += '"data":{'
         to_return += '"id":"' + node[0] + '",'
-        to_return += '"sbml":' + operon_sbml + '"'
+        to_return += '"sbml":"' + operon_sbml + '",'
         to_return += '"sbol":"' + operon_sbol + '",'
         to_return += '"name":"' + node[1] + '"'
         to_return += '},'
@@ -793,8 +793,8 @@ def create_json_network_string(species_nodes_list, input_transitions_nodes_list,
 
         to_return += '{'
         to_return += '"data":{'
-        to_return += '"id":"' + str(node[0]) + '"'
-        to_return += '"sbml":' + ot_sbml
+        to_return += '"id":"' + str(node[0]) + '",'
+        to_return += '"sbml":"' + ot_sbml + '"'
         to_return += '},'
 
         to_return += '"position":{'
@@ -835,5 +835,3 @@ def create_json_network_string(species_nodes_list, input_transitions_nodes_list,
 
     return to_return
 
-conn, cur = db.db_open("sbider.db")
-create_json_network_file("json.json", *get_whole_network(cur))
