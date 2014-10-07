@@ -104,33 +104,31 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
                    break;
                }
                
-               case "registration":
+               case "register":
                {
                    //to get the data value 
-                   String string = request.getParameter("data");
-                   String userName = request.getParameter("userName");
-                   String userPassword = request.getParameter("userPassword");
+                   System.out.println("server reached");
+                   String userName = request.getParameter("name");
+                   String userPassword = request.getParameter("email");
                    String wrongInfo = ("");
-                   System.out.println(userName);
-                   System.out.println(userPassword);
+                   System.out.println("userName: " + userName);
+                   System.out.println("userPassword: "+ userPassword);
                    //call on the function passing the userName and userPassword
-                   String info = verifyInfo(userName, userPassword, wrongInfo);
+                   String info = registerInfo(userName, userPassword, wrongInfo);
                    
                    //for now its the userName
                    out.write(info);
+                  
                    break;
                }
                case "contactUs":
                {
                    //to get the data value 
-                   String string = request.getParameter("data");
                    String name = request.getParameter("name");
                    String email = request.getParameter("email");
                    String affiliation = request.getParameter("affiliation");
                    String message = request.getParameter("message");
-                   //name, email, affiliation, text
-                   String emailMe = GoogleMail(name, email, affiliation, message);
-                   //calling the java file
+                   
                    GoogleMail googleMail;
                    googleMail = new GoogleMail(name, email, affiliation, message);
                    
@@ -150,15 +148,16 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
 
 
 /*
-     *Function: This is where the user credentials verified
+     *Function: This is where the user information is registered
      *I will parse the json file's array and check for user
-     *If user exists then their value attached to the key will be checked
-     *If it matches then the user will be allowed to use the app 
+     *If user exists then they have to resubmit another username 
+     *If no match, then user information is stored in code.json 
      */
-    public String verifyInfo(String userName, String userPassword, String wrongInfo) {
+    public String registerInfo(String userName, String userPassword, String wrongInfo) {
         //if the user is new or not
         boolean newUser = false;
-        
+        String enteredUser = userName;
+        String enteredPassword = userPassword;
         
         JSONParser parser = new JSONParser();
 
@@ -167,10 +166,14 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
          */
         try {
 
-            //json data is parsed
+            
             String rootPath = this.getServletContext().getRealPath("/"); //CircuitNetwork/build/web/
+            
+            //json data is parsed
             Object userVerification = parser.parse(new FileReader(rootPath + "code.json"));
             
+            
+            System.out.println(userVerification);
             System.out.println("all the exisiting information: " + userVerification);
 
             //json object is created containing the past data 
@@ -180,22 +183,18 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
             //getting the array information, which is the user name 
             //authenticate is the id for the array 
             JSONArray authenticate = (JSONArray) jsonObject.get("authenticate");
-            System.out.println(authenticate);
+            System.out.println("Items in the array: " + authenticate);
             //iterating the elements in the array to search for a match 
             Iterator<String> authenticateIterator = authenticate.iterator();
             while (authenticateIterator.hasNext()) {
                 //if existing user
-                if (userName.equals(authenticateIterator.next())) {
-                    System.out.println((jsonObject.get(userName)));
-                    if(userPassword.equals(jsonObject.get(userName))){
-                        return (userName);
-                    }
-                    else{
-                    wrongInfo = ("Wrong user name or password, please try again");
+                if (enteredUser.equals(authenticateIterator.next())) {
+                    wrongInfo = ("User already exists");
                     return (wrongInfo);
-                    }
-
-                } //if new user
+                    
+                }
+                     
+                //if new user
                 else {
                    newUser = true;
                     
@@ -208,12 +207,12 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
                     JSONObject obj = jsonObject;
                     
                     //user name and password
-                    obj.put(userName, userPassword);
+                    obj.put(enteredUser, enteredPassword);
                     System.out.println("new user information: " + obj);
 
                     //placing the user information inside an array to check for existing user later on  
                     JSONArray information = authenticate;
-                    information.add(userName);
+                    information.add(enteredUser);
                     
                     //placing the login and password inside the json object 
                     obj.put("authenticate", information);
@@ -238,7 +237,7 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
             e.printStackTrace();
         }
 
-        return (userName);
+        return (enteredUser);
     }
     
     

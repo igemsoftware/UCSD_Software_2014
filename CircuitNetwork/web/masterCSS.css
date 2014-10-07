@@ -16,7 +16,6 @@ body{
    background-color: #003D99;
    color: white;
    box-sizing: border-box;
-   border-bottom: 4px solid #00004C;
    
 }
 
@@ -56,7 +55,7 @@ body{
 }
 #underPic:hover{
     
-    -webkit-transform:scale(1.1);
+   
     
     
 }
@@ -107,3 +106,79 @@ li{
 h1{
     margin-bottom: 30px;
 }
+
+
+
+
+
+//modal
+//modal stuff
+#modalBodyLogin{
+    
+    
+}
+
+#loginModal{
+    border: 2px solid white;
+    margin: auto;
+    background-image: url("ProfilePics/network.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    text-align: center;
+    //opacity: .9;
+    height: 100%;
+    background-color: white;
+    
+}
+
+#modalInput{
+    padding: 10px;
+    margin: auto;
+    height: 250px;
+     border: 2px solid black;
+ logger{
+    height: 400px;
+    width: auto;
+    margin: auto;
+    border: none;
+   
+}
+
+.logger:hover{
+    background-color: gold;
+}
+
+#registration{
+    padding: 10px;
+    margin: 15px;
+    
+}
+#registration input{
+    margin: 5px;
+    border-radius: 15px;
+}    
+}
+
+
+.logger{
+    height: 400px;
+    width: auto;
+    margin: auto;
+    border: none;
+   
+}
+
+.logger:hover{
+    background-color: gold;
+}
+
+#registration{
+    padding: 10px;
+    margin: 15px;
+    
+}
+#registration input{
+    margin: 5px;
+    border-radius: 15px;
+}
+

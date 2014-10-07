@@ -558,6 +558,11 @@ $window, Network, VisualStyles, Gist) {
                 $scope.styleNames[i] = title;
             }
         }
+        
+       $scope.messageMe = function() {
+            alert('dsdsd');
+            window.location.href= ""; 
+        };
               
     });
 

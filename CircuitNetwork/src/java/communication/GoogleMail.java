@@ -19,25 +19,27 @@ import javax.mail.internet.MimeMessage;
  * @author valeriy sosnovskiy jenhan tao
  */
 public class GoogleMail {
-    public GoogleMail(String name, String email, String affiliation,String message, String password){
-        username = name;
-        password = password;
+    public GoogleMail(String name, String email, String affiliation,String message){
+        SenderName = name;
+        
         SenderEmail = email;
-        title = affiliation;
-        message = message;
+        SenderAffiliation = affiliation;
+        SenderMessage = message;
         
     }
-    String username;
-    String password;
+    String SenderName;
+    
     String SenderEmail;
-    String title;
+    String SenderAffiliation;
     String SenderMessage; 
     
     
     
     
     public static void Send(final String username, final String password, String recipientEmail, String title, String message) throws AddressException, MessagingException {
+       
         GoogleMail.Send(username, password, recipientEmail, "", title, message);
+        
     }
 
     /**

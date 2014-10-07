@@ -19,7 +19,7 @@ $(document).ready(function(){
        window.location.href="sampleHome.html"; 
     });
      $("#wiki").click(function(){
-       window.location.href="Tester_Wiki.html"; 
+       window.location.href="http://2014.igem.org/Team:UCSD_Software"; 
     });
      $("#app").click(function(){
        window.location.href="AppPage.html"; 
@@ -31,29 +31,19 @@ $(document).ready(function(){
      $("#contact").click(function(){
        window.location.href="contactPage.html"; 
     });
-    $("#signMe").click(function(){
-       window.location.href="registrationPage.html"; 
-    });
-     $("#registerMe").click(function(){
-       window.location.href="registrationPage.html"; 
-    });
-     
     
+    
+    
+     
+     
     //server functions
-     $("#registration").click(function(){
-                    alert("you are getting registered");
-                    var userName= $("#userName").val();
-                    var userPassword = $("#userPassword").val();
-                    alert("userName:" + userName + "userPassword: " + userPassword);
-                    var data= { user:userID, userName:userName, userPassword: userPassword, command:"registration"};
-                    $.get("AuthenticationServlet", data, function(done){
-                        $('#sayHello').text(done);
-                        alert(done);
-                    });
+     
                     
-                });
+           
+      
+       //contactUs page
        
-     $('#submitContact').click(function(){
+       $('#submitContact').click(function(){
        alert("your information is getting sent");
        var name = $("#name").val();
        var email = $('#email').val();
@@ -64,10 +54,22 @@ $(document).ready(function(){
            alert(done);
        });
          
-     });       
+     });  
+     
+       $('#register').click(function(){
+           alert("clicked");
+          var name = $("#newName").val();
+          var email = $("#newPassword").val();
+          alert(name + email);
+          var data = {name: name, email:email, command:"register"};
+          $.get("AuthenticationServlet", data, function(done){
+              alert(done);
+              
+          });
+       });
+       
+      
                 
-                
-    $("#thumbOne").hover(function(){
-       $(".glyphicon-quest").effect("scale", { percent: 200}, 1000); 
-    });            
-});
+              
+
+});  

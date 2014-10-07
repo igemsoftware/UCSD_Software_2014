@@ -18,6 +18,7 @@ and open the template in the editor.
     
     </head>
     <body>
+        <!--navbar --> 
         <div class="container-fluid">
             
             <!--navbar --> 
@@ -28,19 +29,13 @@ and open the template in the editor.
                     <div class="btn btn-lg " id="about">About</div>
                     <div class="btn btn-lg " id="documentation">Documentation</div>
                     <div class="btn btn-lg" id="wiki">Wiki</div>
-                    <div class="btn btn-lg" id="app">App</div>
+                    <div class="btn btn-lg" id="app">Application</div>
                    <div class="btn btn-lg" id="contact">Contact</div>
+                   <div class="btn btn-lg"  data-toggle="modal" data-target="#loginModal">Register</div>
                     
                </div>
                
-                <form class="navbar-form navbar-right" role="search">
-                <div class="form-group ">
-                <input type="email" class="form-control text-warning input-sm"  placeholder="Email" id="userName">
-                <input type ="text" class="form-control text-primary input-sm" placeholder="Password" id="userPassword">
-                </div>
-                <button class="btn btn-primary btn-sm " id="registration">Log In</button>
-                <button class="btn btn-primary btn-sm" id='registerMe' >Register</button>
-                </form>
+                <div class="btn btn-lg pull-right " id="log" data-toggle="modal" data-target="#loginModal" ><span class="glyphicon glyphicon-log-in" id="userInfo"> LOGIN</span></div>
                  
                 
             </nav>
@@ -57,7 +52,7 @@ and open the template in the editor.
         
         <!-- Carousel indicators -->
         <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="0" class="active "></li>
             <li data-target="#myCarousel" data-slide-to="1"></li>
             <li data-target="#myCarousel" data-slide-to="2"></li>
             <li data-target="#myCarousel" data-slide-to="3"></li>
@@ -66,25 +61,77 @@ and open the template in the editor.
         <!-- Carousel items -->
         <div class="carousel-inner">
             <div class="item active text-center" id="sliderItems">
-                <h1>SBIDer</h1>
-                <p>
-                    Genetic circuits are often difficult to engineer, requiring months to design, build, and test each individual genetic device involved in the circuit. SBiDer, a web tool developed by the UCSD Software iGEM team, will leverage existing devices to construct a database with consideration for the function of each device interpreted as boolean logic. The data can be queried by the user through SBiDer's visual interface to explore circuit designs. The displayed circuit's literature reference, characterization data, and images of included devices can be viewed through the built-in table. Basic validation of the circuit performance is also provided within in the interface. SBiDer's web of information can be expanded through user-generated additions to the database to improve the efficiency of the application and the accuracy of the models.
-
-
-                </p>
-                <button class="btn-lg btn-primary text-center" id="signMe">Sign Up!</button>
+               
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="panel">
+                            <img class="img-responsive" src="ProfilePics/network.png">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="panel text-center">
+                           <div class="page-header">
+                                <h1>SBiDer</h1> 
+                            </div>
+                                <p class="text-success" id="path">Find the right path for you!</p>
+                           
+                         <button class="btn-lg btn-primary text-center" id="signMe" data-toggle="modal" data-target="#loginModal">Sign Up!</button>
+                        </div>
+                    </div>
+                </div>
+                
                 
             </div>
             
             <div class="item " id="sliderItems">
-                <h1>Hello</h1>
+               <div class="row">
+                    <div class="col-md-6">
+                        <div class="panel">
+                            <img class="img-responsive" src="https://bioknowledgy.wikispaces.com/file/view/contamination%20plasmid.jpg/356814744/contamination%20plasmid.jpg">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="panel text-center">
+                          <div class="page-header">
+                                <h1>SBiDer</h1> 
+                            </div>
+                                <p class="text-success" id="path">Unique Database!</p>
+                                <a href="#" id="CheckIt"><span class="glyphicon glyphicon-share-alt" ></span>Check it out!</a>
+                        </div>
+                    </div>
+                </div>
             </div>
             
             <div class="item" id="sliderItems">
-                <h1>Goodbye</h1>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="panel">
+                            <img class="img-responsive" src="https://lh4.googleusercontent.com/EGx5Z-0NoOfVghliAZsijI16hu6qJpsJbCiELKj2-i5tZJZrAjgtB7TCpLmFuIV3FenLgZelQSM=w1110-h482" >
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="panel">
+                            <h1>Our vision!</h1> 
+                            
+                         
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="item" id="sliderItems">
-                
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel" id="sponsors">
+                            <div class="panel">
+                                <h1>Big Thanks To Our Sponsors</h1> 
+                            </div>
+                            
+                                
+                            
+                        </div>
+                    </div>
+                    
+                </div>
             </div>
             
         </div>
@@ -137,6 +184,78 @@ and open the template in the editor.
                 <br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://localhost:8080/CircuitNetwork/Tester_Home.html" rel="dct:source">http://localhost:8080/CircuitNetwork/Tester_Home.html</a>;
             </div>
             </div>
+            
+            <!--login modal-->
+            <div class="modal fade  modal-lg text-center" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header text-center">
+                      <div class="btn btn-lg pull-right " data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></div>  
+                      <h1 >Welcome!</h1>
+                      
+                  </div>
+                   <div class="modal-body" >
+                        
+                  
+            
+                      
+                 
+                      <div class="row">
+                     
+                     <div class="col-md-6">
+                         <div class="thumbnail logger text-center" >
+                             <div class="page-header"><h2>Log In</h2></div>
+                             <div class="input-group input-group-lg" id="registration">
+                                 
+                                 <input type="text" id="name" placeholder="Email" class="form-control text-center">
+                                 <input type="password" id="password" placeholder="Password" class="form-control text-center">
+                                
+                             </div>
+                             <br>
+                              <div class="btn btn-lg btn-primary" id="login">Log In!</div>
+                         </div>
+                     </div>
+                     <div class="col-md-6">
+                         <div class="thumbnail logger">
+                             <div class="page-header"><h2>Register</h2></div>
+                             <div class="input-group input-group-lg " id="registration">
+                                 
+                            <input type="text" id="newName" class="form-control text-center" placeholder="Email">
+                            <input type="password" id="newPassword" class="form-control text-center" placeholder="Password">
+                         </div>
+                             <br>
+                              <div class="btn btn-lg btn-primary" id="register">Register!</div>
+                     </div>
+                 </div>
+                      
+                      <div class="row btn-group btn-group-lg btn-group-justified">
+                          <div class="col-sm-4">
+                              <a href="index.html"><div class="btn btn-link">
+                                 Home
+                                  </div></a>  
+                          </div>
+                          <div class="col-sm-4">
+                              <a href=""><div class="btn btn-link">
+                                 Tutorial
+                                  </div></a>
+                          </div>
+                          <div class="col-sm-4">
+                              <a href="AboutPage.html"><div class="btn btn-link" id="about">
+                                 About Us
+                                  </div></a>
+                          </div>
+                      </div>
+           
+        
+       
+</div>
+      </div>
+      
+    </div>
+  </div>
+            </div>
+
+            <!--end of modal-->
            
     </body>
 </html>

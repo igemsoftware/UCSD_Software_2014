@@ -17,8 +17,8 @@ and open the template in the editor.
         <script src="masterJS.js"></script>
     </head>
     <body>
-        <!--navbar -->
-         <div class="container-fluid">
+        <!--navbar --> 
+        <div class="container-fluid">
             
             <!--navbar --> 
         
@@ -28,25 +28,19 @@ and open the template in the editor.
                     <div class="btn btn-lg " id="about">About</div>
                     <div class="btn btn-lg " id="documentation">Documentation</div>
                     <div class="btn btn-lg" id="wiki">Wiki</div>
-                    <div class="btn btn-lg" id="app">App</div>
+                    <div class="btn btn-lg" id="app">Application</div>
                    <div class="btn btn-lg" id="contact">Contact</div>
+                    <div class="btn btn-lg"  data-toggle="modal" data-target="#loginModal">Register</div>
                     
                </div>
                
-                <form class="navbar-form navbar-right" role="search">
-                <div class="form-group ">
-                <input type="email" class="form-control text-warning input-sm"  placeholder="Email" id="userName">
-                <input type ="text" class="form-control text-primary input-sm" placeholder="Password" id="userPassword">
-                </div>
-                <button class="btn btn-primary btn-sm " id="registration">Log In</button>
-                <button class="btn btn-primary btn-sm" id='registerMe' >Register</button>
-                </form>
+                <div class="btn btn-lg pull-right " id="log" data-toggle="modal" data-target="#loginModal" ><span class="glyphicon glyphicon-log-in" id="userInfo"> LOGIN</span></div>
                  
                 
             </nav>
        
-        </div>  
-        <!--navbar ends-->
+        </div>     
+     <!--navbar ends-->
         <!--profiles-->
         <div class="container">
             <div class="row" id="groupInfo">
@@ -63,7 +57,7 @@ and open the template in the editor.
             
             <!--undergrads-->
             <div class="row text-center" id="undergraduates">
-                <h1>The Team </h1>
+                <div class="page-header"><h1 class="text-primary">The Team </h1></div>
                 <div class="col-md-4">
                     <div class="thumbnail" id="underPic">
                         <img class="img-circle" src="ProfilePics/Huwate.jpg">
@@ -172,11 +166,11 @@ and open the template in the editor.
                     
                 </div>
             <!--end of undergrads-->
-            <h1>Advisors</h1>
+            
             <!--graduates-->
-            <div class="row text-center" id="graduates">
+            <div class="row text-center " id="graduates">
                 
-                
+                <div class="page-header"><h1 class="">Advisors</h1></div>
                 <div class="col-md-6">
                     <div class="thumbnail text-center" id="gradPic">
                         <img class="img-circle" src="ProfilePics/Jenhan.jpg">
@@ -264,8 +258,16 @@ and open the template in the editor.
                 </div>
                  <div class="col-md-6">
                     <p class="pull-left">
-                                Jenhan is a PhD student in the Bioinformatics and Systems Biology program at UCSD. He's interested in utilizing computational technqiues to increase our capacity to understand complex biological problems such as cell signalling. This is Jenhan's second year working as an iGEM mentor. Previously Jenhan was involved in synthetic biology research as an iGEM team member at Boston University and as a research assistant at UC Berkeley, the BioFAB, and Boston University.
-                                </p>
+                        Andreas Dräger works as an independent research scholar in the Systems
+Biology Research Group at UCSD. He studied bioinformatics at the Martin
+Luther University in Halle and worked as an intern
+at the Max Planck Institute for Molecular Genetics, Berlin, and at the
+University of Illinois at Chicago. He did his PhD at the Center for
+Bioinformatics in Tübingen and worked as visiting research student at
+Keio University in Yokohama. The Faculty of Science (University of
+Tuebingen) awarded his PhD thesis as the most outstanding work of 2011
+and granted him a funding for an own graduate student.
+                    </p>
                 </div>
                     
                     
@@ -274,6 +276,76 @@ and open the template in the editor.
             <!--end of graduates-->
             </div>
              
+      <!--login modal-->
+            <div class="modal fade  modal-lg text-center" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header text-center">
+                      <div class="btn btn-lg pull-right " data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></div>  
+                      <h1 >Welcome!</h1>
+                      
+                  </div>
+                   <div class="modal-body" >
+                        
+                  
+            
+                      
+                 
+                      <div class="row">
+                     
+                     <div class="col-md-6">
+                         <div class="thumbnail logger text-center" >
+                             <div class="page-header"><h2>Log In</h2></div>
+                             <div class="input-group input-group-lg" id="registration">
+                                 
+                                 <input type="text" id="name" placeholder="Email" class="form-control text-center">
+                                 <input type="password" id="password" placeholder="Password" class="form-control text-center">
+                                
+                             </div>
+                             <br>
+                              <div class="btn btn-lg btn-primary" id="login">Log In!</div>
+                         </div>
+                     </div>
+                     <div class="col-md-6">
+                         <div class="thumbnail logger">
+                             <div class="page-header"><h2>Register</h2></div>
+                             <div class="input-group input-group-lg " id="registration">
+                                 
+                            <input type="text" id="newName" class="form-control text-center" placeholder="Email">
+                            <input type="password" id="newPassword" class="form-control text-center" placeholder="Password">
+                         </div>
+                             <br>
+                              <div class="btn btn-lg btn-primary" id="register">Register!</div>
+                     </div>
+                 </div>
+                      
+                      <div class="row btn-group btn-group-lg btn-group-justified">
+                          <div class="col-sm-4">
+                              <a href="index.html"><div class="btn btn-link">
+                                 Home
+                                  </div></a>  
+                          </div>
+                          <div class="col-sm-4">
+                              <a href=""><div class="btn btn-link">
+                                 Tutorial
+                                  </div></a>
+                          </div>
+                          <div class="col-sm-4">
+                              <a href="AboutPage.html"><div class="btn btn-link" id="about">
+                                 About Us
+                                  </div></a>
+                          </div>
+                      </div>
+           
+        
+       
+</div>
+      </div>
       
+    </div>
+  </div>
+            </div>
+
+            <!--end of modal-->
     </body>
 </html>

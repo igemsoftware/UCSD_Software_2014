@@ -93,7 +93,7 @@ ci > gfp
                     var userName= $("#userName").val();
                     var userPassword = $("#userPassword").val();
                     alert("userName: " + userName + " userPassword: " + userPassword);
-                    var data= { user:userID, userName:userName, userPassword: userPassword, command:"registration"};
+                    var data= { user:userID, userName:userName, userPassword: userPassword, command:"login"};
                     $.get("AuthenticationServlet", data, function(done){
                         $('#sayHello').text(done);
                         alert("done!");
