@@ -21,12 +21,14 @@ $window, Network, VisualStyles, Gist) {
 	var vs = {};
         //global reference for cytoscape.js
         $scope.cynet;
+        
         //Global variables for storing algorithm results
-        //currently hard coded from dummy data
-        var speciesId = [["spe_11"],["ope_2-1","ope_46-1","ope_47-1","ope_57-1","spe_13","spe_2","spe_33","spe_9"],["ope_1-1","spe_20","spe_21"],["spe_39"]];
-        var transitionId = [["ot_1","ot_2"],["it_2","it_3","it_72","it_75","it_98","ot_98"],["it_1","ot_72","ot_75"],["ot_3","ot_5"]];
-        var edgeId = [["54","69"],["55","56","57","58","65","66","67","68","71","72","73","76","77","78","80","81","82","83","85"],["50","51","52","53","74","79"],["59","64"]];
-       
+        var speciesId = [];
+        var inputTransitionsId = []; 
+        var operonsId = [];
+        var outputTransitionsId = [];
+        var edgesId = [];
+        
         $scope.networks = {};
         $scope.visualStyles = {};
         $scope.styleNames = [];
@@ -380,7 +382,7 @@ $window, Network, VisualStyles, Gist) {
             angular.element('.loading').show();
             searchGet();
             
-            //$scope.circuitCtrl();
+            $scope.circuitCtrl();
         };
         
         //upload page function
@@ -393,6 +395,7 @@ $window, Network, VisualStyles, Gist) {
          {$scope.cynet.load(networkDefault.elements);
          };
 
+            
         //function for highlighting a path.        
         $scope.selectPath = function(index) {
             reset();
@@ -400,19 +403,28 @@ $window, Network, VisualStyles, Gist) {
             for (var count = 0; count < speciesId[index].length; count++){
                 $scope.cynet.$("#"+String(speciesId[index][count])).select();
             };
-            for (var count = 0; count < transitionId[index].length; count++){
-                $scope.cynet.$("#"+String(transitionId[index][count])).select();
+            for (var count = 0; count < inputTransitionsId[index].length; count++){
+                $scope.cynet.$("#"+String(inputTransitionsId[index][count])).select();
             };
-            for (var count = 0; count < edgeId[index].length; count++){
-                $scope.cynet.$("#"+String(edgeId[index][count])).select();
+            for (var count = 0; count < operonsId[index].length; count++){
+                $scope.cynet.$("#"+String(operonsId[index][count])).select();
+            };
+            for (var count = 0; count < outputTransitionsId[index].length; count++){
+                $scope.cynet.$("#"+String(inputTransitionsId[index][count])).select();
+            };
+            for (var count = 0; count < edgesId[index].length; count++){
+                $scope.cynet.$("#"+String(edgesId[index][count])).select();
             };
             console.log("New Circuit Selected.");
         };
+        
+        
         $scope.circuitCtrl = function() {
             for (var result = 0; result <speciesId.length; result ++){
                 $scope.resultIndex.push({ label: "Path " + String(result + 1), value: result});
             };
         };
+       
         $scope.circuitCtrl();
         
         $scope.encodeUrl = function() {
