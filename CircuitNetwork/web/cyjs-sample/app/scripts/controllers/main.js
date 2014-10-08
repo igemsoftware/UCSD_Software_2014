@@ -383,6 +383,11 @@ $window, Network, VisualStyles, Gist) {
             //$scope.circuitCtrl();
         };
         
+        //upload page function
+        $scope.upload = function(){
+            
+        };
+        
         //refreshes the inputs and the page 
          $scope.reloadPage = function()
          {$scope.cynet.load(networkDefault.elements);

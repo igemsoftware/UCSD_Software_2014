@@ -221,55 +221,57 @@
         <h4 class="modal-title text-center" id="myModalLabel">Upload</h4>
       </div>
       <div class="modal-body">
-        <div class="well well-lg">
+        <div class="well well-lg text-center">
            
            <div class="row text-center">
            Plasmid: <span><input class = "textbox" type = "text" ng-model = "Plasmid" placeholder="type in the plasmid"/><br>
                    </div>
             <div class="row text-center">
-           <div class="col-md-6">
-           Operon [1]: <span><input class = "textbox" type = "text" ng-model = "Plx" placeholder="type in your output"/><br>
+           <div class="col-md-6 text-center text-danger">
+           <p>Operon [1]: <input class = "textbox" type = "text" ng-model = "Plx" /><br>
                
-               Input transitions[A]:<span><input class = "textbox " type = "text" ng-model = "Plxone" placeholder="type in your output"/><br>
-                   Input species[1]:<span><input class = "textbox" type = "text" ng-model = "PlxoneOne" placeholder="type in your output"/><br>
-                        Output Species[a]:<span><input class = "textbox" type = "text" ng-model = "PlxoneOne" placeholder="type in your output"/><br>
-                        Output Species[b]: <span><input class = "textbox" type = "text" ng-model = "PlxoneOne" placeholder="type in your output"/><br>
+              <p class="text-info"> Input transitions[A]:</p><input class = "textbox " type = "text" ng-model = "Plxone" /><br>
+                   Input species[1]:<input class = "textbox" type = "text" ng-model = "PlxoneOne" /><br>
+                        Output Species[a]:<input class = "textbox" type = "text" ng-model = "PlxoneOneSP1" /><br>
+                        Output Species[b]: <input class = "textbox" type = "text" ng-model = "PlxoneOneSP2" /><br>
                    
-                    Input species[2]:<span><input class = "textbox" type = "text" ng-model = "PlxoneTwo" placeholder="type in your output"/><br>
-                        Output Species[a]:<span><input class = "textbox" type = "text" ng-model = "PlxoneOne" placeholder="type in your output"/><br>
-                        Output Species[b]: <span><input class = "textbox" type = "text" ng-model = "PlxoneOne" placeholder="type in your output"/><br>
+                    Input species[2]:<input class = "textbox" type = "text" ng-model = "PlxoneTwo" /><br>
+                        Output Species[a]:<input class = "textbox" type = "text" ng-model = "PlxoneTwoSP1"/><br>
+                        Output Species[b]: <input class = "textbox" type = "text" ng-model = "PlxoneTwoSP2" /><br>
                 
                
-               Input transition[B]: <span><input class = "textbox " type = "text" ng-model = "Plxtwo" placeholder="type in your output"/><br> 
-                   Input species[1]:<span><input class = "textbox" type = "text" ng-model = "PlxtwoOne" placeholder="type in your output"/><br>
-                               Output Species[a]: <span><input class = "textbox" type = "text" ng-model = "PlxoneOne" placeholder="type in your output"/><br>
-                               Output Species[b]: <span><input class = "textbox" type = "text" ng-model = "PlxoneOne" placeholder="type in your output"/><br>
-                   Input species[2]:<span><input class = "textbox" type = "text" ng-model = "PlxtwoTwo" placeholder="type in your output"/><br>
-                               Output Species[a]: <span><input class = "textbox" type = "text" ng-model = "PlxoneOne" placeholder="type in your output"/><br>
-                               Output Species[b]: <span><input class = "textbox" type = "text" ng-model = "PlxoneOne" placeholder="type in your output"/><br>
+               <p class="text-success">Input transition[B]:</p><input class = "textbox " type = "text" ng-model = "Plxtwo" /><br> 
+                   Input species[1]:<input class = "textbox" type = "text" ng-model = "PlxtwoOne" /><br>
+                               Output Species[a]: <input class = "textbox" type = "text" ng-model = "PlxoneOneSP1" /><br>
+                               Output Species[b]: <input class = "textbox" type = "text" ng-model = "PlxoneOneSP2" /><br>
+                   Input species[2]:<input class = "textbox" type = "text" ng-model = "PlxtwoTwo" /><br>
+                               Output Species[a]: <input class = "textbox" type = "text" ng-model = "PlxoneOneSP1" /><br>
+                               Output Species[b]: <input class = "textbox" type = "text" ng-model = "PlxoneOneSP2" /><br>
                                                    
            </div>  
             
-               <div class="col-md-6">
-           Operon [2]: <span><input class = "textbox" type = "text" ng-model = "Ply" placeholder="type in your output"/><br>
-                Input transitions[1]:<span><input class = "textbox" type = "text" ng-model = "Plyone" placeholder="type in your output"/><br>
-                    Input species[1]:<span><input class = "textbox" type = "text" ng-model = "PlyoneOne" placeholder="type in your output"/><br>
-                        <span><input class = "textbox" type = "text" ng-model = "PlyoneTwo" placeholder="type in your output"/><br>
-                            <span><input class = "textbox" type = "text" ng-model = "PlyoneTwo" placeholder="type in your output"/><br>
-                    Input species[2]:<span><input class = "textbox" type = "text" ng-model = "PlyoneTwo" placeholder="type in your output"/><br>
-                        <span><input class = "textbox" type = "text" ng-model = "PlyoneTwo" placeholder="type in your output"/><br>
-                            <span><input class = "textbox" type = "text" ng-model = "PlyoneTwo" placeholder="type in your output"/><br>
+               <div class="col-md-6 text-center text-primary">
+           Operon [2]: <input class = "textbox" type = "text" ng-model = "Ply" /><br>
+           <p class="text-warning">Input transitions[1]:</p><input class = "textbox" type = "text" ng-model = "Plyone" /><br>
+                    Input species[1]:<input class = "textbox" type = "text" ng-model = "PlyoneOne" /><br>
+                    Output species[1]:<input class = "textbox" type = "text" ng-model = "PlyoneOneSP1" /><br>
+                    Output species[2]:<input class = "textbox" type = "text" ng-model = "PlyoneOneSP2" /><br>
+                    
+                    Input species[2]:<input class = "textbox" type = "text" ng-model = "PlyoneTwo" /><br>
+                    Output species[1]:<input class = "textbox" type = "text" ng-model = "PlyoneTwoSP1" /><br>
+                    Output species[2]: <input class = "textbox" type = "text" ng-model = "PlyoneTwoSP2" /><br>
+                    
                 
-                 Input transition[2]: <span><input class = "textbox" type = "text" ng-model = "Plytwo" placeholder="type in your output"/><br>  
-                    Input species[1]:<span><input class = "textbox" type = "text" ng-model = "PlytwoOne" placeholder="type in your output"/><br>
-                        <span><input class = "textbox" type = "text" ng-model = "PlyoneTwo" placeholder="type in your output"/><br>
-                            <span><input class = "textbox" type = "text" ng-model = "PlyoneTwo" placeholder="type in your output"/><br>
-                    Input species[2]:<span><input class = "textbox" type = "text" ng-model = "PlytwoTwo" placeholder="type in your output"/><br>
-                        <span><input class = "textbox" type = "text" ng-model = "PlyoneTwo" placeholder="type in your output"/><br>
-                            <span><input class = "textbox" type = "text" ng-model = "PlyoneTwo" placeholder="type in your output"/><br>
+                    <p class="text-primary">Input transition[2]:</p><input class = "textbox" type = "text" ng-model = "Plytwo" /><br>  
+                    Input species[1]:<input class = "textbox" type = "text" ng-model = "PlytwoOne" /><br>
+                        Output species[1]:<input class = "textbox" type = "text" ng-model = "PlytwoOneSP1" /><br>
+                        Output species[2]:<input class = "textbox" type = "text" ng-model = "PlytwoOneSP2" /><br>
+                    Input species[2]:<input class = "textbox" type = "text" ng-model = "PlytwoTwo" /><br>
+                        Output species[1]:<input class = "textbox" type = "text" ng-model = "PlytwoTwoSP1" /><br>
+                        Output species[2]:<input class = "textbox" type = "text" ng-model = "PlytwoTwoSP2" /><br>
                         </div>  
             </div> 
-            <button><span id="search-box" class="glyphicon glyphicon-share-alt" ng-click="upload()"><span>Explore</span></span></button></span>
+            <button class="btn btn-lg"><span id="search-box" class="glyphicon glyphicon-upload" ng-click="upload()"><span>Upload</span></span></button></span>
         </div>
       </div>
       <div class="modal-footer">
