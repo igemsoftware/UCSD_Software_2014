@@ -141,7 +141,7 @@
     <div class="icon-button" ng-click="messageMe()" tooltip-placement="left" tooltip="Contact Us">
         <span id="search-box" class="glyphicon glyphicon-comment"></span>
     </div>
-     <div class="icon-button" ng-click="updatePage()" tooltip-placement="left" tooltip="Upload to Database">
+     <div class="icon-button" ng-click="updatePage()" data-toggle="modal" data-target="#modalUpload" tooltip-placement="left" tooltip="Upload to Database">
         <span id="search-box" class="glyphicon glyphicon-plus"></span>
     </div>
     <!-- Old Glyph for bg color picker -->
@@ -203,6 +203,73 @@
       <div class="modal-body">
         <div class="embed-responsive embed-responsive-16by9">
             <iframe src="index.html" id="tutorialModal"></iframe>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Modal Upload Page-->
+<div class="modal fade" id="modalUpload" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title text-center" id="myModalLabel">Upload</h4>
+      </div>
+      <div class="modal-body">
+        <div class="well well-lg">
+           
+           <div class="row text-center">
+           Plasmid: <span><input class = "textbox" type = "text" ng-model = "Plasmid" placeholder="type in the plasmid"/><br>
+                   </div>
+            <div class="row text-center">
+           <div class="col-md-6">
+           Operon [1]: <span><input class = "textbox" type = "text" ng-model = "Plx" placeholder="type in your output"/><br>
+               
+               Input transitions[A]:<span><input class = "textbox " type = "text" ng-model = "Plxone" placeholder="type in your output"/><br>
+                   Input species[1]:<span><input class = "textbox" type = "text" ng-model = "PlxoneOne" placeholder="type in your output"/><br>
+                        Output Species[a]:<span><input class = "textbox" type = "text" ng-model = "PlxoneOne" placeholder="type in your output"/><br>
+                        Output Species[b]: <span><input class = "textbox" type = "text" ng-model = "PlxoneOne" placeholder="type in your output"/><br>
+                   
+                    Input species[2]:<span><input class = "textbox" type = "text" ng-model = "PlxoneTwo" placeholder="type in your output"/><br>
+                        Output Species[a]:<span><input class = "textbox" type = "text" ng-model = "PlxoneOne" placeholder="type in your output"/><br>
+                        Output Species[b]: <span><input class = "textbox" type = "text" ng-model = "PlxoneOne" placeholder="type in your output"/><br>
+                
+               
+               Input transition[B]: <span><input class = "textbox " type = "text" ng-model = "Plxtwo" placeholder="type in your output"/><br> 
+                   Input species[1]:<span><input class = "textbox" type = "text" ng-model = "PlxtwoOne" placeholder="type in your output"/><br>
+                               Output Species[a]: <span><input class = "textbox" type = "text" ng-model = "PlxoneOne" placeholder="type in your output"/><br>
+                               Output Species[b]: <span><input class = "textbox" type = "text" ng-model = "PlxoneOne" placeholder="type in your output"/><br>
+                   Input species[2]:<span><input class = "textbox" type = "text" ng-model = "PlxtwoTwo" placeholder="type in your output"/><br>
+                               Output Species[a]: <span><input class = "textbox" type = "text" ng-model = "PlxoneOne" placeholder="type in your output"/><br>
+                               Output Species[b]: <span><input class = "textbox" type = "text" ng-model = "PlxoneOne" placeholder="type in your output"/><br>
+                                                   
+           </div>  
+            
+               <div class="col-md-6">
+           Operon [2]: <span><input class = "textbox" type = "text" ng-model = "Ply" placeholder="type in your output"/><br>
+                Input transitions[1]:<span><input class = "textbox" type = "text" ng-model = "Plyone" placeholder="type in your output"/><br>
+                    Input species[1]:<span><input class = "textbox" type = "text" ng-model = "PlyoneOne" placeholder="type in your output"/><br>
+                        <span><input class = "textbox" type = "text" ng-model = "PlyoneTwo" placeholder="type in your output"/><br>
+                            <span><input class = "textbox" type = "text" ng-model = "PlyoneTwo" placeholder="type in your output"/><br>
+                    Input species[2]:<span><input class = "textbox" type = "text" ng-model = "PlyoneTwo" placeholder="type in your output"/><br>
+                        <span><input class = "textbox" type = "text" ng-model = "PlyoneTwo" placeholder="type in your output"/><br>
+                            <span><input class = "textbox" type = "text" ng-model = "PlyoneTwo" placeholder="type in your output"/><br>
+                
+                 Input transition[2]: <span><input class = "textbox" type = "text" ng-model = "Plytwo" placeholder="type in your output"/><br>  
+                    Input species[1]:<span><input class = "textbox" type = "text" ng-model = "PlytwoOne" placeholder="type in your output"/><br>
+                        <span><input class = "textbox" type = "text" ng-model = "PlyoneTwo" placeholder="type in your output"/><br>
+                            <span><input class = "textbox" type = "text" ng-model = "PlyoneTwo" placeholder="type in your output"/><br>
+                    Input species[2]:<span><input class = "textbox" type = "text" ng-model = "PlytwoTwo" placeholder="type in your output"/><br>
+                        <span><input class = "textbox" type = "text" ng-model = "PlyoneTwo" placeholder="type in your output"/><br>
+                            <span><input class = "textbox" type = "text" ng-model = "PlyoneTwo" placeholder="type in your output"/><br>
+                        </div>  
+            </div> 
+            <button><span id="search-box" class="glyphicon glyphicon-share-alt" ng-click="upload()"><span>Explore</span></span></button></span>
         </div>
       </div>
       <div class="modal-footer">

@@ -121,6 +121,10 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
                   
                    break;
                }
+               case "login":
+               {
+                   break;
+               }
                case "contactUs":
                {
                    //to get the data value 
