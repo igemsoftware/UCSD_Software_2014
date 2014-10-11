@@ -33,7 +33,7 @@
 	<!--<img src ="http://ubic.ucsd.edu/ubic_logo_s.png" id = "book"/>-->
         <div ng-show="cadState.show" class="CAD">
             <!--<img src ="http://cidar1.bu.edu:5801/pigeonHelp/file.173.8.230.1931098-trans.png" width="110%" height="110%" id = "book"/>-->
-            <img id="displayCad" ng-src="../../pigeonImages/sbol_operon_57-1.png">
+            <img id="displayCad" ng-src="../../pigeonImages/{{currentCad}}">
             <button class="cadLeft" ng-click="cadLeft()"><span class="glyphicon glyphicon-chevron-left"></span></button>
             <button class="cadRight" ng-click="cadRight()"><span class="glyphicon glyphicon-chevron-right"></span></button>
         </div>

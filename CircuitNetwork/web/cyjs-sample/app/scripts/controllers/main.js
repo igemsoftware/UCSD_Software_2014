@@ -1,563 +1,573 @@
 
 angular.module('cyViewerApp')
-	
-    .controller('MainCtrl', function ($scope, $http, $location, $routeParams, 
-$window, Network, VisualStyles, Gist) {		
 
-        'use strict';     
-        //these files are the temporary network
-	var NETWORK_FILE = 'data/sbider_whole_network.json'; 
-        var visualStyleFile = 'data/sbiderStyle.json'; 
-        var DEFAULT_VISUAL_STYLE_NAME = 'default';//'Solid';
-        var PRESET_STYLE_FILE = encodeURIComponent('data/sbiderStyle.json');
-        
-        //temp user declaration
-        //generates a random string of 20 characters
-       
+        .controller('MainCtrl', function($scope, $http, $location, $routeParams,
+                $window, Network, VisualStyles, Gist) {
 
-        //these empty dictionaries are updated by the server for use by the cytoscape.js object.
-        var networkData = {};
-        var networkDefault = {};
-	var vs = {};
-        //global reference for cytoscape.js
-        $scope.cynet;
-        
-        //Global variables for storing algorithm results
-        var speciesId = [];
-        var inputTransitionsId = []; 
-        var operonsId = [];
-        var outputTransitionsId = [];
-        var edgesId = [];
-        
-        $scope.networks = {};
-        $scope.visualStyles = {};
-        $scope.styleNames = [];
-        $scope.networkNames = [];
-        $scope.currentVS = DEFAULT_VISUAL_STYLE_NAME;
-        //$scope.currentNetworkData = null;
-        
-        var gistStyle = null;
+            'use strict';
+            //these files are the temporary network
+            var NETWORK_FILE = 'data/sbider_whole_network.json';
+            var visualStyleFile = 'data/sbiderStyle.json';
+            var DEFAULT_VISUAL_STYLE_NAME = 'default';//'Solid';
+            var PRESET_STYLE_FILE = encodeURIComponent('data/sbiderStyle.json');
 
-        // Parse url parameters
-        var gistId = $routeParams.id;
-        var zoomLevel = $routeParams.zoom;
-        var panX = $routeParams.x;
-        var panY = $routeParams.y;
-
-        // Application global objects
-        $scope.networks = {};
-        $scope.visualStyles = {};
-        $scope.styleNames = [];
-        $scope.networkNames = [];
-        $scope.currentVS = DEFAULT_VISUAL_STYLE_NAME;
-        $scope.currentNetworkData = null;
-
-        //Toolbar state variables
-        $scope.browserState = {
-            show: false
-        };
-        $scope.overlayState = {
-            show: true
-        };
-        $scope.toolbarState = {
-            show: true
-        };
-        $scope.searchState = {
-            show: true
-        };
-        $scope.cadState = {
-            show: false
-        };
-        $scope.modelState = {
-            show: false
-        };
-
-        $scope.bg = {
-            color: '#FAFAFA'
-        };
-
-        $scope.columnNames = [];
-        $scope.edgeColumnNames = [];
-        $scope.networkColumnNames = [];
-
-        var originalLocation = $location.absUrl().split('?')[0];
-
-        console.log('GistID: ' + gistId);
-        console.log('Network rendering start...');
-        
-         /** EVIL CODE: do NOT uncomment. This KILLS the graph. :( Took me 3 hours to get this bug...hmpf**/
-	var styleLocation = $scope.encodedStyle;
-        if (!styleLocation) {
-            visualStyleFile = PRESET_STYLE_FILE;
-        } else {
-            visualStyleFile = $scope.encodedStyle;
-        }
-        
-        var options = {
-            showOverlay: false,
-            minZoom: 0.01,
-            maxZoom: 200,
-
-            layout: {
-                name: 'preset'
-            },
-	    
-	    //style: cytoscape.stylesheet()
-	    //Changing shapes of nodes 
-	  
-		
-            ready: function() {
-                var cy = this;
-                cy.load(networkData.elements);
-                $scope.cy = cy;
-                setEventListeners();
-                $scope.cy.style().fromJson($scope.visualStyles
-                [DEFAULT_VISUAL_STYLE_NAME].style).update();
-                updateNetworkData(cy);
-	        angular.element('.loading').hide();
-				//$('#752').addClass('highlighted');
-				
-				//$scope.#752.addClass('highlighted');
-                /*$scope.cy = this;
-                $scope.cy.load(networkData.elements);
-		/*$scope.cy = cy;
-                $scope.cy.style().fromJson($scope.visualStyles[DEFAULT_VISUAL_STYLE_NAME].style).update();
-                updateNetworkData(cy);*/
-                /*if (!gistStyle) {
-                    VisualStyles.query({
-                        styleUrl: visualStyleFile
-                    }, function(vs) {
-                        init(vs);
-                        dropSupport();
-                        setEventListeners();
-                        var newStyle = $routeParams.selectedstyle;
-                        if (!newStyle) {
-                            newStyle = DEFAULT_VISUAL_STYLE_NAME;
-                        }
-                        $scope.cy.style().fromJson($scope.visualStyles[newStyle].style).update();
-                        $scope.style = newStyle;
-                        angular.element('.loading').remove();
-                    });
-                } else {
-                    init(gistStyle);
-                    dropSupport();
-                    setEventListeners();
-                    $scope.cy.style().fromJson($scope.visualStyles[DEFAULT_VISUAL_STYLE_NAME].style).update();
-                    $scope.style = DEFAULT_VISUAL_STYLE_NAME;
-                    angular.element('.loading').remove();
-                }*/
-            }
-        };
+            //temp user declaration
+            //generates a random string of 20 characters
 
 
+            //these empty dictionaries are updated by the server for use by the cytoscape.js object.
+            var networkData = {};
+            var networkDefault = {};
+            var vs = {};
+            //global reference for cytoscape.js
+            $scope.cynet;
 
-	function updateNetworkData(cy) {
-            var dropZone = $('#network');
-            dropZone.on('dragenter', function (e) {
-                e.stopPropagation();
-                e.preventDefault();
-            });
+            //Global variables for storing algorithm results
+            var speciesId = [];
+            var inputTransitionsId = [];
+            var operonsId = [];
+            var outputTransitionsId = [];
+            var edgesId = [];
 
-            dropZone.on('dragover', function (e) {
-                e.stopPropagation();
-                e.preventDefault();
-            });
-            dropZone.on('drop', function (e) {
-                e.preventDefault();
-                var files = e.originalEvent.dataTransfer.files;
-                var networkFile = files[0];
-                var reader = new FileReader();
-                reader.onload = function (evt) {
-                    var network = JSON.parse(evt.target.result);
-                    var networkName = network.data.name;
-                    console.log("NetworkName = " + networkName);
-                    if(networkName === undefined) {
-                        networkName = "Unknown";
-                    }
-                    $scope.$apply(function() {
-                        $scope.networks[networkName] = network;
-                        $scope.networkNames.push(networkName);
-                        $scope.currentNetwork = networkName;
-                        console.log($scope.networkNames);
-                    });
-                    cy.load(network.elements);
-                };
-                reader.readAsText(networkFile);
-            });
-        }
-        
-        //Setting column names
-        function setColumnNames() {
+            $scope.networks = {};
+            $scope.visualStyles = {};
+            $scope.styleNames = [];
+            $scope.networkNames = [];
+            $scope.currentVS = DEFAULT_VISUAL_STYLE_NAME;
+            //$scope.currentNetworkData = null;
+
+            var gistStyle = null;
+
+            // Parse url parameters
+            var gistId = $routeParams.id;
+            var zoomLevel = $routeParams.zoom;
+            var panX = $routeParams.x;
+            var panY = $routeParams.y;
+
+            // Application global objects
+            $scope.networks = {};
+            $scope.visualStyles = {};
+            $scope.styleNames = [];
+            $scope.networkNames = [];
+            $scope.currentVS = DEFAULT_VISUAL_STYLE_NAME;
+            $scope.currentNetworkData = null;
+
+            //Toolbar state variables
+            $scope.browserState = {
+                show: false
+            };
+            $scope.overlayState = {
+                show: true
+            };
+            $scope.toolbarState = {
+                show: true
+            };
+            $scope.searchState = {
+                show: true
+            };
+            $scope.cadState = {
+                show: false
+            };
+            $scope.modelState = {
+                show: false
+            };
+
+            $scope.bg = {
+                color: '#FAFAFA'
+            };
+
             $scope.columnNames = [];
             $scope.edgeColumnNames = [];
             $scope.networkColumnNames = [];
 
-            var oneNode = $scope.nodes[0];
-            for (var colName in oneNode.data) {
-                $scope.columnNames.push(colName);
+            var originalLocation = $location.absUrl().split('?')[0];
+
+            console.log('GistID: ' + gistId);
+            console.log('Network rendering start...');
+
+            /** EVIL CODE: do NOT uncomment. This KILLS the graph. :( Took me 3 hours to get this bug...hmpf**/
+            var styleLocation = $scope.encodedStyle;
+            if (!styleLocation) {
+                visualStyleFile = PRESET_STYLE_FILE;
+            } else {
+                visualStyleFile = $scope.encodedStyle;
             }
-            var oneEdge = $scope.edges[0];
-            for (var edgeColName in oneEdge.data) {
-                $scope.edgeColumnNames.push(edgeColName);
-            }
-            for (var netColName in networkData.data) {
-                $scope.networkColumnNames.push(netColName);
-            }
-        }
 
-        function reset() {
-            $scope.selectedNodes = {};
-            $scope.selectedEdges = {};
-        }
+            var options = {
+                showOverlay: false,
+                minZoom: 0.01,
+                maxZoom: 200,
+                layout: {
+                    name: 'preset'
+                },
+                //style: cytoscape.stylesheet()
+                //Changing shapes of nodes 
 
-        /*
-         Event listener setup for Cytoscape.js
-         */
-        function setEventListeners() {
-            $scope.selectedNodes = {};
-            $scope.selectedEdges = {};
 
-            var updateFlag = false;
+                ready: function() {
+                    var cy = this;
+                    cy.load(networkData.elements);
+                    $scope.cy = cy;
+                    setEventListeners();
+                    $scope.cy.style().fromJson($scope.visualStyles
+                            [DEFAULT_VISUAL_STYLE_NAME].style).update();
+                    updateNetworkData(cy);
+                    angular.element('.loading').hide();
+                    //$('#752').addClass('highlighted');
 
-            // Node selection
-            $scope.cy.on('select', 'node', function(event) {
-                var id = event.cyTarget.id();
-                $scope.selectedNodes[id] = event.cyTarget;
-                $scope.selectedNodes[id].addClass('highlighted');
-                updateFlag = true;
-            });
-            
-             // Reset selection
-            $scope.cy.on('unselect', 'node', function(event) {
-                var id = event.cyTarget.id();
-                delete $scope.selectedNodes[id];
-                updateFlag = true;
-            });
-
-            $scope.cy.on('select', 'edge', function(event) {
-                var id = event.cyTarget.id();
-                $scope.selectedEdges[id] = event.cyTarget;
-                updateFlag = true;
-            });
-
-           
-            $scope.cy.on('unselect', 'edge', function(event) {
-                var id = event.cyTarget.id();
-                delete $scope.selectedEdges[id];
-                updateFlag = true;
-            });
-
-            setInterval(function() {
-                if (updateFlag && $scope.browserState.show) {
-                    console.log('* update called');
-                    //displays node data
-                    console.log($scope.nodes[0].data);
-                    console.log($scope.edges[0]);
-                    setColumnNames();
-                    $scope.$apply();
-                    updateFlag = false;
+                    //$scope.#752.addClass('highlighted');
+                    /*$scope.cy = this;
+                     $scope.cy.load(networkData.elements);
+                     /*$scope.cy = cy;
+                     $scope.cy.style().fromJson($scope.visualStyles[DEFAULT_VISUAL_STYLE_NAME].style).update();
+                     updateNetworkData(cy);*/
+                    /*if (!gistStyle) {
+                     VisualStyles.query({
+                     styleUrl: visualStyleFile
+                     }, function(vs) {
+                     init(vs);
+                     dropSupport();
+                     setEventListeners();
+                     var newStyle = $routeParams.selectedstyle;
+                     if (!newStyle) {
+                     newStyle = DEFAULT_VISUAL_STYLE_NAME;
+                     }
+                     $scope.cy.style().fromJson($scope.visualStyles[newStyle].style).update();
+                     $scope.style = newStyle;
+                     angular.element('.loading').remove();
+                     });
+                     } else {
+                     init(gistStyle);
+                     dropSupport();
+                     setEventListeners();
+                     $scope.cy.style().fromJson($scope.visualStyles[DEFAULT_VISUAL_STYLE_NAME].style).update();
+                     $scope.style = DEFAULT_VISUAL_STYLE_NAME;
+                     angular.element('.loading').remove();
+                     }*/
                 }
-            }, 300);
+            };
 
-        }
 
-        //Toolbar and overlay controls
-        $scope.toggleTableBrowser = function() {
-            $scope.browserState.show = !$scope.browserState.show;
-        };
 
-        $scope.toggleOverlay = function() {
-            $scope.overlayState.show = !$scope.overlayState.show;
-        };
+            function updateNetworkData(cy) {
+                var dropZone = $('#network');
+                dropZone.on('dragenter', function(e) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                });
 
-        $scope.toggleToolbar = function() {
-            $scope.toolbarState.show = !$scope.toolbarState.show;
-        };
-        
-        $scope.toggleSearch = function() {
-            $scope.searchState.show = !$scope.searchState.show;
-        };
-        
-        $scope.toggleCAD = function() {
-            
-            $( ".searchBox" ).append($(".addSlider"));
-            $scope.cadState.show = !$scope.cadState.show;
-        };
-        
-        $scope.toggleModel = function() {
-            $scope.modelState.show = !$scope.modelState.show;
-        };
-
-        $scope.fit = function() {
-            $scope.cy.fit();
-        };
-       
-        
-       //Variables for CAD selecting
-        $scope.currentCad;
-        var currentCadId;
-        var cadArray = [];
-        var currentIndex;
-        
-        //Table button for controlling "selected" CAD
-        function cadSelect() {
-            //clearing selected node
-            console.log("Clearing selection... ");
-            $scope.currentCad = $scope.selectedNodes[currentCadId].data('SBOL');               //assigning new selected CAD
-            console.log("New selected Cad is:" + currentCadId);
-        };
-        
-        $scope.cadTable = function(id) {
-            currentCadId = id;
-            cadSelect();
-        };
-        
-        //Side buttons for selecting CAD
-        $scope.cadLeft = function () {
-            cadArray = [];
-            var cadId;
-            //Creating a traversable array of CAD's
-            for (var key in $scope.selectedNodes) {
-                cadId = ($scope.selectedNodes[key].data('id'));
-                cadArray.push(cadId);
-            }; 
-            
-            currentIndex = cadArray.indexOf(String(currentCadId));
-            currentCadId = cadArray[currentIndex - 1];
-            
-            //Preventing further cycling
-            if(currentCadId === undefined) {
-                currentCadId = cadArray[0];
-                cadSelect();
+                dropZone.on('dragover', function(e) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                });
+                dropZone.on('drop', function(e) {
+                    e.preventDefault();
+                    var files = e.originalEvent.dataTransfer.files;
+                    var networkFile = files[0];
+                    var reader = new FileReader();
+                    reader.onload = function(evt) {
+                        var network = JSON.parse(evt.target.result);
+                        var networkName = network.data.name;
+                        console.log("NetworkName = " + networkName);
+                        if (networkName === undefined) {
+                            networkName = "Unknown";
+                        }
+                        $scope.$apply(function() {
+                            $scope.networks[networkName] = network;
+                            $scope.networkNames.push(networkName);
+                            $scope.currentNetwork = networkName;
+                            console.log($scope.networkNames);
+                        });
+                        cy.load(network.elements);
+                    };
+                    reader.readAsText(networkFile);
+                });
             }
-            else{
-                cadSelect();
-            };      
-        };
-        
-        $scope.cadRight = function () {
-            cadArray = [];
-            var cadId;
-            //Creating a traversable array of CAD's
-            for (var key in $scope.selectedNodes) {
-                cadId = ($scope.selectedNodes[key].data('id'));
-                cadArray.push(cadId);
-            };            
-            currentIndex = cadArray.indexOf(String(currentCadId));
-            currentCadId = cadArray[currentIndex + 1];
-            
-            //Preventing further cycling
-            if(currentCadId === undefined) {
-                currentCadId = cadArray[cadArray.length - 1];
-                cadSelect();
+
+            //Setting column names
+            function setColumnNames() {
+                $scope.columnNames = [];
+                $scope.edgeColumnNames = [];
+                $scope.networkColumnNames = [];
+
+                var oneNode = $scope.nodes[0];
+                for (var colName in oneNode.data) {
+                    $scope.columnNames.push(colName);
+                }
+                var oneEdge = $scope.edges[0];
+                for (var edgeColName in oneEdge.data) {
+                    $scope.edgeColumnNames.push(edgeColName);
+                }
+                for (var netColName in networkData.data) {
+                    $scope.networkColumnNames.push(netColName);
+                }
             }
-            else{
+
+            function reset() {
+                $scope.selectedNodes = {};
+                $scope.selectedEdges = {};
+            }
+
+            /*
+             Event listener setup for Cytoscape.js
+             */
+            function setEventListeners() {
+                $scope.selectedNodes = {};
+                $scope.selectedEdges = {};
+
+                var updateFlag = false;
+
+                // Node selection
+                $scope.cy.on('select', 'node', function(event) {
+                    var id = event.cyTarget.id();
+                    $scope.selectedNodes[id] = event.cyTarget;
+                    $scope.selectedNodes[id].addClass('highlighted');
+                    updateFlag = true;
+                });
+
+                // Reset selection
+                $scope.cy.on('unselect', 'node', function(event) {
+                    var id = event.cyTarget.id();
+                    delete $scope.selectedNodes[id];
+                    updateFlag = true;
+                });
+
+                $scope.cy.on('select', 'edge', function(event) {
+                    var id = event.cyTarget.id();
+                    $scope.selectedEdges[id] = event.cyTarget;
+                    updateFlag = true;
+                });
+
+
+                $scope.cy.on('unselect', 'edge', function(event) {
+                    var id = event.cyTarget.id();
+                    delete $scope.selectedEdges[id];
+                    updateFlag = true;
+                });
+
+                setInterval(function() {
+                    if (updateFlag && $scope.browserState.show) {
+                        console.log('* update called');
+                        //displays node data
+                        console.log($scope.nodes[0].data);
+                        console.log($scope.edges[0]);
+                        setColumnNames();
+                        $scope.$apply();
+                        updateFlag = false;
+                    }
+                }, 300);
+
+            }
+
+            //Toolbar and overlay controls
+            $scope.toggleTableBrowser = function() {
+                $scope.browserState.show = !$scope.browserState.show;
+            };
+
+            $scope.toggleOverlay = function() {
+                $scope.overlayState.show = !$scope.overlayState.show;
+            };
+
+            $scope.toggleToolbar = function() {
+                $scope.toolbarState.show = !$scope.toolbarState.show;
+            };
+
+            $scope.toggleSearch = function() {
+                $scope.searchState.show = !$scope.searchState.show;
+            };
+
+            $scope.toggleCAD = function() {
+
+                $(".searchBox").append($(".addSlider"));
+                $scope.cadState.show = !$scope.cadState.show;
+            };
+
+            $scope.toggleModel = function() {
+                $scope.modelState.show = !$scope.modelState.show;
+            };
+
+            $scope.fit = function() {
+                $scope.cy.fit();
+            };
+
+
+            //Variables for CAD selecting
+            $scope.currentCad;
+            var currentCadId;
+            var cadArray = [];
+            var currentIndex;
+
+            //Table button for controlling "selected" CAD
+            function cadSelect() {
+                //clearing selected node
+                console.log("Clearing selection... ");
+                $scope.currentCad = $scope.selectedNodes[currentCadId].data('sbol');
+                console.log("New selected Cad is:" + currentCadId);
+            }
+            ;
+
+            $scope.cadTable = function(id) {
+                currentCadId = id;
                 cadSelect();
-            };   
-        };
-         
-        //Highlighting and controlling selected paths.
+            };
 
-        //Adding result selection to interface, highlighting first result.
-        $scope.searchText;
-        //Array of all dropdown options for resulting paths.
-        $scope.resultIndex = [];
-        //Index of selected circuite that is ng-modeled by the dropdown menu in the app.
-        $scope.selectedCircuit;
+            //Side buttons for selecting CAD
+            $scope.cadLeft = function() {
+                cadArray = [];
+                var cadId;
+                //Creating a traversable array of CAD's
+                for (var key in $scope.selectedNodes) {
+                    cadId = ($scope.selectedNodes[key].data('id'));
+                    cadArray.push(cadId);
+                }
+                ;
 
-        //
-        $scope.searchCtrl = function () {
-            //alert($scope.searchText);
-            //the input and output of the user 
-            $scope.input = String($scope.searchInput);
-            $scope.output = String($scope.searchOutput);
-            $scope.BooleanTrue = String($scope.checkTrue);
-            //combination of input = output 
-            $scope.query = ($scope.input + " = " + $scope.output + " " + $scope.BooleanTrue);
-            
-            //the default is false, when checked its true and direct path is set
-            
-            console.log($scope.query);
-            
-            angular.element('.loading').show();
-            searchGet();
+                currentIndex = cadArray.indexOf(String(currentCadId));
+                currentCadId = cadArray[currentIndex - 1];
+
+                //Preventing further cycling
+                if (currentCadId === undefined) {
+                    currentCadId = cadArray[0];
+                    cadSelect();
+                }
+                else {
+                    cadSelect();
+                }
+                ;
+            };
+
+            $scope.cadRight = function() {
+                cadArray = [];
+                var cadId;
+                //Creating a traversable array of CAD's
+                for (var key in $scope.selectedNodes) {
+                    cadId = ($scope.selectedNodes[key].data('id'));
+                    cadArray.push(cadId);
+                }
+                ;
+                currentIndex = cadArray.indexOf(String(currentCadId));
+                currentCadId = cadArray[currentIndex + 1];
+
+                //Preventing further cycling
+                if (currentCadId === undefined) {
+                    currentCadId = cadArray[cadArray.length - 1];
+                    cadSelect();
+                }
+                else {
+                    cadSelect();
+                }
+                ;
+            };
+
+            //Highlighting and controlling selected paths.
+
+            //Adding result selection to interface, highlighting first result.
+            $scope.searchText;
+            //Array of all dropdown options for resulting paths.
+            $scope.resultIndex = [];
+            //Index of selected circuite that is ng-modeled by the dropdown menu in the app.
+            $scope.selectedCircuit;
+
+            //
+            $scope.searchCtrl = function() {
+                //alert($scope.searchText);
+                //the input and output of the user 
+                $scope.input = String($scope.searchInput);
+                $scope.output = String($scope.searchOutput);
+                $scope.BooleanTrue = String($scope.checkTrue);
+                //combination of input = output 
+                $scope.query = ($scope.input + " = " + $scope.output + " " + $scope.BooleanTrue);
+
+                //the default is false, when checked its true and direct path is set
+
+                console.log($scope.query);
+
+                angular.element('.loading').show();
+                searchGet();
 //            $scope.circuitCtrl();
-        };
-        
-        //upload page function
-        $scope.upload = function(){
-            
-        };
-        
-        //refreshes the inputs and the page 
-         $scope.reloadPage = function()
-         {$scope.cynet.load(networkDefault.elements);
-         };
+            };
 
-            
-        //function for highlighting a path.        
-        $scope.selectPath = function(index) {
-            reset();
-            $scope.cynet.$('*').unselect();
-            for (var count = 0; count < speciesId[index].length; count++){
-                $scope.cynet.$("#"+String(speciesId[index][count])).select();
-            };
-            for (var count = 0; count < inputTransitionsId[index].length; count++){
-                $scope.cynet.$("#"+String(inputTransitionsId[index][count])).select();
-            };
-            for (var count = 0; count < operonsId[index].length; count++){
-                $scope.cynet.$("#"+String(operonsId[index][count])).select();
-            };
-            for (var count = 0; count < outputTransitionsId[index].length; count++){
-                $scope.cynet.$("#"+String(inputTransitionsId[index][count])).select();
-            };
-            for (var count = 0; count < edgesId[index].length; count++){
-                $scope.cynet.$("#"+String(edgesId[index][count])).select();
-            };
-            console.log("New Circuit Selected.");
-        };
-        
-        
-        $scope.circuitCtrl = function() {
-            speciesId = networkData.speciesId;
-            inputTransitionsId = networkData.inputTransitionsId;
-            operonsId = networkData.operonsId;
-            outputTransitionsId = networkData.outputTransitionsId;
-            edgesId = networkData.edgesId;
+            //upload page function
+            $scope.upload = function() {
 
-            for (var result = 0; result <speciesId.length; result ++){    
-                $scope.resultIndex.push({ label: "Path " + String(result + 1), value: result});
             };
-        };
-       
-        
-        
-        $scope.encodeUrl = function() {
-            var pan = $scope.cy.pan();
-            var zoom = $scope.cy.zoom();
 
-            // The following fields should be encoded because it may includes special chars.
-            var bgColor = encodeURIComponent($scope.bg.color);
-            var encodedStyleName = encodeURIComponent($scope.currentVS);
-            console.log(zoom);
-            console.log(encodedStyleName);
-            console.log(bgColor);
-            $scope.encodedUrl = originalLocation + '?selectedstyle=' + encodedStyleName +
-                '&x=' + pan.x + '&y=' + pan.y + '&zoom=' + zoom + '&bgcolor=' + bgColor;
-        };
+            //refreshes the inputs and the page 
+            $scope.reloadPage = function()
+            {
+                $scope.cynet.load(networkDefault.elements);
+            };
 
 
-        // Encode visualization URL.
-        $scope.shortenUrl = function() {
-            var request = $http({
-                method: 'post',
-                url: 'https://www.googleapis.com/urlshortener/v1/url',
-                data: {
-                    longUrl: $scope.encodedUrl
+            //function for highlighting a path.        
+            $scope.selectPath = function(index) {
+                reset();
+                $scope.cynet.$('*').unselect();
+                for (var count = 0; count < speciesId[index].length; count++) {
+                    $scope.cynet.$("#" + String(speciesId[index][count])).select();
                 }
-            });
-            // Store the data-dump of the FORM scope.
-            request.success(
-                function(json) {
-                    $scope.encodedUrl = json.id;
-                    angular.element('#shareUrl').select();
+                ;
+                for (var count = 0; count < inputTransitionsId[index].length; count++) {
+                    $scope.cynet.$("#" + String(inputTransitionsId[index][count])).select();
                 }
-            );
-        };
-        
-	/////////////New content
-	$scope.switchNetwork = function(networkName) {
-	     $scope.currentNetwork = networkName;//changed to include currentNetworkData as opposed to only currentNetwork
-            //$scope.currentNetwork = networkName;
-            var network = $scope.networks[networkName];
-            $scope.cy.load(network.elements);
-        };
+                ;
+                for (var count = 0; count < operonsId[index].length; count++) {
+                    $scope.cynet.$("#" + String(operonsId[index][count])).select();
+                }
+                ;
+                for (var count = 0; count < outputTransitionsId[index].length; count++) {
+                    $scope.cynet.$("#" + String(inputTransitionsId[index][count])).select();
+                }
+                ;
+                for (var count = 0; count < edgesId[index].length; count++) {
+                    $scope.cynet.$("#" + String(edgesId[index][count])).select();
+                }
+                ;
+                console.log("New Circuit Selected.");
+            };
 
-        //
-        // Apply Visual Style
-        //
-        $scope.switchVS = function(vsName) {
+
+            $scope.circuitCtrl = function() {
+                speciesId = networkData.speciesId;
+                inputTransitionsId = networkData.inputTransitionsId;
+                operonsId = networkData.operonsId;
+                outputTransitionsId = networkData.outputTransitionsId;
+                edgesId = networkData.edgesId;
+
+                for (var result = 0; result < speciesId.length; result++) {
+                    $scope.resultIndex.push({label: "Path " + String(result + 1), value: result});
+                }
+                ;
+            };
+
+
+
+            $scope.encodeUrl = function() {
+                var pan = $scope.cy.pan();
+                var zoom = $scope.cy.zoom();
+
+                // The following fields should be encoded because it may includes special chars.
+                var bgColor = encodeURIComponent($scope.bg.color);
+                var encodedStyleName = encodeURIComponent($scope.currentVS);
+                console.log(zoom);
+                console.log(encodedStyleName);
+                console.log(bgColor);
+                $scope.encodedUrl = originalLocation + '?selectedstyle=' + encodedStyleName +
+                        '&x=' + pan.x + '&y=' + pan.y + '&zoom=' + zoom + '&bgcolor=' + bgColor;
+            };
+
+
+            // Encode visualization URL.
+            $scope.shortenUrl = function() {
+                var request = $http({
+                    method: 'post',
+                    url: 'https://www.googleapis.com/urlshortener/v1/url',
+                    data: {
+                        longUrl: $scope.encodedUrl
+                    }
+                });
+                // Store the data-dump of the FORM scope.
+                request.success(
+                        function(json) {
+                            $scope.encodedUrl = json.id;
+                            angular.element('#shareUrl').select();
+                        }
+                );
+            };
+
+            /////////////New content
+            $scope.switchNetwork = function(networkName) {
+                $scope.currentNetwork = networkName;//changed to include currentNetworkData as opposed to only currentNetwork
+                //$scope.currentNetwork = networkName;
+                var network = $scope.networks[networkName];
+                $scope.cy.load(network.elements);
+            };
+
+            //
             // Apply Visual Style
-            $scope.cy.style().fromJson($scope.visualStyles[vsName].style).update();
-            // Set current title
-            $scope.currentVS = vsName;
-        };
-	
-        
-	
-	$http({method: 'GET', url: visualStyleFile}).
-            success(function(data) {
-                
-                vs = data;
-                $http({method: 'GET', url: NETWORK_FILE}).
+            //
+            $scope.switchVS = function(vsName) {
+                // Apply Visual Style
+                $scope.cy.style().fromJson($scope.visualStyles[vsName].style).update();
+                // Set current title
+                $scope.currentVS = vsName;
+            };
+
+
+
+            $http({method: 'GET', url: visualStyleFile}).
                     success(function(data) {
-                        networkData = data;
-                        networkDefault = data;
-                        $('#network').cytoscape(options);
-                        $scope.cynet = $('#network').cytoscape('get');
-                        init();
+
+                        vs = data;
+                        $http({method: 'GET', url: NETWORK_FILE}).
+                                success(function(data) {
+                                    networkData = data;
+                                    networkDefault = data;
+                                    $('#network').cytoscape(options);
+                                    $scope.cynet = $('#network').cytoscape('get');
+                                    init();
+                                }).
+                                error(function(data, status, headers, config) {
+                                });
+                        //             The Actual GET request.
+                        /*
+                         $http({
+                         method: 'GET', 
+                         url: "/src/java/communication/AuthenticationServlet.java"
+                         }).
+                         success(function(data) {
+                         networkData = JSON.parse(data);
+                         networkDefault = JSON.parse(data);
+                         $('#network').cytoscape(options);
+                         $scope.cynet = $('#network').cytoscape('get');
+                         init();
+                         }).
+                         error(function(data, status, headers, config) {
+                         alert(status);
+                         });
+                         */
                     }).
                     error(function(data, status, headers, config) {
                     });
-                //             The Actual GET request.
-                /*
-                $http({
-                    method: 'GET', 
-                    url: "/src/java/communication/AuthenticationServlet.java"
-                    }).
-                    success(function(data) {
-                        networkData = JSON.parse(data);
-                        networkDefault = JSON.parse(data);
-                        $('#network').cytoscape(options);
-                        $scope.cynet = $('#network').cytoscape('get');
-                        init();
-                    }).
-                    error(function(data, status, headers, config) {
-                        alert(status);
-                    });
-                */
-            }).
-            error(function(data, status, headers, config) {
-            });
-    
-            
-        function searchGet() {
-            
-            
-            var commandString = $scope.query;
-            alert(commandString);
-            var userID = "abc";
-            
-            if(commandString === "undefined = undefined undefined" || $scope.searchInput === undefined || $scope.searchOutput === undefined){
-                alert("Please enter a valid query.");
-                angular.element('.loading').hide();
-            }  
-            
-            else{
-                    
+
+
+            function searchGet() {
+
+
+                var commandString = $scope.query;
+//                alert(commandString);
+                var userID = "abc";
+
+                if (commandString === "undefined = undefined undefined" || $scope.searchInput === undefined || $scope.searchOutput === undefined) {
+                    alert("Please enter a valid query.");
+                    angular.element('.loading').hide();
+                }
+
+                else {
+
                     var data = {user: userID, command: 'query', data: commandString}; //package the input into a json file for submission to the server
                     $.get("../../AuthenticationServlet", data, function(data) { //parameters are: servlet url, data, callback function
-                    data = JSON.stringify(data).replace(/\\n/g, '',"").replace(/\\/g, '',"");
-                    data = data.substr(1,data.length-2);
-                    alert(data);
-                    networkData = JSON.parse(data);
-                    angular.element('.loading').hide();
-                    
-                    if(networkData.operonsId[0] === null && $scope.BooleanTrue === undefined){
-                        alert('No circuits found. Please try searching for an Indirect Path (check the box marked "Indirect Path").');
-                    }
-                    else if(networkData.operonsId[0] === null && $scope.BooleanTrue === "true"){
-                        alert('No circuits found in current database. Results may change as the SBiDer web grows.');
-                    }
-                    else {
-                        $scope.cynet.load(networkData.elements);
-                        console.log(networkData);
-                        $scope.circuitCtrl();
+                        data = JSON.stringify(data).replace(/\\n/g, '', "").replace(/\\/g, '', "");
+                        data = data.substr(1, data.length - 2);
+//                        alert(data);
+                        networkData = JSON.parse(data);
+                        angular.element('.loading').hide();
+
+                        if (networkData.operonsId[0] === null && $scope.BooleanTrue === undefined) {
+                            alert('No circuits found. Please try searching for an Indirect Path (check the box marked "Indirect Path").');
                         }
-                     
+                        else if (networkData.operonsId[0] === null && $scope.BooleanTrue === "true") {
+                            alert('No circuits found in current database. Results may change as the SBiDer web grows.');
+                        }
+                        else {
+                            $scope.cynet.load(networkData.elements);
+                            console.log(networkData);
+                            $scope.circuitCtrl();
+                        }
+
                     });
-                }    
-                
+                }
+
 //            $http({ 
 //                method: 'GET', 
 //                url: "../../AuthenticationServlet",
@@ -573,57 +583,58 @@ $window, Network, VisualStyles, Gist) {
 //                }).
 //                error(function(data, status, headers, config) {
 //                });
-        };
-        
-        
-        
-
-	function init() {
-            $scope.nodes = networkData.elements.nodes;
-            //Added function to retrieve edge information
-            $scope.edges = networkData.elements.edges;
-            initVisualStyleCombobox();
-            // Set network name
-            var networkName = networkData.data.name;
-            $scope.currentNetwork = networkData.data.name;//changed to include currentNetworkData as opposed to only currentNetwork
-            $scope.networks[networkName] = networkData;
-            $scope.networkNames.push(networkName);
-        }
-
-	function initVisualStyleCombobox() {
-            var styleNames = [];
-            for (var i = 0; i < vs.length; i++) {
-                var visualStyle = vs[i];
-                var title = visualStyle.title;
-                styleNames[i] = title;
-                $scope.visualStyles[title] = visualStyle;
-                $scope.styleNames[i] = title;
             }
-        }
-        
-       $scope.messageMe = function() {
-            alert('dsdsd');
-            window.location.href= ""; 
-        };
-              
-    });
+            ;
 
 
-    /*function CarouselDemoCtrl($scope) {
-  $scope.myInterval = 5000;
-  var slides = $scope.slides = [];
-  $scope.addSlide = function() {
-    var newWidth = 50 + slides.length;
-    slides.push({
-      image: 'http://placekitten.com/' + newWidth + '/30',
-      text: ['More','Extra','Lots of','Surplus'][slides.length % 4] + ' ' +
-        ['Cats', 'Kittys', 'Felines', 'Cutes'][slides.length % 4]
-    });
-  };
-  for (var i=0; i<4; i++) {
-    $scope.addSlide();
-  }
-};*/ 	
+
+
+            function init() {
+                $scope.nodes = networkData.elements.nodes;
+                //Added function to retrieve edge information
+                $scope.edges = networkData.elements.edges;
+                initVisualStyleCombobox();
+                // Set network name
+                var networkName = networkData.data.name;
+                $scope.currentNetwork = networkData.data.name;//changed to include currentNetworkData as opposed to only currentNetwork
+                $scope.networks[networkName] = networkData;
+                $scope.networkNames.push(networkName);
+            }
+
+            function initVisualStyleCombobox() {
+                var styleNames = [];
+                for (var i = 0; i < vs.length; i++) {
+                    var visualStyle = vs[i];
+                    var title = visualStyle.title;
+                    styleNames[i] = title;
+                    $scope.visualStyles[title] = visualStyle;
+                    $scope.styleNames[i] = title;
+                }
+            }
+
+            $scope.messageMe = function() {
+                alert('dsdsd');
+                window.location.href = "";
+            };
+
+        });
+
+
+/*function CarouselDemoCtrl($scope) {
+ $scope.myInterval = 5000;
+ var slides = $scope.slides = [];
+ $scope.addSlide = function() {
+ var newWidth = 50 + slides.length;
+ slides.push({
+ image: 'http://placekitten.com/' + newWidth + '/30',
+ text: ['More','Extra','Lots of','Surplus'][slides.length % 4] + ' ' +
+ ['Cats', 'Kittys', 'Felines', 'Cutes'][slides.length % 4]
+ });
+ };
+ for (var i=0; i<4; i++) {
+ $scope.addSlide();
+ }
+ };*/
 
 /* 
  * To change this license header, choose License Headers in Project Properties.
