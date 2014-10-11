@@ -33,7 +33,7 @@
 	<!--<img src ="http://ubic.ucsd.edu/ubic_logo_s.png" id = "book"/>-->
         <div ng-show="cadState.show" class="CAD">
             <!--<img src ="http://cidar1.bu.edu:5801/pigeonHelp/file.173.8.230.1931098-trans.png" width="110%" height="110%" id = "book"/>-->
-            <img id="displayCad" ng-src="pigeonImages/{{currentCad}}">
+            <img id="displayCad" ng-src="../../pigeonImages/sbol_operon_57-1.png">
             <button class="cadLeft" ng-click="cadLeft()"><span class="glyphicon glyphicon-chevron-left"></span></button>
             <button class="cadRight" ng-click="cadRight()"><span class="glyphicon glyphicon-chevron-right"></span></button>
         </div>
@@ -234,21 +234,22 @@
                
               <p class="text-info"> Input transitions[A]:</p><input class = "textbox " type = "text" ng-model = "Plxone" /><br>
                    Input species[1]:<input class = "textbox" type = "text" ng-model = "PlxoneOne" /><br>
-                        Output Species[a]:<input class = "textbox" type = "text" ng-model = "PlxoneOneSP1" /><br>
-                        Output Species[b]: <input class = "textbox" type = "text" ng-model = "PlxoneOneSP2" /><br>
-                   
+                        
                     Input species[2]:<input class = "textbox" type = "text" ng-model = "PlxoneTwo" /><br>
-                        Output Species[a]:<input class = "textbox" type = "text" ng-model = "PlxoneTwoSP1"/><br>
-                        Output Species[b]: <input class = "textbox" type = "text" ng-model = "PlxoneTwoSP2" /><br>
-                
+                        
+                        
+                   Promoter Name:<input class = "textbox" type = "text" ng-model = "PlxoneTwo" /><br>
+                   
                
                <p class="text-success">Input transition[B]:</p><input class = "textbox " type = "text" ng-model = "Plxtwo" /><br> 
                    Input species[1]:<input class = "textbox" type = "text" ng-model = "PlxtwoOne" /><br>
-                               Output Species[a]: <input class = "textbox" type = "text" ng-model = "PlxoneOneSP1" /><br>
-                               Output Species[b]: <input class = "textbox" type = "text" ng-model = "PlxoneOneSP2" /><br>
+                               
                    Input species[2]:<input class = "textbox" type = "text" ng-model = "PlxtwoTwo" /><br>
-                               Output Species[a]: <input class = "textbox" type = "text" ng-model = "PlxoneOneSP1" /><br>
-                               Output Species[b]: <input class = "textbox" type = "text" ng-model = "PlxoneOneSP2" /><br>
+                   Promoter Name:<input class = "textbox" type = "text" ng-model = "PlxoneTwo" /><br>
+                   
+                   
+                   Output Species[a]:<input class = "textbox" type = "text" ng-model = "PlxoneTwoSP1"/><br>
+                   Output Species[a]:<input class = "textbox" type = "text" ng-model = "PlxoneTwoSP1"/><br>
                                                    
            </div>  
             
