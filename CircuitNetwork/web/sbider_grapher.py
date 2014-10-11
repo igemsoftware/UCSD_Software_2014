@@ -717,7 +717,7 @@ def create_json_network_string(species_nodes_list, input_transitions_nodes_list,
     to_return += '"nodes":['
 
     for node in species_nodes_list:
-        species_sbml = "species_sbml_%s_.txt" % node[0].replace("spe_", "")
+        species_sbml = "species_sbml%s.txt" % node[0].replace("spe_", "")
         node[2] = "None"
 
         to_return += '{'
@@ -741,7 +741,7 @@ def create_json_network_string(species_nodes_list, input_transitions_nodes_list,
 
     num_runs = 0
     for node in input_transitions_nodes_list:
-        it_sbml = "it_sbml_%s_.txt" % node[0].replace("it_", "")
+        it_sbml = "it_sbml_%s.txt" % node[0].replace("it_", "")
 
         to_return += '{'
         to_return += '"data":{'
@@ -763,8 +763,8 @@ def create_json_network_string(species_nodes_list, input_transitions_nodes_list,
 
     num_runs = 0
     for node in operon_nodes_list:
-        operon_sbml = "operon_sbml_%s_.txt" % node[0].replace("ope_", "")
-        operon_sbol = "operon_sbol_%s_.png" % node[0].replace("ope_", "")
+        operon_sbml = "operon_sbml_%s.txt" % node[0].replace("ope_", "")
+        operon_sbol = "operon_sbol_%s.png" % node[0].replace("ope_", "")
 
         to_return += '{'
         to_return += '"data":{'
@@ -789,7 +789,7 @@ def create_json_network_string(species_nodes_list, input_transitions_nodes_list,
 
     num_runs = 0
     for node in output_transitions_nodes_list:
-        ot_sbml = "ot_sbml_%s_.txt" % node[0].replace("ope_", "")
+        ot_sbml = "ot_sbml_%s.txt" % node[0].replace("ope_", "")
 
         to_return += '{'
         to_return += '"data":{'

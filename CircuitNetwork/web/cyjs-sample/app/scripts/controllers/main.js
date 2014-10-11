@@ -13,7 +13,7 @@ $window, Network, VisualStyles, Gist) {
         
         //temp user declaration
         //generates a random string of 20 characters
-        var userID = "carlo";
+       
 
         //these empty dictionaries are updated by the server for use by the cytoscape.js object.
         var networkData = {};
@@ -381,8 +381,7 @@ $window, Network, VisualStyles, Gist) {
             
             angular.element('.loading').show();
             searchGet();
-            
-            $scope.circuitCtrl();
+//            $scope.circuitCtrl();
         };
         
         //upload page function
@@ -420,12 +419,18 @@ $window, Network, VisualStyles, Gist) {
         
         
         $scope.circuitCtrl = function() {
-            for (var result = 0; result <speciesId.length; result ++){
+            speciesId = networkData.speciesId;
+            inputTransitionsId = networkData.inputTransitionsId;
+            operonsId = networkData.operonsId;
+            outputTransitionsId = networkData.outputTransitionsId;
+            edgesId = networkData.edgesId;
+
+            for (var result = 0; result <speciesId.length; result ++){    
                 $scope.resultIndex.push({ label: "Path " + String(result + 1), value: result});
             };
         };
        
-        $scope.circuitCtrl();
+        
         
         $scope.encodeUrl = function() {
             var pan = $scope.cy.pan();
@@ -521,17 +526,37 @@ $window, Network, VisualStyles, Gist) {
             
             var commandString = $scope.query;
             alert(commandString);
-            var data = {user: userID, command: 'query', data: commandString}; //package the input into a json file for submission to the server
-                  
+            var userID = "abc";
+            
+            if(commandString === "undefined = undefined undefined" || $scope.searchInput === undefined || $scope.searchOutput === undefined){
+                alert("Please enter a valid query.");
+                angular.element('.loading').hide();
+            }  
+            
+            else{
+                    
+                    var data = {user: userID, command: 'query', data: commandString}; //package the input into a json file for submission to the server
                     $.get("../../AuthenticationServlet", data, function(data) { //parameters are: servlet url, data, callback function
-                    data = JSON.stringify(data).replace(/\\n/g, '',"").replace(/\\/g, '',"")
-                    data = data.substr(1,data.length-2)
-                    alert(data)
+                    data = JSON.stringify(data).replace(/\\n/g, '',"").replace(/\\/g, '',"");
+                    data = data.substr(1,data.length-2);
+                    alert(data);
                     networkData = JSON.parse(data);
                     angular.element('.loading').hide();
-                    $scope.cynet.load(networkData.elements);
                     
+                    if(networkData.operonsId[0] === null && $scope.BooleanTrue === undefined){
+                        alert('No circuits found. Please try searching for an Indirect Path (check the box marked "Indirect Path").');
+                    }
+                    else if(networkData.operonsId[0] === null && $scope.BooleanTrue === "true"){
+                        alert('No circuits found in current database. Results may change as the SBiDer web grows.');
+                    }
+                    else {
+                        $scope.cynet.load(networkData.elements);
+                        console.log(networkData);
+                        $scope.circuitCtrl();
+                        }
+                     
                     });
+                }    
                 
 //            $http({ 
 //                method: 'GET', 
