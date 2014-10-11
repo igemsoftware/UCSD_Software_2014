@@ -12,42 +12,42 @@
             {{ networkName }}
         </option>
     </select>-->
-    
-	<br><br>
-        <div ng-show="searchState.show" class="searchBox">
-            
-            <h4>Please enter input and output intermediates</h4>
-            
-            INPUT: <span><input class = "textbox" type = "text" ng-model = "searchInput" placeholder="type in your input"/><br>
-               
-            OUTPUT: <span><input class = "textbox" type = "text" ng-model = "searchOutput" placeholder="type in your output"/><br>
-                    
-            True (Indirect Path): <input type="checkbox" ng-model="checkTrue"><br/> 
-            
-            <button><span id="search-box" class="glyphicon glyphicon-share-alt" ng-click="searchCtrl()"><span>Explore</span></span></button></span>
-            
-        </div>
 
-	<br><br>
-        <div class="addSlider">
-	<!--<img src ="http://ubic.ucsd.edu/ubic_logo_s.png" id = "book"/>-->
+    <br><br>
+    <div ng-show="searchState.show" class="searchBox">
+
+        <h4>Please enter input and output intermediates</h4>
+
+        INPUT: <span><input class = "textbox" type = "text" ng-model = "searchInput" placeholder="type in your input"/><br>
+
+            OUTPUT: <span><input class = "textbox" type = "text" ng-model = "searchOutput" placeholder="type in your output"/><br>
+
+                True (Indirect Path): <input type="checkbox" ng-model="checkTrue"><br/> 
+
+                <button><span id="search-box" class="glyphicon glyphicon-share-alt" ng-click="searchCtrl()"><span>Explore</span></span></button></span>
+
+    </div>
+
+    <br><br>
+    <div class="addSlider">
+        <!--<img src ="http://ubic.ucsd.edu/ubic_logo_s.png" id = "book"/>-->
         <div ng-show="cadState.show" class="CAD">
             <!--<img src ="http://cidar1.bu.edu:5801/pigeonHelp/file.173.8.230.1931098-trans.png" width="110%" height="110%" id = "book"/>-->
-            <img id="displayCad" ng-src="pigeonImages/{{currentCad}}">
+            <img id="displayedCad" class="CAD" ng-src="../../pigeonImages/{{currentCad}}"/>
             <button class="cadLeft" ng-click="cadLeft()"><span class="glyphicon glyphicon-chevron-left"></span></button>
             <button class="cadRight" ng-click="cadRight()"><span class="glyphicon glyphicon-chevron-right"></span></button>
         </div>
         <div ng-show="cadState.show" class="path">
             <span><p>Results:</p></span>
             <select ng-model="selectedCircuit" 
-                ng-options="res as res.label for res in resultIndex">
+                    ng-options="res as res.label for res in resultIndex">
             </select> 
             <span><p>Current Index is: {{selectedCircuit.value}}</p></span>
             <button id="confirmPath" ng-click="selectPath(selectedCircuit.value)">Confirm</button>
             <!--  <button ng-click="selectPath(selectedCircuit.value)">Select</button> -->
         </div>
-        </div>
-        
+    </div>
+
     <!--<h3>Visual Style:</h3>
     <select class="form-control" id="vs-selector" ng-change="switchVS()" ng-model="style">
         <option ng-repeat="style in visualStyles">
@@ -69,7 +69,7 @@
                             <td ng-repeat="columnName in columnNames">
                                 {{columnName}}
                             </td>
-							
+
                         </tr>
                     </thead>
                     <tbody data-ng-repeat="node in selectedNodes">
@@ -78,7 +78,7 @@
                                 <!-- Code for images in the table-->
                                 <!-- <img ng-src="{{img_url}}"> -->
                                 <!--<button ng-click="img_url = '{{node.imgURL()}}'">{{ node.id() }}</button>-->
-                                <button id="{{ node.data('id') }}" ng-click="cadTable(node.data('id'))">{{ node.data("id") }}</button>
+                                <button id="{{ node.data('id')}}" ng-click="cadTable(node.data('id'))">{{ node.data("id")}}</button>
                             </td>
                             <td>{{node.data('sbol')}}</td>
                             <td ng-repeat="colName in columnNames">
@@ -100,7 +100,7 @@
                     </thead>
                     <tbody data-ng-repeat="edge in selectedEdges">
                         <tr>
-                            <td>{{ edge.id() }}</td>
+                            <td>{{ edge.id()}}</td>
                             <td ng-repeat="colName in edgeColumnNames">
                                 {{edge.data(colName)}}
                             </td>
@@ -143,7 +143,7 @@
     <div class="icon-button" ng-click="messageMe()" tooltip-placement="left" tooltip="Contact Us">
         <span id="search-box" class="glyphicon glyphicon-comment"></span>
     </div>
-     <div class="icon-button" ng-click="updatePage()" data-toggle="modal" data-target="#modalUpload" tooltip-placement="left" tooltip="Upload to Database">
+    <div class="icon-button" ng-click="updatePage()" data-toggle="modal" data-target="#modalUpload" tooltip-placement="left" tooltip="Upload to Database">
         <span id="search-box" class="glyphicon glyphicon-plus"></span>
     </div>
     <!-- Old Glyph for bg color picker -->
@@ -152,13 +152,13 @@
         <span class="glyphicon glyphicon-tint"></span>
     </div>
     -->
-	<div class="icon-button" ng-click="toggleCAD()" tooltip-placement="left" tooltip="View Device Images">
-	<span class="glyphicon glyphicon-eye-open"></span>
+    <div class="icon-button" ng-click="toggleCAD()" tooltip-placement="left" tooltip="View Device Images">
+        <span class="glyphicon glyphicon-eye-open"></span>
     </div>
     <div class="icon-button" ng-click="toggleModel()" tooltip-placement="left" tooltip="Display Model">
-	<span class="glyphicon glyphicon-signal"></span>
+        <span class="glyphicon glyphicon-signal"></span>
     </div>
-    
+
     <!-- Old Home button glyph -->
     <!--
     <div class="icon-button" tooltip-placement="left" tooltip="Back to Top Page">
@@ -196,90 +196,90 @@
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title text-center" id="myModalLabel">Tutorial</h4>
-      </div>
-      <div class="modal-body">
-        <div class="embed-responsive embed-responsive-16by9">
-            <iframe src="index.html" id="tutorialModal"></iframe>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title text-center" id="myModalLabel">Tutorial</h4>
+            </div>
+            <div class="modal-body">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe src="index.html" id="tutorialModal"></iframe>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
         </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-      </div>
     </div>
-  </div>
 </div>
 
 <!--Modal Upload Page-->
 <div class="modal fade" id="modalUpload" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title text-center" id="myModalLabel">Upload</h4>
-      </div>
-      <div class="modal-body">
-        <div class="well well-lg text-center">
-           
-           <div class="row text-center">
-           Plasmid: <span><input class = "textbox" type = "text" ng-model = "Plasmid" placeholder="type in the plasmid"/><br>
-                   </div>
-            <div class="row text-center">
-           <div class="col-md-6 text-center text-danger">
-           <p>Operon [1]: <input class = "textbox" type = "text" ng-model = "Plx" /><br>
-               
-              <p class="text-info"> Input transitions[A]:</p><input class = "textbox " type = "text" ng-model = "Plxone" /><br>
-                   Input species[1]:<input class = "textbox" type = "text" ng-model = "PlxoneOne" /><br>
-                        Output Species[a]:<input class = "textbox" type = "text" ng-model = "PlxoneOneSP1" /><br>
-                        Output Species[b]: <input class = "textbox" type = "text" ng-model = "PlxoneOneSP2" /><br>
-                   
-                    Input species[2]:<input class = "textbox" type = "text" ng-model = "PlxoneTwo" /><br>
-                        Output Species[a]:<input class = "textbox" type = "text" ng-model = "PlxoneTwoSP1"/><br>
-                        Output Species[b]: <input class = "textbox" type = "text" ng-model = "PlxoneTwoSP2" /><br>
-                
-               
-               <p class="text-success">Input transition[B]:</p><input class = "textbox " type = "text" ng-model = "Plxtwo" /><br> 
-                   Input species[1]:<input class = "textbox" type = "text" ng-model = "PlxtwoOne" /><br>
-                               Output Species[a]: <input class = "textbox" type = "text" ng-model = "PlxoneOneSP1" /><br>
-                               Output Species[b]: <input class = "textbox" type = "text" ng-model = "PlxoneOneSP2" /><br>
-                   Input species[2]:<input class = "textbox" type = "text" ng-model = "PlxtwoTwo" /><br>
-                               Output Species[a]: <input class = "textbox" type = "text" ng-model = "PlxoneOneSP1" /><br>
-                               Output Species[b]: <input class = "textbox" type = "text" ng-model = "PlxoneOneSP2" /><br>
-                                                   
-           </div>  
-            
-               <div class="col-md-6 text-center text-primary">
-           Operon [2]: <input class = "textbox" type = "text" ng-model = "Ply" /><br>
-           <p class="text-warning">Input transitions[1]:</p><input class = "textbox" type = "text" ng-model = "Plyone" /><br>
-                    Input species[1]:<input class = "textbox" type = "text" ng-model = "PlyoneOne" /><br>
-                    Output species[1]:<input class = "textbox" type = "text" ng-model = "PlyoneOneSP1" /><br>
-                    Output species[2]:<input class = "textbox" type = "text" ng-model = "PlyoneOneSP2" /><br>
-                    
-                    Input species[2]:<input class = "textbox" type = "text" ng-model = "PlyoneTwo" /><br>
-                    Output species[1]:<input class = "textbox" type = "text" ng-model = "PlyoneTwoSP1" /><br>
-                    Output species[2]: <input class = "textbox" type = "text" ng-model = "PlyoneTwoSP2" /><br>
-                    
-                
-                    <p class="text-primary">Input transition[2]:</p><input class = "textbox" type = "text" ng-model = "Plytwo" /><br>  
-                    Input species[1]:<input class = "textbox" type = "text" ng-model = "PlytwoOne" /><br>
-                        Output species[1]:<input class = "textbox" type = "text" ng-model = "PlytwoOneSP1" /><br>
-                        Output species[2]:<input class = "textbox" type = "text" ng-model = "PlytwoOneSP2" /><br>
-                    Input species[2]:<input class = "textbox" type = "text" ng-model = "PlytwoTwo" /><br>
-                        Output species[1]:<input class = "textbox" type = "text" ng-model = "PlytwoTwoSP1" /><br>
-                        Output species[2]:<input class = "textbox" type = "text" ng-model = "PlytwoTwoSP2" /><br>
-                        </div>  
-            </div> 
-            <button class="btn btn-lg"><span id="search-box" class="glyphicon glyphicon-upload" ng-click="upload()"><span>Upload</span></span></button></span>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title text-center" id="myModalLabel">Upload</h4>
+            </div>
+            <div class="modal-body">
+                <div class="well well-lg text-center">
+
+                    <div class="row text-center">
+                        Plasmid: <span><input class = "textbox" type = "text" ng-model = "Plasmid" placeholder="type in the plasmid"/><br>
+                            </div>
+                            <div class="row text-center">
+                                <div class="col-md-6 text-center text-danger">
+                                    <p>Operon [1]: <input class = "textbox" type = "text" ng-model = "Plx" /><br>
+
+                                    <p class="text-info"> Input transitions[A]:</p><input class = "textbox " type = "text" ng-model = "Plxone" /><br>
+                                    Input species[1]:<input class = "textbox" type = "text" ng-model = "PlxoneOne" /><br>
+                                    Output Species[a]:<input class = "textbox" type = "text" ng-model = "PlxoneOneSP1" /><br>
+                                    Output Species[b]: <input class = "textbox" type = "text" ng-model = "PlxoneOneSP2" /><br>
+
+                                    Input species[2]:<input class = "textbox" type = "text" ng-model = "PlxoneTwo" /><br>
+                                    Output Species[a]:<input class = "textbox" type = "text" ng-model = "PlxoneTwoSP1"/><br>
+                                    Output Species[b]: <input class = "textbox" type = "text" ng-model = "PlxoneTwoSP2" /><br>
+
+
+                                    <p class="text-success">Input transition[B]:</p><input class = "textbox " type = "text" ng-model = "Plxtwo" /><br> 
+                                    Input species[1]:<input class = "textbox" type = "text" ng-model = "PlxtwoOne" /><br>
+                                    Output Species[a]: <input class = "textbox" type = "text" ng-model = "PlxoneOneSP1" /><br>
+                                    Output Species[b]: <input class = "textbox" type = "text" ng-model = "PlxoneOneSP2" /><br>
+                                    Input species[2]:<input class = "textbox" type = "text" ng-model = "PlxtwoTwo" /><br>
+                                    Output Species[a]: <input class = "textbox" type = "text" ng-model = "PlxoneOneSP1" /><br>
+                                    Output Species[b]: <input class = "textbox" type = "text" ng-model = "PlxoneOneSP2" /><br>
+
+                                </div>  
+
+                                <div class="col-md-6 text-center text-primary">
+                                    Operon [2]: <input class = "textbox" type = "text" ng-model = "Ply" /><br>
+                                    <p class="text-warning">Input transitions[1]:</p><input class = "textbox" type = "text" ng-model = "Plyone" /><br>
+                                    Input species[1]:<input class = "textbox" type = "text" ng-model = "PlyoneOne" /><br>
+                                    Output species[1]:<input class = "textbox" type = "text" ng-model = "PlyoneOneSP1" /><br>
+                                    Output species[2]:<input class = "textbox" type = "text" ng-model = "PlyoneOneSP2" /><br>
+
+                                    Input species[2]:<input class = "textbox" type = "text" ng-model = "PlyoneTwo" /><br>
+                                    Output species[1]:<input class = "textbox" type = "text" ng-model = "PlyoneTwoSP1" /><br>
+                                    Output species[2]: <input class = "textbox" type = "text" ng-model = "PlyoneTwoSP2" /><br>
+
+
+                                    <p class="text-primary">Input transition[2]:</p><input class = "textbox" type = "text" ng-model = "Plytwo" /><br>  
+                                    Input species[1]:<input class = "textbox" type = "text" ng-model = "PlytwoOne" /><br>
+                                    Output species[1]:<input class = "textbox" type = "text" ng-model = "PlytwoOneSP1" /><br>
+                                    Output species[2]:<input class = "textbox" type = "text" ng-model = "PlytwoOneSP2" /><br>
+                                    Input species[2]:<input class = "textbox" type = "text" ng-model = "PlytwoTwo" /><br>
+                                    Output species[1]:<input class = "textbox" type = "text" ng-model = "PlytwoTwoSP1" /><br>
+                                    Output species[2]:<input class = "textbox" type = "text" ng-model = "PlytwoTwoSP2" /><br>
+                                </div>  
+                            </div> 
+                            <button class="btn btn-lg"><span id="search-box" class="glyphicon glyphicon-upload" ng-click="upload()"><span>Upload</span></span></button></span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-      </div>
     </div>
-  </div>
-</div>
 
