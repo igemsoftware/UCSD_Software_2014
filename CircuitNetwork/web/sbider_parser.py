@@ -15,12 +15,9 @@ import sbider_database as db
 def grammar_0(cursor, tokens):
     """
     Grammar for 'grammar_0:= grammar_1 > grammar_1'.
-
-    Argument(s):
-        tokens - description
-
-    Return:
-        return description
+    :param cursor:
+    :param tokens:
+    :return:
     """
 
     if '=' not in tokens:
@@ -37,12 +34,9 @@ def grammar_1(cursor, tokens):
     Grammar for 'grammar_1:= grammar_2 or grammar_1 |
     grammar_2 and grammar_1 |
     grammar_2'.
-
-    Argument(s):
-        tokens - description
-
-    Return:
-        return description
+    :param cursor:
+    :param tokens:
+    :return:
     """
 
     if len(tokens) > 1 and tokens[1] == 'or':
@@ -70,12 +64,9 @@ def grammar_2(cursor, tokens):
     (grammar_1) and grammar_1 |
     (grammar_1) |
     interactor'.
-
-    Argument(s):
-        tokens - description
-
-    Return:
-        return description
+    :param cursor:
+    :param tokens:
+    :return:
     """
 
     if len(tokens) <= 0:
@@ -111,13 +102,11 @@ def grammar_2(cursor, tokens):
 
 
 def interactor(cursor, token):
-    """Grammar for 'interactor'.
-
-    Argument(s):
-        tokens - description
-
-    Return:
-        return description
+    """
+    Grammar for 'interactor'.
+    :param cursor:
+    :param token:
+    :return:
     """
 
     species = token[0]
@@ -126,15 +115,10 @@ def interactor(cursor, token):
 
 def grammar_output(tokens1, tokens2):
     """
-    Grammar for '>'.
-
-    Argument(s):
-        tokens1 - description
-        tokens2 - description
-
-
-    Return:
-        return description
+    Grammar for '='.
+    :param tokens1:
+    :param tokens2:
+    :return:
     """
 
     grammar_output_dict = {}
@@ -146,28 +130,22 @@ def grammar_output(tokens1, tokens2):
 
 
 def grammar_or(tokens1, tokens2):
-    """Grammar for 'or'.
-
-    Argument(s):
-        tokens1 - description
-        tokens2 - description
-
-    Return:
-        return description
+    """
+    Grammar for 'or'.
+    :param tokens1:
+    :param tokens2:
+    :return:
     """
 
     return tokens1 + tokens2
 
 
 def grammar_and(tokens1, tokens2):
-    """Grammar for 'and'.
-
-    Argument(s):
-        tokens1 - description
-        tokens2 - description
-
-    Return:
-        return description
+    """
+    Grammar for 'and'.
+    :param tokens1:
+    :param tokens2:
+    :return:
     """
 
     grammar_and_output = []
@@ -180,13 +158,11 @@ def grammar_and(tokens1, tokens2):
 
 
 def parse_logic(cursor, logic_input):
-    """Parse a logic input into atomized and equivalent logic.
-
-    Argument(s):
-        logic - description
-
-    Return:
-        return description
+    """
+    Parse a logic input into atomized and equivalent logic.
+    :param cursor:
+    :param logic_input:
+    :return:
     """
 
     split_logic_input = logic_input.split()

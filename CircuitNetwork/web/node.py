@@ -62,3 +62,6 @@ class Node(object):
             return path_list
         else:
             return []
+
+
+# End of node.py.
