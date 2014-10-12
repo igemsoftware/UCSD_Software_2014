@@ -1,0 +1,24 @@
+<qual:listOfTransitions>
+    <qual:transtion qual:id="it_139">
+            <qual:input qual:id="theta_spe_1"        qual:qualitativeSpecies="spe_1"
+                        qual:thresholdLevel="1"   qual:transitionEffect="none"
+        </qual:listOfInputs>
+        <qual:listOfOutputs>
+            <qual:output    qual:qualitativeSpecies="ope_88-2"
+                            qual:transitionEffect="assignmentLevel"/>
+        </qual:listOfOutputs>
+        <qual:listOfFunctionTerms>
+            <qual:functionTerm qual:resultLevel="1">
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <!-- input >= 1-->
+                    <apply>
+                        <geq/>
+                        <ci>spe_1</ci>
+                        <ci>theta_spe_1</ci>
+                    </apply>
+                </math>
+            </qual:funtionTerm>
+            <qual:defaultTerm qual:resultLevel="0"/>
+        </qual:listOfFunctionTerms>
+    </qual:transition>
+</qual:listOfTransitions>

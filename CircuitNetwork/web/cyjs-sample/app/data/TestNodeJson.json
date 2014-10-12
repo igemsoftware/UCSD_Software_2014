@@ -11,7 +11,7 @@
             {
                 "data":{
                     "id": "1",
-                    "SBOL": "http://quantumlifescience.org/sitebuildercontent/sitebuilderpictures/nucleicacid.jpg",
+                    "sbol": "sbol-operon-1_1.png",
                     "name": "cI",
                     "Components": "",
                     "Lit Ref": "nowhere"
@@ -26,7 +26,7 @@
             {
                 "data":{
                     "id": "2",
-                    "SBOL": "",
+                    "sbol": "",
                     "name": "NOT",
                     "Components": "",
                     "Lit Ref": ""
@@ -41,7 +41,7 @@
             {
                 "data":{
                     "id": "3",
-                    "SBOL": "https://farm4.staticflickr.com/3261/2801924702_ffbdeda927_d.jpg",
+                    "sbol": "sbol_operon2_1.png",
                     "name": "pLambda",
                     "Components": ["p","rbs","cs","t"],
                     "Device": "pINV-107-mutx",
@@ -72,7 +72,7 @@
             {
                 "data":{
                     "id": "5",
-                    "SBOL": "http://circres.ahajournals.org/content/104/9/1076/F1.large.jpg",
+                    "sbol": "sbol_operon3-1.png",
                     "name": "eyfp",
                     "Components": "",
                     "Lit Ref": "everywhere"

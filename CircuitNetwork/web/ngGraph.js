@@ -33,6 +33,22 @@ var eqnDef = {
             }          
 };
 
+var eqnOD = {
+    inputs: ["Optical Density","Input 1"],
+    values: {
+        "Optical Density": OpticalDensity,
+        "Input 1": Input1
+    },
+    equation: function (OD, k1, i){
+                OpticalDensity = OD;
+                Input1 = k1;
+
+                return OD + 0.1*OpticalDensity*(1-k1*OpticalDensity)*0.1;
+            },
+    eqnText: "(dOD/dt) = 0.1*OpticalDensity*(1-k1*OpticalDensity)"
+            
+};
+
 var eqnOne = {
     inputs: ["Optical Density","Input 1"],
     values: {
