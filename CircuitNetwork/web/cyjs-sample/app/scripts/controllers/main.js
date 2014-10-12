@@ -379,7 +379,10 @@ angular.module('cyViewerApp')
                 $scope.query = ($scope.input + " = " + $scope.output + " " + $scope.BooleanTrue);
 
                 //the default is false, when checked its true and direct path is set
-
+                 //Clearing selected elements and paths.
+                reset();
+                $scope.cynet.$('*').unselect();
+                $scope.resultIndex = [];
                 console.log($scope.query);
 
                 angular.element('.loading').show();
@@ -392,12 +395,12 @@ angular.module('cyViewerApp')
 
             };
 
-            //refreshes the inputs and the page 
-            $scope.reloadPage = function()
-            {
-                $scope.cynet.load(networkDefault.elements);
+            $scope.reloadPage = function(){
+            reset();
+            $scope.cynet.$('*').unselect();
+            $scope.resultIndex = [];
+            $scope.cynet.load(networkDefault.elements);
             };
-
 
             //function for highlighting a path.        
             $scope.selectPath = function(index) {
@@ -427,18 +430,20 @@ angular.module('cyViewerApp')
             };
 
 
-            $scope.circuitCtrl = function() {
-                speciesId = networkData.speciesId;
-                inputTransitionsId = networkData.inputTransitionsId;
-                operonsId = networkData.operonsId;
-                outputTransitionsId = networkData.outputTransitionsId;
-                edgesId = networkData.edgesId;
+           $scope.circuitCtrl = function() {
+            speciesId = networkData.speciesId;
+            inputTransitionsId = networkData.inputTransitionsId;
+            operonsId = networkData.operonsId;
+            outputTransitionsId = networkData.outputTransitionsId;
+            edgesId = networkData.edgesId;
 
-                for (var result = 0; result < speciesId.length; result++) {
-                    $scope.resultIndex.push({label: "Path " + String(result + 1), value: result});
-                }
-                ;
+            for (var result = 0; result <speciesId.length; result ++){    
+                $scope.resultIndex.push({ label: "Path " + String(result + 1), value: result});
             };
+            $scope.selectedCircuit = $scope.resultIndex[0];
+            $scope.selectPath($scope.selectedCircuit.value);
+        };
+
 
 
 

@@ -35,10 +35,11 @@ body{
   border: none;
   color:#00004C;
   font-size: 25px;
+  
 }
 
 #mainPic .img-responsive{
-    height: 400px;
+    height: 600px;
     width: 100%;
     border: 2px solid blue;
 }
@@ -86,7 +87,7 @@ body{
 }
 
 #gradPic .img-circle:hover{
-    border: 2px solid blue; 
+    //border: 2px solid blue; 
 }
 
 #gradPic .img-circle{

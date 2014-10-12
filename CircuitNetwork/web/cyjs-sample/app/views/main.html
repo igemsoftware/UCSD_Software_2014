@@ -2,7 +2,7 @@
 <div id="network" ng-style="{'background-color': bg.color}"></div>
 
 <div class="loading">
-    <span us-spinner="{radius:30, width:3, length: 100}"></span>
+    <span us-spinner="{radius:40, width:4, length: 150}"></span>
 </div>
 
 <div class="summary" ng-show="overlayState.show">
@@ -13,20 +13,24 @@
         </option>
     </select>-->
 
+    
     <br><br>
     <div ng-show="searchState.show" class="searchBox">
 
-        <h4>Please enter input and output intermediates</h4>
+        <h3>Please enter input and output intermediates</h3>
 
-        INPUT: <span><input class = "textbox" type = "text" ng-model = "searchInput" placeholder="type in your input"/><br>
+        INPUT: <span><input class = "textbox" type = "text" ng-model = "searchInput" placeholder="type in your input"/><br></span>
 
-            OUTPUT: <span><input class = "textbox" type = "text" ng-model = "searchOutput" placeholder="type in your output"/><br>
+                OUTPUT: <span><input class = "textbox" type = "text" ng-model = "searchOutput" placeholder="type in your output"/><br></span>
 
-                True (Indirect Path): <input type="checkbox" ng-model="checkTrue"><br/> 
+                Include Indirect Path: <input type="checkbox" ng-model="checkTrue"><br/> 
 
-                <button><span id="search-box" class="glyphicon glyphicon-share-alt" ng-click="searchCtrl()"><span>Explore</span></span></button></span>
+                <span><button><span id="search-box" class="glyphicon glyphicon-share-alt" ng-click="searchCtrl()"><span>Explore</span></span></button></span>
 
+    
     </div>
+    
+    
 
     <br><br>
     <div class="addSlider">
@@ -112,6 +116,8 @@
     </div>
 </div>
 
+
+
 <div class="toolbar home-button" ng-click="toggleToolbar()" style="clear:both;" tooltip-placement="left" tooltip="Show/Hide Toolbar">
     <span class="glyphicon glyphicon-sort"></span>
 </div>
@@ -137,36 +143,26 @@
     <div class="icon-button" ng-click="ModalDemoCtrl()"data-toggle="modal" data-target="#myModal" tooltip-placement="left" tooltip="Tutorial/Documentation">
         <span id="search-box" class="glyphicon glyphicon-question-sign"></span>
     </div>
-    <div class="icon-button" ng-click="reloadPage()" tooltip-placement="left" tooltip="Download SBOL Image">
-        <span id="search-box" class="glyphicon glyphicon-cloud-download"></span>
-    </div>
-    <div class="icon-button" ng-click="messageMe()" tooltip-placement="left" tooltip="Contact Us">
-        <span id="search-box" class="glyphicon glyphicon-comment"></span>
-    </div>
-    <div class="icon-button" ng-click="updatePage()" data-toggle="modal" data-target="#modalUpload" tooltip-placement="left" tooltip="Upload to Database">
-        <span id="search-box" class="glyphicon glyphicon-plus"></span>
-    </div>
-    <!-- Old Glyph for bg color picker -->
-    <!--
-    <div class="icon-button" colorpicker colorpicker-position="left" ng-model="bg.color" tooltip-placement="left" tooltip="Set Background Color">
-        <span class="glyphicon glyphicon-tint"></span>
-    </div>
-    -->
+    
     <div class="icon-button" ng-click="toggleCAD()" tooltip-placement="left" tooltip="View Device Images">
         <span class="glyphicon glyphicon-eye-open"></span>
     </div>
     <div class="icon-button" ng-click="toggleModel()" tooltip-placement="left" tooltip="Display Model">
         <span class="glyphicon glyphicon-signal"></span>
     </div>
-
-    <!-- Old Home button glyph -->
-    <!--
-    <div class="icon-button" tooltip-placement="left" tooltip="Back to Top Page">
-        <a href="/">
-            <span class="glyphicon glyphicon-home"></span>
-        </a>
+    <div class="icon-button" ng-click="reloadPage()" tooltip-placement="left" tooltip="Download SBOL Image">
+        <span id="search-box" class="glyphicon glyphicon-cloud-download"></span>
     </div>
-    -->
+    
+    <div class="icon-button" ng-click="updatePage()" data-toggle="modal" data-target="#modalUpload" tooltip-placement="left" tooltip="Upload to Database">
+        <span id="search-box" class="glyphicon glyphicon-plus"></span>
+    </div>
+    
+    <div class="icon-button" ng-click="messageMe()" tooltip-placement="left" tooltip="Contact Us">
+        <span id="search-box" class="glyphicon glyphicon-comment"></span>
+    </div>
+
+
 </div>
 
 <div class="modal fade" id="share" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -234,11 +230,9 @@
 
                                     <p class="text-info"> Input transitions[A]:</p><input class = "textbox " type = "text" ng-model = "Plxone" /><br>
                                     Input species[1]:<input class = "textbox" type = "text" ng-model = "PlxoneOne" /><br>
-                                    Output Species[a]:<input class = "textbox" type = "text" ng-model = "PlxoneOneSP1" /><br>
-                                    Output Species[b]: <input class = "textbox" type = "text" ng-model = "PlxoneOneSP2" /><br>
-
+                                   
                                     Input species[2]:<input class = "textbox" type = "text" ng-model = "PlxoneTwo" /><br>
-                                    Output Species[a]:<input class = "textbox" type = "text" ng-model = "PlxoneTwoSP1"/><br>
+                                    
                                     Output Species[b]: <input class = "textbox" type = "text" ng-model = "PlxoneTwoSP2" /><br>
 
 
@@ -247,9 +241,10 @@
                                     Output Species[a]: <input class = "textbox" type = "text" ng-model = "PlxoneOneSP1" /><br>
                                     Output Species[b]: <input class = "textbox" type = "text" ng-model = "PlxoneOneSP2" /><br>
                                     Input species[2]:<input class = "textbox" type = "text" ng-model = "PlxtwoTwo" /><br>
-                                    Output Species[a]: <input class = "textbox" type = "text" ng-model = "PlxoneOneSP1" /><br>
-                                    Output Species[b]: <input class = "textbox" type = "text" ng-model = "PlxoneOneSP2" /><br>
-
+                                    
+                                    
+                                    Output Species[b]: <input class = "textbox" type = "text" ng-model = "PlxoneTwoSP2" /><br>
+                                    Output Species[b]: <input class = "textbox" type = "text" ng-model = "PlxoneTwoSP2" /><br>
                                 </div>  
 
                                 <div class="col-md-6 text-center text-primary">
@@ -273,7 +268,7 @@
                                     Output species[2]:<input class = "textbox" type = "text" ng-model = "PlytwoTwoSP2" /><br>
                                 </div>  
                             </div> 
-                            <button class="btn btn-lg"><span id="search-box" class="glyphicon glyphicon-upload" ng-click="upload()"><span>Upload</span></span></button></span>
+                    <span> <button class="btn btn-lg"><span id="search-box" class="glyphicon glyphicon-upload" ng-click="upload()"><span>Upload</span></span></button></span>
                     </div>
                 </div>
                 <div class="modal-footer">

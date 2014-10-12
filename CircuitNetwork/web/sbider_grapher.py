@@ -763,8 +763,8 @@ def create_json_network_string(species_nodes_list, input_transitions_nodes_list,
 
     num_runs = 0
     for node in operon_nodes_list:
-        operon_sbml = "sbml_operon_%s.txt" % node[0].replace("ope_", "")
-        operon_sbol = "sbol_operon_%s.png" % node[0].replace("ope_", "")
+        operon_sbml = "operon_sbml_%s.txt" % node[0].replace("ope_", "")
+        operon_sbol = "operon_sbol_%s.png" % node[0].replace("ope_", "")
 
         to_return += '{'
         to_return += '"data":{'
@@ -834,4 +834,3 @@ def create_json_network_string(species_nodes_list, input_transitions_nodes_list,
     to_return += path_json_highlighter + '}'
 
     return to_return
-
