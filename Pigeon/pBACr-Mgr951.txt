@@ -1,5 +1,0 @@
-c inv 8
-<p pT7 4
-p pmgrB 4
-c T7ptag 8
-# Arcs

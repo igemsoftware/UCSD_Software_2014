@@ -17,7 +17,10 @@ body{
    color: gold;
    
 }
-
+#log{
+    font-size: 20px;
+    
+}
 .item{
    background-color:white;    
     height: 450px;
@@ -27,17 +30,21 @@ body{
     margin: auto;
     text-align: center;
     font-size: 20px;
+    
      
 }
+
 #sliderHolder{
     
    margin-top: 105px;
    background-color: white;
+  
 }
 
 .sliderHome{
    opacity:.95;
-   border: 2px solid sandybrown;      
+  
+       
  }
  
  #extraInfo{
@@ -51,11 +58,20 @@ body{
     background-repeat: no-repeat;
     background-size: 100%;
     background:white;
+    
  }
  
  .carousel-indicators li{
      background-color: #00004C;
+     height: 10px;
+     width: 16px;
      
+ }
+ 
+ .carousel-indicators .active{
+     background-color: gold;
+     height: 10px;
+     width: 16px;
  }
  
  
@@ -131,3 +147,89 @@ body{
     margin-bottom:10px;
 }
 
+//modal stuff
+#modalBodyLogin{
+    
+    
+}
+
+#loginModal{
+    border: 2px solid white;
+    margin: auto;
+    background-image: url("ProfilePics/network.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    text-align: center;
+    //opacity: .9;
+    height: 100%;
+    background-color: white;
+    
+}
+
+#modalInput{
+    padding: 10px;
+    margin: auto;
+    height: 250px;
+     border: 2px solid black;
+ logger{
+    height: 400px;
+    width: auto;
+    margin: auto;
+    border: none;
+   
+}
+
+.logger:hover{
+    background-color: gold;
+}
+
+#registration{
+    padding: 10px;
+    margin: 15px;
+    
+}
+#registration input{
+    margin: 5px;
+    border-radius: 15px;
+}    
+}
+
+
+.logger{
+    height: 400px;
+    width: auto;
+    margin: auto;
+    border: none;
+   
+}
+
+.logger:hover{
+    background-color: gold;
+}
+
+#registration{
+    padding: 10px;
+    margin: 15px;
+    
+}
+#registration input{
+    margin: 5px;
+    border-radius: 15px;
+}
+
+#path{
+    font-size: 30px;
+}
+
+.panel{
+    border:none;
+}
+
+#CheckIt{
+    font-size: 40px;
+}
+
+#sponsors{
+    background-image: url("https://lh6.googleusercontent.com/MKr_rfMgwY6RZtuROTByFRdbbZq4AweRvMBt1KCL4GePLgfGY451WA2DyQO-KACJj8GJqQita0I=w1110-h482");
+    background-size: cover;
+}

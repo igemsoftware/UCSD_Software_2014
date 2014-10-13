@@ -20,16 +20,7 @@ import org.json.simple.parser.ParseException;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import com.sun.mail.smtp.SMTPTransport;
-import java.security.Security;
-import java.util.Date;
-import java.util.Properties;
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.Session;
-import javax.mail.internet.AddressException;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
+
 
 
 /**
@@ -55,7 +46,8 @@ public class ControllerMain {
     }
     
     public String executeQuery(String query) {
-        String output = executeCommand("python " + rootPath + "/sbider_network_builder.py "+rootPath +" " + query+""); //append path to script name and then execute
+        System.out.println("python " + rootPath + "/sbider_network_builder.py "+rootPath +" " + query+"");
+        String output = executeCommand("python " + rootPath + "/sbider_network_builder.py "+rootPath +" " + query); //append path to script name and then execute
         return output;
 
     }
