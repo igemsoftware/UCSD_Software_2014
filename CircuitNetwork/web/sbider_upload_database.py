@@ -124,7 +124,6 @@ def make_sbol_file(output_species_list, promoter_list, prev_operon_direction, op
     
     sbol_list = promoter_list + ["c" + data[0] for data in output_species_list]            
     sbol_string = make_sbol_string_db_update(sbol_list, prev_operon_direction)
-    sbol_file = "operon_sbol_{}.txt".format(operon_id)
     write_sbol_file(operon_id, sbol_string)
     
     return sbol_file
@@ -133,7 +132,7 @@ def make_sbol_file(output_species_list, promoter_list, prev_operon_direction, op
 def write_sbol_file(operon_id, sbol_string):
     """Write out sbol string to file."""
     
-    file_name = "sbol_operon_" + operon_id + ".txt"
+    file_name = "operon_sbol_" + operon_id + ".txt"
     write_to_file(sbol_string, file_name)
 
 
