@@ -1,0 +1,2425 @@
+the current table being made is CREATE TABLE Plasmid (pla_id VARCHAR(50), name VARCHAR(50), miriam_id VARCHAR(50));
+the current table being made is CREATE TABLE Operon (ope_id VARCHAR(50), name VARCHAR(50), image VARCHAR(50));
+the current table being made is CREATE TABLE Species (spe_id VARCHAR(50), name VARCHAR(50), 
+	type VARCHAR(50));
+the current table being made is CREATE TABLE PlasmidOperon (ope_id VARCHAR(50), pla_id VARCHAR(50),
+    	direction VARCHAR(50));
+the current table being made is CREATE TABLE OperonTransition (ot_id VARCHAR(50), logic VARCHAR(50))
+the current table being made is CREATE TABLE OperonInputTransition (it_id VARCHAR(50), ope_id VARCHAR(50));
+the current table being made is CREATE TABLE InputTransition (it_id VARCHAR(50), logic VARCHAR(50));
+the current table being made is CREATE TABLE InputTransitionSpecies (in_id VARCHAR(50), it_id VARCHAR(50), 
+		spe_id VARCHAR(50), repressor BOOL);
+the current table being made is CREATE TABLE OperonOutputTransition (ot_id VARCHAR(50), ope_id VARCHAR(50));
+the current table being made is CREATE TABLE OutputTransitionSpecies (out_id VARCHAR(50), 
+    	ot_id VARCHAR(50), spe_id VARCHAR(50));
+the current table being made is CREATE TABLE User (user_id VARCHAR(50), first_name VARCHAR(50),
+    	last_name VARCHAR(50),email VARCHAR(50), password VARCHAR(50));
+
+
+Making the PLASMID TABLE 
+
+
+['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '28', '29', '30', '31', '33', '34', '35', '36', '37', '38', '39', '40', '43', '44', '46', '47', '48', '49', '50', '51', '52', '53', '54', '55', '56', '57', '58', '59', '65', '67', '68', '69', '71', '72', '73', '74', '75', '76', '77', '78', '79', '80', '81', '82', '88', '89', '90', '91', '92', '93', '94', '95', '96', '97', '98', '99', '100', '101', '102', '103', '104']
+
+
+Making the OPERON TABLE 
+
+
+
+
+Making the SPECIES TABLE 
+
+
+
+
+Making the OPERON-INPUT-TRANSITION TABLE 
+
+
+The species dict is of type {'aTc': '6', 'supD': '51', 'gfp': '30', 'luxR': '48', 'luxI': '15', 'eyfp': '34', 'Lara': '26', 'lexA': '47', 'AHL': '2', 'ivnF': '41', 'PCB': '17', 'invF': '38', 'sicA': '42', 'cI': '28', 'AHL_LuxR': '7', 'exsC': '32', 'rfp': '50', 'na': '1', 'ccdA': '31', 'inv': '37', 'PAI-1': '46', 'ecfp': '29', 'lacIq': '44', 'exsDA': '33', 'T7': '20', 'T7ptag': '23', 'lasR': '27', 'tetR': '24', 'LacI': '3', 'Rhll': '18', 'LuxR': '4', 'AHL_cI': '8', 'LacIq': '11', 'yfp': '52', 'ipgC': '39', 'LasI': '12', 'IPTG': '10', 'hrpS': '36', 'PAI-2': '13', 'NotLight': '5', 'T7-C': '21', 'Beta-galactosidase': '9', 'Sal': '19', 'lacZalpha-ccdB': '45', 'nahR': '49', 'T7-N': '22', 'mxiE': '40', 'hrpR': '35', 'araC': '25', 'lacI': '43', 'Mg2+': '16', 'OHHL': '14'}
+The species dict looks like {'aTc': '6', 'supD': '51', 'gfp': '30', 'luxR': '48', 'luxI': '15', 'eyfp': '34', 'Lara': '26', 'lexA': '47', 'AHL': '2', 'ivnF': '41', 'PCB': '17', 'invF': '38', 'sicA': '42', 'cI': '28', 'AHL_LuxR': '7', 'exsC': '32', 'rfp': '50', 'na': '1', 'ccdA': '31', 'inv': '37', 'PAI-1': '46', 'ecfp': '29', 'lacIq': '44', 'exsDA': '33', 'T7': '20', 'T7ptag': '23', 'lasR': '27', 'tetR': '24', 'LacI': '3', 'Rhll': '18', 'LuxR': '4', 'AHL_cI': '8', 'LacIq': '11', 'yfp': '52', 'ipgC': '39', 'LasI': '12', 'IPTG': '10', 'hrpS': '36', 'PAI-2': '13', 'NotLight': '5', 'T7-C': '21', 'Beta-galactosidase': '9', 'Sal': '19', 'lacZalpha-ccdB': '45', 'nahR': '49', 'T7-N': '22', 'mxiE': '40', 'hrpR': '35', 'araC': '25', 'lacI': '43', 'Mg2+': '16', 'OHHL': '14'}
+The current values of the row ['na', 'na']
+The current values of the row ['1,1', 'LuxR,OHHL']
+Was the species split() correctly ['LuxR', 'OHHL']
+What is the current value of spe LuxR
+What is the current value of spe OHHL
+The current values of the row ['1,2', 'IPTG,LacI']
+Was the species split() correctly ['IPTG', 'LacI']
+What is the current value of spe IPTG
+What is the current value of spe LacI
+The current values of the row ['na', 'na']
+The current values of the row ['2,1', 'araC,Lara']
+Was the species split() correctly ['araC', 'Lara']
+What is the current value of spe araC
+What is the current value of spe Lara
+The current values of the row ['2,2', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['na', 'na']
+The current values of the row ['3,1', 'aTc,tetR']
+Was the species split() correctly ['aTc', 'tetR']
+What is the current value of spe aTc
+What is the current value of spe tetR
+The current values of the row ['3,2', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['na', 'na']
+The current values of the row ['4,1', 'lasR,PAI-1']
+Was the species split() correctly ['lasR', 'PAI-1']
+What is the current value of spe lasR
+What is the current value of spe PAI-1
+The current values of the row ['4,2', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['na', 'na']
+The current values of the row ['5,1', 'araC,Lara']
+Was the species split() correctly ['araC', 'Lara']
+What is the current value of spe araC
+What is the current value of spe Lara
+The current values of the row ['5,1', 'aTc,tetR']
+Was the species split() correctly ['aTc', 'tetR']
+What is the current value of spe aTc
+What is the current value of spe tetR
+The current values of the row ['5,2', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['na', 'na']
+The current values of the row ['6,1', 'araC,Lara']
+Was the species split() correctly ['araC', 'Lara']
+What is the current value of spe araC
+What is the current value of spe Lara
+The current values of the row ['6,1', 'lasR,PAI-1']
+Was the species split() correctly ['lasR', 'PAI-1']
+What is the current value of spe lasR
+What is the current value of spe PAI-1
+The current values of the row ['6,2', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['na', 'na']
+The current values of the row ['7,1', 'aTc,tetR']
+Was the species split() correctly ['aTc', 'tetR']
+What is the current value of spe aTc
+What is the current value of spe tetR
+The current values of the row ['7,1', 'lasR,PAI-1']
+Was the species split() correctly ['lasR', 'PAI-1']
+What is the current value of spe lasR
+What is the current value of spe PAI-1
+The current values of the row ['7,2', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['na', 'na']
+The current values of the row ['8,1', 'aTc,tetR']
+Was the species split() correctly ['aTc', 'tetR']
+What is the current value of spe aTc
+What is the current value of spe tetR
+The current values of the row ['8,1', 'araC,Lara']
+Was the species split() correctly ['araC', 'Lara']
+What is the current value of spe araC
+What is the current value of spe Lara
+The current values of the row ['8,2', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['na', 'na']
+The current values of the row ['9,1', 'araC,Lara']
+Was the species split() correctly ['araC', 'Lara']
+What is the current value of spe araC
+What is the current value of spe Lara
+The current values of the row ['9,1', 'lasR,PAI-1']
+Was the species split() correctly ['lasR', 'PAI-1']
+What is the current value of spe lasR
+What is the current value of spe PAI-1
+The current values of the row ['9,2', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['na', 'na']
+The current values of the row ['10,1', 'aTc,tetR']
+Was the species split() correctly ['aTc', 'tetR']
+What is the current value of spe aTc
+What is the current value of spe tetR
+The current values of the row ['10,1', 'lasR,PAI-1']
+Was the species split() correctly ['lasR', 'PAI-1']
+What is the current value of spe lasR
+What is the current value of spe PAI-1
+The current values of the row ['10,2', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['12,1', 'cI']
+Was the species split() correctly ['cI']
+What is the current value of spe cI
+The current values of the row ['13,1', 'cI']
+Was the species split() correctly ['cI']
+What is the current value of spe cI
+The current values of the row ['14,1', 'cI']
+Was the species split() correctly ['cI']
+What is the current value of spe cI
+The current values of the row ['15,1', 'IPTG,LacI']
+Was the species split() correctly ['IPTG', 'LacI']
+What is the current value of spe IPTG
+What is the current value of spe LacI
+The current values of the row ['16,1', 'aTc,tetR']
+Was the species split() correctly ['aTc', 'tetR']
+What is the current value of spe aTc
+What is the current value of spe tetR
+The current values of the row ['17,1', 'cI']
+Was the species split() correctly ['cI']
+What is the current value of spe cI
+The current values of the row ['na', 'na']
+The current values of the row ['18,1', 'IPTG,LacI']
+Was the species split() correctly ['IPTG', 'LacI']
+What is the current value of spe IPTG
+What is the current value of spe LacI
+The current values of the row ['18,2', 'cI']
+Was the species split() correctly ['cI']
+What is the current value of spe cI
+The current values of the row ['na', 'na']
+The current values of the row ['19,1', 'cI']
+Was the species split() correctly ['cI']
+What is the current value of spe cI
+The current values of the row ['19,2', 'IPTG,LacI']
+Was the species split() correctly ['IPTG', 'LacI']
+What is the current value of spe IPTG
+What is the current value of spe LacI
+The current values of the row ['na', 'na']
+The current values of the row ['20,1', 'aTc,tetR']
+Was the species split() correctly ['aTc', 'tetR']
+What is the current value of spe aTc
+What is the current value of spe tetR
+The current values of the row ['20,2', 'IPTG,LacI']
+Was the species split() correctly ['IPTG', 'LacI']
+What is the current value of spe IPTG
+What is the current value of spe LacI
+The current values of the row ['na', 'na']
+The current values of the row ['21,1', 'IPTG,LacI']
+Was the species split() correctly ['IPTG', 'LacI']
+What is the current value of spe IPTG
+What is the current value of spe LacI
+The current values of the row ['21,2', 'cI']
+Was the species split() correctly ['cI']
+What is the current value of spe cI
+The current values of the row ['na', 'na']
+The current values of the row ['22,1', 'aTc,tetR']
+Was the species split() correctly ['aTc', 'tetR']
+What is the current value of spe aTc
+What is the current value of spe tetR
+The current values of the row ['22,2', 'IPTG,LacI']
+Was the species split() correctly ['IPTG', 'LacI']
+What is the current value of spe IPTG
+What is the current value of spe LacI
+The current values of the row ['na', 'na']
+The current values of the row ['23,1', 'IPTG,LacIq']
+Was the species split() correctly ['IPTG', 'LacIq']
+What is the current value of spe IPTG
+What is the current value of spe LacIq
+The current values of the row ['23,2', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['na', 'na']
+The current values of the row ['24,1', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['24,2', 'araC,Lara']
+Was the species split() correctly ['araC', 'Lara']
+What is the current value of spe araC
+What is the current value of spe Lara
+The current values of the row ['na', 'na']
+The current values of the row ['25,1', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['25,2', 'AHL,LuxR']
+Was the species split() correctly ['AHL', 'LuxR']
+What is the current value of spe AHL
+What is the current value of spe LuxR
+The current values of the row ['na', 'na']
+The current values of the row ['28,1', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['28,2', 'AHL,LuxR']
+Was the species split() correctly ['AHL', 'LuxR']
+What is the current value of spe AHL
+What is the current value of spe LuxR
+The current values of the row ['na', 'na']
+The current values of the row ['29,1', 'IPTG,LacIq']
+Was the species split() correctly ['IPTG', 'LacIq']
+What is the current value of spe IPTG
+What is the current value of spe LacIq
+The current values of the row ['29,2', 'cI']
+Was the species split() correctly ['cI']
+What is the current value of spe cI
+The current values of the row ['29,3', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['na', 'hrpR,hrpS']
+The current values of the row ['na', 'na']
+The current values of the row ['31,1', 'hrpR,hrpS']
+Was the species split() correctly ['hrpR', 'hrpS']
+What is the current value of spe hrpR
+What is the current value of spe hrpS
+The current values of the row ['31,2', 'cI']
+Was the species split() correctly ['cI']
+What is the current value of spe cI
+The current values of the row ['na', 'na']
+The current values of the row ['33,1', 'Sal']
+Was the species split() correctly ['Sal']
+What is the current value of spe Sal
+The current values of the row ['33,2', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['na', 'tetR']
+The current values of the row ['na', 'na']
+The current values of the row ['35,1', 'araC,Lara']
+Was the species split() correctly ['araC', 'Lara']
+What is the current value of spe araC
+What is the current value of spe Lara
+The current values of the row ['35,2', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['na', 'Mg2+']
+The current values of the row ['na', 'na']
+The current values of the row ['37,1', 'araC,Lara']
+Was the species split() correctly ['araC', 'Lara']
+What is the current value of spe araC
+What is the current value of spe Lara
+The current values of the row ['37,2', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['na', 'Mg2+']
+The current values of the row ['na', 'na']
+The current values of the row ['39,1', 'supD,T7ptag']
+Was the species split() correctly ['supD', 'T7ptag']
+What is the current value of spe supD
+What is the current value of spe T7ptag
+The current values of the row ['39,2', 'Mg2+']
+Was the species split() correctly ['Mg2+']
+What is the current value of spe Mg2+
+The current values of the row ['na', 'supD,T7ptag']
+The current values of the row ['na', 'cI']
+The current values of the row ['na', 'na']
+The current values of the row ['44,1', 'AHL,LuxR']
+Was the species split() correctly ['AHL', 'LuxR']
+What is the current value of spe AHL
+What is the current value of spe LuxR
+The current values of the row ['44,2', 'cI']
+Was the species split() correctly ['cI']
+What is the current value of spe cI
+The current values of the row ['na', 'na']
+The current values of the row ['46,1', 'AHL,LuxR']
+Was the species split() correctly ['AHL', 'LuxR']
+What is the current value of spe AHL
+What is the current value of spe LuxR
+The current values of the row ['46,2', 'IPTG,LacI']
+Was the species split() correctly ['IPTG', 'LacI']
+What is the current value of spe IPTG
+What is the current value of spe LacI
+The current values of the row ['46,3', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['na', 'na']
+The current values of the row ['47,1', 'AHL,LuxR']
+Was the species split() correctly ['AHL', 'LuxR']
+What is the current value of spe AHL
+What is the current value of spe LuxR
+The current values of the row ['47,2', 'AHL,LacI']
+Was the species split() correctly ['AHL', 'LacI']
+What is the current value of spe AHL
+What is the current value of spe LacI
+The current values of the row ['47,3', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['na', 'na']
+The current values of the row ['48,1', 'IPTG,LacI']
+Was the species split() correctly ['IPTG', 'LacI']
+What is the current value of spe IPTG
+What is the current value of spe LacI
+The current values of the row ['48,2', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['na', 'na']
+The current values of the row ['49,1', 'IPTG,LacI']
+Was the species split() correctly ['IPTG', 'LacI']
+What is the current value of spe IPTG
+What is the current value of spe LacI
+The current values of the row ['49,2', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['na', 'na']
+The current values of the row ['50,1', 'IPTG,LacI']
+Was the species split() correctly ['IPTG', 'LacI']
+What is the current value of spe IPTG
+What is the current value of spe LacI
+The current values of the row ['50,2', 'araC,Lara']
+Was the species split() correctly ['araC', 'Lara']
+What is the current value of spe araC
+What is the current value of spe Lara
+The current values of the row ['na', 'na']
+The current values of the row ['51,1', 'IPTG,LacI']
+Was the species split() correctly ['IPTG', 'LacI']
+What is the current value of spe IPTG
+What is the current value of spe LacI
+The current values of the row ['51,2', 'araC,Lara']
+Was the species split() correctly ['araC', 'Lara']
+What is the current value of spe araC
+What is the current value of spe Lara
+The current values of the row ['52,1', 'aTc,tetR']
+Was the species split() correctly ['aTc', 'tetR']
+What is the current value of spe aTc
+What is the current value of spe tetR
+The current values of the row ['na', 'NotLight,PCB']
+The current values of the row ['na', 'na']
+The current values of the row ['54,1', 'NotLight,PCB']
+Was the species split() correctly ['NotLight', 'PCB']
+What is the current value of spe NotLight
+What is the current value of spe PCB
+The current values of the row ['54,3', 'AHL,NotLight,LuxR']
+Was the species split() correctly ['AHL', 'NotLight', 'LuxR']
+What is the current value of spe AHL
+What is the current value of spe NotLight
+What is the current value of spe LuxR
+The current values of the row ['na', 'na']
+The current values of the row ['55,2', 'AHL,NotLight,LuxR']
+Was the species split() correctly ['AHL', 'NotLight', 'LuxR']
+What is the current value of spe AHL
+What is the current value of spe NotLight
+What is the current value of spe LuxR
+The current values of the row ['55,3', 'NotLight,PCB']
+Was the species split() correctly ['NotLight', 'PCB']
+What is the current value of spe NotLight
+What is the current value of spe PCB
+The current values of the row ['na', 'na']
+The current values of the row ['56,1', 'AHL,NotLight']
+Was the species split() correctly ['AHL', 'NotLight']
+What is the current value of spe AHL
+What is the current value of spe NotLight
+The current values of the row ['56,2', 'NotLight,PCB']
+Was the species split() correctly ['NotLight', 'PCB']
+What is the current value of spe NotLight
+What is the current value of spe PCB
+The current values of the row ['56,3', 'aTc,tetR']
+Was the species split() correctly ['aTc', 'tetR']
+What is the current value of spe aTc
+What is the current value of spe tetR
+The current values of the row ['na', 'na']
+The current values of the row ['57,1', 'IPTG,LacI']
+Was the species split() correctly ['IPTG', 'LacI']
+What is the current value of spe IPTG
+What is the current value of spe LacI
+The current values of the row ['57,2', 'araC,Lara']
+Was the species split() correctly ['araC', 'Lara']
+What is the current value of spe araC
+What is the current value of spe Lara
+The current values of the row ['na', 'AHL,LuxR']
+The current values of the row ['na', 'AHL']
+The current values of the row ['na', 'lexA']
+The current values of the row ['na', 'aTc, tetR']
+The current values of the row ['na', 'aTc, tetR']
+The current values of the row ['na', 'na']
+The current values of the row ['69,1', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['69,2', 'LuxR, PAI-2']
+Was the species split() correctly ['LuxR', ' PAI-2']
+What is the current value of spe LuxR
+What is the current value of spe  PAI-2
+The current values of the row ['na', 'na']
+The current values of the row ['71,1', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['71,2', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['na', 'aTc']
+The current values of the row ['72,1', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['72,2', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['72,3', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['na', 'na']
+The current values of the row ['73,1', 'cI']
+Was the species split() correctly ['cI']
+What is the current value of spe cI
+The current values of the row ['73,2', 'IPTG,LacI']
+Was the species split() correctly ['IPTG', 'LacI']
+What is the current value of spe IPTG
+What is the current value of spe LacI
+The current values of the row ['73,3', 'aTc,tetR']
+Was the species split() correctly ['aTc', 'tetR']
+What is the current value of spe aTc
+What is the current value of spe tetR
+The current values of the row ['73,4', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['na', 'na']
+The current values of the row ['74,1', 'araC,Lara']
+Was the species split() correctly ['araC', 'Lara']
+What is the current value of spe araC
+What is the current value of spe Lara
+The current values of the row ['74,2', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['na', 'na']
+The current values of the row ['75,1', 'araC,Lara']
+Was the species split() correctly ['araC', 'Lara']
+What is the current value of spe araC
+What is the current value of spe Lara
+The current values of the row ['75,2', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['na', 'na']
+The current values of the row ['76,1', 'araC,Lara']
+Was the species split() correctly ['araC', 'Lara']
+What is the current value of spe araC
+What is the current value of spe Lara
+The current values of the row ['76,2', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['na', 'na']
+The current values of the row ['77,1', 'IPTG,LacI']
+Was the species split() correctly ['IPTG', 'LacI']
+What is the current value of spe IPTG
+What is the current value of spe LacI
+The current values of the row ['77,2', 'araC,Lara']
+Was the species split() correctly ['araC', 'Lara']
+What is the current value of spe araC
+What is the current value of spe Lara
+The current values of the row ['na', 'na']
+The current values of the row ['78,1', 'T7']
+Was the species split() correctly ['T7']
+What is the current value of spe T7
+The current values of the row ['78,1', 'T7-N,T7-C']
+Was the species split() correctly ['T7-N', 'T7-C']
+What is the current value of spe T7-N
+What is the current value of spe T7-C
+The current values of the row ['78,2', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['na', 'na']
+The current values of the row ['79,1', 'araC,Lara']
+Was the species split() correctly ['araC', 'Lara']
+What is the current value of spe araC
+What is the current value of spe Lara
+The current values of the row ['79,2', 'cI']
+Was the species split() correctly ['cI']
+What is the current value of spe cI
+The current values of the row ['79,3', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['na', 'na']
+The current values of the row ['80,1', 'IPTG,LacI']
+Was the species split() correctly ['IPTG', 'LacI']
+What is the current value of spe IPTG
+What is the current value of spe LacI
+The current values of the row ['80,2', 'cI']
+Was the species split() correctly ['cI']
+What is the current value of spe cI
+The current values of the row ['80,3', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['na', 'na']
+The current values of the row ['81,1', 'IPTG,LacI']
+Was the species split() correctly ['IPTG', 'LacI']
+What is the current value of spe IPTG
+What is the current value of spe LacI
+The current values of the row ['81,2', 'cI']
+Was the species split() correctly ['cI']
+What is the current value of spe cI
+The current values of the row ['81,3', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['na', 'na']
+The current values of the row ['82,1', 'IPTG,LacI']
+Was the species split() correctly ['IPTG', 'LacI']
+What is the current value of spe IPTG
+What is the current value of spe LacI
+The current values of the row ['82,2', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['na', 'na']
+The current values of the row ['88,1', 'araC,Lara']
+Was the species split() correctly ['araC', 'Lara']
+What is the current value of spe araC
+What is the current value of spe Lara
+The current values of the row ['88,2', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['na', 'na']
+The current values of the row ['89,1', 'IPTG,LacI']
+Was the species split() correctly ['IPTG', 'LacI']
+What is the current value of spe IPTG
+What is the current value of spe LacI
+The current values of the row ['89,2', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['na', 'na']
+The current values of the row ['90,1', 'AHL,LuxR']
+Was the species split() correctly ['AHL', 'LuxR']
+What is the current value of spe AHL
+What is the current value of spe LuxR
+The current values of the row ['90,2', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['na', 'na']
+The current values of the row ['91,1', 'aTc,tetR']
+Was the species split() correctly ['aTc', 'tetR']
+What is the current value of spe aTc
+What is the current value of spe tetR
+The current values of the row ['91,2', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['na', 'na']
+The current values of the row ['92,1', 'aTc,tetR']
+Was the species split() correctly ['aTc', 'tetR']
+What is the current value of spe aTc
+What is the current value of spe tetR
+The current values of the row ['92,2', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['na', 'na']
+The current values of the row ['93,1', 'araC,Lara']
+Was the species split() correctly ['araC', 'Lara']
+What is the current value of spe araC
+What is the current value of spe Lara
+The current values of the row ['93,2', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['94,1', 'ivnF,sicA']
+Was the species split() correctly ['ivnF', 'sicA']
+What is the current value of spe ivnF
+What is the current value of spe sicA
+The current values of the row ['na', 'na']
+The current values of the row ['95,1', 'aTc,tetR']
+Was the species split() correctly ['aTc', 'tetR']
+What is the current value of spe aTc
+What is the current value of spe tetR
+The current values of the row ['95,2', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['na', 'na']
+The current values of the row ['96,1', 'araC,Lara']
+Was the species split() correctly ['araC', 'Lara']
+What is the current value of spe araC
+What is the current value of spe Lara
+The current values of the row ['96,2', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['97,1', 'ipgC,mxiE']
+Was the species split() correctly ['ipgC', 'mxiE']
+What is the current value of spe ipgC
+What is the current value of spe mxiE
+The current values of the row ['na', 'na']
+The current values of the row ['98,1', 'aTc,tetR']
+Was the species split() correctly ['aTc', 'tetR']
+What is the current value of spe aTc
+What is the current value of spe tetR
+The current values of the row ['98,2', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['na', 'na']
+The current values of the row ['99,1', 'AHL,LuxR']
+Was the species split() correctly ['AHL', 'LuxR']
+What is the current value of spe AHL
+What is the current value of spe LuxR
+The current values of the row ['99,2', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['100,1', 'exsC,exsDA']
+Was the species split() correctly ['exsC', 'exsDA']
+What is the current value of spe exsC
+What is the current value of spe exsDA
+The current values of the row ['na', 'AHL,aTc']
+The current values of the row ['101,1', 'exsC,exsDA']
+Was the species split() correctly ['exsC', 'exsDA']
+What is the current value of spe exsC
+What is the current value of spe exsDA
+The current values of the row ['101,2', 'aTc,tetR']
+Was the species split() correctly ['aTc', 'tetR']
+What is the current value of spe aTc
+What is the current value of spe tetR
+The current values of the row ['101,3', 'AHL,LuxR']
+Was the species split() correctly ['AHL', 'LuxR']
+What is the current value of spe AHL
+What is the current value of spe LuxR
+The current values of the row ['101,4', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['101,5', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['na', 'na']
+The current values of the row ['102,1', 'ipgC,mxiE']
+Was the species split() correctly ['ipgC', 'mxiE']
+What is the current value of spe ipgC
+What is the current value of spe mxiE
+The current values of the row ['102,2', 'araC,Lara']
+Was the species split() correctly ['araC', 'Lara']
+What is the current value of spe araC
+What is the current value of spe Lara
+The current values of the row ['102,3', 'IPTG,LacI']
+Was the species split() correctly ['IPTG', 'LacI']
+What is the current value of spe IPTG
+What is the current value of spe LacI
+The current values of the row ['102,4', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['102,5', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['103,1', 'IPTG,LacI']
+Was the species split() correctly ['IPTG', 'LacI']
+What is the current value of spe IPTG
+What is the current value of spe LacI
+The current values of the row ['104,1', 'AHL,LuxR']
+Was the species split() correctly ['AHL', 'LuxR']
+What is the current value of spe AHL
+What is the current value of spe LuxR
+
+
+Making the OPERON-INPUT-TRANSITION TABLE 
+
+
+The current values of the row ['na', 'gfp']
+The current values of the row ['1,1', 'gfp']
+Was the species split() correctly ['gfp']
+What is the current value of spe gfp
+The current values of the row ['1,2', 'gfp']
+Was the species split() correctly ['gfp']
+What is the current value of spe gfp
+The current values of the row ['na', 'na']
+The current values of the row ['2,1', 'yfp']
+Was the species split() correctly ['yfp']
+What is the current value of spe yfp
+The current values of the row ['2,2', 'araC']
+Was the species split() correctly ['araC']
+What is the current value of spe araC
+The current values of the row ['na', 'na']
+The current values of the row ['3,1', 'yfp']
+Was the species split() correctly ['yfp']
+What is the current value of spe yfp
+The current values of the row ['3,2', 'tetR']
+Was the species split() correctly ['tetR']
+What is the current value of spe tetR
+The current values of the row ['na', 'na']
+The current values of the row ['4,1', 'yfp']
+Was the species split() correctly ['yfp']
+What is the current value of spe yfp
+The current values of the row ['4,2', 'lasR']
+Was the species split() correctly ['lasR']
+What is the current value of spe lasR
+The current values of the row ['na', 'na']
+The current values of the row ['5,1', 'yfp']
+Was the species split() correctly ['yfp']
+What is the current value of spe yfp
+The current values of the row ['5,1', 'yfp']
+Was the species split() correctly ['yfp']
+What is the current value of spe yfp
+The current values of the row ['5,2', 'araC,tetR']
+Was the species split() correctly ['araC', 'tetR']
+What is the current value of spe araC
+What is the current value of spe tetR
+The current values of the row ['na', 'na']
+The current values of the row ['6,1', 'yfp']
+Was the species split() correctly ['yfp']
+What is the current value of spe yfp
+The current values of the row ['6,1', 'yfp']
+Was the species split() correctly ['yfp']
+What is the current value of spe yfp
+The current values of the row ['6,2', 'araC,lasR']
+Was the species split() correctly ['araC', 'lasR']
+What is the current value of spe araC
+What is the current value of spe lasR
+The current values of the row ['na', 'na']
+The current values of the row ['7,1', 'yfp']
+Was the species split() correctly ['yfp']
+What is the current value of spe yfp
+The current values of the row ['7,1', 'yfp']
+Was the species split() correctly ['yfp']
+What is the current value of spe yfp
+The current values of the row ['7,2', 'tetR,lasR']
+Was the species split() correctly ['tetR', 'lasR']
+What is the current value of spe tetR
+What is the current value of spe lasR
+The current values of the row ['na', 'na']
+The current values of the row ['8,1', 'cI']
+Was the species split() correctly ['cI']
+What is the current value of spe cI
+The current values of the row ['8,1', 'cI']
+Was the species split() correctly ['cI']
+What is the current value of spe cI
+The current values of the row ['8,2', 'araC,tetR']
+Was the species split() correctly ['araC', 'tetR']
+What is the current value of spe araC
+What is the current value of spe tetR
+The current values of the row ['na', 'na']
+The current values of the row ['9,1', 'cI']
+Was the species split() correctly ['cI']
+What is the current value of spe cI
+The current values of the row ['9,1', 'cI']
+Was the species split() correctly ['cI']
+What is the current value of spe cI
+The current values of the row ['9,2', 'araC,lasR']
+Was the species split() correctly ['araC', 'lasR']
+What is the current value of spe araC
+What is the current value of spe lasR
+The current values of the row ['na', 'na']
+The current values of the row ['10,1', 'cI']
+Was the species split() correctly ['cI']
+What is the current value of spe cI
+The current values of the row ['10,1', 'cI']
+Was the species split() correctly ['cI']
+What is the current value of spe cI
+The current values of the row ['10,2', 'tetR,lasR']
+Was the species split() correctly ['tetR', 'lasR']
+What is the current value of spe tetR
+What is the current value of spe lasR
+The current values of the row ['12,1', 'yfp']
+Was the species split() correctly ['yfp']
+What is the current value of spe yfp
+The current values of the row ['13,1', 'LasI']
+Was the species split() correctly ['LasI']
+What is the current value of spe LasI
+The current values of the row ['14,1', 'Rhll']
+Was the species split() correctly ['Rhll']
+What is the current value of spe Rhll
+The current values of the row ['15,1', 'gfp']
+Was the species split() correctly ['gfp']
+What is the current value of spe gfp
+The current values of the row ['16,1', 'gfp']
+Was the species split() correctly ['gfp']
+What is the current value of spe gfp
+The current values of the row ['17,1', 'gfp']
+Was the species split() correctly ['gfp']
+What is the current value of spe gfp
+The current values of the row ['na', 'na']
+The current values of the row ['18,1', 'gfp']
+Was the species split() correctly ['gfp']
+What is the current value of spe gfp
+The current values of the row ['18,2', 'LacI']
+Was the species split() correctly ['LacI']
+What is the current value of spe LacI
+The current values of the row ['na', 'na']
+The current values of the row ['19,1', 'gfp']
+Was the species split() correctly ['gfp']
+What is the current value of spe gfp
+The current values of the row ['19,2', 'cI']
+Was the species split() correctly ['cI']
+What is the current value of spe cI
+The current values of the row ['na', 'na']
+The current values of the row ['20,1', 'gfp']
+Was the species split() correctly ['gfp']
+What is the current value of spe gfp
+The current values of the row ['20,2', 'tetR']
+Was the species split() correctly ['tetR']
+What is the current value of spe tetR
+The current values of the row ['na', 'na']
+The current values of the row ['21,1', 'cI,gfp']
+Was the species split() correctly ['cI', 'gfp']
+What is the current value of spe cI
+What is the current value of spe gfp
+The current values of the row ['21,2', 'LacI']
+Was the species split() correctly ['LacI']
+What is the current value of spe LacI
+The current values of the row ['na', 'na']
+The current values of the row ['22,1', 'LacI']
+Was the species split() correctly ['LacI']
+What is the current value of spe LacI
+The current values of the row ['22,2', 'tetR,gfp']
+Was the species split() correctly ['tetR', 'gfp']
+What is the current value of spe tetR
+What is the current value of spe gfp
+The current values of the row ['na', 'na']
+The current values of the row ['23,1', 'gfp']
+Was the species split() correctly ['gfp']
+What is the current value of spe gfp
+The current values of the row ['23,2', 'lacIq']
+Was the species split() correctly ['lacIq']
+What is the current value of spe lacIq
+The current values of the row ['na', 'na']
+The current values of the row ['24,1', 'araC']
+Was the species split() correctly ['araC']
+What is the current value of spe araC
+The current values of the row ['24,2', 'gfp']
+Was the species split() correctly ['gfp']
+What is the current value of spe gfp
+The current values of the row ['na', 'na']
+The current values of the row ['25,1', 'luxR']
+Was the species split() correctly ['luxR']
+What is the current value of spe luxR
+The current values of the row ['25,2', 'gfp']
+Was the species split() correctly ['gfp']
+What is the current value of spe gfp
+The current values of the row ['na', 'na']
+The current values of the row ['28,1', 'LuxR']
+Was the species split() correctly ['LuxR']
+What is the current value of spe LuxR
+The current values of the row ['28,2', 'hrpR']
+Was the species split() correctly ['hrpR']
+What is the current value of spe hrpR
+The current values of the row ['na', 'gfp']
+The current values of the row ['29,1', 'cI']
+Was the species split() correctly ['cI']
+What is the current value of spe cI
+The current values of the row ['29,2', 'gfp']
+Was the species split() correctly ['gfp']
+What is the current value of spe gfp
+The current values of the row ['29,3', 'lacIq']
+Was the species split() correctly ['lacIq']
+What is the current value of spe lacIq
+The current values of the row ['na', 'gfp']
+The current values of the row ['na', 'gfp']
+The current values of the row ['31,1', 'cI']
+Was the species split() correctly ['cI']
+What is the current value of spe cI
+The current values of the row ['31,2', 'gfp']
+Was the species split() correctly ['gfp']
+What is the current value of spe gfp
+The current values of the row ['na', 'na']
+The current values of the row ['33,1', 'supD']
+Was the species split() correctly ['supD']
+What is the current value of spe supD
+The current values of the row ['33,2', 'nahR']
+Was the species split() correctly ['nahR']
+What is the current value of spe nahR
+The current values of the row ['na', 'gfp']
+The current values of the row ['na', 'na']
+The current values of the row ['35,1', 'gfp']
+Was the species split() correctly ['gfp']
+What is the current value of spe gfp
+The current values of the row ['35,2', 'araC']
+Was the species split() correctly ['araC']
+What is the current value of spe araC
+The current values of the row ['na', 'gfp']
+The current values of the row ['na', 'na']
+The current values of the row ['37,1', 'T7ptag']
+Was the species split() correctly ['T7ptag']
+What is the current value of spe T7ptag
+The current values of the row ['37,2', 'araC']
+Was the species split() correctly ['araC']
+What is the current value of spe araC
+The current values of the row ['na', 'T7ptag']
+The current values of the row ['na', 'na']
+The current values of the row ['39,1', 'inv']
+Was the species split() correctly ['inv']
+What is the current value of spe inv
+The current values of the row ['39,2', 'T7ptag']
+Was the species split() correctly ['T7ptag']
+What is the current value of spe T7ptag
+The current values of the row ['na', 'gfp']
+The current values of the row ['na', 'eyfp']
+The current values of the row ['na', 'na']
+The current values of the row ['44,1', 'cI']
+Was the species split() correctly ['cI']
+What is the current value of spe cI
+The current values of the row ['44,2', 'LacI']
+Was the species split() correctly ['LacI']
+What is the current value of spe LacI
+The current values of the row ['na', 'na']
+The current values of the row ['46,1', 'LacI']
+Was the species split() correctly ['LacI']
+What is the current value of spe LacI
+The current values of the row ['46,2', 'gfp']
+Was the species split() correctly ['gfp']
+What is the current value of spe gfp
+The current values of the row ['46,3', 'luxR']
+Was the species split() correctly ['luxR']
+What is the current value of spe luxR
+The current values of the row ['na', 'na']
+The current values of the row ['47,1', 'LacI']
+Was the species split() correctly ['LacI']
+What is the current value of spe LacI
+The current values of the row ['47,2', 'rfp']
+Was the species split() correctly ['rfp']
+What is the current value of spe rfp
+The current values of the row ['47,3', 'luxR']
+Was the species split() correctly ['luxR']
+What is the current value of spe luxR
+The current values of the row ['na', 'na']
+The current values of the row ['48,1', 'ecfp']
+Was the species split() correctly ['ecfp']
+What is the current value of spe ecfp
+The current values of the row ['48,2', 'lacI']
+Was the species split() correctly ['lacI']
+What is the current value of spe lacI
+The current values of the row ['na', 'na']
+The current values of the row ['49,1', 'rfp']
+Was the species split() correctly ['rfp']
+What is the current value of spe rfp
+The current values of the row ['49,2', 'lacI']
+Was the species split() correctly ['lacI']
+What is the current value of spe lacI
+The current values of the row ['na', 'na']
+The current values of the row ['50,1', 'gfp']
+Was the species split() correctly ['gfp']
+What is the current value of spe gfp
+The current values of the row ['50,2', 'gfp']
+Was the species split() correctly ['gfp']
+What is the current value of spe gfp
+The current values of the row ['na', 'na']
+The current values of the row ['51,1', 'LacI']
+Was the species split() correctly ['LacI']
+What is the current value of spe LacI
+The current values of the row ['51,2', 'LacI']
+Was the species split() correctly ['LacI']
+What is the current value of spe LacI
+The current values of the row ['52,1', 'LuxR']
+Was the species split() correctly ['LuxR']
+What is the current value of spe LuxR
+The current values of the row ['na', 'Beta-galactosidase']
+The current values of the row ['na', 'na']
+The current values of the row ['54,1', 'AHL']
+Was the species split() correctly ['AHL']
+What is the current value of spe AHL
+The current values of the row ['54,3', 'Beta-galactosidase']
+Was the species split() correctly ['Beta-galactosidase']
+What is the current value of spe Beta-galactosidase
+The current values of the row ['na', 'na']
+The current values of the row ['55,2', 'Beta-galactosidase']
+Was the species split() correctly ['Beta-galactosidase']
+What is the current value of spe Beta-galactosidase
+The current values of the row ['55,3', 'cI']
+Was the species split() correctly ['cI']
+What is the current value of spe cI
+The current values of the row ['na', 'na']
+The current values of the row ['56,1', 'Beta-galactosidase']
+Was the species split() correctly ['Beta-galactosidase']
+What is the current value of spe Beta-galactosidase
+The current values of the row ['56,2', 'AHL_cI']
+Was the species split() correctly ['AHL_cI']
+What is the current value of spe AHL_cI
+The current values of the row ['56,3', 'LuxR']
+Was the species split() correctly ['LuxR']
+What is the current value of spe LuxR
+The current values of the row ['na', 'na']
+The current values of the row ['57,1', 'AHL_LuxR']
+Was the species split() correctly ['AHL_LuxR']
+What is the current value of spe AHL_LuxR
+The current values of the row ['57,2', 'AHL_LuxR']
+Was the species split() correctly ['AHL_LuxR']
+What is the current value of spe AHL_LuxR
+The current values of the row ['na', 'lacZalpha-ccdB']
+The current values of the row ['na', 'ccdA']
+The current values of the row ['na', 'gfp']
+The current values of the row ['na', 'gfp']
+The current values of the row ['na', 'AHL']
+The current values of the row ['na', 'na']
+The current values of the row ['69,1', 'LuxR']
+Was the species split() correctly ['LuxR']
+What is the current value of spe LuxR
+The current values of the row ['69,2', 'cI,ecfp']
+Was the species split() correctly ['cI', 'ecfp']
+What is the current value of spe cI
+What is the current value of spe ecfp
+The current values of the row ['na', 'yfp']
+The current values of the row ['71,1', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['71,2', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['na', 'yfp']
+The current values of the row ['72,1', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['72,2', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['72,3', 'na']
+Was the species split() correctly ['na']
+What is the current value of spe na
+The current values of the row ['na', 'na']
+The current values of the row ['73,1', 'yfp']
+Was the species split() correctly ['yfp']
+What is the current value of spe yfp
+The current values of the row ['73,2', 'cI']
+Was the species split() correctly ['cI']
+What is the current value of spe cI
+The current values of the row ['73,3', 'LacI']
+Was the species split() correctly ['LacI']
+What is the current value of spe LacI
+The current values of the row ['73,4', 'tetR']
+Was the species split() correctly ['tetR']
+What is the current value of spe tetR
+The current values of the row ['na', 'na']
+The current values of the row ['74,1', 'T7']
+Was the species split() correctly ['T7']
+What is the current value of spe T7
+The current values of the row ['74,2', 'araC']
+Was the species split() correctly ['araC']
+What is the current value of spe araC
+The current values of the row ['na', 'na']
+The current values of the row ['75,1', 'T7-N']
+Was the species split() correctly ['T7-N']
+What is the current value of spe T7-N
+The current values of the row ['75,2', 'araC']
+Was the species split() correctly ['araC']
+What is the current value of spe araC
+The current values of the row ['na', 'na']
+The current values of the row ['76,1', 'T7-C']
+Was the species split() correctly ['T7-C']
+What is the current value of spe T7-C
+The current values of the row ['76,2', 'araC']
+Was the species split() correctly ['araC']
+What is the current value of spe araC
+The current values of the row ['na', 'na']
+The current values of the row ['77,1', 'T7-N']
+Was the species split() correctly ['T7-N']
+What is the current value of spe T7-N
+The current values of the row ['77,2', 'T7-C']
+Was the species split() correctly ['T7-C']
+What is the current value of spe T7-C
+The current values of the row ['na', 'na']
+The current values of the row ['78,1', 'gfp']
+Was the species split() correctly ['gfp']
+What is the current value of spe gfp
+The current values of the row ['78,1', 'gfp']
+Was the species split() correctly ['gfp']
+What is the current value of spe gfp
+The current values of the row ['78,2', 'lacI']
+Was the species split() correctly ['lacI']
+What is the current value of spe lacI
+The current values of the row ['na', 'na']
+The current values of the row ['79,1', 'cI']
+Was the species split() correctly ['cI']
+What is the current value of spe cI
+The current values of the row ['79,2', 'gfp']
+Was the species split() correctly ['gfp']
+What is the current value of spe gfp
+The current values of the row ['79,3', 'araC']
+Was the species split() correctly ['araC']
+What is the current value of spe araC
+The current values of the row ['na', 'na']
+The current values of the row ['80,1', 'cI']
+Was the species split() correctly ['cI']
+What is the current value of spe cI
+The current values of the row ['80,2', 'gfp']
+Was the species split() correctly ['gfp']
+What is the current value of spe gfp
+The current values of the row ['80,3', 'lacI']
+Was the species split() correctly ['lacI']
+What is the current value of spe lacI
+The current values of the row ['na', 'na']
+The current values of the row ['81,1', 'cI']
+Was the species split() correctly ['cI']
+What is the current value of spe cI
+The current values of the row ['81,2', 'gfp']
+Was the species split() correctly ['gfp']
+What is the current value of spe gfp
+The current values of the row ['81,3', 'lacI']
+Was the species split() correctly ['lacI']
+What is the current value of spe lacI
+The current values of the row ['na', 'na']
+The current values of the row ['82,1', 'yfp']
+Was the species split() correctly ['yfp']
+What is the current value of spe yfp
+The current values of the row ['82,2', 'lacI']
+Was the species split() correctly ['lacI']
+What is the current value of spe lacI
+The current values of the row ['na', 'na']
+The current values of the row ['88,1', 'rfp']
+Was the species split() correctly ['rfp']
+What is the current value of spe rfp
+The current values of the row ['88,2', 'araC']
+Was the species split() correctly ['araC']
+What is the current value of spe araC
+The current values of the row ['na', 'na']
+The current values of the row ['89,1', 'rfp']
+Was the species split() correctly ['rfp']
+What is the current value of spe rfp
+The current values of the row ['89,2', 'lacI']
+Was the species split() correctly ['lacI']
+What is the current value of spe lacI
+The current values of the row ['na', 'na']
+The current values of the row ['90,1', 'rfp']
+Was the species split() correctly ['rfp']
+What is the current value of spe rfp
+The current values of the row ['90,2', 'luxR']
+Was the species split() correctly ['luxR']
+What is the current value of spe luxR
+The current values of the row ['na', 'na']
+The current values of the row ['91,1', 'rfp']
+Was the species split() correctly ['rfp']
+What is the current value of spe rfp
+The current values of the row ['91,2', 'tetR']
+Was the species split() correctly ['tetR']
+What is the current value of spe tetR
+The current values of the row ['na', 'na']
+The current values of the row ['92,1', 'invF']
+Was the species split() correctly ['invF']
+What is the current value of spe invF
+The current values of the row ['92,2', 'tetR']
+Was the species split() correctly ['tetR']
+What is the current value of spe tetR
+The current values of the row ['na', 'na']
+The current values of the row ['93,1', 'sicA']
+Was the species split() correctly ['sicA']
+What is the current value of spe sicA
+The current values of the row ['93,2', 'araC']
+Was the species split() correctly ['araC']
+What is the current value of spe araC
+The current values of the row ['94,1', 'rfp']
+Was the species split() correctly ['rfp']
+What is the current value of spe rfp
+The current values of the row ['na', 'na']
+The current values of the row ['95,1', 'mxiE']
+Was the species split() correctly ['mxiE']
+What is the current value of spe mxiE
+The current values of the row ['95,2', 'tetR']
+Was the species split() correctly ['tetR']
+What is the current value of spe tetR
+The current values of the row ['na', 'na']
+The current values of the row ['96,1', 'ipgC']
+Was the species split() correctly ['ipgC']
+What is the current value of spe ipgC
+The current values of the row ['96,2', 'araC']
+Was the species split() correctly ['araC']
+What is the current value of spe araC
+The current values of the row ['97,1', 'rfp']
+Was the species split() correctly ['rfp']
+What is the current value of spe rfp
+The current values of the row ['na', 'na']
+The current values of the row ['98,1', 'exsDA']
+Was the species split() correctly ['exsDA']
+What is the current value of spe exsDA
+The current values of the row ['98,2', 'tetR']
+Was the species split() correctly ['tetR']
+What is the current value of spe tetR
+The current values of the row ['na', 'na']
+The current values of the row ['99,1', 'exsC']
+Was the species split() correctly ['exsC']
+What is the current value of spe exsC
+The current values of the row ['99,2', 'LuxR']
+Was the species split() correctly ['LuxR']
+What is the current value of spe LuxR
+The current values of the row ['100,1', 'rfp']
+Was the species split() correctly ['rfp']
+What is the current value of spe rfp
+The current values of the row ['na', 'invF']
+The current values of the row ['101,1', 'invF']
+Was the species split() correctly ['invF']
+What is the current value of spe invF
+The current values of the row ['101,2', 'exsDA']
+Was the species split() correctly ['exsDA']
+What is the current value of spe exsDA
+The current values of the row ['101,3', 'exsC']
+Was the species split() correctly ['exsC']
+What is the current value of spe exsC
+The current values of the row ['101,4', 'luxR']
+Was the species split() correctly ['luxR']
+What is the current value of spe luxR
+The current values of the row ['101,5', 'tetR']
+Was the species split() correctly ['tetR']
+What is the current value of spe tetR
+The current values of the row ['na', 'na']
+The current values of the row ['102,1', 'sicA']
+Was the species split() correctly ['sicA']
+What is the current value of spe sicA
+The current values of the row ['102,2', 'ipgC']
+Was the species split() correctly ['ipgC']
+What is the current value of spe ipgC
+The current values of the row ['102,3', 'mxiE']
+Was the species split() correctly ['mxiE']
+What is the current value of spe mxiE
+The current values of the row ['102,4', 'araC']
+Was the species split() correctly ['araC']
+What is the current value of spe araC
+The current values of the row ['102,5', 'LacI']
+Was the species split() correctly ['LacI']
+What is the current value of spe LacI
+The current values of the row ['103,1', 'LuxR,luxI']
+Was the species split() correctly ['LuxR', 'luxI']
+What is the current value of spe LuxR
+What is the current value of spe luxI
+The current values of the row ['104,1', 'lacZalpha-ccdB']
+Was the species split() correctly ['lacZalpha-ccdB']
+What is the current value of spe lacZalpha-ccdB
+
+
+Printing the species TABLE
+('1', 'na', None)
+('2', 'AHL', None)
+('3', 'LacI', None)
+('4', 'LuxR', None)
+('5', 'NotLight', None)
+('6', 'aTc', None)
+('7', 'AHL_LuxR', None)
+('8', 'AHL_cI', None)
+('9', 'Beta-galactosidase', None)
+('10', 'IPTG', None)
+('11', 'LacIq', None)
+('12', 'LasI', None)
+('13', 'PAI-2', None)
+('14', 'OHHL', None)
+('15', 'luxI', None)
+('16', 'Mg2+', None)
+('17', 'PCB', None)
+('18', 'Rhll', None)
+('19', 'Sal', None)
+('20', 'T7', None)
+('21', 'T7-C', None)
+('22', 'T7-N', None)
+('23', 'T7ptag', None)
+('24', 'tetR', None)
+('25', 'araC', None)
+('26', 'Lara', None)
+('27', 'lasR', None)
+('28', 'cI', None)
+('29', 'ecfp', None)
+('30', 'gfp', None)
+('31', 'ccdA', None)
+('32', 'exsC', None)
+('33', 'exsDA', None)
+('34', 'eyfp', None)
+('35', 'hrpR', None)
+('36', 'hrpS', None)
+('37', 'inv', None)
+('38', 'invF', None)
+('39', 'ipgC', None)
+('40', 'mxiE', None)
+('41', 'ivnF', None)
+('42', 'sicA', None)
+('43', 'lacI', None)
+('44', 'lacIq', None)
+('45', 'lacZalpha-ccdB', None)
+('46', 'PAI-1', None)
+('47', 'lexA', None)
+('48', 'luxR', None)
+('49', 'nahR', None)
+('50', 'rfp', None)
+('51', 'supD', None)
+('52', 'yfp', None)
+
+
+Printing the PLASMID TABLE
+('1', 'P(luxI-lacO)-GFPmut2', None)
+('2', 'pOR10', None)
+('3', 'pOR20', None)
+('4', 'pOR30', None)
+('5', 'pOR1020', None)
+('6', 'pOR1030', None)
+('7', 'pOR2030', None)
+('8', 'pNOR1020', None)
+('9', 'pNOR1030', None)
+('10', 'pNOR2030', None)
+('12', 'pcI-yfp', None)
+('13', 'pcI-lasI', None)
+('14', 'pcI-rhlI', None)
+('15', 'pMKN7a', None)
+('16', 'pBAG102,pBAG103', None)
+('17', 'pBRT21.1,pBRT123,pBRT124,pBRT125', None)
+('18', 'pTAK102,pTAK103a', None)
+('19', 'pTAK106,pTAK107', None)
+('20', 'pIKE108, pIKE110', None)
+('21', 'pTAK117, pTAK130, pTAK131, pTAK132', None)
+('22', 'pIKE105, pIKE107', None)
+('23', 'pBW10xlac-gfp', None)
+('24', 'pBW20xara-gfp', None)
+('25', 'pBW30xlux-gfp', None)
+('28', 'pBW313lux-hrpR', None)
+('29', 'PBW12xlac-cIgfp', None)
+('30', 'pBW400hrpL-gfp', None)
+('31', 'PBW412hrpL-cIgfp', None)
+('33', 'pAC-SalSer914', None)
+('34', 'pBAC874t', None)
+('35', 'pBAC872s', None)
+('36', 'pBACr-Mgr901', None)
+('37', 'pBACr-AraT7940', None)
+('38', 'pBACr-Mgr940', None)
+('39', 'pBACr-Mgr951', None)
+('40', 'pBR939B', None)
+('43', 'pINV-107-mutx', None)
+('44', 'pLD', None)
+('46', 'pHD-gfp', None)
+('47', 'pHD-rfp', None)
+('48', 'pCFP', None)
+('49', 'pRFP', None)
+('50', 'pJS167', None)
+('51', 'pJS169', None)
+('52', 'pJS169', None)
+('53', 'pJT108', None)
+('54', 'pJT105', None)
+('55', 'pJT106', None)
+('56', 'pEDL3', None)
+('57', 'pLuxRI2', None)
+('58', 'pluxCcdB3', None)
+('59', 'predator1-MG1655', None)
+('65', 'pRV2-SOS', None)
+('67', 'pZE21-MCS1-gfp', None)
+('68', 'PLuxI-Tet-8', None)
+('69', 'pLTSUB-202-RBSH', None)
+('71', 'pCRT1', None)
+('72', 'pCRT2', None)
+('73', 'pCRT3', None)
+('74', 'pTara:500', None)
+('75', 'pTSara-N', None)
+('76', 'pTSara-C', None)
+('77', 'pTSlb', None)
+('78', 'pET:NNNN:GFP', None)
+('79', 'pBAD-cI-pOR1-gfp', None)
+('80', 'pBAD-cI-pOR1-gfp', None)
+('81', 'pBAD-cI-pOR1-gfp', None)
+('82', 'pTACsym-yfp', None)
+('88', 'pBAD-rfp', None)
+('89', 'pTac-rfp', None)
+('90', 'pLux-rfp', None)
+('91', 'pTet-rfp', None)
+('92', 'pTET-invF', None)
+('93', 'pBAD-sicA', None)
+('94', 'psicA-rfp', None)
+('95', 'pTet-mxiE', None)
+('96', 'pBAD-ipgC', None)
+('97', 'pipaH-rfp', None)
+('98', 'pTet-exsDA', None)
+('99', 'pLux-exsC', None)
+('100', 'pexsC-rfp', None)
+('101', 'pACPc-invF', None)
+('102', 'pXCPi-sicA', None)
+('103', 'plac/ara-1', None)
+('104', 'pLuxI', None)
+
+
+Printing the OPERON TABLE
+('1,1', 'pLuxI_pLacO--->gfp', None)
+('1,2', 'pLuxI_pLacO--->gfp', None)
+('2,1', 'pBAD--->yfp', None)
+('2,2', 'pCONST--->araC', None)
+('3,1', 'pTet--->yfp', None)
+('3,2', 'pCONST--->tetR', None)
+('4,1', 'pLasI--->yfp', None)
+('4,2', 'pCONST--->lasR', None)
+('5,1', 'pBAD_pTet--->yfp', None)
+('5,2', 'pCONST--->araC_tetR', None)
+('6,1', 'pBAD_pLasI--->yfp', None)
+('6,2', 'pCONST--->araC_lasR', None)
+('7,1', 'pTet_pLasI--->yfp', None)
+('7,2', 'pCONST--->lasR_tetR', None)
+('8,1', 'pBAD_pTet--->cI', None)
+('8,2', 'pCONST--->araC_tetR', None)
+('9,1', 'pBAD_pLas--->cI', None)
+('9,2', 'pCONST--->araC_lasR', None)
+('10,1', 'pTet_pLas--->cI', None)
+('10,2', 'pCONST--->lasR_tetR', None)
+('12,1', 'pLAMBDA--->yfp', None)
+('13,1', 'pLAMBDA--->LasI', None)
+('14,1', 'pLAMBDA--->RhlI', None)
+('15,1', 'pLac--->gfp', None)
+('16,1', 'pTet--->gfp', None)
+('17,1', 'pLAMBDA--->gfp', None)
+('18,1', 'pLac--->gfp', None)
+('18,2', 'pLAMBDA--->LacI', None)
+('19,1', 'pLAMBDA--->gfp', None)
+('19,2', 'pLac--->cI', None)
+('20,1', 'pTet--->gfp', None)
+('20,2', 'pLac--->tetR', None)
+('21,1', 'pLac--->cI_gfp', None)
+('21,2', 'pLAMBDA--->LacI', None)
+('22,1', 'pTet--->LacI', None)
+('22,2', 'pLac--->tetR_gfp', None)
+('23,1', 'pLac--->gfp', None)
+('23,2', 'pLacIq--->lacIq', None)
+('24,1', 'pAraC--->araC', None)
+('24,2', 'pBAD--->gfp', None)
+('25,1', 'pTet--->luxR', None)
+('25,2', 'pLux--->gfp', None)
+('28,1', 'pTet--->luxR', None)
+('28,2', 'pLux--->hrpR', None)
+('29,1', 'pLac--->cI', None)
+('29,2', 'pLAMBDA--->gfp', None)
+('29,3', 'pLacIq--->lacIq', None)
+('31,1', 'phrpL--->cI', None)
+('31,2', 'pLAMBDA--->gfp', None)
+('33,1', 'pSal--->supD', None)
+('33,2', 'pCONST--->nahR', None)
+('35,1', 'pBAD--->gfp', None)
+('35,2', 'pCONST--->araC', None)
+('37,1', 'pBAD--->T7ptag', None)
+('37,2', 'pCONST--->araC', None)
+('39,1', 'pT7--->inv', None)
+('39,2', 'pmgrB--->T7ptag', None)
+('44,1', 'pLux--->cI', None)
+('44,2', 'pLAMBDA--->LacI', None)
+('46,1', 'pLux--->LacI', None)
+('46,2', 'pLac--->gfp', None)
+('46,3', 'pCONST--->luxR', None)
+('47,1', 'pLux--->LacI', None)
+('47,2', 'pLac--->rfp', None)
+('47,3', 'pCONST--->luxR', None)
+('48,1', 'pLac--->ecfp', None)
+('48,2', 'pCONST--->lacI', None)
+('49,1', 'pLac--->rfp', None)
+('49,2', 'pCONST--->lacI', None)
+('50,1', 'pLac_pBAD--->gfp', None)
+('50,2', 'pLac_pBad--->gfp', None)
+('51,1', 'pLac_pBAD--->LacI', None)
+('51,2', 'pLac_pBAD--->LacI', None)
+('52,1', 'pTet--->LuxR', None)
+('54,1', 'pompC--->luxI', None)
+('54,3', 'pLux_pLAMBDA--->lacZ', None)
+('55,2', 'pLux_pLAMBDA--->lacZ', None)
+('55,3', 'pompC--->cI', None)
+('56,1', 'pLux_pLAMBDA--->lacZ', None)
+('56,2', 'pompC--->cI_luxI', None)
+('56,3', 'pTet--->LuxR', None)
+('57,1', 'pLac_pBAD--->LuxR_luxI', None)
+('57,2', 'pLac_pBAD--->LuxR_luxI', None)
+('69,1', 'pCONST--->LuxR', None)
+('69,2', 'pLux--->cI_ecfp', None)
+('71,1', 'pCONST--->tetR', None)
+('71,2', 'pTet--->yfp', None)
+('72,1', 'pCONST--->tetR', None)
+('72,2', 'pTet--->lacI', None)
+('72,3', 'pLac--->yfp', None)
+('73,1', 'pLAMBDA--->yfp', None)
+('73,2', 'pLac--->cI', None)
+('73,3', 'pTet--->LacI', None)
+('73,4', 'pCONST--->tetR', None)
+('74,1', 'pBAD--->T7', None)
+('74,2', 'pCONST--->araC', None)
+('75,1', 'pBAD--->T7-N', None)
+('75,2', 'pCONST--->araC', None)
+('76,1', 'pBAD-->T7-C', None)
+('76,2', 'pCONST--->araC', None)
+('77,1', 'pLac--->T7-N', None)
+('77,2', 'pBAD--->T7-C', None)
+('78,1', 'pT7--->gfp', None)
+('78,2', 'pCONST--->lacI', None)
+('79,1', 'pBAD--->cI', None)
+('79,2', 'pLAMBDA--->gfp', None)
+('79,3', 'pCONST--->araC', None)
+('80,1', 'pTAC--->cI', None)
+('80,2', 'pLAMBDA--->gfp', None)
+('80,3', 'pCONST--->lacI', None)
+('81,1', 'pLac--->cI', None)
+('81,2', 'pLAMBDA--->gfp', None)
+('81,3', 'pCONST--->lacI', None)
+('82,1', 'pTAC--->yfp', None)
+('82,2', 'pCONST--->lacI', None)
+('88,1', 'pBAD--->rfp', None)
+('88,2', 'pCONST--->araC', None)
+('89,1', 'pTAC--->rfp', None)
+('89,2', 'pCONST--->lacI', None)
+('90,1', 'pLux--->rfp', None)
+('90,2', 'pCONST--->luxR', None)
+('91,1', 'pTet--->rfp', None)
+('91,2', 'pCONST--->tetR', None)
+('92,1', 'pTET--->invF', None)
+('92,2', 'pCONST--->tetR', None)
+('93,1', 'pBAD--->sicA', None)
+('93,2', 'pCONST--->araC', None)
+('94,1', 'psicA--->rfp', None)
+('95,1', 'pTet--->mxiE', None)
+('95,2', 'pCONST--->tetR', None)
+('96,1', 'pBAD--->ipgC', None)
+('96,2', 'pCONST--->araC', None)
+('97,1', 'pipaH--->rfp', None)
+('98,1', 'pTet--->exsDA', None)
+('98,2', 'pCONST--->tetR', None)
+('99,1', 'pLux--->exsC', None)
+('99,2', 'pCONST-->luxR', None)
+('100,1', 'pexsC--->rfp', None)
+('101,1', 'pexsC--->invF', None)
+('101,2', 'pTet--->exsDA', None)
+('101,3', 'pLux--->exsC', None)
+('101,4', 'pCONST--->luxR', None)
+('101,5', 'pCONST--->tetR', None)
+('102,1', 'pipaH--->sicA', None)
+('102,2', 'pBAD--->ipgC', None)
+('102,3', 'pTAC--->mxiE', None)
+('102,4', 'pCONST--->araC', None)
+('102,5', 'pCONST--->lacI', None)
+('103,1', 'pLac/ara-1--->LuxR_luxI', None)
+('104,1', 'pLuxI--->lacZalpha-ccdB', None)
+
+
+Printing the PlasmidOperon TABLE
+('1,1', '1', 'R')
+('1,2', '1', 'R')
+('2,1', '2', 'R')
+('2,2', '2', 'R')
+('3,1', '3', 'R')
+('3,2', '3', 'R')
+('4,1', '4', 'R')
+('4,2', '4', 'R')
+('5,1', '5', 'R')
+('5,2', '5', 'R')
+('6,1', '6', 'R')
+('6,2', '6', 'R')
+('7,1', '7', 'R')
+('7,2', '7', 'R')
+('8,1', '8', 'R')
+('8,2', '8', 'R')
+('9,1', '9', 'R')
+('9,2', '9', 'R')
+('10,1', '10', 'R')
+('10,2', '10', 'R')
+('12,1', '12', 'R')
+('13,1', '13', 'R')
+('14,1', '14', 'R')
+('15,1', '15', 'R')
+('16,1', '16', 'R')
+('17,1', '17', 'R')
+('18,1', '18', 'R')
+('18,2', '18', 'L')
+('19,1', '19', 'L')
+('19,2', '19', 'R')
+('20,1', '20', 'L')
+('20,2', '20', 'R')
+('21,1', '21', 'R')
+('21,2', '21', 'L')
+('22,1', '22', 'L')
+('22,2', '22', 'R')
+('23,1', '23', 'R')
+('23,2', '23', 'R')
+('24,1', '24', 'L')
+('24,2', '24', 'R')
+('25,1', '25', 'R')
+('25,2', '25', 'R')
+('28,1', '28', 'R')
+('28,2', '28', 'R')
+('29,1', '29', 'R')
+('29,2', '29', 'R')
+('29,3', '29', 'R')
+('31,1', '31', 'R')
+('31,2', '31', 'R')
+('33,1', '33', 'R')
+('33,2', '33', 'L')
+('35,1', '35', 'R')
+('35,2', '35', 'L')
+('37,1', '37', 'R')
+('37,2', '37', 'L')
+('39,1', '39', 'L')
+('39,2', '39', 'R')
+('44,1', '44', 'R')
+('44,2', '44', 'R')
+('46,1', '46', 'L')
+('46,2', '46', 'R')
+('46,3', '46', 'R')
+('47,1', '47', 'L')
+('47,2', '47', 'R')
+('47,3', '47', 'R')
+('48,1', '48', 'R')
+('48,2', '48', 'L')
+('49,1', '49', 'R')
+('49,2', '49', 'L')
+('50,1', '50', 'R')
+('50,2', '50', 'R')
+('51,1', '51', 'R')
+('51,2', '51', 'R')
+('52,1', '52', 'R')
+('54,1', '54', 'R')
+('54,3', '54', 'R')
+('55,2', '55', 'R')
+('55,3', '55', 'R')
+('56,1', '56', 'R')
+('56,2', '56', 'R')
+('56,3', '56', 'R')
+('57,1', '57', 'R')
+('57,2', '57', 'R')
+('69,1', '69', 'L')
+('69,2', '69', 'R')
+('71,1', '71', 'R')
+('71,2', '71', 'R')
+('72,1', '72', 'R')
+('72,2', '72', 'R')
+('72,3', '72', 'R')
+('73,1', '73', 'R')
+('73,2', '73', 'R')
+('73,3', '73', 'R')
+('73,4', '73', 'R')
+('74,1', '74', 'R')
+('74,2', '74', 'L')
+('75,1', '75', 'R')
+('75,2', '75', 'L')
+('76,1', '76', 'R')
+('76,2', '76', 'L')
+('77,1', '77', 'L')
+('77,2', '77', 'R')
+('78,1', '78', 'L')
+('78,2', '78', 'R')
+('79,1', '79', 'R')
+('79,2', '79', 'R')
+('79,3', '79', 'R')
+('80,1', '80', 'R')
+('80,2', '80', 'R')
+('80,3', '80', 'R')
+('81,1', '81', 'R')
+('81,2', '81', 'R')
+('81,3', '81', 'R')
+('82,1', '82', 'R')
+('82,2', '82', 'L')
+('88,1', '88', 'R')
+('88,2', '88', 'L')
+('89,1', '89', 'R')
+('89,2', '89', 'L')
+('90,1', '90', 'R')
+('90,2', '90', 'L')
+('91,1', '91', 'R')
+('91,2', '91', 'L')
+('92,1', '92', 'R')
+('92,2', '92', 'L')
+('93,1', '93', 'R')
+('93,2', '93', 'L')
+('94,1', '94', 'R')
+('95,1', '95', 'R')
+('95,2', '95', 'L')
+('96,1', '96', 'R')
+('96,2', '96', 'L')
+('97,1', '97', 'R')
+('98,1', '98', 'R')
+('98,2', '98', 'L')
+('99,1', '99', 'R')
+('99,2', '99', 'L')
+('100,1', '100', 'R')
+('101,1', '101', 'L')
+('101,2', '101', 'R')
+('101,3', '101', 'L')
+('101,4', '101', 'R')
+('101,5', '101', 'L')
+('102,1', '102', 'R')
+('102,2', '102', 'L')
+('102,3', '102', 'R')
+('102,4', '102', 'R')
+('102,5', '102', 'L')
+('103,1', '103', 'R')
+('104,1', '104', 'R')
+
+
+Printing the OperonInputTransition TABLE
+('1', '1,1')
+('2', '1,2')
+('3', '2,1')
+('4', '2,2')
+('5', '3,1')
+('6', '3,2')
+('7', '4,1')
+('8', '4,2')
+('9', '5,1')
+('10', '5,1')
+('11', '5,2')
+('12', '6,1')
+('13', '6,1')
+('14', '6,2')
+('15', '7,1')
+('16', '7,1')
+('17', '7,2')
+('18', '8,1')
+('19', '8,1')
+('20', '8,2')
+('21', '9,1')
+('22', '9,1')
+('23', '9,2')
+('24', '10,1')
+('25', '10,1')
+('26', '10,2')
+('27', '12,1')
+('28', '13,1')
+('29', '14,1')
+('30', '15,1')
+('31', '16,1')
+('32', '17,1')
+('33', '18,1')
+('34', '18,2')
+('35', '19,1')
+('36', '19,2')
+('37', '20,1')
+('38', '20,2')
+('39', '21,1')
+('40', '21,2')
+('41', '22,1')
+('42', '22,2')
+('43', '23,1')
+('44', '23,2')
+('45', '24,1')
+('46', '24,2')
+('47', '25,1')
+('48', '25,2')
+('49', '28,1')
+('50', '28,2')
+('51', '29,1')
+('52', '29,2')
+('53', '29,3')
+('54', '31,1')
+('55', '31,2')
+('56', '33,1')
+('57', '33,2')
+('58', '35,1')
+('59', '35,2')
+('60', '37,1')
+('61', '37,2')
+('62', '39,1')
+('63', '39,2')
+('64', '44,1')
+('65', '44,2')
+('66', '46,1')
+('67', '46,2')
+('68', '46,3')
+('69', '47,1')
+('70', '47,2')
+('71', '47,3')
+('72', '48,1')
+('73', '48,2')
+('74', '49,1')
+('75', '49,2')
+('76', '50,1')
+('77', '50,2')
+('78', '51,1')
+('79', '51,2')
+('80', '52,1')
+('81', '54,1')
+('82', '54,3')
+('83', '55,2')
+('84', '55,3')
+('85', '56,1')
+('86', '56,2')
+('87', '56,3')
+('88', '57,1')
+('89', '57,2')
+('90', '69,1')
+('91', '69,2')
+('92', '71,1')
+('93', '71,2')
+('94', '72,1')
+('95', '72,2')
+('96', '72,3')
+('97', '73,1')
+('98', '73,2')
+('99', '73,3')
+('100', '73,4')
+('101', '74,1')
+('102', '74,2')
+('103', '75,1')
+('104', '75,2')
+('105', '76,1')
+('106', '76,2')
+('107', '77,1')
+('108', '77,2')
+('109', '78,1')
+('110', '78,1')
+('111', '78,2')
+('112', '79,1')
+('113', '79,2')
+('114', '79,3')
+('115', '80,1')
+('116', '80,2')
+('117', '80,3')
+('118', '81,1')
+('119', '81,2')
+('120', '81,3')
+('121', '82,1')
+('122', '82,2')
+('123', '88,1')
+('124', '88,2')
+('125', '89,1')
+('126', '89,2')
+('127', '90,1')
+('128', '90,2')
+('129', '91,1')
+('130', '91,2')
+('131', '92,1')
+('132', '92,2')
+('133', '93,1')
+('134', '93,2')
+('135', '94,1')
+('136', '95,1')
+('137', '95,2')
+('138', '96,1')
+('139', '96,2')
+('140', '97,1')
+('141', '98,1')
+('142', '98,2')
+('143', '99,1')
+('144', '99,2')
+('145', '100,1')
+('146', '101,1')
+('147', '101,2')
+('148', '101,3')
+('149', '101,4')
+('150', '101,5')
+('151', '102,1')
+('152', '102,2')
+('153', '102,3')
+('154', '102,4')
+('155', '102,5')
+('156', '103,1')
+('157', '104,1')
+
+
+Printing the InputTransitionSpecies TABLE
+('1', '1', '4', None)
+('2', '1', '14', None)
+('3', '2', '10', None)
+('4', '2', '3', None)
+('5', '3', '25', None)
+('6', '3', '26', None)
+('7', '4', '1', None)
+('8', '5', '6', None)
+('9', '5', '24', None)
+('10', '6', '1', None)
+('11', '7', '27', None)
+('12', '7', '46', None)
+('13', '8', '1', None)
+('14', '9', '25', None)
+('15', '9', '26', None)
+('16', '10', '6', None)
+('17', '10', '24', None)
+('18', '11', '1', None)
+('19', '12', '25', None)
+('20', '12', '26', None)
+('21', '13', '27', None)
+('22', '13', '46', None)
+('23', '14', '1', None)
+('24', '15', '6', None)
+('25', '15', '24', None)
+('26', '16', '27', None)
+('27', '16', '46', None)
+('28', '17', '1', None)
+('29', '18', '6', None)
+('30', '18', '24', None)
+('31', '19', '25', None)
+('32', '19', '26', None)
+('33', '20', '1', None)
+('34', '21', '25', None)
+('35', '21', '26', None)
+('36', '22', '27', None)
+('37', '22', '46', None)
+('38', '23', '1', None)
+('39', '24', '6', None)
+('40', '24', '24', None)
+('41', '25', '27', None)
+('42', '25', '46', None)
+('43', '26', '1', None)
+('44', '27', '28', None)
+('45', '28', '28', None)
+('46', '29', '28', None)
+('47', '30', '10', None)
+('48', '30', '3', None)
+('49', '31', '6', None)
+('50', '31', '24', None)
+('51', '32', '28', None)
+('52', '33', '10', None)
+('53', '33', '3', None)
+('54', '34', '28', None)
+('55', '35', '28', None)
+('56', '36', '10', None)
+('57', '36', '3', None)
+('58', '37', '6', None)
+('59', '37', '24', None)
+('60', '38', '10', None)
+('61', '38', '3', None)
+('62', '39', '10', None)
+('63', '39', '3', None)
+('64', '40', '28', None)
+('65', '41', '6', None)
+('66', '41', '24', None)
+('67', '42', '10', None)
+('68', '42', '3', None)
+('69', '43', '10', None)
+('70', '43', '11', None)
+('71', '44', '1', None)
+('72', '45', '1', None)
+('73', '46', '25', None)
+('74', '46', '26', None)
+('75', '47', '1', None)
+('76', '48', '2', None)
+('77', '48', '4', None)
+('78', '49', '1', None)
+('79', '50', '2', None)
+('80', '50', '4', None)
+('81', '51', '10', None)
+('82', '51', '11', None)
+('83', '52', '28', None)
+('84', '53', '1', None)
+('85', '54', '35', None)
+('86', '54', '36', None)
+('87', '55', '28', None)
+('88', '56', '19', None)
+('89', '57', '1', None)
+('90', '58', '25', None)
+('91', '58', '26', None)
+('92', '59', '1', None)
+('93', '60', '25', None)
+('94', '60', '26', None)
+('95', '61', '1', None)
+('96', '62', '51', None)
+('97', '62', '23', None)
+('98', '63', '16', None)
+('99', '64', '2', None)
+('100', '64', '4', None)
+('101', '65', '28', None)
+('102', '66', '2', None)
+('103', '66', '4', None)
+('104', '67', '10', None)
+('105', '67', '3', None)
+('106', '68', '1', None)
+('107', '69', '2', None)
+('108', '69', '4', None)
+('109', '70', '2', None)
+('110', '70', '3', None)
+('111', '71', '1', None)
+('112', '72', '10', None)
+('113', '72', '3', None)
+('114', '73', '1', None)
+('115', '74', '10', None)
+('116', '74', '3', None)
+('117', '75', '1', None)
+('118', '76', '10', None)
+('119', '76', '3', None)
+('120', '77', '25', None)
+('121', '77', '26', None)
+('122', '78', '10', None)
+('123', '78', '3', None)
+('124', '79', '25', None)
+('125', '79', '26', None)
+('126', '80', '6', None)
+('127', '80', '24', None)
+('128', '81', '5', None)
+('129', '81', '17', None)
+('130', '82', '2', None)
+('131', '82', '5', None)
+('132', '82', '4', None)
+('133', '83', '2', None)
+('134', '83', '5', None)
+('135', '83', '4', None)
+('136', '84', '5', None)
+('137', '84', '17', None)
+('138', '85', '2', None)
+('139', '85', '5', None)
+('140', '86', '5', None)
+('141', '86', '17', None)
+('142', '87', '6', None)
+('143', '87', '24', None)
+('144', '88', '10', None)
+('145', '88', '3', None)
+('146', '89', '25', None)
+('147', '89', '26', None)
+('148', '90', '1', None)
+('149', '91', '4', None)
+('150', '91', '13', None)
+('151', '92', '1', None)
+('152', '93', '1', None)
+('153', '94', '1', None)
+('154', '95', '1', None)
+('155', '96', '1', None)
+('156', '97', '28', None)
+('157', '98', '10', None)
+('158', '98', '3', None)
+('159', '99', '6', None)
+('160', '99', '24', None)
+('161', '100', '1', None)
+('162', '101', '25', None)
+('163', '101', '26', None)
+('164', '102', '1', None)
+('165', '103', '25', None)
+('166', '103', '26', None)
+('167', '104', '1', None)
+('168', '105', '25', None)
+('169', '105', '26', None)
+('170', '106', '1', None)
+('171', '107', '10', None)
+('172', '107', '3', None)
+('173', '108', '25', None)
+('174', '108', '26', None)
+('175', '109', '20', None)
+('176', '110', '22', None)
+('177', '110', '21', None)
+('178', '111', '1', None)
+('179', '112', '25', None)
+('180', '112', '26', None)
+('181', '113', '28', None)
+('182', '114', '1', None)
+('183', '115', '10', None)
+('184', '115', '3', None)
+('185', '116', '28', None)
+('186', '117', '1', None)
+('187', '118', '10', None)
+('188', '118', '3', None)
+('189', '119', '28', None)
+('190', '120', '1', None)
+('191', '121', '10', None)
+('192', '121', '3', None)
+('193', '122', '1', None)
+('194', '123', '25', None)
+('195', '123', '26', None)
+('196', '124', '1', None)
+('197', '125', '10', None)
+('198', '125', '3', None)
+('199', '126', '1', None)
+('200', '127', '2', None)
+('201', '127', '4', None)
+('202', '128', '1', None)
+('203', '129', '6', None)
+('204', '129', '24', None)
+('205', '130', '1', None)
+('206', '131', '6', None)
+('207', '131', '24', None)
+('208', '132', '1', None)
+('209', '133', '25', None)
+('210', '133', '26', None)
+('211', '134', '1', None)
+('212', '135', '41', None)
+('213', '135', '42', None)
+('214', '136', '6', None)
+('215', '136', '24', None)
+('216', '137', '1', None)
+('217', '138', '25', None)
+('218', '138', '26', None)
+('219', '139', '1', None)
+('220', '140', '39', None)
+('221', '140', '40', None)
+('222', '141', '6', None)
+('223', '141', '24', None)
+('224', '142', '1', None)
+('225', '143', '2', None)
+('226', '143', '4', None)
+('227', '144', '1', None)
+('228', '145', '32', None)
+('229', '145', '33', None)
+('230', '146', '32', None)
+('231', '146', '33', None)
+('232', '147', '6', None)
+('233', '147', '24', None)
+('234', '148', '2', None)
+('235', '148', '4', None)
+('236', '149', '1', None)
+('237', '150', '1', None)
+('238', '151', '39', None)
+('239', '151', '40', None)
+('240', '152', '25', None)
+('241', '152', '26', None)
+('242', '153', '10', None)
+('243', '153', '3', None)
+('244', '154', '1', None)
+('245', '155', '1', None)
+('246', '156', '10', None)
+('247', '156', '3', None)
+('248', '157', '2', None)
+('249', '157', '4', None)
+
+
+Printing the OperonOutputTransition TABLE
+('1', '1,1')
+('2', '1,2')
+('3', '2,1')
+('4', '2,2')
+('5', '3,1')
+('6', '3,2')
+('7', '4,1')
+('8', '4,2')
+('9', '5,1')
+('10', '5,1')
+('11', '5,2')
+('12', '6,1')
+('13', '6,1')
+('14', '6,2')
+('15', '7,1')
+('16', '7,1')
+('17', '7,2')
+('18', '8,1')
+('19', '8,1')
+('20', '8,2')
+('21', '9,1')
+('22', '9,1')
+('23', '9,2')
+('24', '10,1')
+('25', '10,1')
+('26', '10,2')
+('27', '12,1')
+('28', '13,1')
+('29', '14,1')
+('30', '15,1')
+('31', '16,1')
+('32', '17,1')
+('33', '18,1')
+('34', '18,2')
+('35', '19,1')
+('36', '19,2')
+('37', '20,1')
+('38', '20,2')
+('39', '21,1')
+('40', '21,2')
+('41', '22,1')
+('42', '22,2')
+('43', '23,1')
+('44', '23,2')
+('45', '24,1')
+('46', '24,2')
+('47', '25,1')
+('48', '25,2')
+('49', '28,1')
+('50', '28,2')
+('51', '29,1')
+('52', '29,2')
+('53', '29,3')
+('54', '31,1')
+('55', '31,2')
+('56', '33,1')
+('57', '33,2')
+('58', '35,1')
+('59', '35,2')
+('60', '37,1')
+('61', '37,2')
+('62', '39,1')
+('63', '39,2')
+('64', '44,1')
+('65', '44,2')
+('66', '46,1')
+('67', '46,2')
+('68', '46,3')
+('69', '47,1')
+('70', '47,2')
+('71', '47,3')
+('72', '48,1')
+('73', '48,2')
+('74', '49,1')
+('75', '49,2')
+('76', '50,1')
+('77', '50,2')
+('78', '51,1')
+('79', '51,2')
+('80', '52,1')
+('81', '54,1')
+('82', '54,3')
+('83', '55,2')
+('84', '55,3')
+('85', '56,1')
+('86', '56,2')
+('87', '56,3')
+('88', '57,1')
+('89', '57,2')
+('90', '69,1')
+('91', '69,2')
+('92', '71,1')
+('93', '71,2')
+('94', '72,1')
+('95', '72,2')
+('96', '72,3')
+('97', '73,1')
+('98', '73,2')
+('99', '73,3')
+('100', '73,4')
+('101', '74,1')
+('102', '74,2')
+('103', '75,1')
+('104', '75,2')
+('105', '76,1')
+('106', '76,2')
+('107', '77,1')
+('108', '77,2')
+('109', '78,1')
+('110', '78,1')
+('111', '78,2')
+('112', '79,1')
+('113', '79,2')
+('114', '79,3')
+('115', '80,1')
+('116', '80,2')
+('117', '80,3')
+('118', '81,1')
+('119', '81,2')
+('120', '81,3')
+('121', '82,1')
+('122', '82,2')
+('123', '88,1')
+('124', '88,2')
+('125', '89,1')
+('126', '89,2')
+('127', '90,1')
+('128', '90,2')
+('129', '91,1')
+('130', '91,2')
+('131', '92,1')
+('132', '92,2')
+('133', '93,1')
+('134', '93,2')
+('135', '94,1')
+('136', '95,1')
+('137', '95,2')
+('138', '96,1')
+('139', '96,2')
+('140', '97,1')
+('141', '98,1')
+('142', '98,2')
+('143', '99,1')
+('144', '99,2')
+('145', '100,1')
+('146', '101,1')
+('147', '101,2')
+('148', '101,3')
+('149', '101,4')
+('150', '101,5')
+('151', '102,1')
+('152', '102,2')
+('153', '102,3')
+('154', '102,4')
+('155', '102,5')
+('156', '103,1')
+('157', '104,1')
+
+
+Printing the OutputTransitionSpecies TABLE
+('1', '1', '30')
+('2', '2', '30')
+('3', '3', '52')
+('4', '4', '25')
+('5', '5', '52')
+('6', '6', '24')
+('7', '7', '52')
+('8', '8', '27')
+('9', '9', '52')
+('10', '10', '52')
+('11', '11', '25')
+('12', '11', '24')
+('13', '12', '52')
+('14', '13', '52')
+('15', '14', '25')
+('16', '14', '27')
+('17', '15', '52')
+('18', '16', '52')
+('19', '17', '24')
+('20', '17', '27')
+('21', '18', '28')
+('22', '19', '28')
+('23', '20', '25')
+('24', '20', '24')
+('25', '21', '28')
+('26', '22', '28')
+('27', '23', '25')
+('28', '23', '27')
+('29', '24', '28')
+('30', '25', '28')
+('31', '26', '24')
+('32', '26', '27')
+('33', '27', '52')
+('34', '28', '12')
+('35', '29', '18')
+('36', '30', '30')
+('37', '31', '30')
+('38', '32', '30')
+('39', '33', '30')
+('40', '34', '3')
+('41', '35', '30')
+('42', '36', '28')
+('43', '37', '30')
+('44', '38', '24')
+('45', '39', '28')
+('46', '39', '30')
+('47', '40', '3')
+('48', '41', '3')
+('49', '42', '24')
+('50', '42', '30')
+('51', '43', '30')
+('52', '44', '44')
+('53', '45', '25')
+('54', '46', '30')
+('55', '47', '48')
+('56', '48', '30')
+('57', '49', '4')
+('58', '50', '35')
+('59', '51', '28')
+('60', '52', '30')
+('61', '53', '44')
+('62', '54', '28')
+('63', '55', '30')
+('64', '56', '51')
+('65', '57', '49')
+('66', '58', '30')
+('67', '59', '25')
+('68', '60', '23')
+('69', '61', '25')
+('70', '62', '37')
+('71', '63', '23')
+('72', '64', '28')
+('73', '65', '3')
+('74', '66', '3')
+('75', '67', '30')
+('76', '68', '48')
+('77', '69', '3')
+('78', '70', '50')
+('79', '71', '48')
+('80', '72', '29')
+('81', '73', '43')
+('82', '74', '50')
+('83', '75', '43')
+('84', '76', '30')
+('85', '77', '30')
+('86', '78', '3')
+('87', '79', '3')
+('88', '80', '4')
+('89', '81', '2')
+('90', '82', '9')
+('91', '83', '9')
+('92', '84', '28')
+('93', '85', '9')
+('94', '86', '8')
+('95', '87', '4')
+('96', '88', '7')
+('97', '89', '7')
+('98', '90', '4')
+('99', '91', '28')
+('100', '91', '29')
+('101', '92', '1')
+('102', '93', '1')
+('103', '94', '1')
+('104', '95', '1')
+('105', '96', '1')
+('106', '97', '52')
+('107', '98', '28')
+('108', '99', '3')
+('109', '100', '24')
+('110', '101', '20')
+('111', '102', '25')
+('112', '103', '22')
+('113', '104', '25')
+('114', '105', '21')
+('115', '106', '25')
+('116', '107', '22')
+('117', '108', '21')
+('118', '109', '30')
+('119', '110', '30')
+('120', '111', '43')
+('121', '112', '28')
+('122', '113', '30')
+('123', '114', '25')
+('124', '115', '28')
+('125', '116', '30')
+('126', '117', '43')
+('127', '118', '28')
+('128', '119', '30')
+('129', '120', '43')
+('130', '121', '52')
+('131', '122', '43')
+('132', '123', '50')
+('133', '124', '25')
+('134', '125', '50')
+('135', '126', '43')
+('136', '127', '50')
+('137', '128', '48')
+('138', '129', '50')
+('139', '130', '24')
+('140', '131', '38')
+('141', '132', '24')
+('142', '133', '42')
+('143', '134', '25')
+('144', '135', '50')
+('145', '136', '40')
+('146', '137', '24')
+('147', '138', '39')
+('148', '139', '25')
+('149', '140', '50')
+('150', '141', '33')
+('151', '142', '24')
+('152', '143', '32')
+('153', '144', '4')
+('154', '145', '50')
+('155', '146', '38')
+('156', '147', '33')
+('157', '148', '32')
+('158', '149', '48')
+('159', '150', '24')
+('160', '151', '42')
+('161', '152', '39')
+('162', '153', '40')
+('163', '154', '25')
+('164', '155', '3')
+('165', '156', '4')
+('166', '156', '15')
+('167', '157', '45')
