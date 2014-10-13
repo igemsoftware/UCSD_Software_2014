@@ -512,6 +512,7 @@ $window, Network, VisualStyles, Gist) {
                         $('#network').cytoscape(options);
                         $scope.cynet = $('#network').cytoscape('get');
                         init();
+                        $scope.toggleCAD();
                     }).
                     error(function(data, status, headers, config) {
                     });

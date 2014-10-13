@@ -27,13 +27,15 @@
   }, {
     "selector" : "node.species",
     "css" : {
+      "background-color" : "#B2DF8A",
+      "border-color" : "#33A02C",
       "shape" : "ellipse"
     }
   }, {
     "selector" : "node.operon",
     "css" : {
-      "background-color" : "#ff8300",
-      "border-color" : "#e6762b"
+      "background-color" : "#A6CEE3",
+      "border-color" : "#1F78B4"
     }
   }, {
     "selector" : "node.transition",
@@ -45,14 +47,14 @@
   }, {
     "selector" : "node.transition.input",
     "css" : {
-      "background-color" : "#00ff00",
-      "border-color" : "#00b200"
+      "background-color" : "#FB9a99",
+      "border-color" : "#E31A1C"
     }
   }, {
     "selector" : "node.transition.output",
     "css" : {
-      "background-color" : "#ff0000",
-      "border-color" : "#cc0000"
+      "background-color" : "#FDBF6F",
+      "border-color" : "#FF7F00"
     }
   }, {
     "selector" : "node.transition.IF",

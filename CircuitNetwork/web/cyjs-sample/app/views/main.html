@@ -2,7 +2,7 @@
 <div id="network" ng-style="{'background-color': bg.color}"></div>
 
 <div class="loading">
-    <span us-spinner="{radius:30, width:3, length: 100}"></span>
+    <span us-spinner="{radius:40, width:4, length: 150}"></span>
 </div>
 
 <div class="summary" ng-show="overlayState.show">
@@ -16,15 +16,15 @@
 	<br><br>
         <div ng-show="searchState.show" class="searchBox">
             
-            <h4>Please enter input and output intermediates</h4>
+            <h3>Please enter input and output intermediates</h3>
             
             INPUT: <span><input class = "textbox" type = "text" ng-model = "searchInput" placeholder="type in your input"/><br>
                
             OUTPUT: <span><input class = "textbox" type = "text" ng-model = "searchOutput" placeholder="type in your output"/><br>
                     
-            True (Indirect Path): <input type="checkbox" ng-model="checkTrue"><br/> 
+            Include Indirect Path: <input type="checkbox" ng-model="checkTrue"><br/> 
             
-            <button><span id="search-box" class="glyphicon glyphicon-share-alt" ng-click="searchCtrl()"><span>Explore</span></span></button></span>
+            <span><button><span id="search-box" class="glyphicon glyphicon-share-alt" ng-click="searchCtrl()"><span>Explore</span></span></button></span>
             
         </div>
 
@@ -116,7 +116,7 @@
     <span class="glyphicon glyphicon-sort"></span>
 </div>
 <div class="toolbar command-bar" ng-show="toolbarState.show">
-    <div class="icon-button orange" data-toggle="modal" data-target="#share" ng-click="encodeUrl()" tooltip-placement="left" tooltip="Share!">
+        <div class="icon-button orange" data-toggle="modal" data-target="#share" ng-click="encodeUrl()" tooltip-placement="left" tooltip="Share!">
         <span class="glyphicon glyphicon-share-alt"></span>
     </div>
     <!--<div class="icon-button" ng-click="toggleOverlay()" tooltip-placement="left" tooltip="Show/Hide Overlay">
@@ -137,30 +137,26 @@
     <div class="icon-button" ng-click="ModalDemoCtrl()"data-toggle="modal" data-target="#myModal" tooltip-placement="left" tooltip="Tutorial/Documentation">
         <span id="search-box" class="glyphicon glyphicon-question-sign"></span>
     </div>
+    
+    <div class="icon-button" ng-click="toggleCAD()" tooltip-placement="left" tooltip="View Device Images">
+        <span class="glyphicon glyphicon-eye-open"></span>
+    </div>
+    <!-- Model not finished enough to display -->
+<!--    <div class="icon-button" ng-click="toggleModel()" tooltip-placement="left" tooltip="Display Model">
+        <span class="glyphicon glyphicon-signal"></span>
+    </div>-->
     <div class="icon-button" ng-click="reloadPage()" tooltip-placement="left" tooltip="Download SBOL Image">
         <span id="search-box" class="glyphicon glyphicon-cloud-download"></span>
     </div>
-    <!-- Old Glyph for bg color picker -->
-    <!--
-    <div class="icon-button" colorpicker colorpicker-position="left" ng-model="bg.color" tooltip-placement="left" tooltip="Set Background Color">
-        <span class="glyphicon glyphicon-tint"></span>
-    </div>
-    -->
-	<div class="icon-button" ng-click="toggleCAD()" tooltip-placement="left" tooltip="View Device Images">
-	<span class="glyphicon glyphicon-eye-open"></span>
-    </div>
-    <div class="icon-button" ng-click="toggleModel()" tooltip-placement="left" tooltip="Display Model">
-	<span class="glyphicon glyphicon-signal"></span>
+    
+    <div class="icon-button" ng-click="updatePage()" data-toggle="modal" data-target="#modalUpload" tooltip-placement="left" tooltip="Upload to Database">
+        <span id="search-box" class="glyphicon glyphicon-plus"></span>
     </div>
     
-    <!-- Old Home button glyph -->
-    <!--
-    <div class="icon-button" tooltip-placement="left" tooltip="Back to Top Page">
-        <a href="/">
-            <span class="glyphicon glyphicon-home"></span>
-        </a>
+    <div class="icon-button" ng-click="messageMe()" tooltip-placement="left" tooltip="Contact Us">
+        <span id="search-box" class="glyphicon glyphicon-comment"></span>
     </div>
-    -->
+    
 </div>
 
 <div class="modal fade" id="share" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -190,21 +186,88 @@
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title text-center" id="myModalLabel">Tutorial</h4>
-      </div>
-      <div class="modal-body">
-        <div class="embed-responsive embed-responsive-16by9">
-            <iframe src="index.html" id="tutorialModal"></iframe>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title text-center" id="myModalLabel">Tutorial</h4>
+            </div>
+            <div class="modal-body">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe src="index.html" id="tutorialModal"></iframe>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
         </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-      </div>
     </div>
-  </div>
 </div>
 
+<!--Modal Upload Page-->
+<div class="modal fade" id="modalUpload" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title text-center" id="myModalLabel">Upload</h4>
+            </div>
+            <div class="modal-body">
+                <div class="well well-lg text-center">
+
+                    <div class="row text-center">
+                        Plasmid: <span><input class = "textbox" type = "text" ng-model = "Plasmid" placeholder="type in the plasmid"/><br>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col-md-6 text-center text-danger">
+                            <p>Operon [1]: <input class = "textbox" type = "text" ng-model = "Plx" /><br>
+
+                            <p class="text-info"> Input transitions[A]:</p><input class = "textbox " type = "text" ng-model = "Plxone" /><br>
+                            Input species[1]:<input class = "textbox" type = "text" ng-model = "PlxoneOne" /><br>
+
+                            Input species[2]:<input class = "textbox" type = "text" ng-model = "PlxoneTwo" /><br>
+
+                            Output Species[b]: <input class = "textbox" type = "text" ng-model = "PlxoneTwoSP2" /><br>
+
+
+                            <p class="text-success">Input transition[B]:</p><input class = "textbox " type = "text" ng-model = "Plxtwo" /><br> 
+                            Input species[1]:<input class = "textbox" type = "text" ng-model = "PlxtwoOne" /><br>
+                            Output Species[a]: <input class = "textbox" type = "text" ng-model = "PlxoneOneSP1" /><br>
+                            Output Species[b]: <input class = "textbox" type = "text" ng-model = "PlxoneOneSP2" /><br>
+                            Input species[2]:<input class = "textbox" type = "text" ng-model = "PlxtwoTwo" /><br>
+
+
+                            Output Species[b]: <input class = "textbox" type = "text" ng-model = "PlxoneTwoSP2" /><br>
+                            Output Species[b]: <input class = "textbox" type = "text" ng-model = "PlxoneTwoSP2" /><br>
+                        </div>  
+
+                        <div class="col-md-6 text-center text-primary">
+                            Operon [2]: <input class = "textbox" type = "text" ng-model = "Ply" /><br>
+                            <p class="text-warning">Input transitions[1]:</p><input class = "textbox" type = "text" ng-model = "Plyone" /><br>
+                            Input species[1]:<input class = "textbox" type = "text" ng-model = "PlyoneOne" /><br>
+                            Output species[1]:<input class = "textbox" type = "text" ng-model = "PlyoneOneSP1" /><br>
+                            Output species[2]:<input class = "textbox" type = "text" ng-model = "PlyoneOneSP2" /><br>
+
+                            Input species[2]:<input class = "textbox" type = "text" ng-model = "PlyoneTwo" /><br>
+                            Output species[1]:<input class = "textbox" type = "text" ng-model = "PlyoneTwoSP1" /><br>
+                            Output species[2]: <input class = "textbox" type = "text" ng-model = "PlyoneTwoSP2" /><br>
+
+
+                            <p class="text-primary">Input transition[2]:</p><input class = "textbox" type = "text" ng-model = "Plytwo" /><br>  
+                            Input species[1]:<input class = "textbox" type = "text" ng-model = "PlytwoOne" /><br>
+                            Output species[1]:<input class = "textbox" type = "text" ng-model = "PlytwoOneSP1" /><br>
+                            Output species[2]:<input class = "textbox" type = "text" ng-model = "PlytwoOneSP2" /><br>
+                            Input species[2]:<input class = "textbox" type = "text" ng-model = "PlytwoTwo" /><br>
+                            Output species[1]:<input class = "textbox" type = "text" ng-model = "PlytwoTwoSP1" /><br>
+                            Output species[2]:<input class = "textbox" type = "text" ng-model = "PlytwoTwoSP2" /><br>
+                        </div>  
+                    </div> 
+                    <span> <button class="btn btn-lg"><span id="search-box" class="glyphicon glyphicon-upload" ng-click="upload()"><span>Upload</span></span></button></span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
