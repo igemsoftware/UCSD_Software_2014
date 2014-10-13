@@ -1,3 +1,0 @@
-p pTET 4
-c gfp 6
-# Arcs

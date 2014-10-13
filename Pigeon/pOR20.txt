@@ -1,5 +1,0 @@
-p pTET 4
-c yfp 6
-p pCONST 4
-c tetR 8
-# Arcs
