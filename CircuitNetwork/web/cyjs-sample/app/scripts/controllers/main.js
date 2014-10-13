@@ -394,12 +394,12 @@ $window, Network, VisualStyles, Gist) {
             $scope.currentCad="no_image.png";
             
 
-            networkData = JSON.parse(tempJSON);
-            console.log(networkData);
-            angular.element('.loading').hide();
-            $scope.cynet.load(networkData.elements);
-            
-//            searchGet();
+//            networkData = JSON.parse(tempJSON);
+//            console.log(networkData);
+//            angular.element('.loading').hide();
+//            $scope.cynet.load(networkData.elements);
+//            
+            searchGet();
             //clearing old search results before displaying current paths.
             $scope.circuitCtrl();
         };
