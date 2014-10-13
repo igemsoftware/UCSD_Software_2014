@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html ng-app="graphApp">
+    <head>
+        <title>Circuit Modeling</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="modelingCss.css">
+    </head>
+    <body>
+        <div id="graphContainter" style="position:absolute; height:auto; width: 600px; float: left">
+        </div>
+        
+        <div id="legend" style="position:absolute; left: 50%; width: 200px " ng-controller="KCtrl">
+            <p><b>Legend</b></p>
+        </div>
+        
+        <div id="inputContainter" style="float: right" ng-controller="KCtrl">
+            <div class="inputCtrl">
+                <label ng-repeat-start="constant in constants">{{constant.name}}</label>
+                <input type="number" ng-model="constant.value"/>
+                <br ng-repeat-end>
+                <button ng-click="collectData()">Collect</button>
+            </div>
+        </div>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+        <script src="http://mbostock.github.com/d3/d3.v2.js"></script>
+        <script src="modelJs.js"></script>
+    </body>
+</html>

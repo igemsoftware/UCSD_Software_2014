@@ -858,4 +858,3 @@ def create_json_network_string(species_nodes_list, input_transitions_nodes_list,
     to_return += path_json_highlighter + '}'
 
     return to_return
-

@@ -1,436 +1,440 @@
 
 angular.module('cyViewerApp')
+	
+    .controller('MainCtrl', function ($scope, $http, $location, $routeParams, 
+$window, Network, VisualStyles, Gist) {		
 
-        .controller('MainCtrl', function($scope, $http, $location, $routeParams,
-                $window, Network, VisualStyles, Gist) {
+        'use strict';     
+        //these files are the temporary network
+	var NETWORK_FILE = 'data/sbider_whole_network.json'; 
+        var visualStyleFile = 'data/sbiderStyle.json'; 
+        var DEFAULT_VISUAL_STYLE_NAME = 'default';//'Solid';
+        var PRESET_STYLE_FILE = encodeURIComponent('data/sbiderStyle.json');
+        var tempJSON = '{"data" : { "selected" : true,"_Annotations": [] ,"shared_name" : "Test.sif","SUID" : 52,"name":"Test.sif"},"elements":{"nodes":[{"data":{"id":"spe_13","name":"ahl","type":"None","sbml":"species_sbml_13_.txt"},"position":{"x":1647.08594482,"y":8598.94923601},"classes":"species","selected":false},{"data":{"id":"spe_38","name":"lara","type":"None","sbml":"species_sbml_38_.txt"},"position":{"x":7512.31542492,"y":677.903112321},"classes":"species","selected":false},{"data":{"id":"spe_9","name":"luxr","type":"None","sbml":"species_sbml_9_.txt"},"position":{"x":2687.68400151,"y":9096.77965734},"classes":"species","selected":false},{"data":{"id":"spe_2","name":"arac","type":"None","sbml":"species_sbml_2_.txt"},"position":{"x":6818.09580237,"y":1245.48879966},"classes":"species","selected":false},{"data":{"id":"spe_11","name":"gfp","type":"None","sbml":"species_sbml_11_.txt"},"position":{"x":4564.40456877,"y":6235.4913226},"classes":"species","selected":false},{"data":{"id":"it_80","logic":"AND","sbml":"it_sbml_80_.txt"},"position":{"x":9376.95360885,"y":2583.09845369},"classes":"input transition","selected":false},{"data":{"id":"it_86","logic":"AND","sbml":"it_sbml_86_.txt"},"position":{"x":4844.7976263,"y":0.0},"classes":"input transition","selected":false},{"data":{"id":"it_97","logic":"AND","sbml":"it_sbml_97_.txt"},"position":{"x":8894.89274833,"y":1836.73106933},"classes":"input transition","selected":false},{"data":{"id":"it_107","logic":"AND","sbml":"it_sbml_107_.txt"},"position":{"x":6926.40093122,"y":4214.7270139},"classes":"input transition","selected":false},{"data":{"id":"it_81","logic":"AND","sbml":"it_sbml_81_.txt"},"position":{"x":685.36275705,"y":7220.26621579},"classes":"input transition","selected":false},{"data":{"id":"ope_24-2","sbml":"operon_sbml_24-2_.txt","sbol":"operon_sbol_24-2_.png","name":"pBAD--->gfp"},"position":{"x":10000.0,"y":4579.1685352},"classes":"operon","selected":false},{"data":{"id":"ope_57-1","sbml":"operon_sbml_57-1_.txt","sbol":"operon_sbol_57-1_.png","name":"pLac_pBAD--->LuxR_luxI"},"position":{"x":6472.40787568,"y":8940.22250002},"classes":"operon","selected":false},{"data":{"id":"ope_50-1","sbml":"operon_sbml_50-1_.txt","sbol":"operon_sbol_50-1_.png","name":"pLac_pBAD--->gfp"},"position":{"x":9898.14814649,"y":5838.44100614},"classes":"operon","selected":false},{"data":{"id":"ope_25-2","sbml":"operon_sbml_25-2_.txt","sbol":"operon_sbol_25-2_.png","name":"pLux--->gfp"},"position":{"x":0.0,"y":4412.71735088},"classes":"operon","selected":false},{"data":{"id":"ope_35-1","sbml":"operon_sbml_3These arrays can be accessed from the directly from the first initial json object. Each array contains 5-1_.txt","sbol":"operon_sbol_35-1_.png","name":"pBAD--->gfp"},"position":{"x":2501.34325291,"y":743.386070972},"classes":"operon","selected":false},{"data":{"id":"ot_98","sbml":"ot_sbml_ot_98_.txt"},"position":{"x":4167.61142875,"y":9776.8845485},"classes":"output transition","selected":false},{"data":{"id":"ot_90","sbml":"ot_sbml_ot_90_.txt"},"position":{"x":8287.83384551,"y":8618.90819216},"classes":"output transition","selected":false},{"data":{"id":"ot_73","sbml":"ot_sbml_ot_73_.txt"},"position":{"x":8777.32982673,"y":7156.15959443},"classes":"output transition","selected":false},{"data":{"id":"ot_74","sbml":"ot_sbml_ot_74_.txt"},"position":{"x":180.847242818,"y":5817.35785317},"classes":"output transition","selected":false},{"data":{"id":"ot_79","sbml":"ot_sbml_ot_79_.txt"},"position":{"x":1786.32933156,"y":2794.81164864},"classes":"output transition","selected":false}],"edges":[{"data":{"id":"50","source":"spe_38","target":"it_97"},"selected":false},{"data":{"id":"51","source":"spe_38","target":"it_107"},"selected":false},{"data":{"id":"52","source":"it_81","target":"ope_25-2"},"selected":false},{"data":{"id":"53","source":"spe_2","target":"it_107"},"selected":false},{"data":{"id":"54","source":"ot_98","target":"spe_13"},"selected":false},{"data":{"id":"55","source":"it_107","target":"ope_57-1"},"selected":false},{"data":{"id":"56","source":"spe_13","target":"it_81"},"selected":false},{"data":{"id":"57","source":"it_97","target":"ope_These arrays can be accessed from the directly from the first initial json object. Each array contains 50-1"},"selected":false},{"data":{"id":"58","source":"spe_38","target":"it_86"},"selected":false},{"data":{"id":"59","source":"ope_50-1","target":"ot_90"},"selected":false},{"data":{"id":"60","source":"ot_90","target":"spe_11"},"selected":false},{"data":{"id":"61","source":"ot_73","target":"spe_11"},"selected":false},{"data":{"id":"62","source":"ot_74","target":"spe_11"},"selected":false},{"data":{"id":"63","source":"spe_2","target":"it_80"},"selected":false},{"data":{"id":"64","source":"spe_38","target":"it_80"},"selected":false},{"data":{"id":"65","source":"ope_24-2","target":"ot_73"},"selected":false},{"data":{"id":"66","source":"ope_25-2","target":"ot_74"},"selected":false},{"data":{"id":"67","source":"it_80","target":"ope_24-2"},"selected":false},{"data":{"id":"68","source":"it_86","target":"ope_These arrays can be accessed from the directly from the first initial json object. Each array contains 35-1"},"selected":false},{"data":{"id":"69","source":"spe_2","target":"it_86"},"selected":false},{"data":{"id":"70","source":"ot_98","target":"spe_9"},"selected":false},{"data":{"id":"71","source":"spe_2","target":"it_97"},"selected":false},{"data":{"id":"72","source":"ope_57-1","target":"ot_98"},"selected":false},{"data":{"id":"73","source":"ope_35-1","target":"ot_79"},"selected":false},{"data":{"id":"74","source":"spe_9","target":"it_81"},"selected":false},{"data":{"id":"75","source":"ot_79","target":"spe_11"},"selected":false}]},"speciesId": [["spe_2", "spe_38", "spe_11"], ["spe_2", "spe_38", "spe_11"], ["spe_2", "spe_38", "spe_11"], ["spe_9", "spe_2", "spe_13", "spe_38", "spe_11"]],"inputTransitionsId": [["it_80"], ["it_86"], ["it_97"], ["it_107", "it_81"]],"operonsId": [["ope_24-2"], ["ope_35-1"], ["ope_50-1"], ["ope_57-1", "ope_25-2"]],"outputTransitionsId": [["ot_73"], ["ot_79"], ["ot_90"], ["ot_98", "ot_74"]],"edgesId": [["edge_1", "edge_1", "edge_1"], ["edge_1", "edge_1", "edge_1"], ["edge_1", "edge_1", "edge_1"], ["edge_1", "edge_1", "edge_1", "edge_1", "edge_1"]]}';
+        
+        //temp user declaration
+        //generates a random string of 20 characters
+        var userID = "carlo";
 
-            'use strict';
-            //these files are the temporary network
-            var NETWORK_FILE = 'data/sbider_whole_network.json';
-            var visualStyleFile = 'data/sbiderStyle.json';
-            var DEFAULT_VISUAL_STYLE_NAME = 'default';//'Solid';
-            var PRESET_STYLE_FILE = encodeURIComponent('data/sbiderStyle.json');
+        //these empty dictionaries are updated by the server for use by the cytoscape.js object.
+        var networkData = {};
+        var networkDefault = {};
+	var vs = {};
+        //global reference for cytoscape.js
+        $scope.cynet;
+        //Global variables for storing algorithm results
+        var speciesId = [];
+        var inputTransitionsId = []; 
+        var operonsId = [];
+        var outputTransitionsId = [];
+        var edgesId = [];
+               
+        $scope.networks = {};
+        $scope.visualStyles = {};
+        $scope.styleNames = [];
+        $scope.networkNames = [];
+        $scope.currentVS = DEFAULT_VISUAL_STYLE_NAME;
+        //$scope.currentNetworkData = null;
+        
+        var gistStyle = null;
 
-            //temp user declaration
-            //generates a random string of 20 characters
+        // Parse url parameters
+        var gistId = $routeParams.id;
+        var zoomLevel = $routeParams.zoom;
+        var panX = $routeParams.x;
+        var panY = $routeParams.y;
+
+        // Application global objects
+        $scope.networks = {};
+        $scope.visualStyles = {};
+        $scope.styleNames = [];
+        $scope.networkNames = [];
+        $scope.currentVS = DEFAULT_VISUAL_STYLE_NAME;
+        $scope.currentNetworkData = null;
+
+        //Toolbar state variables
+        $scope.browserState = {
+            show: false
+        };
+        $scope.overlayState = {
+            show: true
+        };
+        $scope.toolbarState = {
+            show: true
+        };
+        $scope.searchState = {
+            show: true
+        };
+        $scope.cadState = {
+            show: false
+        };
+        $scope.modelState = {
+            show: false
+        };
+
+        $scope.bg = {
+            color: '#FAFAFA'
+        };
+
+        $scope.columnNames = [];
+        $scope.edgeColumnNames = [];
+        $scope.networkColumnNames = [];
+
+        var originalLocation = $location.absUrl().split('?')[0];
+
+        console.log('GistID: ' + gistId);
+        console.log('Network rendering start...');
+        
+         /** EVIL CODE: do NOT uncomment. This KILLS the graph. :( Took me 3 hours to get this bug...hmpf**/
+	var styleLocation = $scope.encodedStyle;
+        if (!styleLocation) {
+            visualStyleFile = PRESET_STYLE_FILE;
+        } else {
+            visualStyleFile = $scope.encodedStyle;
+        }
+        
+        var options = {
+            showOverlay: false,
+            minZoom: 0.01,
+            maxZoom: 200,
+
+            layout: {
+                name: 'preset'
+            },
+	    
+	    //style: cytoscape.stylesheet()
+	    //Changing shapes of nodes 
+	  
+		
+            ready: function() {
+                var cy = this;
+                cy.load(networkData.elements);
+                $scope.cy = cy;
+                setEventListeners();
+                $scope.cy.style().fromJson($scope.visualStyles
+                [DEFAULT_VISUAL_STYLE_NAME].style).update();
+                updateNetworkData(cy);
+	        angular.element('.loading').hide();
+				//$('#752').addClass('highlighted');
+				
+				//$scope.#752.addClass('highlighted');
+                /*$scope.cy = this;
+                $scope.cy.load(networkData.elements);
+		/*$scope.cy = cy;
+                $scope.cy.style().fromJson($scope.visualStyles[DEFAULT_VISUAL_STYLE_NAME].style).update();
+                updateNetworkData(cy);*/
+                /*if (!gistStyle) {
+                    VisualStyles.query({
+                        styleUrl: visualStyleFile
+                    }, function(vs) {
+                        init(vs);
+                        dropSupport();
+                        setEventListeners();
+                        var newStyle = $routeParams.selectedstyle;
+                        if (!newStyle) {
+                            newStyle = DEFAULT_VISUAL_STYLE_NAME;
+                        }
+                        $scope.cy.style().fromJson($scope.visualStyles[newStyle].style).update();
+                        $scope.style = newStyle;
+                        angular.element('.loading').remove();
+                    });
+                } else {
+                    init(gistStyle);
+                    dropSupport();
+                    setEventListeners();
+                    $scope.cy.style().fromJson($scope.visualStyles[DEFAULT_VISUAL_STYLE_NAME].style).update();
+                    $scope.style = DEFAULT_VISUAL_STYLE_NAME;
+                    angular.element('.loading').remove();
+                }*/
+            }
+        };
 
 
-            //these empty dictionaries are updated by the server for use by the cytoscape.js object.
-            var networkData = {};
-            var networkDefault = {};
-            var vs = {};
-            //global reference for cytoscape.js
-            $scope.cynet;
 
-            //Global variables for storing algorithm results
-            var speciesId = [];
-            var inputTransitionsId = [];
-            var operonsId = [];
-            var outputTransitionsId = [];
-            var edgesId = [];
+	function updateNetworkData(cy) {
+            var dropZone = $('#network');
+            dropZone.on('dragenter', function (e) {
+                e.stopPropagation();
+                e.preventDefault();
+            });
 
-            $scope.networks = {};
-            $scope.visualStyles = {};
-            $scope.styleNames = [];
-            $scope.networkNames = [];
-            $scope.currentVS = DEFAULT_VISUAL_STYLE_NAME;
-            //$scope.currentNetworkData = null;
-
-            var gistStyle = null;
-
-            // Parse url parameters
-            var gistId = $routeParams.id;
-            var zoomLevel = $routeParams.zoom;
-            var panX = $routeParams.x;
-            var panY = $routeParams.y;
-
-            // Application global objects
-            $scope.networks = {};
-            $scope.visualStyles = {};
-            $scope.styleNames = [];
-            $scope.networkNames = [];
-            $scope.currentVS = DEFAULT_VISUAL_STYLE_NAME;
-            $scope.currentNetworkData = null;
-
-            //Toolbar state variables
-            $scope.browserState = {
-                show: false
-            };
-            $scope.overlayState = {
-                show: true
-            };
-            $scope.toolbarState = {
-                show: true
-            };
-            $scope.searchState = {
-                show: true
-            };
-            $scope.cadState = {
-                show: false
-            };
-            $scope.modelState = {
-                show: false
-            };
-
-            $scope.bg = {
-                color: '#FAFAFA'
-            };
-
+            dropZone.on('dragover', function (e) {
+                e.stopPropagation();
+                e.preventDefault();
+            });
+            dropZone.on('drop', function (e) {
+                e.preventDefault();
+                var files = e.originalEvent.dataTransfer.files;
+                var networkFile = files[0];
+                var reader = new FileReader();
+                reader.onload = function (evt) {
+                    var network = JSON.parse(evt.target.result);
+                    var networkName = network.data.name;
+                    console.log("NetworkName = " + networkName);
+                    if(networkName === undefined) {
+                        networkName = "Unknown";
+                    }
+                    $scope.$apply(function() {
+                        $scope.networks[networkName] = network;
+                        $scope.networkNames.push(networkName);
+                        $scope.currentNetwork = networkName;
+                        console.log($scope.networkNames);
+                    });
+                    cy.load(network.elements);
+                };
+                reader.readAsText(networkFile);
+            });
+        }
+        
+        //Setting column names
+        function setColumnNames() {
             $scope.columnNames = [];
             $scope.edgeColumnNames = [];
             $scope.networkColumnNames = [];
 
-            var originalLocation = $location.absUrl().split('?')[0];
-
-            console.log('GistID: ' + gistId);
-            console.log('Network rendering start...');
-
-            /** EVIL CODE: do NOT uncomment. This KILLS the graph. :( Took me 3 hours to get this bug...hmpf**/
-            var styleLocation = $scope.encodedStyle;
-            if (!styleLocation) {
-                visualStyleFile = PRESET_STYLE_FILE;
-            } else {
-                visualStyleFile = $scope.encodedStyle;
+            var oneNode = $scope.nodes[0];
+            for (var colName in oneNode.data) {
+                $scope.columnNames.push(colName);
             }
+            var oneEdge = $scope.edges[0];
+            for (var edgeColName in oneEdge.data) {
+                $scope.edgeColumnNames.push(edgeColName);
+            }
+            for (var netColName in networkData.data) {
+                $scope.networkColumnNames.push(netColName);
+            }
+        }
 
-            var options = {
-                showOverlay: false,
-                minZoom: 0.01,
-                maxZoom: 200,
-                layout: {
-                    name: 'preset'
-                },
-                //style: cytoscape.stylesheet()
-                //Changing shapes of nodes 
+        function reset() {
+            $scope.selectedNodes = {};
+            $scope.selectedEdges = {};
+        }
 
+        /*
+         Event listener setup for Cytoscape.js
+         */
+        function setEventListeners() {
+            $scope.selectedNodes = {};
+            $scope.selectedEdges = {};
 
-                ready: function() {
-                    var cy = this;
-                    cy.load(networkData.elements);
-                    $scope.cy = cy;
-                    setEventListeners();
-                    $scope.cy.style().fromJson($scope.visualStyles
-                            [DEFAULT_VISUAL_STYLE_NAME].style).update();
-                    updateNetworkData(cy);
-                    angular.element('.loading').hide();
-                    //$('#752').addClass('highlighted');
+            var updateFlag = false;
 
-                    //$scope.#752.addClass('highlighted');
-                    /*$scope.cy = this;
-                     $scope.cy.load(networkData.elements);
-                     /*$scope.cy = cy;
-                     $scope.cy.style().fromJson($scope.visualStyles[DEFAULT_VISUAL_STYLE_NAME].style).update();
-                     updateNetworkData(cy);*/
-                    /*if (!gistStyle) {
-                     VisualStyles.query({
-                     styleUrl: visualStyleFile
-                     }, function(vs) {
-                     init(vs);
-                     dropSupport();
-                     setEventListeners();
-                     var newStyle = $routeParams.selectedstyle;
-                     if (!newStyle) {
-                     newStyle = DEFAULT_VISUAL_STYLE_NAME;
-                     }
-                     $scope.cy.style().fromJson($scope.visualStyles[newStyle].style).update();
-                     $scope.style = newStyle;
-                     angular.element('.loading').remove();
-                     });
-                     } else {
-                     init(gistStyle);
-                     dropSupport();
-                     setEventListeners();
-                     $scope.cy.style().fromJson($scope.visualStyles[DEFAULT_VISUAL_STYLE_NAME].style).update();
-                     $scope.style = DEFAULT_VISUAL_STYLE_NAME;
-                     angular.element('.loading').remove();
-                     }*/
+            // Node selection
+            $scope.cy.on('select', 'node', function(event) {
+                var id = event.cyTarget.id();
+                $scope.selectedNodes[id] = event.cyTarget;
+                $scope.selectedNodes[id].addClass('highlighted');
+                updateFlag = true;
+            });
+            
+             // Reset selection
+            $scope.cy.on('unselect', 'node', function(event) {
+                var id = event.cyTarget.id();
+                delete $scope.selectedNodes[id];
+                updateFlag = true;
+            });
+
+            $scope.cy.on('select', 'edge', function(event) {
+                var id = event.cyTarget.id();
+                $scope.selectedEdges[id] = event.cyTarget;
+                updateFlag = true;
+            });
+
+           
+            $scope.cy.on('unselect', 'edge', function(event) {
+                var id = event.cyTarget.id();
+                delete $scope.selectedEdges[id];
+                updateFlag = true;
+            });
+
+            setInterval(function() {
+                if (updateFlag && $scope.browserState.show) {
+                    console.log('* update called');
+                    //displays node data
+                    console.log($scope.nodes[0].data);
+                    console.log($scope.edges[0]);
+                    setColumnNames();                  
+                    $scope.$apply();
+                    updateFlag = false;
                 }
-            };
+            }, 300);
 
+        }
 
+        //Toolbar and overlay controls
+        $scope.toggleTableBrowser = function() {
+            $scope.browserState.show = !$scope.browserState.show;
+        };
 
-            function updateNetworkData(cy) {
-                var dropZone = $('#network');
-                dropZone.on('dragenter', function(e) {
-                    e.stopPropagation();
-                    e.preventDefault();
-                });
+        $scope.toggleOverlay = function() {
+            $scope.overlayState.show = !$scope.overlayState.show;
+        };
 
-                dropZone.on('dragover', function(e) {
-                    e.stopPropagation();
-                    e.preventDefault();
-                });
-                dropZone.on('drop', function(e) {
-                    e.preventDefault();
-                    var files = e.originalEvent.dataTransfer.files;
-                    var networkFile = files[0];
-                    var reader = new FileReader();
-                    reader.onload = function(evt) {
-                        var network = JSON.parse(evt.target.result);
-                        var networkName = network.data.name;
-                        console.log("NetworkName = " + networkName);
-                        if (networkName === undefined) {
-                            networkName = "Unknown";
-                        }
-                        $scope.$apply(function() {
-                            $scope.networks[networkName] = network;
-                            $scope.networkNames.push(networkName);
-                            $scope.currentNetwork = networkName;
-                            console.log($scope.networkNames);
-                        });
-                        cy.load(network.elements);
-                    };
-                    reader.readAsText(networkFile);
-                });
+        $scope.toggleToolbar = function() {
+            $scope.toolbarState.show = !$scope.toolbarState.show;
+        };
+        
+        $scope.toggleSearch = function() {
+            $scope.searchState.show = !$scope.searchState.show;
+        };
+        
+        $scope.toggleCAD = function() {
+            
+            $( ".searchBox" ).append($(".addSlider"));
+            $scope.cadState.show = !$scope.cadState.show;
+        };
+        
+        $scope.toggleModel = function() {
+            $scope.modelState.show = !$scope.modelState.show;
+        };
+
+        $scope.fit = function() {
+            $scope.cy.fit();
+        };
+       
+        //Variables for CAD selecting
+        $scope.currentCad = "no_image.png";
+        var currentCadId;
+        var cadArray = [];
+        var currentIndex;
+        
+        //Table button for controlling "selected" CAD
+        function cadSelect() {
+            //clearing selected node
+            console.log("Clearing selection... ");
+            if($scope.selectedNodes[currentCadId].data('sbol') === undefined || $scope.selectedNodes[currentCadId].data('sbol') === ""){
+                $scope.currentCad = "no_image.png";
             }
-
-            //Setting column names
-            function setColumnNames() {
-                $scope.columnNames = [];
-                $scope.edgeColumnNames = [];
-                $scope.networkColumnNames = [];
-
-                var oneNode = $scope.nodes[0];
-                for (var colName in oneNode.data) {
-                    $scope.columnNames.push(colName);
-                }
-                var oneEdge = $scope.edges[0];
-                for (var edgeColName in oneEdge.data) {
-                    $scope.edgeColumnNames.push(edgeColName);
-                }
-                for (var netColName in networkData.data) {
-                    $scope.networkColumnNames.push(netColName);
-                }
-            }
-
-            function reset() {
-                $scope.selectedNodes = {};
-                $scope.selectedEdges = {};
-            }
-
-            /*
-             Event listener setup for Cytoscape.js
-             */
-            function setEventListeners() {
-                $scope.selectedNodes = {};
-                $scope.selectedEdges = {};
-
-                var updateFlag = false;
-
-                // Node selection
-                $scope.cy.on('select', 'node', function(event) {
-                    var id = event.cyTarget.id();
-                    $scope.selectedNodes[id] = event.cyTarget;
-                    $scope.selectedNodes[id].addClass('highlighted');
-                    updateFlag = true;
-                });
-
-                // Reset selection
-                $scope.cy.on('unselect', 'node', function(event) {
-                    var id = event.cyTarget.id();
-                    delete $scope.selectedNodes[id];
-                    updateFlag = true;
-                });
-
-                $scope.cy.on('select', 'edge', function(event) {
-                    var id = event.cyTarget.id();
-                    $scope.selectedEdges[id] = event.cyTarget;
-                    updateFlag = true;
-                });
-
-
-                $scope.cy.on('unselect', 'edge', function(event) {
-                    var id = event.cyTarget.id();
-                    delete $scope.selectedEdges[id];
-                    updateFlag = true;
-                });
-
-                setInterval(function() {
-                    if (updateFlag && $scope.browserState.show) {
-                        console.log('* update called');
-                        //displays node data
-                        console.log($scope.nodes[0].data);
-                        console.log($scope.edges[0]);
-                        setColumnNames();
-                        $scope.$apply();
-                        updateFlag = false;
-                    }
-                }, 300);
-
-            }
-
-            //Toolbar and overlay controls
-            $scope.toggleTableBrowser = function() {
-                $scope.browserState.show = !$scope.browserState.show;
+            else{
+                $scope.currentCad = $scope.selectedNodes[currentCadId].data('sbol'); //assigning new selected CAD
             };
-
-            $scope.toggleOverlay = function() {
-                $scope.overlayState.show = !$scope.overlayState.show;
-            };
-
-            $scope.toggleToolbar = function() {
-                $scope.toolbarState.show = !$scope.toolbarState.show;
-            };
-
-            $scope.toggleSearch = function() {
-                $scope.searchState.show = !$scope.searchState.show;
-            };
-
-            $scope.toggleCAD = function() {
-
-                $(".searchBox").append($(".addSlider"));
-                $scope.cadState.show = !$scope.cadState.show;
-            };
-
-            $scope.toggleModel = function() {
-                $scope.modelState.show = !$scope.modelState.show;
-            };
-
-            $scope.fit = function() {
-                $scope.cy.fit();
-            };
-
-
-            //Variables for CAD selecting
-            $scope.currentCad;
-            var currentCadId;
-            var cadArray = [];
-            var currentIndex;
-
-            //Table button for controlling "selected" CAD
-            function cadSelect() {
-                //clearing selected node
-                console.log("Clearing selection... ");
-                $scope.currentCad = $scope.selectedNodes[currentCadId].data('sbol');
-                console.log("New selected Cad is:" + currentCadId);
-            }
-            ;
-
-            $scope.cadTable = function(id) {
-                currentCadId = id;
+            console.log("New selected Cad is:" + currentCadId);
+        };
+        
+        $scope.cadTable = function(id) {
+            currentCadId = id;
+            cadSelect();
+        };
+        
+        //Side buttons for selecting CAD
+        $scope.cadLeft = function () {
+            cadArray = [];
+            var cadId;
+            //Creating a traversable array of CAD's
+            for (var key in $scope.selectedNodes) {
+                cadId = ($scope.selectedNodes[key].data('id'));
+                cadArray.push(cadId);
+            }; 
+            
+            currentIndex = cadArray.indexOf(String(currentCadId));
+            currentCadId = cadArray[currentIndex - 1];
+            
+            //Preventing further cycling
+            if(currentCadId === undefined) {
+                currentCadId = cadArray[0];
                 cadSelect();
-            };
+            }
+            else{
+                cadSelect();
+            };      
+        };
+        
+        $scope.cadRight = function () {
+            cadArray = [];
+            var cadId;
+            //Creating a traversable array of CAD's
+            for (var key in $scope.selectedNodes) {
+                cadId = ($scope.selectedNodes[key].data('id'));
+                cadArray.push(cadId);
+            };            
+            currentIndex = cadArray.indexOf(String(currentCadId));
+            currentCadId = cadArray[currentIndex + 1];
+            
+            //Preventing further cycling
+            if(currentCadId === undefined) {
+                currentCadId = cadArray[cadArray.length - 1];
+                cadSelect();
+            }
+            else{
+                cadSelect();
+            };   
+        };
+         
+        //Highlighting and controlling selected paths.
 
-            //Side buttons for selecting CAD
-            $scope.cadLeft = function() {
-                cadArray = [];
-                var cadId;
-                //Creating a traversable array of CAD's
-                for (var key in $scope.selectedNodes) {
-                    cadId = ($scope.selectedNodes[key].data('id'));
-                    cadArray.push(cadId);
-                }
-                ;
+        //Adding result selection to interface, highlighting first result.
+        $scope.searchText;
+        //Array of all dropdown options for resulting paths.
+        $scope.resultIndex = [];
+        //Index of selected circuit that is ng-modeled by the dropdown menu in the app.
+        $scope.selectedCircuit;
 
-                currentIndex = cadArray.indexOf(String(currentCadId));
-                currentCadId = cadArray[currentIndex - 1];
+        //
+        $scope.searchCtrl = function () {
+            //alert($scope.searchText);
+            //the input and output of the user 
+            $scope.input = String($scope.searchInput);
+            $scope.output = String($scope.searchOutput);
+            $scope.BooleanTrue = String($scope.checkTrue);
+            //combination of input = output 
+            $scope.query = ($scope.input + " = " + $scope.output + " " + $scope.BooleanTrue);
+            
+            //the default is false, when checked its true and direct path is set
+            
+            console.log($scope.query);
 
-                //Preventing further cycling
-                if (currentCadId === undefined) {
-                    currentCadId = cadArray[0];
-                    cadSelect();
-                }
-                else {
-                    cadSelect();
-                }
-                ;
-            };
-
-            $scope.cadRight = function() {
-                cadArray = [];
-                var cadId;
-                //Creating a traversable array of CAD's
-                for (var key in $scope.selectedNodes) {
-                    cadId = ($scope.selectedNodes[key].data('id'));
-                    cadArray.push(cadId);
-                }
-                ;
-                currentIndex = cadArray.indexOf(String(currentCadId));
-                currentCadId = cadArray[currentIndex + 1];
-
-                //Preventing further cycling
-                if (currentCadId === undefined) {
-                    currentCadId = cadArray[cadArray.length - 1];
-                    cadSelect();
-                }
-                else {
-                    cadSelect();
-                }
-                ;
-            };
-
-            //Highlighting and controlling selected paths.
-
-            //Adding result selection to interface, highlighting first result.
-            $scope.searchText;
-            //Array of all dropdown options for resulting paths.
+            angular.element('.loading').show();
+            
+            //Clearing selected elements and paths.
+            reset();
+            $scope.cynet.$('*').unselect();
+            //Clearing path results.
             $scope.resultIndex = [];
-            //Index of selected circuite that is ng-modeled by the dropdown menu in the app.
-            $scope.selectedCircuit;
+            //Clearing selected image.
+            $scope.currentCad="no_image.png";
+            
 
-            //
-            $scope.searchCtrl = function() {
-                //alert($scope.searchText);
-                //the input and output of the user 
-                $scope.input = String($scope.searchInput);
-                $scope.output = String($scope.searchOutput);
-                $scope.BooleanTrue = String($scope.checkTrue);
-                //combination of input = output 
-                $scope.query = ($scope.input + " = " + $scope.output + " " + $scope.BooleanTrue);
-
-                //the default is false, when checked its true and direct path is set
-                 //Clearing selected elements and paths.
-                reset();
-                $scope.cynet.$('*').unselect();
-                $scope.resultIndex = [];
-                console.log($scope.query);
-
-                angular.element('.loading').show();
-                searchGet();
-//            $scope.circuitCtrl();
-            };
-
-            //upload page function
-            $scope.upload = function() {
-
-            };
-
-            $scope.reloadPage = function(){
+            networkData = JSON.parse(tempJSON);
+            console.log(networkData);
+            angular.element('.loading').hide();
+            $scope.cynet.load(networkData.elements);
+            
+//            searchGet();
+            //clearing old search results before displaying current paths.
+            $scope.circuitCtrl();
+        };
+        
+        //refreshes the inputs and the page 
+         $scope.reloadPage = function(){
             reset();
             $scope.cynet.$('*').unselect();
             $scope.resultIndex = [];
             $scope.cynet.load(networkDefault.elements);
+            $scope.currentCad="no_image.png";
+         };
+
+        //function for highlighting a path.        
+        $scope.selectPath = function(index) {
+            reset();
+            $scope.cynet.$('*').unselect();
+            for (var count = 0; count < operonsId[index].length; count++){
+                $scope.cynet.$("#"+String(operonsId[index][count])).select();
             };
-
-            //function for highlighting a path.        
-            $scope.selectPath = function(index) {
-                reset();
-                $scope.cynet.$('*').unselect();
-                for (var count = 0; count < speciesId[index].length; count++) {
-                    $scope.cynet.$("#" + String(speciesId[index][count])).select();
-                }
-                ;
-                for (var count = 0; count < inputTransitionsId[index].length; count++) {
-                    $scope.cynet.$("#" + String(inputTransitionsId[index][count])).select();
-                }
-                ;
-                for (var count = 0; count < operonsId[index].length; count++) {
-                    $scope.cynet.$("#" + String(operonsId[index][count])).select();
-                }
-                ;
-                for (var count = 0; count < outputTransitionsId[index].length; count++) {
-                    $scope.cynet.$("#" + String(inputTransitionsId[index][count])).select();
-                }
-                ;
-                for (var count = 0; count < edgesId[index].length; count++) {
-                    $scope.cynet.$("#" + String(edgesId[index][count])).select();
-                }
-                ;
-                console.log("New Circuit Selected.");
+            for (var count = 0; count < speciesId[index].length; count++){
+                $scope.cynet.$("#"+String(speciesId[index][count])).select();
             };
-
-
-           $scope.circuitCtrl = function() {
+            for (var count = 0; count < inputTransitionsId[index].length; count++){
+                $scope.cynet.$("#"+String(inputTransitionsId[index][count])).select();
+            };
+            for (var count = 0; count < outputTransitionsId[index].length; count++){
+                $scope.cynet.$("#"+String(inputTransitionsId[index][count])).select();
+            };
+            for (var count = 0; count < edgesId[index].length; count++){
+                $scope.cynet.$("#"+String(edgesId[index][count])).select();
+            };
+            console.log("New Circuit Selected.");
+        };
+        $scope.circuitCtrl = function() {
             speciesId = networkData.speciesId;
             inputTransitionsId = networkData.inputTransitionsId;
             operonsId = networkData.operonsId;
@@ -443,136 +447,114 @@ angular.module('cyViewerApp')
             $scope.selectedCircuit = $scope.resultIndex[0];
             $scope.selectPath($scope.selectedCircuit.value);
         };
+        
+        $scope.encodeUrl = function() {
+            var pan = $scope.cy.pan();
+            var zoom = $scope.cy.zoom();
+
+            // The following fields should be encoded because it may includes special chars.
+            var bgColor = encodeURIComponent($scope.bg.color);
+            var encodedStyleName = encodeURIComponent($scope.currentVS);
+            console.log(zoom);
+            console.log(encodedStyleName);
+            console.log(bgColor);
+            $scope.encodedUrl = originalLocation + '?selectedstyle=' + encodedStyleName +
+                '&x=' + pan.x + '&y=' + pan.y + '&zoom=' + zoom + '&bgcolor=' + bgColor;
+        };
 
 
+        // Encode visualization URL.
+        $scope.shortenUrl = function() {
+            var request = $http({
+                method: 'post',
+                url: 'https://www.googleapis.com/urlshortener/v1/url',
+                data: {
+                    longUrl: $scope.encodedUrl
+                }
+            });
+            // Store the data-dump of the FORM scope.
+            request.success(
+                function(json) {
+                    $scope.encodedUrl = json.id;
+                    angular.element('#shareUrl').select();
+                }
+            );
+        };
+        
+	/////////////New content
+	$scope.switchNetwork = function(networkName) {
+	     $scope.currentNetwork = networkName;//changed to include currentNetworkData as opposed to only currentNetwork
+            //$scope.currentNetwork = networkName;
+            var network = $scope.networks[networkName];
+            $scope.cy.load(network.elements);
+        };
 
-
-            $scope.encodeUrl = function() {
-                var pan = $scope.cy.pan();
-                var zoom = $scope.cy.zoom();
-
-                // The following fields should be encoded because it may includes special chars.
-                var bgColor = encodeURIComponent($scope.bg.color);
-                var encodedStyleName = encodeURIComponent($scope.currentVS);
-                console.log(zoom);
-                console.log(encodedStyleName);
-                console.log(bgColor);
-                $scope.encodedUrl = originalLocation + '?selectedstyle=' + encodedStyleName +
-                        '&x=' + pan.x + '&y=' + pan.y + '&zoom=' + zoom + '&bgcolor=' + bgColor;
-            };
-
-
-            // Encode visualization URL.
-            $scope.shortenUrl = function() {
-                var request = $http({
-                    method: 'post',
-                    url: 'https://www.googleapis.com/urlshortener/v1/url',
-                    data: {
-                        longUrl: $scope.encodedUrl
-                    }
-                });
-                // Store the data-dump of the FORM scope.
-                request.success(
-                        function(json) {
-                            $scope.encodedUrl = json.id;
-                            angular.element('#shareUrl').select();
-                        }
-                );
-            };
-
-            /////////////New content
-            $scope.switchNetwork = function(networkName) {
-                $scope.currentNetwork = networkName;//changed to include currentNetworkData as opposed to only currentNetwork
-                //$scope.currentNetwork = networkName;
-                var network = $scope.networks[networkName];
-                $scope.cy.load(network.elements);
-            };
-
-            //
+        //
+        // Apply Visual Style
+        //
+        $scope.switchVS = function(vsName) {
             // Apply Visual Style
-            //
-            $scope.switchVS = function(vsName) {
-                // Apply Visual Style
-                $scope.cy.style().fromJson($scope.visualStyles[vsName].style).update();
-                // Set current title
-                $scope.currentVS = vsName;
-            };
-
-
-
-            $http({method: 'GET', url: visualStyleFile}).
+            $scope.cy.style().fromJson($scope.visualStyles[vsName].style).update();
+            // Set current title
+            $scope.currentVS = vsName;
+        };
+	
+        
+	
+	$http({method: 'GET', url: visualStyleFile}).
+            success(function(data) {
+                
+                vs = data;
+                $http({method: 'GET', url: NETWORK_FILE}).
                     success(function(data) {
-
-                        vs = data;
-                        $http({method: 'GET', url: NETWORK_FILE}).
-                                success(function(data) {
-                                    networkData = data;
-                                    networkDefault = data;
-                                    $('#network').cytoscape(options);
-                                    $scope.cynet = $('#network').cytoscape('get');
-                                    init();
-                                }).
-                                error(function(data, status, headers, config) {
-                                });
-                        //             The Actual GET request.
-                        /*
-                         $http({
-                         method: 'GET', 
-                         url: "/src/java/communication/AuthenticationServlet.java"
-                         }).
-                         success(function(data) {
-                         networkData = JSON.parse(data);
-                         networkDefault = JSON.parse(data);
-                         $('#network').cytoscape(options);
-                         $scope.cynet = $('#network').cytoscape('get');
-                         init();
-                         }).
-                         error(function(data, status, headers, config) {
-                         alert(status);
-                         });
-                         */
+                        networkData = data;
+                        networkDefault = data;
+                        $('#network').cytoscape(options);
+                        $scope.cynet = $('#network').cytoscape('get');
+                        init();
+                        $scope.toggleCAD();
                     }).
                     error(function(data, status, headers, config) {
                     });
-
-
-            function searchGet() {
-
-
-                var commandString = $scope.query;
-//                alert(commandString);
-                var userID = "abc";
-
-                if (commandString === "undefined = undefined undefined" || $scope.searchInput === undefined || $scope.searchOutput === undefined) {
-                    alert("Please enter a valid query.");
-                    angular.element('.loading').hide();
-                }
-
-                else {
-
-                    var data = {user: userID, command: 'query', data: commandString}; //package the input into a json file for submission to the server
-                    $.get("../../AuthenticationServlet", data, function(data) { //parameters are: servlet url, data, callback function
-                        data = JSON.stringify(data).replace(/\\n/g, '', "").replace(/\\/g, '', "");
-                        data = data.substr(1, data.length - 2);
-//                        alert(data);
+                //             The Actual GET request.
+                /*
+                $http({
+                    method: 'GET', 
+                    url: "/src/java/communication/AuthenticationServlet.java"
+                    }).
+                    success(function(data) {
                         networkData = JSON.parse(data);
-                        angular.element('.loading').hide();
-
-                        if (networkData.operonsId[0] === null && $scope.BooleanTrue === undefined) {
-                            alert('No circuits found. Please try searching for an Indirect Path (check the box marked "Indirect Path").');
-                        }
-                        else if (networkData.operonsId[0] === null && $scope.BooleanTrue === "true") {
-                            alert('No circuits found in current database. Results may change as the SBiDer web grows.');
-                        }
-                        else {
-                            $scope.cynet.load(networkData.elements);
-                            console.log(networkData);
-                            $scope.circuitCtrl();
-                        }
-
+                        networkDefault = JSON.parse(data);
+                        $('#network').cytoscape(options);
+                        $scope.cynet = $('#network').cytoscape('get');
+                        init();
+                    }).
+                    error(function(data, status, headers, config) {
+                        alert(status);
                     });
-                }
-
+                */
+            }).
+            error(function(data, status, headers, config) {
+            });
+    
+            
+        function searchGet() {
+            
+            
+            var commandString = $scope.query;
+            alert(commandString);
+            var data = {user: userID, command: 'query', data: commandString}; //package the input into a json file for submission to the server
+                  
+                    $.get("../../AuthenticationServlet", data, function(data) { //parameters are: servlet url, data, callback function
+                    data = JSON.stringify(data).replace(/\\n/g, '',"").replace(/\\/g, '',"")
+                    data = data.substr(1,data.length-2)
+                    alert(data)
+                    networkData = JSON.parse(data);
+                    angular.element('.loading').hide();
+                    $scope.cynet.load(networkData.elements);
+                    
+                    });
+                
 //            $http({ 
 //                method: 'GET', 
 //                url: "../../AuthenticationServlet",
@@ -588,58 +570,52 @@ angular.module('cyViewerApp')
 //                }).
 //                error(function(data, status, headers, config) {
 //                });
+        };
+        
+        
+        
+
+	function init() {
+            $scope.nodes = networkData.elements.nodes;
+            //Added function to retrieve edge information
+            $scope.edges = networkData.elements.edges;
+            initVisualStyleCombobox();
+            // Set network name
+            var networkName = networkData.data.name;
+            $scope.currentNetwork = networkData.data.name;//changed to include currentNetworkData as opposed to only currentNetwork
+            $scope.networks[networkName] = networkData;
+            $scope.networkNames.push(networkName);
+        }
+
+	function initVisualStyleCombobox() {
+            var styleNames = [];
+            for (var i = 0; i < vs.length; i++) {
+                var visualStyle = vs[i];
+                var title = visualStyle.title;
+                styleNames[i] = title;
+                $scope.visualStyles[title] = visualStyle;
+                $scope.styleNames[i] = title;
             }
-            ;
+        }
+              
+    });
 
 
-
-
-            function init() {
-                $scope.nodes = networkData.elements.nodes;
-                //Added function to retrieve edge information
-                $scope.edges = networkData.elements.edges;
-                initVisualStyleCombobox();
-                // Set network name
-                var networkName = networkData.data.name;
-                $scope.currentNetwork = networkData.data.name;//changed to include currentNetworkData as opposed to only currentNetwork
-                $scope.networks[networkName] = networkData;
-                $scope.networkNames.push(networkName);
-            }
-
-            function initVisualStyleCombobox() {
-                var styleNames = [];
-                for (var i = 0; i < vs.length; i++) {
-                    var visualStyle = vs[i];
-                    var title = visualStyle.title;
-                    styleNames[i] = title;
-                    $scope.visualStyles[title] = visualStyle;
-                    $scope.styleNames[i] = title;
-                }
-            }
-
-            $scope.messageMe = function() {
-                alert('dsdsd');
-                window.location.href = "";
-            };
-
-        });
-
-
-/*function CarouselDemoCtrl($scope) {
- $scope.myInterval = 5000;
- var slides = $scope.slides = [];
- $scope.addSlide = function() {
- var newWidth = 50 + slides.length;
- slides.push({
- image: 'http://placekitten.com/' + newWidth + '/30',
- text: ['More','Extra','Lots of','Surplus'][slides.length % 4] + ' ' +
- ['Cats', 'Kittys', 'Felines', 'Cutes'][slides.length % 4]
- });
- };
- for (var i=0; i<4; i++) {
- $scope.addSlide();
- }
- };*/
+    /*function CarouselDemoCtrl($scope) {
+  $scope.myInterval = 5000;
+  var slides = $scope.slides = [];
+  $scope.addSlide = function() {
+    var newWidth = 50 + slides.length;
+    slides.push({
+      image: 'http://placekitten.com/' + newWidth + '/30',
+      text: ['More','Extra','Lots of','Surplus'][slides.length % 4] + ' ' +
+        ['Cats', 'Kittys', 'Felines', 'Cutes'][slides.length % 4]
+    });
+  };
+  for (var i=0; i<4; i++) {
+    $scope.addSlide();
+  }
+};*/ 	
 
 /* 
  * To change this license header, choose License Headers in Project Properties.

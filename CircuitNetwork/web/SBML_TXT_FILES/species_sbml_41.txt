@@ -1,0 +1,5 @@
+<qual:listOfQualitativeSpecies>
+    <qual:qualitativeSpecies    qual:compartment="chemical_species" qual:constant="false"
+                                qual:id="spe_41" qual:maxLevel="1"
+                                qual:name="rfp"/>
+</qual:listOfQualitativeSpecies>

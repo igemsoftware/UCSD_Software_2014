@@ -1,0 +1,4 @@
+<qual:listOfQualitativeSpecies>
+    <qual:qualitativeSpecies    qual:compartment="plasmid" qual:constant="false"
+                                qual:id="ope_7-1" qual:maxLevel="1"/>
+</qual:listOfQualitativeSpecies>
