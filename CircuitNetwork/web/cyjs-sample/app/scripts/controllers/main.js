@@ -292,9 +292,20 @@ angular.module('cyViewerApp')
 
             //Variables for CAD selecting
             $scope.currentCad = "no_image.png";
+            $scope.currentCadName = "No image selected";
             var currentCadId;
             var cadArray = [];
             var currentIndex;
+            
+            //Sets the CAD image slider's caption to the node name if possible.
+            function cadNameSet(id){
+                if($scope.selectedNodes[id].data('name') === undefined){
+                    $scope.currentCadName = "Transition";
+                }
+                else{
+                    $scope.currentCadName = $scope.selectedNodes[id].data('name');
+                };                
+            };
             
             //Randomizes placeholder images for nodes without SBOL attribute.
             var randomImage;
@@ -342,8 +353,9 @@ angular.module('cyViewerApp')
                 else {
                     $scope.currentCad = $scope.selectedNodes[currentCadId].data('sbol'); //assigning new selected CAD
                 };
+                
+                cadNameSet(currentCadId);
                 console.log("New selected Cad is:" + currentCadId);
-                console.log($scope.currentCad);
             }
             ;
 
@@ -416,6 +428,11 @@ angular.module('cyViewerApp')
                 $scope.input = String($scope.searchInput);
                 $scope.output = String($scope.searchOutput);
                 $scope.BooleanTrue = String($scope.checkTrue);
+                //Catching error in BooleanTrue that occurs when multiple 
+                //searches are run without page reload.
+                if($scope.BooleanTrue === "false"){
+                    $scope.BooleanTrue = "undefined";
+                };
                 //combination of input = output 
                 $scope.query = ($scope.input + " = " + $scope.output + " " + $scope.BooleanTrue);
 
@@ -432,15 +449,16 @@ angular.module('cyViewerApp')
                 $scope.resultIndex = [];
                 //Clearing selected image.
                 $scope.currentCad = "no_image.png";
+                $scope.currentCadName = "No image selected";
 
 
-            networkData = JSON.parse(tempJSON);
-            console.log(networkData);
-            angular.element('.loading').hide();
-            $scope.cynet.load(networkData.elements);
-            $scope.circuitCtrl();
+//            networkData = JSON.parse(tempJSON);
+//            console.log(networkData);
+//            angular.element('.loading').hide();
+//            $scope.cynet.load(networkData.elements);
+//            $scope.circuitCtrl();
               
-//                searchGet();
+                searchGet();
             };
 
             //refreshes the inputs and the page 
@@ -450,6 +468,7 @@ angular.module('cyViewerApp')
                 $scope.resultIndex = [];
                 $scope.cynet.load(networkDefault.elements);
                 $scope.currentCad = "no_image.png";
+                $scope.currentCadName = "No image selected";
             };
 
             //function for highlighting a path.        
@@ -588,17 +607,38 @@ angular.module('cyViewerApp')
 
                 var commandString = $scope.query;
                 alert(commandString);
-                var data = {user: userID, command: 'query', data: commandString}; //package the input into a json file for submission to the server
-
-                $.get("../../AuthenticationServlet", data, function(data) { //parameters are: servlet url, data, callback function
-                    data = JSON.stringify(data).replace(/\\n/g, '', "").replace(/\\/g, '', "");
-                    data = data.substr(1, data.length - 2);
-                    console.log(data);
-                    networkData = JSON.parse(data);
+                if (commandString === "undefined = undefined undefined" || $scope.searchInput === undefined || $scope.searchOutput === undefined) {
+                    alert("Please enter a valid query.");
                     angular.element('.loading').hide();
-                    $scope.cynet.load(networkData.elements);
-                    $scope.circuitCtrl();
-                });
+                }
+
+                else {
+
+                    var data = {user: userID, command: 'query', data: commandString}; //package the input into a json file for submission to the server
+                    $.get("../../AuthenticationServlet", data, function(data) { //parameters are: servlet url, data, callback function
+                        data = JSON.stringify(data).replace(/\\n/g, '', "").replace(/\\/g, '', "");
+                        data = data.substr(1, data.length - 2);
+//                        alert(data);
+                        networkData = JSON.parse(data);
+                        angular.element('.loading').hide();
+
+                        if (typeof networkData.error === "string") {
+                            alert(networkData.error);
+                        }
+                        else if (networkData.operonsId[0] === null && $scope.BooleanTrue === undefined) {
+                            alert('No circuits found. Please try searching for an Indirect Path (check the box marked "Indirect Path").');
+                        }
+                        else if (networkData.operonsId[0] === null && $scope.BooleanTrue === "true") {
+                            alert('No circuits found in current database. Results may change as the SBiDer web grows.');
+                        }
+                        else {
+                            $scope.cynet.load(networkData.elements);
+                            console.log(networkData);
+                            $scope.circuitCtrl();
+                        };
+
+                    });
+                };
 
 //            $http({ 
 //                method: 'GET', 

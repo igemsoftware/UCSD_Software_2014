@@ -34,6 +34,7 @@
         <div ng-show="cadState.show" class="CAD">
             <!--<img src ="http://cidar1.bu.edu:5801/pigeonHelp/file.173.8.230.1931098-trans.png" width="110%" height="110%" id = "book"/>-->
             <img id="displayedCad" class="CAD" ng-src="../../pigeonImages/{{currentCad}}"/>
+            <p class="CAD">{{currentCadName}}</p>
             <button class="cadLeft" ng-click="cadLeft()"><span class="glyphicon glyphicon-chevron-left"></span></button>
             <button class="cadRight" ng-click="cadRight()"><span class="glyphicon glyphicon-chevron-right"></span></button>
         </div>
@@ -64,9 +65,12 @@
                     <thead>
                         <tr>
                             <td>Select Image</td>
-                            <td ng-repeat="columnName in columnNames">
+                            <!-- Sets a column for all attributes in node.data() -->
+<!--                            <td ng-repeat="columnName in columnNames">
                                 {{columnName}}
-                            </td>
+                            </td>-->
+                            <td>Name</td>
+                            <td>MIRIAM</td>
                             <td>SBML</td>
 							
                         </tr>
@@ -77,9 +81,12 @@
                                 <!-- Code for images in the table-->
                                 <button id="{{ node.data('id') }}" ng-click="cadTable(node.data('id'))">{{ node.data("id") }}</button>
                             </td>
-                            <td ng-repeat="colName in columnNames">
+                            <!-- Displays a column for all node.data() attributes -->
+<!--                            <td ng-repeat="colName in columnNames">
                                 {{node.data(colName)}}
-                            </td>
+                            </td>-->
+                            <td>{{node.data('name')}}</td>
+                            <td></td>
                             <td>
                                 <!-- Button to download SBML texts -->
                                 <a class="sbmlDownload" id="{{node.data('sbml')}}" href="../../SBML_TXT_FILES/{{node.data('sbml')}}" target="_blank" download>Download SBML Text</a>
