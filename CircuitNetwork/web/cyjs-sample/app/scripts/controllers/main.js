@@ -295,20 +295,45 @@ angular.module('cyViewerApp')
             var currentCadId;
             var cadArray = [];
             var currentIndex;
-
+            
+            //Randomizes placeholder images for nodes without SBOL attribute.
+            var randomImage;
+            function placeholderRandom(){
+                var roll = Math.floor((Math.random() * 10) + 1)/2;
+//                console.log(roll);
+                if(roll <= 1) {
+                    randomImage = 1;
+                }
+                else if(roll > 1 && roll <=2){
+                    randomImage = 2;
+                }
+                else if(roll > 2 && roll <=3){
+                    randomImage = 3;
+                }
+                else if(roll > 3 && roll <=4){
+                    randomImage = 4;
+                }
+                else{
+                    randomImage = 5;
+                };
+            };
+            
             //Table button for controlling "selected" CAD
             function cadSelect() {
                 //clearing selected node
                 console.log("Clearing selection... ");
-                if ($scope.selectedNodes[currentCadId].data('sbol') === undefined || $scope.selectedNodes[currentCadId].data('sbol') === "") {
+                if ($scope.selectedNodes === undefined || $scope.selectedNodes[currentCadId].data('sbol') === undefined || $scope.selectedNodes[currentCadId].data('sbol') === "") {             
+                    
+                    placeholderRandom();
+                    
                     if($scope.selectedNodes[currentCadId].hasClass("species") === true) {
-                        $scope.currentCad = "holder_species_1.png";
+                        $scope.currentCad = "holder_species_" + String(randomImage) + ".png";
                     }
                     else if($scope.selectedNodes[currentCadId].hasClass("input") === true) {
-                        $scope.currentCad = "holder_input_transition_1.png";
+                        $scope.currentCad = "holder_input_transition_" + String(randomImage) + ".png";
                     }
                     else if($scope.selectedNodes[currentCadId].hasClass("output") === true) {
-                        $scope.currentCad = "holder_output_transition_1.png";
+                        $scope.currentCad = "holder_output_transition_" + String(randomImage) + ".png";
                     }
                     else{
                         $scope.currentCad = "no_image.png";
@@ -409,14 +434,13 @@ angular.module('cyViewerApp')
                 $scope.currentCad = "no_image.png";
 
 
-//            networkData = JSON.parse(tempJSON);
-//            console.log(networkData);
-//            angular.element('.loading').hide();
-//            $scope.cynet.load(networkData.elements);
-//            $scope.circuitCtrl();
+            networkData = JSON.parse(tempJSON);
+            console.log(networkData);
+            angular.element('.loading').hide();
+            $scope.cynet.load(networkData.elements);
+            $scope.circuitCtrl();
               
-                searchGet();
-                //clearing old search results before displaying current paths.
+//                searchGet();
             };
 
             //refreshes the inputs and the page 
