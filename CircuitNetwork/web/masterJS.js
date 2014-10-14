@@ -16,7 +16,7 @@ $(document).ready(function(){
        window.location.href="AboutPage.html"; 
     });
      $("#documentation").click(function(){
-       window.location.href="sampleHome.html"; 
+       window.location.href="TutorialPage.html"; 
     });
      $("#wiki").click(function(){
        window.location.href="http://2014.igem.org/Team:UCSD_Software"; 
@@ -31,6 +31,8 @@ $(document).ready(function(){
      $("#contact").click(function(){
        window.location.href="contactPage.html"; 
     });
+    
+     
     
     
     
