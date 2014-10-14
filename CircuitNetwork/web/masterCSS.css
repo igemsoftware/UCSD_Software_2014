@@ -183,3 +183,24 @@ h1{
     border-radius: 15px;
 }
 
+#whereAt{
+    background-color: #e2e2e4;
+    height: 500px;
+    width: auto;
+}
+
+.tut{
+    height: 300px;
+    width:auto;
+    font-size: 250px;
+    text-align: center;
+    margin: auto;
+    background-color: #e2e2e4;
+    
+    
+    
+}
+
+.tut {
+    
+}
