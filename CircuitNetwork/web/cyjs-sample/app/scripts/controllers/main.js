@@ -301,13 +301,24 @@ angular.module('cyViewerApp')
                 //clearing selected node
                 console.log("Clearing selection... ");
                 if ($scope.selectedNodes[currentCadId].data('sbol') === undefined || $scope.selectedNodes[currentCadId].data('sbol') === "") {
-                    $scope.currentCad = "no_image.png";
+                    if($scope.selectedNodes[currentCadId].hasClass("species") === true) {
+                        $scope.currentCad = "holder_species_1.png";
+                    }
+                    else if($scope.selectedNodes[currentCadId].hasClass("input") === true) {
+                        $scope.currentCad = "holder_input_transition_1.png";
+                    }
+                    else if($scope.selectedNodes[currentCadId].hasClass("output") === true) {
+                        $scope.currentCad = "holder_output_transition_1.png";
+                    }
+                    else{
+                        $scope.currentCad = "no_image.png";
+                    };
                 }
                 else {
                     $scope.currentCad = $scope.selectedNodes[currentCadId].data('sbol'); //assigning new selected CAD
-                }
-                ;
+                };
                 console.log("New selected Cad is:" + currentCadId);
+                console.log($scope.currentCad);
             }
             ;
 
@@ -402,7 +413,8 @@ angular.module('cyViewerApp')
 //            console.log(networkData);
 //            angular.element('.loading').hide();
 //            $scope.cynet.load(networkData.elements);
-//              
+//            $scope.circuitCtrl();
+              
                 searchGet();
                 //clearing old search results before displaying current paths.
             };
@@ -555,9 +567,9 @@ angular.module('cyViewerApp')
                 var data = {user: userID, command: 'query', data: commandString}; //package the input into a json file for submission to the server
 
                 $.get("../../AuthenticationServlet", data, function(data) { //parameters are: servlet url, data, callback function
-                    data = JSON.stringify(data).replace(/\\n/g, '', "").replace(/\\/g, '', "")
-                    data = data.substr(1, data.length - 2)
-                    console.log(data)
+                    data = JSON.stringify(data).replace(/\\n/g, '', "").replace(/\\/g, '', "");
+                    data = data.substr(1, data.length - 2);
+                    console.log(data);
                     networkData = JSON.parse(data);
                     angular.element('.loading').hide();
                     $scope.cynet.load(networkData.elements);
