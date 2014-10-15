@@ -294,7 +294,6 @@ def determine_parent_keyword(component_keyword):
 def determine_and_insert(connection, cursor, component_keyword, component_data = [], parent_component_id = ""):
     """Determine insertion method and insert into into the database."""
 
-    print "component_data:", component_data
     
     if component_keyword == "Plasmid":
         data_id = insert_new_plasmid(cursor, *component_data)
@@ -427,14 +426,12 @@ def insert_new_device(connection, cursor, device):
 
 def main():
     device_info = sys.argv[1::]
-    print device_info
     conn, cur = db.db_open("sbider_test_2.db")
     sbol_files = insert_new_device(conn, cur, device_info)
     sg.create_json_whole_network_file("whole_network.json", cur)
     db.db_close(conn,cur)
     gn.create_whole_network_sbml()
 
-    print sbol_files
     return sbol_files        
 
 #reset_db()  

@@ -65,7 +65,7 @@ public class ControllerMain {
             p = Runtime.getRuntime().exec(command);
             p.waitFor();
 //            BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
-            BufferedReader reader = new BufferedReader(new InputStreamReader(p.getErrorStream()));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
 
             String line = "";
             while ((line = reader.readLine()) != null) {
