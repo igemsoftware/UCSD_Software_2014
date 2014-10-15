@@ -616,8 +616,29 @@ angular.module('cyViewerApp')
             };
             $scope.updateString;
 
-            $scope.dbUpdateCtrl = function(){
+            $scope.plasmidStringParser = function(){
+                var plas = $scope.plasmidUpdate;
+                $scope.updateString = "plasmid:" + plas.name + "," + String(plas.pubMedId) + "\t";
                 
+                for (var opeNum = 0; opeNum < plas.operons.length; opeNum ++){
+                    var ope = plas.operons[opeNum].operon;
+                    $scope.updateString += "operon:" + ope.name + "," + ope.direction + "\t";
+                    
+                    for(var itNum = 0; itNum < ope.inputTransitions.length; itNum++){
+                        var it = ope.inputTransitions[itNum].inputTransition;
+                        $scope.updateString += "inputTransition:" + it.promoter + "," + it.logic + "\t";
+                        for(var inSpecNum = 0; inSpecNum < it.inputSpecies.length; inSpecNum ++){
+                            var inSpec = it.inputSpecies[inSpecNum].inputSpecies;
+                            $scope.updateString += "inputSpecies:" + inSpec.name + "," +inSpec.type + "," +inSpec.repression + "\t";
+                        };
+                    };
+                    
+                    for (var outSpecNum = 0; outSpecNum < ope.outputSpecies.length; outSpecNum ++){
+                        var outSpec = ope.outputSpecies[outSpecNum].outputSpecies;
+                        $scope.updateString += "outputSpecies:" + outSpec.name + "," + outSpec.type + "\t";
+                    };
+                };
+                console.log($scope.updateString);
             };
 
             $scope.encodeUrl = function() {
