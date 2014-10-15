@@ -607,7 +607,7 @@ angular.module('cyViewerApp')
 
                 var commandString = $scope.query;
                 alert(commandString);
-                if (commandString === "undefined = undefined undefined" || $scope.searchInput === undefined || $scope.searchOutput === undefined) {
+                if (commandString === "undefined = undefined undefined" || $scope.searchInput === undefined || $scope.searchInput === "" || $scope.searchOutput === undefined || $scope.searchOutput === "") {
                     alert("Please enter a valid query.");
                     angular.element('.loading').hide();
                 }
