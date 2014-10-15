@@ -292,21 +292,69 @@ angular.module('cyViewerApp')
 
             //Variables for CAD selecting
             $scope.currentCad = "no_image.png";
+            $scope.currentCadName = "No image selected";
             var currentCadId;
             var cadArray = [];
             var currentIndex;
-
+            
+            //Sets the CAD image slider's caption to the node name if possible.
+            function cadNameSet(id){
+                if($scope.selectedNodes[id].data('name') === undefined){
+                    $scope.currentCadName = "Transition";
+                }
+                else{
+                    $scope.currentCadName = $scope.selectedNodes[id].data('name');
+                };                
+            };
+            
+            //Randomizes placeholder images for nodes without SBOL attribute.
+            var randomImage;
+            function placeholderRandom(){
+                var roll = Math.floor((Math.random() * 10) + 1)/2;
+//                console.log(roll);
+                if(roll <= 1) {
+                    randomImage = 1;
+                }
+                else if(roll > 1 && roll <=2){
+                    randomImage = 2;
+                }
+                else if(roll > 2 && roll <=3){
+                    randomImage = 3;
+                }
+                else if(roll > 3 && roll <=4){
+                    randomImage = 4;
+                }
+                else{
+                    randomImage = 5;
+                };
+            };
+            
             //Table button for controlling "selected" CAD
             function cadSelect() {
                 //clearing selected node
                 console.log("Clearing selection... ");
-                if ($scope.selectedNodes[currentCadId].data('sbol') === undefined || $scope.selectedNodes[currentCadId].data('sbol') === "") {
-                    $scope.currentCad = "no_image.png";
+                if ($scope.selectedNodes === undefined || $scope.selectedNodes[currentCadId].data('sbol') === undefined || $scope.selectedNodes[currentCadId].data('sbol') === "") {             
+                    
+                    placeholderRandom();
+                    
+                    if($scope.selectedNodes[currentCadId].hasClass("species") === true) {
+                        $scope.currentCad = "holder_species_" + String(randomImage) + ".png";
+                    }
+                    else if($scope.selectedNodes[currentCadId].hasClass("input") === true) {
+                        $scope.currentCad = "holder_input_transition_" + String(randomImage) + ".png";
+                    }
+                    else if($scope.selectedNodes[currentCadId].hasClass("output") === true) {
+                        $scope.currentCad = "holder_output_transition_" + String(randomImage) + ".png";
+                    }
+                    else{
+                        $scope.currentCad = "no_image.png";
+                    };
                 }
                 else {
                     $scope.currentCad = $scope.selectedNodes[currentCadId].data('sbol'); //assigning new selected CAD
-                }
-                ;
+                };
+                
+                cadNameSet(currentCadId);
                 console.log("New selected Cad is:" + currentCadId);
             }
             ;
@@ -380,6 +428,11 @@ angular.module('cyViewerApp')
                 $scope.input = String($scope.searchInput);
                 $scope.output = String($scope.searchOutput);
                 $scope.BooleanTrue = String($scope.checkTrue);
+                //Catching error in BooleanTrue that occurs when multiple 
+                //searches are run without page reload.
+                if($scope.BooleanTrue === "false"){
+                    $scope.BooleanTrue = "undefined";
+                };
                 //combination of input = output 
                 $scope.query = ($scope.input + " = " + $scope.output + " " + $scope.BooleanTrue);
 
@@ -396,15 +449,16 @@ angular.module('cyViewerApp')
                 $scope.resultIndex = [];
                 //Clearing selected image.
                 $scope.currentCad = "no_image.png";
+                $scope.currentCadName = "No image selected";
 
 
 //            networkData = JSON.parse(tempJSON);
 //            console.log(networkData);
 //            angular.element('.loading').hide();
 //            $scope.cynet.load(networkData.elements);
-//              
+//            $scope.circuitCtrl();
+              
                 searchGet();
-                //clearing old search results before displaying current paths.
             };
 
             //refreshes the inputs and the page 
@@ -414,6 +468,7 @@ angular.module('cyViewerApp')
                 $scope.resultIndex = [];
                 $scope.cynet.load(networkDefault.elements);
                 $scope.currentCad = "no_image.png";
+                $scope.currentCadName = "No image selected";
             };
 
             //function for highlighting a path.        
@@ -455,6 +510,114 @@ angular.module('cyViewerApp')
                 ;
                 $scope.selectedCircuit = $scope.resultIndex[0];
                 $scope.selectPath($scope.selectedCircuit.value);
+            };
+            
+            $scope.plasmidUpdate = {
+                "name" : "Name",
+                "pubMedId" : "PubMed Id: PMC#",
+                "operons": [                    
+                    {"operon":{
+                        "name": "Name",
+                        "direction": "Left or Right",
+                        "inputTransitions":[
+                            {"inputTransition":{
+                                    "promoter":"Name",
+                                    "logic": "Boolean Logic Type",
+                                    "inputSpecies":[
+                                        {"inputSpecies":{
+                                            "name": "Name",
+                                            "type": "Type",
+                                            "repression": "Repressor? True or False"
+                                        }},
+                                        {"inputSpecies":{
+                                            "name": "Name",
+                                            "type": "Type",
+                                            "repression": "Repressor? True or False"
+                                        }}
+                                    ]
+                            }},
+                            {"inputTransition":{
+                                    "promoter":"Name",
+                                    "logic": "Boolean Logic Type",
+                                    "inputSpecies":[
+                                        {"inputSpecies":{
+                                            "name": "Name",
+                                            "type": "Type",
+                                            "repression": "Repressor? True or False"
+                                        }},
+                                        {"inputSpecies":{
+                                            "name": "Name",
+                                            "type": "Type",
+                                            "repression": "Repressor? True or False"
+                                        }}
+                                    ]
+                            }}
+                        ],
+                        "outputSpecies":[
+                            {"outputSpecies":{
+                                "name": "Name",
+                                "type": "Type"
+                            }},
+                            {"outputSpecies":{
+                                "name": "Name",
+                                "type": "Type"
+                            }}
+                        ]
+                    }},
+                    {"operon":{
+                        "name": "Name",
+                        "direction": "Left or Right",
+                        "inputTransitions":[
+                            {"inputTransition":{
+                                    "promoter":"Name",
+                                    "logic": "Boolean Logic Type",
+                                    "inputSpecies":[
+                                        {"inputSpecies":{
+                                            "name": "Name",
+                                            "type": "Type",
+                                            "repression": "Repressor? True or False"
+                                        }},
+                                        {"inputSpecies":{
+                                            "name": "Name",
+                                            "type": "Type",
+                                            "repression": "Repressor? True or False"
+                                        }}
+                                    ]
+                            }},
+                            {"inputTransition":{
+                                    "promoter":"Name",
+                                    "logic": "Boolean Logic Type",
+                                    "inputSpecies":[
+                                        {"inputSpecies":{
+                                            "name": "Name",
+                                            "type": "Type",
+                                            "repression": "Repressor? True or False"
+                                        }},
+                                        {"inputSpecies":{
+                                            "name": "Name",
+                                            "type": "Type",
+                                            "repression": "Repressor? True or False"
+                                        }}
+                                    ]
+                            }}
+                        ],
+                        "outputSpecies":[
+                            {"outputSpecies":{
+                                "name": "Name",
+                                "type": "Type"
+                            }},
+                            {"outputSpecies":{
+                                "name": "Name",
+                                "type": "Type"
+                            }}
+                        ]
+                    }} 
+                ]                
+            };
+            $scope.updateString;
+
+            $scope.dbUpdateCtrl = function(){
+                
             };
 
             $scope.encodeUrl = function() {
@@ -552,17 +715,38 @@ angular.module('cyViewerApp')
 
                 var commandString = $scope.query;
                 alert(commandString);
-                var data = {user: userID, command: 'query', data: commandString}; //package the input into a json file for submission to the server
-
-                $.get("../../AuthenticationServlet", data, function(data) { //parameters are: servlet url, data, callback function
-                    data = JSON.stringify(data).replace(/\\n/g, '', "").replace(/\\/g, '', "")
-                    data = data.substr(1, data.length - 2)
-                    console.log(data)
-                    networkData = JSON.parse(data);
+                if (commandString === "undefined = undefined undefined" || $scope.searchInput === undefined || $scope.searchInput === "" || $scope.searchOutput === undefined || $scope.searchOutput === "") {
+                    alert("Please enter a valid query.");
                     angular.element('.loading').hide();
-                    $scope.cynet.load(networkData.elements);
-                    $scope.circuitCtrl();
-                });
+                }
+
+                else {
+
+                    var data = {user: userID, command: 'query', data: commandString}; //package the input into a json file for submission to the server
+                    $.get("../../AuthenticationServlet", data, function(data) { //parameters are: servlet url, data, callback function
+                        data = JSON.stringify(data).replace(/\\n/g, '', "").replace(/\\/g, '', "");
+                        data = data.substr(1, data.length - 2);
+//                        alert(data);
+                        networkData = JSON.parse(data);
+                        angular.element('.loading').hide();
+
+                        if (typeof networkData.error === "string") {
+                            alert(networkData.error);
+                        }
+                        else if (networkData.operonsId[0] === null && $scope.BooleanTrue === undefined) {
+                            alert('No circuits found. Please try searching for an Indirect Path (check the box marked "Indirect Path").');
+                        }
+                        else if (networkData.operonsId[0] === null && $scope.BooleanTrue === "true") {
+                            alert('No circuits found in current database. Results may change as the SBiDer web grows.');
+                        }
+                        else {
+                            $scope.cynet.load(networkData.elements);
+                            console.log(networkData);
+                            $scope.circuitCtrl();
+                        };
+
+                    });
+                };
 
 //            $http({ 
 //                method: 'GET', 
