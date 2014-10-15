@@ -542,7 +542,7 @@ def make_ope_id_rep_spe_id_dic(cursor):
     merged_ope_it_spe_not = cursor.execute('''SELECT OperonInputTransition.ope_id, 
                                               OperonInputTransition.it_id,
                                               InputTransitionSpecies.spe_id,
-                                              InputTransitionSpecies.reverse
+                                              InputTransitionSpecies.repression
                                               FROM   OperonInputTransition,
                                               InputTransitionSpecies 
                                               WHERE  OperonInputTransition.it_id = InputTransitionSpecies.it_id''')

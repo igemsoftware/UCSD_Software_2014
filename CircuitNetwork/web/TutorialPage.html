@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="masterCSS.css">
+        <script src="masterJS.js"></script>
+    </head>
+    <body>
+        <!--navbar --> 
+        <div class="container-fluid">
+            
+            <!--navbar --> 
+        
+            <nav class="navbar navbar-header nav-justified" role="navigation" id='nav'>
+                <div class="btn-group  btn-group">
+                    <div class="btn btn-lg " id="home">Home</div>
+                    <div class="btn btn-lg " id="about">About</div>
+                    <div class="btn btn-lg " id="documentation">Documentation</div>
+                    <div class="btn btn-lg" id="wiki">Wiki</div>
+                    <div class="btn btn-lg" id="app">Application</div>
+                   <div class="btn btn-lg" id="contact">Contact</div>
+                    <div class="btn btn-lg"  data-toggle="modal" data-target="#loginModal">Register</div>
+                    
+               </div>
+               
+                <div class="btn btn-lg pull-right " id="log" data-toggle="modal" data-target="#loginModal" ><span class="glyphicon glyphicon-log-in" id="userInfo"> LOGIN</span></div>
+                 
+                
+            </nav>
+       
+        </div>     
+     <!--navbar ends-->
+     
+     <div class="container-fluid">
+         <div class='row'>
+             <div class='col-md-6 '><a href='#'><div class='thumbnail tut' data-toggle="modal" data-target="#AppModal"><span class='glyphicon glyphicon-star-empty'></span></div></a>
+                 <h1 class='text-center text-primary'>Application Tutorial</h1>
+             </div>
+             <div class='col-md-6'><a href='#'><div class='thumbnail tut' data-toggle="modal" data-target="#Video"><span class='glyphicon glyphicon-facetime-video'></span></div></a>
+             <h1 class='text-center text-primary'>Video Tutorials</h1>
+             </div>
+         </div>
+          <div class='row'>
+              <div class='col-md-6'><a href='#'><div class='thumbnail tut' data-toggle="modal" data-target="#Documentation"><span class='glyphicon glyphicon-book'></span></div></a>
+              <h1 class='text-center text-primary'>Documentation</h1>
+              </div>
+              <div class='col-md-6'><a href='#'><div class='thumbnail tut' data-toggle="modal" data-target="#"><span class='glyphicon glyphicon-thumbs-up'></span></div></a>
+                  <h1 class='text-center text-primary'>Launch Application</h1>
+              </div>
+         </div>
+         </div>
+         
+     <!-- Modal -->
+<div class="modal fade" id="AppModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+     
+ <!-- Modal -->
+<div class="modal fade" id="Video" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+ <!-- Modal -->
+<div class="modal fade" id="Documentation" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+ <!--login modal-->
+            <div class="modal fade  modal-lg text-center" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header text-center">
+                      <div class="btn btn-lg pull-right " data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></div>  
+                      <h1 >Welcome!</h1>
+                      
+                  </div>
+                   <div class="modal-body" >
+                        
+                  
+            
+                      
+                 
+                      <div class="row">
+                     
+                     <div class="col-md-6">
+                         <div class="thumbnail logger text-center" >
+                             <div class="page-header"><h2>Log In</h2></div>
+                             <div class="input-group input-group-lg" id="registration">
+                                 
+                                 <input type="text" id="name" placeholder="Email" class="form-control text-center">
+                                 <input type="password" id="password" placeholder="Password" class="form-control text-center">
+                                
+                             </div>
+                             <br>
+                              <div class="btn btn-lg btn-primary" id="login">Log In!</div>
+                         </div>
+                     </div>
+                     <div class="col-md-6">
+                         <div class="thumbnail logger">
+                             <div class="page-header"><h2>Register</h2></div>
+                             <div class="input-group input-group-lg " id="registration">
+                                 
+                            <input type="text" id="newName" class="form-control text-center" placeholder="Email">
+                            <input type="password" id="newPassword" class="form-control text-center" placeholder="Password">
+                         </div>
+                             <br>
+                              <div class="btn btn-lg btn-primary" id="register">Register!</div>
+                     </div>
+                 </div>
+                      
+                      <div class="row btn-group btn-group-lg btn-group-justified">
+                          <div class="col-sm-4">
+                              <a href="index.html"><div class="btn btn-link">
+                                 Home
+                                  </div></a>  
+                          </div>
+                          <div class="col-sm-4">
+                              <a href=""><div class="btn btn-link">
+                                 Tutorial
+                                  </div></a>
+                          </div>
+                          <div class="col-sm-4">
+                              <a href="AboutPage.html"><div class="btn btn-link" id="about">
+                                 About Us
+                                  </div></a>
+                          </div>
+                      </div>
+           
+        
+       
+</div>
+      </div>
+      
+    </div>
+  </div>
+            </div>
+
+            <!--end of modal-->
+ 
+ 
+     
+          
+    </body>
+</html>

@@ -813,7 +813,7 @@ def create_json_network_string(species_nodes_list, input_transitions_nodes_list,
 
     num_runs = 0
     for node in output_transitions_nodes_list:
-        ot_sbml = "ot_sbml_%s.txt" % node[0].replace("ope_", "")
+        ot_sbml = "ot_sbml_%s.txt" % node[0].replace("ot_", "")
 
         to_return += '{'
         to_return += '"data":{'
@@ -858,4 +858,3 @@ def create_json_network_string(species_nodes_list, input_transitions_nodes_list,
     to_return += path_json_highlighter + '}'
 
     return to_return
-
