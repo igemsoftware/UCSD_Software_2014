@@ -19,7 +19,7 @@ $(document).ready(function(){
        window.location.href="TutorialPage.html"; 
     });
      $("#wiki").click(function(){
-       window.location.href="http://2014.igem.org/Team:UCSD_Software"; 
+       window.open("http://2014.igem.org/Team:UCSD_Software", '_blank'); 
     });
      $("#app").click(function(){
        window.location.href="AppPage.html"; 
