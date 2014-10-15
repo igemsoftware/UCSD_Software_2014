@@ -213,68 +213,299 @@
 
 <!--Modal Upload Page-->
 <div class="modal fade" id="modalUpload" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div id="uploadModal" class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                 <h4 class="modal-title text-center" id="myModalLabel">Upload</h4>
             </div>
             <div class="modal-body">
-                <div class="well well-lg text-center">
+                <div class="well well-lg">
+                    <div class="container-fluid text-center">
+                        <div class="row text-center">
+                            <h4>Plasmid:</h4>
+                            <div>
+                                <input class="textbox" type="text" ng-model="plasmidUpdate.name" placeholder="Type in the plasmid name"/><br>
+                                <input class="textbox" type="text" ng-model="plasmidUpdate.pubMedId" placeholder="PubMed Id: PMC#"/>
+                            </div>
+                        </div>
+                        <div class="row text-center">
+                            <div class="col-md-6 text-center">
+                                <span><h4>Operon [1]:</h4>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Name:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.name"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Direction:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.direction"/>
+                                    </div>
+                                </div>
 
-                    <div class="row text-center">
-                        Plasmid: <span><input class = "textbox" type = "text" ng-model = "Plasmid" placeholder="type in the plasmid"/><br>
-                    </div>
-                    <div class="row text-center">
-                        <div class="col-md-6 text-center text-danger">
-                            <p>Operon [1]: <input class = "textbox" type = "text" ng-model = "Plx" /><br>
+                                    <br><h4>Input Transition [A]</h4>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Promoter:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[0].inputTransition.promoter"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Logic:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[0].inputTransition.logic"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Species:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[0].inputTransition.inputSpecies[0].inputSpecies.name"/><br>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[0].inputTransition.inputSpecies[0].inputSpecies.type"/><br>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[0].inputTransition.inputSpecies[0].inputSpecies.repression"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Species:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[0].inputTransition.inputSpecies[1].inputSpecies.name"/><br>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[0].inputTransition.inputSpecies[1].inputSpecies.type"/><br>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[0].inputTransition.inputSpecies[1].inputSpecies.repression"/>
+                                    </div>
+                                </div>
+                                
 
-                            <p class="text-info"> Input transitions[A]:</p><input class = "textbox " type = "text" ng-model = "Plxone" /><br>
-                            Input species[1]:<input class = "textbox" type = "text" ng-model = "PlxoneOne" /><br>
+                                    <br><h4>Input Transition [B]</h4>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Promoter:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[1].inputTransition.promoter"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Logic:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[1].inputTransition.logic"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Species:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[1].inputTransition.inputSpecies[0].inputSpecies.name"/><br>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[1].inputTransition.inputSpecies[0].inputSpecies.type"/><br>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[1].inputTransition.inputSpecies[0].inputSpecies.repression"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Species:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[1].inputTransition.inputSpecies[1].inputSpecies.name"/><br>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[1].inputTransition.inputSpecies[1].inputSpecies.type"/><br>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[1].inputTransition.inputSpecies[1].inputSpecies.repression"/>
+                                    </div>
+                                </div>
+                                
 
-                            Input species[2]:<input class = "textbox" type = "text" ng-model = "PlxoneTwo" /><br>
+                                    <br><h4>Output Species [A]</h4>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Name:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.outputSpecies[0].outputSpecies.name"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Type:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.outputSpecies[0].outputSpecies.type"/>
+                                    </div>
+                                </div>
 
-                            Output Species[b]: <input class = "textbox" type = "text" ng-model = "PlxoneTwoSP2" /><br>
-
-
-                            <p class="text-success">Input transition[B]:</p><input class = "textbox " type = "text" ng-model = "Plxtwo" /><br> 
-                            Input species[1]:<input class = "textbox" type = "text" ng-model = "PlxtwoOne" /><br>
-                            Output Species[a]: <input class = "textbox" type = "text" ng-model = "PlxoneOneSP1" /><br>
-                            Output Species[b]: <input class = "textbox" type = "text" ng-model = "PlxoneOneSP2" /><br>
-                            Input species[2]:<input class = "textbox" type = "text" ng-model = "PlxtwoTwo" /><br>
-
-
-                            Output Species[b]: <input class = "textbox" type = "text" ng-model = "PlxoneTwoSP2" /><br>
-                            Output Species[b]: <input class = "textbox" type = "text" ng-model = "PlxoneTwoSP2" /><br>
-                        </div>  
-
-                        <div class="col-md-6 text-center text-primary">
-                            Operon [2]: <input class = "textbox" type = "text" ng-model = "Ply" /><br>
-                            <p class="text-warning">Input transitions[1]:</p><input class = "textbox" type = "text" ng-model = "Plyone" /><br>
-                            Input species[1]:<input class = "textbox" type = "text" ng-model = "PlyoneOne" /><br>
-                            Output species[1]:<input class = "textbox" type = "text" ng-model = "PlyoneOneSP1" /><br>
-                            Output species[2]:<input class = "textbox" type = "text" ng-model = "PlyoneOneSP2" /><br>
-
-                            Input species[2]:<input class = "textbox" type = "text" ng-model = "PlyoneTwo" /><br>
-                            Output species[1]:<input class = "textbox" type = "text" ng-model = "PlyoneTwoSP1" /><br>
-                            Output species[2]: <input class = "textbox" type = "text" ng-model = "PlyoneTwoSP2" /><br>
-
-
-                            <p class="text-primary">Input transition[2]:</p><input class = "textbox" type = "text" ng-model = "Plytwo" /><br>  
-                            Input species[1]:<input class = "textbox" type = "text" ng-model = "PlytwoOne" /><br>
-                            Output species[1]:<input class = "textbox" type = "text" ng-model = "PlytwoOneSP1" /><br>
-                            Output species[2]:<input class = "textbox" type = "text" ng-model = "PlytwoOneSP2" /><br>
+                                    <br><h4>Output Species [B]</h4>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Name:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.outputSpecies[1].outputSpecies.name"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Type:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.outputSpecies[1].outputSpecies.type"/>
+                                    </div>
+                                </div>
+                                </span>
+                            </div>
                             
-                            Input species[2]:<input class = "textbox" type = "text" ng-model = "PlytwoTwo" /><br>
-                            Output species[1]:<input class = "textbox" type = "text" ng-model = "PlytwoTwoSP1" /><br>
-                            Output species[2]:<input class = "textbox" type = "text" ng-model = "PlytwoTwoSP2" /><br>
-                        </div>  
-                    </div> 
+                            
+                            <div class="col-md-6 text-center">
+                                <span><h4>Operon [2]:</h4>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Name:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.name"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Direction:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.direction"/>
+                                    </div>
+                                </div>
+
+                                    <br><h4>Input Transition [A]</h4>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Promoter:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[0].inputTransition.promoter"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Logic:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[0].inputTransition.logic"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Species:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[0].inputTransition.inputSpecies[0].inputSpecies.name"/><br>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[0].inputTransition.inputSpecies[0].inputSpecies.type"/><br>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[0].inputTransition.inputSpecies[0].inputSpecies.repression"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Species:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[0].inputTransition.inputSpecies[1].inputSpecies.name"/><br>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[0].inputTransition.inputSpecies[1].inputSpecies.type"/><br>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[0].inputTransition.inputSpecies[1].inputSpecies.repression"/>
+                                    </div>
+                                </div>
+
+                                    <br><h4>Input Transition [B]</h4>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Promoter:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[1].inputTransition.promoter"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Logic:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[1].inputTransition.logic"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Species:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[1].inputTransition.inputSpecies[0].inputSpecies.name"/><br>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[1].inputTransition.inputSpecies[0].inputSpecies.type"/><br>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[1].inputTransition.inputSpecies[0].inputSpecies.repression"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Species:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[1].inputTransition.inputSpecies[1].inputSpecies.name"/><br>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[1].inputTransition.inputSpecies[1].inputSpecies.type"/><br>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[1].inputTransition.inputSpecies[1].inputSpecies.repression"/>
+                                    </div>
+                                </div>
+
+                                    <br><h4>Output Species [A]</h4>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Name:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.outputSpecies[0].outputSpecies.name"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Type:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.outputSpecies[0].outputSpecies.type"/>
+                                    </div>
+                                </div>
+
+                                    <br><h4>Output Species [B]</h4>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Name:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.outputSpecies[1].outputSpecies.name"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Type:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.outputSpecies[1].outputSpecies.type"/>
+                                    </div>
+                                </div>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                     <span> <button class="btn btn-lg"><span id="search-box" class="glyphicon glyphicon-upload" ng-click="upload()"><span>Upload</span></span></button></span>
+                </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary text-center" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>

@@ -511,6 +511,114 @@ angular.module('cyViewerApp')
                 $scope.selectedCircuit = $scope.resultIndex[0];
                 $scope.selectPath($scope.selectedCircuit.value);
             };
+            
+            $scope.plasmidUpdate = {
+                "name" : "Name",
+                "pubMedId" : "PubMed Id: PMC#",
+                "operons": [                    
+                    {"operon":{
+                        "name": "Name",
+                        "direction": "Left or Right",
+                        "inputTransitions":[
+                            {"inputTransition":{
+                                    "promoter":"Name",
+                                    "logic": "Boolean Logic Type",
+                                    "inputSpecies":[
+                                        {"inputSpecies":{
+                                            "name": "Name",
+                                            "type": "Type",
+                                            "repression": "Repressor? True or False"
+                                        }},
+                                        {"inputSpecies":{
+                                            "name": "Name",
+                                            "type": "Type",
+                                            "repression": "Repressor? True or False"
+                                        }}
+                                    ]
+                            }},
+                            {"inputTransition":{
+                                    "promoter":"Name",
+                                    "logic": "Boolean Logic Type",
+                                    "inputSpecies":[
+                                        {"inputSpecies":{
+                                            "name": "Name",
+                                            "type": "Type",
+                                            "repression": "Repressor? True or False"
+                                        }},
+                                        {"inputSpecies":{
+                                            "name": "Name",
+                                            "type": "Type",
+                                            "repression": "Repressor? True or False"
+                                        }}
+                                    ]
+                            }}
+                        ],
+                        "outputSpecies":[
+                            {"outputSpecies":{
+                                "name": "Name",
+                                "type": "Type"
+                            }},
+                            {"outputSpecies":{
+                                "name": "Name",
+                                "type": "Type"
+                            }}
+                        ]
+                    }},
+                    {"operon":{
+                        "name": "Name",
+                        "direction": "Left or Right",
+                        "inputTransitions":[
+                            {"inputTransition":{
+                                    "promoter":"Name",
+                                    "logic": "Boolean Logic Type",
+                                    "inputSpecies":[
+                                        {"inputSpecies":{
+                                            "name": "Name",
+                                            "type": "Type",
+                                            "repression": "Repressor? True or False"
+                                        }},
+                                        {"inputSpecies":{
+                                            "name": "Name",
+                                            "type": "Type",
+                                            "repression": "Repressor? True or False"
+                                        }}
+                                    ]
+                            }},
+                            {"inputTransition":{
+                                    "promoter":"Name",
+                                    "logic": "Boolean Logic Type",
+                                    "inputSpecies":[
+                                        {"inputSpecies":{
+                                            "name": "Name",
+                                            "type": "Type",
+                                            "repression": "Repressor? True or False"
+                                        }},
+                                        {"inputSpecies":{
+                                            "name": "Name",
+                                            "type": "Type",
+                                            "repression": "Repressor? True or False"
+                                        }}
+                                    ]
+                            }}
+                        ],
+                        "outputSpecies":[
+                            {"outputSpecies":{
+                                "name": "Name",
+                                "type": "Type"
+                            }},
+                            {"outputSpecies":{
+                                "name": "Name",
+                                "type": "Type"
+                            }}
+                        ]
+                    }} 
+                ]                
+            };
+            $scope.updateString;
+
+            $scope.dbUpdateCtrl = function(){
+                
+            };
 
             $scope.encodeUrl = function() {
                 var pan = $scope.cy.pan();
