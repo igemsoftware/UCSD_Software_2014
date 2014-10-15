@@ -21,7 +21,10 @@ def build_sbider_network(directory_path, user_query, indirect=False):
     database_file = directory_path + "/sbider.db"
     conn, cur = db.db_open(database_file)
 
-    logic_dictionary = parser.parse_logic(cur, user_query)
+    try:
+        logic_dictionary = parser.parse_logic(cur, user_query)
+    except TypeError:
+	print >> sys.stderr, '{"error": "Invalid input. The species couldn't be found in the database. Please check your input or contribute to our database."}'
     input_dictionary, output_dictionary = db.make_ope_id_spe_id_dics(cur)
     repressor_dictionary = db.make_ope_id_rep_spe_id_dic(cur)
 
@@ -42,32 +45,6 @@ def build_sbider_network(directory_path, user_query, indirect=False):
 
             operon_path_per_start_species.extend(operon_path_list)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-            #print "is this list of list?", operon_path_per_start_species
-
-
-
-
-
-
-
-
-
-
-
-
         all_operon_path.append(operon_path_per_start_species)
 
 
@@ -76,10 +53,8 @@ def build_sbider_network(directory_path, user_query, indirect=False):
 
 
 if __name__ == "__main__":
-    # print "main: sys.argv",  sys.argv
     path = sys.argv[1]
     last_argv = str(sys.argv[-1]).lower()
-    # print "main: last_argv", last_argv
 
     if last_argv == 't':
         user_input = " ".join(sys.argv[2:-1:])
@@ -92,11 +67,6 @@ if __name__ == "__main__":
     else:
         user_input = " ".join(sys.argv[2::])
         indirect_flag = False
-
-    # print "main: path:", path
-    # print "main: user_input:", user_input
-    # print "main: indirect_flag:", indirect_flag
-
     final_path_json = build_sbider_network(path, user_input, indirect_flag)
     print >> sys.stderr, final_path_json
 
