@@ -23,7 +23,7 @@ and open the template in the editor.
             <!--navbar --> 
         
             <nav class="navbar navbar-header nav-justified" role="navigation" id='nav'>
-                <div class="btn-group  btn-group">
+                <div class="btn-group">
                     <div class="btn btn-lg " id="home">Home</div>
                     <div class="btn btn-lg " id="about">About</div>
                     <div class="btn btn-lg " id="documentation">Documentation</div>
@@ -42,11 +42,27 @@ and open the template in the editor.
         </div>     
      <!--navbar ends-->
         <!--profiles-->
+        <div class="container-fluid">
+            
+             <div class="row text-center" id="rowTop">
+                <h1 id="top">UC SAN DIEGO iGEM</h1> 
+                
+                <div class="btn-group-justified ">
+                    <a href="#theTeam" class="btn-link btn-lg">Team</a>
+                    <a href="#theAdvisors" class="btn-link btn-lg">Advisors</a>
+                    <a href="" id="ucsd" class="btn-link btn-lg">UC San Diego</a>
+                    
+                </div>
+               
+
+            </div>
+        </div>
         <div class="container">
+           
             <div class="row" id="groupInfo">
                 <div class="thumbnail" id="mainPic">
                     <div class="page-header text-center">
-                        <h1 class="text-primary">UCSD iGEM SBiDer</h1>
+                       
                     </div>
                     <img class="img-responsive" src="ProfilePics/Team.JPG">
                     <div class="caption">
@@ -60,7 +76,7 @@ and open the template in the editor.
             
             <!--undergrads-->
             <div class="row text-center" id="undergraduates">
-                <div class="page-header"><h1 class="text-primary">The Team </h1></div>
+                <div class="page-header"><h1 class="text-primary" id="theTeam">The Team </h1></div>
                 <div class="col-md-4 text-center">
                     <div class="thumbnail" id="underPic">
                         <img class="img-circle" src="https://media.licdn.com/media/p/8/005/091/0c2/0f9a025.jpg">
@@ -80,7 +96,7 @@ and open the template in the editor.
                         <ul class="text-center">
                             <li><h2>Joaquin Reyna</h2></li>
                             <li>Bioinformatics, 2015</li>
-                            <li><a href="">LinkedIn</a></li>
+                            <li><a href="http://www.linkedin.com/pub/joaquin-reyna/7a/388/573">LinkedIn</a></li>
                             <li></li>
                         </ul>
                     </div> 
@@ -92,7 +108,7 @@ and open the template in the editor.
                         <ul class="text-center">
                             <li><h2>Valeriy Sosnovskiy </h2></li>
                             <li>Biochemistry, Computer Science, 2015</li>
-                            <li><a href="https://www.linkedin.com/profile/view?id=306167421&trk=nav_responsive_tab_profile">LinkedIn</a></li>
+                            <li><a href="http://www.linkedin.com/pub/valeriy-sosnovskiy/86/650/279">LinkedIn</a></li>
                             <li></li>
                         </ul>
                     </div> 
@@ -181,12 +197,13 @@ and open the template in the editor.
             <!--graduates-->
             <div class="row text-center " id="graduates">
                 
-                <div class="page-header"><h1 class="text-primary">Advisors</h1></div>
+                <div class="page-header"><h1 class="text-primary" id="theAdvisors">Advisors</h1></div>
                 <div class="col-md-6">
                     <div class="thumbnail text-center" id="gradPic">
                         <img class="img-circle" src="ProfilePics/Jenhan.jpg">
-                        <h2>Jenhan Tao</h2>
+                        
                         <ul class="text-center">
+                            <li><h2>Jenhan Tao</h2></li>
                             <li>Bioinformatics PhD, 2018<br>
                             Bioengineering, UC Berkeley, 2012
                             </li>
@@ -204,16 +221,14 @@ and open the template in the editor.
                     
                 </div>
             <div class="row text-center" id="graduates">
-                
-                
-                <div class="col-md-6">
+              <div class="col-md-6">
                     <div class="thumbnail text-center" id="gradPic">
                         <img class="img-circle" src="ProfilePics/Justin.jpg">
-                        <h2>Justin Huang</h2>
+                       
                         <ul class="text-center">
+                            <li> <h2>Justin Huang</h2></li>
                             <li>Bioinformatics PhD, 2018<br>
-                            Biology,Mathematics University of North Carolina-CH, 2013
-                            </li>
+                            Biology,Mathematics University of North Carolina-CH, 2013</li>
                             <li><a href="www.linkedin.com/in/justinkhuang">LinkedIn</a></li>
                                     
                         </ul>
@@ -224,17 +239,16 @@ and open the template in the editor.
                       Justin Huang is a second year Bioinformatics PhD student at UC San Diego. Originally hailing from the great state of North Carolina, Justin completed his undergraduate studies with a BS in Biology and a BA in Mathematics from the University of North Carolina at Chapel Hill in 2013. Justin's research interests are in translational medicine, specifically in the role of translational medicine in cancer. Justin is also an avid sports fan, and an advocate for Asian American issues. You can follow him @huangger on Twitter.  
                     </p>
                 </div>
-                    
-                    
-                </div>
+            </div>
             <div class="row text-center" id="graduates">
                 
                 
                 <div class="col-md-6">
                     <div class="thumbnail text-center" id="gradPic">
                         <img class="img-circle" src="ProfilePics/Ben.png">
-                        <h2>Benjamin Kellman</h2>
-                        <ul>
+                       
+                        <ul class="text-center">
+                            <li> <h2>Benjamin Kellman</h2></li>
                             <li>Bioinformatics PhD, 2018<br>
                             Biology, University of Rochester, 2012
                             </li>
@@ -257,8 +271,9 @@ and open the template in the editor.
                 <div class="col-md-6">
                     <div class="thumbnail text-center" id="gradPic">
                         <img class="img-circle" src="ProfilePics/Adreas.jpg">
-                        <h2>Andreas Dräger</h2>
-                        <ul>
+                        
+                        <ul class="text-center">
+                            <li><h2>Andreas Dräger</h2></li>
                             <li>Bioinformatics, 2006<br>
                             Systems Biology, 2011
                             </li>

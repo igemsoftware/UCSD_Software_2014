@@ -14,13 +14,20 @@ body{
 }
 
 #nav .btn:hover{
-   color: gold;
-   
+   color: gold;  
+}
+#welcomeSign{
+    color: #1C86EE;
+    
+}
+#welcomeSign h1{
+    font-size: 70px;
 }
 #log{
     font-size: 20px;
     
 }
+
 .item{
    background-color:white;    
     height: 450px;
@@ -36,8 +43,9 @@ body{
 
 #sliderHolder{
     
-   margin-top: 105px;
+   margin-top: 40px;
    background-color: white;
+   
   
 }
 
@@ -230,7 +238,22 @@ body{
 }
 
 #sponsors{
-    background-image: url("https://lh6.googleusercontent.com/MKr_rfMgwY6RZtuROTByFRdbbZq4AweRvMBt1KCL4GePLgfGY451WA2DyQO-KACJj8GJqQita0I=w1110-h482");
-    background-size: cover;
+    
+   text-align: center; 
+   
+   height: 95%;
+    
 }
+#sponsors .img-responsive{
+    width: 100%;
+    height: 90%;
+    margin: auto;
+   
+}
+
+#AppPic{
+    height:90%;
+    margin: auto;
+}
+
 

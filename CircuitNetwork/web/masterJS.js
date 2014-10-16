@@ -18,6 +18,9 @@ $(document).ready(function(){
      $("#documentation").click(function(){
        window.location.href="TutorialPage.html"; 
     });
+    $("#thumbOne").click(function(){
+       window.location.href="TutorialPage.html"; 
+    });
      $("#wiki").click(function(){
        window.open("http://2014.igem.org/Team:UCSD_Software", '_blank'); 
     });
@@ -31,6 +34,14 @@ $(document).ready(function(){
      $("#contact").click(function(){
        window.location.href="contactPage.html"; 
     });
+    
+      $("#thumbTwo").click(function(){
+           window.open("http://2014.igem.org/Team:UCSD_Software", '_blank'); 
+    });
+    $("#ucsd").click(function(){
+           window.open("http://www.ucsd.edu", '_blank'); 
+    });
+      
     
      
     

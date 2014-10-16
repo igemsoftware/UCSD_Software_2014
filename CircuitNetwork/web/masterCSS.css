@@ -38,6 +38,27 @@ body{
   
 }
 
+#top{
+    font-size: 100px;
+    //margin-bottom: 10px;
+    margin-bottom:20px;
+    color:#5C8AE6
+    
+}
+
+#rowTop{
+    //background-image: url("http://www.plazaresearch.com/wp-content/gallery/other/sandiegoskyline_gde.jpg");
+    //background-repeat: no-repeat;
+    height: auto; 
+    margin: auto;
+    width: auto;
+    border-bottom: 4px solid gold;
+    border-top: 4px solid gold;
+    
+}
+
+
+
 #mainPic .img-responsive{
     height: 600px;
     width: 100%;
@@ -78,6 +99,7 @@ body{
     color: #00004C;
     text-decoration: none;
     border: none;
+    margin:auto;
    
 }
 
@@ -100,8 +122,12 @@ li{
     list-style: none;
 }
 
-.row{
-    margin: 40px;
+#graduates{
+    margin: 50px;
+}
+
+#graduates .col-md-6{
+    margin-top: 20px;
 }
 
 h1{
