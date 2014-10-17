@@ -8,7 +8,8 @@ Descriptive paragraph
          Huwate(Kwat) Yeerna, University of California, San Diego
 ******************************************************************************
 """
-
+import sys 
+sys.path+=['', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages/openpyxl-1.6.2-py2.7.egg', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages/psycopg2-2.5-py2.7-linux-x86_64.egg', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages/matplotlib_venn-0.9-py2.7.egg', '/bioinformatics/software/anaconda2.7/lib/python27.zip', '/bioinformatics/software/anaconda2.7/lib/python2.7', '/bioinformatics/software/anaconda2.7/lib/python2.7/plat-linux2', '/bioinformatics/software/anaconda2.7/lib/python2.7/lib-tk', '/bioinformatics/software/anaconda2.7/lib/python2.7/lib-old', '/bioinformatics/software/anaconda2.7/lib/python2.7/lib-dynload', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages/PIL', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages/setuptools-0.6c11-py2.7.egg-info']
 import networkx as nx
 
 import sbider_database as db

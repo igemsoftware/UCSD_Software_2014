@@ -714,7 +714,7 @@ angular.module('cyViewerApp')
 
 
                 var commandString = $scope.query;
-                alert(commandString);
+                alert("Submitting Command: "+commandString);
                 if (commandString === "undefined = undefined undefined" || $scope.searchInput === undefined || $scope.searchInput === "" || $scope.searchOutput === undefined || $scope.searchOutput === "") {
                     alert("Please enter a valid query.");
                     angular.element('.loading').hide();
@@ -726,7 +726,7 @@ angular.module('cyViewerApp')
                     $.get("../../AuthenticationServlet", data, function(data) { //parameters are: servlet url, data, callback function
                         data = JSON.stringify(data).replace(/\\n/g, '', "").replace(/\\/g, '', "");
                         data = data.substr(1, data.length - 2);
-//                        alert(data);
+                        alert(data);
                         networkData = JSON.parse(data);
                         angular.element('.loading').hide();
 
