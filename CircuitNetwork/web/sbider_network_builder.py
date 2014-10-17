@@ -10,7 +10,7 @@ Descriptive paragraph
 """
 
 import sys
-
+sys.path+=['', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages/openpyxl-1.6.2-py2.7.egg', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages/psycopg2-2.5-py2.7-linux-x86_64.egg', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages/matplotlib_venn-0.9-py2.7.egg', '/bioinformatics/software/anaconda2.7/lib/python27.zip', '/bioinformatics/software/anaconda2.7/lib/python2.7', '/bioinformatics/software/anaconda2.7/lib/python2.7/plat-linux2', '/bioinformatics/software/anaconda2.7/lib/python2.7/lib-tk', '/bioinformatics/software/anaconda2.7/lib/python2.7/lib-old', '/bioinformatics/software/anaconda2.7/lib/python2.7/lib-dynload', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages/PIL', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages/setuptools-0.6c11-py2.7.egg-info']
 import sbider_database as db
 import sbider_parser as parser
 import sbider_searcher as searcher
@@ -30,15 +30,12 @@ def build_sbider_network(directory_path, user_query, indirect=False):
 
         operon_path_per_start_species = [input_species]
         for output_species in output_species_list:
-            print "\t build_sbider_network: getting operon path:", input_species, "--->", output_species, "="
             operon_path_list = searcher.get_sbider_path(input_dictionary,
                                                         repressor_dictionary,
                                                         output_dictionary,
                                                         list(input_species),
                                                         output_species,
                                                         indirect)
-            for operon_path in operon_path_list:
-                print "\t\t build_sbider_network: operon path =>", operon_path
 
             operon_path_per_start_species.extend(operon_path_list)
 
@@ -55,7 +52,6 @@ def build_sbider_network(directory_path, user_query, indirect=False):
 
 
 
-            #print "is this list of list?", operon_path_per_start_species
 
 
 
@@ -76,10 +72,8 @@ def build_sbider_network(directory_path, user_query, indirect=False):
 
 
 if __name__ == "__main__":
-    # print "main: sys.argv",  sys.argv
     path = sys.argv[1]
     last_argv = str(sys.argv[-1]).lower()
-    # print "main: last_argv", last_argv
 
     if last_argv == 't':
         user_input = " ".join(sys.argv[2:-1:])
@@ -93,12 +87,9 @@ if __name__ == "__main__":
         user_input = " ".join(sys.argv[2::])
         indirect_flag = False
 
-    # print "main: path:", path
-    # print "main: user_input:", user_input
-    # print "main: indirect_flag:", indirect_flag
 
     final_path_json = build_sbider_network(path, user_input, indirect_flag)
-    print >> sys.stderr, final_path_json
+    print(final_path_json)
 
 
 
