@@ -182,12 +182,8 @@ def promoter_activation(inp_dic, rep_dic, ope, spe, memory_spe, indirect_flag):
     :param indirect_flag: Boolean flag for checking indirect activation of an operon
     :return: True if the operon is activated.
     """
-    #print "promoter_activation(inp_dic, rep_dic, ope, all_spe, spe=[]): spe", spe
-    #print "promoter_activation(inp_dic, rep_dic, ope, all_spe, spe=[]): memory_spe", memory_spe
-    #print "promoter_activation(inp_dic, rep_dic, ope, all_spe, spe=[]): indirect_flag", indirect_flag
 
     all_spe = spe + memory_spe
-    #print "promoter_activation(inp_dic, rep_dic, ope, all_spe, spe=[]): all_spe", all_spe
 
     if indirect_flag:
         activation = activated(inp_dic, ope, all_spe)
@@ -197,12 +193,6 @@ def promoter_activation(inp_dic, rep_dic, ope, spe, memory_spe, indirect_flag):
     repression = repressed(rep_dic, ope, all_spe)
 
     promoter_activated = activation and not repression
-    '''
-    if activation and not promoter_activated:
-        print "promoter_activation:activation:", activation
-        print "promoter_activation:repression:", repression
-        print "promoter_activation:promoter_activated:", promoter_activated
-        print'''
 
     return promoter_activated
 

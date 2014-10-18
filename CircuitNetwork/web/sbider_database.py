@@ -245,32 +245,20 @@ def db_print_table(cursor, table_name):
 
     table = cursor.execute("SELECT * FROM " + table_name)
     table = cursor.fetchall()
-    print table
 
 
 def db_print_all_table(cursor):
     """Print all tables."""
-    print "Species"
     db_print_table(cursor, "Species")
-    print "\n\nPlasmid"
     db_print_table(cursor, "Plasmid")
-    print "\n\Operon"
     db_print_table(cursor, "Operon")
-    print "\n\PlasmidOperon"
     db_print_table(cursor, "PlasmidOperon")
-    print "\n\OperonInputTransition"
     db_print_table(cursor, "OperonInputTransition")
-    print "\n\InputTransition"
     db_print_table(cursor, "InputTransition")
-    print "\n\InputTransitionSpecies"
     db_print_table(cursor, "InputTransitionSpecies")
-    print "\n\OperonOutputTransition"
     db_print_table(cursor, "OperonOutputTransition")
-    print "\n\OutputTransition"
     db_print_table(cursor, "OutputTransition")
-    print "\n\OutputTransitionSpecies"
     db_print_table(cursor, "OutputTransitionSpecies")
-    print "\n\User"
     db_print_table(cursor, "User")
 
 

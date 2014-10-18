@@ -15,7 +15,7 @@
     
 	<br><br>
         <div ng-show="searchState.show" class="searchBox">
-                        
+
             INPUT: <span><input class = "textbox" type = "text" ng-model = "searchInput" placeholder="type in your input"/><br>
                
             OUTPUT: <span><input class = "textbox" type = "text" ng-model = "searchOutput" placeholder="type in your output"/><br>
@@ -150,9 +150,6 @@
 <!--    <div class="icon-button" ng-click="toggleModel()" tooltip-placement="left" tooltip="Display Model">
         <span class="glyphicon glyphicon-signal"></span>
     </div>-->
-<!--    <div class="icon-button" ng-click="reloadPage()" tooltip-placement="left" tooltip="Download SBOL Image">
-        <span id="search-box" class="glyphicon glyphicon-cloud-download"></span>
-    </div>-->   
     <div class="icon-button" ng-click="updatePage()" data-toggle="modal" data-target="#modalUpload" tooltip-placement="left" tooltip="Upload to Database">
         <span id="search-box" class="glyphicon glyphicon-plus"></span>
     </div>
@@ -188,24 +185,69 @@
 </div>
 
 <!-- Modal -->
+<!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title text-center" id="myModalLabel">Tutorial</h4>
-            </div>
-            <div class="modal-body">
-                <div class="embed-responsive embed-responsive-16by9">
-                    <iframe src="index.html" id="tutorialModal"></iframe>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h1 class="modal-title text-primary text-center" id="myModalLabel">Documentation </h1>
+      </div>
+      <div class="modal-body text-center">
+         
+          <div class="panel">
+              <h2>Using The Application</h2>
+              <ol>
+              <li>First enter your starting species/species into the input:<br
+
+              You can do a single entry: <br>
+
+      OR <br>
+
+      Multiple entries should be separated by the word "and", with each entry being separated by a space:<br>
+              </li>
+              <li> Enter your final species,  following  the same rules as the ones for starting species.<br></li>
+      
+              <li>You can also chose a direct or indirect path by checking of the box. The indirect path is a connection of  disjoint paths by convergence for  the production of the final output species.<br></li>
+      
+              <li>Finally press Explore and see your results. <br></li>
+              </ol>
+   <h3>What you will be able to see</h3>
+   
+   <ol >
+       <li >
+          Network exploration of genetic devices 
+       </li>
+       <li>
+           Visuals of devices in SBOL format
+       </li>
+       <li>
+           Information about devices and references to literature
+       </li>
+       <li>
+           CAD for novel circuit design 
+       </li>
+       <li>
+           Centralized access to database of information            
+       </li>
+       <li>
+           Able to have user-contributed expansion to database
+       </li>
+   </ol>
+          </div>
+          
+              
+          
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+       
+      </div>
     </div>
+  </div>
 </div>
+ 
+
 
 <!--Modal Upload Page-->
 <div class="modal fade" id="modalUpload" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -494,7 +536,7 @@
                             </div>
                         </div>
                     </div>
-                    <span> <button class="btn btn-lg"><span id="search-box" class="glyphicon glyphicon-upload" ng-click="plasmidStringParser()"><span>Upload</span></span></button></span>
+                    <span> <button class="btn btn-lg"><span id="search-box" class="glyphicon glyphicon-upload" ng-click="upload()"><span>Upload</span></span></button></span>
                 </div>
                 </div>
             </div>
