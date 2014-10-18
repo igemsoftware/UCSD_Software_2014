@@ -472,7 +472,7 @@ angular.module('cyViewerApp')
                 $scope.currentCadName = "No image selected";
                 angular.element('.loading').hide();
             };
-
+            
             //function for highlighting a path.        
             $scope.selectPath = function(index) {
                 reset();
@@ -519,7 +519,7 @@ angular.module('cyViewerApp')
                 "pubMedId" : "",
                 "operons": [                    
                     {"operon":{
-                        "name": "",
+                        "name": "",                        
                         "direction": "",
                         "inputTransitions":[
                             {"inputTransition":{
@@ -661,6 +661,17 @@ angular.module('cyViewerApp')
                 window.top.location = "../../contactPage.html";
             };
 
+            //Sets name for the autcomplete.
+            $scope.autoNames = [];
+            function autoComSet(){
+                for (var nodeNum = 0; nodeNum < networkDefault.elements.nodes.length; nodeNum ++){
+                    var node = networkDefault.elements.nodes[nodeNum];
+                    if(node.classes === "species"){
+                        $scope.autoNames.push(node.data.name);
+                    };
+                };
+            };
+
             $scope.encodeUrl = function() {
                 var pan = $scope.cy.pan();
                 var zoom = $scope.cy.zoom();
@@ -726,6 +737,8 @@ angular.module('cyViewerApp')
                                     $scope.cynet = $('#network').cytoscape('get');
                                     init();
                                     $scope.toggleCAD();
+                                    autoComSet();
+                                    console.log($scope.autoNames);
                                 }).
                                 error(function(data, status, headers, config) {
                                 });
@@ -749,7 +762,7 @@ angular.module('cyViewerApp')
                     }).
                     error(function(data, status, headers, config) {
                     });
-
+            
 
             function searchGet() {
 
@@ -837,7 +850,6 @@ angular.module('cyViewerApp')
                     $scope.styleNames[i] = title;
                 }
             }
-
         });
 
 
