@@ -28,7 +28,7 @@ angular.module('cyViewerApp')
             var operonsId = [];
             var outputTransitionsId = [];
             var edgesId = [];
-
+            
             $scope.networks = {};
             $scope.visualStyles = {};
             $scope.styleNames = [];
@@ -420,13 +420,18 @@ angular.module('cyViewerApp')
             $scope.resultIndex = [];
             //Index of selected circuit that is ng-modeled by the dropdown menu in the app.
             $scope.selectedCircuit;
-
-            //
+            
+            
+            
             $scope.searchCtrl = function() {
                 //alert($scope.searchText);
-                //the input and output of the user 
+                //the input and output of the user
+                
+                
                 $scope.input = String($scope.searchInput);
+                
                 $scope.output = String($scope.searchOutput);
+                
                 $scope.BooleanTrue = String($scope.checkTrue);
                 //Catching error in BooleanTrue that occurs when multiple 
                 //searches are run without page reload.
@@ -460,6 +465,8 @@ angular.module('cyViewerApp')
               
                 searchGet();
             };
+            
+            
 
             //refreshes the inputs and the page 
             $scope.reloadPage = function() {
@@ -750,7 +757,9 @@ angular.module('cyViewerApp')
                     error(function(data, status, headers, config) {
                     });
 
-
+             
+                
+           
             function searchGet() {
 
 
