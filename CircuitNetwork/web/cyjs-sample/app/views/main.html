@@ -15,9 +15,7 @@
     
 	<br><br>
         <div ng-show="searchState.show" class="searchBox">
-            
-            <h3>Please enter input and output intermediates</h3>
-            
+                        
             INPUT: <span><input class = "textbox" type = "text" ng-model = "searchInput" placeholder="type in your input"/><br>
                
             OUTPUT: <span><input class = "textbox" type = "text" ng-model = "searchOutput" placeholder="type in your output"/><br>
@@ -154,16 +152,14 @@
     </div>-->
 <!--    <div class="icon-button" ng-click="reloadPage()" tooltip-placement="left" tooltip="Download SBOL Image">
         <span id="search-box" class="glyphicon glyphicon-cloud-download"></span>
-    </div>-->
-    
+    </div>-->   
     <div class="icon-button" ng-click="updatePage()" data-toggle="modal" data-target="#modalUpload" tooltip-placement="left" tooltip="Upload to Database">
         <span id="search-box" class="glyphicon glyphicon-plus"></span>
     </div>
-    
-    <div class="icon-button" ng-click="messageMe()" tooltip-placement="left" tooltip="Contact Us">
+<!-- Redirects page to "Contact." Upgrade later if possible.-->
+    <div class="icon-button" ng-click="redirect()" tooltip-placement="left" tooltip="Contact Us">
         <span id="search-box" class="glyphicon glyphicon-comment"></span>
-    </div>
-    
+    </div>    
 </div>
 
 <div class="modal fade" id="share" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -237,7 +233,7 @@
                                         Name:
                                     </div>
                                     <div class="col-md-2">
-                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.name"/>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.name" placeholder="Name"/>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -245,7 +241,7 @@
                                         Direction:
                                     </div>
                                     <div class="col-md-2">
-                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.direction"/>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.direction" placeholder="Left or Right"/>
                                     </div>
                                 </div>
 
@@ -255,7 +251,7 @@
                                         Promoter:
                                     </div>
                                     <div class="col-md-2">
-                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[0].inputTransition.promoter"/>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[0].inputTransition.promoter" placeholder="Name"/>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -263,7 +259,7 @@
                                         Logic:
                                     </div>
                                     <div class="col-md-2">
-                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[0].inputTransition.logic"/>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[0].inputTransition.logic" placeholder="Boolean Logic Type"/>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -271,9 +267,9 @@
                                         Species:
                                     </div>
                                     <div class="col-md-2">
-                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[0].inputTransition.inputSpecies[0].inputSpecies.name"/><br>
-                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[0].inputTransition.inputSpecies[0].inputSpecies.type"/><br>
-                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[0].inputTransition.inputSpecies[0].inputSpecies.repression"/>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[0].inputTransition.inputSpecies[0].inputSpecies.name" placeholder="Name"/><br>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[0].inputTransition.inputSpecies[0].inputSpecies.type" placeholder="Type"/><br>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[0].inputTransition.inputSpecies[0].inputSpecies.repression" placeholder="Repressor? True (T) or False (F)?"/>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -281,12 +277,11 @@
                                         Species:
                                     </div>
                                     <div class="col-md-2">
-                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[0].inputTransition.inputSpecies[1].inputSpecies.name"/><br>
-                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[0].inputTransition.inputSpecies[1].inputSpecies.type"/><br>
-                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[0].inputTransition.inputSpecies[1].inputSpecies.repression"/>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[0].inputTransition.inputSpecies[1].inputSpecies.name" placeholder="Name"/><br>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[0].inputTransition.inputSpecies[1].inputSpecies.type" placeholder="Type"/><br>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[0].inputTransition.inputSpecies[1].inputSpecies.repression" placeholder="Repressor? True (T) or False (F)?"/>
                                     </div>
                                 </div>
-                                
 
                                     <br><h4>Input Transition [B]</h4>
                                 <div class="row">
@@ -294,7 +289,7 @@
                                         Promoter:
                                     </div>
                                     <div class="col-md-2">
-                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[1].inputTransition.promoter"/>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[1].inputTransition.promoter" placeholder="Name"/>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -302,7 +297,7 @@
                                         Logic:
                                     </div>
                                     <div class="col-md-2">
-                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[1].inputTransition.logic"/>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[1].inputTransition.logic" placeholder="Boolean Logic Type"/>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -310,9 +305,9 @@
                                         Species:
                                     </div>
                                     <div class="col-md-2">
-                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[1].inputTransition.inputSpecies[0].inputSpecies.name"/><br>
-                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[1].inputTransition.inputSpecies[0].inputSpecies.type"/><br>
-                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[1].inputTransition.inputSpecies[0].inputSpecies.repression"/>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[1].inputTransition.inputSpecies[0].inputSpecies.name" placeholder="Name"/><br>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[1].inputTransition.inputSpecies[0].inputSpecies.type" placeholder="Type"/><br>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[1].inputTransition.inputSpecies[0].inputSpecies.repression" placeholder="Repressor? True (T) or False (F)?"/>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -320,12 +315,11 @@
                                         Species:
                                     </div>
                                     <div class="col-md-2">
-                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[1].inputTransition.inputSpecies[1].inputSpecies.name"/><br>
-                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[1].inputTransition.inputSpecies[1].inputSpecies.type"/><br>
-                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[1].inputTransition.inputSpecies[1].inputSpecies.repression"/>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[1].inputTransition.inputSpecies[1].inputSpecies.name" placeholder="Name"/><br>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[1].inputTransition.inputSpecies[1].inputSpecies.type" placeholder="Type"/><br>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[1].inputTransition.inputSpecies[1].inputSpecies.repression" placeholder="Repressor? True (T) or False (F)?"/>
                                     </div>
                                 </div>
-                                
 
                                     <br><h4>Output Species [A]</h4>
                                 <div class="row">
@@ -333,7 +327,7 @@
                                         Name:
                                     </div>
                                     <div class="col-md-2">
-                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.outputSpecies[0].outputSpecies.name"/>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.outputSpecies[0].outputSpecies.name" placeholder="Name"/>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -341,7 +335,7 @@
                                         Type:
                                     </div>
                                     <div class="col-md-2">
-                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.outputSpecies[0].outputSpecies.type"/>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.outputSpecies[0].outputSpecies.type" placeholder="Type"/>
                                     </div>
                                 </div>
 
@@ -351,7 +345,7 @@
                                         Name:
                                     </div>
                                     <div class="col-md-2">
-                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.outputSpecies[1].outputSpecies.name"/>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.outputSpecies[1].outputSpecies.name" placeholder="Name"/>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -359,7 +353,7 @@
                                         Type:
                                     </div>
                                     <div class="col-md-2">
-                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.outputSpecies[1].outputSpecies.type"/>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.outputSpecies[1].outputSpecies.type" placeholder="Type"/>
                                     </div>
                                 </div>
                                 </span>
@@ -373,7 +367,7 @@
                                         Name:
                                     </div>
                                     <div class="col-md-2">
-                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.name"/>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.name" placeholder="Name"/>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -381,7 +375,7 @@
                                         Direction:
                                     </div>
                                     <div class="col-md-2">
-                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.direction"/>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.direction" placeholder="Left or Right"/>
                                     </div>
                                 </div>
 
@@ -391,7 +385,7 @@
                                         Promoter:
                                     </div>
                                     <div class="col-md-2">
-                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[0].inputTransition.promoter"/>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[0].inputTransition.promoter" placeholder="Name"/>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -399,7 +393,7 @@
                                         Logic:
                                     </div>
                                     <div class="col-md-2">
-                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[0].inputTransition.logic"/>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[0].inputTransition.logic" placeholder="Boolean Logic Type"/>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -407,9 +401,9 @@
                                         Species:
                                     </div>
                                     <div class="col-md-2">
-                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[0].inputTransition.inputSpecies[0].inputSpecies.name"/><br>
-                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[0].inputTransition.inputSpecies[0].inputSpecies.type"/><br>
-                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[0].inputTransition.inputSpecies[0].inputSpecies.repression"/>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[0].inputTransition.inputSpecies[0].inputSpecies.name" placeholder="Name"/><br>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[0].inputTransition.inputSpecies[0].inputSpecies.type" placeholder="Type"/><br>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[0].inputTransition.inputSpecies[0].inputSpecies.repression" placeholder="Repressor? True (T) or False (F)?"/>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -417,9 +411,9 @@
                                         Species:
                                     </div>
                                     <div class="col-md-2">
-                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[0].inputTransition.inputSpecies[1].inputSpecies.name"/><br>
-                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[0].inputTransition.inputSpecies[1].inputSpecies.type"/><br>
-                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[0].inputTransition.inputSpecies[1].inputSpecies.repression"/>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[0].inputTransition.inputSpecies[1].inputSpecies.name" placeholder="Name"/><br>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[0].inputTransition.inputSpecies[1].inputSpecies.type" placeholder="Type"/><br>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[0].inputTransition.inputSpecies[1].inputSpecies.repression" placeholder="Repressor? True (T) or False (F)?"/>
                                     </div>
                                 </div>
 
@@ -429,7 +423,7 @@
                                         Promoter:
                                     </div>
                                     <div class="col-md-2">
-                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[1].inputTransition.promoter"/>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[1].inputTransition.promoter" placeholder="Name"/>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -437,7 +431,7 @@
                                         Logic:
                                     </div>
                                     <div class="col-md-2">
-                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[1].inputTransition.logic"/>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[1].inputTransition.logic" placeholder="Boolean Logic Type"/>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -445,9 +439,9 @@
                                         Species:
                                     </div>
                                     <div class="col-md-2">
-                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[1].inputTransition.inputSpecies[0].inputSpecies.name"/><br>
-                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[1].inputTransition.inputSpecies[0].inputSpecies.type"/><br>
-                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[1].inputTransition.inputSpecies[0].inputSpecies.repression"/>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[1].inputTransition.inputSpecies[0].inputSpecies.name" placeholder="Name"/><br>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[1].inputTransition.inputSpecies[0].inputSpecies.type" placeholder="Type"/><br>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[1].inputTransition.inputSpecies[0].inputSpecies.repression" placeholder="Repressor? True (T) or False (F)?"/>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -455,9 +449,9 @@
                                         Species:
                                     </div>
                                     <div class="col-md-2">
-                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[1].inputTransition.inputSpecies[1].inputSpecies.name"/><br>
-                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[1].inputTransition.inputSpecies[1].inputSpecies.type"/><br>
-                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[1].inputTransition.inputSpecies[1].inputSpecies.repression"/>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[1].inputTransition.inputSpecies[1].inputSpecies.name" placeholder="Name"/><br>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[1].inputTransition.inputSpecies[1].inputSpecies.type" placeholder="Type"/><br>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[1].inputTransition.inputSpecies[1].inputSpecies.repression" placeholder="Repressor? True (T) or False (F)?"/>
                                     </div>
                                 </div>
 
@@ -467,7 +461,7 @@
                                         Name:
                                     </div>
                                     <div class="col-md-2">
-                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.outputSpecies[0].outputSpecies.name"/>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.outputSpecies[0].outputSpecies.name" placeholder="Name"/>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -475,7 +469,7 @@
                                         Type:
                                     </div>
                                     <div class="col-md-2">
-                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.outputSpecies[0].outputSpecies.type"/>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.outputSpecies[0].outputSpecies.type" placeholder="Type"/>
                                     </div>
                                 </div>
 
@@ -485,7 +479,7 @@
                                         Name:
                                     </div>
                                     <div class="col-md-2">
-                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.outputSpecies[1].outputSpecies.name"/>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.outputSpecies[1].outputSpecies.name" placeholder="Name"/>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -493,7 +487,7 @@
                                         Type:
                                     </div>
                                     <div class="col-md-2">
-                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.outputSpecies[1].outputSpecies.type"/>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.outputSpecies[1].outputSpecies.type" placeholder="Type"/>
                                     </div>
                                 </div>
                                 </span>
@@ -509,4 +503,24 @@
             </div>
         </div>
     </div>
+
+<!-- Error Modal -->
+<div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title text-center" id="errorModalLabel">An Error has Occurred</h4>
+            </div>
+            <div class="modal-body">
+                <h4><b>{{errorMessage}}</b></h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
 </div>
