@@ -1,14 +1,10 @@
 
 package communication;
 
-import java.io.BufferedReader;
-import java.io.File;
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.io.PrintWriter;
-import static java.lang.Compiler.command;
 import java.util.HashMap;
 import java.util.Iterator;
 import javax.servlet.ServletException;
@@ -16,11 +12,12 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-
+import java.io.FileWriter;
+import java.io.IOException;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 
 /**
@@ -123,6 +120,18 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
                }
                case "login":
                {
+                   //to get the data value 
+                   System.out.println("server reached");
+                   String userName = request.getParameter("name");
+                   String userPassword = request.getParameter("email");
+                   String wrongInfo = ("");
+                   System.out.println("userName: " + userName);
+                   System.out.println("userPassword: "+ userPassword);
+                   //call on the function passing the userName and userPassword
+                   String info = registeredUser(userName, userPassword, wrongInfo);
+                   
+                   //for now its the userName
+                   out.write(info);
                    break;
                }
                case "contactUs":
@@ -157,6 +166,78 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
      *If user exists then they have to resubmit another username 
      *If no match, then user information is stored in code.json 
      */
+    public String registeredUser(String userName, String userPassword, String wrongInfo) {
+        //if the user is new or not
+        boolean existingUser = false;
+        String enteredUser = userName;
+        String enteredPassword = userPassword;
+        
+        JSONParser parser = new JSONParser();
+        String rootPath = this.getServletContext().getRealPath("/"); //CircuitNetwork/build/web/
+        /*
+         *This will parse the json object that contains all the user information 
+         */
+        try {
+
+            //json data is parsed
+            Object userVerification = parser.parse(new FileReader(rootPath + "code.json"));
+            
+            
+            System.out.println(userVerification);
+            System.out.println("all the exisiting information: " + userVerification);
+
+            //json object is created containing the past data 
+            JSONObject jsonObject = (JSONObject) userVerification;
+            
+
+            //getting the array information, which is the user name 
+            //authenticate is the id for the array 
+            JSONArray authenticate = (JSONArray) jsonObject.get("authenticate");
+            System.out.println("Items in the array: " + authenticate);
+            //iterating the elements in the array to search for a match 
+            Iterator<String> authenticateIterator = authenticate.iterator();
+            while (authenticateIterator.hasNext()) {
+                //if existing user
+                if (enteredUser.equals(authenticateIterator.next())) {
+                    existingUser = true;
+                    
+                    
+                    
+                }
+                     
+                
+                else {
+                      wrongInfo = ("Wrong userName/password");
+                      return (wrongInfo);
+                    
+                }
+     
+            }
+            if(existingUser == true){
+               String validator = (String) jsonObject.get(enteredUser);
+               if(enteredPassword.equals(validator)){
+                   wrongInfo = ("Welcome");
+                      return (wrongInfo);
+               }
+               else{
+                wrongInfo = ("Username or password incorrect, please try again");
+                      return (wrongInfo);
+               }
+               
+            }
+            
+           
+         } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+       //existingUser = false;
+       return (enteredUser);
+    }
+    
     public String registerInfo(String userName, String userPassword, String wrongInfo) {
         //if the user is new or not
         boolean newUser = false;
@@ -164,15 +245,12 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
         String enteredPassword = userPassword;
         
         JSONParser parser = new JSONParser();
-
+         String rootPath = this.getServletContext().getRealPath("/"); //CircuitNetwork/build/web/
         /*
          *This will parse the json object that contains all the user information 
          */
         try {
 
-            
-            String rootPath = this.getServletContext().getRealPath("/"); //CircuitNetwork/build/web/
-            
             //json data is parsed
             Object userVerification = parser.parse(new FileReader(rootPath + "code.json"));
             
@@ -208,7 +286,7 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
             
             if(newUser == true){
             //json object that holds username and password
-                    JSONObject obj = jsonObject;
+                    JSONObject obj =  jsonObject;
                     
                     //user name and password
                     obj.put(enteredUser, enteredPassword);
@@ -222,7 +300,7 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
                     obj.put("authenticate", information);
 
                     try {
-                        
+                       
                         //writing the info to the file code.json 
                         FileWriter file = new FileWriter(rootPath + "code.json");
                         file.write(obj.toJSONString());
@@ -243,7 +321,6 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
 
         return (enteredUser);
     }
-    
     
     
     
