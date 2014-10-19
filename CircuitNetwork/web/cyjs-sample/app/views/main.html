@@ -14,14 +14,13 @@
     </select>-->
     
 	<br><br>
-        <div ng-show="searchState.show" class="searchBox">
-            
-            <h3>Please enter input and output intermediates</h3>
-            
-            INPUT: <span><input class = "textbox" type = "text" ng-model = "searchInput" placeholder="type in your input"/><br>
+        <div ng-show="searchState.show" class="searchBox ">
+
+            INPUT: <span><input class = "textbox" type = "text"  ng-model = "searchInput" placeholder="type in your input"/><br>
                
             OUTPUT: <span><input class = "textbox" type = "text" ng-model = "searchOutput" placeholder="type in your output"/><br>
                     
+                
             Include Indirect Path: <input type="checkbox" ng-model="checkTrue"><br/> 
             
             <span><button><span id="search-box" class="glyphicon glyphicon-share-alt" ng-click="searchCtrl()"><span>Explore</span></span></button></span>
@@ -152,18 +151,13 @@
 <!--    <div class="icon-button" ng-click="toggleModel()" tooltip-placement="left" tooltip="Display Model">
         <span class="glyphicon glyphicon-signal"></span>
     </div>-->
-<!--    <div class="icon-button" ng-click="reloadPage()" tooltip-placement="left" tooltip="Download SBOL Image">
-        <span id="search-box" class="glyphicon glyphicon-cloud-download"></span>
-    </div>-->
-    
     <div class="icon-button" ng-click="updatePage()" data-toggle="modal" data-target="#modalUpload" tooltip-placement="left" tooltip="Upload to Database">
         <span id="search-box" class="glyphicon glyphicon-plus"></span>
     </div>
-    
-    <div class="icon-button" ng-click="messageMe()" tooltip-placement="left" tooltip="Contact Us">
+<!-- Redirects page to "Contact." Upgrade later if possible.-->
+    <div class="icon-button" ng-click="redirect()" tooltip-placement="left" tooltip="Contact Us">
         <span id="search-box" class="glyphicon glyphicon-comment"></span>
-    </div>
-    
+    </div>    
 </div>
 
 <div class="modal fade" id="share" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -192,90 +186,384 @@
 </div>
 
 <!-- Modal -->
+<!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title text-center" id="myModalLabel">Tutorial</h4>
-            </div>
-            <div class="modal-body">
-                <div class="embed-responsive embed-responsive-16by9">
-                    <iframe src="index.html" id="tutorialModal"></iframe>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h1 class="modal-title text-primary text-center" id="myModalLabel">Documentation </h1>
+      </div>
+      <div class="modal-body text-center">
+         
+          <div class="panel">
+              <h2>Using The Application</h2>
+              <ol>
+              <li>First enter your starting species/species into the input:<br
+
+              You can do a single entry: <br>
+
+      OR <br>
+
+      Multiple entries should be separated by the word "and", with each entry being separated by a space:<br>
+              </li>
+              <li> Enter your final species,  following  the same rules as the ones for starting species.<br></li>
+      
+              <li>You can also chose a direct or indirect path by checking of the box. The indirect path is a connection of  disjoint paths by convergence for  the production of the final output species.<br></li>
+      
+              <li>Finally press Explore and see your results. <br></li>
+              </ol>
+   <h3>What you will be able to see</h3>
+   
+   <ol >
+       <li >
+          Network exploration of genetic devices 
+       </li>
+       <li>
+           Visuals of devices in SBOL format
+       </li>
+       <li>
+           Information about devices and references to literature
+       </li>
+       <li>
+           CAD for novel circuit design 
+       </li>
+       <li>
+           Centralized access to database of information            
+       </li>
+       <li>
+           Able to have user-contributed expansion to database
+       </li>
+   </ol>
+          </div>
+          
+              
+          
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+       
+      </div>
     </div>
+  </div>
 </div>
+ 
+
 
 <!--Modal Upload Page-->
 <div class="modal fade" id="modalUpload" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div id="uploadModal" class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                 <h4 class="modal-title text-center" id="myModalLabel">Upload</h4>
             </div>
             <div class="modal-body">
-                <div class="well well-lg text-center">
+                <div class="well well-lg">
+                    <div class="container-fluid text-center">
+                        <div class="row text-center">
+                            <h4>Plasmid:</h4>
+                            <div>
+                                <input class="textbox" type="text" ng-model="plasmidUpdate.name" placeholder="Type in the plasmid name"/><br>
+                                <input class="textbox" type="text" ng-model="plasmidUpdate.pubMedId" placeholder="PubMed Id: PMC#"/>
+                            </div>
+                        </div>
+                        <div class="row text-center">
+                            <div class="col-md-6 text-center">
+                                <span><h4>Operon [1]:</h4>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Name:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.name" placeholder="Name"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Direction:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.direction" placeholder="Left or Right"/>
+                                    </div>
+                                </div>
 
-                    <div class="row text-center">
-                        Plasmid: <span><input class = "textbox" type = "text" ng-model = "Plasmid" placeholder="type in the plasmid"/><br>
-                    </div>
-                    <div class="row text-center">
-                        <div class="col-md-6 text-center text-danger">
-                            <p>Operon [1]: <input class = "textbox" type = "text" ng-model = "Plx" /><br>
+                                    <br><h4>Input Transition [A]</h4>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Promoter:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[0].inputTransition.promoter" placeholder="Name"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Logic:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[0].inputTransition.logic" placeholder="Boolean Logic Type"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Species:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[0].inputTransition.inputSpecies[0].inputSpecies.name" placeholder="Name"/><br>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[0].inputTransition.inputSpecies[0].inputSpecies.type" placeholder="Type"/><br>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[0].inputTransition.inputSpecies[0].inputSpecies.repression" placeholder="Repressor? True (T) or False (F)?"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Species:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[0].inputTransition.inputSpecies[1].inputSpecies.name" placeholder="Name"/><br>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[0].inputTransition.inputSpecies[1].inputSpecies.type" placeholder="Type"/><br>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[0].inputTransition.inputSpecies[1].inputSpecies.repression" placeholder="Repressor? True (T) or False (F)?"/>
+                                    </div>
+                                </div>
 
-                            <p class="text-info"> Input transitions[A]:</p><input class = "textbox " type = "text" ng-model = "Plxone" /><br>
-                            Input species[1]:<input class = "textbox" type = "text" ng-model = "PlxoneOne" /><br>
+                                    <br><h4>Input Transition [B]</h4>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Promoter:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[1].inputTransition.promoter" placeholder="Name"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Logic:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[1].inputTransition.logic" placeholder="Boolean Logic Type"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Species:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[1].inputTransition.inputSpecies[0].inputSpecies.name" placeholder="Name"/><br>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[1].inputTransition.inputSpecies[0].inputSpecies.type" placeholder="Type"/><br>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[1].inputTransition.inputSpecies[0].inputSpecies.repression" placeholder="Repressor? True (T) or False (F)?"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Species:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[1].inputTransition.inputSpecies[1].inputSpecies.name" placeholder="Name"/><br>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[1].inputTransition.inputSpecies[1].inputSpecies.type" placeholder="Type"/><br>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.inputTransitions[1].inputTransition.inputSpecies[1].inputSpecies.repression" placeholder="Repressor? True (T) or False (F)?"/>
+                                    </div>
+                                </div>
 
-                            Input species[2]:<input class = "textbox" type = "text" ng-model = "PlxoneTwo" /><br>
+                                    <br><h4>Output Species [A]</h4>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Name:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.outputSpecies[0].outputSpecies.name" placeholder="Name"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Type:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.outputSpecies[0].outputSpecies.type" placeholder="Type"/>
+                                    </div>
+                                </div>
 
-                            Output Species[b]: <input class = "textbox" type = "text" ng-model = "PlxoneTwoSP2" /><br>
-
-
-                            <p class="text-success">Input transition[B]:</p><input class = "textbox " type = "text" ng-model = "Plxtwo" /><br> 
-                            Input species[1]:<input class = "textbox" type = "text" ng-model = "PlxtwoOne" /><br>
-                            Output Species[a]: <input class = "textbox" type = "text" ng-model = "PlxoneOneSP1" /><br>
-                            Output Species[b]: <input class = "textbox" type = "text" ng-model = "PlxoneOneSP2" /><br>
-                            Input species[2]:<input class = "textbox" type = "text" ng-model = "PlxtwoTwo" /><br>
-
-
-                            Output Species[b]: <input class = "textbox" type = "text" ng-model = "PlxoneTwoSP2" /><br>
-                            Output Species[b]: <input class = "textbox" type = "text" ng-model = "PlxoneTwoSP2" /><br>
-                        </div>  
-
-                        <div class="col-md-6 text-center text-primary">
-                            Operon [2]: <input class = "textbox" type = "text" ng-model = "Ply" /><br>
-                            <p class="text-warning">Input transitions[1]:</p><input class = "textbox" type = "text" ng-model = "Plyone" /><br>
-                            Input species[1]:<input class = "textbox" type = "text" ng-model = "PlyoneOne" /><br>
-                            Output species[1]:<input class = "textbox" type = "text" ng-model = "PlyoneOneSP1" /><br>
-                            Output species[2]:<input class = "textbox" type = "text" ng-model = "PlyoneOneSP2" /><br>
-
-                            Input species[2]:<input class = "textbox" type = "text" ng-model = "PlyoneTwo" /><br>
-                            Output species[1]:<input class = "textbox" type = "text" ng-model = "PlyoneTwoSP1" /><br>
-                            Output species[2]: <input class = "textbox" type = "text" ng-model = "PlyoneTwoSP2" /><br>
-
-
-                            <p class="text-primary">Input transition[2]:</p><input class = "textbox" type = "text" ng-model = "Plytwo" /><br>  
-                            Input species[1]:<input class = "textbox" type = "text" ng-model = "PlytwoOne" /><br>
-                            Output species[1]:<input class = "textbox" type = "text" ng-model = "PlytwoOneSP1" /><br>
-                            Output species[2]:<input class = "textbox" type = "text" ng-model = "PlytwoOneSP2" /><br>
+                                    <br><h4>Output Species [B]</h4>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Name:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.outputSpecies[1].outputSpecies.name" placeholder="Name"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Type:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[0].operon.outputSpecies[1].outputSpecies.type" placeholder="Type"/>
+                                    </div>
+                                </div>
+                                </span>
+                            </div>
                             
-                            Input species[2]:<input class = "textbox" type = "text" ng-model = "PlytwoTwo" /><br>
-                            Output species[1]:<input class = "textbox" type = "text" ng-model = "PlytwoTwoSP1" /><br>
-                            Output species[2]:<input class = "textbox" type = "text" ng-model = "PlytwoTwoSP2" /><br>
-                        </div>  
-                    </div> 
-                    <span> <button class="btn btn-lg"><span id="search-box" class="glyphicon glyphicon-upload" ng-click="upload()"><span>Upload</span></span></button></span>
+                            
+                            <div class="col-md-6 text-center">
+                                <span><h4>Operon [2]:</h4>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Name:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.name" placeholder="Name"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Direction:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.direction" placeholder="Left or Right"/>
+                                    </div>
+                                </div>
+
+                                    <br><h4>Input Transition [A]</h4>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Promoter:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[0].inputTransition.promoter" placeholder="Name"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Logic:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[0].inputTransition.logic" placeholder="Boolean Logic Type"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Species:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[0].inputTransition.inputSpecies[0].inputSpecies.name" placeholder="Name"/><br>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[0].inputTransition.inputSpecies[0].inputSpecies.type" placeholder="Type"/><br>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[0].inputTransition.inputSpecies[0].inputSpecies.repression" placeholder="Repressor? True (T) or False (F)?"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Species:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[0].inputTransition.inputSpecies[1].inputSpecies.name" placeholder="Name"/><br>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[0].inputTransition.inputSpecies[1].inputSpecies.type" placeholder="Type"/><br>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[0].inputTransition.inputSpecies[1].inputSpecies.repression" placeholder="Repressor? True (T) or False (F)?"/>
+                                    </div>
+                                </div>
+
+                                    <br><h4>Input Transition [B]</h4>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Promoter:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[1].inputTransition.promoter" placeholder="Name"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Logic:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[1].inputTransition.logic" placeholder="Boolean Logic Type"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Species:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[1].inputTransition.inputSpecies[0].inputSpecies.name" placeholder="Name"/><br>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[1].inputTransition.inputSpecies[0].inputSpecies.type" placeholder="Type"/><br>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[1].inputTransition.inputSpecies[0].inputSpecies.repression" placeholder="Repressor? True (T) or False (F)?"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Species:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[1].inputTransition.inputSpecies[1].inputSpecies.name" placeholder="Name"/><br>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[1].inputTransition.inputSpecies[1].inputSpecies.type" placeholder="Type"/><br>
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.inputTransitions[1].inputTransition.inputSpecies[1].inputSpecies.repression" placeholder="Repressor? True (T) or False (F)?"/>
+                                    </div>
+                                </div>
+
+                                    <br><h4>Output Species [A]</h4>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Name:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.outputSpecies[0].outputSpecies.name" placeholder="Name"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Type:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.outputSpecies[0].outputSpecies.type" placeholder="Type"/>
+                                    </div>
+                                </div>
+
+                                    <br><h4>Output Species [B]</h4>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Name:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.outputSpecies[1].outputSpecies.name" placeholder="Name"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Type:
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input class="textbox" type="text" ng-model="plasmidUpdate.operons[1].operon.outputSpecies[1].outputSpecies.type" placeholder="Type"/>
+                                    </div>
+                                </div>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <span> <button class="btn btn-lg"><span id="search-box" class="glyphicon glyphicon-upload" ng-click="plasmidStringParser()"><span>Upload</span></span></button></span>
                 </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary text-center" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Error Modal -->
+<div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title text-center" id="errorModalLabel">An Error has Occurred</h4>
+            </div>
+            <div class="modal-body">
+                <h4><b>{{errorMessage}}</b></h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
             </div>
         </div>
+
     </div>
+</div>
+
 </div>

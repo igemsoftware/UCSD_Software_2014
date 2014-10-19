@@ -5,7 +5,7 @@ Descriptive paragraph
 
 ******************************************************************************
 @author: Huwate(Kwat) Yeerna, University of California, San Diego
-         Joaquin Reina, University of California, San Diego
+         Joaquin Reyna, University of California, San Diego
 ******************************************************************************
 """
 
@@ -250,27 +250,17 @@ def db_print_table(cursor, table_name):
 
 def db_print_all_table(cursor):
     """Print all tables."""
-    print "Species"
+
     db_print_table(cursor, "Species")
-    print "\n\nPlasmid"
     db_print_table(cursor, "Plasmid")
-    print "\n\Operon"
     db_print_table(cursor, "Operon")
-    print "\n\PlasmidOperon"
     db_print_table(cursor, "PlasmidOperon")
-    print "\n\OperonInputTransition"
     db_print_table(cursor, "OperonInputTransition")
-    print "\n\InputTransition"
     db_print_table(cursor, "InputTransition")
-    print "\n\InputTransitionSpecies"
     db_print_table(cursor, "InputTransitionSpecies")
-    print "\n\OperonOutputTransition"
     db_print_table(cursor, "OperonOutputTransition")
-    print "\n\OutputTransition"
     db_print_table(cursor, "OutputTransition")
-    print "\n\OutputTransitionSpecies"
     db_print_table(cursor, "OutputTransitionSpecies")
-    print "\n\User"
     db_print_table(cursor, "User")
 
 
@@ -624,12 +614,9 @@ def make_pla_name_spe_name_dics(cursor):
                                                                                   output_operon_species_dictionary)
     return input_plasmid_species_name_dictionary, output_plasmid_species_name_dictionary
 
-
-
-
-
-
-
-
-
-
+def operon_PMC_dictionary(cur):
+    operon_PMC_dict = {}
+    operon_PMC = cur.execute("SELECT PlasmidOperon.ope_id, Plasmid.PMC_ID from PlasmidOperon, Plasmid WHERE PlasmidOperon.pla_id == Plasmid.pla_id")
+    for ope_id, PMC_ID in operon_PMC:
+        operon_PMC_dict[ope_id] = PMC_ID.replace(' PMID: ', '')
+    return operon_PMC_dict

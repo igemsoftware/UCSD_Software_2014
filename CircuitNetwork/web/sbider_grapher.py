@@ -13,11 +13,6 @@ import networkx as nx
 
 import sbider_database as db
 
-def resize_network(total_subnetwork_nodes, total_whole_nodes = 540): 
-    """Resize the network."""
-    return 10000/total_whole_nodes*total_subnetwork_nodes
-	
-
 def get_input_transition_species_dictionary(cursor):
     """
     Retrieves all rows pertaining to the sbider inputTranstion
@@ -510,22 +505,22 @@ def create_subnetwork_json_string(cursor, list_of_operon_paths):
 def get_whole_network(cursor):
     """Whole network data prep for json."""
 
-    species_nodes_list = db.db_select(cursor, "Species", "*")
+    species_nodes_list = db.db_select(cursor, "Species", ["spe_id", "name", "type"])
     species_nodes_list = species_nodes_list.fetchall()
     species_nodes_list = list_of_lists(species_nodes_list)
     species_nodes_list_abbrev = add_node_list_id_abbreviation(species_nodes_list, "spe_", 0)
 
-    input_transition_nodes_list = db.db_select(cursor, "InputTransition", "*")
+    input_transition_nodes_list = db.db_select(cursor, "InputTransition", ["it_id", "logic"])
     input_transition_nodes_list = input_transition_nodes_list.fetchall()
     input_transition_nodes_list = list_of_lists(input_transition_nodes_list)
     input_transition_nodes_list_abbrev = add_node_list_id_abbreviation(input_transition_nodes_list, "it_", 0)
 
-    operon_nodes_list = db.db_select(cursor, "Operon", "*")
+    operon_nodes_list = db.db_select(cursor, "Operon", ["ope_id", "name", "image"])
     operon_nodes_list = operon_nodes_list.fetchall()
     operon_nodes_list = list_of_lists(operon_nodes_list)
     operon_nodes_list_abbrev = add_node_list_id_abbreviation(operon_nodes_list, "ope_", 0)
 
-    output_transition_nodes_list = db.db_select(cursor, "OutputTransition", "*")
+    output_transition_nodes_list = db.db_select(cursor, "OutputTransition", ["ot_id"])
     output_transition_nodes_list = output_transition_nodes_list.fetchall()
     output_transition_nodes_list = list_of_lists(output_transition_nodes_list)
     output_transition_nodes_list_abbrev = add_node_list_id_abbreviation(output_transition_nodes_list, "ot_", 0)
@@ -560,12 +555,12 @@ def get_whole_network(cursor):
     return (species_nodes_list_abbrev, input_transition_nodes_list_abbrev, operon_nodes_list_abbrev,
             output_transition_nodes_list_abbrev, all_edges)
 
-def create_json_whole_network_file(file_name, cursor):
-    """Generates the whole network json."""
+def create_network_json_file(cursor):
+    """Generates the subnetwork json."""
 
     json_info = get_whole_network(cursor)
 
-    create_json_network_file(file_name, *json_info)
+    create_json_network_file(*json_info)
 
 
 def create_json_network_file(json_file_path, species_nodes_list, input_transitions_nodes_list,
@@ -585,136 +580,130 @@ def create_json_network_file(json_file_path, species_nodes_list, input_transitio
     f = open(json_file_path, 'w')
     num_runs = 0
 
-    x_coor_factor = resize_network(len(node_list), total_whole_nodes = 540)
-    y_coor_factor = x_coor_factor
+    x_coor_factor = 10000
+    y_coor_factor = 10000
 
-    f.write('{"data" : { ')
-    f.write('"selected" : true,')
-    f.write('"_Annotations": [] ,')
-    f.write('"shared_name" : "Test.sif",')
-    f.write('"SUID" : 52,')
-    f.write('"name":"Test.sif"')
-    f.write('},')
-    f.write('"elements":{')
-    f.write('"nodes":[')
+    f.write('{\n\t"data" : { ')
+    f.write('\n\t"selected" : true,')
+    f.write('\n\t"_Annotations": [] ,')
+    f.write('\n\t"shared_name" : "Test.sif",')
+    f.write('\n\t"SUID" : 52,')
+    f.write('\n\t"name":"Test.sif"')
+    f.write('\n\t},')
+    f.write('\n\t"elements":{')
+    f.write('\n\t\t"nodes":[')
 
     for node in species_nodes_list:
-        species_sbml = "species_sbml_%s.txt" % node[0].replace("spe_", "")
         node[2] = "None"
 
-        f.write('{')
-        f.write('"data":{')
-        f.write('"id":"' + node[0] + '",')
-        f.write('"name":"' + node[1] + '",')
-        f.write('"type":"' + node[2] + '",')
-        f.write('"sbml":"' + species_sbml + '"')
-        f.write('},')
+        f.write('\n\t\t\t{')
+        f.write('\n\t\t\t\t"data":{')
+        f.write('\n\t\t\t\t\t"id":"' + node[0] + '",')
+        f.write('\n\t\t\t\t\t"name":"' + node[1] + '",')
+        f.write('\n\t\t\t\t\t"type":"' + node[2] + '",')
+        f.write('\n\t\t\t\t},')
 
-        f.write('"position":{')
-        f.write('"x":' + str(node_coor_dictionary[node[0]][0] * x_coor_factor) + ',')
-        f.write('"y":' + str(node_coor_dictionary[node[0]][1] * y_coor_factor))
-        f.write('},')
-        f.write('"classes":"species')
+        f.write('\n\t\t\t\t"position":{')
+        f.write('\n\t\t\t\t\t"x":' + str(node_coor_dictionary[node[0]][0] * x_coor_factor) + ',')
+        f.write('\n\t\t\t\t\t"y":' + str(node_coor_dictionary[node[0]][1] * y_coor_factor))
+        f.write('\n\t\t\t\t},')
+        f.write('\n\t\t\t\t"classes":"species')
         f.write('",')
 
-        f.write('"selected":false')
-        f.write('},')
+        f.write('\n\t\t\t\t"selected":false')
+        f.write('\n\t\t\t},')
         num_runs += 1
 
     num_runs = 0
     for node in input_transitions_nodes_list:
-        it_sbml = "it_sbml_%s.txt" % node[0].replace("it_", "")
+        f.write('\n\t\t\t{')
+        f.write('\n\t\t\t\t"data":{')
+        f.write('\n\t\t\t\t\t"id":"' + node[0] + '",')
+        f.write('\n\t\t\t\t\t"logic":"' + node[1] + '"')
+        f.write('\n\t\t\t\t},')
 
-        f.write('{')
-        f.write('"data":{')
-        f.write('"id":"' + node[0] + '",')
-        f.write('"logic":"' + node[1] + '",')
-        f.write('"sbml":"' + it_sbml + '"')
-        f.write('},')
-
-        f.write('"position":{')
-        f.write('"x":' + str(node_coor_dictionary[node[0]][0] * x_coor_factor) + ',')
-        f.write('"y":' + str(node_coor_dictionary[node[0]][1] * y_coor_factor))
-        f.write('},')
-        f.write('"classes":"input transition')
+        f.write('\n\t\t\t\t"position":{')
+        f.write('\n\t\t\t\t\t"x":' + str(node_coor_dictionary[node[0]][0] * x_coor_factor) + ',')
+        f.write('\n\t\t\t\t\t"y":' + str(node_coor_dictionary[node[0]][1] * y_coor_factor))
+        f.write('\n\t\t\t\t},')
+        f.write('\n\t\t\t\t"classes":"input transition')
         f.write('",')
 
-        f.write('"selected":false')
-        f.write('},')
+        f.write('\n\t\t\t\t"selected":false')
+        f.write('\n\t\t\t},')
         num_runs += 1
 
+    conn, cur  = db.db_open("sbider.db")
+    operon_PMC = db.operon_PMC_dictionary(cur)
+    db.db_close(conn,cur)
     num_runs = 0
     for node in operon_nodes_list:
-        operon_sbml = "operon_sbml_%s.txt" % node[0].replace("ope_", "")
-        operon_sbol = "operon_sbol_%s.png" % node[0].replace("ope_", "")
+        pmid = operon_PMC[node[0].replace("ope_", "")]
+        f.write('\n\t\t\t{')
+        f.write('\n\t\t\t\t"data":{')
+        f.write('\n\t\t\t\t\t"id":"' + node[0] + '",')
+        f.write('\n\t\t\t\t\t"SBOL":"' + node[2] + '",')
+        f.write('\n\t\t\t\t\t"name":"' + node[1] + '",')
+        f.write('\n\t\t\t\t\t"PMID":"' +  pmid + '"')
+        f.write('\n\t\t\t\t},')
 
-        f.write('{')
-        f.write('"data":{')
-        f.write('"id":"' + node[0] + '",')
-        f.write('"sbml":"' + operon_sbml + '",')
-        f.write('"sbol":"' + operon_sbol + '",')
-        f.write('"name":"' + node[1] + '"')
-        f.write('},')
+        f.write('\n\t\t\t\t"position":{')
+        f.write('\n\t\t\t\t\t"x":' + str(node_coor_dictionary[node[0]][0] * x_coor_factor) + ',')
+        f.write('\n\t\t\t\t\t"y":' + str(node_coor_dictionary[node[0]][1] * y_coor_factor))
+        f.write('\n\t\t\t\t},')
 
-        f.write('"position":{')
-        f.write('"x":' + str(node_coor_dictionary[node[0]][0] * x_coor_factor) + ',')
-        f.write('"y":' + str(node_coor_dictionary[node[0]][1] * y_coor_factor))
-        f.write('},')
-
-        f.write('"classes":"operon')
+        f.write('\n\t\t\t\t"classes":"operon')
         f.write('",')
 
-        f.write('"selected":false')
-        f.write('},')
+        f.write('\n\t\t\t\t"selected":false')
+        f.write('\n\t\t\t},')
 
         num_runs += 1
 
     num_runs = 0
     for node in output_transitions_nodes_list:
-        ot_sbml = "ot_sbml_%s.txt" % node[0].replace("ope_", "")
+        f.write('\n\t\t\t{')
+        f.write('\n\t\t\t\t"data":{')
+        f.write('\n\t\t\t\t\t"id":"' + str(node[0]) + '"')
+        f.write('\n\t\t\t\t},')
 
-        f.write('{')
-        f.write('"data":{')
-        f.write('"id":"' + str(node[0]) + '",')
-        f.write('"sbml":"' + ot_sbml + '"')
-        f.write('},')
+        f.write('\n\t\t\t\t"position":{')
 
-        f.write('"position":{')
-
-        f.write('"x":' + str(node_coor_dictionary[node[0]][0] * x_coor_factor) + ',')
-        f.write('"y":' + str(node_coor_dictionary[node[0]][1] * y_coor_factor))
-        f.write('},')
-        f.write('"classes":"output transition')
+        f.write('\n\t\t\t\t\t"x":' + str(node_coor_dictionary[node[0]][0] * x_coor_factor) + ',')
+        f.write('\n\t\t\t\t\t"y":' + str(node_coor_dictionary[node[0]][1] * y_coor_factor))
+        f.write('\n\t\t\t\t},')
+        f.write('\n\t\t\t\t"classes":"output transition')
         f.write('",')
 
-        f.write('"selected":false')
-        f.write('}')
+        f.write('\n\t\t\t\t"selected":false')
+        f.write('\n\t\t\t}')
         if num_runs < len(output_transitions_nodes_list) - 1:
             f.write(',')
         num_runs += 1
 
-    f.write('],')
-    f.write('"edges":[')
+    f.write('\n\t\t],')
+    f.write('\n\t\t"edges":[')
 
     edge_id = 0
     for edge in source_id_target_id_list:
 
-        f.write('{')
-        f.write('"data":{')
-        f.write('"id":"' + str(edge_id + 50) + '",')
-        f.write('"source":"' + str(edge[0]) + '",')
-        f.write('"target":"' + str(edge[1]) + '"')
-        f.write('},')
-        f.write('"selected":false')
-        f.write('}')
+        f.write('\n\t\t\t{')
+        f.write('\n\t\t\t\t"data":{')
+        f.write('\n\t\t\t\t\t"id":"' + str(edge_id + 50) + '",')
+        f.write('\n\t\t\t\t\t"source":"' + str(edge[0]) + '",')
+        f.write('\n\t\t\t\t\t"target":"' + str(edge[1]) + '"')
+        f.write('\n\t\t\t\t},')
+        f.write('\n\t\t\t\t\t"selected":false')
+        f.write('\n\t\t\t}')
         if edge_id < (len(source_id_target_id_list) - 1):
             f.write(',')
         edge_id += 1
 
-    f.write(']')
-    f.write('}}')
+    f.write('\n\t\t]')
+    f.write('\n\t}\n}')
 
     f.close()
+
 
 def create_json_network_string(species_nodes_list, input_transitions_nodes_list,
                                operon_nodes_list, output_transitions_nodes_list,
@@ -725,10 +714,15 @@ def create_json_network_string(species_nodes_list, input_transitions_nodes_list,
     node_list = species_nodes_list + input_transitions_nodes_list + operon_nodes_list + output_transitions_nodes_list
     node_coor_dictionary = nx_node_coordinates_dictionary(node_list, source_id_target_id_list)
 
+    print "species_node_list:", species_nodes_list
+    print "input_transition_nodes_list:", input_transitions_nodes_list
+    print "operon_nodes_list:", operon_nodes_list
+    print "output_transition_nodes_list:", output_transitions_nodes_list
+
     num_runs = 0
 
-    x_coor_factor = resize_network(len(node_list), total_whole_nodes = 540)
-    y_coor_factor = x_coor_factor
+    x_coor_factor = 10000
+    y_coor_factor = 10000
 
     to_return += '{"data" : { '
     to_return += '"selected" : true,'
@@ -785,8 +779,12 @@ def create_json_network_string(species_nodes_list, input_transitions_nodes_list,
         to_return += '},'
         num_runs += 1
 
+    conn, cur  = db.db_open("sbider.db")
+    operon_PMC = db.operon_PMC_dictionary(cur)
+    db.db_close(conn,cur)
     num_runs = 0
     for node in operon_nodes_list:
+        pmid = operon_PMC[node[0].replace("ope_", "")]
         operon_sbml = "operon_sbml_%s.txt" % node[0].replace("ope_", "")
         operon_sbol = "operon_sbol_%s.png" % node[0].replace("ope_", "")
 
@@ -795,7 +793,8 @@ def create_json_network_string(species_nodes_list, input_transitions_nodes_list,
         to_return += '"id":"' + node[0] + '",'
         to_return += '"sbml":"' + operon_sbml + '",'
         to_return += '"sbol":"' + operon_sbol + '",'
-        to_return += '"name":"' + node[1] + '"'
+        to_return += '"name":"' + node[1] + '",'
+        to_return += '"PMID":"' + pmid + '"'
         to_return += '},'
 
         to_return += '"position":{'
@@ -813,7 +812,7 @@ def create_json_network_string(species_nodes_list, input_transitions_nodes_list,
 
     num_runs = 0
     for node in output_transitions_nodes_list:
-        ot_sbml = "ot_sbml_%s.txt" % node[0].replace("ot_", "")
+        ot_sbml = "ot_sbml_%s.txt" % node[0].replace("ope_", "")
 
         to_return += '{'
         to_return += '"data":{'
@@ -858,3 +857,4 @@ def create_json_network_string(species_nodes_list, input_transitions_nodes_list,
     to_return += path_json_highlighter + '}'
 
     return to_return
+

@@ -6,7 +6,7 @@ angular.module('cyViewerApp')
 
             'use strict';
             //these files are the temporary network
-            var NETWORK_FILE = 'data/sbider_whole_network.json';
+            var NETWORK_FILE = '../../whole_network.json';
             var visualStyleFile = 'data/sbiderStyle.json';
             var DEFAULT_VISUAL_STYLE_NAME = 'default';//'Solid';
             var PRESET_STYLE_FILE = encodeURIComponent('data/sbiderStyle.json');
@@ -28,7 +28,7 @@ angular.module('cyViewerApp')
             var operonsId = [];
             var outputTransitionsId = [];
             var edgesId = [];
-
+            
             $scope.networks = {};
             $scope.visualStyles = {};
             $scope.styleNames = [];
@@ -420,13 +420,18 @@ angular.module('cyViewerApp')
             $scope.resultIndex = [];
             //Index of selected circuit that is ng-modeled by the dropdown menu in the app.
             $scope.selectedCircuit;
-
-            //
+            
+            
+            
             $scope.searchCtrl = function() {
                 //alert($scope.searchText);
-                //the input and output of the user 
+                //the input and output of the user
+                
+                
                 $scope.input = String($scope.searchInput);
+                
                 $scope.output = String($scope.searchOutput);
+                
                 $scope.BooleanTrue = String($scope.checkTrue);
                 //Catching error in BooleanTrue that occurs when multiple 
                 //searches are run without page reload.
@@ -460,17 +465,21 @@ angular.module('cyViewerApp')
               
                 searchGet();
             };
+            
+            
 
             //refreshes the inputs and the page 
             $scope.reloadPage = function() {
                 reset();
                 $scope.cynet.$('*').unselect();
                 $scope.resultIndex = [];
+                angular.element('.loading').show();
                 $scope.cynet.load(networkDefault.elements);
                 $scope.currentCad = "no_image.png";
                 $scope.currentCadName = "No image selected";
+                angular.element('.loading').hide();
             };
-
+            
             //function for highlighting a path.        
             $scope.selectPath = function(index) {
                 reset();
@@ -510,6 +519,164 @@ angular.module('cyViewerApp')
                 ;
                 $scope.selectedCircuit = $scope.resultIndex[0];
                 $scope.selectPath($scope.selectedCircuit.value);
+            };
+            
+            $scope.plasmidUpdate = {
+                "name" : "",
+                "pubMedId" : "",
+                "operons": [                    
+                    {"operon":{
+                        "name": "",                        
+                        "direction": "",
+                        "inputTransitions":[
+                            {"inputTransition":{
+                                    "promoter":"",
+                                    "logic": "",
+                                    "inputSpecies":[
+                                        {"inputSpecies":{
+                                            "name": "",
+                                            "type": "",
+                                            "repression": ""
+                                        }},
+                                        {"inputSpecies":{
+                                            "name": "",
+                                            "type": "",
+                                            "repression": ""
+                                        }}
+                                    ]
+                            }},
+                            {"inputTransition":{
+                                    "promoter":"",
+                                    "logic": "",
+                                    "inputSpecies":[
+                                        {"inputSpecies":{
+                                            "name": "",
+                                            "type": "",
+                                            "repression": ""
+                                        }},
+                                        {"inputSpecies":{
+                                            "name": "",
+                                            "type": "",
+                                            "repression": ""
+                                        }}
+                                    ]
+                            }}
+                        ],
+                        "outputSpecies":[
+                            {"outputSpecies":{
+                                "name": "",
+                                "type": ""
+                            }},
+                            {"outputSpecies":{
+                                "name": "",
+                                "type": ""
+                            }}
+                        ]
+                    }},
+                    {"operon":{
+                        "name": "",
+                        "direction": "",
+                        "inputTransitions":[
+                            {"inputTransition":{
+                                    "promoter":"",
+                                    "logic": "",
+                                    "inputSpecies":[
+                                        {"inputSpecies":{
+                                            "name": "",
+                                            "type": "",
+                                            "repression": ""
+                                        }},
+                                        {"inputSpecies":{
+                                            "name": "",
+                                            "type": "",
+                                            "repression": ""
+                                        }}
+                                    ]
+                            }},
+                            {"inputTransition":{
+                                    "promoter":"",
+                                    "logic": "",
+                                    "inputSpecies":[
+                                        {"inputSpecies":{
+                                            "name": "",
+                                            "type": "",
+                                            "repression": ""
+                                        }},
+                                        {"inputSpecies":{
+                                            "name": "",
+                                            "type": "",
+                                            "repression": ""
+                                        }}
+                                    ]
+                            }}
+                        ],
+                        "outputSpecies":[
+                            {"outputSpecies":{
+                                "name": "",
+                                "type": ""
+                            }},
+                            {"outputSpecies":{
+                                "name": "",
+                                "type": ""
+                            }}
+                        ]
+                    }} 
+                ]                
+            };
+            $scope.updateString;
+
+            $scope.plasmidStringParser = function(){
+                var plas = $scope.plasmidUpdate;
+                if(plas.name ==="" || plas.pubMedId === ""){
+                    $scope.errorMessage = "Please fill in the plasmid information.";
+                    $("#errorModal").modal("show");
+                    return false;
+                }
+                else{
+                    $scope.updateString = "plasmid:" + plas.name + "," + String(plas.pubMedId) + "\t";
+                };
+                
+                for (var opeNum = 0; opeNum < plas.operons.length; opeNum ++){
+                    var ope = plas.operons[opeNum].operon;
+                    if(ope.name === "" || ope.direction === ""){
+                        $scope.errorMessage = "Please fill out the form completely with an Operon that has at least one Input Transition with an Input Species and one Output Transition with an Output Species.";
+                        $("#errorModal").modal("show");
+                        return false;
+                    }
+                    else{
+                        $scope.updateString += "operon:" + ope.name + "," + ope.direction + "\t";
+                    };
+                    
+                    for(var itNum = 0; itNum < ope.inputTransitions.length; itNum++){
+                        var it = ope.inputTransitions[itNum].inputTransition;
+                        $scope.updateString += "inputTransition:" + it.promoter + "," + it.logic + "\t";
+                        for(var inSpecNum = 0; inSpecNum < it.inputSpecies.length; inSpecNum ++){
+                            var inSpec = it.inputSpecies[inSpecNum].inputSpecies;
+                            $scope.updateString += "inputSpecies:" + inSpec.name + "," +inSpec.type + "," +inSpec.repression + "\t";
+                        };
+                    };
+                    
+                    for (var outSpecNum = 0; outSpecNum < ope.outputSpecies.length; outSpecNum ++){
+                        var outSpec = ope.outputSpecies[outSpecNum].outputSpecies;
+                        $scope.updateString += "outputSpecies:" + outSpec.name + "," + outSpec.type + "\t";
+                    };
+                };
+                console.log($scope.updateString);
+            };
+            
+            $scope.redirect = function(){
+                window.top.location = "../../contactPage.html";
+            };
+
+            //Sets name for the autcomplete.
+            $scope.autoNames = [];
+            function autoComSet(){
+                for (var nodeNum = 0; nodeNum < networkDefault.elements.nodes.length; nodeNum ++){
+                    var node = networkDefault.elements.nodes[nodeNum];
+                    if(node.classes === "species"){
+                        $scope.autoNames.push(node.data.name);
+                    };
+                };
             };
 
             $scope.encodeUrl = function() {
@@ -577,6 +744,8 @@ angular.module('cyViewerApp')
                                     $scope.cynet = $('#network').cytoscape('get');
                                     init();
                                     $scope.toggleCAD();
+                                    autoComSet();
+                                    console.log($scope.autoNames);
                                 }).
                                 error(function(data, status, headers, config) {
                                 });
@@ -601,14 +770,14 @@ angular.module('cyViewerApp')
                     error(function(data, status, headers, config) {
                     });
 
-
             function searchGet() {
 
 
                 var commandString = $scope.query;
-                alert(commandString);
+                alert("Submitting Command: "+commandString);
                 if (commandString === "undefined = undefined undefined" || $scope.searchInput === undefined || $scope.searchInput === "" || $scope.searchOutput === undefined || $scope.searchOutput === "") {
-                    alert("Please enter a valid query.");
+                    $scope.errorMessage ="Please enter a valid query. Check you inputs and output species, and make sure each species and logic is separated by a single space.";
+                    $("#errorModal").modal("show");
                     angular.element('.loading').hide();
                 }
 
@@ -618,18 +787,21 @@ angular.module('cyViewerApp')
                     $.get("../../AuthenticationServlet", data, function(data) { //parameters are: servlet url, data, callback function
                         data = JSON.stringify(data).replace(/\\n/g, '', "").replace(/\\/g, '', "");
                         data = data.substr(1, data.length - 2);
-//                        alert(data);
+                        alert(data);
                         networkData = JSON.parse(data);
                         angular.element('.loading').hide();
 
                         if (typeof networkData.error === "string") {
-                            alert(networkData.error);
+                            $scope.errorMessage = networkData.error;
+                            $("#errorModal").modal("show");
                         }
-                        else if (networkData.operonsId[0] === null && $scope.BooleanTrue === undefined) {
-                            alert('No circuits found. Please try searching for an Indirect Path (check the box marked "Indirect Path").');
+                        else if (networkData.operonsId.length === 0 && $scope.BooleanTrue === undefined) {
+                            $scope.errorMessage ='No circuits found. Please try searching for an Indirect Path (check the box marked "Indirect Path").';
+                            $("#errorModal").modal("show");
                         }
-                        else if (networkData.operonsId[0] === null && $scope.BooleanTrue === "true") {
-                            alert('No circuits found in current database. Results may change as the SBiDer web grows.');
+                        else if (networkData.operonsId.length === 0 && $scope.BooleanTrue === "true") {
+                            $scope.errorMessage = 'No circuits found in current database. Results may change as the SBiDer web grows.';
+                            $("#errorModal").modal("show");
                         }
                         else {
                             $scope.cynet.load(networkData.elements);
@@ -684,7 +856,6 @@ angular.module('cyViewerApp')
                     $scope.styleNames[i] = title;
                 }
             }
-
         });
 
 

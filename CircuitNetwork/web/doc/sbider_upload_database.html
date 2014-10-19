@@ -1,0 +1,82 @@
+Help on module sbider_upload_database:
+
+NAME
+    sbider_upload_database
+
+FILE
+    /Users/jenhantao/Documents/UCSD_IGEM/CircuitNetwork/web/sbider_upload_database.py
+
+FUNCTIONS
+    check_species_name_in_database(cursor, species_name)
+        Safely return species id or None.
+    
+    db_test()
+    
+    determine_and_insert(connection, cursor, component_keyword, component_data=[], parent_component_id='')
+        Determine insertion method and insert into into the database.
+    
+    determine_parent_keyword(component_keyword)
+        Determine which is your parent keyword.
+    
+    get_data_keyword(data_string)
+        Get the keyword belonging to data_string.
+    
+    get_last_row_id(cursor, table_name)
+        Get the last inserted rowid.
+    
+    insert_new_device(connection, cursor, device)
+        Inserts a new device into the database.
+        Argument(s):
+            connection - sqlite3 connection object
+            cursor - sqlite3 cursor object
+            device_string - whole device as a string
+    
+    insert_new_input_transition(cursor, operon_id, logic)
+        Insert new input transition.
+    
+    insert_new_input_transition_species(cursor, it_id, species_name, species_type, species_repression)
+        Insert new input transition species.
+    
+    insert_new_operon(cursor, plasmid_id, operon_name, direction)
+        Insert new operon.
+    
+    insert_new_output_transition(cursor, operon_id)
+        Insert new output transition.
+    
+    insert_new_output_transition_species(cursor, ot_id, species_name, species_type)
+        Insert new output transition species.
+    
+    insert_new_plasmid(cursor, plasmid_name, miriam_id)
+        Insert new plasmid.
+    
+    main()
+    
+    make_input_transition_sbml_file(input_species_list, transition_id, operon_id, trans_logic)
+    
+    make_new_id(id_string)
+        Convert old string id to old string id + 1.
+    
+    make_output_transition_sbml_file(output_species_list, transition_id, operon_id)
+        make the sbml.
+    
+    make_sbol_file(output_species_list, promoter_list, prev_operon_direction, operon_id)
+        Insert and make the sbol file.
+    
+    make_sbol_string_db_update(input_list, direction)
+        Make an sbol string using uploading information.
+    
+    reset_db(original_db='sbider.db', test_db_file='sbider_test_2.db')
+    
+    select_last_inserted_table_id(cursor, table_name, table_id_type)
+        Select the last inserted row.
+    
+    select_last_inserted_table_row(cursor, table_name)
+        Select the last inserted row.
+    
+    write_sbol_file(operon_id, sbol_string)
+        Write out sbol string to file.
+    
+    write_to_file(string_to_write, file_name)
+        Write a file.
+
+

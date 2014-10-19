@@ -1,1 +1,0 @@
-the current table being made is CREATE TABLE Plasmid (pla_id VARCHAR(50), name VARCHAR(50), miriam_id VARCHAR(50));
