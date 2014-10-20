@@ -20,25 +20,22 @@ import javax.mail.internet.MimeMessage;
  */
 public class GoogleMail {
     public GoogleMail(String name, String email, String affiliation,String message){
-     String userName = name;
-     String userEmail = email;
-     String school = affiliation; 
-     String userMessage = message;
+      userName = name;
+      userEmail = email;
+      school = affiliation; 
+      userMessage = message;
        
         
     }
+    public static String userName;  //user name of the client 
+    public static String userEmail; //user email of the client
+    public static String school;    //user affiliation of the client 
+    public static String userMessage; //user message of the client
      
-    
-     
-     
-    
-    
-    
-    
-    
     public static void Send(final String username, final String password, String recipientEmail, String title, String message) throws AddressException, MessagingException {
         message = "Thank you for contacting us, we will get back to you shortly";
-        
+        recipientEmail = userEmail;
+        title = "Contact";
         GoogleMail.Send(username, password, recipientEmail, "", title, message);
         
     }
