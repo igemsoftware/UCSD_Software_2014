@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-/*
+/*@author valeriy
  * This is a master javascript for the website
  */
 
 $(document).ready(function(){
+    
     //redirecting to other pages 
     $("#home").click(function(){
        window.location.href="index.html"; 
@@ -27,6 +28,7 @@ $(document).ready(function(){
      $("#app").click(function(){
        window.location.href="AppPage.html"; 
     });
+    
     $("#thumbThree").click(function(){
        window.location.href="AppPage.html"; 
     });
@@ -41,19 +43,14 @@ $(document).ready(function(){
     $("#ucsd").click(function(){
            window.open("http://www.ucsd.edu", '_blank'); 
     });
-      
-    
-     
-    
-    
-    
-     
-     
-    //server functions
-     
-                    
-           
-      
+       
+    var logged = false;
+    while(logged ===false){
+        $('#app').attr('disabled', 'disabled');
+        $('thumbThree').attr('disabled', 'disabled');
+    }
+       
+   
        //contactUs page
        
        $('#submitContact').click(function(){
@@ -70,7 +67,6 @@ $(document).ready(function(){
      });  
      
        $('#register').click(function(){
-           alert("clicked");
           var name = $("#newName").val();
           var email = $("#newPassword").val();
           alert(name + email);
@@ -81,7 +77,24 @@ $(document).ready(function(){
           });
        });
        
-      
+       $('#login').click(function(){
+           alert("clicked");
+          var name = $("#name").val();
+          var email = $("#password").val();
+          alert("name: " + name + "email: " + email);
+          var data = {name: name, email:email, command:"login"};
+          $.get("AuthenticationServlet", data, function(done){
+              alert(done);
+              var q = done.val();
+              if(q.equals("Welcome")){
+                 $('#app').removeAttr('disabled');
+                 $('#loginModal').modal('hide');
+                 document.getElementById("#userInfo").value="Welcome!";
+              }
+              alert(done);
+         
+          });
+       });
                 
               
 
