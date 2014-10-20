@@ -515,7 +515,7 @@ def get_whole_network(cursor):
     input_transition_nodes_list = list_of_lists(input_transition_nodes_list)
     input_transition_nodes_list_abbrev = add_node_list_id_abbreviation(input_transition_nodes_list, "it_", 0)
 
-    operon_nodes_list = db.db_select(cursor, "Operon", ["ope_id", "name", "image"])
+    operon_nodes_list = db.db_select(cursor, "Operon", ["ope_id", "name"])
     operon_nodes_list = operon_nodes_list.fetchall()
     operon_nodes_list = list_of_lists(operon_nodes_list)
     operon_nodes_list_abbrev = add_node_list_id_abbreviation(operon_nodes_list, "ope_", 0)
@@ -555,12 +555,12 @@ def get_whole_network(cursor):
     return (species_nodes_list_abbrev, input_transition_nodes_list_abbrev, operon_nodes_list_abbrev,
             output_transition_nodes_list_abbrev, all_edges)
 
-def create_network_json_file(cursor):
+def create_network_json_file(cursor, file_name = "whole_network.json"):
     """Generates the subnetwork json."""
 
     json_info = get_whole_network(cursor)
 
-    create_json_network_file(*json_info)
+    create_json_network_file(file_name, *json_info)
 
 
 def create_json_network_file(json_file_path, species_nodes_list, input_transitions_nodes_list,
@@ -595,12 +595,13 @@ def create_json_network_file(json_file_path, species_nodes_list, input_transitio
 
     for node in species_nodes_list:
         node[2] = "None"
-
+        species_sbml = "species_sbml_%s.txt" % node[0].replace("spe_", "")
         f.write('\n\t\t\t{')
         f.write('\n\t\t\t\t"data":{')
         f.write('\n\t\t\t\t\t"id":"' + node[0] + '",')
         f.write('\n\t\t\t\t\t"name":"' + node[1] + '",')
         f.write('\n\t\t\t\t\t"type":"' + node[2] + '",')
+        f.write('\n\t\t\t\t\t"sbml":"' + species_sbml + '"')
         f.write('\n\t\t\t\t},')
 
         f.write('\n\t\t\t\t"position":{')
@@ -616,10 +617,13 @@ def create_json_network_file(json_file_path, species_nodes_list, input_transitio
 
     num_runs = 0
     for node in input_transitions_nodes_list:
+        it_sbml = "it_sbml_%s.txt" % node[0].replace("it_", "")
         f.write('\n\t\t\t{')
         f.write('\n\t\t\t\t"data":{')
         f.write('\n\t\t\t\t\t"id":"' + node[0] + '",')
-        f.write('\n\t\t\t\t\t"logic":"' + node[1] + '"')
+        f.write('\n\t\t\t\t\t"logic":"' + node[1] + '",')
+        f.write('\n\t\t\t\t\t"sbml":"' + it_sbml + '"')
+
         f.write('\n\t\t\t\t},')
 
         f.write('\n\t\t\t\t"position":{')
@@ -639,10 +643,13 @@ def create_json_network_file(json_file_path, species_nodes_list, input_transitio
     num_runs = 0
     for node in operon_nodes_list:
         pmid = operon_PMC[node[0].replace("ope_", "")]
+        operon_sbml = "operon_sbml_%s.txt" % node[0].replace("ope_", "")
+        operon_sbol = "operon_sbol_%s.png" % node[0].replace("ope_", "")
         f.write('\n\t\t\t{')
         f.write('\n\t\t\t\t"data":{')
         f.write('\n\t\t\t\t\t"id":"' + node[0] + '",')
-        f.write('\n\t\t\t\t\t"SBOL":"' + node[2] + '",')
+        f.write('\n\t\t\t\t\t"sbml":"' + operon_sbml + '",')
+        f.write('\n\t\t\t\t\t"sbol":"' + operon_sbol + '",')
         f.write('\n\t\t\t\t\t"name":"' + node[1] + '",')
         f.write('\n\t\t\t\t\t"PMID":"' +  pmid + '"')
         f.write('\n\t\t\t\t},')
@@ -662,9 +669,12 @@ def create_json_network_file(json_file_path, species_nodes_list, input_transitio
 
     num_runs = 0
     for node in output_transitions_nodes_list:
+        ot_sbml = "ot_sbml_%s.txt" % node[0].replace("ot_", "")
         f.write('\n\t\t\t{')
         f.write('\n\t\t\t\t"data":{')
-        f.write('\n\t\t\t\t\t"id":"' + str(node[0]) + '"')
+        f.write('\n\t\t\t\t\t"id":"' + str(node[0]) + '",')
+        f.write('\n\t\t\t\t\t"sbml":"' + ot_sbml + '"')
+
         f.write('\n\t\t\t\t},')
 
         f.write('\n\t\t\t\t"position":{')
@@ -812,7 +822,7 @@ def create_json_network_string(species_nodes_list, input_transitions_nodes_list,
 
     num_runs = 0
     for node in output_transitions_nodes_list:
-        ot_sbml = "ot_sbml_%s.txt" % node[0].replace("ope_", "")
+        ot_sbml = "ot_sbml_%s.txt" % node[0].replace("ot_", "")
 
         to_return += '{'
         to_return += '"data":{'
@@ -857,4 +867,9 @@ def create_json_network_string(species_nodes_list, input_transitions_nodes_list,
     to_return += path_json_highlighter + '}'
 
     return to_return
+
+
+if __name__ == "__main__":
+    conn, cur = db.db_open("sbider.db")
+    create_network_json_file(cur,"whole_network.json")
 

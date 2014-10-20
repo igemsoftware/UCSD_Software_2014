@@ -616,7 +616,7 @@ def make_pla_name_spe_name_dics(cursor):
 
 def operon_PMC_dictionary(cur):
     operon_PMC_dict = {}
-    operon_PMC = cur.execute("SELECT PlasmidOperon.ope_id, Plasmid.PMC_ID from PlasmidOperon, Plasmid WHERE PlasmidOperon.pla_id == Plasmid.pla_id")
+    operon_PMC = cur.execute("SELECT PlasmidOperon.ope_id, Plasmid.PMID from PlasmidOperon, Plasmid WHERE PlasmidOperon.pla_id == Plasmid.pla_id")
     for ope_id, PMC_ID in operon_PMC:
         operon_PMC_dict[ope_id] = PMC_ID.replace(' PMID: ', '')
     return operon_PMC_dict
