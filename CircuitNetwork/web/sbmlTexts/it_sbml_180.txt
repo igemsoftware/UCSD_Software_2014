@@ -1,0 +1,3 @@
+<qual:listOfTransitions>
+	<qual:transtion qual:id="it_180">
+</qual:listOfTransitions>

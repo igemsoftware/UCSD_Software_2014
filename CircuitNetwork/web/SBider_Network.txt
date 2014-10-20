@@ -183,6 +183,9 @@
 						qual:id="ope_34-1" qual:maxLevel="1"/>
 						qual:name="PTet--->gfp" qual:miriam id="17700541"/>
 			<qual:qualitativeSpecies    qual:compartment="plasmid" qual:constant="false"
+						qual:id="ope_1047" qual:maxLevel="1"/>
+						qual:name="asldkj" qual:miriam id="121212"/>
+			<qual:qualitativeSpecies    qual:compartment="plasmid" qual:constant="false"
 						qual:id="ope_95-1" qual:maxLevel="1"/>
 						qual:name="pTet--->mxiE" qual:miriam id="23041931"/>
 			<qual:qualitativeSpecies    qual:compartment="plasmid" qual:constant="false"
@@ -494,6 +497,9 @@
 			<qual:qualitativeSpecies    qual:compartment="plasmid" qual:constant="false"
 						qual:id="ope_5-2" qual:maxLevel="1"/>
 						qual:name="pCONST--->araC_tetR" qual:miriam id="21150903"/>
+			<qual:qualitativeSpecies    qual:compartment="plasmid" qual:constant="false"
+						qual:id="ope_1048" qual:maxLevel="1"/>
+						qual:name="asldkj" qual:miriam id="121212"/>
 			<qual:qualitativeSpecies    qual:compartment="plasmid" qual:constant="false"
 						qual:id="ope_3-2" qual:maxLevel="1"/>
 						qual:name="pCONST--->tetR" qual:miriam id="21150903"/>
@@ -2107,6 +2113,7 @@
 					<qual:defaultTerm qual:resultLevel="0"/>
 				</qual:listOfFunctionTerms>
 			</qual:transition>
+			<qual:transtion qual:id="it_179">
 			<qual:transtion qual:id="it_178">
 			<qual:transtion qual:id="it_115">
 				<qual:listOfInputs>
@@ -3655,6 +3662,7 @@
 					<qual:defaultTerm qual:resultLevel="0"/>
 				</qual:listOfFunctionTerms>
 			</qual:transition>
+			<qual:transtion qual:id="it_180">
 			<qual:transtion qual:id="it_2">
 				<qual:listOfInputs>
 					<qual:input qual:id="theta_spe_9"        qual:qualitativeSpecies="spe_9"
@@ -5698,6 +5706,30 @@
 					<qual:defaultTerm qual:resultLevel="0"/>
 				</qual:listOfFunctionTerms>
 			</qual:transition>
+			<qual:transtion qual:id="ot_165">
+				<qual:listOfInputs>
+					<qual:input qual:id="theta_ope_1048"        qual:qualitativeSpecies="ope_1048"
+						    qual:thresholdLevel="1"   qual:transitionEffect="none"
+						    qual:sign="positive"/>
+				</qual:listOfInputs>
+				<qual:listOfOutputs>
+					<qual:output    qual:qualitativeSpecies="spe_48"
+						     qual:transitionEffect="assignmentLevel"/>
+				</qual:listOfOutputs>
+				<qual:listOfFunctionTerms>
+					<qual:functionTerm qual:resultLevel="1">
+						<math xmlns="http://www.w3.org/1998/Math/MathML">
+							<!-- input >= 1-->
+							<apply>
+								<geq/>
+								<ci>ope_1048</ci>
+								<ci>theta_ope_1048</ci>
+							</apply>
+						</math>
+					</qual:funtionTerm>
+					<qual:defaultTerm qual:resultLevel="0"/>
+				</qual:listOfFunctionTerms>
+			</qual:transition>
 			<qual:transtion qual:id="ot_133">
 				<qual:listOfInputs>
 					<qual:input qual:id="theta_ope_92-2"        qual:qualitativeSpecies="ope_92-2"
@@ -6822,6 +6854,30 @@
 								<geq/>
 								<ci>ope_34-1</ci>
 								<ci>theta_ope_34-1</ci>
+							</apply>
+						</math>
+					</qual:funtionTerm>
+					<qual:defaultTerm qual:resultLevel="0"/>
+				</qual:listOfFunctionTerms>
+			</qual:transition>
+			<qual:transtion qual:id="ot_164">
+				<qual:listOfInputs>
+					<qual:input qual:id="theta_ope_1047"        qual:qualitativeSpecies="ope_1047"
+						    qual:thresholdLevel="1"   qual:transitionEffect="none"
+						    qual:sign="positive"/>
+				</qual:listOfInputs>
+				<qual:listOfOutputs>
+					<qual:output    qual:qualitativeSpecies="spe_48"
+						     qual:transitionEffect="assignmentLevel"/>
+				</qual:listOfOutputs>
+				<qual:listOfFunctionTerms>
+					<qual:functionTerm qual:resultLevel="1">
+						<math xmlns="http://www.w3.org/1998/Math/MathML">
+							<!-- input >= 1-->
+							<apply>
+								<geq/>
+								<ci>ope_1047</ci>
+								<ci>theta_ope_1047</ci>
 							</apply>
 						</math>
 					</qual:funtionTerm>

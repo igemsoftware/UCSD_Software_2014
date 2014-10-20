@@ -113,7 +113,7 @@ def make_sbol_file(output_species_list, promoter_list, prev_operon_direction, op
     sbol_string = make_sbol_string_db_update(sbol_list, prev_operon_direction)
     write_sbol_file(sbol_string, sbol_file)
 
-    return sbol_file
+    return sbol_file.replace("/pigeonTexts/", "")
 
 
 def write_sbol_file(sbol_string, file_name):
@@ -411,7 +411,7 @@ def insert_new_device(connection, cursor, device):
 
 def main():
     device_info = sys.argv[1::]
-    # reset_db()
+    reset_db()
     conn, cur = db.db_open("sbider.db")
     sbol_files = insert_new_device(conn, cur, device_info)
     db.db_close(conn, cur)
@@ -421,7 +421,7 @@ def main():
     db.db_close(conn, cur)
 
     gn.create_whole_network_sbml()
-    print sbol_files
+    ###print sbol_files
     return sbol_files
 
 
