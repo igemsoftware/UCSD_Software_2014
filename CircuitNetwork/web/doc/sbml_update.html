@@ -1,0 +1,32 @@
+Help on module sbml_update:
+
+NAME
+    sbml_update - //Title: SBML Node Generator
+
+FILE
+    /Users/jenhantao/Documents/UCSD_IGEM/CircuitNetwork/web/sbml_update.py
+
+DESCRIPTION
+    //Description: 
+        Translate individual node information to SBML and store node file 
+        in current working directory  
+    
+    *************************************************
+    @author: Fernando Contreras
+    @email: f2contre@gmail.com
+    @project: SBiDer
+    @institution: University of California, San Diego
+    *************************************************
+
+FUNCTIONS
+    sbml_input_trans(trans_id, input_species_id_and_boolean_tuple, operon_id, trans_logic, filename)
+        #construct input/output transition component of network SBML file
+    
+    sbml_operon(operon_id, operon_name, miriam_id, filename)
+        #construct operon/chemical species component of network SBML file
+    
+    sbml_output_trans(trans_id, output_species_id, operon_id, filename)
+    
+    sbml_species(species_id, species_name, filename)
+
+

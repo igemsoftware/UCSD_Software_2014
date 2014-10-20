@@ -1,0 +1,2 @@
+pTara	Ara	10	pTara	0	output\	0
+pET28	pTara	0	pET28	0	output	0

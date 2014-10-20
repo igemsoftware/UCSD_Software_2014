@@ -1,0 +1,39 @@
+var eqnDef = {
+    inputs: ["k1","k2”,"k3”,”k4”,”k5”],
+    values: {"k1": k[0],"k2": k[1],"k3”: k[2],”k4”: k[3],”k5”: k[4]}, 
+    parameter: {“dt”:0.1}
+    equation: function([od, input-1, input-2, output]){return [input1 - ( k1*input1 )*od*dt, input2, output]}          
+
+};
+
+
+"slope_eqn": {
+    "values": {
+          "k1": 0,
+          "k2": 1
+     }
+},
+
+"slope_eqn": {
+    "values": {
+          "k1": 2,
+          "k2": 5
+     }
+}
+
+
+var eqnOD = {
+    inputs: ["Optical Density","Input 1"],
+    values: {
+        "Optical Density": OpticalDensity,
+        "Input 1": Input1
+    },
+    equation: function (OD, k1, i){
+                OpticalDensity = OD;
+                Input1 = k1;
+
+                return OD + 0.1*OpticalDensity*(1-k1*OpticalDensity)*0.1;
+            },
+    eqnText: "(dOD/dt) = 0.1*OpticalDensity*(1-k1*OpticalDensity)"
+            
+};
