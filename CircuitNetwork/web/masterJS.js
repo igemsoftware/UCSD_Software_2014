@@ -44,11 +44,12 @@ $(document).ready(function(){
            window.open("http://www.ucsd.edu", '_blank'); 
     });
        
-    var logged = false;
-    while(logged ===false){
+    //var logged = false;
+    //while(logged ===false){
         $('#app').attr('disabled', 'disabled');
-        $('thumbThree').attr('disabled', 'disabled');
-    }
+        $('#thumbThree').attr('disabled', 'disabled');
+    //}
+    
        
    
        //contactUs page
@@ -85,12 +86,16 @@ $(document).ready(function(){
           var data = {name: name, email:email, command:"login"};
           $.get("AuthenticationServlet", data, function(done){
               alert(done);
-              var q = done.val();
-              if(q.equals("Welcome")){
+              var q = done;
+              alert("q is " + q);
+              //if(q.equals("Welcome")){
+                  alert("hello" + q);
                  $('#app').removeAttr('disabled');
                  $('#loginModal').modal('hide');
-                 document.getElementById("#userInfo").value="Welcome!";
-              }
+                 //document.getElementById("#userInfo").value="Welcome!";
+                 document.getElementById("log").style.visibility = 'hidden';
+                 document.getElementById("logOut").style.visibility = 'visible';
+             // }
               alert(done);
          
           });
