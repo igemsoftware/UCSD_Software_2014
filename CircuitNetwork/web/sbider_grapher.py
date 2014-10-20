@@ -563,7 +563,10 @@ def create_network_json_file(cursor, file_name="whole_network.json"):
 
     create_json_network_file(file_name, *json_info)
 
-
+def make_resizing_factor(total_nodes):
+	factor = total_nodes/550
+	return factor
+	
 def create_json_network_file(json_file_path, species_nodes_list, input_transitions_nodes_list,
                              operon_nodes_list, output_transitions_nodes_list, source_id_target_id_list,
                              database = "sbider.db"):
@@ -582,8 +585,9 @@ def create_json_network_file(json_file_path, species_nodes_list, input_transitio
     f = open(json_file_path, 'w')
     num_runs = 0
 
-    x_coor_factor = 10000
-    y_coor_factor = 10000
+	factor = make_resizing_factor(len(node_list))
+    x_coor_factor = 10000*factor
+    y_coor_factor = 10000*factor
 
     f.write('{\n\t"data" : { ')
     f.write('\n\t"selected" : true,')
@@ -728,15 +732,11 @@ def create_json_network_string(species_nodes_list, input_transitions_nodes_list,
     node_list = species_nodes_list + input_transitions_nodes_list + operon_nodes_list + output_transitions_nodes_list
     node_coor_dictionary = nx_node_coordinates_dictionary(node_list, source_id_target_id_list)
 
-    print "species_node_list:", species_nodes_list
-    print "input_transition_nodes_list:", input_transitions_nodes_list
-    print "operon_nodes_list:", operon_nodes_list
-    print "output_transition_nodes_list:", output_transitions_nodes_list
-
     num_runs = 0
 
-    x_coor_factor = 10000
-    y_coor_factor = 10000
+	factor = make_resizing_factor(len(node_list))
+    x_coor_factor = 10000*factor
+    y_coor_factor = 10000*factor
 
     to_return += '{"data" : { '
     to_return += '"selected" : true,'
