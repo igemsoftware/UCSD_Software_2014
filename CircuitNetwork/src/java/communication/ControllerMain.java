@@ -46,10 +46,15 @@ public class ControllerMain {
     }
     
     public String executeQuery(String query) {
-        System.out.println("python " + rootPath + "/sbider_network_builder.py "+rootPath +" " + query+"");
+        System.out.println("python " + rootPath + "/sbider_network_builder.py "+ rootPath + " " + query+"");
         String output = executeCommand("python " + rootPath + "/sbider_network_builder.py "+rootPath +" " + query); //append path to script name and then execute
         return output;
 
+    }
+    
+    public String executeUpload(String upload){
+        String uploader = executeCommand("python " + rootPath + "/sbider_upload_database.py "+ rootPath +" " + upload);
+        return uploader; 
     }
 
     

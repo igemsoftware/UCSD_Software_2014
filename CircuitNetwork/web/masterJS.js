@@ -43,17 +43,20 @@ $(document).ready(function(){
     $("#ucsd").click(function(){
            window.open("http://www.ucsd.edu", '_blank'); 
     });
-       
-    //var logged = false;
-    //while(logged ===false){
-        
-    //}
     
-       var loggedIn = false;
-       if(loggedIn === false){
-       $('#app').attr('disabled', 'disabled');
-       $('#thumbThree').attr('disabled', 'disabled');
-   }
+     $("#wikiDocumentation").click(function(){
+           window.open("http://2014.igem.org/Team:UCSD_Software/Documentation", '_blank'); 
+    });
+      
+       $("#githubLink ").click(function(){
+           window.open("https://github.com/igemsoftware/UCSD-iGEM_2014", '_blank'); 
+    });
+    
+       //var loggedIn = false;
+       //if(loggedIn === false){
+       //$('#app').attr('disabled', 'disabled');
+       //$('#thumbThree').attr('disabled', 'disabled');
+   //}
        //contactUs page
        
        $('#submitContact').click(function(){
@@ -69,7 +72,7 @@ $(document).ready(function(){
          
      });  
      
-       $('#register').click(function(){
+      /* $('#register').click(function(){
           var name = $("#newName").val();
           var email = $("#newPassword").val();
           alert(name + email);
@@ -79,8 +82,8 @@ $(document).ready(function(){
               
           });
        });
-       
-       $('#login').click(function(){
+       */
+      /* $('#login').click(function(){
           loggedIn=false; 
           var name = $("#name").val();
           var email = $("#password").val();
@@ -116,5 +119,5 @@ $(document).ready(function(){
           $('#app').attr('disabled', 'disabled');
           $('#thumbThree').attr('disabled', 'disabled');
        });       
-
+*/
 });  
