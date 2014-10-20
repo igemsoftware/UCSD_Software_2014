@@ -712,7 +712,7 @@ angular.module('cyViewerApp')
         };
 
         //Sets name for the autcomplete.
-        $scope.autoNames = [];
+        $scope.autoNames = ["and","not","or"];
         function autoComSet(){
             for (var nodeNum = 0; nodeNum < networkDefault.elements.nodes.length; nodeNum ++){
                 var node = networkDefault.elements.nodes[nodeNum];
@@ -788,6 +788,8 @@ angular.module('cyViewerApp')
                                 init();
                                 $scope.toggleCAD();
                                 autoComSet();
+                                console.log($scope.autoNames);
+                                console.log($scope.autoNames.length);
                             }).
                             error(function(data, status, headers, config) {
                             });
