@@ -521,155 +521,160 @@ angular.module('cyViewerApp')
                 $scope.selectPath($scope.selectedCircuit.value);
             };
             
-            $scope.plasmidUpdate = {
-                "name" : "",
-                "pubMedId" : "",
-                "operons": [                    
-                    {"operon":{
-                        "name": "",                        
-                        "direction": "",
-                        "inputTransitions":[
-                            {"inputTransition":{
-                                    "promoter":"",
-                                    "logic": "",
-                                    "inputSpecies":[
-                                        {"inputSpecies":{
-                                            "name": "",
-                                            "type": "",
-                                            "repression": ""
-                                        }},
-                                        {"inputSpecies":{
-                                            "name": "",
-                                            "type": "",
-                                            "repression": ""
-                                        }}
-                                    ]
-                            }},
-                            {"inputTransition":{
-                                    "promoter":"",
-                                    "logic": "",
-                                    "inputSpecies":[
-                                        {"inputSpecies":{
-                                            "name": "",
-                                            "type": "",
-                                            "repression": ""
-                                        }},
-                                        {"inputSpecies":{
-                                            "name": "",
-                                            "type": "",
-                                            "repression": ""
-                                        }}
-                                    ]
-                            }}
-                        ],
-                        "outputSpecies":[
-                            {"outputSpecies":{
-                                "name": "",
-                                "type": ""
-                            }},
-                            {"outputSpecies":{
-                                "name": "",
-                                "type": ""
-                            }}
-                        ]
-                    }},
-                    {"operon":{
-                        "name": "",
-                        "direction": "",
-                        "inputTransitions":[
-                            {"inputTransition":{
-                                    "promoter":"",
-                                    "logic": "",
-                                    "inputSpecies":[
-                                        {"inputSpecies":{
-                                            "name": "",
-                                            "type": "",
-                                            "repression": ""
-                                        }},
-                                        {"inputSpecies":{
-                                            "name": "",
-                                            "type": "",
-                                            "repression": ""
-                                        }}
-                                    ]
-                            }},
-                            {"inputTransition":{
-                                    "promoter":"",
-                                    "logic": "",
-                                    "inputSpecies":[
-                                        {"inputSpecies":{
-                                            "name": "",
-                                            "type": "",
-                                            "repression": ""
-                                        }},
-                                        {"inputSpecies":{
-                                            "name": "",
-                                            "type": "",
-                                            "repression": ""
-                                        }}
-                                    ]
-                            }}
-                        ],
-                        "outputSpecies":[
-                            {"outputSpecies":{
-                                "name": "",
-                                "type": ""
-                            }},
-                            {"outputSpecies":{
-                                "name": "",
-                                "type": ""
-                            }}
-                        ]
-                    }} 
-                ]                
+            //empty arrays for use in the update form.
+            $scope.plasmids=[];
+            $scope.operons=[];
+            $scope.inputTransitions=[];
+            $scope.inputSpecies=[];
+            $scope.outputSpecies=[];
+                        
+            //Do not use this function. The database form cannot handle this much info yet!
+            //This is for future additions and versions.
+            //adds a plasmid to the update form fields.
+            $scope.addPlasmid = function(){
+                $scope.plasmids.push({
+                    "data":{
+                        "name": {"label":"Name", "placeholder":"Name","value":""},
+                        "pubMedId": {"label":"PubMed ID", "placeholder":"PMID","value":""}
+                    },
+                    "plasNum":$scope.plasmids.length
+                });
             };
-            $scope.updateString;
-
-            $scope.plasmidStringParser = function(){
-                var plas = $scope.plasmidUpdate;
-                if(plas.name ==="" || plas.pubMedId === ""){
-                    $scope.errorMessage = "Please fill in the plasmid information.";
-                    $("#errorModal").modal("show");
-                    return false;
+            //adds an operon to the update fields.
+            $scope.addOperon = function(plasNum){
+                $scope.operons.push({
+                    "data":{
+                        "name": {"label":"Name", "placeholder":"Name","value":""},
+                        "direction":{"label":"Direction", "placeholder":"Left(L) or Right(R)","value":""}
+                    },
+                    "opeNum":$scope.operons.length,
+                    "plasNum":plasNum
+                });
+                
+                $scope.inputTransitions.push([]);
+                $scope.inputSpecies.push([]);
+                $scope.outputSpecies.push([]);
+                
+                $scope.addInTran($scope.operons.length - 1);
+                
+                console.log($scope.operons);
+            };
+            
+            $scope.addInTran = function(opeNum){
+                $scope.inputTransitions[opeNum].push({
+                    "data":{
+                        "promoter": {"label":"Promoter", "placeholder":"Name","value":""},
+                        "logic": {"label":"Logic", "placeholder":"Logic Type of Input Species","value":""}
+                    },
+                    "inTranNum":$scope.inputTransitions[opeNum].length,
+                    "opeNum":opeNum
+                });
+                
+                $scope.inputSpecies[opeNum].push([]);
+                $scope.outputSpecies[opeNum].push([]);
+                
+                var inTranCount = $scope.inputTransitions[opeNum].length - 1;
+                $scope.addInSpec(opeNum, inTranCount);
+                $scope.addOutSpec(opeNum, inTranCount);                
+            };
+            
+            $scope.addInSpec = function(opeNum,inTranNum){
+                $scope.inputSpecies[opeNum][inTranNum].push({
+                    "data":{
+                        "name": {"label":"Name", "placeholder":"Name","value":""},
+                        "type": {"label":"Type", "placeholder":"Type","value":""},
+                        "repression": {"label":"Repression", "placeholder":"Is it a repressor? True(T) or False(F)","value":""}
+                    },
+                    "inTranNum":inTranNum
+                });
+            };
+            
+            $scope.addOutSpec = function(opeNum,inTranNum){
+                $scope.outputSpecies[opeNum][inTranNum].push({
+                    "data":{
+                        "name": {"label":"Name", "placeholder":"Name","value":""},
+                        "type": {"label":"Type", "placeholder":"Type","value":""}
+                    },
+                    "opeNum":opeNum
+                });
+            };
+            
+            $scope.removeOperon = function(){
+                if($scope.operons.length > 1){
+                    var spliced = $scope.operons.length;
+                    $scope.operons.splice(spliced - 1,1);
+                    $scope.inputTransitions.splice(spliced - 1,1);
+                    $scope.inputSpecies.splice(spliced - 1,1);
+                    $scope.outputSpecies.splice(spliced - 1,1);
                 }
                 else{
-                    $scope.updateString = "plasmid:" + plas.name + "," + String(plas.pubMedId) + "\t";
+                    $scope.errorMessage = "A Plasmids require at least one operon.";
+                    $("#errorModal").modal("show");
                 };
-                
-                for (var opeNum = 0; opeNum < plas.operons.length; opeNum ++){
-                    var ope = plas.operons[opeNum].operon;
-                    if(ope.name === "" || ope.direction === ""){
-                        $scope.errorMessage = "Please fill out the form completely with an Operon that has at least one Input Transition with an Input Species and one Output Transition with an Output Species.";
-                        $("#errorModal").modal("show");
-                        return false;
-                    }
-                    else{
-                        $scope.updateString += "operon:" + ope.name + "," + ope.direction + "\t";
-                    };
-                    
-                    for(var itNum = 0; itNum < ope.inputTransitions.length; itNum++){
-                        var it = ope.inputTransitions[itNum].inputTransition;
-                        $scope.updateString += "inputTransition:" + it.promoter + "," + it.logic + "\t";
-                        for(var inSpecNum = 0; inSpecNum < it.inputSpecies.length; inSpecNum ++){
-                            var inSpec = it.inputSpecies[inSpecNum].inputSpecies;
-                            $scope.updateString += "inputSpecies:" + inSpec.name + "," +inSpec.type + "," +inSpec.repression + "\t";
-                        };
-                    };
-                    
-                    for (var outSpecNum = 0; outSpecNum < ope.outputSpecies.length; outSpecNum ++){
-                        var outSpec = ope.outputSpecies[outSpecNum].outputSpecies;
-                        $scope.updateString += "outputSpecies:" + outSpec.name + "," + outSpec.type + "\t";
-                    };
-                };
-                console.log($scope.updateString);
             };
+            
+            //Requires an argument to specify which operon's transitions are affected.
+            $scope.removeInTran = function(opeNum){
+                if($scope.inputTransitions[opeNum].length > 1){
+                    var spliced = $scope.operons.length;
+                    $scope.inputTransitions[opeNum].splice(spliced - 1,1);
+                    $scope.inputSpecies[opeNum].splice(spliced - 1,1);
+                    $scope.outputSpecies[opeNum].splice(spliced -1,1);
+                }
+                else{
+                    $scope.errorMessage = "An Operon require at least one Input Transition.";
+                    $("#errorModal").modal("show");
+                };
+            };
+            
+            //Also require an argument due to $scope.inputSpecies's nested structure.
+            $scope.removeInSpec = function(opeNum, inTranNum){
+                if($scope.inputSpecies[opeNum][inTranNum].length > 1){
+                    var spliced = $scope.operons.length;
+                    $scope.inputSpecies[opeNum][inTranNum].splice(spliced - 1,1);
+                }
+                else{
+                    $scope.errorMessage = "An Input Transition require at least one Input Species.";
+                    $("#errorModal").modal("show");
+                };
+            };
+            
+            $scope.removeOutSpec = function(opeNum, inTranNum){
+                if($scope.outputSpecies[opeNum][inTranNum].length > 1){
+                    var spliced = $scope.operons.length;
+                    $scope.outputSpecies[opeNum][inTranNum].splice(spliced - 1,1);
+                }
+                else{
+                    $scope.errorMessage = "An Input Transition require at least one Output Species.";
+                    $("#errorModal").modal("show");
+                };
+            };
+
+            function initUpdate(){
+                $scope.addPlasmid();
+                $scope.addOperon($scope.plasmids.length - 1);
+                $scope.addOperon($scope.plasmids.length - 1);
+            };
+            initUpdate();
+                        
+            function resetUpdate(){
+                //resetting form arrays
+                $scope.plasmids=[];
+                $scope.operons=[];
+                $scope.inputTransitions=[];
+                $scope.inputSpecies=[];
+                $scope.outputSpecies=[];
+                //restarting form.
+                initUpdate();
+            };
+                        
             
             $scope.redirect = function(){
                 window.top.location = "../../contactPage.html";
             };
 
-            //Sets name for the autcomplete.
-            $scope.autoNames = [];
+            //Sets name for the autcomplete search box.
+            $scope.autoNames = ["and","not","or"];
             function autoComSet(){
                 for (var nodeNum = 0; nodeNum < networkDefault.elements.nodes.length; nodeNum ++){
                     var node = networkDefault.elements.nodes[nodeNum];
@@ -733,42 +738,42 @@ angular.module('cyViewerApp')
 
 
             $http({method: 'GET', url: visualStyleFile}).
-                    success(function(data) {
+                success(function(data) {
 
-                        vs = data;
-                        $http({method: 'GET', url: NETWORK_FILE}).
-                                success(function(data) {
-                                    networkData = data;
-                                    networkDefault = data;
-                                    $('#network').cytoscape(options);
-                                    $scope.cynet = $('#network').cytoscape('get');
-                                    init();
-                                    $scope.toggleCAD();
-                                    autoComSet();
-                                    console.log($scope.autoNames);
-                                }).
-                                error(function(data, status, headers, config) {
-                                });
-                        //             The Actual GET request.
-                        /*
-                         $http({
-                         method: 'GET', 
-                         url: "/src/java/communication/AuthenticationServlet.java"
-                         }).
-                         success(function(data) {
-                         networkData = JSON.parse(data);
-                         networkDefault = JSON.parse(data);
-                         $('#network').cytoscape(options);
-                         $scope.cynet = $('#network').cytoscape('get');
-                         init();
-                         }).
-                         error(function(data, status, headers, config) {
-                         alert(status);
-                         });
-                         */
-                    }).
-                    error(function(data, status, headers, config) {
-                    });
+                    vs = data;
+                    $http({method: 'GET', url: NETWORK_FILE}).
+                            success(function(data) {
+                                networkData = data;
+                                networkDefault = data;
+                                $('#network').cytoscape(options);
+                                $scope.cynet = $('#network').cytoscape('get');
+                                init();
+                                $scope.toggleCAD();
+                                autoComSet();
+                                console.log($scope.autoNames);
+                            }).
+                            error(function(data, status, headers, config) {
+                            });
+                    //             The Actual GET request.
+                    /*
+                     $http({
+                     method: 'GET', 
+                     url: "/src/java/communication/AuthenticationServlet.java"
+                     }).
+                     success(function(data) {
+                     networkData = JSON.parse(data);
+                     networkDefault = JSON.parse(data);
+                     $('#network').cytoscape(options);
+                     $scope.cynet = $('#network').cytoscape('get');
+                     init();
+                     }).
+                     error(function(data, status, headers, config) {
+                     alert(status);
+                     });
+                     */
+                }).
+                error(function(data, status, headers, config) {
+                });
 
             function searchGet() {
 
