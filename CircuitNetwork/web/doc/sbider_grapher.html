@@ -1,0 +1,219 @@
+Help on module sbider_grapher:
+
+NAME
+    sbider_grapher - Subtitle
+
+FILE
+    /Users/jenhantao/Documents/UCSD_IGEM/CircuitNetwork/web/sbider_grapher.py
+
+DESCRIPTION
+    Descriptive paragraph
+    
+    ******************************************************************************
+    @author: Joaquin Reyna, University of California, San Diego
+             Huwate(Kwat) Yeerna, University of California, San Diego
+    ******************************************************************************
+
+FUNCTIONS
+    add_edge_id_abbreviation(edge, abbrev1, abbrev2, index1=0, index2=0)
+    
+    add_edge_list_id_abbreviation(edge_list, abbrev1, abbrev2, index1=0, index2=0)
+    
+    add_node_id_abbreviation(node_, abbrev, index)
+        Adds an id abbreviation to a node.
+        
+        Argument(s):
+            node - list representing node information.
+            abbrev - string abbreviation.
+            index - integer indicating which value to abbreviate.
+        
+        Return:
+            A node with the abbreviation added to the given index.
+            For example: [ "abbreviation_node_id", "node_field_2", "node_field_3", ...]
+    
+    add_node_list_id_abbreviation(node_list, abbrev, id_index)
+        Adds an id abbreviation to a list of nodes.
+        
+        Argument(s):
+            node_list - list containing nodes.
+            abbrev - string abbreviation.
+            index - integer indicating which value to abbreviate.
+        
+        Return:
+            A node_list the abbreviation added to the given index
+            of every node.
+            For example: [ [ "abbreviation_node_id_1", "node_field_2", "node_field_3", ...],
+                           [ "abbreviation_node_id_2", "node_field_2", "node_field_3", ...], ...]
+    
+    add_node_values_to_nxgraph(nxgraph, node_list)
+        Extracts the node id and enters it into nxGraph.
+    
+    create_input_species_nodes(cursor, it_id)
+        Create species nodes from the corresponding it_id.
+    
+    create_input_transition_nodes(cursor, starting_species_list, operon_id, input_transition_id_dict)
+        Create input transition nodes list from the corresponding operon_id.
+        
+        Argument(s):
+            cursor - sqlite3 cursor object
+            starting_species_list - a list of species activating an operon
+            operon_id - sbider based operon id
+            input_transition_id_dict - dictionary mapping input transitions to corresponding species
+        
+        Return:
+            A tuple of input transition nodes list (with abbreviation) and
+            input transition id list.
+            For example:
+            ( [ ("ope_1-1", "pLux-->gfp", "sbol_image_path_1"), ("ope_2-1", "pLambda-->gfp", "sbol_image_path_2"), ... ],
+              ["1-1", "2-1", ...] )
+    
+    create_json_network_file(json_file_path, species_nodes_list, input_transitions_nodes_list, operon_nodes_list, output_transitions_nodes_list, source_id_target_id_list)
+        Writes the whole network json.
+        :param json_file_path:
+        :param species_nodes_list:
+        :param input_transitions_nodes_list:
+        :param operon_nodes_list:
+        :param output_transitions_nodes_list:
+        :param source_id_target_id_list:
+    
+    create_json_network_string(species_nodes_list, input_transitions_nodes_list, operon_nodes_list, output_transitions_nodes_list, source_id_target_id_list, path_json_highlighter)
+    
+    create_json_whole_network_file(file_name, cursor)
+        Generates the whole network json.
+    
+    create_operon_node(cursor, operon_id)
+        Create an operon node from the corresponding operon_id.
+        
+        Argument(s):
+            cursor - sqlite 3 cursor object.
+            operon_id - sbider based operon id
+        
+        Return:
+            A tuple with operon node information as a tuple
+            (id abbrevation included) and the corresponding
+            operon id.
+            For example: ( ("ope_1-1", "pLux-->gfp", "sbol_image_path_1"), "1-1" )
+    
+    create_output_species_nodes(cursor, ot_id)
+        Create species nodes from the corresponding ot_id.
+    
+    create_output_transition_node(cursor, operon_id)
+        Create output transition nodes from the corresponding operon_id.
+        
+        Argument(s):
+            cursor - sqlite3 cursor object
+            operon_id - sbider based operon id
+        
+        Return:
+            A list of tuples with operon node information.
+    
+    create_subnetwork_json_string(cursor, list_of_operon_paths)
+        Generates the subnetwork json.
+    
+    create_subnetwork_path(cursor, starting_species_list, operon_path, it_trans_dict)
+        Creating a subnetwork path.
+        :rtype : object
+        :param cursor:
+        :param starting_species_list: 
+        :param operon_path: 
+        :param it_trans_dict:
+    
+    determine_operon_activated_input_transition(cursor, starting_species_list, operon_id, input_transition_id_dict)
+        Determining which input transition is activating an operon.
+        
+        Argument(s):
+            cursor - sqlite3 cursor object
+            starting_species_list - a list of species activating an operon
+            operon_id - sbider based operon id
+            id_id_dict - dictionary mapping input transitions to corresponding species
+        
+        Return:
+            A list of transitions that activate the operon (from operon_id).
+            For example: ["it_1", "it_2", ...]
+    
+    get_input_transition_species_dictionary(cursor)
+        Retrieves all rows pertaining to the sbider inputTranstion
+        table using these values the dictionary is created.
+        
+        Argument(s):
+            cursor - sqlite3 cursor object instance
+        
+        Return:
+            A dictionary mapping input transition id to a species id list.
+    
+    get_node1_list_from_node2_id(cursor, node1_node2_relationship_table, node2_id, node2_id_type, node1_table_name, node1_id_type)
+        Query the database to find all node1's from node2's id.
+            It's possible to have multiple node1's map to node2.
+        
+        Argument(s):
+            cursor - sqlite3 cursor object
+            node1_node2_relationship_table - table_name relating node1 and node2
+            node2_id - string representation of node1_id
+            node2_id_type - node2_id type being used in the sbider database
+            node1_table_name - table_name where node information exists
+            node1_id_type - node1_id type being used in the sbider database
+        
+        Return:
+            A list of nodes representing all node1's related to node2.
+    
+    get_node_from_id(cursor, node_table_name, node_id, node_id_type)
+        Query the database using the node_id for node.
+        
+        Argument(s):
+            cursor - sqlite3 cursor object
+            node_table_name - table_name where node information exists
+            node_id - string representation of node_id
+            node_id_type - the type of node being used from the sbider database.
+        
+        Return:
+            A tuple of information representing the node.
+    
+    get_path_json_array(cursor, starting_species_list, operon_paths_list)
+        Generate json array for node highlighting.
+    
+    get_subnetwork(cursor, list_of_operon_paths)
+    
+    get_whole_network(cursor)
+        Whole network data prep for json.
+    
+    list_of_lists(list_of_tups)
+        Creates a list of lists from a list of tuples.
+        
+        Return:
+            A list with list values.
+    
+    list_of_tuples(list_of_lsts)
+        Creates a list of tuples from a list of lists.
+        
+        Return:
+            A list with tuple values.
+    
+    merge_list_of_lists(list_of_lsts)
+        ALREADY EXISTS IN THE HELPER!!
+    
+    nx_node_coordinates_dictionary(node_id_list, edge_list)
+        Creates a dictionary of node coordinates using spring layout from networkx.
+        
+        Argument(s):
+            node_id_list - ids of nodes for positioning
+            edge_list - all edges between nodes stored in a tuple as follows,
+                        (source_node_id, target_node_id)
+        
+        Return:
+            A dictionary mapping
+    
+    resize_network(total_subnetwork_nodes, total_whole_nodes=540)
+        Resize the network.
+    
+    unique_node_list(nodes_list)
+        Removal of duplicate nodes from the node_list.
+        
+        Argument(s):
+            node_list - list of node information stored as list (list of lists).
+        
+        Return:
+            A list of unique nodes.
+            For example:
+            [ ["node_id_1", "node_field_2", "node_field_3"], ["node_id_2", "node_field_2", "node_field_3", ...], ...]
+
+

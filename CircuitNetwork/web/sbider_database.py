@@ -5,7 +5,7 @@ Descriptive paragraph
 
 ******************************************************************************
 @author: Huwate(Kwat) Yeerna, University of California, San Diego
-         Joaquin Reina, University of California, San Diego
+         Joaquin Reyna, University of California, San Diego
 ******************************************************************************
 """
 
@@ -245,10 +245,12 @@ def db_print_table(cursor, table_name):
 
     table = cursor.execute("SELECT * FROM " + table_name)
     table = cursor.fetchall()
+    print table
 
 
 def db_print_all_table(cursor):
     """Print all tables."""
+
     db_print_table(cursor, "Species")
     db_print_table(cursor, "Plasmid")
     db_print_table(cursor, "Operon")
@@ -612,12 +614,9 @@ def make_pla_name_spe_name_dics(cursor):
                                                                                   output_operon_species_dictionary)
     return input_plasmid_species_name_dictionary, output_plasmid_species_name_dictionary
 
-
-
-
-
-
-
-
-
-
+def operon_PMC_dictionary(cur):
+    operon_PMC_dict = {}
+    operon_PMC = cur.execute("SELECT PlasmidOperon.ope_id, Plasmid.PMC_ID from PlasmidOperon, Plasmid WHERE PlasmidOperon.pla_id == Plasmid.pla_id")
+    for ope_id, PMC_ID in operon_PMC:
+        operon_PMC_dict[ope_id] = PMC_ID.replace(' PMID: ', '')
+    return operon_PMC_dict

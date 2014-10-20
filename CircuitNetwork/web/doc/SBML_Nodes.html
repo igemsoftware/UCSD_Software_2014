@@ -1,0 +1,105 @@
+Help on module SBML_Nodes:
+
+NAME
+    SBML_Nodes - //Title: SBML Node Constructor.
+
+FILE
+    /Users/jenhantao/Documents/UCSD_IGEM/CircuitNetwork/web/SBML_Nodes.py
+
+DESCRIPTION
+    //Description: 
+        Each class generates a corresponding SBML description of the input information.
+    
+    *************************************************
+    @author: Fernando Contreras
+    @email: f2contre@gmail.com
+    @project: SBiDer
+    @institution: University of California, San Diego
+    *************************************************
+
+CLASSES
+    Nodes
+    QualitativeSpecies
+    Transitions
+    
+    class Nodes
+     |  Place, passive component of Petri Net model, and transition, active component 
+     |  of Petri Net model, file constructor.When instantiated, a qualitative species 
+     |  list and a transitions list are created. Data is then stored according to 
+     |  SBML standards.
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self)
+     |      Instantiate qualitative species and transitions list objects
+     |  
+     |  writeQualSpecies(self, filename)
+     |      @Parameters: filename
+     |          type: string 
+     |          description: desired file name for a particular qualitative species
+     |          SBML text file(i.e. operon or chemical species)
+     |      @Method:
+     |          Write SBML text file for a qualitative species stored in the qualitative 
+     |          species list object. File is then stored in the current working directory.
+     |  
+     |  writeTransition(self, filename)
+     |      @Parameters: filename
+     |          type: string 
+     |          description: desired file name for a particular transition SBML text 
+     |          file(i.e. input transition or output transition)
+     |      @Method:
+     |          Write SBML text file for a transition stored in the transition list 
+     |          object. File is then stored in the current working directory.
+    
+    class QualitativeSpecies
+     |  Qualitative species, such as operons and chemical species, constructor
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, id, compartment, name='NONE', maxLevel='1', constant='false', miriam_id='NONE')
+     |      @Parameters:
+     |          id: node id 
+     |          compartment: node compartment, for example, operons belong in the plasmid compartment
+     |          name: node name, default=NONE because operons don't have a name 
+     |          maxLevel: node threshold, default = 1 because a logic model was implemented 
+     |          constant: denotes node passivity, if constant = True then the node does not interact with 
+     |          network. Thus, the node does not transfer information.
+     |          miriam_id: Minimal Information Required in the Annotation of Models id. This allows for 
+     |          a standarized citation of literature references 
+     |      
+     |      @Method:
+     |          Translate all the inputed information to SBML and append to list
+     |  
+     |  appendToQualSpecies(self, node_name)
+    
+    class Transitions
+     |  Input and output transition constructor; transitions denote the operon's input 
+     |  and output reaction in our network.
+     |  
+     |  Methods defined here:
+     |  
+     |  input_transition(self, node_name, trans_id, input_id_boolean_tuple, operon_id, trans_logic)
+     |      @Parameters:
+     |          node_name: name of node object, instantiated using the Node class 
+     |          trans_id: transition id 
+     |          input_id_boolean_tuple: tuple of the form (input chemical species, repressor boolean)
+     |              input chemical species: chemical species involved in reaction 
+     |              repressor boolean: denotes whether a chemical species is a repressor (True or False)
+     |              Can input a list if multiple operators are involved, such is the case for an AND gate 
+     |          operon_id: operon id 
+     |          trans_logic: transition logic denotes the Boolean logic of a reaction ('AND', 'OR', 'NOT')
+     |          
+     |      @Method:
+     |          Translate all the inputed information to SBML and append to list
+     |  
+     |  output_transition(self, node_name, trans_id, output_id, operon_id)
+     |      @Parameters:
+     |          node_name: name of node object, instantiated using the Node class 
+     |          trans_id: transition id 
+     |          output_id: single variable input which denotes the id of an operon's output
+     |          operon_id: operon id 
+     |          
+     |      @Method:
+     |          Translate all the inputed information to SBML and append to list
+
+

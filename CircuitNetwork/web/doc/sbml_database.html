@@ -1,0 +1,91 @@
+Help on module sbml_database:
+
+NAME
+    sbml_database - //Title: SBML Database Access
+
+FILE
+    /Users/jenhantao/Documents/UCSD_IGEM/CircuitNetwork/web/sbml_database.py
+
+DESCRIPTION
+    //Description: 
+        Access SBiDer database and retrieve all necessary SBML information 
+    
+    *************************************************
+    @author: Fernando Contreras
+    @email: f2contre@gmail.com
+    @project: SBiDer
+    @institution: University of California, San Diego
+    *************************************************
+
+FUNCTIONS
+    get_sbml_input_logic()
+        Access the input transition logic table and acquire 
+        input transition Boolean logic
+        
+        @Output: dictionary = {it_id: logic}
+            key = input transition id 
+            value = associated Boolean logic
+    
+    get_sbml_input_operon_edges()
+        Access the input transition-operon relationship table and acquire 
+        input transition-operon edges
+        
+        @Output: dictionary = {it_id: ope_id}
+            key = input transition id 
+            value = operon id
+    
+    get_sbml_input_species_edges()
+        Access the input transition-chemical species relationship table and acquire 
+        input species-transition edges
+        
+        @Output: dictionary = {it_id: [(spe_id, repressor_boolean)]}
+            key = input transition id 
+            value = list of associated input chemical species
+                tuple = (chemical species, associated repressor boolean). If 
+                chemical species is a repressor then repressor_boolean is 'True'
+    
+    get_sbml_miriam_ids()
+        Access plasmid table and plasmid-operon relationship table to retrieve 
+        the miriam ids of each operon
+        
+        @Output: dictionary = {operon id: miriam id}
+            operon id: string type 
+            miriam id: string type
+    
+    get_sbml_operons()
+        Access operon table to retrieve all relevant operon information
+        
+        @Output: dictionary = {operon id: operon name}
+            key = operon id: string type
+            value = operon name: string type
+    
+    get_sbml_output_operon_edges()
+        Access the output transition-operon relationship table and acquire 
+        output transition-operon edges
+        
+        @Output: dictionary = {ot_id: ope_id}
+            key = output transition id 
+            value = operon id
+    
+    get_sbml_output_species_edges()
+        Access the output transition-chemical species relationship table and acquire 
+        output species-transition edges
+        
+        @Output: dictionary = {ot_id: [spe_id]}
+            key = output transition id 
+            value = list of associated output chemical species
+    
+    get_sbml_species()
+        Access chemical species table and retrieve all relevant species information 
+        
+        @Output: dictionary = {species id: species name}
+            key = species id 
+            value = species name
+
+DATA
+    con = <sqlite3.Connection object>
+    cursor = <sqlite3.Cursor object>
+    cwd = '/Users/jenhantao/Documents/UCSD_IGEM/CircuitNetwork/web'
+    database_path = '/Users/jenhantao/Documents/UCSD_IGEM/CircuitNetwork/w...
+
+
