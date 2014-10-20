@@ -16,8 +16,8 @@
 					"sbml":"species_sbml_1.txt"
 				},
 				"position":{
-					"x":3367.06846952,
-					"y":3149.87003803
+					"x":8175.31883717,
+					"y":6457.46052265
 				},
 				"classes":"species",
 				"selected":false
@@ -30,8 +30,8 @@
 					"sbml":"species_sbml_2.txt"
 				},
 				"position":{
-					"x":6205.68096638,
-					"y":1273.74112606
+					"x":7956.51853085,
+					"y":5957.04138279
 				},
 				"classes":"species",
 				"selected":false
@@ -44,8 +44,8 @@
 					"sbml":"species_sbml_3.txt"
 				},
 				"position":{
-					"x":8125.41484833,
-					"y":4232.19114542
+					"x":8306.93125725,
+					"y":2303.66900563
 				},
 				"classes":"species",
 				"selected":false
@@ -58,8 +58,8 @@
 					"sbml":"species_sbml_4.txt"
 				},
 				"position":{
-					"x":153.398402035,
-					"y":3911.03327274
+					"x":1828.28709483,
+					"y":1234.86205935
 				},
 				"classes":"species",
 				"selected":false
@@ -72,8 +72,8 @@
 					"sbml":"species_sbml_5.txt"
 				},
 				"position":{
-					"x":136.649766937,
-					"y":4566.9901371
+					"x":984.679982066,
+					"y":3268.92405748
 				},
 				"classes":"species",
 				"selected":false
@@ -86,8 +86,8 @@
 					"sbml":"species_sbml_6.txt"
 				},
 				"position":{
-					"x":8751.24454498,
-					"y":2094.04438734
+					"x":9379.2361021,
+					"y":7366.54579639
 				},
 				"classes":"species",
 				"selected":false
@@ -100,8 +100,8 @@
 					"sbml":"species_sbml_7.txt"
 				},
 				"position":{
-					"x":9265.63203335,
-					"y":2587.32199669
+					"x":9731.91559315,
+					"y":6302.4187088
 				},
 				"classes":"species",
 				"selected":false
@@ -114,8 +114,8 @@
 					"sbml":"species_sbml_8.txt"
 				},
 				"position":{
-					"x":5850.98445415,
-					"y":8378.70180607
+					"x":5581.88140392,
+					"y":677.059441805
 				},
 				"classes":"species",
 				"selected":false
@@ -128,8 +128,8 @@
 					"sbml":"species_sbml_9.txt"
 				},
 				"position":{
-					"x":1642.8604722,
-					"y":5160.37583351
+					"x":1922.33234644,
+					"y":3881.15465641
 				},
 				"classes":"species",
 				"selected":false
@@ -142,8 +142,8 @@
 					"sbml":"species_sbml_10.txt"
 				},
 				"position":{
-					"x":3396.43448591,
-					"y":9105.69489002
+					"x":1757.7676475,
+					"y":7550.6657362
 				},
 				"classes":"species",
 				"selected":false
@@ -156,8 +156,8 @@
 					"sbml":"species_sbml_11.txt"
 				},
 				"position":{
-					"x":8229.37250137,
-					"y":6627.50124931
+					"x":7123.84879589,
+					"y":2694.53316927
 				},
 				"classes":"species",
 				"selected":false
@@ -170,8 +170,8 @@
 					"sbml":"species_sbml_12.txt"
 				},
 				"position":{
-					"x":0.0,
-					"y":5113.09146881
+					"x":4073.47261906,
+					"y":9846.1574316
 				},
 				"classes":"species",
 				"selected":false
@@ -184,8 +184,8 @@
 					"sbml":"species_sbml_13.txt"
 				},
 				"position":{
-					"x":6449.50449467,
-					"y":1198.84483516
+					"x":7453.83918285,
+					"y":5894.54233646
 				},
 				"classes":"species",
 				"selected":false
@@ -198,8 +198,8 @@
 					"sbml":"species_sbml_14.txt"
 				},
 				"position":{
-					"x":7637.88461685,
-					"y":729.622319341
+					"x":5293.8079834,
+					"y":130.165694281
 				},
 				"classes":"species",
 				"selected":false
@@ -212,8 +212,8 @@
 					"sbml":"species_sbml_15.txt"
 				},
 				"position":{
-					"x":8121.26100063,
-					"y":1094.69972551
+					"x":9281.10301495,
+					"y":7576.76005363
 				},
 				"classes":"species",
 				"selected":false
@@ -226,8 +226,8 @@
 					"sbml":"species_sbml_16.txt"
 				},
 				"position":{
-					"x":8654.68144417,
-					"y":1597.58999944
+					"x":5483.21425915,
+					"y":9876.0163784
 				},
 				"classes":"species",
 				"selected":false
@@ -240,8 +240,8 @@
 					"sbml":"species_sbml_17.txt"
 				},
 				"position":{
-					"x":9047.19471931,
-					"y":2134.95075703
+					"x":7493.36779118,
+					"y":9272.66955376
 				},
 				"classes":"species",
 				"selected":false
@@ -254,8 +254,8 @@
 					"sbml":"species_sbml_18.txt"
 				},
 				"position":{
-					"x":4659.23041105,
-					"y":9856.33969307
+					"x":2493.07379127,
+					"y":8190.91200829
 				},
 				"classes":"species",
 				"selected":false
@@ -268,8 +268,8 @@
 					"sbml":"species_sbml_19.txt"
 				},
 				"position":{
-					"x":4038.32048178,
-					"y":5303.62784863
+					"x":581.373646855,
+					"y":7094.39814091
 				},
 				"classes":"species",
 				"selected":false
@@ -282,8 +282,8 @@
 					"sbml":"species_sbml_20.txt"
 				},
 				"position":{
-					"x":4975.29089451,
-					"y":5069.15450096
+					"x":858.10162127,
+					"y":7665.14539719
 				},
 				"classes":"species",
 				"selected":false
@@ -296,8 +296,8 @@
 					"sbml":"species_sbml_21.txt"
 				},
 				"position":{
-					"x":2739.28970098,
-					"y":6160.91966629
+					"x":2677.58131027,
+					"y":5892.52412319
 				},
 				"classes":"species",
 				"selected":false
@@ -310,8 +310,8 @@
 					"sbml":"species_sbml_22.txt"
 				},
 				"position":{
-					"x":2387.32129335,
-					"y":5627.48193741
+					"x":2543.26403141,
+					"y":6106.17220402
 				},
 				"classes":"species",
 				"selected":false
@@ -324,8 +324,8 @@
 					"sbml":"species_sbml_23.txt"
 				},
 				"position":{
-					"x":7251.76334381,
-					"y":7978.70576382
+					"x":4365.48411846,
+					"y":7669.87621784
 				},
 				"classes":"species",
 				"selected":false
@@ -338,8 +338,8 @@
 					"sbml":"species_sbml_24.txt"
 				},
 				"position":{
-					"x":513.342022896,
-					"y":5317.6856041
+					"x":112.660508603,
+					"y":4008.6466074
 				},
 				"classes":"species",
 				"selected":false
@@ -352,8 +352,8 @@
 					"sbml":"species_sbml_25.txt"
 				},
 				"position":{
-					"x":2254.20668721,
-					"y":4776.15207434
+					"x":1458.29960704,
+					"y":3764.83231783
 				},
 				"classes":"species",
 				"selected":false
@@ -366,8 +366,8 @@
 					"sbml":"species_sbml_26.txt"
 				},
 				"position":{
-					"x":2360.9726131,
-					"y":670.905262232
+					"x":927.697867155,
+					"y":8004.65703011
 				},
 				"classes":"species",
 				"selected":false
@@ -380,8 +380,8 @@
 					"sbml":"species_sbml_27.txt"
 				},
 				"position":{
-					"x":8923.82025719,
-					"y":7924.90303516
+					"x":6119.18389797,
+					"y":8697.56758213
 				},
 				"classes":"species",
 				"selected":false
@@ -394,8 +394,8 @@
 					"sbml":"species_sbml_28.txt"
 				},
 				"position":{
-					"x":1950.83364844,
-					"y":8745.98026276
+					"x":5659.37280655,
+					"y":8620.54347992
 				},
 				"classes":"species",
 				"selected":false
@@ -408,8 +408,8 @@
 					"sbml":"species_sbml_29.txt"
 				},
 				"position":{
-					"x":572.016611695,
-					"y":6341.48001671
+					"x":583.216734231,
+					"y":2663.33222389
 				},
 				"classes":"species",
 				"selected":false
@@ -422,8 +422,8 @@
 					"sbml":"species_sbml_30.txt"
 				},
 				"position":{
-					"x":9760.11812687,
-					"y":4590.09647369
+					"x":4416.69017076,
+					"y":9935.77539921
 				},
 				"classes":"species",
 				"selected":false
@@ -436,8 +436,8 @@
 					"sbml":"species_sbml_31.txt"
 				},
 				"position":{
-					"x":6074.45776463,
-					"y":7692.27683544
+					"x":6459.48767662,
+					"y":1254.0897727
 				},
 				"classes":"species",
 				"selected":false
@@ -450,8 +450,8 @@
 					"sbml":"species_sbml_32.txt"
 				},
 				"position":{
-					"x":902.906805277,
-					"y":2282.7616334
+					"x":184.690393507,
+					"y":6026.24416351
 				},
 				"classes":"species",
 				"selected":false
@@ -464,8 +464,8 @@
 					"sbml":"species_sbml_33.txt"
 				},
 				"position":{
-					"x":291.385073215,
-					"y":5422.25539684
+					"x":116.255804896,
+					"y":3905.80117702
 				},
 				"classes":"species",
 				"selected":false
@@ -478,8 +478,8 @@
 					"sbml":"species_sbml_34.txt"
 				},
 				"position":{
-					"x":9848.57022762,
-					"y":3754.61041927
+					"x":3228.40899229,
+					"y":296.577848494
 				},
 				"classes":"species",
 				"selected":false
@@ -492,8 +492,8 @@
 					"sbml":"species_sbml_35.txt"
 				},
 				"position":{
-					"x":9934.22329426,
-					"y":4169.14612055
+					"x":3005.66077232,
+					"y":391.178317368
 				},
 				"classes":"species",
 				"selected":false
@@ -506,8 +506,8 @@
 					"sbml":"species_sbml_36.txt"
 				},
 				"position":{
-					"x":118.3382608,
-					"y":5668.06197166
+					"x":3636.17986441,
+					"y":2037.43949533
 				},
 				"classes":"species",
 				"selected":false
@@ -520,8 +520,8 @@
 					"sbml":"species_sbml_37.txt"
 				},
 				"position":{
-					"x":5567.34383106,
-					"y":9898.02777767
+					"x":5087.44716644,
+					"y":10000.0
 				},
 				"classes":"species",
 				"selected":false
@@ -534,8 +534,8 @@
 					"sbml":"species_sbml_38.txt"
 				},
 				"position":{
-					"x":8534.8123312,
-					"y":1445.98379731
+					"x":3977.60659456,
+					"y":9732.43951797
 				},
 				"classes":"species",
 				"selected":false
@@ -548,8 +548,8 @@
 					"sbml":"species_sbml_39.txt"
 				},
 				"position":{
-					"x":8215.60919285,
-					"y":7323.32646847
+					"x":6592.15509892,
+					"y":908.356979489
 				},
 				"classes":"species",
 				"selected":false
@@ -562,8 +562,8 @@
 					"sbml":"species_sbml_40.txt"
 				},
 				"position":{
-					"x":5213.50443363,
-					"y":9879.97353077
+					"x":887.906402349,
+					"y":7830.81233501
 				},
 				"classes":"species",
 				"selected":false
@@ -576,8 +576,8 @@
 					"sbml":"species_sbml_41.txt"
 				},
 				"position":{
-					"x":1181.6893518,
-					"y":1833.40862393
+					"x":1576.10222697,
+					"y":1369.34950948
 				},
 				"classes":"species",
 				"selected":false
@@ -590,8 +590,8 @@
 					"sbml":"species_sbml_42.txt"
 				},
 				"position":{
-					"x":1238.42440546,
-					"y":8045.42720318
+					"x":662.643164396,
+					"y":7422.48177528
 				},
 				"classes":"species",
 				"selected":false
@@ -604,8 +604,8 @@
 					"sbml":"species_sbml_43.txt"
 				},
 				"position":{
-					"x":3544.80266571,
-					"y":182.823892683
+					"x":3725.68696737,
+					"y":9286.95261478
 				},
 				"classes":"species",
 				"selected":false
@@ -618,8 +618,8 @@
 					"sbml":"species_sbml_44.txt"
 				},
 				"position":{
-					"x":8818.3838129,
-					"y":4972.65636921
+					"x":8025.96509457,
+					"y":1590.27472138
 				},
 				"classes":"species",
 				"selected":false
@@ -632,8 +632,8 @@
 					"sbml":"species_sbml_45.txt"
 				},
 				"position":{
-					"x":968.279913068,
-					"y":7804.23641205
+					"x":578.099191189,
+					"y":2561.39069796
 				},
 				"classes":"species",
 				"selected":false
@@ -646,8 +646,106 @@
 					"sbml":"species_sbml_46.txt"
 				},
 				"position":{
-					"x":9973.09625149,
-					"y":4903.83625031
+					"x":9930.70006371,
+					"y":5023.75483513
+				},
+				"classes":"species",
+				"selected":false
+			},
+			{
+				"data":{
+					"id":"spe_47",
+					"name":"seahorse",
+					"type":"None",
+					"sbml":"species_sbml_47.txt"
+				},
+				"position":{
+					"x":447.770617902,
+					"y":6670.24552822
+				},
+				"classes":"species",
+				"selected":false
+			},
+			{
+				"data":{
+					"id":"spe_48",
+					"name":"dolphin",
+					"type":"None",
+					"sbml":"species_sbml_48.txt"
+				},
+				"position":{
+					"x":510.203763843,
+					"y":6888.80681992
+				},
+				"classes":"species",
+				"selected":false
+			},
+			{
+				"data":{
+					"id":"spe_49",
+					"name":"clownfish",
+					"type":"None",
+					"sbml":"species_sbml_49.txt"
+				},
+				"position":{
+					"x":894.175320864,
+					"y":2419.13661361
+				},
+				"classes":"species",
+				"selected":false
+			},
+			{
+				"data":{
+					"id":"spe_50",
+					"name":"shark",
+					"type":"None",
+					"sbml":"species_sbml_50.txt"
+				},
+				"position":{
+					"x":260.634478182,
+					"y":3205.909729
+				},
+				"classes":"species",
+				"selected":false
+			},
+			{
+				"data":{
+					"id":"spe_51",
+					"name":"wave",
+					"type":"None",
+					"sbml":"species_sbml_51.txt"
+				},
+				"position":{
+					"x":383.012779057,
+					"y":6933.23731422
+				},
+				"classes":"species",
+				"selected":false
+			},
+			{
+				"data":{
+					"id":"spe_52",
+					"name":"reef",
+					"type":"None",
+					"sbml":"species_sbml_52.txt"
+				},
+				"position":{
+					"x":374.803952873,
+					"y":6763.62276077
+				},
+				"classes":"species",
+				"selected":false
+			},
+			{
+				"data":{
+					"id":"spe_53",
+					"name":"dfp",
+					"type":"None",
+					"sbml":"species_sbml_53.txt"
+				},
+				"position":{
+					"x":427.90774256,
+					"y":2928.63070965
 				},
 				"classes":"species",
 				"selected":false
@@ -659,8 +757,8 @@
 					"sbml":"it_sbml_1.txt"
 				},
 				"position":{
-					"x":1926.79837346,
-					"y":6808.48538876
+					"x":2903.8631916,
+					"y":4748.96192551
 				},
 				"classes":"input transition",
 				"selected":false
@@ -672,8 +770,8 @@
 					"sbml":"it_sbml_2.txt"
 				},
 				"position":{
-					"x":1177.23859847,
-					"y":6514.2583847
+					"x":2756.71303272,
+					"y":2607.58221149
 				},
 				"classes":"input transition",
 				"selected":false
@@ -685,8 +783,8 @@
 					"sbml":"it_sbml_3.txt"
 				},
 				"position":{
-					"x":3219.55502033,
-					"y":1254.77731228
+					"x":9245.00405788,
+					"y":7447.93891907
 				},
 				"classes":"input transition",
 				"selected":false
@@ -698,8 +796,8 @@
 					"sbml":"it_sbml_4.txt"
 				},
 				"position":{
-					"x":7858.35981369,
-					"y":1509.93481278
+					"x":8516.81828499,
+					"y":4452.25208998
 				},
 				"classes":"input transition",
 				"selected":false
@@ -711,8 +809,8 @@
 					"sbml":"it_sbml_5.txt"
 				},
 				"position":{
-					"x":3640.18887281,
-					"y":5340.20602703
+					"x":8725.78978539,
+					"y":4577.04305649
 				},
 				"classes":"input transition",
 				"selected":false
@@ -724,8 +822,8 @@
 					"sbml":"it_sbml_6.txt"
 				},
 				"position":{
-					"x":6261.43276691,
-					"y":9275.7242918
+					"x":6219.9229002,
+					"y":249.856263399
 				},
 				"classes":"input transition",
 				"selected":false
@@ -737,8 +835,8 @@
 					"sbml":"it_sbml_7.txt"
 				},
 				"position":{
-					"x":5585.34443378,
-					"y":2186.45751476
+					"x":9084.22291279,
+					"y":4921.26464844
 				},
 				"classes":"input transition",
 				"selected":false
@@ -750,8 +848,8 @@
 					"sbml":"it_sbml_8.txt"
 				},
 				"position":{
-					"x":8374.98247623,
-					"y":5670.23515701
+					"x":7742.01750755,
+					"y":1035.30086577
 				},
 				"classes":"input transition",
 				"selected":false
@@ -763,8 +861,8 @@
 					"sbml":"it_sbml_9.txt"
 				},
 				"position":{
-					"x":4663.45995665,
-					"y":2293.99368167
+					"x":9752.81059742,
+					"y":5620.96834183
 				},
 				"classes":"input transition",
 				"selected":false
@@ -776,8 +874,8 @@
 					"sbml":"it_sbml_10.txt"
 				},
 				"position":{
-					"x":7422.96695709,
-					"y":2420.60050368
+					"x":7802.20627785,
+					"y":4183.76803398
 				},
 				"classes":"input transition",
 				"selected":false
@@ -789,8 +887,8 @@
 					"sbml":"it_sbml_11.txt"
 				},
 				"position":{
-					"x":7053.0807972,
-					"y":6731.94408417
+					"x":6838.91713619,
+					"y":662.550851703
 				},
 				"classes":"input transition",
 				"selected":false
@@ -802,8 +900,8 @@
 					"sbml":"it_sbml_12.txt"
 				},
 				"position":{
-					"x":4547.79922962,
-					"y":1702.56957412
+					"x":9121.22964859,
+					"y":5698.74644279
 				},
 				"classes":"input transition",
 				"selected":false
@@ -815,8 +913,8 @@
 					"sbml":"it_sbml_13.txt"
 				},
 				"position":{
-					"x":7717.6374197,
-					"y":1808.25829506
+					"x":8431.58721924,
+					"y":4588.14531565
 				},
 				"classes":"input transition",
 				"selected":false
@@ -828,8 +926,8 @@
 					"sbml":"it_sbml_14.txt"
 				},
 				"position":{
-					"x":8909.17181969,
-					"y":3930.32759428
+					"x":8629.56821918,
+					"y":1872.35057354
 				},
 				"classes":"input transition",
 				"selected":false
@@ -841,8 +939,8 @@
 					"sbml":"it_sbml_15.txt"
 				},
 				"position":{
-					"x":5315.34075737,
-					"y":2951.24560595
+					"x":9547.31047153,
+					"y":4681.61523342
 				},
 				"classes":"input transition",
 				"selected":false
@@ -854,8 +952,8 @@
 					"sbml":"it_sbml_16.txt"
 				},
 				"position":{
-					"x":7353.96385193,
-					"y":8284.59739685
+					"x":5878.64160538,
+					"y":277.533177286
 				},
 				"classes":"input transition",
 				"selected":false
@@ -867,8 +965,8 @@
 					"sbml":"it_sbml_17.txt"
 				},
 				"position":{
-					"x":9013.75055313,
-					"y":5573.43840599
+					"x":7548.80011082,
+					"y":1089.11141753
 				},
 				"classes":"input transition",
 				"selected":false
@@ -880,8 +978,8 @@
 					"sbml":"it_sbml_18.txt"
 				},
 				"position":{
-					"x":4941.56002998,
-					"y":2445.55294514
+					"x":9657.93073177,
+					"y":5640.79523087
 				},
 				"classes":"input transition",
 				"selected":false
@@ -893,8 +991,8 @@
 					"sbml":"it_sbml_19.txt"
 				},
 				"position":{
-					"x":7238.51263523,
-					"y":2607.66595602
+					"x":7460.91663837,
+					"y":5058.43997002
 				},
 				"classes":"input transition",
 				"selected":false
@@ -906,8 +1004,8 @@
 					"sbml":"it_sbml_20.txt"
 				},
 				"position":{
-					"x":6971.48621082,
-					"y":6966.37392044
+					"x":6251.64031982,
+					"y":1921.76565528
 				},
 				"classes":"input transition",
 				"selected":false
@@ -919,8 +1017,8 @@
 					"sbml":"it_sbml_21.txt"
 				},
 				"position":{
-					"x":5049.34132099,
-					"y":1826.27037168
+					"x":9596.98557854,
+					"y":5918.75433922
 				},
 				"classes":"input transition",
 				"selected":false
@@ -932,8 +1030,8 @@
 					"sbml":"it_sbml_22.txt"
 				},
 				"position":{
-					"x":7514.5316124,
-					"y":1931.71977997
+					"x":8601.26972198,
+					"y":5990.04626274
 				},
 				"classes":"input transition",
 				"selected":false
@@ -945,8 +1043,8 @@
 					"sbml":"it_sbml_23.txt"
 				},
 				"position":{
-					"x":8927.0734787,
-					"y":4130.1381588
+					"x":8325.62863827,
+					"y":3054.63731289
 				},
 				"classes":"input transition",
 				"selected":false
@@ -958,8 +1056,8 @@
 					"sbml":"it_sbml_24.txt"
 				},
 				"position":{
-					"x":5086.196661,
-					"y":3227.61178017
+					"x":9363.84439468,
+					"y":4699.35238361
 				},
 				"classes":"input transition",
 				"selected":false
@@ -971,8 +1069,8 @@
 					"sbml":"it_sbml_25.txt"
 				},
 				"position":{
-					"x":7305.5434227,
-					"y":8715.76726437
+					"x":6162.28461266,
+					"y":950.152799487
 				},
 				"classes":"input transition",
 				"selected":false
@@ -984,8 +1082,8 @@
 					"sbml":"it_sbml_26.txt"
 				},
 				"position":{
-					"x":8828.89688015,
-					"y":6006.73437119
+					"x":7471.19724751,
+					"y":1599.25162792
 				},
 				"classes":"input transition",
 				"selected":false
@@ -997,8 +1095,8 @@
 					"sbml":"it_sbml_27.txt"
 				},
 				"position":{
-					"x":8638.56315613,
-					"y":8242.4134016
+					"x":5068.50421429,
+					"y":5663.48552704
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1010,8 +1108,8 @@
 					"sbml":"it_sbml_28.txt"
 				},
 				"position":{
-					"x":6327.84664631,
-					"y":9552.56104469
+					"x":3149.47485924,
+					"y":9235.82077026
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1023,8 +1121,8 @@
 					"sbml":"it_sbml_29.txt"
 				},
 				"position":{
-					"x":6755.6476593,
-					"y":9489.88735676
+					"x":4660.29763222,
+					"y":9674.04127121
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1036,8 +1134,8 @@
 					"sbml":"it_sbml_30.txt"
 				},
 				"position":{
-					"x":3591.21024609,
-					"y":6939.45646286
+					"x":2893.81444454,
+					"y":4499.51946735
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1049,8 +1147,8 @@
 					"sbml":"it_sbml_31.txt"
 				},
 				"position":{
-					"x":6899.63936806,
-					"y":9061.9122982
+					"x":6003.9883852,
+					"y":177.831817418
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1062,8 +1160,8 @@
 					"sbml":"it_sbml_32.txt"
 				},
 				"position":{
-					"x":8073.13799858,
-					"y":8784.30366516
+					"x":6075.65104961,
+					"y":7090.0708437
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1075,8 +1173,8 @@
 					"sbml":"it_sbml_33.txt"
 				},
 				"position":{
-					"x":2938.05778027,
-					"y":6897.83036709
+					"x":2613.32690716,
+					"y":4610.76170206
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1088,8 +1186,8 @@
 					"sbml":"it_sbml_34.txt"
 				},
 				"position":{
-					"x":7379.05859947,
-					"y":7800.92835426
+					"x":2958.00596476,
+					"y":9219.78056431
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1101,8 +1199,8 @@
 					"sbml":"it_sbml_35.txt"
 				},
 				"position":{
-					"x":3682.8905344,
-					"y":6205.18028736
+					"x":1926.84054375,
+					"y":7332.94904232
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1114,8 +1212,8 @@
 					"sbml":"it_sbml_36.txt"
 				},
 				"position":{
-					"x":7039.96241093,
-					"y":9123.58522415
+					"x":4713.68938684,
+					"y":6173.61843586
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1127,8 +1225,8 @@
 					"sbml":"it_sbml_37.txt"
 				},
 				"position":{
-					"x":6689.80658054,
-					"y":9150.85434914
+					"x":5737.82622814,
+					"y":185.129269958
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1140,8 +1238,8 @@
 					"sbml":"it_sbml_38.txt"
 				},
 				"position":{
-					"x":1966.11776948,
-					"y":7225.41987896
+					"x":2323.46311212,
+					"y":4342.05085039
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1153,8 +1251,8 @@
 					"sbml":"it_sbml_39.txt"
 				},
 				"position":{
-					"x":3318.62032413,
-					"y":6944.38874722
+					"x":2739.18330669,
+					"y":6441.88284874
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1166,8 +1264,8 @@
 					"sbml":"it_sbml_40.txt"
 				},
 				"position":{
-					"x":6162.71734238,
-					"y":9583.4761858
+					"x":3439.71967697,
+					"y":9511.2746954
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1179,8 +1277,8 @@
 					"sbml":"it_sbml_41.txt"
 				},
 				"position":{
-					"x":4719.32649612,
-					"y":8545.16088963
+					"x":4769.42062378,
+					"y":465.082786977
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1192,8 +1290,8 @@
 					"sbml":"it_sbml_42.txt"
 				},
 				"position":{
-					"x":3524.86431599,
-					"y":6377.71844864
+					"x":3154.73228693,
+					"y":4468.45531464
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1205,8 +1303,8 @@
 					"sbml":"it_sbml_43.txt"
 				},
 				"position":{
-					"x":1972.89139032,
-					"y":5462.86702156
+					"x":8178.99167538,
+					"y":8448.61030579
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1218,8 +1316,8 @@
 					"sbml":"it_sbml_44.txt"
 				},
 				"position":{
-					"x":2754.90641594,
-					"y":8318.57740879
+					"x":4629.23020124,
+					"y":6781.13996983
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1231,8 +1329,8 @@
 					"sbml":"it_sbml_45.txt"
 				},
 				"position":{
-					"x":3748.18891287,
-					"y":1173.38635027
+					"x":8503.17001343,
+					"y":8107.42199421
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1244,8 +1342,8 @@
 					"sbml":"it_sbml_46.txt"
 				},
 				"position":{
-					"x":7419.63088512,
-					"y":1160.50764918
+					"x":8909.22486782,
+					"y":5197.72052765
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1257,8 +1355,8 @@
 					"sbml":"it_sbml_47.txt"
 				},
 				"position":{
-					"x":1420.39760947,
-					"y":4523.27907085
+					"x":6954.91492748,
+					"y":4824.00298119
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1270,8 +1368,8 @@
 					"sbml":"it_sbml_48.txt"
 				},
 				"position":{
-					"x":3118.71826649,
-					"y":5137.92335987
+					"x":1935.73117256,
+					"y":2333.75474811
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1283,8 +1381,8 @@
 					"sbml":"it_sbml_49.txt"
 				},
 				"position":{
-					"x":1625.39169192,
-					"y":4713.64498138
+					"x":6368.72768402,
+					"y":6394.15562153
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1296,8 +1394,8 @@
 					"sbml":"it_sbml_50.txt"
 				},
 				"position":{
-					"x":3676.25415325,
-					"y":4022.44478464
+					"x":1425.36178231,
+					"y":2466.4747715
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1309,8 +1407,8 @@
 					"sbml":"it_sbml_51.txt"
 				},
 				"position":{
-					"x":1731.94229603,
-					"y":5261.9189024
+					"x":9361.28139496,
+					"y":7184.81183052
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1322,8 +1420,8 @@
 					"sbml":"it_sbml_52.txt"
 				},
 				"position":{
-					"x":2423.07215929,
-					"y":8338.77265453
+					"x":3900.57176352,
+					"y":8166.32807255
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1335,8 +1433,8 @@
 					"sbml":"it_sbml_53.txt"
 				},
 				"position":{
-					"x":8414.34717178,
-					"y":8506.79993629
+					"x":5956.85720444,
+					"y":6379.04822826
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1348,8 +1446,8 @@
 					"sbml":"it_sbml_54.txt"
 				},
 				"position":{
-					"x":9983.09314251,
-					"y":4717.85962582
+					"x":3795.36509514,
+					"y":110.408617184
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1361,8 +1459,8 @@
 					"sbml":"it_sbml_55.txt"
 				},
 				"position":{
-					"x":10000.0,
-					"y":4618.96836758
+					"x":2461.11467481,
+					"y":968.120098114
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1374,8 +1472,8 @@
 					"sbml":"it_sbml_56.txt"
 				},
 				"position":{
-					"x":7194.28420067,
-					"y":8885.9385252
+					"x":5938.54784966,
+					"y":7828.88948917
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1387,8 +1485,8 @@
 					"sbml":"it_sbml_57.txt"
 				},
 				"position":{
-					"x":4451.50315762,
-					"y":78.6274950951
+					"x":4891.11930132,
+					"y":9433.17353725
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1400,8 +1498,8 @@
 					"sbml":"it_sbml_58.txt"
 				},
 				"position":{
-					"x":1314.71529603,
-					"y":3404.83695269
+					"x":7618.44217777,
+					"y":8682.54423141
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1413,8 +1511,8 @@
 					"sbml":"it_sbml_59.txt"
 				},
 				"position":{
-					"x":8240.62883854,
-					"y":7667.10519791
+					"x":5644.77086067,
+					"y":101.323062554
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1426,8 +1524,8 @@
 					"sbml":"it_sbml_60.txt"
 				},
 				"position":{
-					"x":4439.77057934,
-					"y":1374.46418405
+					"x":8338.05024624,
+					"y":8192.3699379
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1439,8 +1537,8 @@
 					"sbml":"it_sbml_61.txt"
 				},
 				"position":{
-					"x":7503.22699547,
-					"y":1353.1370461
+					"x":8754.3040514,
+					"y":4960.08217335
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1452,8 +1550,8 @@
 					"sbml":"it_sbml_62.txt"
 				},
 				"position":{
-					"x":9940.24634361,
-					"y":5544.10099983
+					"x":9770.97332478,
+					"y":4481.44644499
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1465,8 +1563,8 @@
 					"sbml":"it_sbml_63.txt"
 				},
 				"position":{
-					"x":2891.14117622,
-					"y":1300.51136017
+					"x":9002.9335022,
+					"y":7696.41518593
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1478,8 +1576,8 @@
 					"sbml":"it_sbml_64.txt"
 				},
 				"position":{
-					"x":6702.42011547,
-					"y":369.37829107
+					"x":8963.12832832,
+					"y":5743.12388897
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1491,8 +1589,8 @@
 					"sbml":"it_sbml_65.txt"
 				},
 				"position":{
-					"x":9856.22167587,
-					"y":4007.75879622
+					"x":9873.79848957,
+					"y":4163.2193327
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1504,8 +1602,8 @@
 					"sbml":"it_sbml_66.txt"
 				},
 				"position":{
-					"x":9267.66693592,
-					"y":3941.04748964
+					"x":8756.15000725,
+					"y":8170.38595676
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1517,8 +1615,8 @@
 					"sbml":"it_sbml_67.txt"
 				},
 				"position":{
-					"x":9923.92897606,
-					"y":4284.12228823
+					"x":9902.06003189,
+					"y":5859.1324091
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1530,8 +1628,8 @@
 					"sbml":"it_sbml_68.txt"
 				},
 				"position":{
-					"x":9242.39933491,
-					"y":2461.75080538
+					"x":9942.75987148,
+					"y":5668.38979721
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1543,8 +1641,8 @@
 					"sbml":"it_sbml_69.txt"
 				},
 				"position":{
-					"x":9115.93794823,
-					"y":6391.57176018
+					"x":5243.09158325,
+					"y":9663.68675232
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1556,8 +1654,8 @@
 					"sbml":"it_sbml_70.txt"
 				},
 				"position":{
-					"x":2078.97335291,
-					"y":6588.27424049
+					"x":858.574658632,
+					"y":4976.05055571
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1569,8 +1667,8 @@
 					"sbml":"it_sbml_71.txt"
 				},
 				"position":{
-					"x":6759.43791866,
-					"y":9365.25762081
+					"x":3233.24203491,
+					"y":9422.02448845
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1582,8 +1680,8 @@
 					"sbml":"it_sbml_72.txt"
 				},
 				"position":{
-					"x":1333.71904492,
-					"y":4073.30304384
+					"x":6660.50374508,
+					"y":5424.0322113
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1595,8 +1693,8 @@
 					"sbml":"it_sbml_73.txt"
 				},
 				"position":{
-					"x":811.991915107,
-					"y":4438.98528814
+					"x":712.165087461,
+					"y":3717.91750193
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1608,8 +1706,8 @@
 					"sbml":"it_sbml_74.txt"
 				},
 				"position":{
-					"x":3983.7834239,
-					"y":5670.3543663
+					"x":3319.17732954,
+					"y":4671.44429684
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1621,8 +1719,8 @@
 					"sbml":"it_sbml_75.txt"
 				},
 				"position":{
-					"x":1394.72648501,
-					"y":3611.13399267
+					"x":5980.92496395,
+					"y":6837.95690536
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1634,8 +1732,8 @@
 					"sbml":"it_sbml_76.txt"
 				},
 				"position":{
-					"x":717.164576054,
-					"y":4668.38806868
+					"x":746.598392725,
+					"y":3490.81128836
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1647,8 +1745,8 @@
 					"sbml":"it_sbml_77.txt"
 				},
 				"position":{
-					"x":1619.97571588,
-					"y":3769.46091652
+					"x":1115.83933234,
+					"y":4422.14787006
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1660,8 +1758,8 @@
 					"sbml":"it_sbml_78.txt"
 				},
 				"position":{
-					"x":3416.44883156,
-					"y":1940.46512246
+					"x":6502.83098221,
+					"y":8222.81718254
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1673,8 +1771,8 @@
 					"sbml":"it_sbml_79.txt"
 				},
 				"position":{
-					"x":4232.77795315,
-					"y":6120.34976482
+					"x":3594.17825937,
+					"y":6750.4709959
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1686,8 +1784,8 @@
 					"sbml":"it_sbml_80.txt"
 				},
 				"position":{
-					"x":1380.48753142,
-					"y":3126.61468983
+					"x":7231.65750504,
+					"y":8639.00721073
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1699,8 +1797,8 @@
 					"sbml":"it_sbml_81.txt"
 				},
 				"position":{
-					"x":1156.22520447,
-					"y":5095.94976902
+					"x":1378.11169028,
+					"y":4956.24274015
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1712,8 +1810,8 @@
 					"sbml":"it_sbml_82.txt"
 				},
 				"position":{
-					"x":6766.01052284,
-					"y":1806.93551898
+					"x":6980.41379452,
+					"y":5231.45854473
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1725,8 +1823,8 @@
 					"sbml":"it_sbml_83.txt"
 				},
 				"position":{
-					"x":4017.86863804,
-					"y":4785.9609127
+					"x":3776.36820078,
+					"y":5283.37001801
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1738,8 +1836,8 @@
 					"sbml":"it_sbml_84.txt"
 				},
 				"position":{
-					"x":5050.96793175,
-					"y":1113.72023821
+					"x":6096.20332718,
+					"y":6358.72721672
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1751,8 +1849,8 @@
 					"sbml":"it_sbml_85.txt"
 				},
 				"position":{
-					"x":2670.81588507,
-					"y":4390.64383507
+					"x":2468.92213821,
+					"y":6856.08923435
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1764,8 +1862,8 @@
 					"sbml":"it_sbml_86.txt"
 				},
 				"position":{
-					"x":3992.98757315,
-					"y":6339.51306343
+					"x":1126.31097436,
+					"y":8093.65093708
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1777,8 +1875,8 @@
 					"sbml":"it_sbml_87.txt"
 				},
 				"position":{
-					"x":4402.92596817,
-					"y":3936.63823605
+					"x":610.248297453,
+					"y":7207.8794241
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1790,8 +1888,8 @@
 					"sbml":"it_sbml_88.txt"
 				},
 				"position":{
-					"x":6213.93918991,
-					"y":7840.57617188
+					"x":7307.99734592,
+					"y":1056.38995767
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1803,8 +1901,8 @@
 					"sbml":"it_sbml_89.txt"
 				},
 				"position":{
-					"x":870.049521327,
-					"y":5378.73387337
+					"x":603.956952691,
+					"y":4219.18869019
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1816,8 +1914,8 @@
 					"sbml":"it_sbml_90.txt"
 				},
 				"position":{
-					"x":2443.60253215,
-					"y":5423.24542999
+					"x":184.779763222,
+					"y":6174.48508739
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1829,8 +1927,8 @@
 					"sbml":"it_sbml_91.txt"
 				},
 				"position":{
-					"x":1023.20164442,
-					"y":5757.44569302
+					"x":637.490302324,
+					"y":4454.98853922
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1842,8 +1940,8 @@
 					"sbml":"it_sbml_92.txt"
 				},
 				"position":{
-					"x":2417.10722446,
-					"y":5942.3571825
+					"x":233.713109046,
+					"y":6427.92582512
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1855,8 +1953,8 @@
 					"sbml":"it_sbml_93.txt"
 				},
 				"position":{
-					"x":6077.25083828,
-					"y":5193.92609596
+					"x":1040.47581553,
+					"y":7895.02203465
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1868,8 +1966,8 @@
 					"sbml":"it_sbml_94.txt"
 				},
 				"position":{
-					"x":5028.71990204,
-					"y":9173.50292206
+					"x":4914.32189941,
+					"y":139.740286395
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1881,8 +1979,8 @@
 					"sbml":"it_sbml_95.txt"
 				},
 				"position":{
-					"x":2991.02276564,
-					"y":6297.71232605
+					"x":761.165395379,
+					"y":6004.35674191
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1894,8 +1992,8 @@
 					"sbml":"it_sbml_96.txt"
 				},
 				"position":{
-					"x":5301.67877674,
-					"y":8547.2536087
+					"x":2466.18047357,
+					"y":8596.74036503
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1907,8 +2005,8 @@
 					"sbml":"it_sbml_97.txt"
 				},
 				"position":{
-					"x":5166.426301,
-					"y":4820.95211744
+					"x":748.404935002,
+					"y":7531.34012222
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1920,8 +2018,8 @@
 					"sbml":"it_sbml_98.txt"
 				},
 				"position":{
-					"x":5241.21403694,
-					"y":1158.34198892
+					"x":6209.48553085,
+					"y":5318.35258007
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1933,8 +2031,8 @@
 					"sbml":"it_sbml_99.txt"
 				},
 				"position":{
-					"x":2853.74313593,
-					"y":4440.074265
+					"x":2724.62666035,
+					"y":5264.80555534
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1946,8 +2044,8 @@
 					"sbml":"it_sbml_100.txt"
 				},
 				"position":{
-					"x":2905.4671526,
-					"y":3262.44860888
+					"x":2047.78328538,
+					"y":2189.63623047
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1959,8 +2057,8 @@
 					"sbml":"it_sbml_101.txt"
 				},
 				"position":{
-					"x":4083.71537924,
-					"y":9449.34844971
+					"x":6311.65981293,
+					"y":576.517768204
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1972,8 +2070,8 @@
 					"sbml":"it_sbml_102.txt"
 				},
 				"position":{
-					"x":946.30651176,
-					"y":3142.7231431
+					"x":2937.5898838,
+					"y":3219.82115507
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1985,8 +2083,8 @@
 					"sbml":"it_sbml_103.txt"
 				},
 				"position":{
-					"x":8714.98763561,
-					"y":1776.73816681
+					"x":9692.79825687,
+					"y":6596.43232822
 				},
 				"classes":"input transition",
 				"selected":false
@@ -1998,8 +2096,8 @@
 					"sbml":"it_sbml_104.txt"
 				},
 				"position":{
-					"x":7483.7231636,
-					"y":8285.81571579
+					"x":6387.35353947,
+					"y":279.868263751
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2011,8 +2109,8 @@
 					"sbml":"it_sbml_105.txt"
 				},
 				"position":{
-					"x":5633.46087933,
-					"y":8795.32396793
+					"x":5136.77358627,
+					"y":161.524675786
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2024,8 +2122,8 @@
 					"sbml":"it_sbml_106.txt"
 				},
 				"position":{
-					"x":2285.18620133,
-					"y":2001.83406472
+					"x":7173.03812504,
+					"y":5182.07550049
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2037,8 +2135,8 @@
 					"sbml":"it_sbml_107.txt"
 				},
 				"position":{
-					"x":3303.68161201,
-					"y":7669.20030117
+					"x":2026.52692795,
+					"y":6287.5276804
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2050,8 +2148,8 @@
 					"sbml":"it_sbml_108.txt"
 				},
 				"position":{
-					"x":3183.26115608,
-					"y":5489.87805843
+					"x":9291.56422615,
+					"y":4203.99397612
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2063,8 +2161,8 @@
 					"sbml":"it_sbml_109.txt"
 				},
 				"position":{
-					"x":7062.64674664,
-					"y":8816.10274315
+					"x":6550.74298382,
+					"y":356.111302972
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2076,8 +2174,8 @@
 					"sbml":"it_sbml_110.txt"
 				},
 				"position":{
-					"x":5383.54575634,
-					"y":3774.60896969
+					"x":9447.94237614,
+					"y":4505.38575649
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2089,8 +2187,8 @@
 					"sbml":"it_sbml_111.txt"
 				},
 				"position":{
-					"x":4906.44603968,
-					"y":8990.58997631
+					"x":4673.65533113,
+					"y":639.010071754
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2102,8 +2200,8 @@
 					"sbml":"it_sbml_112.txt"
 				},
 				"position":{
-					"x":2866.94943905,
-					"y":7198.21512699
+					"x":2811.90335751,
+					"y":4132.26783276
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2115,8 +2213,8 @@
 					"sbml":"it_sbml_113.txt"
 				},
 				"position":{
-					"x":5081.22265339,
-					"y":4016.13712311
+					"x":9392.92311668,
+					"y":5191.75887108
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2128,8 +2226,8 @@
 					"sbml":"it_sbml_114.txt"
 				},
 				"position":{
-					"x":2335.88561416,
-					"y":7321.357131
+					"x":1729.08902168,
+					"y":7151.82006359
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2141,8 +2239,8 @@
 					"sbml":"it_sbml_115.txt"
 				},
 				"position":{
-					"x":4745.98199129,
-					"y":8768.33319664
+					"x":5034.83772278,
+					"y":356.111824512
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2154,8 +2252,8 @@
 					"sbml":"it_sbml_116.txt"
 				},
 				"position":{
-					"x":8894.0757513,
-					"y":7721.33886814
+					"x":4613.98661137,
+					"y":5477.12266445
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2167,8 +2265,8 @@
 					"sbml":"it_sbml_117.txt"
 				},
 				"position":{
-					"x":3310.66608429,
-					"y":1097.06707299
+					"x":8692.89398193,
+					"y":7989.92693424
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2180,8 +2278,8 @@
 					"sbml":"it_sbml_118.txt"
 				},
 				"position":{
-					"x":7600.71218014,
-					"y":1407.70241618
+					"x":7545.18568516,
+					"y":7542.65785217
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2193,8 +2291,8 @@
 					"sbml":"it_sbml_119.txt"
 				},
 				"position":{
-					"x":3464.51878548,
-					"y":1205.25538921
+					"x":9516.10445976,
+					"y":6821.88332081
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2206,8 +2304,8 @@
 					"sbml":"it_sbml_120.txt"
 				},
 				"position":{
-					"x":6791.7329073,
-					"y":439.741425216
+					"x":7959.43081379,
+					"y":7459.11061764
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2219,8 +2317,8 @@
 					"sbml":"it_sbml_121.txt"
 				},
 				"position":{
-					"x":3585.65956354,
-					"y":1087.04231679
+					"x":9379.94301319,
+					"y":7197.66139984
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2232,8 +2330,8 @@
 					"sbml":"it_sbml_122.txt"
 				},
 				"position":{
-					"x":6348.21355343,
-					"y":256.744008511
+					"x":7300.84121227,
+					"y":7542.28711128
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2245,8 +2343,8 @@
 					"sbml":"it_sbml_123.txt"
 				},
 				"position":{
-					"x":3912.22387552,
-					"y":4273.69564772
+					"x":2522.32551575,
+					"y":7470.24357319
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2258,8 +2356,8 @@
 					"sbml":"it_sbml_124.txt"
 				},
 				"position":{
-					"x":6540.91894627,
-					"y":326.023064554
+					"x":7064.16785717,
+					"y":7374.82488155
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2271,8 +2369,8 @@
 					"sbml":"it_sbml_125.txt"
 				},
 				"position":{
-					"x":9808.19642544,
-					"y":4453.36580276
+					"x":4896.69561386,
+					"y":9916.33415222
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2284,8 +2382,8 @@
 					"sbml":"it_sbml_126.txt"
 				},
 				"position":{
-					"x":2717.89878607,
-					"y":1629.02355194
+					"x":7127.61104107,
+					"y":8461.13026142
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2297,8 +2395,8 @@
 					"sbml":"it_sbml_127.txt"
 				},
 				"position":{
-					"x":9187.30974197,
-					"y":2334.02043581
+					"x":4973.21814299,
+					"y":9834.10298824
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2310,8 +2408,8 @@
 					"sbml":"it_sbml_128.txt"
 				},
 				"position":{
-					"x":4671.8531847,
-					"y":1519.3618834
+					"x":8182.39986897,
+					"y":7860.81075668
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2323,8 +2421,8 @@
 					"sbml":"it_sbml_129.txt"
 				},
 				"position":{
-					"x":7460.06786823,
-					"y":1673.19759727
+					"x":7764.77992535,
+					"y":7411.08477116
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2336,8 +2434,8 @@
 					"sbml":"it_sbml_130.txt"
 				},
 				"position":{
-					"x":9027.22775936,
-					"y":7232.70356655
+					"x":5159.57176685,
+					"y":6454.63347435
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2349,8 +2447,8 @@
 					"sbml":"it_sbml_131.txt"
 				},
 				"position":{
-					"x":1763.53111863,
-					"y":2414.08988833
+					"x":7619.01021004,
+					"y":8397.44329453
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2362,8 +2460,8 @@
 					"sbml":"it_sbml_132.txt"
 				},
 				"position":{
-					"x":3607.92249441,
-					"y":6544.30568218
+					"x":2221.87116742,
+					"y":7467.81766415
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2375,8 +2473,8 @@
 					"sbml":"it_sbml_133.txt"
 				},
 				"position":{
-					"x":7283.68580341,
-					"y":9139.05322552
+					"x":6142.87614822,
+					"y":7653.99575233
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2388,8 +2486,8 @@
 					"sbml":"it_sbml_134.txt"
 				},
 				"position":{
-					"x":1753.49578261,
-					"y":4314.27687407
+					"x":6952.1677494,
+					"y":8351.42374039
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2401,8 +2499,8 @@
 					"sbml":"it_sbml_135.txt"
 				},
 				"position":{
-					"x":2715.50327539,
-					"y":7287.18340397
+					"x":2047.42088914,
+					"y":7224.4989872
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2414,8 +2512,8 @@
 					"sbml":"it_sbml_136.txt"
 				},
 				"position":{
-					"x":8805.6319952,
-					"y":7902.9238224
+					"x":6475.98445415,
+					"y":7024.87945557
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2427,8 +2525,8 @@
 					"sbml":"it_sbml_137.txt"
 				},
 				"position":{
-					"x":2551.17565393,
-					"y":1794.34791207
+					"x":6763.95118237,
+					"y":8264.29009438
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2440,8 +2538,8 @@
 					"sbml":"it_sbml_138.txt"
 				},
 				"position":{
-					"x":2750.75405836,
-					"y":7552.99091339
+					"x":2577.51643658,
+					"y":4297.60217667
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2453,8 +2551,8 @@
 					"sbml":"it_sbml_139.txt"
 				},
 				"position":{
-					"x":3048.30133915,
-					"y":1199.80022311
+					"x":9532.08327293,
+					"y":6616.7485714
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2466,8 +2564,8 @@
 					"sbml":"it_sbml_140.txt"
 				},
 				"position":{
-					"x":5485.25154591,
-					"y":155.626470223
+					"x":6674.38387871,
+					"y":4306.22190237
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2479,8 +2577,8 @@
 					"sbml":"it_sbml_141.txt"
 				},
 				"position":{
-					"x":2332.3994875,
-					"y":1759.81298089
+					"x":7405.56955338,
+					"y":8425.56774616
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2492,8 +2590,8 @@
 					"sbml":"it_sbml_142.txt"
 				},
 				"position":{
-					"x":1582.95661211,
-					"y":4436.17016077
+					"x":1544.78415847,
+					"y":4754.70840931
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2505,8 +2603,8 @@
 					"sbml":"it_sbml_143.txt"
 				},
 				"position":{
-					"x":2729.63166237,
-					"y":2131.56580925
+					"x":6190.65582752,
+					"y":7253.0734539
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2518,8 +2616,8 @@
 					"sbml":"it_sbml_144.txt"
 				},
 				"position":{
-					"x":692.511722445,
-					"y":4277.55951881
+					"x":1050.25179684,
+					"y":2808.67874622
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2531,8 +2629,8 @@
 					"sbml":"it_sbml_145.txt"
 				},
 				"position":{
-					"x":3340.72768688,
-					"y":5664.11495209
+					"x":9608.74736309,
+					"y":5277.19199657
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2544,8 +2642,8 @@
 					"sbml":"it_sbml_146.txt"
 				},
 				"position":{
-					"x":4882.90160894,
-					"y":6797.65760899
+					"x":4876.50334835,
+					"y":288.288109004
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2557,8 +2655,8 @@
 					"sbml":"it_sbml_147.txt"
 				},
 				"position":{
-					"x":3719.19214725,
-					"y":5683.89475346
+					"x":8960.73520184,
+					"y":4287.41037846
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2570,8 +2668,8 @@
 					"sbml":"it_sbml_148.txt"
 				},
 				"position":{
-					"x":5540.65227509,
-					"y":9317.19303131
+					"x":4662.53072023,
+					"y":1629.45181131
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2583,8 +2681,8 @@
 					"sbml":"it_sbml_149.txt"
 				},
 				"position":{
-					"x":4125.2720356,
-					"y":1274.83829856
+					"x":9116.15848541,
+					"y":7587.70167828
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2596,8 +2694,8 @@
 					"sbml":"it_sbml_150.txt"
 				},
 				"position":{
-					"x":4699.7410059,
-					"y":795.64422369
+					"x":6262.7440691,
+					"y":5554.3243885
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2609,8 +2707,8 @@
 					"sbml":"it_sbml_151.txt"
 				},
 				"position":{
-					"x":135.468430817,
-					"y":4087.76938915
+					"x":1459.83487368,
+					"y":1862.30525374
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2622,8 +2720,8 @@
 					"sbml":"it_sbml_152.txt"
 				},
 				"position":{
-					"x":4471.5487957,
-					"y":5118.18885803
+					"x":9711.59934998,
+					"y":5141.42632484
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2635,8 +2733,8 @@
 					"sbml":"it_sbml_153.txt"
 				},
 				"position":{
-					"x":4479.33971882,
-					"y":8943.18163395
+					"x":4345.57646513,
+					"y":692.463517189
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2648,8 +2746,8 @@
 					"sbml":"it_sbml_154.txt"
 				},
 				"position":{
-					"x":3929.17990685,
-					"y":1216.88403189
+					"x":8870.58317661,
+					"y":7814.29350376
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2661,8 +2759,8 @@
 					"sbml":"it_sbml_155.txt"
 				},
 				"position":{
-					"x":5007.23958015,
-					"y":395.444482565
+					"x":6000.5068779,
+					"y":6681.2479496
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2674,8 +2772,8 @@
 					"sbml":"it_sbml_156.txt"
 				},
 				"position":{
-					"x":301.071573049,
-					"y":3720.35950422
+					"x":9.99267445877,
+					"y":4672.54638672
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2687,8 +2785,8 @@
 					"sbml":"it_sbml_157.txt"
 				},
 				"position":{
-					"x":5410.34758091,
-					"y":3349.05296564
+					"x":9622.41590023,
+					"y":4964.13826942
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2700,8 +2798,8 @@
 					"sbml":"it_sbml_158.txt"
 				},
 				"position":{
-					"x":4398.22435379,
-					"y":8704.63252068
+					"x":4540.44729471,
+					"y":575.269944966
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2713,8 +2811,8 @@
 					"sbml":"it_sbml_159.txt"
 				},
 				"position":{
-					"x":1840.39503336,
-					"y":4856.75692558
+					"x":6439.04566765,
+					"y":7210.68263054
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2726,8 +2824,8 @@
 					"sbml":"it_sbml_160.txt"
 				},
 				"position":{
-					"x":709.174945951,
-					"y":5428.66408825
+					"x":822.287872434,
+					"y":3173.93273115
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2739,8 +2837,8 @@
 					"sbml":"it_sbml_161.txt"
 				},
 				"position":{
-					"x":326.86766237,
-					"y":4471.40932083
+					"x":412.233769894,
+					"y":3010.03903151
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2752,8 +2850,8 @@
 					"sbml":"it_sbml_162.txt"
 				},
 				"position":{
-					"x":2058.30290914,
-					"y":1982.83776641
+					"x":6745.93985081,
+					"y":7234.85052586
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2765,8 +2863,8 @@
 					"sbml":"it_sbml_163.txt"
 				},
 				"position":{
-					"x":5092.54872799,
-					"y":3590.24703503
+					"x":9516.30175114,
+					"y":4850.69036484
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2778,8 +2876,8 @@
 					"sbml":"it_sbml_164.txt"
 				},
 				"position":{
-					"x":767.612308264,
-					"y":6986.58943176
+					"x":38.3577588946,
+					"y":4681.03885651
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2791,8 +2889,8 @@
 					"sbml":"it_sbml_165.txt"
 				},
 				"position":{
-					"x":4629.83161211,
-					"y":8268.81289482
+					"x":4521.9424367,
+					"y":388.943813741
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2804,8 +2902,8 @@
 					"sbml":"it_sbml_166.txt"
 				},
 				"position":{
-					"x":1231.11955822,
-					"y":4013.51481676
+					"x":610.256716609,
+					"y":3816.0610199
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2817,8 +2915,8 @@
 					"sbml":"it_sbml_167.txt"
 				},
 				"position":{
-					"x":4221.81338072,
-					"y":1427.10909247
+					"x":8896.39556408,
+					"y":7922.20890522
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2830,8 +2928,8 @@
 					"sbml":"it_sbml_168.txt"
 				},
 				"position":{
-					"x":2972.38618135,
-					"y":1648.10553193
+					"x":6636.18087769,
+					"y":7889.82927799
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2843,8 +2941,8 @@
 					"sbml":"it_sbml_169.txt"
 				},
 				"position":{
-					"x":193.781685084,
-					"y":4046.55486345
+					"x":16.8306159321,
+					"y":5181.6546917
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2856,8 +2954,8 @@
 					"sbml":"it_sbml_170.txt"
 				},
 				"position":{
-					"x":5205.4387331,
-					"y":314.907468855
+					"x":5866.46020412,
+					"y":6444.18776035
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2869,8 +2967,8 @@
 					"sbml":"it_sbml_171.txt"
 				},
 				"position":{
-					"x":1373.28192592,
-					"y":5372.23935127
+					"x":1218.662709,
+					"y":6138.38374615
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2882,8 +2980,8 @@
 					"sbml":"it_sbml_172.txt"
 				},
 				"position":{
-					"x":1392.3047483,
-					"y":6588.22178841
+					"x":1263.64290714,
+					"y":5697.75819778
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2895,8 +2993,47 @@
 					"sbml":"it_sbml_173.txt"
 				},
 				"position":{
-					"x":3185.08386612,
-					"y":3424.68112707
+					"x":2197.01737165,
+					"y":2347.84528613
+				},
+				"classes":"input transition",
+				"selected":false
+			},
+			{
+				"data":{
+					"id":"it_174",
+					"logic":"OR",
+					"sbml":"it_sbml_174.txt"
+				},
+				"position":{
+					"x":259.412992746,
+					"y":5853.78110409
+				},
+				"classes":"input transition",
+				"selected":false
+			},
+			{
+				"data":{
+					"id":"it_175",
+					"logic":"OR",
+					"sbml":"it_sbml_175.txt"
+				},
+				"position":{
+					"x":457.553341985,
+					"y":3293.71064901
+				},
+				"classes":"input transition",
+				"selected":false
+			},
+			{
+				"data":{
+					"id":"it_176",
+					"logic":"AND",
+					"sbml":"it_sbml_176.txt"
+				},
+				"position":{
+					"x":151.161653921,
+					"y":6132.0745945
 				},
 				"classes":"input transition",
 				"selected":false
@@ -2910,8 +3047,8 @@
 					"PMID":"19060164"
 				},
 				"position":{
-					"x":3120.52369118,
-					"y":7143.23341846
+					"x":3758.50528479,
+					"y":3026.45921707
 				},
 				"classes":"operon",
 				"selected":false
@@ -2925,8 +3062,8 @@
 					"PMID":"21150903"
 				},
 				"position":{
-					"x":3742.6841259,
-					"y":264.272559434
+					"x":9351.4674902,
+					"y":7437.65711784
 				},
 				"classes":"operon",
 				"selected":false
@@ -2940,8 +3077,8 @@
 					"PMID":"21150903"
 				},
 				"position":{
-					"x":9096.14682198,
-					"y":2949.86128807
+					"x":9117.54131317,
+					"y":2498.93844128
 				},
 				"classes":"operon",
 				"selected":false
@@ -2955,8 +3092,8 @@
 					"PMID":"21150903"
 				},
 				"position":{
-					"x":4142.32730865,
-					"y":7657.58037567
+					"x":8383.78667831,
+					"y":2750.90873241
 				},
 				"classes":"operon",
 				"selected":false
@@ -2970,8 +3107,8 @@
 					"PMID":"21150903"
 				},
 				"position":{
-					"x":6605.93152046,
-					"y":9541.40305519
+					"x":6809.64112282,
+					"y":346.197150648
 				},
 				"classes":"operon",
 				"selected":false
@@ -2985,8 +3122,8 @@
 					"PMID":"21150903"
 				},
 				"position":{
-					"x":7671.53739929,
-					"y":1975.04088283
+					"x":9147.76861668,
+					"y":3214.11073208
 				},
 				"classes":"operon",
 				"selected":false
@@ -3000,8 +3137,8 @@
 					"PMID":"21150903"
 				},
 				"position":{
-					"x":8266.53420925,
-					"y":7201.03681087
+					"x":6879.5800209,
+					"y":402.674935758
 				},
 				"classes":"operon",
 				"selected":false
@@ -3015,8 +3152,8 @@
 					"PMID":"21150903"
 				},
 				"position":{
-					"x":5975.22974014,
-					"y":2665.1635766
+					"x":9655.87973595,
+					"y":4110.28206348
 				},
 				"classes":"operon",
 				"selected":false
@@ -3030,8 +3167,8 @@
 					"PMID":"21150903"
 				},
 				"position":{
-					"x":8090.93773365,
-					"y":4674.97497797
+					"x":7635.54632664,
+					"y":1870.84957957
 				},
 				"classes":"operon",
 				"selected":false
@@ -3045,8 +3182,8 @@
 					"PMID":"21150903"
 				},
 				"position":{
-					"x":6017.48526096,
-					"y":1150.30750632
+					"x":9195.23835182,
+					"y":4583.54383707
 				},
 				"classes":"operon",
 				"selected":false
@@ -3060,8 +3197,8 @@
 					"PMID":"21150903"
 				},
 				"position":{
-					"x":8913.62249851,
-					"y":3373.69054556
+					"x":8807.73842335,
+					"y":2569.19056177
 				},
 				"classes":"operon",
 				"selected":false
@@ -3075,8 +3212,8 @@
 					"PMID":"21150903"
 				},
 				"position":{
-					"x":6922.92869091,
-					"y":3738.76839876
+					"x":9475.14116764,
+					"y":2873.27378988
 				},
 				"classes":"operon",
 				"selected":false
@@ -3090,8 +3227,8 @@
 					"PMID":"21150903"
 				},
 				"position":{
-					"x":8812.03234196,
-					"y":7236.76919937
+					"x":6446.28882408,
+					"y":436.019599438
 				},
 				"classes":"operon",
 				"selected":false
@@ -3105,8 +3242,8 @@
 					"PMID":"21150903"
 				},
 				"position":{
-					"x":6325.29616356,
-					"y":2688.71754408
+					"x":9847.51045704,
+					"y":4272.14324474
 				},
 				"classes":"operon",
 				"selected":false
@@ -3120,8 +3257,8 @@
 					"PMID":"21150903"
 				},
 				"position":{
-					"x":7754.79376316,
-					"y":4989.10784721
+					"x":6308.68792534,
+					"y":4031.04662895
 				},
 				"classes":"operon",
 				"selected":false
@@ -3135,8 +3272,8 @@
 					"PMID":"21150903"
 				},
 				"position":{
-					"x":6650.37691593,
-					"y":1317.9948926
+					"x":9928.62045765,
+					"y":4779.43748236
 				},
 				"classes":"operon",
 				"selected":false
@@ -3150,8 +3287,8 @@
 					"PMID":"21150903"
 				},
 				"position":{
-					"x":8535.06326675,
-					"y":3704.8509717
+					"x":7978.02865505,
+					"y":5143.55421066
 				},
 				"classes":"operon",
 				"selected":false
@@ -3165,8 +3302,8 @@
 					"PMID":"21150903"
 				},
 				"position":{
-					"x":6618.66545677,
-					"y":4108.70045424
+					"x":9374.60660934,
+					"y":2814.59093094
 				},
 				"classes":"operon",
 				"selected":false
@@ -3180,8 +3317,8 @@
 					"PMID":"21150903"
 				},
 				"position":{
-					"x":8570.27113438,
-					"y":8047.50084877
+					"x":6159.32285786,
+					"y":2644.82408762
 				},
 				"classes":"operon",
 				"selected":false
@@ -3195,8 +3332,8 @@
 					"PMID":"21150903"
 				},
 				"position":{
-					"x":9192.25513935,
-					"y":7592.81396866
+					"x":5859.37023163,
+					"y":3559.89009142
 				},
 				"classes":"operon",
 				"selected":false
@@ -3210,8 +3347,8 @@
 					"PMID":"21150903"
 				},
 				"position":{
-					"x":5211.82358265,
-					"y":9812.07191944
+					"x":2207.52984285,
+					"y":9059.41128731
 				},
 				"classes":"operon",
 				"selected":false
@@ -3225,8 +3362,8 @@
 					"PMID":"21150903"
 				},
 				"position":{
-					"x":5733.41429234,
-					"y":9814.61107731
+					"x":5659.01219845,
+					"y":9960.2407217
 				},
 				"classes":"operon",
 				"selected":false
@@ -3240,8 +3377,8 @@
 					"PMID":"10659857"
 				},
 				"position":{
-					"x":5400.36857128,
-					"y":7754.38547134
+					"x":3922.3921299,
+					"y":2690.34385681
 				},
 				"classes":"operon",
 				"selected":false
@@ -3255,8 +3392,8 @@
 					"PMID":"10659857"
 				},
 				"position":{
-					"x":8020.82180977,
-					"y":8923.20156097
+					"x":6444.54181194,
+					"y":218.636877835
 				},
 				"classes":"operon",
 				"selected":false
@@ -3270,8 +3407,8 @@
 					"PMID":"10659857"
 				},
 				"position":{
-					"x":8290.23778439,
-					"y":8641.84439182
+					"x":7482.68902302,
+					"y":5629.60386276
 				},
 				"classes":"operon",
 				"selected":false
@@ -3285,8 +3422,8 @@
 					"PMID":"10659857"
 				},
 				"position":{
-					"x":4659.22057629,
-					"y":7540.99011421
+					"x":3587.19736338,
+					"y":2814.5095706
 				},
 				"classes":"operon",
 				"selected":false
@@ -3300,8 +3437,8 @@
 					"PMID":"10659857"
 				},
 				"position":{
-					"x":5942.02637672,
-					"y":7220.5966711
+					"x":1941.75481796,
+					"y":8874.56655502
 				},
 				"classes":"operon",
 				"selected":false
@@ -3315,8 +3452,8 @@
 					"PMID":"10659857"
 				},
 				"position":{
-					"x":5280.61032295,
-					"y":6924.20482635
+					"x":2126.12479925,
+					"y":8865.30637741
 				},
 				"classes":"operon",
 				"selected":false
@@ -3330,8 +3467,8 @@
 					"PMID":"10659857"
 				},
 				"position":{
-					"x":6681.8022728,
-					"y":9236.06157303
+					"x":5293.0188179,
+					"y":4497.51108885
 				},
 				"classes":"operon",
 				"selected":false
@@ -3345,8 +3482,8 @@
 					"PMID":"10659857"
 				},
 				"position":{
-					"x":7625.05292892,
-					"y":9166.04876518
+					"x":5938.98296356,
+					"y":108.292112127
 				},
 				"classes":"operon",
 				"selected":false
@@ -3360,8 +3497,8 @@
 					"PMID":"10659857"
 				},
 				"position":{
-					"x":2582.60011673,
-					"y":8776.63850784
+					"x":2889.54764605,
+					"y":2134.83646512
 				},
 				"classes":"operon",
 				"selected":false
@@ -3375,8 +3512,8 @@
 					"PMID":"10659857"
 				},
 				"position":{
-					"x":5070.1624155,
-					"y":7647.97925949
+					"x":3879.63175774,
+					"y":5872.28536606
 				},
 				"classes":"operon",
 				"selected":false
@@ -3390,8 +3527,8 @@
 					"PMID":"10659857"
 				},
 				"position":{
-					"x":4479.43419218,
-					"y":9145.53284645
+					"x":2547.62917757,
+					"y":9289.30997849
 				},
 				"classes":"operon",
 				"selected":false
@@ -3405,8 +3542,8 @@
 					"PMID":"10659857"
 				},
 				"position":{
-					"x":2933.01612139,
-					"y":8462.46063709
+					"x":3093.89084578,
+					"y":1328.02546024
 				},
 				"classes":"operon",
 				"selected":false
@@ -3420,8 +3557,8 @@
 					"PMID":"10659857"
 				},
 				"position":{
-					"x":5151.86607838,
-					"y":7003.92246246
+					"x":4286.63015366,
+					"y":2640.81269503
 				},
 				"classes":"operon",
 				"selected":false
@@ -3435,8 +3572,8 @@
 					"PMID":"22009040"
 				},
 				"position":{
-					"x":1268.65535975,
-					"y":7688.21358681
+					"x":7290.3072834,
+					"y":9381.52015209
 				},
 				"classes":"operon",
 				"selected":false
@@ -3450,8 +3587,8 @@
 					"PMID":"22009040"
 				},
 				"position":{
-					"x":4423.64960909,
-					"y":9252.26449966
+					"x":5709.24937725,
+					"y":5225.45397282
 				},
 				"classes":"operon",
 				"selected":false
@@ -3465,8 +3602,8 @@
 					"PMID":"22009040"
 				},
 				"position":{
-					"x":4474.53379631,
-					"y":88.1537422538
+					"x":8048.06411266,
+					"y":8688.32826614
 				},
 				"classes":"operon",
 				"selected":false
@@ -3480,8 +3617,8 @@
 					"PMID":"22009040"
 				},
 				"position":{
-					"x":8436.71441078,
-					"y":2515.24209976
+					"x":9742.42389202,
+					"y":3623.83842468
 				},
 				"classes":"operon",
 				"selected":false
@@ -3495,8 +3632,8 @@
 					"PMID":"22009040"
 				},
 				"position":{
-					"x":310.980379581,
-					"y":6117.1746254
+					"x":5263.20874691,
+					"y":3659.55740213
 				},
 				"classes":"operon",
 				"selected":false
@@ -3510,8 +3647,8 @@
 					"PMID":"22009040"
 				},
 				"position":{
-					"x":5067.86584854,
-					"y":5573.68397713
+					"x":3345.86888552,
+					"y":935.634896159
 				},
 				"classes":"operon",
 				"selected":false
@@ -3525,8 +3662,8 @@
 					"PMID":"22009040"
 				},
 				"position":{
-					"x":509.471073747,
-					"y":6394.93346214
+					"x":4294.04139519,
+					"y":5938.70401382
 				},
 				"classes":"operon",
 				"selected":false
@@ -3540,8 +3677,8 @@
 					"PMID":"22009040"
 				},
 				"position":{
-					"x":6238.70790005,
-					"y":3192.0170784
+					"x":1896.29539847,
+					"y":1067.79038906
 				},
 				"classes":"operon",
 				"selected":false
@@ -3555,8 +3692,8 @@
 					"PMID":"22009040"
 				},
 				"position":{
-					"x":714.70014751,
-					"y":7263.46790791
+					"x":8752.89082527,
+					"y":8139.03033733
 				},
 				"classes":"operon",
 				"selected":false
@@ -3570,8 +3707,8 @@
 					"PMID":"22009040"
 				},
 				"position":{
-					"x":3730.15910387,
-					"y":9570.22249699
+					"x":3835.68763733,
+					"y":9631.13188744
 				},
 				"classes":"operon",
 				"selected":false
@@ -3585,8 +3722,8 @@
 					"PMID":"22009040"
 				},
 				"position":{
-					"x":8972.21088409,
-					"y":7969.78414059
+					"x":7243.44670773,
+					"y":4741.02884531
 				},
 				"classes":"operon",
 				"selected":false
@@ -3600,8 +3737,8 @@
 					"PMID":"22009040"
 				},
 				"position":{
-					"x":9921.91255093,
-					"y":5365.72754383
+					"x":4758.7749362,
+					"y":0.0
 				},
 				"classes":"operon",
 				"selected":false
@@ -3615,8 +3752,8 @@
 					"PMID":"22009040"
 				},
 				"position":{
-					"x":9904.5753479,
-					"y":5822.47555256
+					"x":2446.38130069,
+					"y":2942.74568558
 				},
 				"classes":"operon",
 				"selected":false
@@ -3630,8 +3767,8 @@
 					"PMID":"22009040"
 				},
 				"position":{
-					"x":7501.8966198,
-					"y":8509.08756256
+					"x":7201.04694366,
+					"y":6485.53073406
 				},
 				"classes":"operon",
 				"selected":false
@@ -3645,8 +3782,8 @@
 					"PMID":"17700541"
 				},
 				"position":{
-					"x":5983.5255146,
-					"y":241.403728724
+					"x":6469.64490414,
+					"y":9269.04916763
 				},
 				"classes":"operon",
 				"selected":false
@@ -3660,8 +3797,8 @@
 					"PMID":"17700541"
 				},
 				"position":{
-					"x":130.19643724,
-					"y":4363.02363873
+					"x":6254.46259975,
+					"y":9711.6792202
 				},
 				"classes":"operon",
 				"selected":false
@@ -3675,8 +3812,8 @@
 					"PMID":"17700541"
 				},
 				"position":{
-					"x":9551.65207386,
-					"y":6628.6110878
+					"x":5522.71962166,
+					"y":35.0679713301
 				},
 				"classes":"operon",
 				"selected":false
@@ -3690,8 +3827,8 @@
 					"PMID":"17700541"
 				},
 				"position":{
-					"x":5612.66422272,
-					"y":261.684153229
+					"x":7880.53452969,
+					"y":8743.47567558
 				},
 				"classes":"operon",
 				"selected":false
@@ -3705,8 +3842,8 @@
 					"PMID":"17700541"
 				},
 				"position":{
-					"x":8802.2351265,
-					"y":2568.39782
+					"x":9449.75733757,
+					"y":3276.91376209
 				},
 				"classes":"operon",
 				"selected":false
@@ -3720,8 +3857,8 @@
 					"PMID":"17700541"
 				},
 				"position":{
-					"x":9871.82021141,
-					"y":6051.2983799
+					"x":9546.94211483,
+					"y":3641.39378071
 				},
 				"classes":"operon",
 				"selected":false
@@ -3735,8 +3872,8 @@
 					"PMID":"17700541"
 				},
 				"position":{
-					"x":3298.74366522,
-					"y":429.036021233
+					"x":8611.30952835,
+					"y":8292.07956791
 				},
 				"classes":"operon",
 				"selected":false
@@ -3750,8 +3887,8 @@
 					"PMID":"17700541"
 				},
 				"position":{
-					"x":7553.54464054,
-					"y":680.541172624
+					"x":9882.89773464,
+					"y":4729.93612289
 				},
 				"classes":"operon",
 				"selected":false
@@ -3765,8 +3902,8 @@
 					"PMID":"17700541"
 				},
 				"position":{
-					"x":9682.41751194,
-					"y":3261.52473688
+					"x":9797.82760143,
+					"y":3944.12100315
 				},
 				"classes":"operon",
 				"selected":false
@@ -3780,8 +3917,8 @@
 					"PMID":"17700541"
 				},
 				"position":{
-					"x":8633.75484943,
-					"y":6464.66970444
+					"x":6859.47358608,
+					"y":9450.59359074
 				},
 				"classes":"operon",
 				"selected":false
@@ -3795,8 +3932,8 @@
 					"PMID":"17700541"
 				},
 				"position":{
-					"x":9791.89097881,
-					"y":3586.2699151
+					"x":9743.65890026,
+					"y":6490.06307125
 				},
 				"classes":"operon",
 				"selected":false
@@ -3810,8 +3947,8 @@
 					"PMID":"17700541"
 				},
 				"position":{
-					"x":9716.76468849,
-					"y":3513.1624341
+					"x":9917.67287254,
+					"y":3938.19957972
 				},
 				"classes":"operon",
 				"selected":false
@@ -3825,8 +3962,8 @@
 					"PMID":"15641095"
 				},
 				"position":{
-					"x":9840.99388123,
-					"y":4516.10267162
+					"x":6389.90700245,
+					"y":9772.79603481
 				},
 				"classes":"operon",
 				"selected":false
@@ -3840,8 +3977,8 @@
 					"PMID":"15858574"
 				},
 				"position":{
-					"x":3261.94763184,
-					"y":8489.74645138
+					"x":792.43414104,
+					"y":6766.2280798
 				},
 				"classes":"operon",
 				"selected":false
@@ -3855,8 +3992,8 @@
 					"PMID":"15858574"
 				},
 				"position":{
-					"x":5194.92208958,
-					"y":8891.1986351
+					"x":2297.58620262,
+					"y":9167.70458221
 				},
 				"classes":"operon",
 				"selected":false
@@ -3870,8 +4007,8 @@
 					"PMID":"15858574"
 				},
 				"position":{
-					"x":111.906314269,
-					"y":5395.27475834
+					"x":4918.4140563,
+					"y":4457.46988058
 				},
 				"classes":"operon",
 				"selected":false
@@ -3885,8 +4022,8 @@
 					"PMID":"15858574"
 				},
 				"position":{
-					"x":333.671718836,
-					"y":3592.67652035
+					"x":212.702825665,
+					"y":4409.71940756
 				},
 				"classes":"operon",
 				"selected":false
@@ -3900,8 +4037,8 @@
 					"PMID":"15858574"
 				},
 				"position":{
-					"x":5948.57096672,
-					"y":5758.42857361
+					"x":4395.52664757,
+					"y":2996.35976553
 				},
 				"classes":"operon",
 				"selected":false
@@ -3915,8 +4052,8 @@
 					"PMID":"15858574"
 				},
 				"position":{
-					"x":147.667517886,
-					"y":4476.14312172
+					"x":3870.13524771,
+					"y":6355.30352592
 				},
 				"classes":"operon",
 				"selected":false
@@ -3930,8 +4067,8 @@
 					"PMID":"15858574"
 				},
 				"position":{
-					"x":186.061207205,
-					"y":3949.35578108
+					"x":226.271487772,
+					"y":4093.64998341
 				},
 				"classes":"operon",
 				"selected":false
@@ -3945,8 +4082,8 @@
 					"PMID":"15858574"
 				},
 				"position":{
-					"x":1260.88812947,
-					"y":1781.87608719
+					"x":581.078752875,
+					"y":2849.31838512
 				},
 				"classes":"operon",
 				"selected":false
@@ -3960,8 +4097,8 @@
 					"PMID":"15858574"
 				},
 				"position":{
-					"x":2834.99836922,
-					"y":2030.19440174
+					"x":4565.94377756,
+					"y":8883.12339783
 				},
 				"classes":"operon",
 				"selected":false
@@ -3975,8 +4112,8 @@
 					"PMID":"15858574"
 				},
 				"position":{
-					"x":6438.43233585,
-					"y":6679.65888977
+					"x":5196.65062428,
+					"y":7558.42924118
 				},
 				"classes":"operon",
 				"selected":false
@@ -3990,8 +4127,8 @@
 					"PMID":"15858574"
 				},
 				"position":{
-					"x":153.792873025,
-					"y":4206.80612326
+					"x":5468.31309795,
+					"y":9342.61202812
 				},
 				"classes":"operon",
 				"selected":false
@@ -4005,8 +4142,8 @@
 					"PMID":"15858574"
 				},
 				"position":{
-					"x":213.450826705,
-					"y":3536.36413813
+					"x":579.345673323,
+					"y":3185.3941083
 				},
 				"classes":"operon",
 				"selected":false
@@ -4020,8 +4157,8 @@
 					"PMID":"18971928"
 				},
 				"position":{
-					"x":6195.94931602,
-					"y":3606.75662756
+					"x":5628.06129456,
+					"y":4364.6478653
 				},
 				"classes":"operon",
 				"selected":false
@@ -4035,8 +4172,8 @@
 					"PMID":"18971928"
 				},
 				"position":{
-					"x":3412.02020645,
-					"y":2533.96332264
+					"x":3846.21828794,
+					"y":7010.7614994
 				},
 				"classes":"operon",
 				"selected":false
@@ -4050,8 +4187,8 @@
 					"PMID":"19563759"
 				},
 				"position":{
-					"x":2823.08369875,
-					"y":7816.34628773
+					"x":1550.97320676,
+					"y":8620.2788353
 				},
 				"classes":"operon",
 				"selected":false
@@ -4065,8 +4202,8 @@
 					"PMID":"19563759"
 				},
 				"position":{
-					"x":3915.19486904,
-					"y":2696.20925188
+					"x":308.869890869,
+					"y":6192.30806828
 				},
 				"classes":"operon",
 				"selected":false
@@ -4080,8 +4217,8 @@
 					"PMID":"19563759"
 				},
 				"position":{
-					"x":5682.68895149,
-					"y":6258.11517239
+					"x":8867.9933548,
+					"y":2252.92131305
 				},
 				"classes":"operon",
 				"selected":false
@@ -4095,8 +4232,8 @@
 					"PMID":"19563759"
 				},
 				"position":{
-					"x":1084.67899263,
-					"y":6158.57422352
+					"x":111.79164052,
+					"y":5404.63030338
 				},
 				"classes":"operon",
 				"selected":false
@@ -4110,8 +4247,8 @@
 					"PMID":"19563759"
 				},
 				"position":{
-					"x":1170.88824511,
-					"y":6742.85888672
+					"x":129.042360932,
+					"y":5640.25163651
 				},
 				"classes":"operon",
 				"selected":false
@@ -4125,8 +4262,8 @@
 					"PMID":"19563759"
 				},
 				"position":{
-					"x":8042.40882397,
-					"y":5570.25492191
+					"x":1755.96311688,
+					"y":8601.44376755
 				},
 				"classes":"operon",
 				"selected":false
@@ -4140,8 +4277,8 @@
 					"PMID":"19563759"
 				},
 				"position":{
-					"x":3396.20828629,
-					"y":8831.92062378
+					"x":3223.56879711,
+					"y":438.385009766
 				},
 				"classes":"operon",
 				"selected":false
@@ -4155,8 +4292,8 @@
 					"PMID":"19563759"
 				},
 				"position":{
-					"x":3265.01220465,
-					"y":8242.26856232
+					"x":1091.50707722,
+					"y":7780.63297272
 				},
 				"classes":"operon",
 				"selected":false
@@ -4170,8 +4307,8 @@
 					"PMID":"19563759"
 				},
 				"position":{
-					"x":5611.30523682,
-					"y":5382.9818964
+					"x":918.403789401,
+					"y":7181.67245388
 				},
 				"classes":"operon",
 				"selected":false
@@ -4185,8 +4322,8 @@
 					"PMID":"15064770"
 				},
 				"position":{
-					"x":3544.70729828,
-					"y":2664.18993473
+					"x":3983.79802704,
+					"y":4656.27551079
 				},
 				"classes":"operon",
 				"selected":false
@@ -4200,8 +4337,8 @@
 					"PMID":"15064770"
 				},
 				"position":{
-					"x":4686.39940023,
-					"y":1321.79185748
+					"x":3072.82179594,
+					"y":552.576668561
 				},
 				"classes":"operon",
 				"selected":false
@@ -4215,8 +4352,8 @@
 					"PMID":"18414488"
 				},
 				"position":{
-					"x":2557.066679,
-					"y":8430.0583601
+					"x":7139.74952698,
+					"y":2034.02355313
 				},
 				"classes":"operon",
 				"selected":false
@@ -4230,8 +4367,8 @@
 					"PMID":"18414488"
 				},
 				"position":{
-					"x":1133.32346082,
-					"y":2237.67280579
+					"x":4786.95780039,
+					"y":3839.30593729
 				},
 				"classes":"operon",
 				"selected":false
@@ -4245,8 +4382,8 @@
 					"PMID":"21584342"
 				},
 				"position":{
-					"x":9324.38611984,
-					"y":2962.95076609
+					"x":9915.80486298,
+					"y":5176.8964529
 				},
 				"classes":"operon",
 				"selected":false
@@ -4260,8 +4397,8 @@
 					"PMID":"10659856"
 				},
 				"position":{
-					"x":8987.40112782,
-					"y":7603.50108147
+					"x":7176.64778233,
+					"y":438.72974813
 				},
 				"classes":"operon",
 				"selected":false
@@ -4275,8 +4412,8 @@
 					"PMID":"15096621"
 				},
 				"position":{
-					"x":4353.38765383,
-					"y":7905.68172932
+					"x":3599.10130501,
+					"y":412.697941065
 				},
 				"classes":"operon",
 				"selected":false
@@ -4290,8 +4427,8 @@
 					"PMID":"15096621"
 				},
 				"position":{
-					"x":1341.57851338,
-					"y":2033.27596188
+					"x":5530.61902523,
+					"y":4061.72394753
 				},
 				"classes":"operon",
 				"selected":false
@@ -4305,8 +4442,8 @@
 					"PMID":"15096621"
 				},
 				"position":{
-					"x":5524.99294281,
-					"y":8980.48698902
+					"x":3090.75057507,
+					"y":7864.4490242
 				},
 				"classes":"operon",
 				"selected":false
@@ -4320,8 +4457,8 @@
 					"PMID":"15096621"
 				},
 				"position":{
-					"x":3543.04552078,
-					"y":7806.53774738
+					"x":9082.36682415,
+					"y":2261.89225912
 				},
 				"classes":"operon",
 				"selected":false
@@ -4335,8 +4472,8 @@
 					"PMID":"15096621"
 				},
 				"position":{
-					"x":8217.93079376,
-					"y":8668.74277592
+					"x":7275.68745613,
+					"y":500.216521323
 				},
 				"classes":"operon",
 				"selected":false
@@ -4350,8 +4487,8 @@
 					"PMID":"15096621"
 				},
 				"position":{
-					"x":6933.45665932,
-					"y":4928.34866047
+					"x":9342.60487556,
+					"y":2701.38293505
 				},
 				"classes":"operon",
 				"selected":false
@@ -4365,8 +4502,8 @@
 					"PMID":"15096621"
 				},
 				"position":{
-					"x":3251.80500746,
-					"y":8917.79005527
+					"x":2913.22886944,
+					"y":1516.21311903
 				},
 				"classes":"operon",
 				"selected":false
@@ -4380,8 +4517,8 @@
 					"PMID":"15096621"
 				},
 				"position":{
-					"x":4407.5641036,
-					"y":8359.74097252
+					"x":3557.5568676,
+					"y":1825.37317276
 				},
 				"classes":"operon",
 				"selected":false
@@ -4395,8 +4532,8 @@
 					"PMID":"15096621"
 				},
 				"position":{
-					"x":6483.55007172,
-					"y":5303.03537846
+					"x":8964.02895451,
+					"y":3450.961411
 				},
 				"classes":"operon",
 				"selected":false
@@ -4410,8 +4547,8 @@
 					"PMID":"15096621"
 				},
 				"position":{
-					"x":3370.98360062,
-					"y":8782.39035606
+					"x":1856.15152121,
+					"y":8677.14524269
 				},
 				"classes":"operon",
 				"selected":false
@@ -4425,8 +4562,8 @@
 					"PMID":"15096621"
 				},
 				"position":{
-					"x":2964.43462372,
-					"y":8866.64092541
+					"x":3459.55461264,
+					"y":1275.62239766
 				},
 				"classes":"operon",
 				"selected":false
@@ -4440,8 +4577,8 @@
 					"PMID":"15096621"
 				},
 				"position":{
-					"x":9517.53795147,
-					"y":6933.09485912
+					"x":5040.80474377,
+					"y":3259.46956873
 				},
 				"classes":"operon",
 				"selected":false
@@ -4455,8 +4592,8 @@
 					"PMID":"23479654"
 				},
 				"position":{
-					"x":3958.21154118,
-					"y":190.605837852
+					"x":8315.56737423,
+					"y":8560.6521368
 				},
 				"classes":"operon",
 				"selected":false
@@ -4470,8 +4607,8 @@
 					"PMID":"23479654"
 				},
 				"position":{
-					"x":8815.32013416,
-					"y":2255.29968739
+					"x":6720.27409077,
+					"y":9320.79732418
 				},
 				"classes":"operon",
 				"selected":false
@@ -4485,8 +4622,8 @@
 					"PMID":"23479654"
 				},
 				"position":{
-					"x":4105.06218672,
-					"y":141.032421961
+					"x":9825.42037964,
+					"y":6247.35474586
 				},
 				"classes":"operon",
 				"selected":false
@@ -4500,8 +4637,8 @@
 					"PMID":"23479654"
 				},
 				"position":{
-					"x":7390.68627357,
-					"y":621.570721269
+					"x":7451.79474354,
+					"y":9187.34788895
 				},
 				"classes":"operon",
 				"selected":false
@@ -4515,8 +4652,8 @@
 					"PMID":"23479654"
 				},
 				"position":{
-					"x":4205.0871253,
-					"y":81.6118437797
+					"x":9541.64266586,
+					"y":7003.20184231
 				},
 				"classes":"operon",
 				"selected":false
@@ -4530,8 +4667,8 @@
 					"PMID":"23479654"
 				},
 				"position":{
-					"x":6891.62015915,
-					"y":328.845083714
+					"x":6211.92634106,
+					"y":9296.23782635
 				},
 				"classes":"operon",
 				"selected":false
@@ -4545,8 +4682,8 @@
 					"PMID":"23479654"
 				},
 				"position":{
-					"x":5868.75498295,
-					"y":2375.97703934
+					"x":3087.62043715,
+					"y":9047.13511467
 				},
 				"classes":"operon",
 				"selected":false
@@ -4560,8 +4697,8 @@
 					"PMID":"23479654"
 				},
 				"position":{
-					"x":7203.91571522,
-					"y":521.640703082
+					"x":5706.43663406,
+					"y":8926.67353153
 				},
 				"classes":"operon",
 				"selected":false
@@ -4575,8 +4712,8 @@
 					"PMID":"23479654"
 				},
 				"position":{
-					"x":9754.67324257,
-					"y":3840.84492922
+					"x":5713.10997009,
+					"y":8337.46373653
 				},
 				"classes":"operon",
 				"selected":false
@@ -4590,8 +4727,8 @@
 					"PMID":"23479654"
 				},
 				"position":{
-					"x":1979.21916842,
-					"y":1512.14465499
+					"x":5326.37894154,
+					"y":9138.13769817
 				},
 				"classes":"operon",
 				"selected":false
@@ -4605,8 +4742,8 @@
 					"PMID":"23034349"
 				},
 				"position":{
-					"x":5908.29432011,
-					"y":460.36824584
+					"x":7747.89690971,
+					"y":8085.06846428
 				},
 				"classes":"operon",
 				"selected":false
@@ -4620,8 +4757,8 @@
 					"PMID":"23034349"
 				},
 				"position":{
-					"x":8278.67746353,
-					"y":3428.61831188
+					"x":7125.70011616,
+					"y":9116.48631096
 				},
 				"classes":"operon",
 				"selected":false
@@ -4635,8 +4772,8 @@
 					"PMID":"23034349"
 				},
 				"position":{
-					"x":9672.28651047,
-					"y":6065.52243233
+					"x":5905.54177761,
+					"y":4817.35050678
 				},
 				"classes":"operon",
 				"selected":false
@@ -4650,8 +4787,8 @@
 					"PMID":"23034349"
 				},
 				"position":{
-					"x":626.255497336,
-					"y":2787.6073122
+					"x":5924.20876026,
+					"y":8861.8272543
 				},
 				"classes":"operon",
 				"selected":false
@@ -4665,8 +4802,8 @@
 					"PMID":"23034349"
 				},
 				"position":{
-					"x":4943.00931692,
-					"y":7494.33577061
+					"x":2474.71854091,
+					"y":9058.36284161
 				},
 				"classes":"operon",
 				"selected":false
@@ -4680,8 +4817,8 @@
 					"PMID":"23034349"
 				},
 				"position":{
-					"x":7026.24797821,
-					"y":9279.30176258
+					"x":7524.43611622,
+					"y":6345.75366974
 				},
 				"classes":"operon",
 				"selected":false
@@ -4695,8 +4832,8 @@
 					"PMID":"23034349"
 				},
 				"position":{
-					"x":526.582449675,
-					"y":5723.22905064
+					"x":5105.56340218,
+					"y":9076.05886459
 				},
 				"classes":"operon",
 				"selected":false
@@ -4710,8 +4847,8 @@
 					"PMID":"23034349"
 				},
 				"position":{
-					"x":3874.87053871,
-					"y":8815.42623043
+					"x":2265.47122002,
+					"y":8703.93872261
 				},
 				"classes":"operon",
 				"selected":false
@@ -4725,8 +4862,8 @@
 					"PMID":"23034349"
 				},
 				"position":{
-					"x":9446.62630558,
-					"y":7092.78941154
+					"x":7958.69171619,
+					"y":5686.09893322
 				},
 				"classes":"operon",
 				"selected":false
@@ -4740,8 +4877,8 @@
 					"PMID":"23034349"
 				},
 				"position":{
-					"x":1778.41708064,
-					"y":1762.41517067
+					"x":4873.9606142,
+					"y":8956.69341087
 				},
 				"classes":"operon",
 				"selected":false
@@ -4755,8 +4892,8 @@
 					"PMID":"23034349"
 				},
 				"position":{
-					"x":4131.1776638,
-					"y":9227.93507576
+					"x":3305.48286438,
+					"y":2156.63194656
 				},
 				"classes":"operon",
 				"selected":false
@@ -4770,8 +4907,8 @@
 					"PMID":"23041931"
 				},
 				"position":{
-					"x":3550.40729046,
-					"y":325.532071292
+					"x":9845.72529793,
+					"y":6014.9371624
 				},
 				"classes":"operon",
 				"selected":false
@@ -4785,8 +4922,8 @@
 					"PMID":"23041931"
 				},
 				"position":{
-					"x":3809.55904722,
-					"y":153.078623116
+					"x":4882.63458014,
+					"y":2332.73893595
 				},
 				"classes":"operon",
 				"selected":false
@@ -4800,8 +4937,8 @@
 					"PMID":"23041931"
 				},
 				"position":{
-					"x":1546.96241021,
-					"y":1817.86969304
+					"x":5659.70361233,
+					"y":8985.47649384
 				},
 				"classes":"operon",
 				"selected":false
@@ -4815,8 +4952,8 @@
 					"PMID":"23041931"
 				},
 				"position":{
-					"x":766.881033778,
-					"y":2438.35955858
+					"x":842.177271843,
+					"y":2918.72560978
 				},
 				"classes":"operon",
 				"selected":false
@@ -4830,8 +4967,8 @@
 					"PMID":"23041931"
 				},
 				"position":{
-					"x":2157.69335628,
-					"y":2355.19468784
+					"x":4156.16750717,
+					"y":6876.24394894
 				},
 				"classes":"operon",
 				"selected":false
@@ -4845,8 +4982,8 @@
 					"PMID":"23041931"
 				},
 				"position":{
-					"x":350.462719798,
-					"y":3215.30491114
+					"x":905.858725309,
+					"y":2143.69237423
 				},
 				"classes":"operon",
 				"selected":false
@@ -4860,8 +4997,8 @@
 					"PMID":"23041931"
 				},
 				"position":{
-					"x":3650.175035,
-					"y":8039.86549377
+					"x":9495.80669403,
+					"y":3442.68083572
 				},
 				"classes":"operon",
 				"selected":false
@@ -4875,8 +5012,8 @@
 					"PMID":"23041931"
 				},
 				"position":{
-					"x":3458.03588629,
-					"y":4755.99914789
+					"x":3441.42258167,
+					"y":280.224699527
 				},
 				"classes":"operon",
 				"selected":false
@@ -4890,8 +5027,8 @@
 					"PMID":"23041931"
 				},
 				"position":{
-					"x":4131.53529167,
-					"y":8125.98228455
+					"x":8834.14328098,
+					"y":2298.31233621
 				},
 				"classes":"operon",
 				"selected":false
@@ -4905,8 +5042,8 @@
 					"PMID":"23041931"
 				},
 				"position":{
-					"x":4321.69109583,
-					"y":9742.39528179
+					"x":3124.91863966,
+					"y":3489.64422941
 				},
 				"classes":"operon",
 				"selected":false
@@ -4920,8 +5057,8 @@
 					"PMID":"23041931"
 				},
 				"position":{
-					"x":5111.23776436,
-					"y":199.656467885
+					"x":9021.80850506,
+					"y":7852.54955292
 				},
 				"classes":"operon",
 				"selected":false
@@ -4935,8 +5072,8 @@
 					"PMID":"23041931"
 				},
 				"position":{
-					"x":2514.20944929,
-					"y":1252.38418579
+					"x":4127.86394358,
+					"y":4767.38363504
 				},
 				"classes":"operon",
 				"selected":false
@@ -4950,8 +5087,8 @@
 					"PMID":"23041931"
 				},
 				"position":{
-					"x":436.302311718,
-					"y":3019.76978779
+					"x":1996.70180678,
+					"y":971.515700221
 				},
 				"classes":"operon",
 				"selected":false
@@ -4965,8 +5102,8 @@
 					"PMID":"23041931"
 				},
 				"position":{
-					"x":5367.14673042,
-					"y":7193.51112843
+					"x":9624.22430515,
+					"y":3329.48416471
 				},
 				"classes":"operon",
 				"selected":false
@@ -4980,8 +5117,8 @@
 					"PMID":"23041931"
 				},
 				"position":{
-					"x":2454.33926582,
-					"y":9009.94300842
+					"x":2295.77466846,
+					"y":965.995788574
 				},
 				"classes":"operon",
 				"selected":false
@@ -4995,8 +5132,8 @@
 					"PMID":"23041931"
 				},
 				"position":{
-					"x":4775.2147913,
-					"y":123.068280518
+					"x":8492.74814129,
+					"y":8449.73087311
 				},
 				"classes":"operon",
 				"selected":false
@@ -5010,8 +5147,8 @@
 					"PMID":"23041931"
 				},
 				"position":{
-					"x":3101.73332691,
-					"y":355.832800269
+					"x":3506.51204586,
+					"y":7351.64582729
 				},
 				"classes":"operon",
 				"selected":false
@@ -5025,8 +5162,8 @@
 					"PMID":"23041931"
 				},
 				"position":{
-					"x":417.23638773,
-					"y":3407.89467096
+					"x":196.923259646,
+					"y":3490.15504122
 				},
 				"classes":"operon",
 				"selected":false
@@ -5040,8 +5177,8 @@
 					"PMID":"23041931"
 				},
 				"position":{
-					"x":6944.26596165,
-					"y":4379.78714705
+					"x":9576.87914371,
+					"y":3132.03155994
 				},
 				"classes":"operon",
 				"selected":false
@@ -5055,8 +5192,8 @@
 					"PMID":"23041931"
 				},
 				"position":{
-					"x":2378.8009584,
-					"y":8755.43057919
+					"x":2764.1415596,
+					"y":681.174397469
 				},
 				"classes":"operon",
 				"selected":false
@@ -5070,8 +5207,8 @@
 					"PMID":"23041931"
 				},
 				"position":{
-					"x":693.198591471,
-					"y":6576.85577869
+					"x":4422.80888557,
+					"y":6682.93952942
 				},
 				"classes":"operon",
 				"selected":false
@@ -5085,8 +5222,8 @@
 					"PMID":"23041931"
 				},
 				"position":{
-					"x":298.114810139,
-					"y":5984.98463631
+					"x":277.342759073,
+					"y":3404.31123972
 				},
 				"classes":"operon",
 				"selected":false
@@ -5100,8 +5237,8 @@
 					"PMID":"23041931"
 				},
 				"position":{
-					"x":642.448440194,
-					"y":2729.09373045
+					"x":960.299894214,
+					"y":2055.13641238
 				},
 				"classes":"operon",
 				"selected":false
@@ -5115,8 +5252,8 @@
 					"PMID":"23041931"
 				},
 				"position":{
-					"x":1162.50917315,
-					"y":2135.33610106
+					"x":4850.6385088,
+					"y":6869.0931797
 				},
 				"classes":"operon",
 				"selected":false
@@ -5130,8 +5267,8 @@
 					"PMID":"23041931"
 				},
 				"position":{
-					"x":6461.75324917,
-					"y":4708.37295055
+					"x":9528.82528305,
+					"y":2986.89097166
 				},
 				"classes":"operon",
 				"selected":false
@@ -5145,8 +5282,8 @@
 					"PMID":"23041931"
 				},
 				"position":{
-					"x":1547.10009694,
-					"y":8449.93531704
+					"x":276.098735631,
+					"y":6516.23368263
 				},
 				"classes":"operon",
 				"selected":false
@@ -5160,8 +5297,8 @@
 					"PMID":"23041931"
 				},
 				"position":{
-					"x":2754.32288647,
-					"y":7833.28413963
+					"x":2757.97396898,
+					"y":541.204102337
 				},
 				"classes":"operon",
 				"selected":false
@@ -5175,8 +5312,8 @@
 					"PMID":"23041931"
 				},
 				"position":{
-					"x":1283.78435969,
-					"y":2924.5018959
+					"x":208.714716136,
+					"y":4193.36974621
 				},
 				"classes":"operon",
 				"selected":false
@@ -5190,8 +5327,8 @@
 					"PMID":"23041931"
 				},
 				"position":{
-					"x":5350.30543804,
-					"y":346.625559032
+					"x":8724.65968132,
+					"y":8296.16546631
 				},
 				"classes":"operon",
 				"selected":false
@@ -5205,8 +5342,8 @@
 					"PMID":"23041931"
 				},
 				"position":{
-					"x":2293.61265898,
-					"y":1561.89456582
+					"x":4782.3548317,
+					"y":8396.33226395
 				},
 				"classes":"operon",
 				"selected":false
@@ -5220,8 +5357,8 @@
 					"PMID":"23041931"
 				},
 				"position":{
-					"x":65.3302203864,
-					"y":5286.41521931
+					"x":45.3424267471,
+					"y":5416.79561138
 				},
 				"classes":"operon",
 				"selected":false
@@ -5235,8 +5372,8 @@
 					"PMID":"23041931"
 				},
 				"position":{
-					"x":3346.23426199,
-					"y":280.532054603
+					"x":3378.27444077,
+					"y":6898.42522144
 				},
 				"classes":"operon",
 				"selected":false
@@ -5250,8 +5387,8 @@
 					"PMID":"23041931"
 				},
 				"position":{
-					"x":491.326265037,
-					"y":4164.99882936
+					"x":109.585095197,
+					"y":5780.61938286
 				},
 				"classes":"operon",
 				"selected":false
@@ -5265,8 +5402,8 @@
 					"PMID":"15064770"
 				},
 				"position":{
-					"x":457.31600374,
-					"y":6891.1087513
+					"x":287.958290428,
+					"y":4808.56448412
 				},
 				"classes":"operon",
 				"selected":false
@@ -5280,8 +5417,38 @@
 					"PMID":"15064770"
 				},
 				"position":{
-					"x":5087.71240711,
-					"y":1518.53680611
+					"x":3388.79674673,
+					"y":812.897905707
+				},
+				"classes":"operon",
+				"selected":false
+			},
+			{
+				"data":{
+					"id":"ope_1042",
+					"sbml":"operon_sbml_1042.txt",
+					"sbol":"operon_sbol_1042.png",
+					"name":"Areol",
+					"PMID":"070707"
+				},
+				"position":{
+					"x":182.719118893,
+					"y":4499.22174215
+				},
+				"classes":"operon",
+				"selected":false
+			},
+			{
+				"data":{
+					"id":"ope_1043",
+					"sbml":"operon_sbml_1043.txt",
+					"sbol":"operon_sbol_1043.png",
+					"name":"Turtle",
+					"PMID":"070707"
+				},
+				"position":{
+					"x":2.39174783928,
+					"y":4974.92194176
 				},
 				"classes":"operon",
 				"selected":false
@@ -5292,8 +5459,8 @@
 					"sbml":"ot_sbml_1.txt"
 				},
 				"position":{
-					"x":5751.47271156,
-					"y":7039.7400856
+					"x":5418.46871376,
+					"y":2345.46810389
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5304,8 +5471,8 @@
 					"sbml":"ot_sbml_10.txt"
 				},
 				"position":{
-					"x":7115.13161659,
-					"y":2256.34232163
+					"x":8588.70625496,
+					"y":4032.67592192
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5316,8 +5483,8 @@
 					"sbml":"ot_sbml_100.txt"
 				},
 				"position":{
-					"x":7184.18002129,
-					"y":6819.46396828
+					"x":7913.78319263,
+					"y":2097.08228707
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5328,8 +5495,8 @@
 					"sbml":"ot_sbml_101.txt"
 				},
 				"position":{
-					"x":5374.95791912,
-					"y":8785.70020199
+					"x":2876.25938654,
+					"y":9048.84636402
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5340,8 +5507,8 @@
 					"sbml":"ot_sbml_102.txt"
 				},
 				"position":{
-					"x":1883.11815262,
-					"y":7712.93401718
+					"x":2646.72577381,
+					"y":3448.75276089
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5352,8 +5519,8 @@
 					"sbml":"ot_sbml_103.txt"
 				},
 				"position":{
-					"x":9263.57924938,
-					"y":7231.86254501
+					"x":5655.67314625,
+					"y":1539.25776482
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5364,8 +5531,8 @@
 					"sbml":"ot_sbml_104.txt"
 				},
 				"position":{
-					"x":5078.09579372,
-					"y":39.4864473492
+					"x":8699.74672794,
+					"y":7513.83602619
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5376,8 +5543,8 @@
 					"sbml":"ot_sbml_105.txt"
 				},
 				"position":{
-					"x":9539.53623772,
-					"y":3412.19186783
+					"x":5377.8231144,
+					"y":9934.01229382
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5388,8 +5555,8 @@
 					"sbml":"ot_sbml_106.txt"
 				},
 				"position":{
-					"x":5356.7302227,
-					"y":0.0
+					"x":9472.62883186,
+					"y":6390.10429382
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5400,8 +5567,8 @@
 					"sbml":"ot_sbml_107.txt"
 				},
 				"position":{
-					"x":8205.6927681,
-					"y":1179.39509451
+					"x":6348.285079,
+					"y":9776.73649788
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5412,8 +5579,8 @@
 					"sbml":"ot_sbml_108.txt"
 				},
 				"position":{
-					"x":5233.77656937,
-					"y":2.28108125157
+					"x":9393.21994781,
+					"y":6640.17558098
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5424,8 +5591,8 @@
 					"sbml":"ot_sbml_109.txt"
 				},
 				"position":{
-					"x":7749.57597256,
-					"y":772.313922644
+					"x":4748.49581718,
+					"y":9879.90438938
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5436,8 +5603,8 @@
 					"sbml":"ot_sbml_11.txt"
 				},
 				"position":{
-					"x":9212.02480793,
-					"y":5348.43683243
+					"x":8157.11855888,
+					"y":1237.90599406
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5448,8 +5615,8 @@
 					"sbml":"ot_sbml_110.txt"
 				},
 				"position":{
-					"x":7703.54509354,
-					"y":1108.52137208
+					"x":4285.8555913,
+					"y":9728.62541676
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5460,8 +5627,8 @@
 					"sbml":"ot_sbml_111.txt"
 				},
 				"position":{
-					"x":7927.17039585,
-					"y":975.619331002
+					"x":4359.33500528,
+					"y":9563.32802773
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5472,8 +5639,8 @@
 					"sbml":"ot_sbml_112.txt"
 				},
 				"position":{
-					"x":9688.96925449,
-					"y":5373.36349487
+					"x":6608.17205906,
+					"y":5605.87882996
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5484,8 +5651,8 @@
 					"sbml":"ot_sbml_113.txt"
 				},
 				"position":{
-					"x":1870.47272921,
-					"y":3257.78722763
+					"x":3606.21929169,
+					"y":8086.66169643
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5496,8 +5663,8 @@
 					"sbml":"ot_sbml_114.txt"
 				},
 				"position":{
-					"x":6859.51173306,
-					"y":458.291098475
+					"x":8200.81293583,
+					"y":7177.1889925
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5508,8 +5675,8 @@
 					"sbml":"ot_sbml_115.txt"
 				},
 				"position":{
-					"x":8133.08417797,
-					"y":5712.44597435
+					"x":5738.97242546,
+					"y":9366.90807343
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5520,8 +5687,8 @@
 					"sbml":"ot_sbml_116.txt"
 				},
 				"position":{
-					"x":9560.44971943,
-					"y":6209.0831995
+					"x":6643.29409599,
+					"y":3391.68310165
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5532,8 +5699,8 @@
 					"sbml":"ot_sbml_117.txt"
 				},
 				"position":{
-					"x":711.781084538,
-					"y":4095.47656775
+					"x":4084.46103334,
+					"y":7875.07474422
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5544,8 +5711,8 @@
 					"sbml":"ot_sbml_118.txt"
 				},
 				"position":{
-					"x":6216.18211269,
-					"y":8269.02925968
+					"x":3537.87869215,
+					"y":9453.87244225
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5556,8 +5723,8 @@
 					"sbml":"ot_sbml_119.txt"
 				},
 				"position":{
-					"x":8035.78972816,
-					"y":8381.14738464
+					"x":7861.37759686,
+					"y":4417.78331995
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5568,8 +5735,8 @@
 					"sbml":"ot_sbml_12.txt"
 				},
 				"position":{
-					"x":7235.55624485,
-					"y":5488.34383488
+					"x":8292.03307629,
+					"y":1637.17389107
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5580,8 +5747,8 @@
 					"sbml":"ot_sbml_120.txt"
 				},
 				"position":{
-					"x":749.972090125,
-					"y":6167.90235043
+					"x":3400.25067329,
+					"y":8213.52779865
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5592,8 +5759,8 @@
 					"sbml":"ot_sbml_121.txt"
 				},
 				"position":{
-					"x":5758.51678848,
-					"y":9088.77849579
+					"x":3339.19882774,
+					"y":9108.35325718
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5604,8 +5771,8 @@
 					"sbml":"ot_sbml_122.txt"
 				},
 				"position":{
-					"x":9498.55804443,
-					"y":6731.02974892
+					"x":8256.13498688,
+					"y":3852.94467211
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5616,8 +5783,8 @@
 					"sbml":"ot_sbml_123.txt"
 				},
 				"position":{
-					"x":1642.92216301,
-					"y":3350.77792406
+					"x":3198.7285614,
+					"y":8163.84196281
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5628,8 +5795,8 @@
 					"sbml":"ot_sbml_124.txt"
 				},
 				"position":{
-					"x":6415.4624939,
-					"y":8966.36724472
+					"x":4793.39778423,
+					"y":939.055681229
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5640,8 +5807,8 @@
 					"sbml":"ot_sbml_125.txt"
 				},
 				"position":{
-					"x":4755.00434637,
-					"y":132.975913584
+					"x":9494.46678162,
+					"y":6183.31491947
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5652,8 +5819,8 @@
 					"sbml":"ot_sbml_126.txt"
 				},
 				"position":{
-					"x":2432.46555328,
-					"y":732.153430581
+					"x":3057.22236633,
+					"y":1002.10599601
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5664,8 +5831,8 @@
 					"sbml":"ot_sbml_127.txt"
 				},
 				"position":{
-					"x":1416.44209623,
-					"y":3482.42163658
+					"x":3862.75798082,
+					"y":7966.85576439
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5676,8 +5843,8 @@
 					"sbml":"ot_sbml_128.txt"
 				},
 				"position":{
-					"x":1398.54311943,
-					"y":1564.19798732
+					"x":1221.96689248,
+					"y":1771.15082741
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5688,8 +5855,8 @@
 					"sbml":"ot_sbml_129.txt"
 				},
 				"position":{
-					"x":1651.86479688,
-					"y":3505.79977036
+					"x":2502.22653151,
+					"y":5627.1314621
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5700,8 +5867,8 @@
 					"sbml":"ot_sbml_13.txt"
 				},
 				"position":{
-					"x":8743.55971813,
-					"y":7708.49764347
+					"x":6105.06057739,
+					"y":237.870123237
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5712,8 +5879,8 @@
 					"sbml":"ot_sbml_130.txt"
 				},
 				"position":{
-					"x":643.214061856,
-					"y":2544.96663809
+					"x":1215.31404555,
+					"y":1714.80894089
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5724,8 +5891,8 @@
 					"sbml":"ot_sbml_131.txt"
 				},
 				"position":{
-					"x":4793.9696908,
-					"y":9371.56438828
+					"x":8303.61366272,
+					"y":1970.98687291
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5736,8 +5903,8 @@
 					"sbml":"ot_sbml_132.txt"
 				},
 				"position":{
-					"x":2165.85502028,
-					"y":2923.8191247
+					"x":2349.81268644,
+					"y":730.02718389
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5748,8 +5915,8 @@
 					"sbml":"ot_sbml_133.txt"
 				},
 				"position":{
-					"x":5270.28799057,
-					"y":9570.23024559
+					"x":7928.65693569,
+					"y":1033.84189308
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5760,8 +5927,8 @@
 					"sbml":"ot_sbml_134.txt"
 				},
 				"position":{
-					"x":3781.14908934,
-					"y":9703.66120338
+					"x":2226.80851817,
+					"y":5855.81064224
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5772,8 +5939,8 @@
 					"sbml":"ot_sbml_135.txt"
 				},
 				"position":{
-					"x":5985.55028439,
-					"y":98.2132833451
+					"x":9180.73713779,
+					"y":6987.76781559
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5784,8 +5951,8 @@
 					"sbml":"ot_sbml_136.txt"
 				},
 				"position":{
-					"x":959.572046995,
-					"y":2700.85781813
+					"x":2124.0490675,
+					"y":4040.25614262
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5796,8 +5963,8 @@
 					"sbml":"ot_sbml_137.txt"
 				},
 				"position":{
-					"x":910.623446107,
-					"y":2117.22776294
+					"x":1777.99910307,
+					"y":1121.25173211
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5808,8 +5975,8 @@
 					"sbml":"ot_sbml_138.txt"
 				},
 				"position":{
-					"x":6065.63270092,
-					"y":8895.47348022
+					"x":8420.57704926,
+					"y":1891.08327031
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5820,8 +5987,8 @@
 					"sbml":"ot_sbml_139.txt"
 				},
 				"position":{
-					"x":1014.97814059,
-					"y":7521.14474773
+					"x":840.425118804,
+					"y":2230.47077656
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5832,8 +5999,8 @@
 					"sbml":"ot_sbml_14.txt"
 				},
 				"position":{
-					"x":6358.8732481,
-					"y":4234.405756
+					"x":8147.14372158,
+					"y":3462.26423979
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5844,8 +6011,8 @@
 					"sbml":"ot_sbml_140.txt"
 				},
 				"position":{
-					"x":5781.10873699,
-					"y":25.5321129225
+					"x":8849.43783283,
+					"y":7409.38544273
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5856,8 +6023,8 @@
 					"sbml":"ot_sbml_141.txt"
 				},
 				"position":{
-					"x":1857.74728656,
-					"y":1076.5466094
+					"x":1267.06257463,
+					"y":7250.5658865
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5868,8 +6035,8 @@
 					"sbml":"ot_sbml_142.txt"
 				},
 				"position":{
-					"x":605.979338288,
-					"y":2816.64401293
+					"x":724.160224199,
+					"y":2367.17179418
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5880,8 +6047,8 @@
 					"sbml":"ot_sbml_143.txt"
 				},
 				"position":{
-					"x":7119.32718754,
-					"y":6144.79243755
+					"x":8427.98411846,
+					"y":1725.96231103
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5892,8 +6059,8 @@
 					"sbml":"ot_sbml_144.txt"
 				},
 				"position":{
-					"x":1092.14626253,
-					"y":7773.96678925
+					"x":1440.08144736,
+					"y":1534.46242213
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5904,8 +6071,8 @@
 					"sbml":"ot_sbml_145.txt"
 				},
 				"position":{
-					"x":664.376243949,
-					"y":6471.56476974
+					"x":2808.58963728,
+					"y":5489.86792564
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5916,8 +6083,8 @@
 					"sbml":"ot_sbml_146.txt"
 				},
 				"position":{
-					"x":374.351255596,
-					"y":5823.18723202
+					"x":50.5358492956,
+					"y":4166.3569212
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5928,8 +6095,8 @@
 					"sbml":"ot_sbml_147.txt"
 				},
 				"position":{
-					"x":1156.29285574,
-					"y":1798.27332497
+					"x":1616.27292633,
+					"y":1339.9939239
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5940,8 +6107,8 @@
 					"sbml":"ot_sbml_148.txt"
 				},
 				"position":{
-					"x":693.681314588,
-					"y":3459.44702625
+					"x":3108.98452997,
+					"y":5557.01971054
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5952,8 +6119,8 @@
 					"sbml":"ot_sbml_149.txt"
 				},
 				"position":{
-					"x":6772.1426487,
-					"y":6323.2088089
+					"x":8429.74305153,
+					"y":1550.96903443
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5964,8 +6131,8 @@
 					"sbml":"ot_sbml_15.txt"
 				},
 				"position":{
-					"x":8252.78639793,
-					"y":6496.28937244
+					"x":5350.86929798,
+					"y":5942.85309315
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5976,8 +6143,8 @@
 					"sbml":"ot_sbml_150.txt"
 				},
 				"position":{
-					"x":2915.76802731,
-					"y":9479.27713394
+					"x":1015.25135338,
+					"y":7969.75195408
 				},
 				"classes":"output transition",
 				"selected":false
@@ -5988,8 +6155,8 @@
 					"sbml":"ot_sbml_151.txt"
 				},
 				"position":{
-					"x":1439.7957921,
-					"y":7162.34982014
+					"x":1464.42681551,
+					"y":1428.75090241
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6000,8 +6167,8 @@
 					"sbml":"ot_sbml_152.txt"
 				},
 				"position":{
-					"x":857.91669786,
-					"y":3841.43531322
+					"x":93.029551208,
+					"y":4413.34724426
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6012,8 +6179,8 @@
 					"sbml":"ot_sbml_153.txt"
 				},
 				"position":{
-					"x":6147.49252796,
-					"y":207.509472966
+					"x":9045.84407806,
+					"y":7292.39165783
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6024,8 +6191,8 @@
 					"sbml":"ot_sbml_154.txt"
 				},
 				"position":{
-					"x":2113.61423135,
-					"y":3325.14673471
+					"x":3136.28643751,
+					"y":7735.80431938
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6036,8 +6203,8 @@
 					"sbml":"ot_sbml_155.txt"
 				},
 				"position":{
-					"x":124.838221818,
-					"y":5830.62827587
+					"x":166.694764048,
+					"y":4564.17411566
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6048,8 +6215,8 @@
 					"sbml":"ot_sbml_156.txt"
 				},
 				"position":{
-					"x":2026.49280429,
-					"y":973.659902811
+					"x":1241.34711921,
+					"y":6879.77552414
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6060,8 +6227,8 @@
 					"sbml":"ot_sbml_157.txt"
 				},
 				"position":{
-					"x":354.947261512,
-					"y":4666.07183218
+					"x":0.0,
+					"y":5039.76166248
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6072,8 +6239,8 @@
 					"sbml":"ot_sbml_158.txt"
 				},
 				"position":{
-					"x":646.804049611,
-					"y":6790.54319859
+					"x":526.106581092,
+					"y":3584.97440815
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6084,8 +6251,8 @@
 					"sbml":"ot_sbml_159.txt"
 				},
 				"position":{
-					"x":6929.83090878,
-					"y":411.695688963
+					"x":4599.42609072,
+					"y":285.096466541
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6096,8 +6263,32 @@
 					"sbml":"ot_sbml_16.txt"
 				},
 				"position":{
-					"x":7507.03692436,
-					"y":2314.82610106
+					"x":8920.37272453,
+					"y":4056.45251274
+				},
+				"classes":"output transition",
+				"selected":false
+			},
+			{
+				"data":{
+					"id":"ot_160",
+					"sbml":"ot_sbml_160.txt"
+				},
+				"position":{
+					"x":156.774390489,
+					"y":3664.70336914
+				},
+				"classes":"output transition",
+				"selected":false
+			},
+			{
+				"data":{
+					"id":"ot_161",
+					"sbml":"ot_sbml_161.txt"
+				},
+				"position":{
+					"x":140.782641247,
+					"y":3800.23926497
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6108,8 +6299,8 @@
 					"sbml":"ot_sbml_17.txt"
 				},
 				"position":{
-					"x":8454.86521721,
-					"y":5913.88761997
+					"x":6455.43158054,
+					"y":6698.32646847
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6120,8 +6311,8 @@
 					"sbml":"ot_sbml_18.txt"
 				},
 				"position":{
-					"x":7163.52641582,
-					"y":5657.88447857
+					"x":8237.64503002,
+					"y":1507.11104274
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6132,8 +6323,8 @@
 					"sbml":"ot_sbml_19.txt"
 				},
 				"position":{
-					"x":7929.97598648,
-					"y":8881.72984123
+					"x":5150.40099621,
+					"y":5077.60047913
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6144,8 +6335,8 @@
 					"sbml":"ot_sbml_2.txt"
 				},
 				"position":{
-					"x":4932.12610483,
-					"y":69.3171843886
+					"x":9313.51482868,
+					"y":6824.92434978
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6156,8 +6347,8 @@
 					"sbml":"ot_sbml_20.txt"
 				},
 				"position":{
-					"x":9053.68804932,
-					"y":7697.80814648
+					"x":6559.56685543,
+					"y":1855.43134809
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6168,8 +6359,8 @@
 					"sbml":"ot_sbml_21.txt"
 				},
 				"position":{
-					"x":4751.28263235,
-					"y":9843.06514263
+					"x":1483.1829071,
+					"y":8502.93815136
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6180,8 +6371,8 @@
 					"sbml":"ot_sbml_22.txt"
 				},
 				"position":{
-					"x":5009.91046429,
-					"y":9892.21096039
+					"x":5459.51724052,
+					"y":9978.77001762
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6192,8 +6383,8 @@
 					"sbml":"ot_sbml_23.txt"
 				},
 				"position":{
-					"x":7192.30055809,
-					"y":7680.91142178
+					"x":5502.25317478,
+					"y":1929.705441
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6204,8 +6395,8 @@
 					"sbml":"ot_sbml_24.txt"
 				},
 				"position":{
-					"x":8706.50231838,
-					"y":8096.14181519
+					"x":7426.41150951,
+					"y":829.141959548
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6216,8 +6407,8 @@
 					"sbml":"ot_sbml_25.txt"
 				},
 				"position":{
-					"x":8800.75037479,
-					"y":7995.2454567
+					"x":7922.36626148,
+					"y":3860.00037193
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6228,8 +6419,8 @@
 					"sbml":"ot_sbml_26.txt"
 				},
 				"position":{
-					"x":6580.77538013,
-					"y":7357.224226
+					"x":5269.18828487,
+					"y":2113.53495717
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6240,8 +6431,8 @@
 					"sbml":"ot_sbml_27.txt"
 				},
 				"position":{
-					"x":4172.0700264,
-					"y":6621.20223045
+					"x":1546.11259699,
+					"y":7745.05794048
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6252,8 +6443,8 @@
 					"sbml":"ot_sbml_28.txt"
 				},
 				"position":{
-					"x":6509.45663452,
-					"y":7764.91045952
+					"x":3239.33035135,
+					"y":9330.45148849
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6264,8 +6455,8 @@
 					"sbml":"ot_sbml_29.txt"
 				},
 				"position":{
-					"x":7754.33719158,
-					"y":8206.77220821
+					"x":6130.7990551,
+					"y":3129.98682261
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6276,8 +6467,8 @@
 					"sbml":"ot_sbml_3.txt"
 				},
 				"position":{
-					"x":9103.49786282,
-					"y":5076.40838623
+					"x":8233.75463486,
+					"y":1203.98983359
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6288,8 +6479,8 @@
 					"sbml":"ot_sbml_30.txt"
 				},
 				"position":{
-					"x":8431.28204346,
-					"y":8327.93653011
+					"x":7087.36658096,
+					"y":782.695263624
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6300,8 +6491,8 @@
 					"sbml":"ot_sbml_31.txt"
 				},
 				"position":{
-					"x":4163.05959225,
-					"y":9055.43148518
+					"x":4417.84709692,
+					"y":976.667553186
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6312,8 +6503,8 @@
 					"sbml":"ot_sbml_32.txt"
 				},
 				"position":{
-					"x":6915.75229168,
-					"y":7535.7735157
+					"x":5405.49457073,
+					"y":5211.80152893
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6324,8 +6515,8 @@
 					"sbml":"ot_sbml_33.txt"
 				},
 				"position":{
-					"x":3111.99456453,
-					"y":7715.24786949
+					"x":1939.86654282,
+					"y":8136.21878624
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6336,8 +6527,8 @@
 					"sbml":"ot_sbml_34.txt"
 				},
 				"position":{
-					"x":1756.2289536,
-					"y":7442.72112846
+					"x":2369.39430237,
+					"y":3464.51371908
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6348,8 +6539,8 @@
 					"sbml":"ot_sbml_35.txt"
 				},
 				"position":{
-					"x":6829.33330536,
-					"y":7216.31109715
+					"x":5870.66471577,
+					"y":1761.89079881
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6360,8 +6551,8 @@
 					"sbml":"ot_sbml_36.txt"
 				},
 				"position":{
-					"x":1985.64291,
-					"y":8850.79741478
+					"x":6605.86416721,
+					"y":9652.81665325
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6372,8 +6563,8 @@
 					"sbml":"ot_sbml_37.txt"
 				},
 				"position":{
-					"x":6631.37614727,
-					"y":8449.51033592
+					"x":6677.10125446,
+					"y":3725.18330812
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6384,8 +6575,8 @@
 					"sbml":"ot_sbml_38.txt"
 				},
 				"position":{
-					"x":5583.46748352,
-					"y":10.2167786099
+					"x":8525.0133276,
+					"y":7607.3718071
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6396,8 +6587,8 @@
 					"sbml":"ot_sbml_39.txt"
 				},
 				"position":{
-					"x":8824.86343384,
-					"y":4469.74724531
+					"x":9157.77683258,
+					"y":2366.63788557
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6408,8 +6599,8 @@
 					"sbml":"ot_sbml_4.txt"
 				},
 				"position":{
-					"x":5109.56585407,
-					"y":9329.09250259
+					"x":7649.974823,
+					"y":1434.14452672
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6420,8 +6611,8 @@
 					"sbml":"ot_sbml_40.txt"
 				},
 				"position":{
-					"x":363.870486617,
-					"y":6090.23272991
+					"x":3437.31015921,
+					"y":3231.88573122
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6432,8 +6623,8 @@
 					"sbml":"ot_sbml_41.txt"
 				},
 				"position":{
-					"x":6860.1667881,
-					"y":6028.76722813
+					"x":5322.69537449,
+					"y":1222.08230197
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6444,8 +6635,8 @@
 					"sbml":"ot_sbml_42.txt"
 				},
 				"position":{
-					"x":570.924058557,
-					"y":6275.42734146
+					"x":2551.73116922,
+					"y":5075.29616356
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6456,8 +6647,8 @@
 					"sbml":"ot_sbml_43.txt"
 				},
 				"position":{
-					"x":8516.61741734,
-					"y":2935.9126091
+					"x":2683.28815699,
+					"y":539.444312453
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6468,8 +6659,8 @@
 					"sbml":"ot_sbml_44.txt"
 				},
 				"position":{
-					"x":1319.94709373,
-					"y":8244.34697628
+					"x":7570.18089294,
+					"y":9057.12604523
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6480,8 +6671,8 @@
 					"sbml":"ot_sbml_45.txt"
 				},
 				"position":{
-					"x":5739.34018612,
-					"y":9579.28717136
+					"x":4034.743011,
+					"y":9560.52839756
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6492,8 +6683,8 @@
 					"sbml":"ot_sbml_46.txt"
 				},
 				"position":{
-					"x":9246.35231495,
-					"y":7371.19972706
+					"x":7824.43642616,
+					"y":3176.13691092
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6504,8 +6695,8 @@
 					"sbml":"ot_sbml_47.txt"
 				},
 				"position":{
-					"x":9669.25561428,
-					"y":6207.91018009
+					"x":6119.04263496,
+					"y":758.048519492
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6516,8 +6707,8 @@
 					"sbml":"ot_sbml_48.txt"
 				},
 				"position":{
-					"x":9307.1615696,
-					"y":7193.60888004
+					"x":3245.04733086,
+					"y":5355.20792007
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6528,8 +6719,8 @@
 					"sbml":"ot_sbml_49.txt"
 				},
 				"position":{
-					"x":8281.33106232,
-					"y":7919.23820972
+					"x":7544.17598248,
+					"y":4471.34584188
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6540,8 +6731,8 @@
 					"sbml":"ot_sbml_5.txt"
 				},
 				"position":{
-					"x":7660.45868397,
-					"y":8960.88004112
+					"x":7003.36515903,
+					"y":436.979047954
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6552,8 +6743,8 @@
 					"sbml":"ot_sbml_50.txt"
 				},
 				"position":{
-					"x":7488.72280121,
-					"y":885.217040777
+					"x":8071.79331779,
+					"y":8626.90448761
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6564,8 +6755,8 @@
 					"sbml":"ot_sbml_51.txt"
 				},
 				"position":{
-					"x":20.6847954541,
-					"y":5255.89168072
+					"x":5113.76142502,
+					"y":9881.28483295
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6576,8 +6767,8 @@
 					"sbml":"ot_sbml_52.txt"
 				},
 				"position":{
-					"x":9546.55230045,
-					"y":6412.1222496
+					"x":6743.32916737,
+					"y":778.352469206
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6588,8 +6779,8 @@
 					"sbml":"ot_sbml_53.txt"
 				},
 				"position":{
-					"x":6372.54953384,
-					"y":206.197667867
+					"x":8363.69216442,
+					"y":7704.84447479
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6600,8 +6791,8 @@
 					"sbml":"ot_sbml_54.txt"
 				},
 				"position":{
-					"x":9165.99750519,
-					"y":4508.65417719
+					"x":8902.88710594,
+					"y":2070.53542137
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6612,8 +6803,8 @@
 					"sbml":"ot_sbml_55.txt"
 				},
 				"position":{
-					"x":9591.29393101,
-					"y":6636.06643677
+					"x":8952.7785778,
+					"y":2660.38089991
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6624,8 +6815,8 @@
 					"sbml":"ot_sbml_56.txt"
 				},
 				"position":{
-					"x":4624.18138981,
-					"y":207.536946982
+					"x":8957.31806755,
+					"y":7184.82911587
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6636,8 +6827,8 @@
 					"sbml":"ot_sbml_57.txt"
 				},
 				"position":{
-					"x":8478.49845886,
-					"y":1398.21842313
+					"x":9897.73094654,
+					"y":5301.61976814
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6648,8 +6839,8 @@
 					"sbml":"ot_sbml_58.txt"
 				},
 				"position":{
-					"x":9502.62844563,
-					"y":2776.03447437
+					"x":9872.01809883,
+					"y":4951.36111975
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6660,8 +6851,8 @@
 					"sbml":"ot_sbml_59.txt"
 				},
 				"position":{
-					"x":6968.74558926,
-					"y":8690.49072266
+					"x":4522.82756567,
+					"y":9428.0809164
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6672,8 +6863,8 @@
 					"sbml":"ot_sbml_6.txt"
 				},
 				"position":{
-					"x":8666.0438776,
-					"y":2748.68547916
+					"x":8754.4387579,
+					"y":2060.21979451
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6684,8 +6875,8 @@
 					"sbml":"ot_sbml_60.txt"
 				},
 				"position":{
-					"x":9598.53112698,
-					"y":3078.93246412
+					"x":9772.89974689,
+					"y":6387.80772686
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6696,8 +6887,8 @@
 					"sbml":"ot_sbml_61.txt"
 				},
 				"position":{
-					"x":9618.32106113,
-					"y":5123.84951115
+					"x":9243.09134483,
+					"y":2591.56107903
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6708,8 +6899,8 @@
 					"sbml":"ot_sbml_62.txt"
 				},
 				"position":{
-					"x":9563.13073635,
-					"y":3015.99442959
+					"x":7022.4070549,
+					"y":9533.21933746
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6720,8 +6911,8 @@
 					"sbml":"ot_sbml_63.txt"
 				},
 				"position":{
-					"x":5305.2854538,
-					"y":8987.71941662
+					"x":2251.16834044,
+					"y":7866.83797836
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6732,8 +6923,8 @@
 					"sbml":"ot_sbml_64.txt"
 				},
 				"position":{
-					"x":3639.62978125,
-					"y":7552.86514759
+					"x":1754.98858094,
+					"y":7993.72375011
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6744,8 +6935,8 @@
 					"sbml":"ot_sbml_65.txt"
 				},
 				"position":{
-					"x":247.883945704,
-					"y":5686.10906601
+					"x":3302.81108618,
+					"y":3816.69670343
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6756,8 +6947,8 @@
 					"sbml":"ot_sbml_66.txt"
 				},
 				"position":{
-					"x":551.574826241,
-					"y":4771.39353752
+					"x":699.887052178,
+					"y":5595.52431107
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6768,8 +6959,8 @@
 					"sbml":"ot_sbml_67.txt"
 				},
 				"position":{
-					"x":7615.27359486,
-					"y":5959.84876156
+					"x":5828.50515842,
+					"y":2127.87136436
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6780,8 +6971,8 @@
 					"sbml":"ot_sbml_68.txt"
 				},
 				"position":{
-					"x":205.10526374,
-					"y":5027.79483795
+					"x":2182.42481351,
+					"y":5337.42010593
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6792,8 +6983,8 @@
 					"sbml":"ot_sbml_69.txt"
 				},
 				"position":{
-					"x":434.079430997,
-					"y":4979.79938984
+					"x":742.122158408,
+					"y":5340.59524536
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6804,8 +6995,8 @@
 					"sbml":"ot_sbml_7.txt"
 				},
 				"position":{
-					"x":8124.48441982,
-					"y":8187.97945976
+					"x":6654.0491581,
+					"y":274.956244975
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6816,8 +7007,8 @@
 					"sbml":"ot_sbml_70.txt"
 				},
 				"position":{
-					"x":1642.81204343,
-					"y":1333.68730545
+					"x":1063.57589364,
+					"y":1891.35268331
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6828,8 +7019,8 @@
 					"sbml":"ot_sbml_71.txt"
 				},
 				"position":{
-					"x":2390.29273391,
-					"y":3552.07383633
+					"x":2956.27266169,
+					"y":8085.51847935
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6840,8 +7031,8 @@
 					"sbml":"ot_sbml_72.txt"
 				},
 				"position":{
-					"x":8389.19460773,
-					"y":7270.68245411
+					"x":6492.31374264,
+					"y":8246.24836445
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6852,8 +7043,8 @@
 					"sbml":"ot_sbml_73.txt"
 				},
 				"position":{
-					"x":378.559716046,
-					"y":5182.43312836
+					"x":3695.04123926,
+					"y":8314.84556198
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6864,8 +7055,8 @@
 					"sbml":"ot_sbml_74.txt"
 				},
 				"position":{
-					"x":685.171633959,
-					"y":2443.06176901
+					"x":1001.05725229,
+					"y":1966.15710855
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6876,8 +7067,8 @@
 					"sbml":"ot_sbml_75.txt"
 				},
 				"position":{
-					"x":7768.54753494,
-					"y":4751.79195404
+					"x":6526.66985989,
+					"y":2966.66353941
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6888,8 +7079,8 @@
 					"sbml":"ot_sbml_76.txt"
 				},
 				"position":{
-					"x":2605.92162609,
-					"y":3843.64426136
+					"x":2397.1234262,
+					"y":7128.89671326
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6900,8 +7091,8 @@
 					"sbml":"ot_sbml_77.txt"
 				},
 				"position":{
-					"x":1738.87491226,
-					"y":8491.49525166
+					"x":1192.52644479,
+					"y":8241.25051498
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6912,8 +7103,8 @@
 					"sbml":"ot_sbml_78.txt"
 				},
 				"position":{
-					"x":3068.97610426,
-					"y":3229.49439287
+					"x":407.745912671,
+					"y":4999.77111816
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6924,8 +7115,8 @@
 					"sbml":"ot_sbml_79.txt"
 				},
 				"position":{
-					"x":4694.43261623,
-					"y":4577.35747099
+					"x":9187.82293797,
+					"y":4269.87498999
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6936,8 +7127,8 @@
 					"sbml":"ot_sbml_8.txt"
 				},
 				"position":{
-					"x":6183.19928646,
-					"y":4187.45487928
+					"x":7973.57916832,
+					"y":3444.94581223
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6948,8 +7139,8 @@
 					"sbml":"ot_sbml_80.txt"
 				},
 				"position":{
-					"x":729.353353381,
-					"y":7183.45522881
+					"x":250.13608858,
+					"y":6374.20296669
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6960,8 +7151,8 @@
 					"sbml":"ot_sbml_81.txt"
 				},
 				"position":{
-					"x":795.897468925,
-					"y":7545.70960999
+					"x":287.199746817,
+					"y":6643.46635342
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6972,8 +7163,8 @@
 					"sbml":"ot_sbml_82.txt"
 				},
 				"position":{
-					"x":8722.83995152,
-					"y":6983.86371136
+					"x":2831.83008432,
+					"y":8880.38158417
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6984,8 +7175,8 @@
 					"sbml":"ot_sbml_83.txt"
 				},
 				"position":{
-					"x":1984.87564921,
-					"y":7405.75730801
+					"x":2032.91043639,
+					"y":1732.29649663
 				},
 				"classes":"output transition",
 				"selected":false
@@ -6996,8 +7187,8 @@
 					"sbml":"ot_sbml_84.txt"
 				},
 				"position":{
-					"x":1823.25467467,
-					"y":8711.02929115
+					"x":1284.74399447,
+					"y":8297.2240448
 				},
 				"classes":"output transition",
 				"selected":false
@@ -7008,8 +7199,8 @@
 					"sbml":"ot_sbml_85.txt"
 				},
 				"position":{
-					"x":4931.34647608,
-					"y":6206.63762093
+					"x":2134.43398476,
+					"y":6231.23347759
 				},
 				"classes":"output transition",
 				"selected":false
@@ -7020,8 +7211,8 @@
 					"sbml":"ot_sbml_86.txt"
 				},
 				"position":{
-					"x":2244.06376481,
-					"y":3766.11858606
+					"x":2394.16837692,
+					"y":3849.10553694
 				},
 				"classes":"output transition",
 				"selected":false
@@ -7032,8 +7223,8 @@
 					"sbml":"ot_sbml_87.txt"
 				},
 				"position":{
-					"x":6498.88157845,
-					"y":303.197558969
+					"x":4351.7768383,
+					"y":62.6060320064
 				},
 				"classes":"output transition",
 				"selected":false
@@ -7044,8 +7235,8 @@
 					"sbml":"ot_sbml_88.txt"
 				},
 				"position":{
-					"x":2690.81473351,
-					"y":5829.29491997
+					"x":7761.50107384,
+					"y":4041.85026884
 				},
 				"classes":"output transition",
 				"selected":false
@@ -7056,8 +7247,8 @@
 					"sbml":"ot_sbml_89.txt"
 				},
 				"position":{
-					"x":2023.84144068,
-					"y":2207.4483335
+					"x":6594.25377846,
+					"y":5005.44369221
 				},
 				"classes":"output transition",
 				"selected":false
@@ -7068,8 +7259,8 @@
 					"sbml":"ot_sbml_9.txt"
 				},
 				"position":{
-					"x":9057.87587166,
-					"y":5891.62766933
+					"x":7411.71061993,
+					"y":653.659626842
 				},
 				"classes":"output transition",
 				"selected":false
@@ -7080,8 +7271,8 @@
 					"sbml":"ot_sbml_90.txt"
 				},
 				"position":{
-					"x":9317.14951992,
-					"y":4754.53674793
+					"x":9214.10679817,
+					"y":3479.73585129
 				},
 				"classes":"output transition",
 				"selected":false
@@ -7092,8 +7283,8 @@
 					"sbml":"ot_sbml_91.txt"
 				},
 				"position":{
-					"x":9370.93496323,
-					"y":6922.3845005
+					"x":7870.03815174,
+					"y":963.973328471
 				},
 				"classes":"output transition",
 				"selected":false
@@ -7104,8 +7295,8 @@
 					"sbml":"ot_sbml_92.txt"
 				},
 				"position":{
-					"x":3193.10188293,
-					"y":6448.59731197
+					"x":2190.21126628,
+					"y":1618.94753575
 				},
 				"classes":"output transition",
 				"selected":false
@@ -7116,8 +7307,8 @@
 					"sbml":"ot_sbml_93.txt"
 				},
 				"position":{
-					"x":845.278948545,
-					"y":3339.43873644
+					"x":3704.76067066,
+					"y":3616.20813608
 				},
 				"classes":"output transition",
 				"selected":false
@@ -7128,8 +7319,8 @@
 					"sbml":"ot_sbml_94.txt"
 				},
 				"position":{
-					"x":7637.62593269,
-					"y":8959.01918411
+					"x":4653.34862471,
+					"y":8529.93488312
 				},
 				"classes":"output transition",
 				"selected":false
@@ -7140,8 +7331,8 @@
 					"sbml":"ot_sbml_95.txt"
 				},
 				"position":{
-					"x":4677.01137066,
-					"y":9193.18258762
+					"x":8081.85577393,
+					"y":1097.93446958
 				},
 				"classes":"output transition",
 				"selected":false
@@ -7152,8 +7343,8 @@
 					"sbml":"ot_sbml_96.txt"
 				},
 				"position":{
-					"x":8559.40818787,
-					"y":8317.14332104
+					"x":7512.20822334,
+					"y":653.581544757
 				},
 				"classes":"output transition",
 				"selected":false
@@ -7164,8 +7355,8 @@
 					"sbml":"ot_sbml_97.txt"
 				},
 				"position":{
-					"x":7447.77143002,
-					"y":6582.63623714
+					"x":8004.7005415,
+					"y":1748.2405901
 				},
 				"classes":"output transition",
 				"selected":false
@@ -7176,8 +7367,8 @@
 					"sbml":"ot_sbml_98.txt"
 				},
 				"position":{
-					"x":2168.42725873,
-					"y":7732.53321648
+					"x":2163.70940208,
+					"y":3585.47210693
 				},
 				"classes":"output transition",
 				"selected":false
@@ -7188,8 +7379,8 @@
 					"sbml":"ot_sbml_99.txt"
 				},
 				"position":{
-					"x":6467.01335907,
-					"y":8392.57895947
+					"x":5002.09152699,
+					"y":583.022087812
 				},
 				"classes":"output transition",
 				"selected":false
@@ -9374,6 +9565,46 @@
 			},
 			{
 				"data":{
+					"id":"spe_47-it_174",
+					"source":"spe_47",
+					"target":"it_174"
+				},
+					"selected":false
+			},
+			{
+				"data":{
+					"id":"spe_48-it_174",
+					"source":"spe_48",
+					"target":"it_174"
+				},
+					"selected":false
+			},
+			{
+				"data":{
+					"id":"spe_49-it_175",
+					"source":"spe_49",
+					"target":"it_175"
+				},
+					"selected":false
+			},
+			{
+				"data":{
+					"id":"spe_51-it_176",
+					"source":"spe_51",
+					"target":"it_176"
+				},
+					"selected":false
+			},
+			{
+				"data":{
+					"id":"spe_52-it_176",
+					"source":"spe_52",
+					"target":"it_176"
+				},
+					"selected":false
+			},
+			{
+				"data":{
 					"id":"it_1-ope_1-1",
 					"source":"it_1",
 					"target":"ope_1-1"
@@ -10201,7 +10432,7 @@
 					"id":"it_104-ope_60-1",
 					"source":"it_104",
 					"target":"ope_60-1"
-				}, 
+				},
 					"selected":false
 			},
 			{
@@ -10753,6 +10984,30 @@
 					"id":"it_173-ope_104-1",
 					"source":"it_173",
 					"target":"ope_104-1"
+				},
+					"selected":false
+			},
+			{
+				"data":{
+					"id":"it_174-ope_1042",
+					"source":"it_174",
+					"target":"ope_1042"
+				},
+					"selected":false
+			},
+			{
+				"data":{
+					"id":"it_175-ope_1042",
+					"source":"it_175",
+					"target":"ope_1042"
+				},
+					"selected":false
+			},
+			{
+				"data":{
+					"id":"it_176-ope_1043",
+					"source":"it_176",
+					"target":"ope_1043"
 				},
 					"selected":false
 			},
@@ -12025,6 +12280,22 @@
 					"id":"ope_104-1-ot_159",
 					"source":"ope_104-1",
 					"target":"ot_159"
+				},
+					"selected":false
+			},
+			{
+				"data":{
+					"id":"ope_1042-ot_160",
+					"source":"ope_1042",
+					"target":"ot_160"
+				},
+					"selected":false
+			},
+			{
+				"data":{
+					"id":"ope_1043-ot_161",
+					"source":"ope_1043",
+					"target":"ot_161"
 				},
 					"selected":false
 			},
@@ -13401,6 +13672,22 @@
 					"id":"ot_159-spe_14",
 					"source":"ot_159",
 					"target":"spe_14"
+				},
+					"selected":false
+			},
+			{
+				"data":{
+					"id":"ot_160-spe_50",
+					"source":"ot_160",
+					"target":"spe_50"
+				},
+					"selected":false
+			},
+			{
+				"data":{
+					"id":"ot_161-spe_53",
+					"source":"ot_161",
+					"target":"spe_53"
 				},
 					"selected":false
 			}

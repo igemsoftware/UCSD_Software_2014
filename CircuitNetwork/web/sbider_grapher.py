@@ -127,7 +127,7 @@ def add_node_list_id_abbreviation(node_list, abbrev, id_index):
 
 
 def merge_list_of_lists(list_of_lsts):
-    """ALREADY EXISTS IN THE HELPER!!"""
+    """merges_lists within a list."""
     condensed_list = []
     for lst in list_of_lsts:
         condensed_list.extend(lst)
@@ -557,7 +557,7 @@ def get_whole_network(cursor):
 
 
 def create_network_json_file(cursor, file_name="whole_network.json"):
-    """Generates the subnetwork json."""
+    """Generates the whole network json."""
 
     json_info = get_whole_network(cursor)
 
@@ -565,7 +565,8 @@ def create_network_json_file(cursor, file_name="whole_network.json"):
 
 
 def create_json_network_file(json_file_path, species_nodes_list, input_transitions_nodes_list,
-                             operon_nodes_list, output_transitions_nodes_list, source_id_target_id_list):
+                             operon_nodes_list, output_transitions_nodes_list, source_id_target_id_list,
+                             database = "sbider.db"):
     """Writes the whole network json.
     :param json_file_path:
     :param species_nodes_list:
@@ -638,10 +639,12 @@ def create_json_network_file(json_file_path, species_nodes_list, input_transitio
         f.write('\n\t\t\t},')
         num_runs += 1
 
-    conn, cur = db.db_open("sbider.db")
-    operon_PMC = db.operon_PMC_dictionary(cur)
-    db.db_close(conn, cur)
+    operon_PMC = db.operon_PMC_dictionary(database)
     num_runs = 0
+
+    for key in operon_PMC.keys():
+        print key
+
     for node in operon_nodes_list:
         pmid = operon_PMC[node[0].replace("ope_", "")]
         operon_sbml = "operon_sbml_%s.txt" % node[0].replace("ope_", "")
@@ -794,6 +797,7 @@ def create_json_network_string(species_nodes_list, input_transitions_nodes_list,
     operon_PMC = db.operon_PMC_dictionary(cur)
     db.db_close(conn, cur)
     num_runs = 0
+
     for node in operon_nodes_list:
         pmid = operon_PMC[node[0].replace("ope_", "")]
         operon_sbml = "operon_sbml_%s.txt" % node[0].replace("ope_", "")
@@ -868,9 +872,4 @@ def create_json_network_string(species_nodes_list, input_transitions_nodes_list,
     to_return += path_json_highlighter + '}'
 
     return to_return
-
-
-if __name__ == "__main__":
-    conn, cur = db.db_open("sbider.db")
-    create_network_json_file(cur, "whole_network.json")
 
