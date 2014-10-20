@@ -255,7 +255,6 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
             //json data is parsed
             Object userVerification = parser.parse(new FileReader(rootPath + "code.json"));
             
-            
             System.out.println(userVerification);
             System.out.println("all the exisiting information: " + userVerification);
 

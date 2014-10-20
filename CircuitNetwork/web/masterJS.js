@@ -102,7 +102,7 @@ $(document).ready(function(){
        
        function loged(loggedIn){
            if(loggedIn === true){
-              
+                 
                  $('#app').removeAttr('disabled');
                   document.getElementById("log").style.visibility = 'hidden';
                  document.getElementById("logOut").style.visibility = 'visible';}
