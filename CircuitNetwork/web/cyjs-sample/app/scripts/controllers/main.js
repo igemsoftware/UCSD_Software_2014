@@ -575,12 +575,7 @@ angular.module('cyViewerApp')
                 
                 var inTranCount = $scope.inputTransitions[opeNum].length - 1;
                 $scope.addInSpec(opeNum, inTranCount);
-                $scope.addOutSpec(opeNum, inTranCount);
-                
-                console.log("Input Transitions:");
-                console.log($scope.inputTransitions);
-                console.log($scope.inputSpecies);
-                
+                $scope.addOutSpec(opeNum, inTranCount);                
             };
             
             $scope.addInSpec = function(opeNum,inTranNum){
@@ -664,11 +659,13 @@ angular.module('cyViewerApp')
                         
             function resetUpdate(){
                 //resetting form arrays
-                plasmids=[];
-                operons=[];
-                inputTransitions=[];
-                inputSpecies=[];
-                outputSpecies=[];
+                $scope.plasmids=[];
+                $scope.operons=[];
+                $scope.inputTransitions=[];
+                $scope.inputSpecies=[];
+                $scope.outputSpecies=[];
+                //restarting form.
+                initUpdate();
             };
                         
             
@@ -676,8 +673,8 @@ angular.module('cyViewerApp')
                 window.top.location = "../../contactPage.html";
             };
 
-            //Sets name for the autcomplete.
-            $scope.autoNames = [];
+            //Sets name for the autcomplete search box.
+            $scope.autoNames = ["and","not","or"];
             function autoComSet(){
                 for (var nodeNum = 0; nodeNum < networkDefault.elements.nodes.length; nodeNum ++){
                     var node = networkDefault.elements.nodes[nodeNum];
@@ -741,42 +738,42 @@ angular.module('cyViewerApp')
 
 
             $http({method: 'GET', url: visualStyleFile}).
-                    success(function(data) {
+                success(function(data) {
 
-                        vs = data;
-                        $http({method: 'GET', url: NETWORK_FILE}).
-                                success(function(data) {
-                                    networkData = data;
-                                    networkDefault = data;
-                                    $('#network').cytoscape(options);
-                                    $scope.cynet = $('#network').cytoscape('get');
-                                    init();
-                                    $scope.toggleCAD();
-                                    autoComSet();
-                                    console.log($scope.autoNames);
-                                }).
-                                error(function(data, status, headers, config) {
-                                });
-                        //             The Actual GET request.
-                        /*
-                         $http({
-                         method: 'GET', 
-                         url: "/src/java/communication/AuthenticationServlet.java"
-                         }).
-                         success(function(data) {
-                         networkData = JSON.parse(data);
-                         networkDefault = JSON.parse(data);
-                         $('#network').cytoscape(options);
-                         $scope.cynet = $('#network').cytoscape('get');
-                         init();
-                         }).
-                         error(function(data, status, headers, config) {
-                         alert(status);
-                         });
-                         */
-                    }).
-                    error(function(data, status, headers, config) {
-                    });
+                    vs = data;
+                    $http({method: 'GET', url: NETWORK_FILE}).
+                            success(function(data) {
+                                networkData = data;
+                                networkDefault = data;
+                                $('#network').cytoscape(options);
+                                $scope.cynet = $('#network').cytoscape('get');
+                                init();
+                                $scope.toggleCAD();
+                                autoComSet();
+                                console.log($scope.autoNames);
+                            }).
+                            error(function(data, status, headers, config) {
+                            });
+                    //             The Actual GET request.
+                    /*
+                     $http({
+                     method: 'GET', 
+                     url: "/src/java/communication/AuthenticationServlet.java"
+                     }).
+                     success(function(data) {
+                     networkData = JSON.parse(data);
+                     networkDefault = JSON.parse(data);
+                     $('#network').cytoscape(options);
+                     $scope.cynet = $('#network').cytoscape('get');
+                     init();
+                     }).
+                     error(function(data, status, headers, config) {
+                     alert(status);
+                     });
+                     */
+                }).
+                error(function(data, status, headers, config) {
+                });
 
             function searchGet() {
 
