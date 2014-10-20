@@ -1,0 +1,6 @@
+PBAD	Ara	10	araC	0	output\	0
+T7	PBAD	0	PT7	0	output\	0
+araC	PBAD	0	null	0	output\	0
+PT7	T7	0	LacI	0	output\	0
+GFP	PT7	0	null	0	output	0
+LacI	PT7	0	null	0	output\	0

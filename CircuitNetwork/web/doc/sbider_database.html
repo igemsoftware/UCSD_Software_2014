@@ -1,0 +1,136 @@
+Help on module sbider_database:
+
+NAME
+    sbider_database - Subtitle
+
+FILE
+    /Users/jenhantao/Documents/UCSD_IGEM/CircuitNetwork/web/sbider_database.py
+
+DESCRIPTION
+    Descriptive paragraph
+    
+    ******************************************************************************
+    @author: Huwate(Kwat) Yeerna, University of California, San Diego
+             Joaquin Reina, University of California, San Diego
+    ******************************************************************************
+
+FUNCTIONS
+    db_close(connection, cursor)
+        Close a database.
+    
+    db_create_table(cursor)
+        Make tables for sbider.db
+    
+    db_custom(cursor, sql_command)
+        Do whatever.
+    
+    db_delete(cursor, table_name)
+        Delete table contents.
+    
+    db_drop_all_table(cursor)
+        Drop all tables.
+    
+    db_drop_table(cursor, table_name)
+        Drop a table.
+    
+    db_get_operon_id_from_name(cursor, operon_name)
+    
+    db_get_operon_name_from_id(cursor, operon_id)
+    
+    db_get_plasmid_id_from_name(cursor, plasmid_name)
+    
+    db_get_plasmid_name_from_id(cursor, plasmid_id)
+    
+    db_get_species_id_from_name(cursor, species_name)
+    
+    db_get_species_name_from_id(cursor, species_id)
+    
+    db_insert(cursor, table_name, table_header_list, insert_data_list)
+        Insert into a table.
+        
+        Args:
+            table_name, that table that you wish to insert into
+            cols, the columns that you want to insert into
+            new_row, the values that correspond to the columns
+        
+        Examples:
+            ex 1. Inserting into plasmid table and filling in all the columns.
+    
+    db_open(database_file)
+        Connect to a database or create a database if it does not already
+        exist.
+    
+    db_print_all_table(cursor)
+        Print all tables.
+    
+    db_print_table(cursor, table_name)
+        Print a table.
+    
+    db_select(cursor, table_name, table_header_list, where_columns=None, where_options=None, where_values=None, where_bools=None, group=None, having_columns=None, having_bools=None, having_values=None)
+        Select from a table.
+        
+        Argument(s):
+            table_name: table you wish to pull data from
+            col_names: list of numbers indexing the table columns
+            w_col: column names for where clause
+            w_opt: operator for where clause
+            w_var: variable for where clause 
+            w_bool: boolean for where clause
+            group: group name for GROUP BY clause
+            h_col: group specifier
+        
+        Return:
+    
+    db_update(cursor, table_name, table_header_list, update_data_list, where_column='', where_option='', where_value='')
+        Update.
+    
+    get_all_input_transition_species(cursor, input_transition_id)
+        Obtain all species an input transition takes.
+    
+    get_all_output_transition_species(cursor, input_transition_id)
+        Obtain all species an output transition produces.
+    
+    make_input_ope_id_spe_id_dic(cursor)
+        Make operon input species dictionary.
+    
+    make_ope_id_rep_spe_id_dic(cursor)
+        Make operon input not dictionary.
+    
+    make_ope_id_spe_id_dics(cursor)
+    
+    make_output_ope_id_spe_id_dic(cursor)
+        Make operon output species dictionary.
+    
+    make_pla_name_spe_name_dics(cursor)
+        Make operon input and output species dictionary.
+    
+    make_plasmid_species_name_dictionary(cursor, operon_id_plasmid_name_dictionary, operon_species_dictionary)
+    
+    make_sql_delete_command(table_name)
+    
+    make_sql_drop_command(table_name)
+    
+    make_sql_insert_command(table_name, table_header_list, insert_data_list)
+        Make SQL insert command.
+    
+    make_sql_select_command(table_name, table_header_list, where_columns=None, where_options=None, where_values=None, where_bools=None, group=None, having_columns=None, having_bools=None, having_values=None)
+        Make SQL select command.
+        
+        @param table_header_list - list of columns to be selected
+        @param where_columns - column names for where clause
+        @param where_options - operator for where clause
+        @param where_values - variable for where clause
+        @param where_bools - boolean for where clause
+        @param group - group name for GROUP BY clause
+        @param having_columns
+    
+    make_sql_update_command(table_name, table_header_list, update_data_list, where_column='', where_option='', where_value='')
+        Makes SQL update command
+        @param table_name - Updating table
+        @param table_header_list - Selected columns
+        @param where_columns - Where column names
+        @param where_options - List of operators
+        @param where_values - variable for where clause 
+        @param where_bools - boolean for where clause
+
+

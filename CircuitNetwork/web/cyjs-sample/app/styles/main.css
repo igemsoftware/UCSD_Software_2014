@@ -139,3 +139,9 @@ div.path {
 #uploadModal{
     width:800px;
 }
+
+hr {
+    background:#d3d3d3;
+    border:0;
+    height:2px;
+}
