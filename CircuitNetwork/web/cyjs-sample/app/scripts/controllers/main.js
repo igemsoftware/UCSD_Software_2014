@@ -903,6 +903,12 @@ angular.module('cyViewerApp')
             $scope.networkNames.push(networkName);
         }
 
+        //example function for the user
+        $scope.exampleSet = function(){
+           $scope.searchInput = "lara and arac";
+           $scope.searchOutput = "gfp";
+           $('#myModal').modal('hide');
+        }
         function initVisualStyleCombobox() {
             var styleNames = [];
             for (var i = 0; i < vs.length; i++) {
