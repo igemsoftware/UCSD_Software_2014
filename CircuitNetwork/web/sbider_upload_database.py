@@ -387,7 +387,8 @@ def insert_new_device(connection, cursor, device):
                     parent_id = parent_ids_dict[parent_keyword]
                     component_id = determine_and_insert(connection, cursor, component_keyword, component_data,
                                                         parent_id)
-
+				#else:
+					#promoter_list.append("p" + component_data)
         else:
             plasmid_id = determine_and_insert(connection, cursor, component_keyword, component_data)
             parent_ids_dict["Plasmid"] = plasmid_id
