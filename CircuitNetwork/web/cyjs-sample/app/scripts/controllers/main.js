@@ -876,7 +876,7 @@ angular.module('cyViewerApp')
             var commandString = $scope.updateString;
 
             //The update command needs to be written and inserted here.
-            var data = {user: userID, command: '', data: commandString}; //package the input into a json file for submission to the server
+            var data = {user: userID, command: 'uploadNew', data: commandString}; //package the input into a json file for submission to the server
             $.get("../../AuthenticationServlet", data, function(data) {
                 //Using the error Modal to give an success alert.
                 $scope.errorMessage = "Upload successful! Thank you for adding to the SBiDer web!";
