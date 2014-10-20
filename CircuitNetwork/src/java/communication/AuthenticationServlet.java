@@ -146,6 +146,11 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
                    googleMail = new GoogleMail(name, email, affiliation, message);
                    
                }
+               case "uploadNew":
+               {
+                    String upload = request.getParameter("data");
+                    String output = currentController.executeUpload(upload);
+               }
                default:
                    System.out.println("help me ");
                    
@@ -226,6 +231,7 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
                
             }
             
+            
            
          } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -253,7 +259,6 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
 
             //json data is parsed
             Object userVerification = parser.parse(new FileReader(rootPath + "code.json"));
-            
             
             System.out.println(userVerification);
             System.out.println("all the exisiting information: " + userVerification);

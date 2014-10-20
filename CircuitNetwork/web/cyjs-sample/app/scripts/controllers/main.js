@@ -712,7 +712,7 @@ angular.module('cyViewerApp')
         };
 
         //Sets name for the autcomplete.
-        $scope.autoNames = [];
+        $scope.autoNames = ["and","not","or"];
         function autoComSet(){
             for (var nodeNum = 0; nodeNum < networkDefault.elements.nodes.length; nodeNum ++){
                 var node = networkDefault.elements.nodes[nodeNum];
@@ -788,6 +788,8 @@ angular.module('cyViewerApp')
                                 init();
                                 $scope.toggleCAD();
                                 autoComSet();
+                                console.log($scope.autoNames);
+                                console.log($scope.autoNames.length);
                             }).
                             error(function(data, status, headers, config) {
                             });
@@ -876,7 +878,7 @@ angular.module('cyViewerApp')
             var commandString = $scope.updateString;
 
             //The update command needs to be written and inserted here.
-            var data = {user: userID, command: '', data: commandString}; //package the input into a json file for submission to the server
+            var data = {user: userID, command: 'uploadNew', data: commandString}; //package the input into a json file for submission to the server
             $.get("../../AuthenticationServlet", data, function(data) {
                 //Using the error Modal to give an success alert.
                 $scope.errorMessage = "Upload successful! Thank you for adding to the SBiDer web!";
@@ -901,6 +903,12 @@ angular.module('cyViewerApp')
             $scope.networkNames.push(networkName);
         }
 
+        //example function for the user
+        $scope.exampleSet = function(){
+           $scope.searchInput = "lara and arac";
+           $scope.searchOutput = "gfp";
+           $('#myModal').modal('hide');
+        }
         function initVisualStyleCombobox() {
             var styleNames = [];
             for (var i = 0; i < vs.length; i++) {

@@ -43,14 +43,20 @@ $(document).ready(function(){
     $("#ucsd").click(function(){
            window.open("http://www.ucsd.edu", '_blank'); 
     });
-       
-    var logged = false;
-    while(logged ===false){
-        $('#app').attr('disabled', 'disabled');
-        $('thumbThree').attr('disabled', 'disabled');
-    }
-       
-   
+    
+     $("#wikiDocumentation").click(function(){
+           window.open("http://2014.igem.org/Team:UCSD_Software/Documentation", '_blank'); 
+    });
+      
+       $("#githubLink ").click(function(){
+           window.open("https://github.com/igemsoftware/UCSD-iGEM_2014", '_blank'); 
+    });
+    
+       //var loggedIn = false;
+       //if(loggedIn === false){
+       //$('#app').attr('disabled', 'disabled');
+       //$('#thumbThree').attr('disabled', 'disabled');
+   //}
        //contactUs page
        
        $('#submitContact').click(function(){
@@ -66,7 +72,7 @@ $(document).ready(function(){
          
      });  
      
-       $('#register').click(function(){
+      /* $('#register').click(function(){
           var name = $("#newName").val();
           var email = $("#newPassword").val();
           alert(name + email);
@@ -76,26 +82,42 @@ $(document).ready(function(){
               
           });
        });
-       
-       $('#login').click(function(){
-           alert("clicked");
+       */
+      /* $('#login').click(function(){
+          loggedIn=false; 
           var name = $("#name").val();
           var email = $("#password").val();
-          alert("name: " + name + "email: " + email);
+          
           var data = {name: name, email:email, command:"login"};
           $.get("AuthenticationServlet", data, function(done){
-              alert(done);
-              var q = done.val();
-              if(q.equals("Welcome")){
-                 $('#app').removeAttr('disabled');
-                 $('#loginModal').modal('hide');
-                 document.getElementById("#userInfo").value="Welcome!";
-              }
-              alert(done);
-         
+             
+              var q = done;
+               alert(done);
+              if(q === "Welcome"){
+                  loggedIn = true;
+                  $('#loginModal').modal('hide');
+                  loged(loggedIn);
+            }
+            
           });
+          
        });
+       
+       function loged(loggedIn){
+           if(loggedIn === true){
+                 
+                 $('#app').removeAttr('disabled');
+                  document.getElementById("log").style.visibility = 'hidden';
+                 document.getElementById("logOut").style.visibility = 'visible';}
+          
+       }
                 
-              
-
+       $("#logOut").click(function(){
+          loggedIn =false;
+          document.getElementById("log").style.visibility = 'visible';
+          document.getElementById("logOut").style.visibility = 'hidden'; 
+          $('#app').attr('disabled', 'disabled');
+          $('#thumbThree').attr('disabled', 'disabled');
+       });       
+*/
 });  
