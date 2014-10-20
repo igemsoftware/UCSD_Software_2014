@@ -46,12 +46,14 @@ $(document).ready(function(){
        
     //var logged = false;
     //while(logged ===false){
-        $('#app').attr('disabled', 'disabled');
-        $('#thumbThree').attr('disabled', 'disabled');
+        
     //}
     
-       
-   
+       var loggedIn = false;
+       if(loggedIn === false){
+       $('#app').attr('disabled', 'disabled');
+       $('#thumbThree').attr('disabled', 'disabled');
+   }
        //contactUs page
        
        $('#submitContact').click(function(){
@@ -79,28 +81,40 @@ $(document).ready(function(){
        });
        
        $('#login').click(function(){
-           alert("clicked");
+          loggedIn=false; 
           var name = $("#name").val();
           var email = $("#password").val();
-          alert("name: " + name + "email: " + email);
+          
           var data = {name: name, email:email, command:"login"};
           $.get("AuthenticationServlet", data, function(done){
-              alert(done);
+             
               var q = done;
-              alert("q is " + q);
-              //if(q.equals("Welcome")){
-                  alert("hello" + q);
-                 $('#app').removeAttr('disabled');
-                 $('#loginModal').modal('hide');
-                 //document.getElementById("#userInfo").value="Welcome!";
-                 document.getElementById("log").style.visibility = 'hidden';
-                 document.getElementById("logOut").style.visibility = 'visible';
-             // }
-              alert(done);
-         
+               alert(done);
+              if(q === "Welcome"){
+                  loggedIn = true;
+                  $('#loginModal').modal('hide');
+                  loged(loggedIn);
+            }
+            
           });
+          
        });
-                
+       
+       function loged(loggedIn){
+           if(loggedIn === true){
               
+                 $('#app').removeAttr('disabled');
+                  document.getElementById("log").style.visibility = 'hidden';
+                 document.getElementById("logOut").style.visibility = 'visible';}
+          
+       }
+                
+       $("#logOut").click(function(){
+          loggedIn =false;
+          document.getElementById("log").style.visibility = 'visible';
+          document.getElementById("logOut").style.visibility = 'hidden'; 
+          $('#app').attr('disabled', 'disabled');
+          $('#thumbThree').attr('disabled', 'disabled');
+       });       
 
 });  

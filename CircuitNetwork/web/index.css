@@ -23,7 +23,7 @@ body{
 #welcomeSign h1{
     font-size: 70px;
 }
-#log{
+#log, #logOut{
     font-size: 20px;
     
 }
