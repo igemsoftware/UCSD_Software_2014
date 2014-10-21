@@ -586,7 +586,7 @@ def create_json_network_file(json_file_path, species_nodes_list, input_transitio
     f = open(json_file_path, 'w')
     num_runs = 0
 
-    x_coor_factor = resize_network(len(node_list), total_whole_nodes = 540)
+    x_coor_factor = resize_network(len(node_list), len(node_list))
     y_coor_factor = x_coor_factor
 
     f.write('{\n\t"data" : { ')
@@ -734,7 +734,7 @@ def create_json_network_string(species_nodes_list, input_transitions_nodes_list,
 
     num_runs = 0
 
-    x_coor_factor = resize_network(len(node_list), total_whole_nodes = 540)
+    x_coor_factor = resize_network(len(node_list), len(node_list))
     y_coor_factor = x_coor_factor
 
     to_return += '{"data" : { '

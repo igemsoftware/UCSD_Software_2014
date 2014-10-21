@@ -384,8 +384,8 @@ def insert_new_device(connection, cursor, device):
                     parent_id = parent_ids_dict[parent_keyword]
                     component_id = determine_and_insert(connection, cursor, component_keyword, component_data,
                                                         parent_id)
-            else:
-                promoter_list.append("p" + component_data)
+                else:
+                    promoter_list.append("p" + component_data[0])
         else:
             plasmid_id = determine_and_insert(connection, cursor, component_keyword, component_data)
             parent_ids_dict["Plasmid"] = plasmid_id
@@ -407,16 +407,16 @@ def insert_new_device(connection, cursor, device):
 
 def main():
     device_info = sys.argv[1::]
-    reset_db()
+    #reset_db()
     conn, cur = db.db_open("sbider.db")
     sbol_files = insert_new_device(conn, cur, device_info)
     db.db_close(conn, cur)
 
     conn, cur = db.db_open("sbider.db")
-    sg.create_network_json_file(cur, "whole_network.json")
+    #sg.create_network_json_file(cur, "whole_network.json")
     db.db_close(conn, cur)
 
-    gn.create_whole_network_sbml()
+    #gn.create_whole_network_sbml()
     return sbol_files
 
 
