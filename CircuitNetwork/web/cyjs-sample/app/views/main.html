@@ -16,9 +16,9 @@
 	<br><br>
         <div ng-show="searchState.show" class="searchBox ">
 
-            INPUT: <span><input class = "textbox" type = "text"  ng-model = "searchInput" placeholder="type in your input"/><br>
+            INPUT: <span><input class = "autocomplete-species textbox" type = "text"  ng-model = "searchInput" placeholder="type in your input"/><br>
                
-            OUTPUT: <span><input class = "textbox" type = "text" ng-model = "searchOutput" placeholder="type in your output"/><br>
+            OUTPUT: <span><input class = "autocomplete-species textbox" type = "text" ng-model = "searchOutput" placeholder="type in your output"/><br>
                     
                 
             Include Indirect Path: <input type="checkbox" ng-model="checkTrue"><br/> 
@@ -88,7 +88,7 @@
                             <td>{{node.data('PMID')}}</td>
                             <td>
                                 <!-- Button to download SBML texts -->
-                                <a class="sbmlDownload" id="{{node.data('sbml')}}" href="../../SBML_TXT_FILES/{{node.data('sbml')}}" target="_blank" download>Download SBML Text</a>
+                                <a class="sbmlDownload" id="{{node.data('sbml')}}" href="../../sbmlTexts/{{node.data('sbml')}}" target="_blank" download>Download SBML Text</a>
                             </td>
                         </tr>
                     </tbody>

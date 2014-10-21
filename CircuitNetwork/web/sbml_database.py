@@ -15,7 +15,7 @@ import os
 import sbider_database as sd
 #open database
 cwd = os.getcwd()
-database_path = os.path.join(cwd,'sbider_test_2.db')
+database_path = os.path.join(cwd,'sbider.db')
 con,cursor = sd.db_open(database_path)
 
 def get_sbml_miriam_ids():
@@ -27,7 +27,7 @@ def get_sbml_miriam_ids():
         operon id: string type 
         miriam id: string type 
     '''
-    devices = sd.db_select(cursor,'plasmid',['pla_id', 'miriam_id'])
+    devices = sd.db_select(cursor,'plasmid',['pla_id', 'PMID'])
     devices = devices.fetchall()
     plasmid_operon = sd.db_select(cursor,'plasmidoperon',['ope_id','pla_id'])
     plasmid_operon = plasmid_operon.fetchall()

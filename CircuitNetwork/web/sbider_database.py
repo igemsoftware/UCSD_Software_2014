@@ -166,7 +166,7 @@ def db_create_table(cursor):
 
     plasmid = '''CREATE TABLE Plasmid (pla_id VARCHAR(50), 
                                        name VARCHAR(50), 
-                                       miriam_id VARCHAR(50));'''
+                                       PMID VARCHAR(50));'''
 
     operon = '''CREATE TABLE Operon (ope_id VARCHAR(50), 
                                      name VARCHAR(50),
@@ -614,9 +614,11 @@ def make_pla_name_spe_name_dics(cursor):
                                                                                   output_operon_species_dictionary)
     return input_plasmid_species_name_dictionary, output_plasmid_species_name_dictionary
 
-def operon_PMC_dictionary(cur):
+def operon_PMC_dictionary(database):
+    conn, cur = db_open(database)
     operon_PMC_dict = {}
     operon_PMC = cur.execute("SELECT PlasmidOperon.ope_id, Plasmid.PMID from PlasmidOperon, Plasmid WHERE PlasmidOperon.pla_id == Plasmid.pla_id")
     for ope_id, PMC_ID in operon_PMC:
         operon_PMC_dict[ope_id] = PMC_ID.replace(' PMID: ', '')
+    db_close(conn, cur)
     return operon_PMC_dict
