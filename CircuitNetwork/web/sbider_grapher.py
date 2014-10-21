@@ -13,6 +13,10 @@ import networkx as nx
 
 import sbider_database as db
 
+def resize_network(total_subnetwork_nodes, total_whole_nodes = 550): 
+    """Resize the network."""
+    return 10000* total_subnetwork_nodes/total_whole_nodes
+
 
 def get_input_transition_species_dictionary(cursor):
     """
@@ -563,9 +567,6 @@ def create_network_json_file(cursor, file_name="whole_network.json"):
 
     create_json_network_file(file_name, *json_info)
 
-def make_resizing_factor(total_nodes):
-    factor = total_nodes/550
-    return factor
 	
 def create_json_network_file(json_file_path, species_nodes_list, input_transitions_nodes_list,
                              operon_nodes_list, output_transitions_nodes_list, source_id_target_id_list,
@@ -585,9 +586,8 @@ def create_json_network_file(json_file_path, species_nodes_list, input_transitio
     f = open(json_file_path, 'w')
     num_runs = 0
 
-    factor = make_resizing_factor(len(node_list))
-    x_coor_factor = 10000*factor
-    y_coor_factor = 10000*factor
+    x_coor_factor = resize_network(len(node_list), total_whole_nodes = 540)
+    y_coor_factor = x_coor_factor
 
     f.write('{\n\t"data" : { ')
     f.write('\n\t"selected" : true,')
@@ -734,9 +734,8 @@ def create_json_network_string(species_nodes_list, input_transitions_nodes_list,
 
     num_runs = 0
 
-    factor = make_resizing_factor(len(node_list))
-    x_coor_factor = 10000*factor
-    y_coor_factor = 10000*factor
+    x_coor_factor = resize_network(len(node_list), total_whole_nodes = 540)
+    y_coor_factor = x_coor_factor
 
     to_return += '{"data" : { '
     to_return += '"selected" : true,'

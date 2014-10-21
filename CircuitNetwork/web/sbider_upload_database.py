@@ -12,8 +12,6 @@ import random
 
 import numpy as np
 
-import math
-
 import sbml_update as su
 
 import Gen_Network as gn
@@ -124,7 +122,6 @@ def write_sbol_file(sbol_string, file_name):
 
 def write_to_file(string_to_write, file_name):
     """Write a file."""
-    # f_path = os.getcwd() + "/path/to/sbml_folder/" + file_name
     f_path = os.getcwd() + "/" + file_name
     f_handle = open(f_path, 'w')
     f_handle.write(string_to_write)
@@ -147,9 +144,9 @@ def make_output_transition_sbml_file(output_species_list, transition_id, operon_
     """make the sbml."""
     os_abbrev_id_list = ["spe_" + data[-1] for data in output_species_list]
     ot_sbml_file_name = os.getcwd() + "/sbmlTexts/ot_sbml_{}".format(transition_id)
-    su.sbml_output_trans(transition_id, \
-                         os_abbrev_id_list, \
-                         "ope_" + operon_id, \
+    su.sbml_output_trans(transition_id,
+                         os_abbrev_id_list,
+                         "ope_" + operon_id,
                          ot_sbml_file_name)
 
 
@@ -202,20 +199,18 @@ def insert_new_input_transition_species(cursor, it_id, species_name, species_typ
     last_in_id = select_last_inserted_table_id(cursor, "InputTransitionSpecies", "in_id")
     in_id = make_new_id(last_in_id)
     db.db_insert(cursor, "InputTransitionSpecies", ["in_id", "it_id", "spe_id", "repression"],
-             [in_id, it_id, spe_id, species_repression])
+                 [in_id, it_id, spe_id, species_repression])
 
     return spe_id
 
 
 def insert_new_output_transition(cursor, operon_id):
-    # def insert_new_output_transition(cursor, logic, operon_id)
     """Insert new output transition."""
     ot_id = select_last_inserted_table_id(cursor, "OutputTransition", "ot_id")
     ot_id = make_new_id(ot_id)
     sbml = "ot_sbml_{}.txt".format(ot_id)
     db.db_insert(cursor, "OperonOutputTransition", ["ope_id", "ot_id"], [operon_id, ot_id])
     db.db_insert(cursor, "OutputTransition", ["ot_id", "sbml"], [ot_id, sbml])
-    # db.db_insert(cursor, "OutputTransition", ["ot_id", "logic", "sbml"], [ot_id, logic sbml])
 
     return ot_id
 
@@ -304,11 +299,11 @@ def determine_and_insert(connection, cursor, component_keyword, component_data=[
 
 def insert_new_device(connection, cursor, device):
     """Inserts a new device into the database.
-		Argument(s):
-			connection - sqlite3 connection object
-			cursor - sqlite3 cursor object
-			device_string - whole device as a string
-	"""
+        Argument(s):
+            connection - sqlite3 connection object
+            cursor - sqlite3 cursor object
+            device_string - whole device as a string
+    """
 
     parent_ids_dict = {"Plasmid": "", "Operon": "", "InputTransition": "", "OutputTransition": ""}
     input_species_list = []
@@ -352,7 +347,7 @@ def insert_new_device(connection, cursor, device):
         # Update the database exclusively except for 4th level conditions
         if component_keyword != "Plasmid":
 
-            #Covering the insert for input transitions, operons, and output transitions
+            # Covering the insert for input transitions, operons, and output transitions
             if component_keyword in ["InputTransition", "Operon", "OutputTransition"]:
                 parent_keyword = determine_parent_keyword(component_keyword)
                 parent_id = parent_ids_dict[parent_keyword]
@@ -396,14 +391,15 @@ def insert_new_device(connection, cursor, device):
             parent_ids_dict["Plasmid"] = plasmid_id
 
 
-    # ##Covering the last sbol that has to be created. It would be skipped over becasue it is the last one otherwise.
-    sbol_files.append(make_sbol_file(output_species_list, promoter_list, prev_operon_direction, parent_ids_dict["Operon"]))
+    # ##Covering the last sbol that has to be created. It would be skipped over because it is the last one otherwise.
+    sbol_files.append(
+        make_sbol_file(output_species_list, promoter_list, prev_operon_direction, parent_ids_dict["Operon"]))
 
     make_input_transition_sbml_file(input_species_list, parent_ids_dict["InputTransition"], parent_ids_dict["Operon"],
-                                input_trans_logic)
+                                    input_trans_logic)
 
     make_output_transition_sbml_file(output_species_list, parent_ids_dict["OutputTransition"],
-                                 parent_ids_dict["Operon"])
+                                     parent_ids_dict["Operon"])
 
     connection.commit()
     return ",".join(sbol_files)
@@ -421,7 +417,6 @@ def main():
     db.db_close(conn, cur)
 
     gn.create_whole_network_sbml()
-    ###print sbol_files
     return sbol_files
 
 
