@@ -1,0 +1,5 @@
+<qual:listOfQualitativeSpecies>
+	<qual:qualitativeSpecies    qual:compartment="plasmid" qual:constant="false"
+				qual:id="ope_1042" qual:maxLevel="1"/>
+				qual:name="asldkj" qual:miriam id="1231042"/>
+</qual:listOfQualitativeSpecies>
