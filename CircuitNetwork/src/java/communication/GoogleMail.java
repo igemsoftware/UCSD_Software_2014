@@ -24,19 +24,24 @@ public class GoogleMail {
       userEmail = email;
       school = affiliation; 
       userMessage = message;
-       
+      
         
     }
     public static String userName;  //user name of the client 
     public static String userEmail; //user email of the client
     public static String school;    //user affiliation of the client 
     public static String userMessage; //user message of the client
-     
+    final String username  = "ucsdigem2014";
+    final String password = "javarocks";
+        
     public static void Send(final String username, final String password, String recipientEmail, String title, String message) throws AddressException, MessagingException {
+        
+        
         message = "Thank you for contacting us, we will get back to you shortly";
         recipientEmail = userEmail;
         title = "Contact";
         GoogleMail.Send(username, password, recipientEmail, "", title, message);
+        
         
     }
 
@@ -55,7 +60,7 @@ public class GoogleMail {
     public static void Send(final String username, final String password, String recipientEmail, String ccEmail, String title, String message) throws AddressException, MessagingException {
         Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
         final String SSL_FACTORY = "javax.net.ssl.SSLSocketFactory";
-
+        
         // Get a Properties object
         Properties props = System.getProperties();
         props.setProperty("mail.smtps.host", "smtp.gmail.com");
