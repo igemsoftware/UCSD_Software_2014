@@ -721,6 +721,53 @@ angular.module('cyViewerApp')
                 };
             };
         };
+        
+        //Autocomplete functions
+        function split( val ) {
+            return val.split( " " );
+        };
+        function extractLast( term ) {
+            return split( term ).pop();
+        };
+        
+        $( ".autocomplete-species" )
+        // don't navigate away from the field on tab when selecting an item
+        .bind( "keydown", function( event ) {
+            if ( event.keyCode === $.ui.keyCode.TAB &&
+            $( this ).autocomplete( "instance" ).menu.active ) {
+            event.preventDefault();
+            }
+        })        
+        .autocomplete({
+            appendTo: ".searchBox",
+            source: function( request, response ) {
+                // delegate back to autocomplete, but extract the last term
+                response( $.ui.autocomplete.filter($scope.autoNames, extractLast( request.term ) ) );
+            },
+            focus: function() {
+                // prevent value inserted on focus
+                return false;
+            },
+            select: function( event, ui ) {
+                var terms = split( this.value );
+                // remove the current input
+                terms.pop();
+                // add the selected item
+                terms.push( ui.item.value );
+                // add placeholder to get the comma-and-space at the end
+                terms.push( "" );
+                this.value = terms.join( " " );
+                return false;
+            },
+            //positioning the search results.
+            open: function() {
+                var position = $(".searchBox").position();
+                var left = position.left;
+                var top = position.top;
+
+                $(".searchBox > ul").css({left: (left + 320) + "px", top: (top) + "px" });
+            }
+        });
 
         $scope.encodeUrl = function() {
             var pan = $scope.cy.pan();
