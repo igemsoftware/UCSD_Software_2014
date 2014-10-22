@@ -426,8 +426,6 @@ angular.module('cyViewerApp')
         $scope.searchCtrl = function() {
             //alert($scope.searchText);
             //the input and output of the user
-
-
             $scope.input = String($scope.searchInput);
 
             $scope.output = String($scope.searchOutput);
@@ -462,11 +460,17 @@ angular.module('cyViewerApp')
 //            angular.element('.loading').hide();
 //            $scope.cynet.load(networkData.elements);
 //            $scope.circuitCtrl();
-
+//            console.log(outputTransitionsId);
+            
             searchGet();
         };
 
-
+        //example function for the user
+        $scope.exampleSet = function(){
+           $scope.searchInput = "lara and arac";
+           $scope.searchOutput = "gfp";
+           $('#myModal').modal('hide');
+        };
 
         //refreshes the inputs and the page 
         $scope.reloadPage = function() {
@@ -497,7 +501,7 @@ angular.module('cyViewerApp')
             }
             ;
             for (var count = 0; count < outputTransitionsId[index].length; count++) {
-                $scope.cynet.$("#" + String(inputTransitionsId[index][count])).select();
+                $scope.cynet.$("#" + String(outputTransitionsId[index][count])).select();
             }
             ;
             for (var count = 0; count < edgesId[index].length; count++) {
@@ -649,6 +653,12 @@ angular.module('cyViewerApp')
                 $("#errorModal").modal("show");
             };
         };
+        
+        //General purpose Modal controls.
+        $scope.genModal = {
+            "label": "",
+            "message" : ""
+        };
 
         function initUpdate(){
             $scope.addPlasmid();
@@ -703,8 +713,17 @@ angular.module('cyViewerApp')
 
         $scope.updateDatabase = function(){
             $scope.parseUpdatePlasmid();
-            //GET function not fully finished yet.
-//                updateGET();
+            updateGET();
+        };
+        
+        $scope.upateInfo = function(){
+            $scope.genModal.label = "Form Information";
+            $scope.genModal.message = "The upload form cannot be submitted unless all input fields are completed.\n\
+ Though two operon forms are provided initially, only one is required to submit the form. Simply click the red remove button to remove the operon form.\n\
+ Additional fields can be added or removed by clicking their respective buttons.\n\
+ If you need to reset the form, click the \"Reset\" button in the lower left.";
+            
+            $("#genModal").modal("show");
         };
 
         $scope.redirect = function(){
@@ -865,9 +884,9 @@ angular.module('cyViewerApp')
 
 
             var commandString = $scope.query;
-            alert("Submitting Command: "+commandString);
+            //alert("Submitting Command: "+commandString);
             if (commandString === "undefined = undefined undefined" || $scope.searchInput === undefined || $scope.searchInput === "" || $scope.searchOutput === undefined || $scope.searchOutput === "") {
-                $scope.errorMessage ="Please enter a valid query. Check you inputs and output species, and make sure each species and logic is separated by a single space.";
+                $scope.errorMessage ="Please enter a valid query. Check you inputs and output species, and make sure each species and logic is separated by a single space. See the Tutorial Button in the Toolbar for proper syntax and an example.";
                 $("#errorModal").modal("show");
                 angular.element('.loading').hide();
             }
@@ -878,7 +897,7 @@ angular.module('cyViewerApp')
                 $.get("../../AuthenticationServlet", data, function(data) { //parameters are: servlet url, data, callback function
                     data = JSON.stringify(data).replace(/\\n/g, '', "").replace(/\\/g, '', "");
                     data = data.substr(1, data.length - 2);
-                    alert(data);
+                    //alert(data);
                     networkData = JSON.parse(data);
                     angular.element('.loading').hide();
 
@@ -928,11 +947,13 @@ angular.module('cyViewerApp')
             var data = {user: userID, command: 'uploadNew', data: commandString}; //package the input into a json file for submission to the server
             $.get("../../AuthenticationServlet", data, function(data) {
                 //Using the error Modal to give an success alert.
-                $scope.errorMessage = "Upload successful! Thank you for adding to the SBiDer web!";
-                $("#errorModal").modal("show");
+                
+                $scope.genModal.label = "Database Entry Added";
+                $scope.genModal.message = "Upload successful! Thank you for adding to the SBiDer web!";
+                $("#genModal").modal("show");
 
                 //resetting the update form and string
-                resetUpdate();
+                $scope.resetUpdate();
                 $scope.updateString;
             });
         };
@@ -950,12 +971,6 @@ angular.module('cyViewerApp')
             $scope.networkNames.push(networkName);
         }
 
-        //example function for the user
-        $scope.exampleSet = function(){
-           $scope.searchInput = "lara and arac";
-           $scope.searchOutput = "gfp";
-           $('#myModal').modal('hide');
-        }
         function initVisualStyleCombobox() {
             var styleNames = [];
             for (var i = 0; i < vs.length; i++) {
