@@ -16,9 +16,12 @@ import networkx as nx
 
 import sbider_database as db
 
-def resize_network(total_subnetwork_nodes, total_whole_nodes = 550): 
-    """Resize the network."""
-    return 10000* total_subnetwork_nodes/total_whole_nodes
+def resize_network(total_subnetwork_nodes, total_whole_nodes = 550):
+   """Resize the network."""
+   if total_whole_nodes == 0:
+       return 10000 * total_subnetwork_nodes/550
+   else:
+       return 10000 * total_subnetwork_nodes/total_whole_nodes
 
 
 def get_input_transition_species_dictionary(cursor):
