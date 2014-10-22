@@ -20,6 +20,13 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 
+
+import WeyekinPoster;
+import PigeonTPNG.parseFile;
+    
+  
+
+
 /**
  *
  * @author Valeriy
@@ -146,6 +153,26 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
                     String upload = request.getParameter("data");
                     String output = currentController.executeUpload(upload);
                     out.write(upload);
+                    
+                    /***
+                    * JOAQUIN'S ATTEMPT TO PRODUCE NEW PIGEON IMAGES. PLEASE CHECK
+                    * IMPORTING. 
+                    * NEED TO GRAB THE ROOT PATH. 
+                    String Path = this.getServletContext().getRealPath("/"); //CircuitNetwork/build/web/
+                    pigeonTextPath = path + "pigeonTexts/";
+                    pigeonPNGPath = path + "pigeonImages/";
+                    File pigeonTxt = null;
+                    I RETURN A STRING THAT IS COMMA DELEMITED (A ENTRY FOR 
+                    * EVERY OPERON IN PLASMID. THE FOLLOWING CODE
+                    * BREAKS UP THE STRING "out" AND PLACES INTO AN ARRAY
+                    * FOR ITERATION. NEED TO SAVE PIGEON IMAGES IN 
+                    * pigeonPNGPath
+                    for (String pigeonFile: out.split(",")){
+                        pigeonTxt = File(pigeonTextPath + pigeonFile);
+                        parseFile(pigeonTxt); //Can you change where to save in the directory?
+                    }
+                    ***/
+                    
                     break;
                }
                default:
