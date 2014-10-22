@@ -47,13 +47,14 @@ public class ControllerMain {
     
     public String executeQuery(String query) {
         System.out.println("python " + rootPath + "/sbider_network_builder.py "+ rootPath + " " + query+"");
-        String output = executeCommand("python " + rootPath + "/sbider_network_builder.py "+rootPath +" " + query); //append path to script name and then execute
+        String output = executeCommand("python " + rootPath + "/sbider_network_builder.py "+rootPath + " " + query); //append path to script name and then execute
         return output;
 
     }
     
     public String executeUpload(String upload){
-        String uploader = executeCommand("python " + rootPath + "/sbider_upload_database.py "+ rootPath +" " + upload);
+        String uploader = executeCommand("python " + rootPath + "sbider_upload_database.py " + rootPath + " " + upload);
+        System.out.println("python " + rootPath + "sbider_upload_database.py " + rootPath + " " + " " + upload);
         return uploader; 
     }
 
@@ -67,22 +68,34 @@ public class ControllerMain {
 
         Process p;
         try {
-            p = Runtime.getRuntime().exec(command);
+            
+            //System.out.println("Before running python script.");
+                    
+            p = Runtime.getRuntime().exec(command); 
+            
+            //System.out.println("After running python script.");
+                    
             p.waitFor();
-//            BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+//          BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+            
             BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
-
+                    
+            //System.out.println("What is the first line of reader:" + reader.readLine());
+            //System.out.println(" BufferReader check.");
+            
             String line = "";
             while ((line = reader.readLine()) != null) {
                 output.append(line + "\n");
+                //System.out.println("In the loop");
                 System.out.println(line);
             }
 
         } catch (Exception e) {
+            
             e.printStackTrace();
             return "no result";
         }
-        return output.toString();
+        return output.toString(); 
 
     }
     

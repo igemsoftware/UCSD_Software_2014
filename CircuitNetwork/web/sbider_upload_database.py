@@ -16,17 +16,6 @@ import sbml_update as su
 
 import Gen_Network as gn
 
-
-def db_test():
-    conn, cur = db.db_open("sbider_test_2.db")
-    return conn, cur
-
-
-def reset_db(original_db="sbider.db", test_db_file="sbider_test_2.db"):
-    os.remove(test_db_file)
-    shutil.copyfile(original_db, test_db_file)
-
-
 def get_last_row_id(cursor, table_name):
     """Get the last inserted rowid."""
     last_id = cursor.execute("SELECT rowid FROM %s" % table_name).fetchall()
@@ -83,7 +72,6 @@ def make_sbol_string_db_update(input_list, direction):
         direction = '<'
     else:
         direction = ''
-
     output_string = ''
     for species in input_list:
         first_character = species[0]
@@ -384,8 +372,8 @@ def insert_new_device(connection, cursor, device):
                     parent_id = parent_ids_dict[parent_keyword]
                     component_id = determine_and_insert(connection, cursor, component_keyword, component_data,
                                                         parent_id)
-            else:
-                promoter_list.append("p" + component_data)
+                else:
+                    promoter_list.append("p" + component_data[0])
         else:
             plasmid_id = determine_and_insert(connection, cursor, component_keyword, component_data)
             parent_ids_dict["Plasmid"] = plasmid_id
@@ -406,20 +394,22 @@ def insert_new_device(connection, cursor, device):
 
 
 def main():
-    device_info = sys.argv[1::]
-    reset_db()
-    conn, cur = db.db_open("sbider.db")
+    device_info = sys.argv[2::]
+    sbider_database = sys.argv[1] + "/sbider.db"
+    conn, cur = db.db_open(sbider_database)
     sbol_files = insert_new_device(conn, cur, device_info)
     db.db_close(conn, cur)
 
-    conn, cur = db.db_open("sbider.db")
-    sg.create_network_json_file(cur, "whole_network.json")
+    conn, cur = db.db_open(sbider_database)
+    #sg.create_network_json_file(cur, "whole_network.json")
     db.db_close(conn, cur)
 
-    gn.create_whole_network_sbml()
+    #gn.create_whole_network_sbml()
+    
     return sbol_files
 
 
 if __name__ == "__main__":
-    main()
+    sbol_files = main()
+    print(sbol_files)
 

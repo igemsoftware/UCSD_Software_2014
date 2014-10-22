@@ -940,13 +940,14 @@ angular.module('cyViewerApp')
 
         //The http GET request to the servlet that adds the user's entry to the SBiDer database.
         function updateGET() {
+            console.log("Starting upload...");
             //Sending the database entrie string as data.
             var commandString = $scope.updateString;
-
             //The update command needs to be written and inserted here.
             var data = {user: userID, command: 'uploadNew', data: commandString}; //package the input into a json file for submission to the server
             $.get("../../AuthenticationServlet", data, function(data) {
                 //Using the error Modal to give an success alert.
+                console.log("Server contacted...");
                 
                 $scope.genModal.label = "Database Entry Added";
                 $scope.genModal.message = "Upload successful! Thank you for adding to the SBiDer web!";

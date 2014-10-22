@@ -1,3 +1,0 @@
-c Dolphin 13
-t 14
-# Arcs

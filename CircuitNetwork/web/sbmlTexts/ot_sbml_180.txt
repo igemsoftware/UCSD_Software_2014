@@ -1,12 +1,12 @@
 <qual:listOfTransitions>
-	<qual:transtion qual:id="ot_163">
+	<qual:transtion qual:id="ot_180">
 		<qual:listOfInputs>
-			<qual:input    qual:id="theta_ope_ope_1046"        qual:qualitativeSpecies="ope_ope_1046"
+			<qual:input    qual:id="theta_ope_ope_1064"        qual:qualitativeSpecies="ope_ope_1064"
 				    qual:thresholdLevel="1"   qual:transitionEffect="none"
 				    qual:sign="positive"/>
 		</qual:listOfInputs>
 		<qual:listOfOutputs>
-			<qual:output    qual:qualitativeSpecies="spe_spe_163"
+			<qual:output    qual:qualitativeSpecies="spe_spe_180"
 				     qual:transitionEffect="assignmentLevel"/>
 		</qual:listOfOutputs>
 		<qual:listOfFunctionTerms>
@@ -15,8 +15,8 @@
 					<!-- input >= 1-->
 					<apply>
 						<geq/>
-						<ci>ope_ope_1046</ci>
-						<ci>theta_ope_ope_1046</ci>
+						<ci>ope_ope_1064</ci>
+						<ci>theta_ope_ope_1064</ci>
 					</apply>
 				</math>
 			</qual:funtionTerm>
