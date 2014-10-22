@@ -21,8 +21,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-
-
 /**
  *
  * @author valeriysosnovskiy
@@ -34,7 +32,6 @@ public class ControllerMain {
     }
     String rootPath;
 
-    
     /*
      *Sets the file path to execute 
      */
@@ -44,23 +41,20 @@ public class ControllerMain {
         return output;
 
     }
-    
+
     public String executeQuery(String query) {
-        System.out.println("python " + rootPath + "/sbider_network_builder.py "+ rootPath + " " + query+"");
-        String output = executeCommand("python " + rootPath + "/sbider_network_builder.py "+rootPath + " " + query); //append path to script name and then execute
+        System.out.println("python " + rootPath + "/sbider_network_builder.py " + rootPath + " " + query + "");
+        String output = executeCommand("python " + rootPath + "/sbider_network_builder.py " + rootPath + " " + query); //append path to script name and then execute
         return output;
 
     }
-    
-    public String executeUpload(String upload){
+
+    public String executeUpload(String upload) {
         String uploader = executeCommand("python " + rootPath + "sbider_upload_database.py " + rootPath + " " + upload);
         System.out.println("python " + rootPath + "sbider_upload_database.py " + rootPath + " " + " " + upload);
-        return uploader; 
+        return uploader;
     }
 
-    
-
-    
     //to execute the files 
     public String executeCommand(String command) {
         System.out.println("command: " + command);
@@ -68,21 +62,14 @@ public class ControllerMain {
 
         Process p;
         try {
-            
+
             //System.out.println("Before running python script.");
-                    
-            p = Runtime.getRuntime().exec(command); 
-            
+            p = Runtime.getRuntime().exec(command);
+
             //System.out.println("After running python script.");
-                    
             p.waitFor();
-//          BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
-            
             BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
-                    
-            //System.out.println("What is the first line of reader:" + reader.readLine());
-            //System.out.println(" BufferReader check.");
-            
+
             String line = "";
             while ((line = reader.readLine()) != null) {
                 output.append(line + "\n");
@@ -90,13 +77,20 @@ public class ControllerMain {
                 System.out.println(line);
             }
 
+            reader = new BufferedReader(new InputStreamReader(p.getErrorStream()));
+            line = "";
+            while ((line = reader.readLine()) != null) {
+                //System.out.println("In the loop");
+                System.out.println(line);
+            }
+
         } catch (Exception e) {
-            
+
             e.printStackTrace();
             return "no result";
         }
-        return output.toString(); 
+        return output.toString();
 
     }
-    
+
 }
