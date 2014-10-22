@@ -704,7 +704,7 @@ angular.module('cyViewerApp')
         $scope.updateDatabase = function(){
             $scope.parseUpdatePlasmid();
             //GET function not fully finished yet.
-//                updateGET();
+            updateGET();
         };
 
         $scope.redirect = function(){
@@ -921,18 +921,20 @@ angular.module('cyViewerApp')
 
         //The http GET request to the servlet that adds the user's entry to the SBiDer database.
         function updateGET() {
+            alert("clicked");
+            console.log("going into python soon")
             //Sending the database entrie string as data.
             var commandString = $scope.updateString;
-
             //The update command needs to be written and inserted here.
             var data = {user: userID, command: 'uploadNew', data: commandString}; //package the input into a json file for submission to the server
             $.get("../../AuthenticationServlet", data, function(data) {
                 //Using the error Modal to give an success alert.
+                console.log("got into the get");
+                alert("Update String: " + commandString);
                 $scope.errorMessage = "Upload successful! Thank you for adding to the SBiDer web!";
                 $("#errorModal").modal("show");
-
                 //resetting the update form and string
-                resetUpdate();
+                $scope.resetUpdate();
                 $scope.updateString;
             });
         };

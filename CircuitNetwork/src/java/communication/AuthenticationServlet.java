@@ -37,11 +37,7 @@ public class AuthenticationServlet extends HttpServlet {
     protected void processPostRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        
-          
-            
-            
+        PrintWriter out = response.getWriter(); 
     }
     
 
@@ -57,7 +53,7 @@ public class AuthenticationServlet extends HttpServlet {
  * @throws IOException if an I/O error occurs
  */
 protected void processGetRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    throws ServletException, IOException {
        response.setContentType("text/html;charset=UTF-8");
        //response.sendRedirect("index.html");
         PrintWriter out = response.getWriter();
@@ -70,8 +66,7 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
            
             if (webController.containsKey(user)) {
                 currentController = webController.get(user);
-                
-              
+
             } 
            
             else {
@@ -80,13 +75,13 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
                 //create a new one if it doesn't exist
                 currentController = new ControllerMain(rootPath);
                 webController.put(user, currentController);
-               
                 
             }
             
             
             //to get the command value
             String command = request.getParameter("command");
+            
             System.out.println(command);
            
            //switch for different command values 
@@ -115,7 +110,6 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
                    
                    //for now its the userName
                    out.write(info);
-                  
                    break;
                }
                case "login":
@@ -144,25 +138,29 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
                    
                    GoogleMail googleMail;
                    googleMail = new GoogleMail(name, email, affiliation, message);
-                   
+                   break;
+
                }
                case "uploadNew":
                {
                     String upload = request.getParameter("data");
                     String output = currentController.executeUpload(upload);
+                    out.write(upload);
+                    break;
                }
                default:
-                   System.out.println("help me ");
-                   
-                   break;
+                   System.out.println("help me "); 
            }
 
            
-        } finally {
+        } 
+        finally 
+        {
             out.close();
         }
         
     }
+
 
 
 /*

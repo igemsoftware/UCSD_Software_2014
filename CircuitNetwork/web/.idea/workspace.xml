@@ -23,57 +23,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="sbider_upload_database.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="sbider_upload_database.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sbider_upload_database.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="5315" max-vertical-offset="6225">
-              <caret line="401" column="63" selection-start-line="401" selection-start-column="63" selection-end-line="401" selection-end-column="63" />
+            <state vertical-scroll-proportion="0.57604307" vertical-offset="5482" max-vertical-offset="6240">
+              <caret line="410" column="13" selection-start-line="410" selection-start-column="13" selection-end-line="410" selection-end-column="13" />
               <folding>
-                <marker date="1413908061000" expanded="true" signature="529:547" placeholder="SELECT rowid..missing_value..." />
-                <marker date="1413908061000" expanded="true" signature="818:852" placeholder="SELECT {} FR..." />
-                <marker date="1413908061000" expanded="true" signature="1145:1178" placeholder="SELECT * FRO..." />
-                <marker date="1413908061000" expanded="true" signature="1561:1605" placeholder="SELECT spe_i..Species..." />
+                <marker date="1413920952000" expanded="true" signature="529:547" placeholder="SELECT rowid..missing_value..." />
+                <marker date="1413920952000" expanded="true" signature="818:852" placeholder="SELECT {} FR..." />
+                <marker date="1413920952000" expanded="true" signature="1145:1178" placeholder="SELECT * FRO..." />
+                <marker date="1413920952000" expanded="true" signature="1561:1605" placeholder="SELECT spe_i..Species..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AuthenticationServlet.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../src/java/communication/AuthenticationServlet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-86.53846" vertical-offset="0" max-vertical-offset="5700">
-              <caret line="150" column="21" selection-start-line="150" selection-start-column="20" selection-end-line="150" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Controller.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../src/java/communication/Controller.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="855">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ControllerMain.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../src/java/communication/ControllerMain.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7065949" vertical-offset="255" max-vertical-offset="1440">
-              <caret line="52" column="5" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="masterJS.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/masterJS.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.363636" vertical-offset="112" max-vertical-offset="1875">
-              <caret line="36" column="48" selection-start-line="36" selection-start-column="48" selection-end-line="36" selection-end-column="48" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -92,6 +52,7 @@
         <option value="$PROJECT_DIR$/sbml_database.py" />
         <option value="$PROJECT_DIR$/sbider_grapher.py" />
         <option value="$PROJECT_DIR$/../src/java/communication/ControllerMain.java" />
+        <option value="$PROJECT_DIR$/cyjs-sample/app/scripts/controllers/main.js" />
         <option value="$PROJECT_DIR$/sbider_upload_database.py" />
       </list>
     </option>
@@ -175,6 +136,84 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="cyjs-sample" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CircuitNetwork" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cyjs-sample" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CircuitNetwork" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cyjs-sample" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CircuitNetwork" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cyjs-sample" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -370,10 +409,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1916" height="1178" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29005525" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29005525" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -464,10 +503,10 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="6240" max-vertical-offset="6465">
           <caret line="416" column="26" selection-start-line="416" selection-start-column="26" selection-end-line="416" selection-end-column="26" />
           <folding>
-            <marker date="1413908061000" expanded="true" signature="529:547" placeholder="SELECT rowid..missing_value..." />
-            <marker date="1413908061000" expanded="true" signature="818:852" placeholder="SELECT {} FR..." />
-            <marker date="1413908061000" expanded="true" signature="1145:1178" placeholder="SELECT * FRO..." />
-            <marker date="1413908061000" expanded="true" signature="1561:1605" placeholder="SELECT spe_i..Species..." />
+            <marker date="1413920952000" expanded="true" signature="529:547" placeholder="SELECT rowid..missing_value..." />
+            <marker date="1413920952000" expanded="true" signature="818:852" placeholder="SELECT {} FR..." />
+            <marker date="1413920952000" expanded="true" signature="1145:1178" placeholder="SELECT * FRO..." />
+            <marker date="1413920952000" expanded="true" signature="1561:1605" placeholder="SELECT spe_i..Species..." />
           </folding>
         </state>
       </provider>
@@ -591,48 +630,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../src/java/communication/AuthenticationServlet.java">
+    <entry file="file://$PROJECT_DIR$/cyjs-sample/app/scripts/controllers/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-86.53846" vertical-offset="0" max-vertical-offset="5700">
-          <caret line="150" column="21" selection-start-line="150" selection-start-column="20" selection-end-line="150" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../src/java/communication/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="855">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.6519886" vertical-offset="13461" max-vertical-offset="15015">
+          <caret line="928" column="53" selection-start-line="928" selection-start-column="53" selection-end-line="928" selection-end-column="53" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/masterJS.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.363636" vertical-offset="112" max-vertical-offset="1875">
+        <state vertical-scroll-proportion="0.6123033" vertical-offset="52" max-vertical-offset="1875">
           <caret line="36" column="48" selection-start-line="36" selection-start-column="48" selection-end-line="36" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/java/communication/ControllerMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5558546" vertical-offset="397" max-vertical-offset="1440">
+          <caret line="54" column="16" selection-start-line="54" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/java/communication/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.14644352" vertical-offset="105" max-vertical-offset="855">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/java/communication/AuthenticationServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="3.1380754" vertical-offset="30" max-vertical-offset="5715">
+          <caret line="152" column="21" selection-start-line="150" selection-start-column="20" selection-end-line="150" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sbider_upload_database.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="5315" max-vertical-offset="6225">
-          <caret line="401" column="63" selection-start-line="401" selection-start-column="63" selection-end-line="401" selection-end-column="63" />
+        <state vertical-scroll-proportion="0.57604307" vertical-offset="5482" max-vertical-offset="6240">
+          <caret line="410" column="13" selection-start-line="410" selection-start-column="13" selection-end-line="410" selection-end-column="13" />
           <folding>
-            <marker date="1413908061000" expanded="true" signature="529:547" placeholder="SELECT rowid..missing_value..." />
-            <marker date="1413908061000" expanded="true" signature="818:852" placeholder="SELECT {} FR..." />
-            <marker date="1413908061000" expanded="true" signature="1145:1178" placeholder="SELECT * FRO..." />
-            <marker date="1413908061000" expanded="true" signature="1561:1605" placeholder="SELECT spe_i..Species..." />
+            <marker date="1413920952000" expanded="true" signature="529:547" placeholder="SELECT rowid..missing_value..." />
+            <marker date="1413920952000" expanded="true" signature="818:852" placeholder="SELECT {} FR..." />
+            <marker date="1413920952000" expanded="true" signature="1145:1178" placeholder="SELECT * FRO..." />
+            <marker date="1413920952000" expanded="true" signature="1561:1605" placeholder="SELECT spe_i..Species..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../src/java/communication/ControllerMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7065949" vertical-offset="255" max-vertical-offset="1440">
-          <caret line="52" column="5" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
