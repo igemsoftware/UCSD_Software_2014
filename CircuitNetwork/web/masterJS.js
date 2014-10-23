@@ -8,11 +8,11 @@
  */
 
 $(document).ready(function(){
-    window.onload = function() {
-    $('#appearModal').modal('show');
+    //window.onload = function() {
+   // $('#appearModal').modal('show');
     
  
-};
+//};
 
     //redirecting to other pages 
     $("#home").click(function(){
