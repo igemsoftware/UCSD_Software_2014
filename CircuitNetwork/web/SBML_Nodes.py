@@ -36,8 +36,7 @@ class Nodes():
             Write SBML text file for a qualitative species stored in the qualitative 
             species list object. File is then stored in the current working directory.  
         '''
-        cwd = os.getcwd()                 
-        absolute_path = os.path.join(cwd,str(filename)+".txt")
+        absolute_path = os.path.join(str(filename)+".txt")
         with open(absolute_path, 'w') as species_file:
             species_file.writelines(self.qualitative_species)
     def writeTransition(self,filename):
@@ -50,8 +49,7 @@ class Nodes():
             Write SBML text file for a transition stored in the transition list 
             object. File is then stored in the current working directory.  
         '''
-        cwd = os.getcwd()
-        absolute_path = os.path.join(cwd,str(filename)+".txt")
+        absolute_path = os.path.join(str(filename)+".txt")
         with open(absolute_path, 'w') as trans_file:
             trans_file.writelines(self.transitions)
 

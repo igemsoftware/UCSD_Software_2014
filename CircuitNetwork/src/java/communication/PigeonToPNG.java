@@ -44,7 +44,7 @@ public class PigeonToPNG {
         }
     }
 
-    private static void parseFile(File file) {
+    public static void parseFile(File file) {
         BufferedReader reader = null;
         try {
             reader = new BufferedReader(new FileReader(file.getAbsolutePath()));

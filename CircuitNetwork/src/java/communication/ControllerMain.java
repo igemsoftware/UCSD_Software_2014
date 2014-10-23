@@ -6,6 +6,7 @@
 package communication;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -20,6 +21,8 @@ import org.json.simple.parser.ParseException;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -50,10 +53,17 @@ public class ControllerMain {
     }
 
     public String executeUpload(String upload) {
-        String uploader = executeCommand("python " + rootPath + "sbider_upload_database.py " + rootPath + " " + upload);
-        System.out.println("python " + rootPath + "sbider_upload_database.py " + rootPath + " " + upload);
-        System.out.println("Uploader whould have the new sbol files names:" + uploader);
-        return uploader; 
+            String pigeonFilePath = executeCommand("python " + rootPath + "/sbider_upload_database.py " + rootPath + " " + upload);
+        try {
+
+            Thread.sleep(4000);
+            File pigeonTextFile = new File(pigeonFilePath);
+            PigeonToPNG.parseFile(pigeonTextFile); 
+        } catch (InterruptedException ex) {
+            Logger.getLogger(ControllerMain.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            return pigeonFilePath;
+
     }
 
     //to execute the files 
