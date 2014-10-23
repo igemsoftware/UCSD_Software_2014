@@ -9,16 +9,24 @@ Descriptive paragraph
 ******************************************************************************
 """
 import sys
+<<<<<<< HEAD
 
 sys.path+=['', '/Users/valeriysosnovskiy/anaconda/lib/python27.zip', '/Users/valeriysosnovskiy/anaconda/lib/python2.7', '/Users/valeriysosnovskiy/anaconda/lib/python2.7/plat-darwin', '/Users/valeriysosnovskiy/anaconda/lib/python2.7/plat-mac', '/Users/valeriysosnovskiy/anaconda/lib/python2.7/plat-mac/lib-scriptpackages', '/Users/valeriysosnovskiy/anaconda/lib/python2.7/lib-tk', '/Users/valeriysosnovskiy/anaconda/lib/python2.7/lib-old', '/Users/valeriysosnovskiy/anaconda/lib/python2.7/lib-dynload', '/Users/valeriysosnovskiy/anaconda/lib/python2.7/site-packages', '/Users/valeriysosnovskiy/anaconda/lib/python2.7/site-packages/PIL', '/Users/valeriysosnovskiy/anaconda/lib/python2.7/site-packages/runipy-0.1.0-py2.7.egg', '/Users/valeriysosnovskiy/anaconda/lib/python2.7/site-packages/setuptools-3.6-py2.7.egg']
+=======
+sys.path+=['', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages/openpyxl-1.6.2-py2.7.egg', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages/psycopg2-2.5-py2.7-linux-x86_64.egg', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages/matplotlib_venn-0.9-py2.7.egg', '/bioinformatics/software/anaconda2.7/lib/python27.zip', '/bioinformatics/software/anaconda2.7/lib/python2.7', '/bioinformatics/software/anaconda2.7/lib/python2.7/plat-linux2', '/bioinformatics/software/anaconda2.7/lib/python2.7/lib-tk', '/bioinformatics/software/anaconda2.7/lib/python2.7/lib-old', '/bioinformatics/software/anaconda2.7/lib/python2.7/lib-dynload', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages/PIL', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages/setuptools-0.6c11-py2.7.egg-info']
+sys.path+=['', '/Users/Admin/anaconda/lib/python27.zip', '/Users/Admin/anaconda/lib/python2.7', '/Users/Admin/anaconda/lib/python2.7/plat-darwin', '/Users/Admin/anaconda/lib/python2.7/plat-mac', '/Users/Admin/anaconda/lib/python2.7/plat-mac/lib-scriptpackages', '/Users/Admin/anaconda/lib/python2.7/lib-tk', '/Users/Admin/anaconda/lib/python2.7/lib-old', '/Users/Admin/anaconda/lib/python2.7/lib-dynload', '/Users/Admin/anaconda/lib/python2.7/site-packages', '/Users/Admin/anaconda/lib/python2.7/site-packages/PIL', '/Users/Admin/anaconda/lib/python2.7/site-packages/runipy-0.1.0-py2.7.egg', '/Users/Admin/anaconda/lib/python2.7/site-packages/setuptools-3.6-py2.7.egg']
+>>>>>>> fc2dea9b0a313b5b6f1775cc4cf26d1236d1de05
 
 import networkx as nx
 
 import sbider_database as db
 
-def resize_network(total_subnetwork_nodes, total_whole_nodes = 550): 
-    """Resize the network."""
-    return 10000* total_subnetwork_nodes/total_whole_nodes
+def resize_network(total_subnetwork_nodes, total_whole_nodes = 550):
+   """Resize the network."""
+   if total_whole_nodes == 0:
+       return 10000 * total_subnetwork_nodes/550
+   else:
+       return 10000 * total_subnetwork_nodes/total_whole_nodes
 
 
 def get_input_transition_species_dictionary(cursor):
@@ -501,12 +509,12 @@ def get_subnetwork(cursor, list_of_operon_paths):
            source_id_target_id_list, toreturn
 
 
-def create_subnetwork_json_string(cursor, list_of_operon_paths):
+def create_subnetwork_json_string(cursor, list_of_operon_paths, database_file):
     """Generates the subnetwork json."""
 
     json_info = get_subnetwork(cursor, list_of_operon_paths)
 
-    return create_json_network_string(*json_info)
+    return create_json_network_string(database_file, *json_info)
 
 
 def get_whole_network(cursor):
@@ -589,7 +597,7 @@ def create_json_network_file(json_file_path, species_nodes_list, input_transitio
     f = open(json_file_path, 'w')
     num_runs = 0
 
-    x_coor_factor = resize_network(len(node_list), total_whole_nodes = 540)
+    x_coor_factor = resize_network(len(node_list), len(node_list))
     y_coor_factor = x_coor_factor
 
     f.write('{\n\t"data" : { ')
@@ -726,7 +734,7 @@ def create_json_network_file(json_file_path, species_nodes_list, input_transitio
     f.close()
 
 
-def create_json_network_string(species_nodes_list, input_transitions_nodes_list,
+def create_json_network_string(database_file, species_nodes_list, input_transitions_nodes_list,
                                operon_nodes_list, output_transitions_nodes_list,
                                source_id_target_id_list, path_json_highlighter):
     to_return = ""
@@ -737,7 +745,7 @@ def create_json_network_string(species_nodes_list, input_transitions_nodes_list,
 
     num_runs = 0
 
-    x_coor_factor = resize_network(len(node_list), total_whole_nodes = 540)
+    x_coor_factor = resize_network(len(node_list), len(node_list))
     y_coor_factor = x_coor_factor
 
     to_return += '{"data" : { '
@@ -795,9 +803,7 @@ def create_json_network_string(species_nodes_list, input_transitions_nodes_list,
         to_return += '},'
         num_runs += 1
 
-    conn, cur = db.db_open("sbider.db")
-    operon_PMC = db.operon_PMC_dictionary(cur)
-    db.db_close(conn, cur)
+    operon_PMC = db.operon_PMC_dictionary(database_file)
     num_runs = 0
 
     for node in operon_nodes_list:

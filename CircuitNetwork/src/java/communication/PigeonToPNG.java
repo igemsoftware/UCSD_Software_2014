@@ -1,8 +1,8 @@
+package communication;
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package pigeontoraven;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -13,12 +13,13 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.JFileChooser;
+import communication.WeyekinPoster;
 
 /**
  *
  * @author Jenhan Tao <jenhantao@gmail.com>
  */
-public class PigeonTPNG {
+public class PigeonToPNG {
 
     /**
      * @param args the command line arguments
@@ -51,9 +52,6 @@ public class PigeonTPNG {
             String toSubmit = "";
             while (line != null) {
                 toSubmit = toSubmit + line + "\n";
-                if (line.contains("<p")) {
-                toSubmit = toSubmit + "-\n";
-                }
                 line = reader.readLine();
             }
             System.out.println(toSubmit);
