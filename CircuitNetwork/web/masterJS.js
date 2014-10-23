@@ -10,7 +10,7 @@
 $(document).ready(function(){
     window.onload = function() {
     $('#appearModal').modal('show');
-    alert( "welcome" );
+    
  
 };
 
