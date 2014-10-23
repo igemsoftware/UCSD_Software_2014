@@ -123,7 +123,6 @@ public class AuthenticationServlet extends HttpServlet {
                     //to get the data value 
                     String email = request.getParameter("email");
                     String affiliation = request.getParameter("affiliation");
-//                    String message = request.getParameter("message");
                     String name = request.getParameter("name");
                 try {
                     GoogleMail.Send("ucsdigem2014", "javarocks", email, "Sbider response", "This is an automated message from sbider");

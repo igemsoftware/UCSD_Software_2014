@@ -28,6 +28,9 @@ $(document).ready(function(){
      $("#app").click(function(){
        window.location.href="AppPage.html"; 
     });
+     $("#signMe").click(function(){
+       window.location.href="AppPage.html"; 
+    });
     
     $("#thumbThree").click(function(){
        window.location.href="AppPage.html"; 
