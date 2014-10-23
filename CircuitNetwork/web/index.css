@@ -16,6 +16,8 @@ body{
 #nav .btn:hover{
    color: gold;  
 }
+
+
 #welcomeSign{
     color: #1C86EE;
     
@@ -256,4 +258,11 @@ body{
     margin: auto;
 }
 
+#appearModal{
+    height: 800px;
+    width:  800px;
+    background-color:#003D99;
+    text-align: center;
+    margin:auto;
+}
 

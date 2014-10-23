@@ -136,6 +136,7 @@ public class AuthenticationServlet extends HttpServlet {
                 case "uploadNew": {
                     String upload = request.getParameter("data");
                     String output = currentController.executeUpload(upload);
+                    out.write(output);
                     break;
                 }
                 default:

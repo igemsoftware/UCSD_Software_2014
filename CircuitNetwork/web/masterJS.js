@@ -8,7 +8,12 @@
  */
 
 $(document).ready(function(){
-    
+    window.onload = function() {
+    $('#appearModal').modal('show');
+    alert( "welcome" );
+ 
+};
+
     //redirecting to other pages 
     $("#home").click(function(){
        window.location.href="index.html"; 

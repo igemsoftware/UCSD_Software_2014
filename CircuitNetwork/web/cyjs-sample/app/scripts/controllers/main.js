@@ -704,7 +704,7 @@ angular.module('cyViewerApp')
         $scope.updateDatabase = function(){
             $scope.parseUpdatePlasmid();
             //GET function not fully finished yet.
-//                updateGET();
+                updateGET();
         };
 
         $scope.redirect = function(){
@@ -928,7 +928,9 @@ angular.module('cyViewerApp')
             var data = {user: userID, command: 'uploadNew', data: commandString}; //package the input into a json file for submission to the server
             $.get("../../AuthenticationServlet", data, function(data) {
                 //Using the error Modal to give an success alert.
+                alert(data);
                 $scope.errorMessage = "Upload successful! Thank you for adding to the SBiDer web!";
+                
                 $("#errorModal").modal("show");
 
                 //resetting the update form and string
