@@ -31,12 +31,13 @@ public class GoogleMail {
     public static String userEmail; //user email of the client
     public static String school;    //user affiliation of the client 
     public static String userMessage; //user message of the client
-    final String username  = "ucsdigem2014";
-    final String password = "javarocks";
+    public static String username  = "ucsdigem2014";
+    public static String password = "javarocks";
         
     public static void Send(final String username, final String password, String recipientEmail, String title, String message) throws AddressException, MessagingException {
         
-        
+        GoogleMail.username = username;
+        GoogleMail.password = password; 
         message = "Thank you for contacting us, we will get back to you shortly";
         recipientEmail = userEmail;
         title = "Contact";
@@ -100,7 +101,8 @@ public class GoogleMail {
         SMTPTransport t = (SMTPTransport)session.getTransport("smtps");
 
         t.connect("smtp.gmail.com", username, password);
-        t.sendMessage(msg, msg.getAllRecipients());      
+        t.sendMessage(msg, msg.getAllRecipients());     
+        
         t.close();
     }
 }

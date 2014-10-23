@@ -144,12 +144,14 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
                    
                    GoogleMail googleMail;
                    googleMail = new GoogleMail(name, email, affiliation, message);
+                   break;
                    
                }
                case "uploadNew":
                {
                     String upload = request.getParameter("data");
                     String output = currentController.executeUpload(upload);
+                    break;
                }
                default:
                    System.out.println("help me ");
