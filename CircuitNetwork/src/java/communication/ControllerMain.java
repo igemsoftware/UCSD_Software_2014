@@ -54,7 +54,7 @@ public class ControllerMain {
     
     public String executeUpload(String upload){
         String uploader = executeCommand("python " + rootPath + "sbider_upload_database.py " + rootPath + " " + upload);
-        System.out.println("python " + rootPath + "sbider_upload_database.py " + rootPath + " " + " " + upload);
+        System.out.println("python " + rootPath + "sbider_upload_database.py " + rootPath + " " + upload);
         return uploader; 
     }
 

@@ -152,6 +152,7 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
                {
                     String upload = request.getParameter("data");
                     String output = currentController.executeUpload(upload);
+                    out.write(output);
                     out.write(upload);
                     
                     /***

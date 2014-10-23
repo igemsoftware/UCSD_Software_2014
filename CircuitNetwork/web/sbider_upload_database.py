@@ -91,30 +91,16 @@ def make_sbol_string_db_update(input_list, direction):
     return output_string
 
 
-def make_sbol_file(output_species_list, promoter_list, prev_operon_direction, operon_id):
+def make_sbol_file(output_species_list, promoter_list, prev_operon_direction, operon_id, path_directory):
     """Insert and make the sbol file."""
 
-    sbol_file = "/pigeonTexts/operon_sbol_" + operon_id + ".txt"
+    sbol_file = path_directory + "/pigeonImages/operon_sbol_" + operon_id + ".txt"
     sbol_list = promoter_list + ["c" + data[0] for data in output_species_list]
     sbol_string = make_sbol_string_db_update(sbol_list, prev_operon_direction)
-    write_sbol_file(sbol_string, sbol_file)
-
-    return sbol_file.replace("/pigeonTexts/", "")
-
-
-def write_sbol_file(sbol_string, file_name):
-    """Write out sbol string to file."""
-
-    write_to_file(sbol_string, file_name)
-
-
-def write_to_file(string_to_write, file_name):
-    """Write a file."""
-    f_path = os.getcwd() + "/" + file_name
-    f_handle = open(f_path, 'w')
-    f_handle.write(string_to_write)
-    f_handle.close()
-    return
+    sbol_handle = open(sbol_path, 'w')
+    sbol_handle.write(sbol_string)
+    sbol_handle.close()
+    return sbol_file
 
 
 def make_input_transition_sbml_file(input_species_list, transition_id, operon_id, trans_logic):
@@ -394,16 +380,15 @@ def insert_new_device(connection, cursor, device):
 
 
 def main():
+    database_file = sys.argv[1] + "sbider.db"
     device_info = sys.argv[2::]
-    sbider_database = sys.argv[1] + "/sbider.db"
-    conn, cur = db.db_open(sbider_database)
-    sbol_files = insert_new_device(conn, cur, device_info)
+    conn, cur = db.db_open(database_file)
+    sbol_files = insert_new_device(conn, cur, device_info
     db.db_close(conn, cur)
 
-    conn, cur = db.db_open(sbider_database)
+    #conn, cur = db.db_open(database_file)
     #sg.create_network_json_file(cur, "whole_network.json")
-    db.db_close(conn, cur)
-
+    #db.db_close(conn, cur)
     #gn.create_whole_network_sbml()
     
     return sbol_files
