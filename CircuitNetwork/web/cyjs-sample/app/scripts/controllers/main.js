@@ -875,10 +875,12 @@ angular.module('cyViewerApp')
             else {
 
                 var data = {user: userID, command: 'query', data: commandString}; //package the input into a json file for submission to the server
+                alert(JSON.stringify(data))
                 $.get("../../AuthenticationServlet", data, function(data) { //parameters are: servlet url, data, callback function
                     data = JSON.stringify(data).replace(/\\n/g, '', "").replace(/\\/g, '', "");
                     data = data.substr(1, data.length - 2);
                     alert(data);
+                    alert(typeof data);
                     networkData = JSON.parse(data);
                     angular.element('.loading').hide();
 

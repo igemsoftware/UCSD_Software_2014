@@ -8,6 +8,9 @@ Descriptive paragraph
          Huwate(Kwat) Yeerna, University of California, San Diego
 ******************************************************************************
 """
+import sys
+
+sys.path+=['', '/Users/valeriysosnovskiy/anaconda/lib/python27.zip', '/Users/valeriysosnovskiy/anaconda/lib/python2.7', '/Users/valeriysosnovskiy/anaconda/lib/python2.7/plat-darwin', '/Users/valeriysosnovskiy/anaconda/lib/python2.7/plat-mac', '/Users/valeriysosnovskiy/anaconda/lib/python2.7/plat-mac/lib-scriptpackages', '/Users/valeriysosnovskiy/anaconda/lib/python2.7/lib-tk', '/Users/valeriysosnovskiy/anaconda/lib/python2.7/lib-old', '/Users/valeriysosnovskiy/anaconda/lib/python2.7/lib-dynload', '/Users/valeriysosnovskiy/anaconda/lib/python2.7/site-packages', '/Users/valeriysosnovskiy/anaconda/lib/python2.7/site-packages/PIL', '/Users/valeriysosnovskiy/anaconda/lib/python2.7/site-packages/runipy-0.1.0-py2.7.egg', '/Users/valeriysosnovskiy/anaconda/lib/python2.7/site-packages/setuptools-3.6-py2.7.egg']
 
 import networkx as nx
 
