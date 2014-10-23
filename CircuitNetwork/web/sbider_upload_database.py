@@ -16,17 +16,6 @@ import sbml_update as su
 
 import Gen_Network as gn
 
-
-def db_test():
-    conn, cur = db.db_open("sbider_test_2.db")
-    return conn, cur
-
-
-def reset_db(original_db="sbider.db", test_db_file="sbider_test_2.db"):
-    os.remove(test_db_file)
-    shutil.copyfile(original_db, test_db_file)
-
-
 def get_last_row_id(cursor, table_name):
     """Get the last inserted rowid."""
     last_id = cursor.execute("SELECT rowid FROM %s" % table_name).fetchall()
@@ -83,7 +72,6 @@ def make_sbol_string_db_update(input_list, direction):
         direction = '<'
     else:
         direction = ''
-
     output_string = ''
     for species in input_list:
         first_character = species[0]
@@ -103,30 +91,16 @@ def make_sbol_string_db_update(input_list, direction):
     return output_string
 
 
-def make_sbol_file(output_species_list, promoter_list, prev_operon_direction, operon_id):
+def make_sbol_file(output_species_list, promoter_list, prev_operon_direction, operon_id, path_directory):
     """Insert and make the sbol file."""
 
-    sbol_file = "/pigeonTexts/operon_sbol_" + operon_id + ".txt"
+    sbol_file = path_directory + "/pigeonImages/operon_sbol_" + operon_id + ".txt"
     sbol_list = promoter_list + ["c" + data[0] for data in output_species_list]
     sbol_string = make_sbol_string_db_update(sbol_list, prev_operon_direction)
-    write_sbol_file(sbol_string, sbol_file)
-
-    return sbol_file.replace("/pigeonTexts/", "")
-
-
-def write_sbol_file(sbol_string, file_name):
-    """Write out sbol string to file."""
-
-    write_to_file(sbol_string, file_name)
-
-
-def write_to_file(string_to_write, file_name):
-    """Write a file."""
-    f_path = os.getcwd() + "/" + file_name
-    f_handle = open(f_path, 'w')
-    f_handle.write(string_to_write)
-    f_handle.close()
-    return
+    sbol_handle = open(sbol_path, 'w')
+    sbol_handle.write(sbol_string)
+    sbol_handle.close()
+    return sbol_file
 
 
 def make_input_transition_sbml_file(input_species_list, transition_id, operon_id, trans_logic):
@@ -297,7 +271,7 @@ def determine_and_insert(connection, cursor, component_keyword, component_data=[
     return data_id
 
 
-def insert_new_device(connection, cursor, device):
+def insert_new_device(connection, cursor, device, path_directory):
     """Inserts a new device into the database.
         Argument(s):
             connection - sqlite3 connection object
@@ -319,7 +293,8 @@ def insert_new_device(connection, cursor, device):
         if component_keyword == "Operon" and len(output_species_list) > 0:
 
             sbol_files.append(
-                make_sbol_file(output_species_list, promoter_list, prev_operon_direction, parent_ids_dict["Operon"]))
+                make_sbol_file(output_species_list, promoter_list,\
+                    prev_operon_direction, parent_ids_dict["Operon"]), path_directory)
             prev_operon_direction = component_data[:-1:][0]
 
 
@@ -384,8 +359,8 @@ def insert_new_device(connection, cursor, device):
                     parent_id = parent_ids_dict[parent_keyword]
                     component_id = determine_and_insert(connection, cursor, component_keyword, component_data,
                                                         parent_id)
-            else:
-                promoter_list.append("p" + component_data)
+                else:
+                    promoter_list.append("p" + component_data[0])
         else:
             plasmid_id = determine_and_insert(connection, cursor, component_keyword, component_data)
             parent_ids_dict["Plasmid"] = plasmid_id
@@ -406,20 +381,22 @@ def insert_new_device(connection, cursor, device):
 
 
 def main():
-    device_info = sys.argv[1::]
-    reset_db()
-    conn, cur = db.db_open("sbider.db")
-    sbol_files = insert_new_device(conn, cur, device_info)
+    web_path = sys.argv[1]
+    database_file = web_path + "sbider.db"
+    device_info = sys.argv[2::]
+    conn, cur = db.db_open(database_file)
+    sbol_files = insert_new_device(conn, cur, device_info, web_path)
     db.db_close(conn, cur)
 
-    conn, cur = db.db_open("sbider.db")
-    sg.create_network_json_file(cur, "whole_network.json")
-    db.db_close(conn, cur)
-
-    gn.create_whole_network_sbml()
+    #conn, cur = db.db_open(database_file)
+    #sg.create_network_json_file(cur, web_path + "whole_network.json")
+    #db.db_close(conn, cur)
+    #gn.create_whole_network_sbml()
+    
     return sbol_files
 
 
 if __name__ == "__main__":
-    main()
+    sbol_files = main()
+    print(sbol_files)
 

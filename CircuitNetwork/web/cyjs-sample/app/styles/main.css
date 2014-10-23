@@ -91,9 +91,9 @@ div.CAD {
     
 }
 
-img.CAD {
+img.CAD, #displayedCAD {
     height: 200px;
-    width: auto; 
+    width: 200px; 
     z-index: -1000;
     
 }
