@@ -1,9 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package communication;
+
 import com.sun.mail.smtp.SMTPTransport;
 import java.security.Security;
 import java.util.Date;
@@ -14,36 +10,26 @@ import javax.mail.Session;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-/**
- *
- * @author valeriy sosnovskiy jenhan tao
- */
+
 public class GoogleMail {
-    public GoogleMail(String name, String email, String affiliation,String message){
-      userName = name;
-      userEmail = email;
-      school = affiliation; 
-      userMessage = message;
-      
-        
+    private GoogleMail() {
     }
-    public static String userName;  //user name of the client 
-    public static String userEmail; //user email of the client
-    public static String school;    //user affiliation of the client 
-    public static String userMessage; //user message of the client
-    public static String username  = "ucsdigem2014";
-    public static String password = "javarocks";
-        
+
+    /**
+     * Send email using GMail SMTP server.
+     *
+     * @param username GMail username
+     * @param password GMail password
+     * @param recipientEmail TO recipient
+     * @param title title of the message
+     * @param message message to be sent
+     * @throws AddressException if the email address parse failed
+     * @throws MessagingException if the connection is dead or not in the connected state or if the message is not a MimeMessage
+     */
+    //example: GoogleMail.Send("ravencadhelp", "Cidar1123", "eapple@bu.edu", "Guess who can send emails using a server now?", "test message");
+
     public static void Send(final String username, final String password, String recipientEmail, String title, String message) throws AddressException, MessagingException {
-        
-        GoogleMail.username = username;
-        GoogleMail.password = password; 
-        message = "Thank you for contacting us, we will get back to you shortly";
-        recipientEmail = userEmail;
-        title = "Contact";
         GoogleMail.Send(username, password, recipientEmail, "", title, message);
-        
-        
     }
 
     /**
@@ -61,7 +47,7 @@ public class GoogleMail {
     public static void Send(final String username, final String password, String recipientEmail, String ccEmail, String title, String message) throws AddressException, MessagingException {
         Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
         final String SSL_FACTORY = "javax.net.ssl.SSLSocketFactory";
-        
+
         // Get a Properties object
         Properties props = System.getProperties();
         props.setProperty("mail.smtps.host", "smtp.gmail.com");
@@ -101,8 +87,7 @@ public class GoogleMail {
         SMTPTransport t = (SMTPTransport)session.getTransport("smtps");
 
         t.connect("smtp.gmail.com", username, password);
-        t.sendMessage(msg, msg.getAllRecipients());     
-        
+        t.sendMessage(msg, msg.getAllRecipients());      
         t.close();
     }
 }
