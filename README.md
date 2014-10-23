@@ -5,7 +5,7 @@ Below is the organization of the SBiDer project and brief summary of its compone
 **********
 PigeonToPNG
 **********
-	Java files to create PigeonCAD SBOL visuals from database entries of operons.
+	Java project used to create PigeonCAD SBOL visuals from database entries of operons.
 **********
 -----
 **********

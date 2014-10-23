@@ -21,10 +21,7 @@ def build_sbider_network(directory_path, user_query, indirect=False):
     database_file = directory_path + "/sbider.db"
     conn, cur = db.db_open(database_file)
 
-    try:
-        logic_dictionary = parser.parse_logic(cur, user_query)
-    except TypeError:
-	print >> sys.stderr, '{"error": "Invalid input. The species couldn't be found in the database. Please check your input or contribute to our database."}'
+    logic_dictionary = parser.parse_logic(cur, user_query)
     input_dictionary, output_dictionary = db.make_ope_id_spe_id_dics(cur)
     repressor_dictionary = db.make_ope_id_rep_spe_id_dic(cur)
 
@@ -42,7 +39,7 @@ def build_sbider_network(directory_path, user_query, indirect=False):
 
             operon_path_per_start_species.extend(operon_path_list)
         all_operon_path.append(operon_path_per_start_species)
-        path_json = grapher.create_subnetwork_json_string(cur, operon_path_per_start_species)
+        path_json = grapher.create_subnetwork_json_string(cur, operon_path_per_start_species, database_file)
         return path_json
 
 
