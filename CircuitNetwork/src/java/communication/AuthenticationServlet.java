@@ -18,11 +18,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-
-
-
-import WeyekinPoster;
-import PigeonTPNG.parseFile;
+//import PigeonTPNG.*;
+//import WeyekinPoster.*;
     
   
 
@@ -151,25 +148,24 @@ protected void processGetRequest(HttpServletRequest request, HttpServletResponse
                case "uploadNew":
                {
                     String upload = request.getParameter("data");
-                    String output = currentController.executeUpload(upload);
-                    out.write(output);
-                    out.write(upload);
+                    String pigeonList = currentController.executeUpload(upload);
+                    out.write("AuthenticationServlet - pigeonList:" + pigeonList);
+                    out.write("AuthenticationServlet - upload:" + upload);
                     
                     /***
                     * JOAQUIN'S ATTEMPT TO PRODUCE NEW PIGEON IMAGES. PLEASE CHECK
                     * IMPORTING. 
                     * NEED TO GRAB THE ROOT PATH. 
-                    String Path = this.getServletContext().getRealPath("/"); //CircuitNetwork/build/web/
-                    pigeonTextPath = path + "pigeonTexts/";
-                    pigeonPNGPath = path + "pigeonImages/";
+                    String path = this.getServletContext().getRealPath("/"); //CircuitNetwork/build/web/
+                    string pigeonPath = path + "pigeonImages/";
                     File pigeonTxt = null;
                     I RETURN A STRING THAT IS COMMA DELEMITED (A ENTRY FOR 
                     * EVERY OPERON IN PLASMID. THE FOLLOWING CODE
                     * BREAKS UP THE STRING "out" AND PLACES INTO AN ARRAY
                     * FOR ITERATION. NEED TO SAVE PIGEON IMAGES IN 
                     * pigeonPNGPath
-                    for (String pigeonFile: out.split(",")){
-                        pigeonTxt = File(pigeonTextPath + pigeonFile);
+                    for (String pigeonFile: pigeonList.split(",")){
+                        pigeonTxt = File(pigeonPath + pigeonFile);
                         parseFile(pigeonTxt); //Can you change where to save in the directory?
                     }
                     ***/

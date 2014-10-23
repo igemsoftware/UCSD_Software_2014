@@ -271,7 +271,7 @@ def determine_and_insert(connection, cursor, component_keyword, component_data=[
     return data_id
 
 
-def insert_new_device(connection, cursor, device):
+def insert_new_device(connection, cursor, device, path_directory):
     """Inserts a new device into the database.
         Argument(s):
             connection - sqlite3 connection object
@@ -293,7 +293,8 @@ def insert_new_device(connection, cursor, device):
         if component_keyword == "Operon" and len(output_species_list) > 0:
 
             sbol_files.append(
-                make_sbol_file(output_species_list, promoter_list, prev_operon_direction, parent_ids_dict["Operon"]))
+                make_sbol_file(output_species_list, promoter_list,\
+                    prev_operon_direction, parent_ids_dict["Operon"]), path_directory)
             prev_operon_direction = component_data[:-1:][0]
 
 
@@ -380,14 +381,15 @@ def insert_new_device(connection, cursor, device):
 
 
 def main():
-    database_file = sys.argv[1] + "sbider.db"
+    web_path = sys.argv[1]
+    database_file = web_path + "sbider.db"
     device_info = sys.argv[2::]
     conn, cur = db.db_open(database_file)
-    sbol_files = insert_new_device(conn, cur, device_info
+    sbol_files = insert_new_device(conn, cur, device_info, web_path)
     db.db_close(conn, cur)
 
     #conn, cur = db.db_open(database_file)
-    #sg.create_network_json_file(cur, "whole_network.json")
+    #sg.create_network_json_file(cur, web_path + "whole_network.json")
     #db.db_close(conn, cur)
     #gn.create_whole_network_sbml()
     
