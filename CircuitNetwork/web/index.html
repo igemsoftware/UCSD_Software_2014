@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>Home</title>
+        <title>SBiDer</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
@@ -30,13 +30,13 @@ and open the template in the editor.
                     <div class="btn btn-lg" id="wiki">Wiki</div>
                     <div class="btn btn-lg" id="app">Application</div>
                    <div class="btn btn-lg" id="contact">Contact</div>
-                   <div class="btn btn-lg"  data-toggle="modal" data-target="#loginModal">Register</div>
+                  <!-- <div class="btn btn-lg"  data-toggle="modal" data-target="#loginModal">Register</div>-->
                     
                </div>
                
-                <div class="btn btn-lg pull-right " id="log" data-toggle="modal" data-target="#loginModal" ><span class="glyphicon glyphicon-log-in" id="userInfo" > LOGIN</span></div>
+               <!-- <div class="btn btn-lg pull-right " id="log" data-toggle="modal" data-target="#loginModal" ><span class="glyphicon glyphicon-log-in" id="userInfo" > LOGIN</span></div>
                 <div class="btn btn-lg pull-right " id="logOut" style="visibility:hidden" ><span class="glyphicon glyphicon-log-out" id="userInfo" > LOGOUT</span></div>
-                 
+                 -->
                 
             </nav>
        
@@ -79,7 +79,7 @@ and open the template in the editor.
                             </div>
                                 <p class="text-success" id="path">Find the right path for you!</p>
                            
-                         <button class="btn-lg btn-primary text-center" id="signMe" data-toggle="modal" data-target="#loginModal">Sign Up!</button>
+                                <button class="btn-lg btn-primary text-center" id="signMe"> <!--data-toggle="modal" data-target="#loginModal"-->See It!</button>
                         </div>
                     </div>
                 </div>
@@ -128,7 +128,7 @@ and open the template in the editor.
                     <div class="col-md-12 ">
                        
                         <div class="panel text-center" id="sponsors">
-                             <img class="img-responsive" id="thanks" src="ProfilePics/FinalLabels.png">
+                             <img class="img-responsive" id="thanks" src="ProfilePics/SPONSORS.png">
                             <div class="panel">  
                             </div> 
                         </div>
@@ -259,6 +259,73 @@ and open the template in the editor.
             </div>
 
             <!--end of modal-->
+           <div class="modal fade  modal-lg text-center" id="appearModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header text-center">
+                     
+                      <h1 >Welcome to SBiDer!</h1>
+                      
+                      
+                  </div>
+                   <div class="modal-body" >
+                       
+                           <div id="carouselFirst" class="carousel slide" data-ride="carousel">
+  <!-- Indicators 
+  <ol class="carousel-indicators">
+    <li data-target="#carouselFirst" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselFirst" data-slide-to="1"></li>
+    <li data-target="#carouselFirst" data-slide-to="2"></li>
+    <li data-target="#carouselFirst" data-slide-to="3"></li>
+  </ol>
+-->
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+      <img src="ProfilePics/network.png" alt="...">
+      <div class="carousel-caption">
+       
+      </div>
+    </div>
+    <div class="item">
+      <img src="..." alt="...">
+      <div class="carousel-caption">
+        ...
+      </div>
+    </div>
+    ...
+  </div>
+
+  <!-- Controls 
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+  -->
+</div>
+                         
+                  
+            
+                      
+                 
+                      
+        <div class="row">
+                <button class="btn btn-lg btn-success" data-dismiss="modal">
+                    Proceed!
+                </button>
+            </div>          
            
+       
+                  </div>
+      </div>
+             
+           
+
+    </div>
+               
+  </div>
+            
     </body>
 </html>

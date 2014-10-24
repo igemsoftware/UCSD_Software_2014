@@ -8,7 +8,12 @@
  */
 
 $(document).ready(function(){
+    window.onload = function() {
+    $('#appearModal').modal('show');
     
+ 
+};
+
     //redirecting to other pages 
     $("#home").click(function(){
        window.location.href="index.html"; 
@@ -26,6 +31,9 @@ $(document).ready(function(){
        window.open("http://2014.igem.org/Team:UCSD_Software", '_blank'); 
     });
      $("#app").click(function(){
+       window.location.href="AppPage.html"; 
+    });
+     $("#signMe").click(function(){
        window.location.href="AppPage.html"; 
     });
     

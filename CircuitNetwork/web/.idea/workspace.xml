@@ -11,6 +11,9 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/web$locAL_ls.coverage" NAME="locAL_ls Coverage Results" MODIFIED="1413995625068" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../../Classes/Biological-Databases/beng183" />
+  </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
@@ -22,23 +25,7 @@
     <favorites_list name="web" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="sbider_upload_database.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/sbider_upload_database.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.57604307" vertical-offset="5482" max-vertical-offset="6240">
-              <caret line="410" column="13" selection-start-line="410" selection-start-column="13" selection-end-line="410" selection-end-column="13" />
-              <folding>
-                <marker date="1413920952000" expanded="true" signature="529:547" placeholder="SELECT rowid..missing_value..." />
-                <marker date="1413920952000" expanded="true" signature="818:852" placeholder="SELECT {} FR..." />
-                <marker date="1413920952000" expanded="true" signature="1145:1178" placeholder="SELECT * FRO..." />
-                <marker date="1413920952000" expanded="true" signature="1561:1605" placeholder="SELECT spe_i..Species..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -54,11 +41,16 @@
         <option value="$PROJECT_DIR$/../src/java/communication/ControllerMain.java" />
         <option value="$PROJECT_DIR$/cyjs-sample/app/scripts/controllers/main.js" />
         <option value="$PROJECT_DIR$/sbider_upload_database.py" />
+        <option value="$USER_HOME$/Desktop/temp_sbider/sbider_network_builder.py" />
+        <option value="$USER_HOME$/Desktop/temp_sbider/sbider_grapher.py" />
+        <option value="$PROJECT_DIR$/../../../Classes/Biological-Databases/beng183/locAL_ls.py" />
+        <option value="$PROJECT_DIR$/../../../Classes/Biological-Databases/beng183/locAL_now.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="22" />
+    <option name="x" value="49" />
+    <option name="y" value="1017" />
     <option name="width" value="1916" />
     <option name="height" value="1178" />
   </component>
@@ -88,7 +80,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -97,133 +88,14 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CircuitNetwork" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CircuitNetwork" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CircuitNetwork" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cyjs-sample" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CircuitNetwork" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cyjs-sample" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CircuitNetwork" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cyjs-sample" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CircuitNetwork" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cyjs-sample" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Classes/Biological-Databases/beng183/locAL_ls.py" />
     <property name="options.lastSelected" value="appearance" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
@@ -231,6 +103,7 @@
     <property name="FullScreen" value="false" />
     <property name="LayoutCode.rearrangeEntriesPython" value="false" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/joaquinreyna/Programming/UCSD-iGEM_2014/CircuitNetwork/web/sbider_grapher.py" />
+    <property name="recentsLimit" value="5" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -239,10 +112,30 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/../../../Classes/Biological-Databases/beng183" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.locAL_ls">
+    <configuration default="false" name="locAL_ls" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../../Classes/Biological-Databases/beng183" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="web" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../../Classes/Biological-Databases/beng183/locAL_ls.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PyDebugRunner" />
+      <ConfigurationWrapper RunnerId="PyDebugRunner" />
+      <method />
+    </configuration>
     <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -327,6 +220,9 @@
       <option name="PARAMETERS" value="" />
       <method />
     </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -348,9 +244,6 @@
       <option name="PUREUNITTEST" value="true" />
       <option name="PARAMS" value="" />
       <option name="USE_PARAM" value="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
@@ -393,7 +286,14 @@
       <option name="USE_PATTERN" value="false" />
       <method />
     </configuration>
-    <list size="0" />
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="Python.locAL_ls" />
+    </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Python.locAL_ls" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="SvnConfiguration">
@@ -408,7 +308,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1916" height="1178" extended-state="6" />
+    <frame x="49" y="1017" width="1916" height="1178" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -416,19 +316,19 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18463181" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18623266" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39963168" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32912534" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -451,13 +351,23 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/sbider_upload_database.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="5482" max-vertical-offset="6240">
+          <caret line="410" column="13" selection-start-line="410" selection-start-column="13" selection-end-line="410" selection-end-column="13" />
+          <folding>
+            <marker date="1413942505000" expanded="true" signature="-1:-1" placeholder="SELECT rowid..missing_value..." />
+            <marker date="1413942505000" expanded="true" signature="-1:-1" placeholder="SELECT {} FR..." />
+            <marker date="1413942505000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..." />
+            <marker date="1413942505000" expanded="true" signature="-1:-1" placeholder="SELECT spe_i..Species..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/sbider_grapher.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="345" max-vertical-offset="13200">
           <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding>
-            <element signature="e#326#347#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -465,28 +375,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2370" max-vertical-offset="9450">
           <caret line="158" column="29" selection-start-line="158" selection-start-column="23" selection-end-line="158" selection-end-column="29" />
-          <folding>
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="DROP TABLE m..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="CREATE TABLE..Species..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="CREATE TABLE..Plasmid..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="CREATE TABLE..Operon..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="CREATE TABLE..PlasmidOperon..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="CREATE TABLE..OperonInputTransition..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="CREATE TABLE..InputTransition..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="CREATE TABLE..InputTransitionSpecies..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="CREATE TABLE..OperonOutputTransition..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="CREATE TABLE..OutputTransition..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="CREATE TABLE..OutputTransitionSpecies..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="CREATE TABLE..User..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..missing_value..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="SELECT Opero..OperonInputTransition..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="SELECT Opero..OperonOutputTransition..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="SELECT Opero..OperonInputTransition..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="SELECT Plasm..PlasmidOperon..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="SELECT Plasm..PlasmidOperon..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -494,7 +382,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="147" max-vertical-offset="2325">
           <caret line="17" column="40" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -503,10 +390,10 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="6240" max-vertical-offset="6465">
           <caret line="416" column="26" selection-start-line="416" selection-start-column="26" selection-end-line="416" selection-end-column="26" />
           <folding>
-            <marker date="1413920952000" expanded="true" signature="529:547" placeholder="SELECT rowid..missing_value..." />
-            <marker date="1413920952000" expanded="true" signature="818:852" placeholder="SELECT {} FR..." />
-            <marker date="1413920952000" expanded="true" signature="1145:1178" placeholder="SELECT * FRO..." />
-            <marker date="1413920952000" expanded="true" signature="1561:1605" placeholder="SELECT spe_i..Species..." />
+            <marker date="1413942505000" expanded="true" signature="-1:-1" placeholder="SELECT rowid..missing_value..." />
+            <marker date="1413942505000" expanded="true" signature="-1:-1" placeholder="SELECT {} FR..." />
+            <marker date="1413942505000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..." />
+            <marker date="1413942505000" expanded="true" signature="-1:-1" placeholder="SELECT spe_i..Species..." />
           </folding>
         </state>
       </provider>
@@ -515,9 +402,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="12314" max-vertical-offset="13230">
           <caret line="855" column="52" selection-start-line="855" selection-start-column="52" selection-end-line="855" selection-end-column="52" />
-          <folding>
-            <element signature="e#326#347#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -525,28 +409,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="9270" max-vertical-offset="9420">
           <caret line="618" column="69" selection-start-line="618" selection-start-column="69" selection-end-line="618" selection-end-column="69" />
-          <folding>
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="DROP TABLE m..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="CREATE TABLE..Species..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="CREATE TABLE..Plasmid..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="CREATE TABLE..Operon..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="CREATE TABLE..PlasmidOperon..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="CREATE TABLE..OperonInputTransition..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="CREATE TABLE..InputTransition..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="CREATE TABLE..InputTransitionSpecies..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="CREATE TABLE..OperonOutputTransition..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="CREATE TABLE..OutputTransition..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="CREATE TABLE..OutputTransitionSpecies..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="CREATE TABLE..User..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..missing_value..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="SELECT Opero..OperonInputTransition..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="SELECT Opero..OperonOutputTransition..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="SELECT Opero..OperonInputTransition..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="SELECT Plasm..PlasmidOperon..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="SELECT Plasm..PlasmidOperon..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -554,9 +416,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="13035">
           <caret line="517" column="79" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#326#347#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -571,9 +430,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="12455" max-vertical-offset="13200">
           <caret line="588" column="65" selection-start-line="588" selection-start-column="65" selection-end-line="588" selection-end-column="65" />
-          <folding>
-            <element signature="e#326#347#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -581,7 +437,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.3499327" vertical-offset="3232" max-vertical-offset="3975">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -589,7 +444,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3690">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -597,28 +451,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2370" max-vertical-offset="9450">
           <caret line="158" column="29" selection-start-line="158" selection-start-column="23" selection-end-line="158" selection-end-column="29" />
-          <folding>
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="DROP TABLE m..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="CREATE TABLE..Species..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="CREATE TABLE..Plasmid..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="CREATE TABLE..Operon..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="CREATE TABLE..PlasmidOperon..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="CREATE TABLE..OperonInputTransition..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="CREATE TABLE..InputTransition..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="CREATE TABLE..InputTransitionSpecies..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="CREATE TABLE..OperonOutputTransition..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="CREATE TABLE..OutputTransition..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="CREATE TABLE..OutputTransitionSpecies..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="CREATE TABLE..User..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..missing_value..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="SELECT Opero..OperonInputTransition..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="SELECT Opero..OperonOutputTransition..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="SELECT Opero..OperonInputTransition..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="SELECT Plasm..PlasmidOperon..." />
-            <marker date="1413779886000" expanded="true" signature="-1:-1" placeholder="SELECT Plasm..PlasmidOperon..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -626,7 +458,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.14535666" vertical-offset="132" max-vertical-offset="2310">
           <caret line="17" column="40" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -634,7 +465,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6519886" vertical-offset="13461" max-vertical-offset="15015">
           <caret line="928" column="53" selection-start-line="928" selection-start-column="53" selection-end-line="928" selection-end-column="53" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -642,7 +472,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6123033" vertical-offset="52" max-vertical-offset="1875">
           <caret line="36" column="48" selection-start-line="36" selection-start-column="48" selection-end-line="36" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -650,7 +479,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5558546" vertical-offset="397" max-vertical-offset="1440">
           <caret line="54" column="16" selection-start-line="54" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -658,7 +486,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.14644352" vertical-offset="105" max-vertical-offset="855">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -666,19 +493,44 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="3.1380754" vertical-offset="30" max-vertical-offset="5715">
           <caret line="152" column="21" selection-start-line="150" selection-start-column="20" selection-end-line="150" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sbider_upload_database.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.57604307" vertical-offset="5482" max-vertical-offset="6240">
-          <caret line="410" column="13" selection-start-line="410" selection-start-column="13" selection-end-line="410" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.5666218" vertical-offset="5324" max-vertical-offset="6075">
+          <caret line="399" column="13" selection-start-line="399" selection-start-column="13" selection-end-line="399" selection-end-column="13" />
           <folding>
-            <marker date="1413920952000" expanded="true" signature="529:547" placeholder="SELECT rowid..missing_value..." />
-            <marker date="1413920952000" expanded="true" signature="818:852" placeholder="SELECT {} FR..." />
-            <marker date="1413920952000" expanded="true" signature="1145:1178" placeholder="SELECT * FRO..." />
-            <marker date="1413920952000" expanded="true" signature="1561:1605" placeholder="SELECT spe_i..Species..." />
+            <marker date="1413942505000" expanded="true" signature="-1:-1" placeholder="SELECT rowid..missing_value..." />
+            <marker date="1413942505000" expanded="true" signature="-1:-1" placeholder="SELECT {} FR..." />
+            <marker date="1413942505000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..." />
+            <marker date="1413942505000" expanded="true" signature="-1:-1" placeholder="SELECT spe_i..Species..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.589198" vertical-offset="24049" max-vertical-offset="25110">
+          <caret line="1733" column="0" selection-start-line="1733" selection-start-column="0" selection-end-line="1733" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../Classes/Biological-Databases/beng183/locAL_ls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.012875536" vertical-offset="3561" max-vertical-offset="4260">
+          <caret line="241" column="0" selection-start-line="241" selection-start-column="0" selection-end-line="241" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../Classes/Biological-Databases/beng183/locAL.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.45885634" vertical-offset="751" max-vertical-offset="3870">
+          <caret line="72" column="16" selection-start-line="72" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+          <folding>
+            <element signature="e#542#560#0" expanded="true" />
           </folding>
         </state>
       </provider>

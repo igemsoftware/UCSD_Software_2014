@@ -1,3 +1,4 @@
+package communication;
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -13,12 +14,13 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.JFileChooser;
+import communication.WeyekinPoster;
 
 /**
  *
  * @author Jenhan Tao <jenhantao@gmail.com>
  */
-public class PigeonTPNG {
+public class PigeonToPNG {
 
     /**
      * @param args the command line arguments
@@ -43,7 +45,7 @@ public class PigeonTPNG {
         }
     }
 
-    private static void parseFile(File file) {
+    public static void parseFile(File file) {
         BufferedReader reader = null;
         try {
             reader = new BufferedReader(new FileReader(file.getAbsolutePath()));

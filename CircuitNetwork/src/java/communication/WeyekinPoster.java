@@ -1,10 +1,8 @@
-package communication;
-
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-//package devicesvisualizer;
+package communication;
 
 import java.io.File;
 import java.io.IOException;
@@ -33,16 +31,16 @@ public class WeyekinPoster {
 
     //*****WebGraphViz variables*****\\
     private static String mGraphVizString;
-    private static final String mGraphVizImageIdentifier = "Weyekin output image";
+    private static String mGraphVizImageIdentifier = "Weyekin output image";
     private static URI mGraphVizURI;
-    private static final String mGraphVizPath = "http://cidar1.bu.edu:5801/graphviz/";
+    private static String mGraphVizPath = "http://cidar1.bu.edu:5801/graphviz/";
     private static String mGraphVizDotText = "digraph { a [shape=pentagon]; a -> b }";
     private static String mGraphVizAspectRatioString = "";
     //*****Pigeon variables**********\\
     private static String mPigeonString;
-    private static final String mPigeonImageIdentifier = "Weyekin output image";
+    private static String mPigeonImageIdentifier = "Weyekin output image";
     private static URI mPigeonURI;
-    private static final String mPigeonPath = "http://cidar1.bu.edu:5801/";
+    private static String mPigeonPath = "http://cidar1.bu.edu:5801/";
     private static String mPigeonText = "| foo \n | bar";
     private static String mPigeonBackgroundColorHexString = "";
     private static boolean _shouldILaunchBrowserPage = true;

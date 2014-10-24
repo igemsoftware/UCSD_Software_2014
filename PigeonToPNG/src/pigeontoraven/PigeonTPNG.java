@@ -51,6 +51,9 @@ public class PigeonTPNG {
             String toSubmit = "";
             while (line != null) {
                 toSubmit = toSubmit + line + "\n";
+                if (line.contains("<p")) {
+                toSubmit = toSubmit + "-\n";
+                }
                 line = reader.readLine();
             }
             System.out.println(toSubmit);
