@@ -11,8 +11,11 @@ body{
    color: white;
    box-sizing: border-box;
    border-bottom: 4px solid #00004C;
+   
 }
-
+#nav.btn{
+    margin: auto;
+}
 #nav .btn:hover{
    color: gold;  
 }
