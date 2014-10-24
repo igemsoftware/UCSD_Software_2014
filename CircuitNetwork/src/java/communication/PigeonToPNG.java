@@ -3,7 +3,6 @@ package communication;
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package communication;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;

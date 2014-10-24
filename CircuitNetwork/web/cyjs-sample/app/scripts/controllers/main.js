@@ -411,6 +411,10 @@ angular.module('cyViewerApp')
             }
             ;
         };
+        
+        $scope.openCadDetail = function(){
+            $("#sbolModal").modal('show');
+        };
 
         //Highlighting and controlling selected paths.
 
@@ -901,7 +905,12 @@ angular.module('cyViewerApp')
                     networkData = JSON.parse(data);
                     angular.element('.loading').hide();
 
-                    if (networkData.operonsId.length === 0 && $scope.BooleanTrue === undefined) {
+                    if (networkData.operonsId.length >= 1){
+                        $scope.cynet.load(networkData.elements);
+                        console.log(networkData);
+                        $scope.circuitCtrl();
+                    }
+                    else if (networkData.operonsId.length === 0 && $scope.BooleanTrue === "undefined") {
                         $scope.errorMessage ='No circuits found. Please try searching for an Indirect Path (check the box marked "Indirect Path").';
                         $("#errorModal").modal("show");
                     }
@@ -909,14 +918,14 @@ angular.module('cyViewerApp')
                         $scope.errorMessage = 'No circuits found in current database. Results may change as the SBiDer web grows.';
                         $("#errorModal").modal("show");
                     }
-                    else if (typeof networkData.error === "string") {
-                        $scope.errorMessage = networkData.error;
-                        $("#errorModal").modal("show");
-                    }
                     else {
-                        $scope.cynet.load(networkData.elements);
-                        console.log(networkData);
-                        $scope.circuitCtrl();
+                        if(typeof networkData.error === "string"){
+                            $scope.errorMessage = networkData.error;
+                        }
+                        else{
+                            $scope.errorMessage = "We apologize, but the SBiDer server is experiencing some techical difficulties.";
+                        };
+                        $("#errorModal").modal("show");
                     };
 
                 });

@@ -32,7 +32,7 @@
 	<!--<img src ="http://ubic.ucsd.edu/ubic_logo_s.png" id = "book"/>-->
         <div ng-show="cadState.show" class="CAD">
             <!--<img src ="http://cidar1.bu.edu:5801/pigeonHelp/file.173.8.230.1931098-trans.png" width="110%" height="110%" id = "book"/>-->
-            <img id="displayedCad" class="CAD" ng-src="../../pigeonImages/{{currentCad}}"/>
+            <img id="displayedCad" class="CAD" ng-click="openCadDetail()" ng-src="../../pigeonImages/{{currentCad}}"/>
             <p class="CAD">{{currentCadName}}</p>
         </div>
         <div ng-show="cadState.show" class="path">
@@ -188,7 +188,6 @@
 </div>
 
 <!-- Modal -->
-<!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -197,13 +196,6 @@
         <h1 class="modal-title text-primary text-center" id="myModalLabel">Documentation </h1>
       </div>
       <div class="modal-body text-center">
-         
-<<<<<<< HEAD
-          <div class="panel">
-              <h2>Using The Application</h2>
-              <ol>
-                  <li>First enter your starting species/species into the input:<br>
-=======
         <div class="panel">
             <h2>Using The Application</h2>
             <ol>
@@ -212,50 +204,12 @@
                 OR <br>
                 Multiple entries should be separated by the word "and", with each entry being separated by a space:<br>
                 </li>
->>>>>>> b6cb9169e972bd01350423e41b06c5adddc53ece
+
 
                 <li> Enter your final species,  following  the same rules as the ones for starting species.<br></li>
 
                 <li>You can also chose a direct or indirect path by checking of the box. The indirect path is a connection of  disjoint paths by convergence for  the production of the final output species.<br></li>
 
-<<<<<<< HEAD
-      Multiple entries should be separated by the word "and", with each entry being separated by a space:<br>
-              </li>
-              <li> Enter your final species,  following  the same rules as the ones for starting species.<br></li>
-      
-              <li>You can also chose a direct or indirect path by checking of the box. The indirect path is a connection of  disjoint paths by convergence for  the production of the final output species.<br></li>
-      
-              <li>Finally press Explore and see your results. <br>
-              <button ng-click="exampleSet()" > Click to see example</button>
-          </div>
-              </li>
-              </ol>
-   <h3>What you will be able to see</h3>
-   
-   <ol >
-       <li >
-          Network exploration of genetic devices 
-       </li>
-       <li>
-           Visuals of devices in SBOL format
-       </li>
-       <li>
-           Information about devices and references to literature
-       </li>
-       <li>
-           CAD for novel circuit design 
-       </li>
-       <li>
-           Centralized access to database of information            
-       </li>
-       <li>
-           Able to have user-contributed expansion to database
-       </li>
-   </ol>
-   
-          
-              
-=======
                 <li>Finally press Explore and see your results. <br></li>
             </ol>
 
@@ -287,8 +241,7 @@
                 </li>
             </ol>
         </div>
-        <button class="btn btn-primary" ng-click="exampleSet()" >Try an example</button>
->>>>>>> b6cb9169e972bd01350423e41b06c5adddc53ece
+          <br><button class="btn btn-primary" ng-click="exampleSet()" >Try an example</button>
           
       </div>
       <div class="modal-footer">
@@ -327,31 +280,31 @@
                                         <h4 class="col-md-4 col-md-offset-4"><b>Operon</b></h4>
                                         <button type="button" class="btn btn-xs btn-danger" ng-click="removeOperon()">Remove <span class="glyphicon glyphicon-remove"></span></button>       
                                     </div>
-                                    <div class="row" ng-repeat="field in ope.data">
+                                    <div class="row text-center" ng-repeat="field in ope.data">
                                         <!-- Operon Fields -->
-                                        <label class="col-sm-3">{{field.label}}</label>
+                                        <label class="col-sm-3 col-sm-offset-2">{{field.label}}</label>
                                         <input class="col-sm-3 textbox" type="text" placeholder="{{field.placeholder}}" ng-model="field.value" required ng-minlength=1/>
                                     </div>
                                     
                                     <!-- Span containing the Input Transitions -->
                                     <span ng-repeat="inTran in inputTransitions[ope.opeNum]">
                                     <br><hr><br>
-                                    <div class="row">
+                                    <div class="row text-center">
                                         <h4 class="col-md-4 col-md-offset-4"><b>Input Transition</b></h4>
                                         <button type="button" class="btn btn-xs btn-danger" ng-click="removeInTran(ope.opeNum)"><span class="glyphicon glyphicon-remove"></span></button>       
                                     </div>
-                                    <div class="row" ng-repeat="field in inTran.data">
-                                        <label class="col-sm-3">{{field.label}}</label>
+                                    <div class="row text-center" ng-repeat="field in inTran.data">
+                                        <label class="col-sm-3 col-sm-offset-2">{{field.label}}</label>
                                         <input class="col-sm-3 textbox" type="text" placeholder="{{field.placeholder}}" ng-model="field.value" required ng-minlength=1/>
                                     </div>
                                     <br><button type="button" class="btn btn-sm btn-primary text-center" ng-click="addInTran(ope.opeNum)">Add Input Transition</button><br><br>
                                     <span ng-repeat="inSpec in inputSpecies[ope.opeNum][inTran.inTranNum]">
-                                        <div class="row">
+                                        <div class="row text-center">
                                             <h4 class="col-md-4 col-md-offset-4"><b>Input Species</b></h4>
                                             <button type="button" class="btn btn-xs btn-danger" ng-click="removeInSpec(ope.opeNum, inTran.inTranNum)"><span class="glyphicon glyphicon-remove"></span></button>       
                                         </div>
-                                        <div class="row" ng-repeat="field in inSpec.data">
-                                            <label class="col-sm-3">{{field.label}}</label>
+                                        <div class="row text-center" ng-repeat="field in inSpec.data">
+                                            <label class="col-sm-3 col-sm-offset-2">{{field.label}}</label>
                                             <input class="col-sm-3 textbox" type="text" placeholder="{{field.placeholder}}" ng-model="field.value" required ng-minlength=1/>
                                         </div>
                                     </span> <!-- End of Input Species -->
@@ -359,12 +312,12 @@
                                     
                                     <!-- Span containing the Output Species. -->
                                     <span ng-repeat="outSpec in outputSpecies[ope.opeNum][inTran.inTranNum]">
-                                        <div class="row">
+                                        <div class="row text-center">
                                             <h4 class="col-md-4 col-md-offset-4"><b>Output Species</b></h4>
                                             <button type="button" class="btn btn-xs btn-danger" ng-click="removeOutSpec(ope.opeNum, inTran.inTranNum)"><span class="glyphicon glyphicon-remove"></span></button>       
                                         </div>
-                                        <div class="row" ng-repeat="field in outSpec.data">
-                                            <label class="col-sm-3">{{field.label}}</label>
+                                        <div class="row text-center" ng-repeat="field in outSpec.data">
+                                            <label class="col-sm-3 col-sm-offset-2">{{field.label}}</label>
                                             <input class="col-sm-3 textbox" type="text" placeholder="{{field.placeholder}}" ng-model="field.value" required ng-minlength=1/>
                                         </div>
                                         <br><button type="button" class="btn btn-sm btn-primary text-center" ng-click="addOutSpec(ope.opeNum,inTran.inTranNum)">Add Output Species</button><br><br>
@@ -419,6 +372,30 @@
                 <h4><b>{{genModal.message}}</b></h4>
             </div>
             <div id="genModal-footer" class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- SBOL Detail Modal -->
+<div class="modal fade" id="sbolModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id="sbolModal-head" class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title text-center" id="sbolModalLabel">SBOL Fullview</h4>
+            </div>
+            <div id="sbolModal-body" class="modal-body">
+                <img id="detailCad" class="text-center" ng-src="../../pigeonImages/{{currentCad}}"/>
+                <span class="container-fluid">
+                <span class="col-md-1"><button class="cadLeft btn btn-primary" ng-click="cadLeft()"><span class="glyphicon glyphicon-chevron-left"></span></button></span>
+                <h4 class="modal-title text-center col-md-10" id="sbolModalLabel">{{currentCadName}}</h4>
+                <span class="col-md-1"><button class="cadRight btn btn-primary" ng-click="cadRight()"><span class="glyphicon glyphicon-chevron-right"></span></button></span>
+            </span>
+            </div>
+            <div id="sbolModal-footer" class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
             </div>
         </div>
