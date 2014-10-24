@@ -322,7 +322,7 @@
                                 <br><hr><br>
                             </div>
                             <div class="row text-center">
-                                <div class="col-md-6 text-center form form-operon" ng-repeat="ope in operons">
+                                <div class="col-md-12 text-center form form-operon" ng-repeat="ope in operons">
                                     <div class="row">
                                         <h4 class="col-md-4 col-md-offset-4"><b>Operon</b></h4>
                                         <button type="button" class="btn btn-xs btn-danger" ng-click="removeOperon()">Remove <span class="glyphicon glyphicon-remove"></span></button>       
@@ -371,7 +371,7 @@
                                     </span> <!-- End of Output Species. -->
                                     </span><hr> <!-- End of Input Transitions -->
                                     
-                                    <br><br><button type="button" class="btn btn-primary"ng-click="addOperon(0)">Add Operon</button><br>
+                                    <br><button type="button" class="btn btn-primary"ng-click="addOperon(0)">Add Operon</button><br><br><hr><br>
                                 </div>
                                 <div class="row col-md-12"> <button type="submit" class="btn btn-lg" ng-click="updateDatabase()" ng-disabled="uploadForm.$invalid"><span id="search-box" class="glyphicon glyphicon-upload" ><span> Upload</span></span></button></div>         
                             </div>

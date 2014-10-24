@@ -550,7 +550,7 @@ angular.module('cyViewerApp')
         $scope.addOperon = function(plasNum){
             $scope.operons.push({
                 "data":{
-                    "name": {"label":"Name", "placeholder":"Name","value":""},
+                    "name": {"label":"Name", "placeholder":"Composition","value":""},
                     "direction":{"label":"Direction", "placeholder":"Left(L) or Right(R)","value":""}
                 },
                 "opeNum":$scope.operons.length,
@@ -662,7 +662,6 @@ angular.module('cyViewerApp')
 
         function initUpdate(){
             $scope.addPlasmid();
-            $scope.addOperon($scope.plasmids.length - 1);
             $scope.addOperon($scope.plasmids.length - 1);
         };
         initUpdate();
