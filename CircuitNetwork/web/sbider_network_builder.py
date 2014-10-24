@@ -20,10 +20,7 @@ import sbider_grapher as grapher
 def build_sbider_network(directory_path, user_query, indirect=False):
     database_file = directory_path + "/sbider.db"
     conn, cur = db.db_open(database_file)
-<<<<<<< HEAD
-=======
 
->>>>>>> fc2dea9b0a313b5b6f1775cc4cf26d1236d1de05
     logic_dictionary = parser.parse_logic(cur, user_query)
     input_dictionary, output_dictionary = db.make_ope_id_spe_id_dics(cur)
     repressor_dictionary = db.make_ope_id_rep_spe_id_dic(cur)

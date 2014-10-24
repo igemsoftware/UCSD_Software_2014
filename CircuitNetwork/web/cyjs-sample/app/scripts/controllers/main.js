@@ -724,7 +724,7 @@ angular.module('cyViewerApp')
  If you need to reset the form, click the \"Reset\" button in the lower left.";
             
             $("#genModal").modal("show");
->>>>>>> b6cb9169e972bd01350423e41b06c5adddc53ece
+
         };
 
         $scope.redirect = function(){
@@ -899,12 +899,7 @@ angular.module('cyViewerApp')
                 $.get("../../AuthenticationServlet", data, function(data) { //parameters are: servlet url, data, callback function
                     data = JSON.stringify(data).replace(/\\n/g, '', "").replace(/\\/g, '', "");
                     data = data.substr(1, data.length - 2);
-<<<<<<< HEAD
                     alert(data);
-                    alert(typeof data);
-=======
-                    //alert(data);
->>>>>>> fc2dea9b0a313b5b6f1775cc4cf26d1236d1de05
                     networkData = JSON.parse(data);
                     angular.element('.loading').hide();
 
