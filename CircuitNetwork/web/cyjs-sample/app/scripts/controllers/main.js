@@ -898,19 +898,20 @@ angular.module('cyViewerApp')
                     data = JSON.stringify(data).replace(/\\n/g, '', "").replace(/\\/g, '', "");
                     data = data.substr(1, data.length - 2);
                     //alert(data);
+                    console.log(data);
                     networkData = JSON.parse(data);
                     angular.element('.loading').hide();
 
-                    if (typeof networkData.error === "string") {
-                        $scope.errorMessage = networkData.error;
-                        $("#errorModal").modal("show");
-                    }
-                    else if (networkData.operonsId.length === 0 && $scope.BooleanTrue === undefined) {
+                    if (networkData.operonsId.length === 0 && $scope.BooleanTrue === undefined) {
                         $scope.errorMessage ='No circuits found. Please try searching for an Indirect Path (check the box marked "Indirect Path").';
                         $("#errorModal").modal("show");
                     }
                     else if (networkData.operonsId.length === 0 && $scope.BooleanTrue === "true") {
                         $scope.errorMessage = 'No circuits found in current database. Results may change as the SBiDer web grows.';
+                        $("#errorModal").modal("show");
+                    }
+                    else if (typeof networkData.error === "string") {
+                        $scope.errorMessage = networkData.error;
                         $("#errorModal").modal("show");
                     }
                     else {
