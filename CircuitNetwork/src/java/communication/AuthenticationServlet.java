@@ -21,7 +21,6 @@ import org.json.simple.JSONObject;
 import communication.WeyekinPoster;
 import communication.PigeonToPNG;
 
-
 /**
  *
  * @author Valeriy
