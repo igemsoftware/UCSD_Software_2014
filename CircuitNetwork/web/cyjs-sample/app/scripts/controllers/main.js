@@ -682,28 +682,28 @@ angular.module('cyViewerApp')
             for(var plasCount = 0; plasCount < $scope.plasmids.length; plasCount ++){
                 //adding plasmid information.
                 var plas = $scope.plasmids[plasCount].data;
-                $scope.updateString = "Plasmid:" + plas.name.value + "," + plas.pubMedId.value + "\t";
+                $scope.updateString = "Plasmid:" + plas.name.value + "," + plas.pubMedId.value + " ";
 
                 for(var opeCount = 0; opeCount < $scope.operons.length; opeCount ++){
                     //adding operon information.
                     var ope = $scope.operons[opeCount].data;
-                    $scope.updateString += "Operon:" + ope.name.value + "," + ope.direction.value + "\t";
+                    $scope.updateString += "Operon:" + ope.name.value + "," + ope.direction.value + " ";
 
                     for(var inTranCount = 0; inTranCount < $scope.inputTransitions[opeCount].length; inTranCount ++){
                         //adding input transition information.
                         var inTran = $scope.inputTransitions[opeCount][inTranCount].data;
-                        $scope.updateString += "InputTransition:" + inTran.logic.value + "\tPromoter:" + inTran.promoter.value + "\t";
+                        $scope.updateString += "InputTransition:" + inTran.logic.value + " Promoter:" + inTran.promoter.value + " ";
 
                         for(var inSpecCount = 0; inSpecCount < $scope.inputSpecies[opeCount][inTranCount].length; inSpecCount++){
                             //adding input species data.
                             var inSpec = $scope.inputSpecies[opeCount][inTranCount][inSpecCount].data;
-                            $scope.updateString += "InputSpecies:" + inSpec.name.value + "," + inSpec.type.value + "," + inSpec.repression.value + "\t";
+                            $scope.updateString += "InputSpecies:" + inSpec.name.value + "," + inSpec.type.value + "," + inSpec.repression.value + " ";
                         };
 
                         for(var outSpecCount = 0; outSpecCount < $scope.outputSpecies[opeCount][inTranCount].length; outSpecCount++){
                             //adding output species data.
                             var outSpec = $scope.outputSpecies[opeCount][inTranCount][outSpecCount].data;
-                            $scope.updateString += "OutputSpecies:" +outSpec.name.value + "," + outSpec.type.value + "\t";
+                            $scope.updateString += "OutputSpecies:" +outSpec.name.value + "," + outSpec.type.value + " ";
                         };
                     };
                 };
@@ -724,7 +724,6 @@ angular.module('cyViewerApp')
  If you need to reset the form, click the \"Reset\" button in the lower left.";
             
             $("#genModal").modal("show");
-
         };
 
         $scope.redirect = function(){
@@ -895,11 +894,10 @@ angular.module('cyViewerApp')
             else {
 
                 var data = {user: userID, command: 'query', data: commandString}; //package the input into a json file for submission to the server
-                alert(JSON.stringify(data))
                 $.get("../../AuthenticationServlet", data, function(data) { //parameters are: servlet url, data, callback function
                     data = JSON.stringify(data).replace(/\\n/g, '', "").replace(/\\/g, '', "");
                     data = data.substr(1, data.length - 2);
-                    alert(data);
+                    //alert(data);
                     networkData = JSON.parse(data);
                     angular.element('.loading').hide();
 

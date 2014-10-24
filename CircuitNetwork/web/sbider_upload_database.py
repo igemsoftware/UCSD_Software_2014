@@ -16,6 +16,9 @@ import sbml_update as su
 
 import Gen_Network as gn
 
+global rootPath
+rootPath = None
+
 def get_last_row_id(cursor, table_name):
     """Get the last inserted rowid."""
     last_id = cursor.execute("SELECT rowid FROM %s" % table_name).fetchall()
@@ -91,13 +94,13 @@ def make_sbol_string_db_update(input_list, direction):
     return output_string
 
 
-def make_sbol_file(output_species_list, promoter_list, prev_operon_direction, operon_id, path_directory):
+def make_sbol_file(output_species_list, promoter_list, operon_direction, operon_id, path_directory):
     """Insert and make the sbol file."""
 
     sbol_file = path_directory + "/pigeonImages/operon_sbol_" + operon_id + ".txt"
     sbol_list = promoter_list + ["c" + data[0] for data in output_species_list]
-    sbol_string = make_sbol_string_db_update(sbol_list, prev_operon_direction)
-    sbol_handle = open(sbol_path, 'w')
+    sbol_string = make_sbol_string_db_update(sbol_list, operon_direction)
+    sbol_handle = open(sbol_file, 'w')
     sbol_handle.write(sbol_string)
     sbol_handle.close()
     return sbol_file
@@ -106,7 +109,7 @@ def make_sbol_file(output_species_list, promoter_list, prev_operon_direction, op
 def make_input_transition_sbml_file(input_species_list, transition_id, operon_id, trans_logic):
     input_species_id_repression_list = [("spe_" + data[0], data[2]) for data in input_species_list]
     input_transition_sbml_list = [operon_id] + input_species_id_repression_list
-    it_sbml_file_name = os.getcwd() + "/sbmlTexts/it_sbml_{}".format(transition_id)
+    it_sbml_file_name = rootPath + "/SBML_TXT_FILES/it_sbml_{}".format(transition_id)
     su.sbml_input_trans(transition_id,
                         input_species_id_repression_list,
                         "ope_" + operon_id,
@@ -117,7 +120,7 @@ def make_input_transition_sbml_file(input_species_list, transition_id, operon_id
 def make_output_transition_sbml_file(output_species_list, transition_id, operon_id):
     """make the sbml."""
     os_abbrev_id_list = ["spe_" + data[-1] for data in output_species_list]
-    ot_sbml_file_name = os.getcwd() + "/sbmlTexts/ot_sbml_{}".format(transition_id)
+    ot_sbml_file_name = rootPath + "/SBML_TXT_FILES/ot_sbml_{}".format(transition_id)
     su.sbml_output_trans(transition_id,
                          os_abbrev_id_list,
                          "ope_" + operon_id,
@@ -165,7 +168,7 @@ def insert_new_input_transition_species(cursor, it_id, species_name, species_typ
         sbml = "species_sbml_{}".format(spe_id)
         db.db_insert(cursor, "Species", ["spe_id", "name", "type", "sbml"],
                      [spe_id, species_name.lower(), species_type.lower(), sbml])
-        sbml_species_file = os.getcwd() + "/sbmlTexts/" + sbml
+        sbml_species_file = rootPath + "/SBML_TXT_FILES/" + sbml
         su.sbml_species(it_id, species_name, sbml_species_file)
 
     else:
@@ -197,7 +200,7 @@ def insert_new_output_transition_species(cursor, ot_id, species_name, species_ty
         last_spe_id = select_last_inserted_table_id(cursor, "Species", "spe_id")
         spe_id = make_new_id(last_spe_id)
         sbml = "species_sbml_{}".format(spe_id)
-        sbml_species_file = os.getcwd() + "/sbmlTexts/" + sbml
+        sbml_species_file = rootPath + "/SBML_TXT_FILES/" + sbml
         db.db_insert(cursor, "Species", ["spe_id", "name", "type", "sbml"],
                      [spe_id, species_name.lower(), species_type.lower(), sbml])
         su.sbml_species(ot_id, species_name, sbml_species_file)
@@ -249,8 +252,8 @@ def determine_and_insert(connection, cursor, component_keyword, component_data=[
 
     elif component_keyword == "Operon":
         data_id = insert_new_operon(cursor, parent_component_id, *component_data)
-        operon_sbml = os.getcwd() + "/sbmlTexts/operon_sbml_{}".format(data_id)
-        su.sbml_operon(data_id, component_data[0], "123" + data_id, operon_sbml)
+        operon_sbml = rootPath + "/SBML_TXT_FILES/operon_sbml_{}".format(data_id)
+        su.sbml_operon(data_id, component_data[0], data_id, operon_sbml)
 
     elif component_keyword == "InputTransition":
         data_id = insert_new_input_transition(cursor, parent_component_id, *component_data)
@@ -368,7 +371,7 @@ def insert_new_device(connection, cursor, device, path_directory):
 
     # ##Covering the last sbol that has to be created. It would be skipped over because it is the last one otherwise.
     sbol_files.append(
-        make_sbol_file(output_species_list, promoter_list, prev_operon_direction, parent_ids_dict["Operon"]))
+        make_sbol_file(output_species_list, promoter_list, prev_operon_direction, parent_ids_dict["Operon"], path_directory))
 
     make_input_transition_sbml_file(input_species_list, parent_ids_dict["InputTransition"], parent_ids_dict["Operon"],
                                     input_trans_logic)
@@ -379,10 +382,11 @@ def insert_new_device(connection, cursor, device, path_directory):
     connection.commit()
     return ",".join(sbol_files)
 
-
 def main():
     web_path = sys.argv[1]
     database_file = web_path + "sbider.db"
+    global rootPath 
+    rootPath = web_path
     device_info = sys.argv[2::]
     conn, cur = db.db_open(database_file)
     sbol_files = insert_new_device(conn, cur, device_info, web_path)
