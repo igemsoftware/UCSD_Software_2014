@@ -278,34 +278,49 @@
                                 <div class="col-md-12 text-center form form-operon" ng-repeat="ope in operons">
                                     <div class="row">
                                         <h4 class="col-md-4 col-md-offset-4"><b>Operon</b></h4>
-                                        <button type="button" class="btn btn-xs btn-danger" ng-click="removeOperon()">Remove <span class="glyphicon glyphicon-remove"></span></button>       
+<!--                                        <button type="button" class="btn btn-xs btn-danger" ng-click="removeOperon()">Remove <span class="glyphicon glyphicon-remove"></span></button>       -->
                                     </div>
-                                    <div class="row text-center" ng-repeat="field in ope.data">
+                                    <div class="row text-center">
                                         <!-- Operon Fields -->
-                                        <label class="col-sm-3 col-sm-offset-2">{{field.label}}</label>
-                                        <input class="col-sm-3 textbox" type="text" placeholder="{{field.placeholder}}" ng-model="field.value" required ng-minlength=1/>
+                                        <label class="col-sm-3 col-sm-offset-2">{{ope.data.name.label}}</label>
+                                        <input class="col-sm-3 textbox" type="text" placeholder="{{ope.data.name.placeholder}}" ng-model="ope.data.name.value" required ng-minlength=1/>
                                     </div>
-                                    
+                                    <div class="row text-center">
+                                        <!-- Operon Fields -->
+                                        <label class="col-sm-3 col-sm-offset-2">{{ope.data.direction.label}}</label>
+                                        <select class="col-sm-3" ng-model="ope.data.direction.value" ng-options="dir.value as dir.name for dir in opeDirections" required></select>
+                                    </div>
                                     <!-- Span containing the Input Transitions -->
                                     <span ng-repeat="inTran in inputTransitions[ope.opeNum]">
                                     <br><hr><br>
                                     <div class="row text-center">
                                         <h4 class="col-md-4 col-md-offset-4"><b>Input Transition</b></h4>
-                                        <button type="button" class="btn btn-xs btn-danger" ng-click="removeInTran(ope.opeNum)"><span class="glyphicon glyphicon-remove"></span></button>       
+                                        <button type="button" class="btn btn-xs btn-danger" ng-click="removeInTran(ope.opeNum, inTran.inTranNum)"><span class="glyphicon glyphicon-remove"></span></button>       
                                     </div>
-                                    <div class="row text-center" ng-repeat="field in inTran.data">
-                                        <label class="col-sm-3 col-sm-offset-2">{{field.label}}</label>
-                                        <input class="col-sm-3 textbox" type="text" placeholder="{{field.placeholder}}" ng-model="field.value" required ng-minlength=1/>
+                                    <div class="row text-center">
+                                        <label class="col-sm-3 col-sm-offset-2">{{inTran.data.promoter.label}}</label>
+                                        <input class="col-sm-3 textbox" type="text" placeholder="{{inTran.data.promoter.placeholder}}" ng-model="inTran.data.promoter.value" required ng-minlength=1/>
                                     </div>
+                                    <div class="row text-center">
+                                        <label class="col-sm-3 col-sm-offset-2">{{inTran.data.logic.label}}</label>
+                                        <select class="col-sm-3" ng-model="inTran.data.logic.value" ng-options="logic.value as logic.name for logic in logicTypes" required></select>                                    </div>
                                     <br><button type="button" class="btn btn-sm btn-primary text-center" ng-click="addInTran(ope.opeNum)">Add Input Transition</button><br><br>
                                     <span ng-repeat="inSpec in inputSpecies[ope.opeNum][inTran.inTranNum]">
                                         <div class="row text-center">
                                             <h4 class="col-md-4 col-md-offset-4"><b>Input Species</b></h4>
                                             <button type="button" class="btn btn-xs btn-danger" ng-click="removeInSpec(ope.opeNum, inTran.inTranNum)"><span class="glyphicon glyphicon-remove"></span></button>       
                                         </div>
-                                        <div class="row text-center" ng-repeat="field in inSpec.data">
-                                            <label class="col-sm-3 col-sm-offset-2">{{field.label}}</label>
-                                            <input class="col-sm-3 textbox" type="text" placeholder="{{field.placeholder}}" ng-model="field.value" required ng-minlength=1/>
+                                        <div class="row text-center">
+                                            <label class="col-sm-3 col-sm-offset-2">{{inSpec.data.name.label}}</label>
+                                            <input class="col-sm-3 textbox" type="text" placeholder="{{inSpec.data.name.placeholder}}" ng-model="inSpec.data.name.value" required ng-minlength=1/>
+                                        </div>
+                                        <div class="row text-center">
+                                            <label class="col-sm-3 col-sm-offset-2">{{inSpec.data.repression.label}}</label>
+                                            <select class="col-sm-3" ng-model="inSpec.data.repression.value" ng-options="repress.value as repress.name for repress in speciesRepress" required></select>
+                                        </div>
+                                        <div class="row text-center">
+                                            <label class="col-sm-3 col-sm-offset-2">{{inSpec.data.type.label}}</label>
+                                            <select class="col-sm-3" ng-model="inSpec.data.type.value" ng-options="type.value as type.name for type in speciesTypes" required></select>
                                         </div>
                                     </span> <!-- End of Input Species -->
                                     <br><button type="button" class="btn btn-sm btn-primary text-center" ng-click="addInSpec(ope.opeNum,inTran.inTranNum)">Add Input Species</button><br><br>
@@ -316,9 +331,13 @@
                                             <h4 class="col-md-4 col-md-offset-4"><b>Output Species</b></h4>
                                             <button type="button" class="btn btn-xs btn-danger" ng-click="removeOutSpec(ope.opeNum, inTran.inTranNum)"><span class="glyphicon glyphicon-remove"></span></button>       
                                         </div>
-                                        <div class="row text-center" ng-repeat="field in outSpec.data">
-                                            <label class="col-sm-3 col-sm-offset-2">{{field.label}}</label>
-                                            <input class="col-sm-3 textbox" type="text" placeholder="{{field.placeholder}}" ng-model="field.value" required ng-minlength=1/>
+                                        <div class="row text-center">
+                                            <label class="col-sm-3 col-sm-offset-2">{{outSpec.data.name.label}}</label>
+                                            <input class="col-sm-3 textbox" type="text" placeholder="{{outSpec.data.name.placeholder}}" ng-model="outSpec.data.name.value" required ng-minlength=1/>
+                                        </div>
+                                        <div class="row text-center">
+                                            <label class="col-sm-3 col-sm-offset-2">{{outSpec.data.type.label}}</label>
+                                            <select class="col-sm-3" ng-model="outSpec.data.type.value" ng-options="type.value as type.name for type in speciesTypes" required></select>
                                         </div>
                                         <br><button type="button" class="btn btn-sm btn-primary text-center" ng-click="addOutSpec(ope.opeNum,inTran.inTranNum)">Add Output Species</button><br><br>
                                     </span> <!-- End of Output Species. -->

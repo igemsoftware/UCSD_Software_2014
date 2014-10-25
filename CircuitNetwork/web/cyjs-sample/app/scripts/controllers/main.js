@@ -550,12 +550,18 @@ angular.module('cyViewerApp')
                 "plasNum":$scope.plasmids.length
             });
         };
+        
+        //Directions that users can choose for operons.
+        $scope.opeDirections = [
+            {"name":"Left","value":"L"},
+            {"name":"Right","value":"R"}
+        ];
         //adds an operon to the update fields.
         $scope.addOperon = function(plasNum){
             $scope.operons.push({
                 "data":{
                     "name": {"label":"Name", "placeholder":"Composition","value":""},
-                    "direction":{"label":"Direction", "placeholder":"Left(L) or Right(R)","value":""}
+                    "direction":{"label":"Direction", "placeholder":"Left(L) or Right(R)","value": $scope.opeDirections[1].value}
                 },
                 "opeNum":$scope.operons.length,
                 "plasNum":plasNum
@@ -568,11 +574,16 @@ angular.module('cyViewerApp')
             $scope.addInTran($scope.operons.length - 1);
         };
 
+        //Acceptable logic types for input transitions. Currently limited to AND and OR.
+        $scope.logicTypes = [
+            {"name":"AND","value":"AND"},
+            {"name":"OR","value":"OR"}
+        ];
         $scope.addInTran = function(opeNum){
             $scope.inputTransitions[opeNum].push({
                 "data":{
                     "promoter": {"label":"Promoter", "placeholder":"Name","value":""},
-                    "logic": {"label":"Logic", "placeholder":"Logic Type of Input Species","value":""}
+                    "logic": {"label":"Logic", "placeholder":"Logic Type of Input Species","value":$scope.logicTypes[0].value}
                 },
                 "inTranNum":$scope.inputTransitions[opeNum].length,
                 "opeNum":opeNum
@@ -585,13 +596,24 @@ angular.module('cyViewerApp')
             $scope.addInSpec(opeNum, inTranCount);
             $scope.addOutSpec(opeNum, inTranCount);                
         };
-
+        
+        //Types of species.
+        $scope.speciesTypes = [
+            {"name":"Protein","value":"protein"},
+            {"name":"RNA","value":"rna"},
+            {"name":"Biochemical Species","value":"biochemical_species"}
+        ];
+        //Boolean as a string of whether a species represses a promoter.
+        $scope.speciesRepress = [
+            {"name":"True","value":"TRUE"},
+            {"name":"False","value":"FALSE"}
+        ];
         $scope.addInSpec = function(opeNum,inTranNum){
             $scope.inputSpecies[opeNum][inTranNum].push({
                 "data":{
                     "name": {"label":"Name", "placeholder":"Name","value":""},
-                    "type": {"label":"Type", "placeholder":"Type","value":""},
-                    "repression": {"label":"Repression", "placeholder":"TRUE or FALSE","value":""}
+                    "type": {"label":"Type", "placeholder":"Type","value":$scope.speciesTypes[0].value},
+                    "repression": {"label":"Repression", "placeholder":"TRUE or FALSE","value":$scope.speciesRepress[1].value}
                 },
                 "inTranNum":inTranNum
             });
@@ -601,7 +623,7 @@ angular.module('cyViewerApp')
             $scope.outputSpecies[opeNum][inTranNum].push({
                 "data":{
                     "name": {"label":"Name", "placeholder":"Name","value":""},
-                    "type": {"label":"Type", "placeholder":"Type","value":""}
+                    "type": {"label":"Type", "placeholder":"Type","value":$scope.speciesTypes[0].value}
                 },
                 "opeNum":opeNum
             });
@@ -622,12 +644,15 @@ angular.module('cyViewerApp')
         };
 
         //Requires an argument to specify which operon's transitions are affected.
-        $scope.removeInTran = function(opeNum){
+        $scope.removeInTran = function(opeNum, inTranNum){
+            console.log(inTranNum);
+            console.log($scope.inputTransitions);
+            console.log($scope.inputSpecies);
             if($scope.inputTransitions[opeNum].length > 1){
                 var spliced = $scope.operons.length;
-                $scope.inputTransitions[opeNum].splice(spliced - 1,1);
-                $scope.inputSpecies[opeNum].splice(spliced - 1,1);
-                $scope.outputSpecies[opeNum].splice(spliced -1,1);
+                $scope.inputTransitions[opeNum].splice(inTranNum,1);
+                $scope.inputSpecies[opeNum].splice(inTranNum,1);
+                $scope.outputSpecies[opeNum].splice(inTranNum,1);
             }
             else{
                 $scope.errorMessage = "An Operon require at least one Input Transition.";
@@ -722,7 +747,6 @@ angular.module('cyViewerApp')
         $scope.upateInfo = function(){
             $scope.genModal.label = "Form Information";
             $scope.genModal.message = "The upload form cannot be submitted unless all input fields are completed.\n\
- Though two operon forms are provided initially, only one is required to submit the form. Simply click the red remove button to remove the operon form.\n\
  Additional fields can be added or removed by clicking their respective buttons.\n\
  If you need to reset the form, click the \"Reset\" button in the lower left.";
             
