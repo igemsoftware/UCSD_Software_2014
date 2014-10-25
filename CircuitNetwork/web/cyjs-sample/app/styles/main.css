@@ -98,6 +98,18 @@ img.CAD, #displayedCAD {
     
 }
 
+#sbolModl-containter {
+    width: inherit;
+}
+
+#detailCad {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    max-width:99%;
+    max-height:99%;
+}
+
 p.CAD {
     margin-top: 5px;
 }
