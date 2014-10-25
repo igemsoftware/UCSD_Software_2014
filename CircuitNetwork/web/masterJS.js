@@ -8,11 +8,11 @@
  */
 
 $(document).ready(function(){
-    window.onload = function() {
-    $('#appearModal').modal('show');
+    //window.onload = function() {
+   // $('#appearModal').modal('show');
     
  
-};
+//};
 
     //redirecting to other pages 
     $("#home").click(function(){
@@ -31,6 +31,10 @@ $(document).ready(function(){
        window.open("http://2014.igem.org/Team:UCSD_Software", '_blank'); 
     });
      $("#app").click(function(){
+       window.location.href="AppPage.html"; 
+    });
+    
+    $("#contact").click(function(){
        window.location.href="AppPage.html"; 
     });
      $("#signMe").click(function(){
