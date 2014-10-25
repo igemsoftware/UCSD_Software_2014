@@ -434,10 +434,12 @@ angular.module('cyViewerApp')
 
             $scope.output = String($scope.searchOutput);
 
-            $scope.BooleanTrue = String($scope.checkTrue);
             //Catching error in BooleanTrue that occurs when multiple 
             //searches are run without page reload.
-            if($scope.BooleanTrue === "false"){
+            if (String($scope.checkTrue) === "true"){
+                $scope.BooleanTrue = "t";
+            }
+            else if (String($scope.checkTrue) === "false" || String($scope.checkTrue) === "undefined"){
                 $scope.BooleanTrue = "undefined";
             };
             //combination of input = output 
@@ -934,11 +936,11 @@ angular.module('cyViewerApp')
                         console.log(networkData);
                         $scope.circuitCtrl();
                     }
-                    else if (networkData.operonsId.length === 0 && $scope.BooleanTrue === "undefined") {
+                    else if (networkData.operonsId.length < 1 && $scope.BooleanTrue === "undefined") {
                         $scope.errorMessage ='No circuits found. Please try searching for an Indirect Path (check the box marked "Indirect Path").';
                         $("#errorModal").modal("show");
                     }
-                    else if (networkData.operonsId.length === 0 && $scope.BooleanTrue === "true") {
+                    else if (networkData.operonsId.length < 1 && $scope.BooleanTrue === "t") {
                         $scope.errorMessage = 'No circuits found in current database. Results may change as the SBiDer web grows.';
                         $("#errorModal").modal("show");
                     }
