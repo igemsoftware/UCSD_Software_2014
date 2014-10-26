@@ -58,6 +58,7 @@ public class ControllerMain {
 
             Thread.sleep(4000);
             File pigeonTextFile = new File(pigeonFilePath);
+            
             PigeonToPNG.parseFile(pigeonTextFile); 
         } catch (InterruptedException ex) {
             Logger.getLogger(ControllerMain.class.getName()).log(Level.SEVERE, null, ex);
