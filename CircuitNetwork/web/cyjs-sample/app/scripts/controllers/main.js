@@ -911,24 +911,43 @@ angular.module('cyViewerApp')
 
         function searchGet() {
 
-
-            var commandString = $scope.query;
+            alert("Launching request.");
+//            var commandString = $scope.query;
+            var commandString = String($('#inputBox').val().trim())+" = "+String($('#outputBox').val().trim());
+            if($('#indirectCheckBox').attr('checked')) {
+                commandString += ' t';
+            } else {
+                commandString += ' f';
+            }
+            console.log(commandString);
             //alert("Submitting Command: "+commandString);
-            if (commandString === "undefined = undefined undefined" || $scope.searchInput === undefined || $scope.searchInput === "" || $scope.searchOutput === undefined || $scope.searchOutput === "") {
+            alert(commandString);
+//            if (commandString === "undefined = undefined f" || $scope.searchInput === undefined || $scope.searchInput === "" || $scope.searchOutput === undefined || $scope.searchOutput === "") {
+//                $scope.errorMessage ="Please enter a valid query. Check you inputs and output species, and make sure each species and logic is separated by a single space. See the Tutorial Button in the Toolbar for proper syntax and an example.";
+//                $("#errorModal").modal("show");
+//                angular.element('.loading').hide();
+//            }
+
+            if (String($('#inputBox').val().trim()) === "" || String($('#outputBox').val().trim()) === "" ||commandString === " =  f"){
                 $scope.errorMessage ="Please enter a valid query. Check you inputs and output species, and make sure each species and logic is separated by a single space. See the Tutorial Button in the Toolbar for proper syntax and an example.";
                 $("#errorModal").modal("show");
                 angular.element('.loading').hide();
             }
-
+            
             else {
-
+                alert("get reached");
                 var data = {user: userID, command: 'query', data: commandString}; //package the input into a json file for submission to the server
                 $.get("../../AuthenticationServlet", data, function(data) { //parameters are: servlet url, data, callback function
+                    alert("server reached!");
                     data = JSON.stringify(data).replace(/\\n/g, '', "").replace(/\\/g, '', "");
                     data = data.substr(1, data.length - 2);
                     //alert(data);
                     console.log(data);
-                    networkData = JSON.parse(data);
+                    $scope.$apply(function() {
+                        alert("update scope");
+                        networkData = JSON.parse(data);
+                    });
+                    console.log(networkData);
                     angular.element('.loading').hide();
 
                     if (networkData.operonsId.length >= 1){
@@ -936,11 +955,19 @@ angular.module('cyViewerApp')
                         console.log(networkData);
                         $scope.circuitCtrl();
                     }
-                    else if (networkData.operonsId.length < 1 && $scope.BooleanTrue === "undefined") {
+//                    else if (networkData.operonsId.length < 1 && $scope.BooleanTrue === "undefined") {
+//                        $scope.errorMessage ='No circuits found. Please try searching for an Indirect Path (check the box marked "Indirect Path").';
+//                        $("#errorModal").modal("show");
+//                    }
+                    else if (networkData.operonsId.length < 1 && $('#indirectCheckBox').attr('checked', 'checked')) {
                         $scope.errorMessage ='No circuits found. Please try searching for an Indirect Path (check the box marked "Indirect Path").';
                         $("#errorModal").modal("show");
                     }
-                    else if (networkData.operonsId.length < 1 && $scope.BooleanTrue === "t") {
+//                    else if (networkData.operonsId.length < 1 && $scope.BooleanTrue === "t") {
+//                        $scope.errorMessage = 'No circuits found in current database. Results may change as the SBiDer web grows.';
+//                        $("#errorModal").modal("show");
+//                    }
+                    else if (networkData.operonsId.length < 1 ) {
                         $scope.errorMessage = 'No circuits found in current database. Results may change as the SBiDer web grows.';
                         $("#errorModal").modal("show");
                     }

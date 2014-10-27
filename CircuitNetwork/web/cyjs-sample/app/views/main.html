@@ -16,12 +16,12 @@
 	<br><br>
         <div ng-show="searchState.show" class="searchBox ">
 
-            INPUT: <span><input class = "autocomplete-species textbox" type = "text"  ng-model = "searchInput" placeholder="type in your input"/><br>
+            INPUT: <span><input id='inputBox' class = "autocomplete-species textbox" type = "text"  ng-model = "searchInput" placeholder="type in your input"/><br>
                
-            OUTPUT: <span><input class = "autocomplete-species textbox" type = "text" ng-model = "searchOutput" placeholder="type in your output"/><br>
+            OUTPUT: <span><input id='outputBox' class = "autocomplete-species textbox" type = "text" ng-model = "searchOutput" placeholder="type in your output"/><br>
                     
                 
-            Include Indirect Path: <input type="checkbox" ng-model="checkTrue"><br/> 
+            Include Indirect Path: <input id="indirectCheckBox" type="checkbox" ng-model="checkTrue"><br/> 
             
             <span><button ng-click="searchCtrl()"><span id="search-box" class="glyphicon glyphicon-share-alt"><span>Explore</span></span></button></span>
             
