@@ -40,61 +40,34 @@ and open the template in the editor.
 
         </div>     
         <!--navbar ends-->
-        <div class="container-fluid">
-
-            <div class="row" id="h">
-                <div class="col-md-8 col-md-offset-2" id="contactStuff">
-                    <div class="well well-sm">
-                        <form class="form-horizontal">
-                            <fieldset>
-                                <legend class="text-center">Contact us</legend>
-
-                                <!-- Name input-->
-                                <div class="form-group">
-                                    <label class="col-md-3 control-label">Name</label>
-                                    <div class="col-md-9">
-                                        <input id="name" name="name" type="text" placeholder="Please Enter Your Name" class="form-control">
-                                    </div>
-                                </div>
-
-                                <!-- Email input-->
-                                <div class="form-group">
-                                    <label class="col-md-3 control-label">E-mail</label>
-                                    <div class="col-md-9">
-                                        <input id="email" name="email" type="text" placeholder="Please Enter Your Email" class="form-control">
-                                    </div>
-                                </div>
-
-                                <!--Institution-->
-                                <div class="form-group">
-                                    <label class="col-md-3 control-label">Institution/Affiliation</label>
-                                    <div class="col-md-9">
-                                        <input class="form-control" id="affiliation" placeholder="What institution are you affiliated with?" >
-                                    </div>
-                                </div>
-
-
-                                <!-- Message body -->
-                                <div class="form-group">
-                                    <label class="col-md-3 control-label">Your message</label>
-                                    <div class="col-md-9">
-                                        <textarea class="form-control" id="message"  placeholder="Please enter your message" rows="10"></textarea>
-                                    </div>
-                                </div>
-
-
-
-                                <!-- Form actions -->
-
-                                <div class="col-md-12 text-center">
-                                    <button  class="btn btn-success btn-lg" id="submitContact">Send</button>
-                                </div>
-
-                            </fieldset>
-                        </form>
-                    </div>
-                </div>
+        <div class="container-fluid" id="allMessageInfo">
+            <div class="header text-center text-primary">
+                <h1>SBiDer EMAIL</h1>
+                <p class="text-danger">*please fill out all the fields before submission</p>
             </div>
+            <div class="container">
+                <div class ="input-group-lg pull-left">
+                    
+                    <input class="input-lg" placeholder="Name" id="name"><br>
+                    <input class="input-lg" placeholder="Email" id="email"><br>
+                    <input class="input-lg" placeholder="Affiliation" id="affiliation"><br>
+                    
+                    
+                </div>
+                <div class="btn btn-lg pull-right" id="sendButton">
+                    
+                    <span class="glyphicon glyphicon-send">
+                     
+                    </span>
+                    <h3>SEND</h3>
+                </div>
+                
+                
+                <textarea id="message" >
+                   
+                </textarea>
+            </div>
+            
         </div>
 
 
@@ -171,8 +144,8 @@ and open the template in the editor.
         <!--end of modal-->
         <script>
             $(document).ready(function() {
-                $('#submitContact').click(function() {
-                    var data = {}
+                $('#sendButton').click(function() {
+                    var data = {};
                     data['email'] = $('#email').val();
                     data['name'] = $('#name').val();
                     data['affiliation'] = $('#affiliation').val();
@@ -180,9 +153,9 @@ and open the template in the editor.
 
                     $.post("AuthenticationServlet", data, function() {
                         alert('email sent');
-                    })
-                })
-            })
+                    });
+                });
+            });
         </script>
     </body>
 
