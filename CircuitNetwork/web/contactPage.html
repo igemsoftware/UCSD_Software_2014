@@ -15,6 +15,7 @@ and open the template in the editor.
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         <script src="masterJS.js"></script>
         <link rel="stylesheet" href="masterCSS.css">
+        <link rel="stylesheet" href="contactPage.css">
     </head>
     <body>
         <!--navbar --> 
@@ -42,15 +43,15 @@ and open the template in the editor.
         <!--navbar ends-->
         <div class="container-fluid" id="allMessageInfo">
             <div class="header text-center text-primary">
-                <h1>SBiDer EMAIL</h1>
+                <h1>Contact Us!</h1>
                 <p class="text-danger">*please fill out all the fields before submission</p>
             </div>
             <div class="container">
                 <div class ="input-group-lg pull-left">
                     
-                    <input class="input-lg" placeholder="Name" id="name"><br>
-                    <input class="input-lg" placeholder="Email" id="email"><br>
-                    <input class="input-lg" placeholder="Affiliation" id="affiliation"><br>
+                    <input class="input-lg" type="text" placeholder="Name" id="name"><br>
+                    <input class="input-lg" type="text" placeholder="Email" id="email"><br>
+                    <input class="input-lg" type="text" placeholder="Affiliation" id="affiliation"><br>
                     
                     
                 </div>
@@ -145,11 +146,13 @@ and open the template in the editor.
         <script>
             $(document).ready(function() {
                 $('#sendButton').click(function() {
+                    
                     var data = {};
                     data['email'] = $('#email').val();
                     data['name'] = $('#name').val();
                     data['affiliation'] = $('#affiliation').val();
                     data['message'] = $('#message').val();
+                    
 
                     $.post("AuthenticationServlet", data, function() {
                         alert('email sent');
