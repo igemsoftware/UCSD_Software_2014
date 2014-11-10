@@ -106,7 +106,7 @@ public class AuthenticationServlet extends HttpServlet {
                 }
                 case "login": {
                     //to get the data value 
-                    System.out.println("server reached");
+                    //System.out.println("server reached");
                     String userName = request.getParameter("name");
                     String userPassword = request.getParameter("email");
                     String wrongInfo = ("");
@@ -147,7 +147,7 @@ public class AuthenticationServlet extends HttpServlet {
         }
 
     }
-
+  
     /*
      *Function: This is where the user information is registered
      *I will parse the json file's array and check for user
@@ -335,6 +335,6 @@ public class AuthenticationServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
+    
     private HashMap<String, ControllerMain> webController = new HashMap();
 }

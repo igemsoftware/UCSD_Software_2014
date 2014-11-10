@@ -8,6 +8,30 @@ and open the template in the editor.
     Author     : valeriysosnovskiy
 */
 .container-fluid{
-    background-image: url("ProfilePics/ContactPic.png");
+    background-color: white;
+    
+}
+allMessageInfo{
+    margin-top: 30px;
+}
+#contactInformation {
+  margin-top: 40px;
+}
+
+#questionParagragh{
+    font-size: 30px;
+    width: 500px;
+    
+    margin: auto;
+}
+
+#contactUs{
+    width: 40%;
+    font-size: 40px;
+    margin-top: 40px;
+}
+
+#contactHeader{
+    font-size: 70px;
     
 }
