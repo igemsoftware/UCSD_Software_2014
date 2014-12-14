@@ -26,11 +26,7 @@ body{
    
 }
 
-#nav .btn:active{
-   color: white; 
-   background-color: rgba(204,204,204,0.5);
-  
-}
+
 #mainPic{
   border: none;
   color:#00004C;

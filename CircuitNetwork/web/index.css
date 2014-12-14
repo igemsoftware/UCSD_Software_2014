@@ -109,12 +109,26 @@ body{
     //border: 3px solid gold;
 }
 
+#picAndText{
+    height: auto;
+    //border: 2px solid red;
+    margin: auto;
+    padding: 10px;
+    height: 150%;
+    display: box;
+    //box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.rowOfInfo{
+    
+}
 #thumbOne{
-    height: 250px;
-    font-size: 100px;
+    height: auto;
+    //font-size: 100px;
     text-align: center;
     color: white;
-    background-color: #5C8AE6;
+    //background-color: #5C8AE6;
+    width: 100%;
   
 }
 
@@ -122,17 +136,18 @@ body{
     border: 2px solid gold;
     background-color: #1947A3;
     color:gold;
-    //-webkit-transform:scale(1.1);
+    
     
     
 }
 #thumbTwo{
    
-    height: 250px;
-    font-size: 100px;
+    height: auto;
+    //font-size: 100px;
     text-align: center;
     color: white;
-    background-color: #5C8AE6;
+    //background-color: #5C8AE6;
+    width: 100%;
    
      
 }
@@ -146,23 +161,43 @@ body{
 #thumbThree{
     
    
-    height: 250px;
-    font-size: 100px;
+    height: auto;
+    //font-size: 100px;
     text-align: center;
     color: white;
-    background-color: #5C8AE6;
+    //background-color: #5C8AE6;
+    width: 100%;
     
 }
 
 #thumbThree:hover{
+   
    background-color: #1947A3;
    border: 1px solid gold;
    color:gold;
    
 }
+
+#picHead{
+    height:600px;
+    width: auto;  
+}
+
+#textInfo{
+   margin: auto;
+   font-size: 23px;
+   margin-top: 12%;
+    color: #717171;
+}
+
+#textInfo li{
+    margin: 5px;
+}
+
 .footer{
     width: 60%;
-    margin-bottom:10px;
+    position: absolute;
+    bottom: 0;
 }
 
 //modal stuff

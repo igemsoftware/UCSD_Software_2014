@@ -157,3 +157,23 @@ hr {
     border:0;
     height:2px;
 }
+
+#or{
+    color: red;
+}
+
+#exampleQuery{
+    background-color: white; 
+}
+
+#exampleQuery .btn{
+    width: 100%;
+    margin-bottom: 10px;
+    
+}
+
+#exampleQuery li{
+    margin: 10px;
+    
+}
+

@@ -26,8 +26,8 @@ allMessageInfo{
 }
 
 #contactUs{
-    width: 40%;
-    font-size: 40px;
+    width: 30%;
+    font-size: 28px;
     margin-top: 40px;
 }
 
@@ -35,3 +35,34 @@ allMessageInfo{
     font-size: 70px;
     
 }
+
+
+.box {
+    border-radius: 3px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    padding: 70px;
+    display: block;
+    margin: auto;
+    height: 500px;
+}
+
+
+
+.info h2 {
+    font-size: 45px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.info > p {
+    color: #717171;
+    font-size: 30px;
+    padding: 40px;
+    text-align: justify;
+}
+
+.stuff{
+    margin: auto auto;
+    
+    
+}
+
