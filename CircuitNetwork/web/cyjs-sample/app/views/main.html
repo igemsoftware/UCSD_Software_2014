@@ -236,7 +236,32 @@
         </li>
     </ol>
         </div>
-          <br><button class="btn btn-primary" ng-click="exampleSet()" >Try an example</button>
+          <br><button class="btn btn-primary" ng-click="exampleSet()" >Try an example</button><br><hr><br>
+        <div id="circuitLegend-container">
+            <table id="circuitLegend" class="legendTable table-bordered">
+                <caption class="legendTable" style="font-size: 16px"><b>Circuit Legend</b></caption>
+                <tr class="legendTable">
+                    <th class="legendTable">Key</th>
+                    <th class="legendTable">Node Type</th>
+                </tr>
+                <tr class="legendTable">
+                    <td class="legendTable"><div class="legendTable legendKey" id="operonLegendKey"></div></td>
+                    <td class="legendTable">Operon</td>
+                </tr>
+                <tr class="legendTable">
+                    <td class="legendTable"><div class="legendTable legendKey" id="speciesLegendKey"></div></td>
+                    <td class="legendTable">Species</td>
+                </tr>
+                <tr class="legendTable">
+                    <td class="legendTable"><div class="legendTable legendKey" id="itLegendKey"></div></td>
+                    <td class="legendTable">Input Transition</td>
+                </tr>
+                <tr class="legendTable">
+                    <td class="legendTable"><div class="legendTable legendKey" id="otLegendKey"></div></td>
+                    <td class="legendTable">Output Transition</td>
+                </tr>
+            </table>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
