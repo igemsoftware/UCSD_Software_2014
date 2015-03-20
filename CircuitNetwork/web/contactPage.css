@@ -1,0 +1,68 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 29, 2014, 7:18:33 PM
+    Author     : valeriysosnovskiy
+*/
+.container-fluid{
+    background-color: white;
+    
+}
+allMessageInfo{
+    margin-top: 30px;
+}
+#contactInformation {
+  margin-top: 40px;
+}
+
+#questionParagragh{
+    font-size: 30px;
+    width: 500px;
+    
+    margin: auto;
+}
+
+#contactUs{
+    width: 30%;
+    font-size: 28px;
+    margin-top: 40px;
+}
+
+#contactHeader{
+    font-size: 70px;
+    
+}
+
+
+.box {
+    border-radius: 3px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    padding: 70px;
+    display: block;
+    margin: auto;
+    height: 500px;
+}
+
+
+
+.info h2 {
+    font-size: 45px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.info > p {
+    color: #717171;
+    font-size: 30px;
+    padding: 40px;
+    text-align: justify;
+}
+
+.stuff{
+    margin: auto auto;
+    
+    
+}
+

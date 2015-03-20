@@ -15,6 +15,7 @@ and open the template in the editor.
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         <script src="masterJS.js"></script>
         <link rel="stylesheet" href="masterCSS.css">
+        <link rel="stylesheet" href="contactPage.css">
     </head>
     <body>
         <!--navbar --> 
@@ -38,65 +39,23 @@ and open the template in the editor.
                 <div class="btn btn-lg pull-right " id="logOut" style="visibility:hidden" ><span class="glyphicon glyphicon-log-out" id="userInfo" > LOGOUT</span></div>-->
             </nav>
 
-        </div>     
-        <!--navbar ends-->
-        <div class="container-fluid">
-
-            <div class="row" id="h">
-                <div class="col-md-8 col-md-offset-2" id="contactStuff">
-                    <div class="well well-sm">
-                        <form class="form-horizontal">
-                            <fieldset>
-                                <legend class="text-center">Contact us</legend>
-
-                                <!-- Name input-->
-                                <div class="form-group">
-                                    <label class="col-md-3 control-label">Name</label>
-                                    <div class="col-md-9">
-                                        <input id="name" name="name" type="text" placeholder="Please Enter Your Name" class="form-control">
-                                    </div>
-                                </div>
-
-                                <!-- Email input-->
-                                <div class="form-group">
-                                    <label class="col-md-3 control-label">E-mail</label>
-                                    <div class="col-md-9">
-                                        <input id="email" name="email" type="text" placeholder="Please Enter Your Email" class="form-control">
-                                    </div>
-                                </div>
-
-                                <!--Institution-->
-                                <div class="form-group">
-                                    <label class="col-md-3 control-label">Institution/Affiliation</label>
-                                    <div class="col-md-9">
-                                        <input class="form-control" id="affiliation" placeholder="What institution are you affiliated with?" >
-                                    </div>
-                                </div>
-
-
-                                <!-- Message body -->
-                                <div class="form-group">
-                                    <label class="col-md-3 control-label">Your message</label>
-                                    <div class="col-md-9">
-                                        <textarea class="form-control" id="message"  placeholder="Please enter your message" rows="10"></textarea>
-                                    </div>
-                                </div>
-
-
-
-                                <!-- Form actions -->
-
-                                <div class="col-md-12 text-center">
-                                    <button  class="btn btn-success btn-lg" id="submitContact">Send</button>
-                                </div>
-
-                            </fieldset>
-                        </form>
-                    </div>
+        </div> 
+        
+           
+    <div class="container stuff ">
+    
+        
+            <div class="box text-center">
+                
+                <div class="info">
+                    <h2 class="text-center">Get In Touch!</h2>
+                    <p>Have a question? We got your answer! Please send us a detailed description of your problem and we will get back to you as soon as possible! </p>
+                    <a href="mailto:sbiderdevelopment@gmail.com" class="btn btn-lg btn-success" id="contactUs">Contact</a>
                 </div>
             </div>
         </div>
-
+    
+       
 
         <!--login modal-->
         <div class="modal fade  modal-lg text-center" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -171,18 +130,20 @@ and open the template in the editor.
         <!--end of modal-->
         <script>
             $(document).ready(function() {
-                $('#submitContact').click(function() {
-                    var data = {}
+                $('#sendButton').click(function() {
+                    
+                    var data = {};
                     data['email'] = $('#email').val();
                     data['name'] = $('#name').val();
                     data['affiliation'] = $('#affiliation').val();
                     data['message'] = $('#message').val();
+                    
 
                     $.post("AuthenticationServlet", data, function() {
                         alert('email sent');
-                    })
-                })
-            })
+                    });
+                });
+            });
         </script>
     </body>
 

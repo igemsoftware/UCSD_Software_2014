@@ -193,29 +193,57 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h1 class="modal-title text-primary text-center" id="myModalLabel">Documentation </h1>
+        <h1 class="modal-title text-center" id="myModalLabel">Quick Guide </h1>
       </div>
-      <div class="modal-body text-center">
+      <div class="modal-body">
         <div class="panel">
-            <h2>Using The Application</h2>
+            
             <ol>
-                <li>First enter your starting species/species into the input:<br>
-                You can do a single entry: <br>
-                OR <br>
-                Multiple entries should be separated by the word "and", with each entry being separated by a space:<br>
+                <li>Enter starting input species<br>
+                    
+                You can do a single entry<br>
+                <span id="or">OR</span> <br>
+                Multiple entries, which should be separated by the word "and", with each entry being separated by a space<br>
                 </li>
 
 
-                <li> Enter your final species,  following  the same rules as the ones for starting species.<br></li>
+                <li> Following the same guidelines for input species, type in the final output species<br></li>
 
                 <li>You can also chose a direct or indirect path by checking of the box. The indirect path is a connection of  disjoint paths by convergence for  the production of the final output species.<br></li>
 
-                <li>Finally press Explore and see your results. <br></li>
+                <li>Press Explore and see your results. <br></li>
             </ol>
-
-            <h3>What you will be able to see</h3>
+            
+            
+            <div id="exampleQuery">
+                
+                <div class="row text-center btn">
+                    
+                <div class="col-md-4 pull-left">
+                    
+                <h5 class="text-success">Single Input <br>Species Query</h5>
+                
+                <br><button class="btn btn-lg btn-primary" ng-click="exampleSingle()" >Single</button></div>
+                
+                <div class="col-md-4">
+                    
+                <h5 class="text-success">Multiple Input <br>Species Query</h5>
+                
+                <br><button class="btn btn-lg btn-success" ng-click="exampleMultipe()">Multiple</button></div>
+                
+                <div class="col-md-4">
+                    
+                    <h5 class="text-success">Take Me To <br>Tutorial Videos</h5>
+                
+                <br><button class="btn btn-lg btn-info" ng-click="openVideo()">Video</button></div>
+                
+                </div>
+                
+            </div>
+            
+            <h4 class="text-center">What you will be able to see</h4>
  
-   <ol >
+   <ul >
         <li >
           Network exploration of genetic devices 
         </li>
@@ -234,8 +262,9 @@
         <li>
          Able to have user-contributed expansion to database
         </li>
-    </ol>
+    </ul>
         </div>
+<<<<<<< HEAD
           <br><button class="btn btn-primary" ng-click="exampleSet()" >Try an example</button><br><hr><br>
         <div id="circuitLegend-container">
             <table id="circuitLegend" class="legendTable table-bordered">
@@ -262,9 +291,12 @@
                 </tr>
             </table>
         </div>
+=======
+          
+>>>>>>> a3a0114526cb4508b056a38ee6a35951f23cd7c1
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default btn-danger" data-dismiss="modal">Close</button>
        
       </div>
     </div>

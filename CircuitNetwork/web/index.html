@@ -44,42 +44,59 @@ and open the template in the editor.
      <!--navbar ends-->
      
          
-    <div class="container-fluid  text-center" id="welcomeSign">
-             <h1 >Welcome to SBiDer!</h1>
+    <!--<div class="container-fluid  text-center" id="welcomeSign">
+             <h1 >Welcome to SBiDer</h1>
      </div>
      <!-- Slider-->
      <div class="container" id="Slider_Three">
-     <div class="container-narrow " id="sliderHolder">
+     <!--<div class="container-narrow " id="sliderHolder">
      <div class="container-fluid" id= "sliderHome">
     <div id="myCarousel" class="carousel slide "  data-ride="carousel">
     	
         
-        <!-- Carousel indicators -->
+        <!-- Carousel indicators 
         <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active "></li>
             <li data-target="#myCarousel" data-slide-to="1"></li>
             <li data-target="#myCarousel" data-slide-to="2"></li>
+            <!--<li data-target="#myCarousel" data-slide-to="3"></li>
             <li data-target="#myCarousel" data-slide-to="3"></li>
+            
         </ol>   
         
-        <!-- Carousel items -->
+        <!-- Carousel items 
         <div class="carousel-inner">
-            <div class="item active text-center" id="sliderItems">
-               
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="panel" id='AppPic'>
-                            <img class="img-responsive"  src="ProfilePics/network.png">
+             <div class="item active" id="sliderItems">
+                <div class="row text-center">
+                    <div class="col-md-12 ">
+                       
+                        <div class="panel" id="sponsors">
+                             <img class="img-responsive" id="thanks" src="ProfilePics/TheFinalDrawing.png">
+                            <div class="panel">  
+                            </div> 
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="panel text-center">
+                    
+                </div>
+            </div>
+            <div class="item  text-center" id="sliderItems">
+               
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="panel" id='AppPic'>
+                            <img class="img-responsive"  src="ProfilePics/homeNetwork.png">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="panel text-center pull-left">
                            <div class="page-header">
-                                <h1>SBiDer</h1> 
+                                <h1 class="text-success">Find the right path for you!</h1> 
                             </div>
-                                <p class="text-success" id="path">Find the right path for you!</p>
+                            <p id="path">
+                                We created a logically queryable database of existing genetic devices.  SBiDer leverages that database to facilitate novel circuit design.  Given a boolean set of input genes and output genes, SBiDer can suggest mulitple paths, via existing circuitry, from the inputs to the outputs.
+                            </p>
                            
-                                <button class="btn-lg btn-primary text-center" id="signMe"> <!--data-toggle="modal" data-target="#loginModal"-->See It!</button>
+                                <button class="btn-lg btn-primary text-center" id="signMe"> <!--data-toggle="modal" data-target="#loginModal"See It!</button>
                         </div>
                     </div>
                 </div>
@@ -91,7 +108,7 @@ and open the template in the editor.
                <div class="row">
                     <div class="col-md-6">
                         <div class="panel">
-                            <img class="img-responsive" src="ProfilePics/screenShot3.png">
+                            <img class="img-responsive" src="ProfilePics/documentationOne.png">
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -107,28 +124,11 @@ and open the template in the editor.
             </div>
             
             <div class="item" id="sliderItems">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="panel">
-                            <img class="img-responsive" src="ProfilePics/VisionPic.jpg" >
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="panel">
-                            
-                            <p>
-                                Synthetic genetic circuits created by synthetic biologists have yielded exciting applications such as biofuels production and cancer killing bacteria. These circuits are often difficult to engineer, requiring months to design, build, and test each individual genetic device involved in the circuit. Although there are many genetic devices that have been built, re-using these devices often requires a time-consuming review of the literature. The UCSD Software iGEM team will address this challenge by creating a web-tool that leverages existing genetic devices to create complex genetic circuits
-                            </p>
-                             </div>
-                    </div>
-                </div>
-            </div>
-            <div class="item" id="sliderItems">
                 <div class="row text-center">
                     <div class="col-md-12 ">
                        
                         <div class="panel text-center" id="sponsors">
-                             <img class="img-responsive" id="thanks" src="ProfilePics/finalSponsors.png">
+                             <img class="img-responsive" id="thanks" src="ProfilePics/sponsorsFinal.png">
                             <div class="panel">  
                             </div> 
                         </div>
@@ -143,15 +143,34 @@ and open the template in the editor.
 </div>
      
      
-</div>
-    
+</div>-->
+        <!--INFO container-->
+        <div class="container" id="picAndText">
+            <div class="row rowOfInfo">
+                <div class="col-md-6">
+                   <img class="img-responsive" id="picHead" src="ProfilePics/TheFinalDrawing.png">  
+                </div>
+                <div class="col-md-6 " id="textInfo">
+                    <ul>
+                        <li>Logically queryable database of existing genetic devices.</li>
+                        <li>SBiDer leverages that database to facilitate novel circuit design. </li>
+                        <li>Given a boolean set of input genes and output genes, SBiDer generates a variety of paths, via existing circuitry, from the inputs to the outputs</li>
+                        <li>iGEM Gold Medal winning web application</li>
+                        <li>Continuously evolving with the help of fellow researchers</li>
+                    </ul>
+                 
+                </div>
+            </div>  
+        </div>
+        <!--END of INFO-->
+        
         <!--bottom three pics-->
         
           <div class="row" id="extraInfo">
            <div class="col-md-4" id="btmOne">
-               <div class="thumbnail text-center" id="thumbOne">
+               <div class="btn btn-lg text-center btn-danger" id="thumbOne">
                    <h1>Tutorial</h1>
-                   <span class="glyphicon glyphicon-question-sign"></span>
+                   <!--<span class="glyphicon glyphicon-question"></span>-->
                   
                  
                </div>
@@ -159,18 +178,18 @@ and open the template in the editor.
               
                 <div class="col-md-4 ">
              
-               <div class="thumbnail text-center" id="thumbTwo">
+               <div class="btn btn-lg text-center btn-primary" id="thumbTwo">
                    <h1>Explore Our Wiki</h1>
-                   <span class="glyphicon glyphicon-search"></span>
+                   <!--<span class="glyphicon glyphicon-search"></span>-->
                    
                </div>
                </div>
                 
                <div class="col-md-4">
               
-               <div class="thumbnail text-center" id="thumbThree">
+               <div class="btn btn-lg text-center btn-success" id="thumbThree">
                   <H1>Launch!</h1>
-                  <span class="glyphicon glyphicon-circle-arrow-right"></span>
+                  <!--<span class="glyphicon glyphicon-circle-arrow-right"></span>-->
                </div>
                </div>
          

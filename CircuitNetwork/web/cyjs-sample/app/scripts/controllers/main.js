@@ -1,4 +1,6 @@
 
+
+
 angular.module('cyViewerApp')
 
     .controller('MainCtrl', function($scope, $http, $location, $routeParams,
@@ -470,9 +472,20 @@ angular.module('cyViewerApp')
             
             searchGet();
         };
-
+        $scope.openVideo = function(){
+            window.open("http://2014.igem.org/Team:UCSD_Software/Documentation", '_blank'); 
+           
+        };
+        
         //example function for the user
-        $scope.exampleSet = function(){
+        $scope.exampleSingle = function(){
+           $scope.searchInput = "Sal";
+           $scope.searchOutput = "supD";
+           $('#myModal').modal('hide');
+           
+        };
+        
+        $scope.exampleMultipe = function(){
            $scope.searchInput = "lara and arac";
            $scope.searchOutput = "gfp";
            $('#myModal').modal('hide');
