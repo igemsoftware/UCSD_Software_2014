@@ -950,6 +950,8 @@ angular.module('cyViewerApp')
             else {
                 alert("get reached");
                 var data = {user: userID, command: 'query', data: commandString}; //package the input into a json file for submission to the server
+                
+                //main javascript server serach function.
                 $.get("../../AuthenticationServlet", data, function(data) { //parameters are: servlet url, data, callback function
                     alert("server reached!");
                     data = JSON.stringify(data).replace(/\\n/g, '', "").replace(/\\/g, '', "");
@@ -995,22 +997,60 @@ angular.module('cyViewerApp')
                     };
 
                 });
+                
+                //WARNING. Having both functions without one commented out will break the app.
+                //main angular server request WIP
+//                $http({ 
+//                    method: 'POST', 
+//                    url: "../../AuthenticationServlet",
+//                    params: data
+//                })
+//    //                alert("$http was called with: " + $scope.query)
+//                    .success(function(data) {
+//                        alert("server reached!");
+//                        data = JSON.stringify(data).replace(/\\n/g, '', "").replace(/\\/g, '', "");
+//                        data = data.substr(1, data.length - 2);
+//                        //alert(data);
+//                        console.log(data);
+//                        $scope.$apply(function() {
+//                            alert("update scope");
+//                            networkData = JSON.parse(data);
+//                        });
+//                        console.log(networkData);
+//                        angular.element('.loading').hide();
+//
+//                        if (networkData.operonsId.length >= 1){
+//                            $scope.cynet.load(networkData.elements);
+//                            console.log(networkData);
+//                            $scope.circuitCtrl();
+//                        }
+//                        else if (networkData.operonsId.length < 1 && $('#indirectCheckBox').attr('checked', 'checked')) {
+//                            $scope.errorMessage ='No circuits found. Please try searching for an Indirect Path (check the box marked "Indirect Path").';
+//                            $("#errorModal").modal("show");
+//                        }
+//                        else if (networkData.operonsId.length < 1 ) {
+//                            $scope.errorMessage = 'No circuits found in current database. Results may change as the SBiDer web grows.';
+//                            $("#errorModal").modal("show");
+//                        }
+//                        else {
+//                            if(typeof networkData.error === "string"){
+//                                $scope.errorMessage = networkData.error;
+//                            }
+//                            else{
+//                                $scope.errorMessage = "We apologize, but the SBiDer server is experiencing some techical difficulties.";
+//                            };
+//                            $("#errorModal").modal("show");
+//                        };
+//    //                    ***OLD CODE***
+//    //                    alert("It went through");
+//    //                    alert(data);
+//    //                    networkData = JSON.parse(data);
+//    //                    alert(networkData);
+//    //                    $scope.cynet.load(networkData.elements);
+//                    })
+//                    .error(function(data, status, headers, config) {
+//                    });
             };
-//            $http({ 
-//                method: 'GET', 
-//                url: "../../AuthenticationServlet",
-//                params: { user: userID, command: "query" , data: $scope.query }
-//                }).
-////                alert("$http was called with: " + $scope.query);
-//                success(function(data) {
-//                    alert("shit went through");
-//                    alert(data);
-//                    networkData = JSON.parse(data);
-//                    alert(networkData);
-//                    $scope.cynet.load(networkData.elements);
-//                }).
-//                error(function(data, status, headers, config) {
-//                });
         };
 
         //The http GET request to the servlet that adds the user's entry to the SBiDer database.
@@ -1020,6 +1060,8 @@ angular.module('cyViewerApp')
             var commandString = $scope.updateString;
             //The update command needs to be written and inserted here.
             var data = {user: userID, command: 'uploadNew', data: commandString}; //package the input into a json file for submission to the server
+            
+            //javascript server request.
             $.get("../../AuthenticationServlet", data, function(data) {
                 //Using the error Modal to give an success alert.
                 console.log("Server contacted...");
