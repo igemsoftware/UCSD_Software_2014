@@ -75,8 +75,7 @@ public class AuthenticationServlet extends HttpServlet {
 
             //to get the command value
             String command = request.getParameter("command");
-            System.out.println("HELLO THIS IS WHAT IT IS");
-            System.out.println(command);
+            
 
             //switch for different command values 
             switch (command) {
