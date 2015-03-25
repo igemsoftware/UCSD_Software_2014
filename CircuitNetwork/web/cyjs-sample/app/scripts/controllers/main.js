@@ -470,7 +470,7 @@ angular.module('cyViewerApp')
 //            $scope.circuitCtrl();
 //            console.log(outputTransitionsId);
             
-            searchGet();
+            searchPost();
         };
         $scope.openVideo = function(){
             window.open("http://2014.igem.org/Team:UCSD_Software/Documentation", '_blank'); 
@@ -756,7 +756,7 @@ angular.module('cyViewerApp')
 
         $scope.updateDatabase = function(){
             $scope.parseUpdatePlasmid();
-            updateGET();
+            updatePost();
         };
         
         $scope.upateInfo = function(){
@@ -922,7 +922,7 @@ angular.module('cyViewerApp')
                 error(function(data, status, headers, config) {
                 });
 
-        function searchGet() {
+        function searchPost() {
 
             alert("Launching request.");
 //            var commandString = $scope.query;
@@ -1054,7 +1054,7 @@ angular.module('cyViewerApp')
         };
 
         //The http GET request to the servlet that adds the user's entry to the SBiDer database.
-        function updateGET() {
+        function updatePost() {
             console.log("Starting upload...");
             //Sending the database entrie string as data.
             var commandString = $scope.updateString;
@@ -1074,6 +1074,29 @@ angular.module('cyViewerApp')
                 $scope.resetUpdate();
                 $scope.updateString;
             });
+            
+            //angular server request for database upload
+//            $http({
+//                method: 'POST',
+//                url: "../../AuthenticationServlet",
+//                params: data
+//            })
+//                .success(function(data){
+//                    //Using the error Modal to give an success alert.
+//                    console.log("Server contacted...");
+//
+//                    $scope.genModal.label = "Database Entry Added";
+//                    $scope.genModal.message = "Upload successful! Thank you for adding to the SBiDer web!";
+//                    $("#genModal").modal("show");
+//
+//                    //resetting the update form and string
+//                    $scope.resetUpdate();
+//                    $scope.updateString;
+//                })
+//                .error(function(){
+//                    //Placeholder error response.
+//                    alert("Something unexpected happened in the upload!");
+//                });
         };
 
 
