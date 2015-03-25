@@ -63,14 +63,7 @@ $(document).ready(function(){
        $("#githubLink ").click(function(){
            window.open("https://github.com/igemsoftware/UCSD-iGEM_2014", '_blank'); 
     });
-    
-       //var loggedIn = false;
-       //if(loggedIn === false){
-       //$('#app').attr('disabled', 'disabled');
-       //$('#thumbThree').attr('disabled', 'disabled');
-   //}
-       //contactUs page
-       
+      
        $('#submitContact').click(function(){
        alert("your information is getting sent");
        var name = $("#name").val();
@@ -82,54 +75,20 @@ $(document).ready(function(){
            alert(done);
        });
          
+     }); 
+     
+      $('#sendMessage').click(function(){
+       var name = $("#name").val();
+       var subject = $("#subject").val();
+       var email = $('#email').val();
+       var message = $('#message').val();
+       alert("Name: " + name + "subject: " + subject +  "email: " + email + "msg: " + message);
+       var data = {name:name, email:email, subject:subject,message: message, command:"contactUs"}; 
+       $.get("AuthenticationServlet", data, function(done){
+           alert(done);
+       });
+         
      });  
      
-      /* $('#register').click(function(){
-          var name = $("#newName").val();
-          var email = $("#newPassword").val();
-          alert(name + email);
-          var data = {name: name, email:email, command:"register"};
-          $.get("AuthenticationServlet", data, function(done){
-              alert(done);
-              
-          });
-       });
-       */
-      /* $('#login').click(function(){
-          loggedIn=false; 
-          var name = $("#name").val();
-          var email = $("#password").val();
-          
-          var data = {name: name, email:email, command:"login"};
-          $.get("AuthenticationServlet", data, function(done){
-             
-              var q = done;
-               alert(done);
-              if(q === "Welcome"){
-                  loggedIn = true;
-                  $('#loginModal').modal('hide');
-                  loged(loggedIn);
-            }
-            
-          });
-          
-       });
-       
-       function loged(loggedIn){
-           if(loggedIn === true){
-                 
-                 $('#app').removeAttr('disabled');
-                  document.getElementById("log").style.visibility = 'hidden';
-                 document.getElementById("logOut").style.visibility = 'visible';}
-          
-       }
-                
-       $("#logOut").click(function(){
-          loggedIn =false;
-          document.getElementById("log").style.visibility = 'visible';
-          document.getElementById("logOut").style.visibility = 'hidden'; 
-          $('#app').attr('disabled', 'disabled');
-          $('#thumbThree').attr('disabled', 'disabled');
-       });       
-*/
+     
 });  

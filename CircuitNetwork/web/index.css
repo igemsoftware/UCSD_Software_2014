@@ -1,316 +1,79 @@
-*, *:before, *:after {
-  box-sizing: border-box;
+/* Space out content a bit */
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
-body{
-   background-color: white;
-}
-           
-#nav{
-   background-color: #003D99;
-   color: white;
-   box-sizing: border-box;
-   border-bottom: 4px solid #00004C;
-   
-}
-#nav.btn{
-    margin: auto;
-}
-#nav .btn:hover{
-   color: gold;  
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-right: 15px;
+  padding-left: 15px;
 }
 
-
-#welcomeSign{
-    color: #1C86EE;
-    
+/* Custom page header */
+.header {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e5e5e5;
 }
-#welcomeSign h1{
-    font-size: 70px;
-}
-#log, #logOut{
-    font-size: 20px;
-    
-}
-
-.item{
-   background-color:white;    
-    height: 575px;
-    padding: 10px;
-    width: 100%;
-    color: #003D99;
-    margin: auto;
-    //text-align: center;
-    font-size: 25px;
-    
-    
-     
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
 }
 
-.item .img-responsive{
-    height: auto;
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
 }
 
-#sliderHolder{
-    
-   margin-top: 40px;
-   background-color: white;
-   
-  
+/* Customize container */
+@media (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+}
+.container-narrow > hr {
+  margin: 30px 0;
 }
 
-.sliderHome{
-   opacity:.95;
-  
-       
- }
- 
- #extraInfo{
-    opacity:.88;
-    margin-top: 10px;
-    margin-left: 2px;
-    margin-right: 1px;
- }
- #sliderItems{
-     
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background:white;
-    
- }
- 
- .carousel-indicators li{
-     background-color: #00004C;
-     height: 10px;
-     width: 16px;
-     
- }
- 
- .carousel-indicators .active{
-     background-color: gold;
-     height: 10px;
-     width: 16px;
- }
- 
- 
- 
-#bottomOne .row{
-    margin-top: 10px;
-    //margin-left: 2px;
-    //margin-right: 2px;
-    margin-bottom: 2px;
-    opacity: .88;  
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
 }
-#signMe{
-    font-size: 35px;
-    background-color: #003D99;
-    width: 80%;
-    color:white ;
-    //border: 3px solid gold;
+.jumbotron .btn {
+  padding: 14px 24px;
+  font-size: 21px;
 }
 
-#picAndText{
-    height: auto;
-    //border: 2px solid red;
-    margin: auto;
-    padding: 10px;
-    height: 150%;
-    display: box;
-    //box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+}
+.marketing p + h4 {
+  margin-top: 28px;
 }
 
-.rowOfInfo{
-    
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
 }
-#thumbOne{
-    height: auto;
-    //font-size: 100px;
-    text-align: center;
-    color: white;
-    //background-color: #5C8AE6;
-    width: 100%;
-  
-}
-
-#thumbOne:hover{
-    border: 2px solid gold;
-    background-color: #1947A3;
-    color:gold;
-    
-    
-    
-}
-#thumbTwo{
-   
-    height: auto;
-    //font-size: 100px;
-    text-align: center;
-    color: white;
-    //background-color: #5C8AE6;
-    width: 100%;
-   
-     
-}
-
-#thumbTwo:hover{
-    border: 1px solid gold;
-     background-color:#1947A3 ;
-     color:gold;
-}
-
-#thumbThree{
-    
-   
-    height: auto;
-    //font-size: 100px;
-    text-align: center;
-    color: white;
-    //background-color: #5C8AE6;
-    width: 100%;
-    
-}
-
-#thumbThree:hover{
-   
-   background-color: #1947A3;
-   border: 1px solid gold;
-   color:gold;
-   
-}
-
-#picHead{
-    height:600px;
-    width: auto;  
-}
-
-#textInfo{
-   margin: auto;
-   font-size: 23px;
-   margin-top: 12%;
-    color: #717171;
-}
-
-#textInfo li{
-    margin: 5px;
-}
-
-.footer{
-    width: 60%;
-    position: absolute;
-    bottom: 0;
-}
-
-//modal stuff
-#modalBodyLogin{
-    
-    
-}
-
-#loginModal{
-    border: 2px solid white;
-    margin: auto;
-    background-image: url("ProfilePics/network.png");
-    background-repeat: no-repeat;
-    background-size: 100%;
-    text-align: center;
-    //opacity: .9;
-    height: 100%;
-    background-color: white;
-    
-}
-
-#modalInput{
-    padding: 10px;
-    margin: auto;
-    height: 250px;
-     border: 2px solid black;
- logger{
-    height: 400px;
-    width: auto;
-    margin: auto;
-    border: none;
-   
-}
-
-.logger:hover{
-    background-color: gold;
-}
-
-#registration{
-    padding: 10px;
-    margin: 15px;
-    
-}
-#registration input{
-    margin: 5px;
-    border-radius: 15px;
-}    
-}
-
-
-.logger{
-    height: 400px;
-    width: auto;
-    margin: auto;
-    border: none;
-   
-}
-
-.logger:hover{
-    background-color: gold;
-}
-
-#registration{
-    padding: 10px;
-    margin: 15px;
-    
-}
-#registration input{
-    margin: 5px;
-    border-radius: 15px;
-}
-
-#path{
-    font-size: 20px;
-    text-indent: 20px;
-}
-
-.panel{
-    border:none;
-}
-
-#CheckIt{
-    font-size: 40px;
-}
-
-#sponsors{
-    
-   text-align: center; 
-   
-   height: 95%;
-    
-}
-#sponsors .img-responsive{
-    width: 100%;
-    height: 90%;
-    margin: auto;
-   
-}
-
-#AppPic{
-    height:90%;
-    margin: auto;
-}
-
-#appearModal{
-    height: 800px;
-    width:  800px;
-    background-color:#003D99;
-    text-align: center;
-    margin:auto;
-}
-#paragraphMain{
-   text-indent: 30px;
-   float: left;
-}
-

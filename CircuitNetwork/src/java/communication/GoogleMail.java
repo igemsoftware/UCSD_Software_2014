@@ -1,93 +1,82 @@
 package communication;
-
-import com.sun.mail.smtp.SMTPTransport;
-import java.security.Security;
-import java.util.Date;
 import java.util.Properties;
+
 import javax.mail.Message;
 import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
-import javax.mail.internet.AddressException;
+import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 public class GoogleMail {
-    private GoogleMail() {
+    private String userName;
+    private String userEmail;
+    private String userSubject;
+    private String userMessage;
+    
+    
+    public GoogleMail(String userName, String userEmail, String userSubject, String userMessage) {
+        
+        this.userName = userName;
+        this.userEmail = userEmail;
+        this.userSubject = userSubject;
+        this.userMessage = userMessage;
     }
+    
+    public String writeMessage() {
+                
+     // Recipient's email ID needs to be mentioned.
+      String to = "sbiderapp@gmail.com";
 
-    /**
-     * Send email using GMail SMTP server.
-     *
-     * @param username GMail username
-     * @param password GMail password
-     * @param recipientEmail TO recipient
-     * @param title title of the message
-     * @param message message to be sent
-     * @throws AddressException if the email address parse failed
-     * @throws MessagingException if the connection is dead or not in the connected state or if the message is not a MimeMessage
-     */
-    //example: GoogleMail.Send("ravencadhelp", "Cidar1123", "eapple@bu.edu", "Guess who can send emails using a server now?", "test message");
+      // Sender's email ID needs to be mentioned
+      String from = "sbiderapp@gmail.com";
+      final String username = "sbiderapp@gmail.com";
+      final String password = "ucsd2015";
 
-    public static void Send(final String username, final String password, String recipientEmail, String title, String message) throws AddressException, MessagingException {
-        GoogleMail.Send(username, password, recipientEmail, "", title, message);
-    }
+      // Assuming you are sending email through relay.jangosmtp.net
+      String host = "smtp.gmail.com";
 
-    /**
-     * Send email using GMail SMTP server.
-     *
-     * @param username GMail username
-     * @param password GMail password
-     * @param recipientEmail TO recipient
-     * @param ccEmail CC recipient. Can be empty if there is no CC recipient
-     * @param title title of the message
-     * @param message message to be sent
-     * @throws AddressException if the email address parse failed
-     * @throws MessagingException if the connection is dead or not in the connected state or if the message is not a MimeMessage
-     */
-    public static void Send(final String username, final String password, String recipientEmail, String ccEmail, String title, String message) throws AddressException, MessagingException {
-        Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
-        final String SSL_FACTORY = "javax.net.ssl.SSLSocketFactory";
+      Properties props = new Properties();
+      props.put("mail.smtp.auth", "true");
+      props.put("mail.smtp.starttls.enable", "true");
+      props.put("mail.smtp.host", host);
+      props.put("mail.smtp.port", "587");
 
-        // Get a Properties object
-        Properties props = System.getProperties();
-        props.setProperty("mail.smtps.host", "smtp.gmail.com");
-        props.setProperty("mail.smtp.socketFactory.class", SSL_FACTORY);
-        props.setProperty("mail.smtp.socketFactory.fallback", "false");
-        props.setProperty("mail.smtp.port", "465");
-        props.setProperty("mail.smtp.socketFactory.port", "465");
-        props.setProperty("mail.smtps.auth", "true");
+      // Get the Session object.
+      Session session = Session.getInstance(props,
+      new javax.mail.Authenticator() {
+         protected PasswordAuthentication getPasswordAuthentication() {
+            return new PasswordAuthentication(username, password);
+         }
+      });
 
-        /*
-        If set to false, the QUIT command is sent and the connection is immediately closed. If set 
-        to true (the default), causes the transport to wait for the response to the QUIT command.
+      try {
+         // Create a default MimeMessage object.
+         Message message = new MimeMessage(session);
 
-        ref :   http://java.sun.com/products/javamail/javadocs/com/sun/mail/smtp/package-summary.html
-                http://forum.java.sun.com/thread.jspa?threadID=5205249
-                smtpsend.java - demo program from javamail
-        */
-        props.put("mail.smtps.quitwait", "false");
+         // Set From: header field of the header.
+         message.setFrom(new InternetAddress(from));
 
-        Session session = Session.getInstance(props, null);
+         // Set To: header field of the header.
+         message.setRecipients(Message.RecipientType.TO,
+         InternetAddress.parse(to));
 
-        // -- Create a new message --
-        final MimeMessage msg = new MimeMessage(session);
+         // Set Subject: header field
+         message.setSubject(userSubject);
 
-        // -- Set the FROM and TO fields --
-        msg.setFrom(new InternetAddress(username + "@gmail.com"));
-        msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipientEmail, false));
+         // Now set the actual message
+         message.setText("User name: " + userName + "\n" + "User email: " + userEmail+ "\n" + userMessage);
 
-        if (ccEmail.length() > 0) {
-            msg.setRecipients(Message.RecipientType.CC, InternetAddress.parse(ccEmail, false));
-        }
+         // Send message
+         Transport.send(message);
 
-        msg.setSubject(title);
-        msg.setText(message, "utf-8");
-        msg.setSentDate(new Date());
+         System.out.println("Sent message successfully....");
 
-        SMTPTransport t = (SMTPTransport)session.getTransport("smtps");
+      } catch (MessagingException e) {
+            throw new RuntimeException(e);
+      }
+      return ("thank you: "+ userName); 
+	}
 
-        t.connect("smtp.gmail.com", username, password);
-        t.sendMessage(msg, msg.getAllRecipients());      
-        t.close();
-    }
 }
