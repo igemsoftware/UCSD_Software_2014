@@ -1049,6 +1049,8 @@ angular.module('cyViewerApp')
 //    //                    $scope.cynet.load(networkData.elements);
 //                    })
 //                    .error(function(data, status, headers, config) {
+//                        alert(status);
+//                        alert("Something unexpected happened!");
 //                    });
             };
         };
