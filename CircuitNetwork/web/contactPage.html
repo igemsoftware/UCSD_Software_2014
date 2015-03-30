@@ -14,137 +14,86 @@ and open the template in the editor.
         <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         <script src="masterJS.js"></script>
-        <link rel="stylesheet" href="masterCSS.css">
-        <link rel="stylesheet" href="contactPage.css">
+        <link rel="stylesheet" href="index.css">
     </head>
     <body>
-        <!--navbar --> 
-        <div class="container-fluid">
-
-            <!--navbar --> 
-
-            <nav class="navbar navbar-header nav-justified" role="navigation" id='nav'>
-                <div class="btn-group  btn-group">
-                    <div class="btn btn-lg " id="home">Home</div>
-                    <div class="btn btn-lg " id="about">About</div>
-                    <div class="btn btn-lg " id="documentation">Documentation</div>
-                    <div class="btn btn-lg" id="wiki">Wiki</div>
-                    <div class="btn btn-lg" id="app">Application</div>
-                    <div class="btn btn-lg" id="contact">Contact</div>
-                   <!-- <div class="btn btn-lg"  data-toggle="modal" data-target="#loginModal">Register</div>-->
-
-                </div>
-
-               <!-- <div class="btn btn-lg pull-right " id="log" data-toggle="modal" data-target="#loginModal" ><span class="glyphicon glyphicon-log-in" id="userInfo"> LOGIN</span></div>
-                <div class="btn btn-lg pull-right " id="logOut" style="visibility:hidden" ><span class="glyphicon glyphicon-log-out" id="userInfo" > LOGOUT</span></div>-->
-            </nav>
-
-        </div> 
         
-           
-    <div class="container stuff ">
-    
-        
-            <div class="box text-center">
-                
-                <div class="info">
-                    <h2 class="text-center">Get In Touch!</h2>
-                    <p>Have a question? We got your answer! Please send us a detailed description of your problem and we will get back to you as soon as possible! </p>
-                    <a href="mailto:sbiderdevelopment@gmail.com" class="btn btn-lg btn-success" id="contactUs">Contact</a>
-                </div>
-            </div>
-        </div>
-    
+    <div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation" ><a href="index.html">Home</a></li>
+            <li role="presentation"><a href="About_Page.html">About</a></li>
+            <li role="presentation" class="active"><a href="contactPage.html">Contact</a></li>
+            <li role="presentation"><a href="AppPage.html">Launch</a></li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">SBiDer</h3>
+      </div>
+
+      <div class="jumbotron">
        
-
-        <!--login modal-->
-        <div class="modal fade  modal-lg text-center" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header text-center">
-                        <div class="btn btn-lg pull-right " data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></div>  
-                        <h1 >Welcome!</h1>
-
-                    </div>
-                    <div class="modal-body" >
-
-
-
-
-
-                        <div class="row">
-
-                            <div class="col-md-6">
-                                <div class="thumbnail logger text-center" >
-                                    <div class="page-header"><h2>Log In</h2></div>
-                                    <div class="input-group input-group-lg" id="registration">
-
-                                        <input type="text" id="name" placeholder="Email" class="form-control text-center">
-                                        <input type="password" id="password" placeholder="Password" class="form-control text-center">
-
-                                    </div>
-                                    <br>
-                                    <div class="btn btn-lg btn-primary" id="login">Log In!</div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="thumbnail logger">
-                                    <div class="page-header"><h2>Register</h2></div>
-                                    <div class="input-group input-group-lg " id="registration">
-
-                                        <input type="text" id="newName" class="form-control text-center" placeholder="Email">
-                                        <input type="password" id="newPassword" class="form-control text-center" placeholder="Password">
-                                    </div>
-                                    <br>
-                                    <div class="btn btn-lg btn-primary" id="register">Register!</div>
-                                </div>
-                            </div>
-
-                            <div class="row btn-group btn-group-lg btn-group-justified">
-                                <div class="col-sm-4">
-                                    <a href="index.html"><div class="btn btn-link">
-                                            Home
-                                        </div></a>  
-                                </div>
-                                <div class="col-sm-4">
-                                    <a href="TutorialPage.html"><div class="btn btn-link">
-                                            Tutorial
-                                        </div></a>
-                                </div>
-                                <div class="col-sm-4">
-                                    <a href="AboutPage.html"><div class="btn btn-link" id="about">
-                                            About Us
-                                        </div></a>
-                                </div>
-                            </div>
-
-
-
-                        </div>
-                    </div>
-
-                </div>
+	<div class="row">
+      <div class="col-md-12">
+        
+          <form class="form-horizontal" action="" method="post">
+          <fieldset>
+            <legend class="text-center">Contact us</legend>
+    
+            <!-- Name input-->
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="name">Name</label>
+              <div class="col-md-9">
+                <input id="name" name="name" type="text" placeholder="Your name" class="form-control">
+              </div>
             </div>
-        </div>
+            
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="subject">Subject</label>
+              <div class="col-md-9">
+                <input id="subject" name="name" type="text" placeholder="Subject" class="form-control">
+              </div>
+            </div>
+            
+            <!-- Email input-->
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="email">E-mail</label>
+              <div class="col-md-9">
+                <input id="email" name="email" type="text" placeholder="Your email" class="form-control">
+              </div>
+            </div>
+    
+            <!-- Message body -->
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="message">Message</label>
+              <div class="col-md-9">
+                <textarea class="form-control" id="message" name="message" placeholder="Please enter your message here..." rows="5"></textarea>
+              </div>
+            </div>
+    
+            <!-- Form actions -->
+            <div class="form-group">
+              <div class="col-md-12 text-right">
+                <button type="submit" class="btn btn-success btn-lg" id="sendMessage">Submit</button>
+              </div>
+            </div>
+          </fieldset>
+          </form>
+        
+      </div>
+	</div>
 
-        <!--end of modal-->
-        <script>
-            $(document).ready(function() {
-                $('#sendButton').click(function() {
-                    
-                    var data = {};
-                    data['email'] = $('#email').val();
-                    data['name'] = $('#name').val();
-                    data['affiliation'] = $('#affiliation').val();
-                    data['message'] = $('#message').val();
-                    
+          <p id="outPut" > </p> 
+      </div>
 
-                    $.post("AuthenticationServlet", data, function() {
-                        alert('email sent');
-                    });
-                });
-            });
-        </script>
+      
+
+      <footer class="footer">
+       
+      </footer>
+
+    </div> <!-- /container -->
+
     </body>
 
 </html>

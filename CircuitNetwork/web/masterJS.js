@@ -24,14 +24,19 @@ $(document).ready(function(){
      $("#documentation").click(function(){
        window.location.href="TutorialPage.html"; 
     });
+    
+     $("#tut").click(function(){
+       window.location.href="Tutorial.html"; 
+    });
+    
     $("#thumbOne").click(function(){
        window.location.href="TutorialPage.html"; 
     });
      $("#wiki").click(function(){
        window.open("http://2014.igem.org/Team:UCSD_Software", '_blank'); 
     });
-     $("#app").click(function(){
-       window.location.href="AppPage.html"; 
+     $("#launch").click(function(){
+       window.open("AppPage.html", '_blank'); 
     });
     
     $("#contact").click(function(){
@@ -59,18 +64,15 @@ $(document).ready(function(){
      $("#wikiDocumentation").click(function(){
            window.open("http://2014.igem.org/Team:UCSD_Software/Documentation", '_blank'); 
     });
+    
+     $("#doc").click(function(){
+           window.open("http://2014.igem.org/Team:UCSD_Software/Documentation", '_blank'); 
+    });
       
        $("#githubLink ").click(function(){
            window.open("https://github.com/igemsoftware/UCSD-iGEM_2014", '_blank'); 
     });
-    
-       //var loggedIn = false;
-       //if(loggedIn === false){
-       //$('#app').attr('disabled', 'disabled');
-       //$('#thumbThree').attr('disabled', 'disabled');
-   //}
-       //contactUs page
-       
+      
        $('#submitContact').click(function(){
        alert("your information is getting sent");
        var name = $("#name").val();
@@ -82,54 +84,25 @@ $(document).ready(function(){
            alert(done);
        });
          
+     }); 
+     
+      $('#sendMessage').click(function(){
+       var name = $("#name").val();
+       var subject = $("#subject").val();
+       var email = $('#email').val();
+       var message = $('#message').val();
+       //alert("Name: " + name + "subject: " + subject +  "email: " + email + "msg: " + message);
+       var data = {name:name, email:email, subject:subject,message: message, command:"contactUs"}; 
+       $.get("AuthenticationServlet", data, function(done){
+           var print = document.getElementById("outPut");
+           alert("hello");
+           $('#outPut').text(done);
+           print.innerHTML = done; 
+       });
+         
      });  
      
-      /* $('#register').click(function(){
-          var name = $("#newName").val();
-          var email = $("#newPassword").val();
-          alert(name + email);
-          var data = {name: name, email:email, command:"register"};
-          $.get("AuthenticationServlet", data, function(done){
-              alert(done);
-              
-          });
-       });
-       */
-      /* $('#login').click(function(){
-          loggedIn=false; 
-          var name = $("#name").val();
-          var email = $("#password").val();
-          
-          var data = {name: name, email:email, command:"login"};
-          $.get("AuthenticationServlet", data, function(done){
-             
-              var q = done;
-               alert(done);
-              if(q === "Welcome"){
-                  loggedIn = true;
-                  $('#loginModal').modal('hide');
-                  loged(loggedIn);
-            }
-            
-          });
-          
-       });
-       
-       function loged(loggedIn){
-           if(loggedIn === true){
-                 
-                 $('#app').removeAttr('disabled');
-                  document.getElementById("log").style.visibility = 'hidden';
-                 document.getElementById("logOut").style.visibility = 'visible';}
-          
-       }
-                
-       $("#logOut").click(function(){
-          loggedIn =false;
-          document.getElementById("log").style.visibility = 'visible';
-          document.getElementById("logOut").style.visibility = 'hidden'; 
-          $('#app').attr('disabled', 'disabled');
-          $('#thumbThree').attr('disabled', 'disabled');
-       });       
-*/
+   
+     
+     
 });  

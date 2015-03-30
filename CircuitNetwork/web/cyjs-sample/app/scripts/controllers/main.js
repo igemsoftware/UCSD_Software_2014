@@ -1,6 +1,4 @@
 
-
-
 angular.module('cyViewerApp')
 
     .controller('MainCtrl', function($scope, $http, $location, $routeParams,
@@ -952,62 +950,61 @@ angular.module('cyViewerApp')
                 var data = {user: userID, command: 'query', data: commandString}; //package the input into a json file for submission to the server
                 
                 //main javascript server serach function.
-//                $.get("../../AuthenticationServlet", data, function(data) { //parameters are: servlet url, data, callback function
-//                    alert("server reached!");
-//                    data = JSON.stringify(data).replace(/\\n/g, '', "").replace(/\\/g, '', "");
-//                    data = data.substr(1, data.length - 2);
-//                    //alert(data);
-//                    console.log(data);
-//                    $scope.$apply(function() {
-//                        alert("update scope");
-//                        networkData = JSON.parse(data);
-//                    });
-//                    console.log(networkData);
-//                    angular.element('.loading').hide();
-//
-//                    if (networkData.operonsId.length >= 1){
-//                        $scope.cynet.load(networkData.elements);
-//                        console.log(networkData);
-//                        $scope.circuitCtrl();
-//                    }
-////                    else if (networkData.operonsId.length < 1 && $scope.BooleanTrue === "undefined") {
-////                        $scope.errorMessage ='No circuits found. Please try searching for an Indirect Path (check the box marked "Indirect Path").';
-////                        $("#errorModal").modal("show");
-////                    }
-//                    else if (networkData.operonsId.length < 1 && $('#indirectCheckBox').attr('checked', 'checked')) {
+               /* $.get("../../AuthenticationServlet", data, function(data) { //parameters are: servlet url, data, callback function
+                    alert("server reached!");
+                    data = JSON.stringify(data).replace(/\\n/g, '', "").replace(/\\/g, '', "");
+                    data = data.substr(1, data.length - 2);
+                    //alert(data);
+                    console.log(data);
+                    $scope.$apply(function() {
+                        alert("update scope");
+                        networkData = JSON.parse(data);
+                    });
+                    console.log(networkData);
+                    angular.element('.loading').hide();
+
+                    if (networkData.operonsId.length >= 1){
+                        $scope.cynet.load(networkData.elements);
+                        console.log(networkData);
+                        $scope.circuitCtrl();
+                    }
+//                    else if (networkData.operonsId.length < 1 && $scope.BooleanTrue === "undefined") {
 //                        $scope.errorMessage ='No circuits found. Please try searching for an Indirect Path (check the box marked "Indirect Path").';
 //                        $("#errorModal").modal("show");
 //                    }
-////                    else if (networkData.operonsId.length < 1 && $scope.BooleanTrue === "t") {
-////                        $scope.errorMessage = 'No circuits found in current database. Results may change as the SBiDer web grows.';
-////                        $("#errorModal").modal("show");
-////                    }
-//                    else if (networkData.operonsId.length < 1 ) {
+                    else if (networkData.operonsId.length < 1 && $('#indirectCheckBox').attr('checked', 'checked')) {
+                        $scope.errorMessage ='No circuits found. Please try searching for an Indirect Path (check the box marked "Indirect Path").';
+                        $("#errorModal").modal("show");
+                    }
+//                    else if (networkData.operonsId.length < 1 && $scope.BooleanTrue === "t") {
 //                        $scope.errorMessage = 'No circuits found in current database. Results may change as the SBiDer web grows.';
 //                        $("#errorModal").modal("show");
 //                    }
-//                    else {
-//                        if(typeof networkData.error === "string"){
-//                            $scope.errorMessage = networkData.error;
-//                        }
-//                        else{
-//                            $scope.errorMessage = "We apologize, but the SBiDer server is experiencing some techical difficulties.";
-//                        };
-//                        $("#errorModal").modal("show");
-//                    };
-//
-//                });
+                    else if (networkData.operonsId.length < 1 ) {
+                        $scope.errorMessage = 'No circuits found in current database. Results may change as the SBiDer web grows.';
+                        $("#errorModal").modal("show");
+                    }
+                    else {
+                        if(typeof networkData.error === "string"){
+                            $scope.errorMessage = networkData.error;
+                        }
+                        else{
+                            $scope.errorMessage = "We apologize, but the SBiDer server is experiencing some techical difficulties.";
+                        };
+                        $("#errorModal").modal("show");
+                    };
+
+                });*/
                 
                 //WARNING. Having both functions without one commented out will break the app.
                 //main angular server request WIP
-                $http({ 
+              $http({ 
                     method: 'POST', 
                     url: "../../AuthenticationServlet",
                     params: data
                 })
     //                alert("$http was called with: " + $scope.query)
-                    .success(function(data,status) {
-                        alert(status);
+                    .success(function(data) {
                         alert("server reached!");
                         data = JSON.stringify(data).replace(/\\n/g, '', "").replace(/\\/g, '', "");
                         data = data.substr(1, data.length - 2);
@@ -1042,12 +1039,12 @@ angular.module('cyViewerApp')
                             };
                             $("#errorModal").modal("show");
                         };
-    //                    ***OLD CODE***
-    //                    alert("It went through");
-    //                    alert(data);
-    //                    networkData = JSON.parse(data);
-    //                    alert(networkData);
-    //                    $scope.cynet.load(networkData.elements);
+//    //                    ***OLD CODE***
+//    //                    alert("It went through");
+//    //                    alert(data);
+//    //                    networkData = JSON.parse(data);
+//    //                    alert(networkData);
+//    //                    $scope.cynet.load(networkData.elements);
                     })
                     .error(function(data, status, headers, config) {
                         alert(status);

@@ -19,338 +19,73 @@ and open the template in the editor.
     </head>
     <body>
         
-        <div class="container-fluid">
-         <!--navbar --> 
+
+    <div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation" class="active"><a href="index.html">Home</a></li>
+            <li role="presentation"><a href="About_Page.html">About</a></li>
+            <li role="presentation"><a href="contactPage.html">Contact</a></li>
+            <li role="presentation"><a href="AppPage.html">Launch</a></li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">SBiDer</h3>
+      </div>
+
+      <div class="jumbotron">
+        <h2 id="writeout"></h2>
+        <p class="lead text-left">SBiDer contains a logically queryable database of existing genetic devices, it  leverages to facilitate novel circuit design.Given a boolean set of input genes and output genes, SBiDer generates a variety of paths, via existing circuitry from the inputs to the outputs. SBiDer is iGEM Gold Medal winning web application, which continuously  evolves with the help of fellow scientists. 
+</p>
+        <p><a class="btn btn-lg btn-success" id="launch" role="button">Get Started!</a></p>
+      </div>
+
+      <div class="row marketing ">
+        <div class="col-lg-6 text-center" >
+            <div class="thumbnail">
+                <a id="doc" href="#"><h1>Documentation</h1></a>
+            </div>
         
-            <nav class="navbar navbar-header nav-justified" role="navigation" id='nav'>
-                <div class="btn-group  btn-group">
-                    <div class="btn btn-lg " id="home">Home</div>
-                    <div class="btn btn-lg " id="about">About</div>
-                    <div class="btn btn-lg " id="documentation">Documentation</div>
-                    <div class="btn btn-lg" id="wiki">Wiki</div>
-                    <div class="btn btn-lg" id="app">Application</div>
-                   <div class="btn btn-lg" id="contact">Contact</div>
-                  <!-- <div class="btn btn-lg"  data-toggle="modal" data-target="#loginModal">Register</div>-->
-                   
-               </div>
-                
-               <!-- <div class="btn btn-lg pull-right " id="log" data-toggle="modal" data-target="#loginModal" ><span class="glyphicon glyphicon-log-in" id="userInfo" > LOGIN</span></div>
-                <div class="btn btn-lg pull-right " id="logOut" style="visibility:hidden" ><span class="glyphicon glyphicon-log-out" id="userInfo" > LOGOUT</span></div>
-                 -->
-                
-            </nav>
-       
-        </div>     
-     <!--navbar ends-->
-     
-         
-    <!--<div class="container-fluid  text-center" id="welcomeSign">
-             <h1 >Welcome to SBiDer</h1>
-     </div>
-     <!-- Slider-->
-     <div class="container" id="Slider_Three">
-     <!--<div class="container-narrow " id="sliderHolder">
-     <div class="container-fluid" id= "sliderHome">
-    <div id="myCarousel" class="carousel slide "  data-ride="carousel">
-    	
-        
-        <!-- Carousel indicators 
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active "></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-            <!--<li data-target="#myCarousel" data-slide-to="3"></li>
-            <li data-target="#myCarousel" data-slide-to="3"></li>
-            
-        </ol>   
-        
-        <!-- Carousel items 
-        <div class="carousel-inner">
-             <div class="item active" id="sliderItems">
-                <div class="row text-center">
-                    <div class="col-md-12 ">
-                       
-                        <div class="panel" id="sponsors">
-                             <img class="img-responsive" id="thanks" src="ProfilePics/TheFinalDrawing.png">
-                            <div class="panel">  
-                            </div> 
-                        </div>
-                    </div>
-                    
-                </div>
+              <div class="thumbnail">
+                <a id="tut" href="#"><h1>Tutorials</h1></a>
             </div>
-            <div class="item  text-center" id="sliderItems">
-               
-                <div class="row">
-                    <div class="col-md-8">
-                        <div class="panel" id='AppPic'>
-                            <img class="img-responsive"  src="ProfilePics/homeNetwork.png">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="panel text-center pull-left">
-                           <div class="page-header">
-                                <h1 class="text-success">Find the right path for you!</h1> 
-                            </div>
-                            <p id="path">
-                                We created a logically queryable database of existing genetic devices.  SBiDer leverages that database to facilitate novel circuit design.  Given a boolean set of input genes and output genes, SBiDer can suggest mulitple paths, via existing circuitry, from the inputs to the outputs.
-                            </p>
-                           
-                                <button class="btn-lg btn-primary text-center" id="signMe"> <!--data-toggle="modal" data-target="#loginModal"See It!</button>
-                        </div>
-                    </div>
-                </div>
-                
-                
-            </div>
-            
-            <div class="item " id="sliderItems">
-               <div class="row">
-                    <div class="col-md-6">
-                        <div class="panel">
-                            <img class="img-responsive" src="ProfilePics/documentationOne.png">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="panel text-center">
-                          <div class="page-header">
-                                <h1>SBiDer</h1> 
-                            </div>
-                                <p class="text-success" id="path">Documentation!</p>
-                                <a href="TutorialPage.html" id="CheckIt"><span class="glyphicon glyphicon-share-alt" ></span>Check it out!</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="item" id="sliderItems">
-                <div class="row text-center">
-                    <div class="col-md-12 ">
-                       
-                        <div class="panel text-center" id="sponsors">
-                             <img class="img-responsive" id="thanks" src="ProfilePics/sponsorsFinal.png">
-                            <div class="panel">  
-                            </div> 
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-            
         </div>
-     
-     </div>
-</div>
-     
-     
-</div>-->
-        <!--INFO container-->
-        <div class="container" id="picAndText">
-            <div class="row rowOfInfo">
-                <div class="col-md-6">
-                   <img class="img-responsive" id="picHead" src="ProfilePics/TheFinalDrawing.png">  
-                </div>
-                <div class="col-md-6 " id="textInfo">
-                    <ul>
-                        <li>Logically queryable database of existing genetic devices.</li>
-                        <li>SBiDer leverages that database to facilitate novel circuit design. </li>
-                        <li>Given a boolean set of input genes and output genes, SBiDer generates a variety of paths, via existing circuitry, from the inputs to the outputs</li>
-                        <li>iGEM Gold Medal winning web application</li>
-                        <li>Continuously evolving with the help of fellow researchers</li>
-                    </ul>
-                 
-                </div>
-            </div>  
+        <div class="col-lg-6 text-center">
+            <div class="thumbnail">
+                <a href="#" id="wiki"><h1>Wikipedia</h1></a>
+            </div>
+             <div class="thumbnail">
+                 <a href="About_Page.html"><h1>Team</h1></a>
+            </div>
         </div>
-        <!--END of INFO-->
-        
-        <!--bottom three pics-->
-        
-          <div class="row" id="extraInfo">
-           <div class="col-md-4" id="btmOne">
-               <div class="btn btn-lg text-center btn-danger" id="thumbOne">
-                   <h1>Tutorial</h1>
-                   <!--<span class="glyphicon glyphicon-question"></span>-->
-                  
-                 
-               </div>
-               </div>
-              
-                <div class="col-md-4 ">
-             
-               <div class="btn btn-lg text-center btn-primary" id="thumbTwo">
-                   <h1>Explore Our Wiki</h1>
-                   <!--<span class="glyphicon glyphicon-search"></span>-->
-                   
-               </div>
-               </div>
-                
-               <div class="col-md-4">
-              
-               <div class="btn btn-lg text-center btn-success" id="thumbThree">
-                  <H1>Launch!</h1>
-                  <!--<span class="glyphicon glyphicon-circle-arrow-right"></span>-->
-               </div>
-               </div>
-         
-            </div>
-            </div>
-     
-            <!--footer-->
-            <div class="container-fluid">
-            <div class="footer">
-                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
-                    <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
-                <br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">UCSD iGEM
-                </span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License.</a>
-                <br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://localhost:8080/CircuitNetwork/Tester_Home.html" rel="dct:source">http://localhost:8080/CircuitNetwork/Tester_Home.html</a>;
-            </div>
-            </div>
-            
-            <!--login modal-->
-            <div class="modal fade  modal-lg text-center" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header text-center">
-                      <div class="btn btn-lg pull-right " data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></div>  
-                      <h1 >Welcome!</h1>
-                      
-                  </div>
-                   <div class="modal-body" >
-                        
-                  
-            
-                      
-                 
-                      <div class="row">
-                     
-                     <div class="col-md-6">
-                         <div class="thumbnail logger text-center" >
-                             <div class="page-header"><h2>Log In</h2></div>
-                             <div class="input-group input-group-lg" id="registration">
-                                 
-                                 <input type="text" id="name" placeholder="Email" class="form-control text-center">
-                                 <input type="password" id="password" placeholder="Password" class="form-control text-center">
-                                
-                             </div>
-                             <br>
-                              <div class="btn btn-lg btn-primary" id="login">Log In!</div>
-                         </div>
-                     </div>
-                     <div class="col-md-6">
-                         <div class="thumbnail logger">
-                             <div class="page-header"><h2>Register</h2></div>
-                             <div class="input-group input-group-lg " id="registration">
-                                 
-                            <input type="text" id="newName" class="form-control text-center" placeholder="Email">
-                            <input type="password" id="newPassword" class="form-control text-center" placeholder="Password">
-                         </div>
-                             <br>
-                              <div class="btn btn-lg btn-primary" id="register">Register!</div>
-                     </div>
-                 </div>
-                      
-                      <div class="row btn-group btn-group-lg btn-group-justified">
-                          <div class="col-sm-4">
-                              <a href="index.html"><div class="btn btn-link">
-                                 Home
-                                  </div></a>  
-                          </div>
-                          <div class="col-sm-4">
-                              <a href="TutorialPage.html"><div class="btn btn-link">
-                                 Tutorial
-                                  </div></a>
-                          </div>
-                          <div class="col-sm-4">
-                              <a href="AboutPage.html"><div class="btn btn-link" id="about">
-                                 About Us
-                                  </div></a>
-                          </div>
-                      </div>
-           
-        
-       
-</div>
       </div>
-      
-    </div>
-  </div>
-            </div>
 
-            <!--end of modal-->
-           <div class="modal fade  modal-lg text-center" id="appearModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header text-center">
-                     
-                      <h1 >Welcome to SBiDer!</h1>
-                      
-                      
-                  </div>
-                   <div class="modal-body" >
-                       
-                           <div id="carouselFirst" class="carousel slide" data-ride="carousel">
-  <!-- Indicators 
-  <ol class="carousel-indicators">
-    <li data-target="#carouselFirst" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselFirst" data-slide-to="1"></li>
-    <li data-target="#carouselFirst" data-slide-to="2"></li>
-    <li data-target="#carouselFirst" data-slide-to="3"></li>
-  </ol>
--->
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner">
-    <div class="item active">
-      <img src="ProfilePics/network.png">
-      <div class="carousel-caption">
-       
-      </div>
-    </div>
-    <div class="item">
-      <img src="ProfilePics/screenShot2.png">
-      <div class="carousel-caption">
-        ...
-      </div>
-    </div>
-      <div class="item">
-      <img src="ProfilePics/screenShot3.png">
-      <div class="carousel-caption">
-        ...
-      </div>
-    </div>
-   
-  </div>
+      <footer class="footer">
+        
+      </footer>
 
-  <!-- Controls 
-  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-  </a>
-  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-  </a>
-  -->
-</div>
-                         
-                  
-            
-                      
-                 
-                      
-        <div class="row">
-                <button class="btn btn-lg btn-success" data-dismiss="modal">
-                    Proceed!
-                </button>
-            </div>          
-           
-       
-                  </div>
-      </div>
-             
-           
+    </div> <!-- /container -->
 
-    </div>
-               
-  </div>
-            
+
+<!--<script type="text/javascript">
+function scroll(position) { 
+var msg = "Welcome to SBiDer";
+var out = "";
+var sc = document.getElementById("writeout");
+for (var i=0; i < position; i++){ 
+out += msg.charAt(i);
+} 
+out += msg.charAt(position); 
+sc.innerHTML = out; 
+position++;
+if (position !== msg.length) { 
+window.setTimeout(function() { scroll(position); }, 50); 
+} 
+else {
+window.setTimeout(function() { scroll(0); }, 2000000); 
+}
+} 
+scroll(0); 
+</script> -->   
     </body>
 </html>
