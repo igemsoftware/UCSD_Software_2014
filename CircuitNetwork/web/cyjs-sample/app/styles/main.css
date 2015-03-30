@@ -158,6 +158,36 @@ hr {
     height:2px;
 }
 
+//Legend CSS
+#circuitLegend {
+    width: 30%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.legendKey {
+    width: 4em;
+    height: 2em;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#operonLegendKey {
+    background-color: #A6CEE3;
+}
+
+#speciesLegendKey {
+    background-color: #B2DF8A;
+}
+
+#itLegendKey {
+    background-color: #FB9a99;
+}
+
+#otLegendKey {
+    background-color: #FDBF6F;
+}
+
 #or{
     color: red;
 }
@@ -176,4 +206,3 @@ hr {
     margin: 10px;
     
 }
-

@@ -77,3 +77,13 @@ body {
     border-bottom: 0;
   }
 }
+
+.thumbnail .tut{
+    height: 250px;
+    width: 100%;
+  
+}
+
+.thumbnail .tut .h1{
+    font-size: 12px;
+}

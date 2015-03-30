@@ -24,14 +24,19 @@ $(document).ready(function(){
      $("#documentation").click(function(){
        window.location.href="TutorialPage.html"; 
     });
+    
+     $("#tut").click(function(){
+       window.location.href="Tutorial.html"; 
+    });
+    
     $("#thumbOne").click(function(){
        window.location.href="TutorialPage.html"; 
     });
      $("#wiki").click(function(){
        window.open("http://2014.igem.org/Team:UCSD_Software", '_blank'); 
     });
-     $("#app").click(function(){
-       window.location.href="AppPage.html"; 
+     $("#launch").click(function(){
+       window.open("AppPage.html", '_blank'); 
     });
     
     $("#contact").click(function(){
@@ -59,6 +64,10 @@ $(document).ready(function(){
      $("#wikiDocumentation").click(function(){
            window.open("http://2014.igem.org/Team:UCSD_Software/Documentation", '_blank'); 
     });
+    
+     $("#doc").click(function(){
+           window.open("http://2014.igem.org/Team:UCSD_Software/Documentation", '_blank'); 
+    });
       
        $("#githubLink ").click(function(){
            window.open("https://github.com/igemsoftware/UCSD-iGEM_2014", '_blank'); 
@@ -82,13 +91,18 @@ $(document).ready(function(){
        var subject = $("#subject").val();
        var email = $('#email').val();
        var message = $('#message').val();
-       alert("Name: " + name + "subject: " + subject +  "email: " + email + "msg: " + message);
+       //alert("Name: " + name + "subject: " + subject +  "email: " + email + "msg: " + message);
        var data = {name:name, email:email, subject:subject,message: message, command:"contactUs"}; 
        $.get("AuthenticationServlet", data, function(done){
-           alert(done);
+           var print = document.getElementById("outPut");
+           alert("hello");
+           $('#outPut').text(done);
+           print.innerHTML = done; 
        });
          
      });  
+     
+   
      
      
 });  

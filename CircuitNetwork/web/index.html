@@ -25,7 +25,7 @@ and open the template in the editor.
         <nav>
           <ul class="nav nav-pills pull-right">
             <li role="presentation" class="active"><a href="index.html">Home</a></li>
-            <li role="presentation"><a href="#">About</a></li>
+            <li role="presentation"><a href="About_Page.html">About</a></li>
             <li role="presentation"><a href="contactPage.html">Contact</a></li>
             <li role="presentation"><a href="AppPage.html">Launch</a></li>
           </ul>
@@ -35,26 +35,27 @@ and open the template in the editor.
 
       <div class="jumbotron">
         <h2 id="writeout"></h2>
-        <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
+        <p class="lead text-left">SBiDer contains a logically queryable database of existing genetic devices, it  leverages to facilitate novel circuit design.Given a boolean set of input genes and output genes, SBiDer generates a variety of paths, via existing circuitry from the inputs to the outputs. SBiDer is iGEM Gold Medal winning web application, which continuously  evolves with the help of fellow scientists. 
+</p>
+        <p><a class="btn btn-lg btn-success" id="launch" role="button">Get Started!</a></p>
       </div>
 
       <div class="row marketing ">
         <div class="col-lg-6 text-center" >
             <div class="thumbnail">
-                <a href=""><h1>Documentation</h1></a>
+                <a id="doc" href="#"><h1>Documentation</h1></a>
             </div>
         
               <div class="thumbnail">
-                <a href=""><h1>Tutorials</h1></a>
+                <a id="tut" href="#"><h1>Tutorials</h1></a>
             </div>
         </div>
         <div class="col-lg-6 text-center">
             <div class="thumbnail">
-                <a href=""><h1>Wikipedia</h1></a>
+                <a href="#" id="wiki"><h1>Wikipedia</h1></a>
             </div>
              <div class="thumbnail">
-                 <a href=""><h1>Team</h1></a>
+                 <a href="About_Page.html"><h1>Team</h1></a>
             </div>
         </div>
       </div>
@@ -66,7 +67,7 @@ and open the template in the editor.
     </div> <!-- /container -->
 
 
-<script type="text/javascript">
+<!--<script type="text/javascript">
 function scroll(position) { 
 var msg = "Welcome to SBiDer";
 var out = "";
@@ -77,7 +78,7 @@ out += msg.charAt(i);
 out += msg.charAt(position); 
 sc.innerHTML = out; 
 position++;
-if (position != msg.length) { 
+if (position !== msg.length) { 
 window.setTimeout(function() { scroll(position); }, 50); 
 } 
 else {
@@ -85,6 +86,6 @@ window.setTimeout(function() { scroll(0); }, 2000000);
 }
 } 
 scroll(0); 
-</script>    
+</script> -->   
     </body>
 </html>

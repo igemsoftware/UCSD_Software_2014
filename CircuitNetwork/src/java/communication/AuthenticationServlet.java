@@ -98,11 +98,20 @@ public class AuthenticationServlet extends HttpServlet {
                     String message = request.getParameter("message");
                     
                     GoogleMail googleMail = new GoogleMail(name, email, subject, message);
-                    String output= googleMail.writeMessage();
-                    out.write(output);
+                    googleMail.writeMessage();
+                    //googleMail.automationEmail(email);
+                    
+                    out.write("Dear " + name + " your message has been sent!");
+                    
                     break;
 
                 }
+                
+                case "upload": {
+                    
+                    break;
+                }
+                
                 case "uploadNew": {
                     String upload = request.getParameter("data");
                     String output = currentController.executeUpload(upload);
@@ -110,6 +119,7 @@ public class AuthenticationServlet extends HttpServlet {
 
                     break;
                 }
+                
                 default:
                     System.out.println("help me ");
             }

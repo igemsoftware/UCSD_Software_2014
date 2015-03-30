@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>SBiDer</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="index.css">
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script src="masterJS.js"></script>
+    
+    </head>
+    <body>
+        
+
+    <div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation"><a href="index.html">Home</a></li>
+            <li role="presentation"><a href="About_Page.html">About</a></li>
+            <li role="presentation"><a href="contactPage.html">Contact</a></li>
+            <li role="presentation"><a href="AppPage.html">Launch</a></li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">SBiDer</h3>
+      </div>
+
+      <div class="jumbotron">
+          <h2>Tutorial Page</h2>
+         
+        <div class='row'>
+            <div class='col-md-6 '><a href='#'><div class='thumbnail tut' data-toggle="modal" data-target="#AppModal"><h1 id="thumbTxt" class='text-center text-primary'>FAQ</h1></div></a>
+                
+            </div>
+            <div class='col-md-6'><a href='#'><div class='thumbnail tut' data-toggle="modal" data-target="#Video"><h1 class='text-center text-primary'>Video Tutorials</h1></div></a>
+                
+            </div>
+        </div>
+        <div class='row'>
+            <div class='col-md-6'><a href='#'><div class='thumbnail tut' id="wikiDocumentation"><h1 class='text-center text-primary'>Documentation</h1></div></a>
+                
+            </div>
+            <div class='col-md-6'><a href='#'><div class='thumbnail tut' id="githubLink"><h1 class='text-center text-primary'>GitHub</h1></div></a>
+                
+            </div>
+        </div>
+        </div>
+      </div>
+       
+      <footer class="footer">
+        
+      </footer>
+        
+      <div class="modal fade" id="AppModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title text-center" id="myModalLabel">FAQ</h4>
+      </div>
+      <div class="modal-body">
+          <ol class="pull-left">
+              
+              <li class='text-primary'>How do I know which species exist in the database?<br>
+                  <p class='text-success'>An auto-complete exists as the user inputs with all the existing species.  </p>
+              </li>
+              
+              <li class='text-primary'>
+                  Where can I get more information about the project?<br>
+                  <p class="text-success">You can go onto our wiki page and we have all our information up there</p>
+              </li>
+              
+              <li class='text-primary' >
+                  I want to contribute, what do I do?
+                  <p class="text-success">We have an upload section on our application page where the user can enter proper information and if the entry is valid then the information will be uploaded to the database</p>
+              </li>
+              
+          </ol>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+     
+ <!-- Modal -->
+<div class="modal fade" id="Video" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content ">
+      <div class="modal-header ">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Running the app</h4>
+      </div>
+      <div class="modal-body">
+        <div class="container" id="videoLinks">
+          <div class="row text-center">
+          <div class="col-md-6">
+              <div class="panel" id="videoLinksOne">
+                 <div class="embed-responsive embed-responsive-16by9" >
+                     <iframe src="//www.youtube.com/embed/_HNLh0OzNbI"></iframe>
+                 </div>
+              </div>
+                
+          </div>
+              
+          
+          </div>
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+ 
+ <!-- Modal -->
+<div class="modal fade" id="Documentation" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h1 class="modal-title text-primary text-center" id="myModalLabel">Documentation </h1>
+      </div>
+      <div class="modal-body text-center">
+         
+          <div class="panel">
+              <h2>Using The Application</h2>
+              <ol>
+                  <li>1)First enter your starting species/species into the input:<br>
+
+              You can do a single entry: <br>
+
+      OR <br>
+
+      Multiple entries should be separated by the word "and", with each entry being separated by a space:<br>
+              </li>
+              <li>2) Enter your final species,  following  the same rules as the ones for starting species.<br></li>
+      
+              <li>3) You can also chose a direct or indirect path by checking of the box. The indirect path is a connection of  disjoint paths by convergence for  the production of the final output species.<br></li>
+      
+              <li>4)Finally press Explore and see your results. <br></li>
+              </ol>
+   <h3>What you will be able to see</h3>
+   
+   <ol >
+       <li >
+          Network exploration of genetic devices 
+       </li>
+       <li>
+           Visuals of devices in SBOL format
+       </li>
+       <li>
+           Information about devices and references to literature
+       </li>
+       <li>
+           CAD for novel circuit design 
+       </li>
+       <li>
+           Centralized access to database of information            
+       </li>
+       <li>
+           Able to have user-contributed expansion to database
+       </li>
+   </ol>
+          </div>
+         
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+       
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+    </div> <!-- /container -->
+   
+    </body>
+</html>

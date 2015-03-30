@@ -6,14 +6,21 @@ import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
+import javax.activation.DataHandler;
+import javax.activation.DataSource;
+import javax.activation.FileDataSource;
+import javax.mail.BodyPart;
+import javax.mail.Multipart;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMultipart;
 
 public class GoogleMail {
-    private String userName;
-    private String userEmail;
-    private String userSubject;
-    private String userMessage;
+    private final String userName;
+    private final String userEmail;
+    private final String userSubject;
+    private final String userMessage;
     
     
     public GoogleMail(String userName, String userEmail, String userSubject, String userMessage) {
@@ -24,11 +31,21 @@ public class GoogleMail {
         this.userMessage = userMessage;
     }
     
-    public String writeMessage() {
+    public void writeMessage() {
                 
      // Recipient's email ID needs to be mentioned.
       String to = "sbiderapp@gmail.com";
-
+      
+      sendIt(to);
+    }
+    
+    public void automationEmail(String user){
+      String to = user; 
+      
+      sendIt(to);
+    }
+    
+    public String sendIt(String to){
       // Sender's email ID needs to be mentioned
       String from = "sbiderapp@gmail.com";
       final String username = "sbiderapp@gmail.com";
@@ -66,8 +83,28 @@ public class GoogleMail {
          message.setSubject(userSubject);
 
          // Now set the actual message
-         message.setText("User name: " + userName + "\n" + "User email: " + userEmail+ "\n" + userMessage);
+         message.setText("User name: " + userName + "\n" + "User email: " + userEmail+ "\n\n"+ "Message: \n" + userMessage);
 
+         // Create the message part
+         BodyPart messageBodyPart = new MimeBodyPart();
+         
+         // Create a multipar message
+         Multipart multipart = new MimeMultipart();
+         
+         // Set text message part
+         multipart.addBodyPart(messageBodyPart);
+
+         // Part two is attachment
+         messageBodyPart = new MimeBodyPart();
+         String filename = "/home/manisha/file.txt";
+         DataSource source = new FileDataSource(filename);
+         messageBodyPart.setDataHandler(new DataHandler(source));
+         messageBodyPart.setFileName(filename);
+         multipart.addBodyPart(messageBodyPart);
+
+         // Send the complete message parts
+         message.setContent(multipart); 
+         
          // Send message
          Transport.send(message);
 
