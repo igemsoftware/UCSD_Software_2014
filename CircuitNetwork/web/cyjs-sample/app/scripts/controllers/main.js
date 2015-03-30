@@ -1006,7 +1006,8 @@ angular.module('cyViewerApp')
 //                    params: data
 //                })
 //    //                alert("$http was called with: " + $scope.query)
-//                    .success(function(data) {
+//                    .success(function(data,status) {
+//                        alert(status);
 //                        alert("server reached!");
 //                        data = JSON.stringify(data).replace(/\\n/g, '', "").replace(/\\/g, '', "");
 //                        data = data.substr(1, data.length - 2);
