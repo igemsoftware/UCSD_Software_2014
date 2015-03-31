@@ -1010,10 +1010,11 @@ angular.module('cyViewerApp')
                         data = data.substr(1, data.length - 2);
                         //alert(data);
                         console.log(data);
-                        $scope.$apply(function() {
-                            alert("update scope");
-                            networkData = JSON.parse(data);
-                        });
+
+                        //Edited WIP
+                        alert("update scope");
+                        networkData = angular.fromJSON(data);
+
                         console.log(networkData);
                         angular.element('.loading').hide();
 
