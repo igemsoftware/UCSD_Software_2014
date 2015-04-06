@@ -1,7 +1,5 @@
 """
-Subtitle
-
-Descriptive paragraph
+SBiDer search algorithms
 
 ******************************************************************************
 @author: Huwate(Kwat) Yeerna, University of California, San Diego

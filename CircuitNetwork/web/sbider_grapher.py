@@ -1,13 +1,12 @@
 """
-Subtitle
-
-Descriptive paragraph
+Generate files for network display
 
 ******************************************************************************
 @author: Joaquin Reyna, University of California, San Diego
          Huwate(Kwat) Yeerna, University of California, San Diego
 ******************************************************************************
 """
+
 import sys
 sys.path+=['', '/Users/valeriysosnovskiy/anaconda/lib/python27.zip', '/Users/valeriysosnovskiy/anaconda/lib/python2.7', '/Users/valeriysosnovskiy/anaconda/lib/python2.7/plat-darwin', '/Users/valeriysosnovskiy/anaconda/lib/python2.7/plat-mac', '/Users/valeriysosnovskiy/anaconda/lib/python2.7/plat-mac/lib-scriptpackages', '/Users/valeriysosnovskiy/anaconda/lib/python2.7/lib-tk', '/Users/valeriysosnovskiy/anaconda/lib/python2.7/lib-old', '/Users/valeriysosnovskiy/anaconda/lib/python2.7/lib-dynload', '/Users/valeriysosnovskiy/anaconda/lib/python2.7/site-packages', '/Users/valeriysosnovskiy/anaconda/lib/python2.7/site-packages/PIL', '/Users/valeriysosnovskiy/anaconda/lib/python2.7/site-packages/runipy-0.1.0-py2.7.egg', '/Users/valeriysosnovskiy/anaconda/lib/python2.7/site-packages/setuptools-3.6-py2.7.egg']
 sys.path+=['', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages/openpyxl-1.6.2-py2.7.egg', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages/psycopg2-2.5-py2.7-linux-x86_64.egg', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages/matplotlib_venn-0.9-py2.7.egg', '/bioinformatics/software/anaconda2.7/lib/python27.zip', '/bioinformatics/software/anaconda2.7/lib/python2.7', '/bioinformatics/software/anaconda2.7/lib/python2.7/plat-linux2', '/bioinformatics/software/anaconda2.7/lib/python2.7/lib-tk', '/bioinformatics/software/anaconda2.7/lib/python2.7/lib-old', '/bioinformatics/software/anaconda2.7/lib/python2.7/lib-dynload', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages/PIL', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages/setuptools-0.6c11-py2.7.egg-info']

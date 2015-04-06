@@ -1,15 +1,16 @@
 """
-Subtitle
-
-Descriptive paragraph
+User query analyzer
 
 ******************************************************************************
 @author: Huwate(Kwat) Yeerna, University of California, San Diego
 ******************************************************************************
 """
 
+
+
 import helper
 import sbider_database as db
+
 
 
 def grammar_0(cursor, tokens):
@@ -27,7 +28,6 @@ def grammar_0(cursor, tokens):
         input_output_dictionary = helper.split_by(tokens, '=')
 
     return grammar_output(grammar_1(cursor, input_output_dictionary[0]), grammar_1(cursor, input_output_dictionary[1]))
-
 
 def grammar_1(cursor, tokens):
     """
@@ -56,7 +56,6 @@ def grammar_1(cursor, tokens):
     else:
         # grammar_2
         return grammar_2(cursor, tokens)
-
 
 def grammar_2(cursor, tokens):
     """
@@ -100,7 +99,6 @@ def grammar_2(cursor, tokens):
         # interactor; delegate to interactor
         return interactor(cursor, tokens)
 
-
 def interactor(cursor, token):
     """
     Grammar for 'interactor'.
@@ -111,7 +109,6 @@ def interactor(cursor, token):
 
     species = token[0]
     return [[db.db_get_species_id_from_name(cursor, species)]]
-
 
 def grammar_output(tokens1, tokens2):
     """
@@ -128,7 +125,6 @@ def grammar_output(tokens1, tokens2):
 
     return grammar_output_dict
 
-
 def grammar_or(tokens1, tokens2):
     """
     Grammar for 'or'.
@@ -138,7 +134,6 @@ def grammar_or(tokens1, tokens2):
     """
 
     return tokens1 + tokens2
-
 
 def grammar_and(tokens1, tokens2):
     """
@@ -156,7 +151,6 @@ def grammar_and(tokens1, tokens2):
 
     return grammar_and_output
 
-
 def parse_logic(cursor, logic_input):
     """
     Parse a logic input into atomized and equivalent logic.
@@ -169,6 +163,7 @@ def parse_logic(cursor, logic_input):
 
     # begins recursive logic parse
     return grammar_0(cursor, split_logic_input)
+
 
 
 # End of sbider_parser.py

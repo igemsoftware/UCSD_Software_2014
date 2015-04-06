@@ -1,7 +1,5 @@
 """
-Subtitle
-
-Descriptive paragraph
+SBiDer main
 
 ******************************************************************************
 @author: Huwate(Kwat) Yeerna, University of California, San Diego
@@ -9,22 +7,34 @@ Descriptive paragraph
 ******************************************************************************
 """
 
+
+
 import sys
 sys.path+=['', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages/openpyxl-1.6.2-py2.7.egg', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages/psycopg2-2.5-py2.7-linux-x86_64.egg', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages/matplotlib_venn-0.9-py2.7.egg', '/bioinformatics/software/anaconda2.7/lib/python27.zip', '/bioinformatics/software/anaconda2.7/lib/python2.7', '/bioinformatics/software/anaconda2.7/lib/python2.7/plat-linux2', '/bioinformatics/software/anaconda2.7/lib/python2.7/lib-tk', '/bioinformatics/software/anaconda2.7/lib/python2.7/lib-old', '/bioinformatics/software/anaconda2.7/lib/python2.7/lib-dynload', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages/PIL', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages/setuptools-0.6c11-py2.7.egg-info']
+
 import sbider_database as db
 import sbider_parser as parser
 import sbider_searcher as searcher
 import sbider_grapher as grapher
 
 
+
 def build_sbider_network(directory_path, user_query, indirect=False):
+
+    # Access database
     database_file = directory_path + "/sbider.db"
     conn, cur = db.db_open(database_file)
 
+    # Dictionary of fragmented user inputs that satisfy user query
     logic_dictionary = parser.parse_logic(cur, user_query)
+
+    # Dictionaries of: Operon <-> InputSpecies & Operon <-> OutputSpecies
     input_dictionary, output_dictionary = db.make_ope_id_spe_id_dics(cur)
+
+    # Dictionary of: Operon <-> Repressor
     repressor_dictionary = db.make_ope_id_rep_spe_id_dic(cur)
 
+    # Build operon path for each fragmented user input, which satisfies user query
     all_operon_path = []
     for input_species, output_species_list in logic_dictionary.items():
 
@@ -39,9 +49,15 @@ def build_sbider_network(directory_path, user_query, indirect=False):
 
             operon_path_per_start_species.extend(operon_path_list)
         all_operon_path.append(operon_path_per_start_species)
-        path_json = grapher.create_subnetwork_json_string(cur, operon_path_per_start_species, database_file)
-        return path_json
 
+        ############################ Error #################################
+
+        # Create JSON file needed to display the found genetic circuit
+        path_json = grapher.create_subnetwork_json_string(cur, operon_path_per_start_species, database_file)
+
+        ####################################################################
+
+        return path_json
 
 if __name__ == "__main__":
     path = sys.argv[1]

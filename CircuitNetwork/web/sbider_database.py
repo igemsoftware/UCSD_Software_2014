@@ -1,7 +1,5 @@
 """
-Subtitle
-
-Descriptive paragraph
+SBiDer database
 
 ******************************************************************************
 @author: Huwate(Kwat) Yeerna, University of California, San Diego
@@ -11,8 +9,11 @@ Descriptive paragraph
 
 import sqlite3
 
+########################### helper.py not found ####################
+
 import helper
 
+######################################################################
 
 def make_sql_insert_command(table_name, table_header_list, insert_data_list):
     """Make SQL insert command."""
@@ -589,6 +590,7 @@ def make_plasmid_species_name_dictionary(cursor, operon_id_plasmid_name_dictiona
 
 def make_pla_name_spe_name_dics(cursor):
     """Make operon input and output species dictionary."""
+
     #plasmid_name_input_species_name_dictionary = {}
     #plasmid_name_output_species_name_dictionary = {}
 
@@ -614,6 +616,9 @@ def make_pla_name_spe_name_dics(cursor):
                                                                                   output_operon_species_dictionary)
     return input_plasmid_species_name_dictionary, output_plasmid_species_name_dictionary
 
+
+########################### ? ###############################
+'''
 def operon_PMC_dictionary(database):
     conn, cur = db_open(database)
     operon_PMC_dict = {}
@@ -622,3 +627,5 @@ def operon_PMC_dictionary(database):
         operon_PMC_dict[ope_id] = PMC_ID.replace(' PMID: ', '')
     db_close(conn, cur)
     return operon_PMC_dict
+'''
+#############################################################
