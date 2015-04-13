@@ -1,11 +1,12 @@
 """
-Useful helper functions.
+Useful SBiDer helper functions
 
 ******************************************************************************
 @author: Huwate(Kwat) Yeerna, University of California, San Diego
          Joaquin Reina, University of California, San Diego
 ******************************************************************************
 """
+
 
 import itertools as it
 import math
@@ -277,4 +278,23 @@ def format_values(value_list):
     return formatted_value_list
 
 
-# End of helper.py
+def printplus(obj):
+    """
+    Pretty-prints the object passed in.
+    """
+    # Dict
+    if isinstance(obj, dict):
+        for k, v in sorted(obj.items()):
+            print u'{0}: {1}'.format(k, v)
+
+    # List or tuple
+    elif isinstance(obj, list) or isinstance(obj, tuple):
+        for x in obj:
+            print x
+
+    # Other
+    else:
+        print obj
+
+
+# End of SBiDer_helper.py

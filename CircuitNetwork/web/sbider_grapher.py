@@ -7,22 +7,22 @@ Generate files for network display
 ******************************************************************************
 """
 
-import sys
-sys.path+=['', '/Users/valeriysosnovskiy/anaconda/lib/python27.zip', '/Users/valeriysosnovskiy/anaconda/lib/python2.7', '/Users/valeriysosnovskiy/anaconda/lib/python2.7/plat-darwin', '/Users/valeriysosnovskiy/anaconda/lib/python2.7/plat-mac', '/Users/valeriysosnovskiy/anaconda/lib/python2.7/plat-mac/lib-scriptpackages', '/Users/valeriysosnovskiy/anaconda/lib/python2.7/lib-tk', '/Users/valeriysosnovskiy/anaconda/lib/python2.7/lib-old', '/Users/valeriysosnovskiy/anaconda/lib/python2.7/lib-dynload', '/Users/valeriysosnovskiy/anaconda/lib/python2.7/site-packages', '/Users/valeriysosnovskiy/anaconda/lib/python2.7/site-packages/PIL', '/Users/valeriysosnovskiy/anaconda/lib/python2.7/site-packages/runipy-0.1.0-py2.7.egg', '/Users/valeriysosnovskiy/anaconda/lib/python2.7/site-packages/setuptools-3.6-py2.7.egg']
-sys.path+=['', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages/openpyxl-1.6.2-py2.7.egg', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages/psycopg2-2.5-py2.7-linux-x86_64.egg', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages/matplotlib_venn-0.9-py2.7.egg', '/bioinformatics/software/anaconda2.7/lib/python27.zip', '/bioinformatics/software/anaconda2.7/lib/python2.7', '/bioinformatics/software/anaconda2.7/lib/python2.7/plat-linux2', '/bioinformatics/software/anaconda2.7/lib/python2.7/lib-tk', '/bioinformatics/software/anaconda2.7/lib/python2.7/lib-old', '/bioinformatics/software/anaconda2.7/lib/python2.7/lib-dynload', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages/PIL', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages/setuptools-0.6c11-py2.7.egg-info']
-sys.path+=['', '/Users/Admin/anaconda/lib/python27.zip', '/Users/Admin/anaconda/lib/python2.7', '/Users/Admin/anaconda/lib/python2.7/plat-darwin', '/Users/Admin/anaconda/lib/python2.7/plat-mac', '/Users/Admin/anaconda/lib/python2.7/plat-mac/lib-scriptpackages', '/Users/Admin/anaconda/lib/python2.7/lib-tk', '/Users/Admin/anaconda/lib/python2.7/lib-old', '/Users/Admin/anaconda/lib/python2.7/lib-dynload', '/Users/Admin/anaconda/lib/python2.7/site-packages', '/Users/Admin/anaconda/lib/python2.7/site-packages/PIL', '/Users/Admin/anaconda/lib/python2.7/site-packages/runipy-0.1.0-py2.7.egg', '/Users/Admin/anaconda/lib/python2.7/site-packages/setuptools-3.6-py2.7.egg']
 
 import networkx as nx
-
+import sys
 import sbider_database as db
 
-def resize_network(total_subnetwork_nodes, total_whole_nodes = 550):
+
+sys.path += ['', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages/openpyxl-1.6.2-py2.7.egg', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages/psycopg2-2.5-py2.7-linux-x86_64.egg', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages/matplotlib_venn-0.9-py2.7.egg', '/bioinformatics/software/anaconda2.7/lib/python27.zip', '/bioinformatics/software/anaconda2.7/lib/python2.7', '/bioinformatics/software/anaconda2.7/lib/python2.7/plat-linux2', '/bioinformatics/software/anaconda2.7/lib/python2.7/lib-tk', '/bioinformatics/software/anaconda2.7/lib/python2.7/lib-old', '/bioinformatics/software/anaconda2.7/lib/python2.7/lib-dynload', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages/PIL', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages/setuptools-0.6c11-py2.7.egg-info']
+sys.path += ['', '/Users/Admin/anaconda/lib/python27.zip', '/Users/Admin/anaconda/lib/python2.7', '/Users/Admin/anaconda/lib/python2.7/plat-darwin', '/Users/Admin/anaconda/lib/python2.7/plat-mac', '/Users/Admin/anaconda/lib/python2.7/plat-mac/lib-scriptpackages', '/Users/Admin/anaconda/lib/python2.7/lib-tk', '/Users/Admin/anaconda/lib/python2.7/lib-old', '/Users/Admin/anaconda/lib/python2.7/lib-dynload', '/Users/Admin/anaconda/lib/python2.7/site-packages', '/Users/Admin/anaconda/lib/python2.7/site-packages/PIL', '/Users/Admin/anaconda/lib/python2.7/site-packages/runipy-0.1.0-py2.7.egg', '/Users/Admin/anaconda/lib/python2.7/site-packages/setuptools-3.6-py2.7.egg']
+
+
+def resize_network(total_subnetwork_nodes, total_whole_nodes=550):
    """Resize the network."""
    if total_whole_nodes == 0:
        return 10000 * total_subnetwork_nodes/550
    else:
        return 10000 * total_subnetwork_nodes/total_whole_nodes
-
 
 def get_input_transition_species_dictionary(cursor):
     """
@@ -48,7 +48,6 @@ def get_input_transition_species_dictionary(cursor):
             input_transitions_species_dict[it_id].append(spe_id)
     return input_transitions_species_dict
 
-
 def list_of_lists(list_of_tups):
     """Creates a list of lists from a list of tuples.
 
@@ -62,7 +61,6 @@ def list_of_lists(list_of_tups):
         list_of_lsts.append(list(tup))
     return list_of_lsts
 
-
 def list_of_tuples(list_of_lsts):
     """Creates a list of tuples from a list of lists.
 
@@ -74,7 +72,6 @@ def list_of_tuples(list_of_lsts):
     for lst in list_of_lsts:
         list_of_tups.append(tuple(lst))
     return list_of_tups
-
 
 def unique_node_list(nodes_list):
     """
@@ -97,7 +94,6 @@ def unique_node_list(nodes_list):
             used_node_id_list.append(node_)
     return uniq_node_list
 
-
 def add_node_id_abbreviation(node_, abbrev, index):
     """Adds an id abbreviation to a node.
 
@@ -113,7 +109,6 @@ def add_node_id_abbreviation(node_, abbrev, index):
 
     node_[index] = abbrev + node_[index]
     return node_
-
 
 def add_node_list_id_abbreviation(node_list, abbrev, id_index):
     """Adds an id abbreviation to a list of nodes.
@@ -135,14 +130,12 @@ def add_node_list_id_abbreviation(node_list, abbrev, id_index):
         node_list[index] = add_node_id_abbreviation(node_, abbrev, id_index)
     return node_list
 
-
 def merge_list_of_lists(list_of_lsts):
     """merges_lists within a list."""
     condensed_list = []
     for lst in list_of_lsts:
         condensed_list.extend(lst)
     return condensed_list
-
 
 def get_node_from_id(cursor, node_table_name, node_id, node_id_type):
     """Query the database using the node_id for node.
@@ -162,7 +155,6 @@ def get_node_from_id(cursor, node_table_name, node_id, node_id_type):
     node_ = node_cursor.fetchone()
     node_ = list(node_)
     return node_
-
 
 def get_node1_list_from_node2_id(cursor, node1_node2_relationship_table, node2_id, node2_id_type,
                                  node1_table_name, node1_id_type):
@@ -199,17 +191,14 @@ def get_node1_list_from_node2_id(cursor, node1_node2_relationship_table, node2_i
         node_list.append(node_)
     return node_list
 
-
 def add_edge_id_abbreviation(edge, abbrev1, abbrev2, index1=0, index2=0):
     return (abbrev1 + edge[0], abbrev2 + edge[1])
-
 
 def add_edge_list_id_abbreviation(edge_list, abbrev1, abbrev2, index1=0, index2=0):
     edge_list_abbrev = []
     for edge in edge_list:
         edge_list_abbrev.append(add_edge_id_abbreviation(edge, abbrev1, abbrev2, index1, index2))
     return edge_list_abbrev
-
 
 def determine_operon_activated_input_transition(cursor, starting_species_list, operon_id, input_transition_id_dict):
     """Determining which input transition is activating an operon.
@@ -241,7 +230,6 @@ def determine_operon_activated_input_transition(cursor, starting_species_list, o
             activated_it_id_list.append(it_trans_id)
     return activated_it_id_list
 
-
 def create_operon_node(cursor, operon_id):
     """Create an operon node from the corresponding operon_id.
 
@@ -262,7 +250,6 @@ def create_operon_node(cursor, operon_id):
     operon_node_abbrev = add_node_id_abbreviation(operon_node, "ope_", 0)
 
     return operon_node_abbrev, operon_id
-
 
 def create_input_transition_nodes(cursor, starting_species_list, operon_id, input_transition_id_dict):
     """Create input transition nodes list from the corresponding operon_id.
@@ -296,7 +283,6 @@ def create_input_transition_nodes(cursor, starting_species_list, operon_id, inpu
 
     return it_node_abbrev_list, activated_it_id_list
 
-
 def create_output_transition_node(cursor, operon_id):
     """Create output transition nodes from the corresponding operon_id.
 
@@ -316,7 +302,6 @@ def create_output_transition_node(cursor, operon_id):
 
     return ot_node_abbrev, ot_id
 
-
 def create_input_species_nodes(cursor, it_id):
     """Create species nodes from the corresponding it_id."""
 
@@ -329,7 +314,6 @@ def create_input_species_nodes(cursor, it_id):
     it_species_nodes_abbrev = [tuple(tup) for tup in it_species_nodes_abbrev]
 
     return it_species_nodes_abbrev, it_species_ids
-
 
 def create_output_species_nodes(cursor, ot_id):
     """Create species nodes from the corresponding ot_id."""
@@ -344,7 +328,6 @@ def create_output_species_nodes(cursor, ot_id):
     ot_species_nodes_abbrev = [tuple(tup) for tup in ot_species_nodes_abbrev]
 
     return ot_species_nodes_abbrev, ot_species_ids
-
 
 def nx_node_coordinates_dictionary(node_id_list, edge_list):
     """Creates a dictionary of node coordinates using spring layout from networkx.
@@ -365,13 +348,11 @@ def nx_node_coordinates_dictionary(node_id_list, edge_list):
     node_coor_dictionary = nx.spring_layout(json_graph)
     return node_coor_dictionary
 
-
 def add_node_values_to_nxgraph(nxgraph, node_list):
     """Extracts the node id and enters it into nxGraph."""
 
     for node_ in node_list:
         nxgraph.add_node(node_[0])
-
 
 def get_path_json_array(cursor, starting_species_list, operon_paths_list):
     """Generate json array for node highlighting."""
@@ -412,7 +393,6 @@ def get_path_json_array(cursor, starting_species_list, operon_paths_list):
                 output_transitions_json_array + edges_json_array
 
     return to_return
-
 
 def create_subnetwork_path(cursor, starting_species_list, operon_path, it_trans_dict):
     """
@@ -469,7 +449,6 @@ def create_subnetwork_path(cursor, starting_species_list, operon_path, it_trans_
 
     return species_set, input_transition_set, operon_set, output_transition_set, edge_path_list
 
-
 def get_subnetwork(cursor, list_of_operon_paths):
     species_subnetwork_set = set()
     input_transition_subnetwork_set = set()
@@ -503,14 +482,12 @@ def get_subnetwork(cursor, list_of_operon_paths):
            operon_subnetwork_list, output_transition_subnetwork_list, \
            source_id_target_id_list, toreturn
 
-
 def create_subnetwork_json_string(cursor, list_of_operon_paths, database_file):
     """Generates the subnetwork json."""
 
     json_info = get_subnetwork(cursor, list_of_operon_paths)
 
     return create_json_network_string(database_file, *json_info)
-
 
 def get_whole_network(cursor):
     """Whole network data prep for json."""
@@ -565,14 +542,12 @@ def get_whole_network(cursor):
     return (species_nodes_list_abbrev, input_transition_nodes_list_abbrev, operon_nodes_list_abbrev,
             output_transition_nodes_list_abbrev, all_edges)
 
-
 def create_network_json_file(cursor, file_name="whole_network.json"):
     """Generates the whole network json."""
 
     json_info = get_whole_network(cursor)
 
     create_json_network_file(file_name, *json_info)
-
 	
 def create_json_network_file(json_file_path, species_nodes_list, input_transitions_nodes_list,
                              operon_nodes_list, output_transitions_nodes_list, source_id_target_id_list,
@@ -727,7 +702,6 @@ def create_json_network_file(json_file_path, species_nodes_list, input_transitio
     f.write('\n\t}\n}')
 
     f.close()
-
 
 def create_json_network_string(database_file, species_nodes_list, input_transitions_nodes_list,
                                operon_nodes_list, output_transitions_nodes_list,

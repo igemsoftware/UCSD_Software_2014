@@ -8,21 +8,23 @@ SBiDer main
 """
 
 
-
-import sys
-sys.path+=['', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages/openpyxl-1.6.2-py2.7.egg', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages/psycopg2-2.5-py2.7-linux-x86_64.egg', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages/matplotlib_venn-0.9-py2.7.egg', '/bioinformatics/software/anaconda2.7/lib/python27.zip', '/bioinformatics/software/anaconda2.7/lib/python2.7', '/bioinformatics/software/anaconda2.7/lib/python2.7/plat-linux2', '/bioinformatics/software/anaconda2.7/lib/python2.7/lib-tk', '/bioinformatics/software/anaconda2.7/lib/python2.7/lib-old', '/bioinformatics/software/anaconda2.7/lib/python2.7/lib-dynload', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages/PIL', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages/setuptools-0.6c11-py2.7.egg-info']
-
+import SBiDer_helper
 import sbider_database as db
 import sbider_parser as parser
 import sbider_searcher as searcher
 import sbider_grapher as grapher
+import sys
+
+sys.path+=['', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages/openpyxl-1.6.2-py2.7.egg', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages/psycopg2-2.5-py2.7-linux-x86_64.egg', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages/matplotlib_venn-0.9-py2.7.egg', '/bioinformatics/software/anaconda2.7/lib/python27.zip', '/bioinformatics/software/anaconda2.7/lib/python2.7', '/bioinformatics/software/anaconda2.7/lib/python2.7/plat-linux2', '/bioinformatics/software/anaconda2.7/lib/python2.7/lib-tk', '/bioinformatics/software/anaconda2.7/lib/python2.7/lib-old', '/bioinformatics/software/anaconda2.7/lib/python2.7/lib-dynload', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages/PIL', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages/setuptools-0.6c11-py2.7.egg-info']
 
 
 
 def build_sbider_network(directory_path, user_query, indirect=False):
 
+    print("** build_sbider_network")
+
     # Access database
-    database_file = directory_path + "/sbider.db"
+    database_file = directory_path + "/SBiDer.db"
     conn, cur = db.db_open(database_file)
 
     # Dictionary of fragmented user inputs that satisfy user query
@@ -31,8 +33,17 @@ def build_sbider_network(directory_path, user_query, indirect=False):
     # Dictionaries of: Operon <-> InputSpecies & Operon <-> OutputSpecies
     input_dictionary, output_dictionary = db.make_ope_id_spe_id_dics(cur)
 
+    print("** input dictionary")
+    SBiDer_helper.printplus(input_dictionary)
+
+    print("** output dictionary")
+    SBiDer_helper.printplus(output_dictionary)
+
     # Dictionary of: Operon <-> Repressor
     repressor_dictionary = db.make_ope_id_rep_spe_id_dic(cur)
+
+    print("** repressor dictionary")
+    SBiDer_helper.printplus(repressor_dictionary)
 
     # Build operon path for each fragmented user input, which satisfies user query
     all_operon_path = []
@@ -50,17 +61,22 @@ def build_sbider_network(directory_path, user_query, indirect=False):
             operon_path_per_start_species.extend(operon_path_list)
         all_operon_path.append(operon_path_per_start_species)
 
-        ############################ Error #################################
-
         # Create JSON file needed to display the found genetic circuit
         path_json = grapher.create_subnetwork_json_string(cur, operon_path_per_start_species, database_file)
 
-        ####################################################################
-
         return path_json
 
+
+
 if __name__ == "__main__":
+
+    # 0=sbider_network_builder.py
+    # 1=database path
+    # 2=user input
+    # 3=indirect flag
+
     path = sys.argv[1]
+
     last_argv = str(sys.argv[-1]).lower()
 
     if last_argv == 't':
@@ -75,9 +91,13 @@ if __name__ == "__main__":
         user_input = " ".join(sys.argv[2::])
         indirect_flag = False
 
+    print("*path "+path)
+    print("*user input "+user_input)
+    print("*indirect flag "+str(indirect_flag) +"\n")
+
+
     final_path_json = build_sbider_network(path, user_input, indirect_flag)
     print(final_path_json)
-
 
 
 # End of sbider_network_builder.py

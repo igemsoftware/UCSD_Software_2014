@@ -7,7 +7,8 @@ SBiDer search algorithms
 ******************************************************************************
 """
 
-import helper
+
+import SBiDer_helper
 import node as node
 
 
@@ -58,12 +59,12 @@ def build_indirect_sbider_path(input_dictionary,
     temp_memory_species = []
     for an_operon in set(input_dictionary.keys()) - set(memory_operon):
 
-        if helper.promoter_activation(input_dictionary, repressor_dictionary, an_operon, [], memory_species, True):
+        if SBiDer_helper.promoter_activation(input_dictionary, repressor_dictionary, an_operon, [], memory_species, True):
 
             just_produced_species = output_dictionary[an_operon]
-            just_produced_unique_species = helper.uniquely_merge_multi_dimensional_list_of_lists(just_produced_species)
+            just_produced_unique_species = SBiDer_helper.uniquely_merge_multi_dimensional_list_of_lists(just_produced_species)
 
-            if helper.match_any_list(just_produced_species, output_species_list):
+            if SBiDer_helper.match_any_list(just_produced_species, output_species_list):
 
                 if len(activated_paths) > 1:
                     ope_path_backward = build_sbider_path_memory_tree(input_dictionary,
@@ -74,12 +75,12 @@ def build_indirect_sbider_path(input_dictionary,
                 if an_operon not in memory_operon:
                     path_queue.append(([an_operon], just_produced_unique_species))
                     memory_operon.append(an_operon)
-                    memory_operon = helper.remove_duplicates_within_list(memory_operon)
+                    memory_operon = SBiDer_helper.remove_duplicates_within_list(memory_operon)
                     temp_memory_species.extend(just_produced_unique_species)
                     activated_paths.append([[an_operon], just_produced_unique_species])
 
     memory_species.extend(temp_memory_species)
-    memory_species = helper.remove_duplicates_within_list(memory_species)
+    memory_species = SBiDer_helper.remove_duplicates_within_list(memory_species)
 
     if len(path_queue) > 0:
         build_direct_sbider_path(input_dictionary,
@@ -111,28 +112,28 @@ def build_direct_sbider_path(input_dictionary,
         (previously_visited_operon_list, just_previously_produced_species_list) = path_queue.pop(0)
 
         for an_operon in set(input_dictionary.keys()) - set(
-                helper.uniquely_merge_multi_dimensional_list_of_lists(previously_visited_operon_list)):
+                SBiDer_helper.uniquely_merge_multi_dimensional_list_of_lists(previously_visited_operon_list)):
             if an_operon not in memory_operon:
 
 
-                if helper.promoter_activation(input_dictionary, repressor_dictionary, an_operon,
+                if SBiDer_helper.promoter_activation(input_dictionary, repressor_dictionary, an_operon,
                                               just_previously_produced_species_list, memory_species, False):
 
                     visited_operon_list = previously_visited_operon_list + [an_operon]
                     just_produced_species = output_dictionary[an_operon]
-                    just_produced_unique_species = helper.uniquely_merge_multi_dimensional_list_of_lists(
+                    just_produced_unique_species = SBiDer_helper.uniquely_merge_multi_dimensional_list_of_lists(
                         just_produced_species)
 
-                    if helper.match_any_list(just_produced_species, output_species_list):
+                    if SBiDer_helper.match_any_list(just_produced_species, output_species_list):
 
                         if not indirect_flag:
                             final_operon_path_list.append(visited_operon_list)
                     else:
                         path_queue.append((visited_operon_list, just_produced_unique_species))
                         memory_operon.append(an_operon)
-                        memory_operon = helper.remove_duplicates_within_list(memory_operon)
+                        memory_operon = SBiDer_helper.remove_duplicates_within_list(memory_operon)
                         memory_species.extend(just_produced_unique_species)
-                        memory_species = helper.remove_duplicates_within_list(memory_species)
+                        memory_species = SBiDer_helper.remove_duplicates_within_list(memory_species)
 
                     activated_paths.append([[an_operon], just_produced_unique_species])
 
@@ -174,7 +175,7 @@ def get_sbider_path(inp_dic,
                              activated_paths,
                              indirect_flag)
     if len(final_ope_path) > 0:
-        final_ope_path = helper.remove_duplicated_lists_within_a_list_of_lists(final_ope_path)
+        final_ope_path = SBiDer_helper.remove_duplicated_lists_within_a_list_of_lists(final_ope_path)
 
     return final_ope_path
 
