@@ -7,13 +7,10 @@ SBiDer database
 ******************************************************************************
 """
 
+
 import sqlite3
-
-########################### helper.py not found ####################
-
 import SBiDer_helper
 
-####################################################################
 
 def make_sql_insert_command(table_name, table_header_list, insert_data_list):
     """Make SQL insert command."""

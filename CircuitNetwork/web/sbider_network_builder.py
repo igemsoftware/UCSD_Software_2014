@@ -5,18 +5,25 @@ SBiDer main
 @author: Huwate(Kwat) Yeerna, University of California, San Diego
          Joaquin Reyna, University of California, San Diego
 ******************************************************************************
+
+Arguments:
+    # 0=sbider_network_builder.py
+    # 1=database path
+    # 2=user input
+    # 3=indirect flag
+
 """
 
 
+import sys
 import SBiDer_helper
 import sbider_database as db
 import sbider_parser as parser
 import sbider_searcher as searcher
 import sbider_grapher as grapher
-import sys
+
 
 sys.path+=['', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages/openpyxl-1.6.2-py2.7.egg', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages/psycopg2-2.5-py2.7-linux-x86_64.egg', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages/matplotlib_venn-0.9-py2.7.egg', '/bioinformatics/software/anaconda2.7/lib/python27.zip', '/bioinformatics/software/anaconda2.7/lib/python2.7', '/bioinformatics/software/anaconda2.7/lib/python2.7/plat-linux2', '/bioinformatics/software/anaconda2.7/lib/python2.7/lib-tk', '/bioinformatics/software/anaconda2.7/lib/python2.7/lib-old', '/bioinformatics/software/anaconda2.7/lib/python2.7/lib-dynload', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages/PIL', '/bioinformatics/software/anaconda2.7/lib/python2.7/site-packages/setuptools-0.6c11-py2.7.egg-info']
-
 
 
 def build_sbider_network(directory_path, user_query, indirect=False):
@@ -67,13 +74,7 @@ def build_sbider_network(directory_path, user_query, indirect=False):
         return path_json
 
 
-
 if __name__ == "__main__":
-
-    # 0=sbider_network_builder.py
-    # 1=database path
-    # 2=user input
-    # 3=indirect flag
 
     path = sys.argv[1]
 

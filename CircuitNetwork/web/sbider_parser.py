@@ -7,10 +7,8 @@ User query analyzer
 """
 
 
-
 import SBiDer_helper
 import sbider_database as db
-
 
 
 def grammar_0(cursor, tokens):
@@ -22,7 +20,7 @@ def grammar_0(cursor, tokens):
     """
 
     if '=' not in tokens:
-        raise ValueError("grammar_0(tokens): no output")
+        raise ValueError("grammar_0(tokens): Usage: input = output")
 
     else:
         input_output_dictionary = SBiDer_helper.split_by(tokens, '=')
@@ -125,6 +123,7 @@ def grammar_output(tokens1, tokens2):
 
     return grammar_output_dict
 
+
 def grammar_or(tokens1, tokens2):
     """
     Grammar for 'or'.
@@ -135,7 +134,8 @@ def grammar_or(tokens1, tokens2):
 
     return tokens1 + tokens2
 
-def grammar_and(tokens1, tokens2):
+
+def grammar_and( tokens1, tokens2 ):
     """
     Grammar for 'and'.
     :param tokens1:
@@ -147,7 +147,7 @@ def grammar_and(tokens1, tokens2):
 
     for token1 in tokens1:
         for token2 in tokens2:
-            grammar_and_output.append(SBiDer_helper.uniquely_merge_list_of_lists([token1, token2]))
+            grammar_and_output.append(SBiDer_helper.uniquely_merge_list_of_lists( [token1, token2]) )
 
     return grammar_and_output
 
