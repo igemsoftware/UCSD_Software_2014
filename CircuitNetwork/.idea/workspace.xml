@@ -54,8 +54,10 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../PigeonToPNG/nbproject/private/.dropbox.attr" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../PigeonToPNG/src/.dropbox.attr" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../PigeonToPNG/src/pigeontoraven/.dropbox.attr" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/helper.py" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/yfp" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/web/sbider.db" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../sbider.db" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/web/helper.py" afterPath="$PROJECT_DIR$/web/SBiDer_helper.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/ProfilePics/Adreas.jpg" afterPath="$PROJECT_DIR$/web/ProfilePics/Adreas.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/ProfilePics/Ben.png" afterPath="$PROJECT_DIR$/web/ProfilePics/Ben.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/ProfilePics/ContactPic.png" afterPath="$PROJECT_DIR$/web/ProfilePics/ContactPic.png" />
@@ -298,7 +300,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/pigeonImages/operon_sbol_99-2.png" afterPath="$PROJECT_DIR$/web/pigeonImages/operon_sbol_99-2.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Modeling/paper of network and experimental data.pdf" afterPath="$PROJECT_DIR$/../Modeling/paper of network and experimental data.pdf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/ProfilePics/pressMe.png" afterPath="$PROJECT_DIR$/web/ProfilePics/pressMe.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../sbider.db" afterPath="$PROJECT_DIR$/../sbider.db" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/sbider_test_2.db" afterPath="$PROJECT_DIR$/web/sbider_test_2.db" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/sbiderprez.pptx.png" afterPath="$PROJECT_DIR$/web/sbiderprez.pptx.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/ProfilePics/screenShot2.png" afterPath="$PROJECT_DIR$/web/ProfilePics/screenShot2.png" />
@@ -1061,7 +1062,7 @@
       <file leaf-file-name="sbider_database.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/sbider_database.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.1177753" vertical-offset="10135" max-vertical-offset="11376">
+            <state vertical-scroll-proportion="1.2334536" vertical-offset="10135" max-vertical-offset="11376">
               <caret line="620" column="33" selection-start-line="620" selection-start-column="33" selection-end-line="620" selection-end-column="33" />
               <folding>
                 <marker date="1428886937009" expanded="true" signature="682:694" placeholder="INSERT INTO ..." />
@@ -1146,9 +1147,10 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="-4" />
-    <option name="width" value="1920" />
-    <option name="height" value="1084" />
+    <option name="x" value="335" />
+    <option name="y" value="141" />
+    <option name="width" value="1369" />
+    <option name="height" value="998" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -1489,11 +1491,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="-4" width="1920" height="1084" extended-state="6" />
+    <frame x="335" y="141" width="1369" height="998" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329927" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.43329775" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.6137566" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31073445" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
@@ -2195,7 +2197,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/sbider_database.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1177753" vertical-offset="10135" max-vertical-offset="11376">
+        <state vertical-scroll-proportion="1.2334536" vertical-offset="10135" max-vertical-offset="11376">
           <caret line="620" column="33" selection-start-line="620" selection-start-column="33" selection-end-line="620" selection-end-column="33" />
           <folding>
             <marker date="1428886937009" expanded="true" signature="682:694" placeholder="INSERT INTO ..." />
