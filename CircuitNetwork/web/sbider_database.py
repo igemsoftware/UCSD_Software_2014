@@ -3,7 +3,6 @@ SBiDer database
 
 ******************************************************************************
 @author: Huwate(Kwat) Yeerna, University of California, San Diego
-         Joaquin Reyna, University of California, San Diego
 ******************************************************************************
 """
 
