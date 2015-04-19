@@ -1,14 +1,11 @@
 """
-Subtitle
-
-Descriptive paragraph
-
 ******************************************************************************
-@author: Huwate(Kwat) Yeerna, University of California, San Diego
+@author: Huwate(Kwat) Yeerna(Ernar), University of California, San Diego
 ******************************************************************************
 """
 
-import helper
+
+import SBiDer_helper as helper
 
 
 class Node(object):
