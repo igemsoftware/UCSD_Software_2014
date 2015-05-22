@@ -242,7 +242,7 @@ def db_print_table(cursor, table_name):
 
     table = cursor.execute("SELECT * FROM " + table_name)
     table = cursor.fetchall()
-    print table
+    print(table)
 
 
 def db_print_all_table(cursor):

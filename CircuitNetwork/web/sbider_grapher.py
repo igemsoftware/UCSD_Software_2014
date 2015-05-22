@@ -628,7 +628,7 @@ def create_json_network_file(json_file_path, species_nodes_list, input_transitio
     num_runs = 0
 
     for key in operon_PMC.keys():
-        print key
+        print(key)
 
     for node in operon_nodes_list:
         pmid = operon_PMC[node[0].replace("ope_", "")]
