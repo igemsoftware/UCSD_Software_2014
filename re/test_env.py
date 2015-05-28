@@ -77,4 +77,3 @@ if testRunSBiDer(path, user_input, indirect_flag):
     print("Testing database access and query passed.\n")
 else:
     print("Testing database access and query failed.\n")
-

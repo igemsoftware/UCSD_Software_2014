@@ -5,7 +5,7 @@
 """
 
 
-import SBiDer_helper as helper
+import sbider_helper as helper
 
 
 class Node(object):
