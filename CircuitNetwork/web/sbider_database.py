@@ -1,17 +1,14 @@
 """
-Subtitle
-
-Descriptive paragraph
+SBiDer database
 
 ******************************************************************************
 @author: Huwate(Kwat) Yeerna, University of California, San Diego
-         Joaquin Reyna, University of California, San Diego
 ******************************************************************************
 """
 
-import sqlite3
 
-import helper
+import sqlite3
+import SBiDer_helper
 
 
 def make_sql_insert_command(table_name, table_header_list, insert_data_list):
@@ -245,7 +242,7 @@ def db_print_table(cursor, table_name):
 
     table = cursor.execute("SELECT * FROM " + table_name)
     table = cursor.fetchall()
-    print table
+    print(table)
 
 
 def db_print_all_table(cursor):
@@ -412,7 +409,7 @@ def get_all_input_transition_species(cursor, input_transition_id):
     for species_index in range(len(species_list_unformatted)):
         species_list.append(list(species_list_unformatted[species_index]))
 
-    species_list = helper.uniquely_merge_multi_dimensional_list_of_lists(species_list)
+    species_list = SBiDer_helper.uniquely_merge_multi_dimensional_list_of_lists(species_list)
 
     return species_list
 
@@ -428,7 +425,7 @@ def get_all_output_transition_species(cursor, input_transition_id):
     for species_index in range(len(species_list_unformatted)):
         species_list.append(list(species_list_unformatted[species_index]))
 
-    species_list = helper.uniquely_merge_multi_dimensional_list_of_lists(species_list)
+    species_list = SBiDer_helper.uniquely_merge_multi_dimensional_list_of_lists(species_list)
 
     return species_list
 
@@ -502,7 +499,7 @@ def make_output_ope_id_spe_id_dic(cursor):
     # ope_id, ot_id, and spe_id
     for operon, output_transition, species in merged_ope_ot_spe.fetchall():
 
-        if operon == previous_operon and not helper.contain_all_elements(output_ope_id_spe_id_dict[operon], [species]):
+        if operon == previous_operon and not SBiDer_helper.contain_all_elements(output_ope_id_spe_id_dict[operon], [species]):
             if output_transition == previous_output_transition:
                 output_ope_id_spe_id_dict[operon][output_transition_list_idx].append(species.strip())
             else:
@@ -580,7 +577,7 @@ def make_ope_id_rep_spe_id_dic(cursor):
 def make_plasmid_species_name_dictionary(cursor, operon_id_plasmid_name_dictionary, operon_species_dictionary):
     plasmid_species_name_dictionary = {}
     for operon_id, species_id_list in operon_species_dictionary.items():
-        uniquely_merge_spe_id_list = helper.uniquely_merge_multi_dimensional_list_of_lists(species_id_list)
+        uniquely_merge_spe_id_list = SBiDer_helper.uniquely_merge_multi_dimensional_list_of_lists(species_id_list)
         plasmid_name = operon_id_plasmid_name_dictionary[operon_id]
         plasmid_species_name_dictionary[plasmid_name] = [db_get_species_name_from_id(cursor, spe_id) for spe_id in
                                                          uniquely_merge_spe_id_list]
@@ -589,6 +586,7 @@ def make_plasmid_species_name_dictionary(cursor, operon_id_plasmid_name_dictiona
 
 def make_pla_name_spe_name_dics(cursor):
     """Make operon input and output species dictionary."""
+
     #plasmid_name_input_species_name_dictionary = {}
     #plasmid_name_output_species_name_dictionary = {}
 
@@ -613,6 +611,7 @@ def make_pla_name_spe_name_dics(cursor):
                                                                                   operon_id_plasmid_name_dictionary,
                                                                                   output_operon_species_dictionary)
     return input_plasmid_species_name_dictionary, output_plasmid_species_name_dictionary
+
 
 def operon_PMC_dictionary(database):
     conn, cur = db_open(database)
