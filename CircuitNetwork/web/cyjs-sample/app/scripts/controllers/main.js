@@ -926,9 +926,10 @@ angular.module('cyViewerApp')
 //            var commandString = $scope.query;
             var commandString = String($('#inputBox').val().trim())+" = "+String($('#outputBox').val().trim());
             if($('#indirectCheckBox').attr('checked')) {
-                commandString += ' t';
-            } else {
-                commandString += ' f';
+                commandString += " t";
+            } 
+            else {
+                commandString += " f";
             }
             console.log(commandString);
             //alert("Submitting Command: "+commandString);
@@ -946,8 +947,9 @@ angular.module('cyViewerApp')
             }
             
             else {
-                alert("get reached");
-                var data = {user: userID, command: 'query', data: commandString}; //package the input into a json file for submission to the server
+                alert("post reached");
+                var sentData = {user: userID, command: "query", data: commandString}; //package the input into a json file for submission to the server
+                console.log(sentData);
                 
                 //main javascript server serach function.
                /* $.get("../../AuthenticationServlet", data, function(data) { //parameters are: servlet url, data, callback function
@@ -1001,11 +1003,13 @@ angular.module('cyViewerApp')
               $http({ 
                     method: 'POST', 
                     url: "../../AuthenticationServlet",
-                    params: data
+                    params: sentData
                 })
     //                alert("$http was called with: " + $scope.query)
-                    .success(function(data) {
+                    .success(function(data,status) {
                         alert("server reached!");
+                        console.log("Current server status is: " + status);
+                        console.log(data);
                         data = JSON.stringify(data).replace(/\\n/g, '', "").replace(/\\/g, '', "");
                         data = data.substr(1, data.length - 2);
                         //alert(data);
@@ -1013,7 +1017,9 @@ angular.module('cyViewerApp')
 
                         //Edited WIP
                         alert("update scope");
-                        networkData = angular.fromJSON(data);
+//                        console.log("Current Network Data is:");
+                        console.log(networkData);
+                        networkData = angular.fromJson(data);
 
                         console.log(networkData);
                         angular.element('.loading').hide();

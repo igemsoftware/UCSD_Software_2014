@@ -1,25 +1,12 @@
 package communication;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.PrintWriter;
 import java.util.HashMap;
-import java.util.Iterator;
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-import java.io.FileWriter;
 import java.io.IOException;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-
-
-import communication.WeyekinPoster;
-import communication.PigeonToPNG;
 
 /**
  *
@@ -75,6 +62,7 @@ public class AuthenticationServlet extends HttpServlet {
 
             //to get the command value
             String command = request.getParameter("command");
+            System.out.println(command);
             
 
             //switch for different command values 
